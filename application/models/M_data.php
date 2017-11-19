@@ -96,6 +96,15 @@ class M_data extends CI_Model {
     	}
     }
 
+    public function getSpecifyAccount($account)
+    {
+        $account = strtoupper($account);
+
+        $this->db = $this->load->database('auth', TRUE);
+
+        return $this->db->query("SELECT id FROM account WHERE username = '".$account."'");
+    }
+
     public function getIDAccount($account)
     {
         $account = strtoupper($account);
@@ -113,6 +122,51 @@ class M_data extends CI_Model {
         }
         else
             return "0";
+    }
+
+    public function getTimestamp()
+    {
+        $date = new DateTime();
+        $date = $date->getTimestamp();
+        return $date;
+    }
+
+    public function insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day)
+    {
+        $date = $this->getTimestamp();
+        $expansion = $this->m_general->getRealExpansionDB();
+        $passwordAc = $this->encryptAccount($username, $password);
+        $passwordBn = $this->encryptBattlenet($email, $password);
+        $tag = rand(1111, 9999);
+
+        if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) == 1)
+        {
+            $this->auth = $this->load->database('auth', TRUE);
+            
+            $this->auth->query("INSERT INTO account (username, sha_pass_hash, email, expansion) VALUES ('$username', '$passwordAc', '$email', '$expansion')");
+        }
+        else
+        {
+            $this->auth = $this->load->database('auth', TRUE);
+            
+            $this->auth->query("INSERT INTO account (username, sha_pass_hash, email, expansion, battlenet_index) VALUES ('$username', '$passwordAc', '$email', '$expansion', '1')");
+
+            $id = $this->getIDAccount($username);
+            
+            $this->auth->query("INSERT INTO battlenet_accounts (id, email, sha_pass_hash) VALUES ('$id', '$email', '$passwordBn')");
+
+            $this->auth->query("UPDATE account SET battlenet_account = $id WHERE id = $id");
+        }
+
+        $id = $this->getIDAccount($username);
+
+        $this->db = $this->load->database('default', TRUE);
+
+        $this->db->query("INSERT INTO fx_users (id, name, surname, username, email, question, answer, year, month, day, date) VALUES ('$id', '$name', '$surname', '$username', '$email', '$question', '$answer', '$year', '$month', '$day', '$date')");
+
+        $this->db->query("INSERT INTO fx_tags (id, tag) VALUES ('$id', '$tag')");
+
+        redirect(base_url('user/login'),'refresh');
     }
 
     public function getCountry()

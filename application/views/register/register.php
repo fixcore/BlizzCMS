@@ -186,11 +186,23 @@
       $day     = $_POST['reg_dateDayNace'];
       $year    = $_POST['reg_dateYearNace'];
       $username= strtoupper($_POST['reg_username']);
-      $emai    = strtoupper($_POST['reg_email']);
+      $email   = strtoupper($_POST['reg_email']);
       $password= strtoupper($_POST['reg_password']);
       $pascword= strtoupper($_POST['reg_pascword']);
       $question= $_POST['reg_question'];
       $answer  = $_POST['reg_SecretAnswer'];
+
+      if ($password == $pascword)
+      {
+        if ($this->m_data->getSpecifyAccount($username)->num_rows() > 0)
+        {
+          echo $this->lang->line('acc_exist');
+        }
+        else
+          $this->m_data->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day);
+      }
+      else
+        echo $this->lang->line('pass_nmatch');
     } ?>
     </div>
 

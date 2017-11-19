@@ -73,4 +73,19 @@ class M_general extends CI_Model {
 			case 8: return "2"; break;
 		}
 	}
+
+	public function getRealExpansionDB()
+	{
+		$expansion = $this->config->item('expansion_id');
+		switch ($expansion) {
+			case 1: return "0"; break;
+			case 2: return "1"; break;
+			case 3: return "2"; break;
+			case 4: return "3"; break;
+			case 5: return "4"; break;
+			case 6: return "5"; break;
+			case 7: return "6"; break;
+			case 8: return "7"; break;
+		}
+	}
 }
