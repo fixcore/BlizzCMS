@@ -28,27 +28,6 @@
 
 <div class="Page-container">
     <div class="Page-content en-GB">
-    <div id="home-promoted-carousel-container" class="position-relative">
-
-<div class="Overlay Overlay--bottom" id="home-promoted-scroll-overlay">
-    <div class="Overlay-content">
-    <div class="align-center">
-    <div data-carousel="#home-promoted-carousel" data-transition-delay="0" class="CarouselScroll is-autoscroll is-autoscroll-interrupt CarouselScroll--singleLine" id="home-promoted-scroll">
-    <div class="CarouselScroll-template">
-    <div class="CarouselScroll-item">
-    <div class="CarouselScroll-inner">
-</div>
-</div>
-</div>
-<div class="CarouselScroll-container">
-    <div class="CarouselScroll-item">
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
 <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-storiesPane">
     <div class="Pane-content">
