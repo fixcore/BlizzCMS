@@ -45,6 +45,8 @@ This page is compatible with all game versions.
 
 * In the file database.php change the necessary data for the correct connection to your database.
 
+* In the file fixcore.php you can edit the values to your liking.
+
 ## Warning
 
 > This system uses .htaccess, your machine must have the necessary extensions to read it.
