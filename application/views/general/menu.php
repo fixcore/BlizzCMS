@@ -128,6 +128,18 @@
     <div class="Navbar-accountDropdownEmail"><?= $this->session->userdata('fx_sess_email'); ?></div>
 </div>
 
+<?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
+<a href="<?= base_url('admin'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('adm_panel'); ?>">
+    <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
+    <use xlink:href="#Navbar-icon-settings">
+    </use>
+    </svg>
+    </div>
+    <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('adm_panel'); ?></div>
+</a>
+<?php } ?>
+
 <a href="<?= base_url('user/settings'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('acc_setting'); ?>">
     <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">

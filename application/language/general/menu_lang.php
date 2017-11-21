@@ -7,5 +7,4 @@ $lang['menu_home']		= 'Home';
 $lang['menu_support']	= 'Support';
 $lang['menu_login']		= 'Log In';
 
-
 $lang['my_account']		= 'My Account';

@@ -246,7 +246,7 @@
 <div class="Pane Pane--full Home-additionalLinkPane">
     <div style="" class="Pane-content">
     <div class="Home-additionalLinks clearfix ">
-        <h2 style="font-family: 'Bad Script', cursive;"><?= $this->config->item('realmlist'); ?></h2>
+        <h2 style="color: #fff;"><?= $this->config->item('realmlist'); ?></h2>
     </div>
 </div>
 </div>
@@ -256,7 +256,7 @@
 <div class="Pane Pane--full Home-additionalLinkPane">
     <div style="" class="Pane-content">
     <div class="Home-additionalLinks clearfix">
-        <h3 style="font-family: 'Bad Script', cursive;"><?= $this->m_soap->getRealmStatus(); ?></h3>
+        <h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3>
     </div>
 </div>
 </div>
@@ -281,7 +281,7 @@
 
     <?php foreach ($this->m_general->getNewSpecifyID($this->m_general->getPrincipalNew())->result() as $principalNew) { ?>
     <div class="Home-topStoriesFeatured">
-    <a href="http://www.koboldsandcatacombs.com/" data-analytics="panel-news" data-analytics-panel="slot:1 - size:lg - type:blog - id:21192216 - image:unknown || Hearthstone: Kobolds &amp; Catacombs Revealed" class="Home-topStoriesFeaturedLink">
+    <a href="<?= base_url() ;?>news/post/<?= $principalNew->id ?>" data-analytics="panel-news" data-analytics-panel="slot:1 - size:lg - type:blog - id:21192216 - image:unknown || Hearthstone: Kobolds &amp; Catacombs Revealed" class="Home-topStoriesFeaturedLink">
     <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesFeaturedCard Card--innerBorder Card--transparent is-primary is-adaptive">
     <div class="Card-imageWrapper">
     <div style="background-image:url(<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>)" class="Card-image">
@@ -293,7 +293,7 @@
     <div class="Heading Heading--gridTitle Home-topStoriesFeaturedTitle"><?= $principalNew->title; ?></div>
     <div class="space-medium">
     </div>
-    <button class="Button Button--small Home-topStoriesFeaturedButton">Learn More</button>
+    <button class="Button Button--small Home-topStoriesFeaturedButton"><?= $this->lang->line('button_learnmore'); ?></button>
     </div>
     </div>
     </div>
@@ -309,19 +309,20 @@
 
 <!-- tree news START -->
 <?php foreach ($this->m_general->getNewsTree()->result() as $newstree) { ?>
-<div class="GalleryItem Home-topStoriesGalleryItem">
-<a href="<?= base_url(); ?>news/<?= $newstree->id ?>" data-analytics="panel-news" data-analytics-panel="slot:1 - size:sm - type:blog - id:<?= $newstree->id ?> - image:unknown || <?= $newstree->title ?>" class="Home-topStoriesGalleryLink">
-    <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGalleryCard Card--innerBorder Card--transparent is-adaptive">
-        <div class="Card-imageWrapper">
-        <div style="background-image:url(<?= base_url() ?>assets/images/news/<?= $newstree->image ?>" class="Card-image">
-    </div>
-    </div>
-    <div class="Card-content">
-        <div class="Heading Heading--gridSubtitle Home-topStoriesSubtitle"><?= $this->lang->line('news'); ?></div>
-    <div class="Heading Home-topStoriesTitle"><?= $newstree->title ?></div>
-    </div>
-    </div>
-</a>
+<div class="GalleryItem Home-topStoriesGalleryItem is-focus">
+    <a href="<?= base_url() ;?>news/post/<?= $newstree->id ?>" data-analytics="panel-news" data-analytics-panel="slot:1 - size:sm - type:blog - id:<?= $newstree->id ?> - 
+     || <?= $newstree->title ?>" class="Home-topStoriesGalleryLink">
+        <div data-ratio="0.5" data-offset="0" class="Card Home-topStoriesGalleryCard Card--innerBorder Card--transparent is-adaptive" style="height: 328px;">
+            <div class="Card-imageWrapper" style="height: 128px;">
+                <div style="background-image:url(<?= base_url(); ?>assets/images/news/<?= $newstree->image ?>)" class="Card-image">
+                </div>
+            </div>
+            <div class="Card-content">
+                <div class="Heading Heading--gridSubtitle Home-topStoriesSubtitle"><?= $this->lang->line('news'); ?></div>
+                <div class="Heading Home-topStoriesTitle"><?= $newstree->title ?></div>
+            </div>
+        </div>
+    </a>
 </div>
 <?php } ?>
 <!-- tree news END -->
@@ -338,7 +339,7 @@
 <div class="GridItem col-md-4">
     <div class="space-medium hide-md">
 </div>
-<h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top"><?= $this->lang->line('up_events'); ?></h2>
+<h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><?= $this->lang->line('up_events'); ?></h2>
 
 <div class="Home-eventsTableWrapper">
     <div class="Home-eventsTable">

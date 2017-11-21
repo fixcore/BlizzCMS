@@ -48,6 +48,11 @@ class M_data extends CI_Model {
         }
     }
 
+    public function randomUTF()
+    {
+        return rand(0, 999999999);
+    }
+
     public function getUsernameID($id)
     {
     	$this->db = $this->load->database('auth', TRUE);
@@ -177,6 +182,15 @@ class M_data extends CI_Model {
     public function getQuestion()
     {
         return $this->db->query("SELECT * FROM fx_questions");
+    }
+
+    public function getImageProfile($id)
+    {
+        $this->db = $this->load->database('default', TRUE);
+        $qq = $this->db->query("SELECT profile FROM fx_users WHERE id = '".$id."'");
+        foreach ($qq->result() as $row) {
+            return $row->profile;
+        }
     }
 
     public function getIDEmail($email)

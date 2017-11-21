@@ -5,7 +5,7 @@ $config['ProjectName'] = "BlizzCMS"; //Rename
 $config['realmlist'] = "Set realmlist mydomain.com"; //replace
 
 /* SOAP */
-$config['soap_ip'] 		= "127.0.0.1"; //replace
+$config['soap_ip'] 		= "51.254.164.94"; //replace
 $config['soap_user'] 	= "test"; //replace
 $config['soap_pass'] 	= "test"; //replace
 $config['soap_port'] 	= "7878"; //dont touch
@@ -23,4 +23,4 @@ $config['realmlistPort'] = "8085"; //only if you have different port
 	# Legion					= 7
 	# Battle for Azeroth		= 8
 */
-$config['expansion_id']	= "8";
+$config['expansion_id']	= "7";

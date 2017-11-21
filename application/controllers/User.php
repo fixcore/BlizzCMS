@@ -28,4 +28,13 @@ class User extends CI_Controller {
 	{
 		$this->m_data->logout();
 	}
+
+	public function settings()
+	{
+		if (!$this->m_data->isLogged())
+			redirect(base_url(),'refresh');
+		
+		$this->load->view('user/settings');
+		$this->load->view('footer');
+	}
 }
