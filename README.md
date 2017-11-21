@@ -3,7 +3,7 @@
 Welcome to a new website for World of warcraft
 This page is compatible with all game versions.
 
-## [DEMO](https://demo.project-blizzcms.site/)
+## [DEMO](http://149.202.243.15/)
 
 * If you find bugs please report them in the [issues](https://github.com/fixcore/BlizzCMS/issues) section.
 * If you need support about the database please see the [wiki](https://github.com/fixcore/BlizzCMS/wiki) section
@@ -44,6 +44,8 @@ This page is compatible with all game versions.
 > $config['base_url'] = 'http://project-blizzcms.site/';
 
 * In the file database.php change the necessary data for the correct connection to your database.
+
+* In the file fixcore.php you can edit the values to your liking.
 
 ## Warning
 
