@@ -297,11 +297,30 @@ CREATE TABLE `fx_news` (
   `description` text NOT NULL,
   `date` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_news` */
 
-insert  into `fx_news`(`id`,`title`,`image`,`description`,`date`) values (1,'Welcome to BlizzCMS','new1.jpg','This is BlizzCMS!!',0);
+insert  into `fx_news`(`id`,`title`,`image`,`description`,`date`) values (1,'Welcome to BlizzCMS','new1.jpg','<h1 style=\"color: white;\">This IS BlizzCMS!!</h1>',0);
+
+/*Table structure for table `fx_news_comments` */
+
+DROP TABLE IF EXISTS `fx_news_comments`;
+
+CREATE TABLE `fx_news_comments` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id_new` int(10) NOT NULL,
+  `commentary` text NOT NULL,
+  `date` int(10) NOT NULL,
+  `author` int(10) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id_new` (`id_new`),
+  KEY `author` (`author`),
+  CONSTRAINT `fx_news_comments_ibfk_1` FOREIGN KEY (`id_new`) REFERENCES `fx_news` (`id`),
+  CONSTRAINT `fx_news_comments_ibfk_2` FOREIGN KEY (`author`) REFERENCES `fx_users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `fx_news_comments` */
 
 /*Table structure for table `fx_news_top` */
 
@@ -313,7 +332,7 @@ CREATE TABLE `fx_news_top` (
   PRIMARY KEY (`id`),
   KEY `id_new` (`id_new`),
   CONSTRAINT `fx_news_top_ibfk_1` FOREIGN KEY (`id_new`) REFERENCES `fx_news` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_news_top` */
 
@@ -337,6 +356,18 @@ insert  into `fx_questions`(`id`,`question`) values (3,'Where was the first plac
 insert  into `fx_questions`(`id`,`question`) values (4,'What was the first video game you beat?');
 insert  into `fx_questions`(`id`,`question`) values (5,'What was the name of your second pet?');
 insert  into `fx_questions`(`id`,`question`) values (6,'What is the name of your favorite sports team or player?');
+
+/*Table structure for table `fx_ranks` */
+
+DROP TABLE IF EXISTS `fx_ranks`;
+
+CREATE TABLE `fx_ranks` (
+  `id` int(10) NOT NULL,
+  `permission` int(1) NOT NULL DEFAULT '1',
+  KEY `id` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `fx_ranks` */
 
 /*Table structure for table `fx_shop` */
 
@@ -417,10 +448,25 @@ CREATE TABLE `fx_users` (
   `month` int(10) NOT NULL,
   `day` int(10) NOT NULL,
   `date` int(10) NOT NULL,
+  `profile` varchar(100) NOT NULL DEFAULT 'default.jpg',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_users` */
+
+/*Table structure for table `fx_users_annotations` */
+
+DROP TABLE IF EXISTS `fx_users_annotations`;
+
+CREATE TABLE `fx_users_annotations` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `iduser` int(10) NOT NULL,
+  `annotation` text NOT NULL,
+  `date` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+/*Data for the table `fx_users_annotations` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
