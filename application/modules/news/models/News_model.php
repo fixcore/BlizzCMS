@@ -9,26 +9,20 @@ class News_model extends CI_Model {
 
 	public function getNewTitle($id)
 	{
-		$qq = $this->db->query("SELECT title FROM fx_news WHERE id = '".$id."'");
-		foreach ($qq->result() as $row) {
-			return $row->title;
-		}
+		$qq = $this->db->query("SELECT title FROM fx_news WHERE id = '".$id."'")->row();
+		return $qq->title;
 	}
 
 	public function getNewImage($id)
 	{
-		$qq = $this->db->query("SELECT image FROM fx_news WHERE id = '".$id."'");
-		foreach ($qq->result() as $row) {
-			return $row->image;
-		}
+		$qq = $this->db->query("SELECT image FROM fx_news WHERE id = '".$id."'")->row();
+		return $qq->image;
 	}
 
 	public function getNewDescription($id)
 	{
-		$qq = $this->db->query("SELECT description FROM fx_news WHERE id = '".$id."'");
-		foreach ($qq->result() as $row) {
-			return $row->description;
-		}
+		$qq = $this->db->query("SELECT description FROM fx_news WHERE id = '".$id."'")->row();
+		return $qq->description;
 	}
 
 	public function getCommentCount($id)
@@ -58,10 +52,7 @@ class News_model extends CI_Model {
 
 	public function getPrincipalNew()
 	{
-		$qq = $this->db->query("SELECT * FROM fx_news_top ORDER BY id DESC LIMIT 1");
-
-		foreach ($qq->result() as $row) {
-			return $row->id_new;
-		}
+		$qq = $this->db->query("SELECT * FROM fx_news_top ORDER BY id DESC LIMIT 1")->row();
+		return $qq->id_new;
 	}
 }

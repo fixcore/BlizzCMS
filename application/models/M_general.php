@@ -2,6 +2,13 @@
 
 class M_general extends CI_Model {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->auth = $this->load->database('auth', TRUE);
+		$this->characters = $this->load->database('characters', TRUE);
+	}
+
 	public function getGmSpecify($id)
 	{
 		$this->auth = $this->load->database('auth', TRUE);

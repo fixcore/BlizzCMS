@@ -71,6 +71,8 @@ class Admin extends MX_Controller {
 
 	public function addnew()
 	{
+		$this->load->model('admin_model');
+		
 		if (!$this->m_data->isLogged())
 			redirect(base_url(),'refresh');
 

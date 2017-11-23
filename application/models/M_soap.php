@@ -24,12 +24,12 @@ class M_soap extends CI_Model {
 
             $this->client = new SoapClient(NULL, array(
                 "location"      => "http://".$soapHost.":".$soapPort."/",
-                    "uri"           => "urn:". $soap_uri ."",
-                    "style"         => SOAP_RPC,
-                    "login"         => $soapUser,
-                    "password"      => $soapPass,
-                    "trace"         => 1,
-                    "exceptions"    => 0
+                "uri"           => "urn:". $soap_uri ."",
+                "style"         => SOAP_RPC,
+                "login"         => $soapUser,
+                "password"      => $soapPass,
+                "trace"         => 1,
+                "exceptions"    => 0
             )
         );
 

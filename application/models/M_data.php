@@ -41,11 +41,8 @@ class M_data extends CI_Model {
     {
         $this->db = $this->load->database('default', TRUE);
 
-        $qq = $this->db->query("SELECT tag FROM fx_tags WHERE id = '".$id."'");
-
-        foreach ($qq->result() as $row) {
-            return $row->tag;
-        }
+        $qq = $this->db->query("SELECT tag FROM fx_tags WHERE id = '".$id."'")->row();
+        return $qq->tag;
     }
 
     public function randomUTF()
@@ -57,48 +54,32 @@ class M_data extends CI_Model {
     {
     	$this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT username FROM account WHERE id = '".$id."'");
-    	
-    	foreach ($qq->result() as $row)
-    	{
-    		return $row->username;
-    	}
+    	$qq = $this->db->query("SELECT username FROM account WHERE id = '".$id."'")->row();
+    	return $qq->username;
     }
 
     public function getEmailID($id)
     {
     	$this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT email FROM account WHERE id = '".$id."'");
-    	
-    	foreach ($qq->result() as $row)
-    	{
-    		return $row->email;
-    	}
+    	$qq = $this->db->query("SELECT email FROM account WHERE id = '".$id."'")->row();
+        return $qq->email;
     }
 
     public function getPasswordAccountID($id)
     {
     	$this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT sha_pass_hash FROM account WHERE id = '".$id."'");
-    	
-    	foreach ($qq->result() as $row)
-    	{
-    		return $row->sha_pass_hash;
-    	}
+    	$qq = $this->db->query("SELECT sha_pass_hash FROM account WHERE id = '".$id."'")->row();
+        return $qq->sha_pass_hash;
     }
 
     public function getPasswordBnetID($id)
     {
     	$this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT sha_pass_hash FROM battlenet_accounts WHERE id = '".$id."'");
-    	
-    	foreach ($qq->result() as $row)
-    	{
-    		return $row->sha_pass_hash;
-    	}
+    	$qq = $this->db->query("SELECT sha_pass_hash FROM battlenet_accounts WHERE id = '".$id."'")->row();
+        return $qq->sha_pass_hash;
     }
 
     public function getSpecifyAccount($account)
@@ -117,14 +98,10 @@ class M_data extends CI_Model {
         $this->db = $this->load->database('auth', TRUE);
 
         $qq = $this->db->query("SELECT id FROM account WHERE username = '".$account."'");
+        $query = $qq->row();
 
         if ($qq->num_rows() > 0)
-        {
-            foreach ($qq->result() as $row)
-            {
-                return $row->id;
-            }
-        }
+            return $query->id;
         else
             return "0";
     }
@@ -138,8 +115,8 @@ class M_data extends CI_Model {
 
     public function insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day)
     {
-        $date = $this->getTimestamp();
-        $expansion = $this->m_general->getRealExpansionDB();
+        $date       = $this->getTimestamp();
+        $expansion  = $this->m_general->getRealExpansionDB();
         $passwordAc = $this->encryptAccount($username, $password);
         $passwordBn = $this->encryptBattlenet($email, $password);
         $tag = rand(1111, 9999);
@@ -187,10 +164,8 @@ class M_data extends CI_Model {
     public function getImageProfile($id)
     {
         $this->db = $this->load->database('default', TRUE);
-        $qq = $this->db->query("SELECT profile FROM fx_users WHERE id = '".$id."'");
-        foreach ($qq->result() as $row) {
-            return $row->profile;
-        }
+        $qq = $this->db->query("SELECT profile FROM fx_users WHERE id = '".$id."'")->row_array();
+        return $qq['profile'];
     }
 
     public function getIDEmail($email)
@@ -200,14 +175,10 @@ class M_data extends CI_Model {
         $this->db = $this->load->database('auth', TRUE);
 
         $qq = $this->db->query("SELECT id FROM account WHERE email = '".$email."'");
+        $query = $qq->row();
 
         if ($qq->num_rows() > 0)
-        {
-            foreach ($qq->result() as $row)
-            {
-                return $row->id;
-            }
-        }
+            return $query->id;
         else
             return "0";
     }
@@ -216,36 +187,24 @@ class M_data extends CI_Model {
     {
     	$this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT expansion FROM account WHERE id = '".$id."'");
-
-    	foreach ($qq->result() as $row)
-    	{
-    		return $row->expansion;
-    	}
+    	$qq = $this->db->query("SELECT expansion FROM account WHERE id = '".$id."'")->row();
+        return $qq->expansion;
     }
 
     public function getLastIPID($id)
     {
     	$this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT last_ip FROM account WHERE id = '".$id."'");
-
-    	foreach ($qq->result() as $row)
-    	{
-    		return $row->last_ip;
-    	}
+    	$qq = $this->db->query("SELECT last_ip FROM account WHERE id = '".$id."'")->row();
+        return $qq->last_ip;
     }
 
     public function getLastLoginID($id)
     {
     	$this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT last_login FROM account WHERE id = '".$id."'");
-
-    	foreach ($qq->result() as $row)
-    	{
-    		return $row->last_login;
-    	}
+    	$qq = $this->db->query("SELECT last_login FROM account WHERE id = '".$id."'")->row();
+        return $qq->last_login;
     }
 
     public function getRank($id)
@@ -253,13 +212,11 @@ class M_data extends CI_Model {
     	$this->db = $this->load->database('auth', TRUE);
 
     	$qq = $this->db->query("SELECT * FROM account_access WHERE id = '".$id."'");
+        $query = $qq->row();
 
     	if ($qq->num_rows() > 0)
     	{
-    		foreach ($qq->result() as $row)
-            {
-    			return $row->gmlevel;
-    		}
+    		return $query->gmlevel;
     	}
     	else
     		return "0";

@@ -1,11 +1,11 @@
 <?php if (isset($_POST['button_changeLevel'])) {
     $level = $_POST['newLevel'];
-    $this->m_general->insertChangeLevelChar($idlink, $level);
+    $this->admin_model->insertChangeLevelChar($idlink, $level);
 } ?>
 
 <?php if(isset($_POST['button_renamechar'])) {
     $newname = $_POST['newName'];
-    $this->m_general->insertCharRename($idlink, $newname);
+    $this->admin_model->insertCharRename($idlink, $newname);
 } ?>
 <?php if(isset($_POST['button_unban'])) {
     $this->admin_model->insertUnbanChar($idlink);
