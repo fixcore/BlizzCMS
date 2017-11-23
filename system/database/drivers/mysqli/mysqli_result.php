@@ -130,10 +130,10 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	 * mysqli_result::fetch_fields()
 	 *
 	 * @used-by	CI_DB_mysqli_result::field_data()
-	 * @param	int	$type
+	 * @param	int	$flags
 	 * @return	string
 	 */
-	private static function _get_field_type($type)
+	private static function _get_field_type($flags)
 	{
 		static $map;
 		isset($map) OR $map = array(
@@ -164,7 +164,15 @@ class CI_DB_mysqli_result extends CI_DB_result {
 			MYSQLI_TYPE_GEOMETRY    => 'geometry'
 		);
 
-		return isset($map[$type]) ? $map[$type] : $type;
+		foreach ($map as $flag => $name)
+		{
+			if ($flags & $flag)
+			{
+				return $name;
+			}
+		}
+
+		return $flags;
 	}
 
 	// --------------------------------------------------------------------

@@ -118,7 +118,6 @@ $autoload['config'] = array('fixcore');
 |
 */
 $autoload['language'] = array('titles', 'text', 'menu', 'actions', 'admin');
-
 /*
 | -------------------------------------------------------------------
 |  Auto-load Models

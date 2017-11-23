@@ -56,7 +56,7 @@ if ( ! function_exists('force_download'))
 	 *
 	 * Generates headers that force a download to happen
 	 *
-	 * @param	mixed	filename (or an array of local file path => destination filename)
+	 * @param	string	filename
 	 * @param	mixed	the data to be downloaded
 	 * @param	bool	whether to try and send the actual file MIME type
 	 * @return	void
@@ -69,34 +69,14 @@ if ( ! function_exists('force_download'))
 		}
 		elseif ($data === NULL)
 		{
-			// Is $filename an array as ['local source path' => 'destination filename']?
-			if (is_array($filename))
-			{
-				if (count($filename) !== 1)
-				{
-					return;
-				}
-
-				reset($filename);
-				$filepath = key($filename);
-				$filename = current($filename);
-
-				if (is_int($filepath))
-				{
-					return;
-				}
-			}
-			else
-			{
-				$filepath = $filename;
-				$filename = explode('/', str_replace(DIRECTORY_SEPARATOR, '/', $filename));
-				$filename = end($filename);
-			}
-
-			if ( ! @is_file($filepath) OR ($filesize = @filesize($filepath)) === FALSE)
+			if ( ! @is_file($filename) OR ($filesize = @filesize($filename)) === FALSE)
 			{
 				return;
 			}
+
+			$filepath = $filename;
+			$filename = explode('/', str_replace(DIRECTORY_SEPARATOR, '/', $filename));
+			$filename = end($filename);
 		}
 		else
 		{
@@ -141,6 +121,11 @@ if ( ! function_exists('force_download'))
 			$filename = implode('.', $x);
 		}
 
+		if ($data === NULL && ($fp = @fopen($filepath, 'rb')) === FALSE)
+		{
+			return;
+		}
+
 		// Clean output buffer
 		if (ob_get_level() !== 0 && @ob_end_clean() === FALSE)
 		{
@@ -161,12 +146,13 @@ if ( ! function_exists('force_download'))
 			exit($data);
 		}
 
-		// Flush the file
-		if (@readfile($filepath) === FALSE)
+		// Flush 1MB chunks of data
+		while ( ! feof($fp) && ($data = fread($fp, 1048576)) !== FALSE)
 		{
-			return;
+			echo $data;
 		}
 
+		fclose($fp);
 		exit;
 	}
 }

@@ -2,39 +2,10 @@
 
 class M_general extends CI_Model {
 
-	public function getSlides()
-	{
-		return $this->db->query("SELECT * FROM fx_slides");
-	}
-
-	public function getShopTop10()
-	{
-		return $this->db->query("SELECT id_shop FROM fx_shop_top ORDER BY id DESC LIMIT 10");
-	}
-
-	public function getGmCount()
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		return $this->auth->query("SELECT id FROM account_access")->num_rows();
-	}
-
 	public function getGmSpecify($id)
 	{
 		$this->auth = $this->load->database('auth', TRUE);
 		return $this->auth->query("SELECT id FROM account_access WHERE id = '".$id."'");
-	}
-
-	public function createNewADM($title, $image, $description, $type)
-	{
-		$date = $this->m_data->getTimestamp();
-		$this->db->query("INSERT INTO fx_news (title, image, description, date) VALUES ('$title', '$image', '$description', '$date')");
-
-		if ($type == 2) {
-			$id = $this->getNewIDperTitle($date);
-			$this->db->query("INSERT INTO fx_news_top (id_new) VALUES ($id)");
-		}
-
-		redirect(base_url(),'refresh');
 	}
 
 	public function getNewIDperTitle($date)
@@ -43,46 +14,6 @@ class M_general extends CI_Model {
 		foreach ($qq->result() as $row) {
 			return $row->id;
 		}
-	}
-
-	public function getAdminCharactersList()
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT guid, account, name FROM characters ORDER BY name ASC");
-	}
-
-	public function getAnnotationsSpecify($id)
-	{
-		return $this->db->query("SELECT * FROM fx_users_annotations WHERE iduser = '".$id."'");
-	}
-
-	public function insertBanAcc($iduser, $reason)
-	{
-		$this->db = $this->load->database('default', TRUE);
-		$this->auth = $this->load->database('auth', TRUE);
-		
-		$date = $this->m_data->getTimestamp();
-		$id   = $this->session->userdata('fx_sess_id');
-
-		if (empty($reason))
-			$reason = $this->lang->line('was_ban');
-
-		$this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$iduser', '$reason', '$date')");
-
-		$this->auth->query("INSERT INTO account_banned (id, bandate, unbandate, bannedby, banreason) VALUES ('$iduser', '$date', '$date', '$id','$reason')");
-
-		redirect(base_url().'admin/alist/'.$iduser,'refresh');
-	}
-
-	public function getRemoveADMRank($id)
-	{
-		$this->db->query("DELETE FROM fx_ranks WHERE id = '".$id."'");
-
-		$date = $this->m_data->getTimestamp();
-		$reason = $this->lang->line('remove_addmAnnoW');
-		$this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
-
-		redirect(base_url().'admin/alist/'.$id,'refresh');
 	}
 
 	public function getGeneralCharactersSpecifyAcc($id)
@@ -104,92 +35,30 @@ class M_general extends CI_Model {
 		return $this->db->query("SELECT * FROM fx_users WHERE id = '".$id."'");
 	}
 
-	public function getADDADMRank($id)
-	{
-		$this->db->query("INSERT INTO fx_ranks (id, permission) VALUES ('$id', '1')");
-
-		$date = $this->m_data->getTimestamp();
-		$reason = $this->lang->line('receive_addmAnnoW');
-		$this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
-
-		redirect(base_url().'admin/alist/'.$id,'refresh');
-	}
-
-	public function inserUnBanAcc($id)
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		$this->auth->query("DELETE FROM account_banned WHERE id = $id");
-
-		redirect(base_url().'admin/alist/'.$id,'refresh');
-	}
-
-	public function removeRankAcc($id)
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		$this->auth->query("DELETE FROM account_access WHERE id = $id");
-
-		$date = $this->m_data->getTimestamp();
-		$reason = $this->lang->line('remove_gmAnnotation');
-
-		$this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
-
-		redirect(base_url().'admin/alist/'.$id,'refresh');
-	}
-
-	public function insertRankAcc($id, $gmlevel)
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		$this->auth->query("INSERT INTO account_access (id, gmlevel, RealmID) VALUES ('$id', '$gmlevel', '-1')");
-
-		$date = $this->m_data->getTimestamp();
-		$reason = $this->lang->line('receive_gmAnno');
-
-		$this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
-
-		redirect(base_url().'admin/alist/'.$id,'refresh');
-	}
-
 	public function getAccountExist($id)
 	{
 		$this->auth = $this->load->database('auth', TRUE);
 		return $this->auth->query("SELECT * FROM account WHERE id = '".$id."'");
 	}
 
-	public function getAdminAccountsList()
+	public function getGeneralCharactersSpecifyGuid($id)
 	{
-		$this->auth = $this->load->database('auth', TRUE);
-		return $this->auth->query("SELECT id, username, email FROM account ORDER BY username ASC");
+		$this->characters = $this->load->database('characters', TRUE);
+		return $this->characters->query("SELECT * FROM characters WHERE guid = '".$id."'");
 	}
 
-	public function getBanCount()
+	public function getNameCharacterSpecifyGuid($id)
 	{
-		$this->auth = $this->load->database('auth', TRUE);
-		return $this->auth->query("SELECT id FROM account_banned")->num_rows();
-	}
-
-	public function getBanSpecify($id)
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		return $this->auth->query("SELECT * FROM account_banned WHERE id = '".$id."'");
-	}
-
-	public function getAccCreated()
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		return $this->auth->query("SELECT id FROM account")->num_rows();
+		$this->characters = $this->load->database('characters', TRUE);
+		$qq = $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'");
+		foreach ($qq->result() as $row) {
+			return $row->name;
+		}
 	}
 
 	public function getShopID($id)
 	{
 		return $this->db->query("SELECT * FROM fx_shop WHERE id = '".$id."'");
-	}
-
-	public function getCharOn()
-	{
-    	$this->characters = $this->load->database('characters', TRUE);
-    	$qq = $this->characters->query("SELECT * FROM characters WHERE online = 1");
-
-    	return $qq->num_rows();
 	}
 
 	public function getPermissions($id)
@@ -200,67 +69,46 @@ class M_general extends CI_Model {
 		}
 	}
 
-	public function getPrincipalNew()
+	public function getCharNameAlreadyExist($name)
 	{
-		$qq = $this->db->query("SELECT * FROM fx_news_top ORDER BY id DESC LIMIT 1");
+		$this->characters = $this->load->database('characters', TRUE);
+		return $this->characters->query("SELECT name FROM characters WHERE name = '".$name."'");
+	}
+
+	public function getCharBanSpecifyGuid($id)
+	{
+		$this->characters = $this->load->database('characters', TRUE);
+		return $this->characters->query("SELECT guid FROM character_banned WHERE guid = '".$id."' AND active = 1");
+	}
+
+	public function getCharName($id)
+	{
+		$this->characters = $this->load->database('characters', TRUE);
+		$qq = $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'");
 
 		foreach ($qq->result() as $row) {
-			return $row->id_new;
+			return $row->name;
 		}
 	}
 
-	public function getNewTitle($id)
+	public function getCharLevel($id)
 	{
-		$qq = $this->db->query("SELECT title FROM fx_news WHERE id = '".$id."'");
+		$this->characters = $this->load->database('characters', TRUE);
+		$qq = $this->characters->query("SELECT level FROM characters WHERE guid = '".$id."'");
+
 		foreach ($qq->result() as $row) {
-			return $row->title;
+			return $row->level;
 		}
 	}
 
-	public function getNewImage($id)
+	public function getCharActive($id)
 	{
-		$qq = $this->db->query("SELECT image FROM fx_news WHERE id = '".$id."'");
+		$this->characters = $this->load->database('characters', TRUE);
+		$qq = $this->characters->query("SELECT online FROM characters WHERE guid = '".$id."'");
+
 		foreach ($qq->result() as $row) {
-			return $row->image;
+			return $row->online;
 		}
-	}
-
-	public function getNewDescription($id)
-	{
-		$qq = $this->db->query("SELECT description FROM fx_news WHERE id = '".$id."'");
-		foreach ($qq->result() as $row) {
-			return $row->description;
-		}
-	}
-
-	public function getNewsTopsList()
-	{
-		return $this->db->query("SELECT id_new FROM fx_news_top ORDER BY id DESC LIMIT 5");
-	}
-
-	public function getCommentCount($id)
-	{
-		return $this->db->query("SELECT id FROM fx_news_comments WHERE id_new = '".$id."'");
-	}
-
-	public function getNewSpecifyID($id)
-	{
-		return $this->db->query("SELECT * FROM fx_news WHERE id = '".$id."'");
-	}
-
-	public function getNewsTree()
-	{
-		return $this->db->query("SELECT * FROM fx_news ORDER BY id DESC LIMIT 3");
-	}
-
-	public function getNewsList()
-	{
-		return $this->db->query("SELECT * FROM fx_news ORDER BY id DESC LIMIT 30");
-	}
-
-	public function getEventsLimitFive()
-	{
-		return $this->db->query("SELECT * FROM fx_events ORDER BY id DESC LIMIT 5");
 	}
 
 	public function getMonth($id)
@@ -293,6 +141,21 @@ class M_general extends CI_Model {
 			case 6: return "2"; break;
 			case 7: return "2"; break;
 			case 8: return "2"; break;
+		}
+	}
+
+	public function getMaxLevel()
+	{
+		$expansion = $this->config->item('expansion_id');
+		switch ($expansion) {
+			case 1: return "60"; break;
+			case 2: return "70"; break;
+			case 3: return "80"; break;
+			case 4: return "85"; break;
+			case 5: return "90"; break;
+			case 6: return "100"; break;
+			case 7: return "110"; break;
+			case 8: return "120"; break;
 		}
 	}
 

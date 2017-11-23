@@ -167,12 +167,10 @@ class CI_Security {
 	 *
 	 * @return	void
 	 */
-	public function __construct($charset)
+	public function __construct()
 	{
-		$this->charset = $charset;
-
 		// Is CSRF protection enabled?
-		if (config_item('csrf_protection') && ! is_cli())
+		if (config_item('csrf_protection'))
 		{
 			// CSRF config
 			foreach (array('csrf_expire', 'csrf_token_name', 'csrf_cookie_name') as $key)
@@ -191,8 +189,9 @@ class CI_Security {
 
 			// Set the CSRF hash
 			$this->_csrf_set_hash();
-			$this->csrf_verify();
 		}
+
+		$this->charset = strtoupper(config_item('charset'));
 
 		log_message('info', 'Security Class Initialized');
 	}
@@ -629,7 +628,7 @@ class CI_Security {
 		if (is_readable('/dev/urandom') && ($fp = fopen('/dev/urandom', 'rb')) !== FALSE)
 		{
 			// Try not to waste entropy ...
-			stream_set_chunk_size($fp, $length);
+			is_php('5.4') && stream_set_chunk_size($fp, $length);
 			$output = fread($fp, $length);
 			fclose($fp);
 			if ($output !== FALSE)
@@ -674,8 +673,26 @@ class CI_Security {
 
 		static $_entities;
 
-		isset($charset)   OR $charset = $this->charset;
-		isset($_entities) OR $_entities = array_map('strtolower', get_html_translation_table(HTML_ENTITIES, ENT_COMPAT | ENT_HTML5, $charset));
+		isset($charset) OR $charset = $this->charset;
+		$flag = is_php('5.4')
+			? ENT_COMPAT | ENT_HTML5
+			: ENT_COMPAT;
+
+		if ( ! isset($_entities))
+		{
+			$_entities = array_map('strtolower', get_html_translation_table(HTML_ENTITIES, $flag, $charset));
+
+			// If we're not on PHP 5.4+, add the possibly dangerous HTML 5
+			// entities to the array manually
+			if ($flag === ENT_COMPAT)
+			{
+				$_entities[':'] = '&colon;';
+				$_entities['('] = '&lpar;';
+				$_entities[')'] = '&rpar;';
+				$_entities["\n"] = '&NewLine;';
+				$_entities["\t"] = '&Tab;';
+			}
+		}
 
 		do
 		{
@@ -700,9 +717,14 @@ class CI_Security {
 			// Decode numeric & UTF16 two byte entities
 			$str = html_entity_decode(
 				preg_replace('/(&#(?:x0*[0-9a-f]{2,5}(?![0-9a-f;])|(?:0*\d{2,4}(?![0-9;]))))/iS', '$1;', $str),
-				ENT_COMPAT | ENT_HTML5,
+				$flag,
 				$charset
 			);
+
+			if ($flag === ENT_COMPAT)
+			{
+				$str = str_replace(array_values($_entities), array_keys($_entities), $str);
+			}
 		}
 		while ($str_compare !== $str);
 		return $str;
@@ -1054,4 +1076,5 @@ class CI_Security {
 
 		return $this->_csrf_hash;
 	}
+
 }

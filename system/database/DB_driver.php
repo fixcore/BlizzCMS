@@ -380,8 +380,7 @@ abstract class CI_DB_driver {
 	/**
 	 * Initialize Database Settings
 	 *
-	 * @return	void
-	 * @throws	RuntimeException	In case of failure
+	 * @return	bool
 	 */
 	public function initialize()
 	{
@@ -393,7 +392,7 @@ abstract class CI_DB_driver {
 		 */
 		if ($this->conn_id)
 		{
-			return;
+			return TRUE;
 		}
 
 		// ----------------------------------------------------------------
@@ -430,9 +429,19 @@ abstract class CI_DB_driver {
 			// We still don't have a connection?
 			if ( ! $this->conn_id)
 			{
-				throw new RuntimeException('Unable to connect to the database.');
+				log_message('error', 'Unable to connect to the database');
+
+				if ($this->db_debug)
+				{
+					$this->display_error('db_unable_to_connect');
+				}
+
+				return FALSE;
 			}
 		}
+
+		// Now we set the character set and that's all
+		return $this->db_set_charset($this->char_set);
 	}
 
 	// --------------------------------------------------------------------
@@ -503,6 +512,31 @@ abstract class CI_DB_driver {
 	public function error()
 	{
 		return array('code' => NULL, 'message' => NULL);
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 * Set client character set
+	 *
+	 * @param	string
+	 * @return	bool
+	 */
+	public function db_set_charset($charset)
+	{
+		if (method_exists($this, '_db_set_charset') && ! $this->_db_set_charset($charset))
+		{
+			log_message('error', 'Unable to set database connection charset: '.$charset);
+
+			if ($this->db_debug)
+			{
+				$this->display_error('db_unable_to_set_charset', $charset);
+			}
+
+			return FALSE;
+		}
+
+		return TRUE;
 	}
 
 	// --------------------------------------------------------------------
@@ -600,6 +634,7 @@ abstract class CI_DB_driver {
 		// cached query if it exists
 		if ($this->cache_on === TRUE && $return_object === TRUE && $this->_cache_init())
 		{
+			$this->load_rdriver();
 			if (FALSE !== ($cache = $this->CACHE->read($sql)))
 			{
 				return $cache;
@@ -683,9 +718,9 @@ abstract class CI_DB_driver {
 			return TRUE;
 		}
 
-		// Instantiate the driver-specific result class
-		$driver	= 'CI_DB_'.$this->dbdriver.'_result';
-		$RES    = new $driver($this);
+		// Load and instantiate the result driver
+		$driver		= $this->load_rdriver();
+		$RES		= new $driver($this);
 
 		// Is query caching enabled? If so, we'll serialize the
 		// result object and save it to a cache file.
@@ -715,6 +750,26 @@ abstract class CI_DB_driver {
 	// --------------------------------------------------------------------
 
 	/**
+	 * Load the result drivers
+	 *
+	 * @return	string	the name of the result class
+	 */
+	public function load_rdriver()
+	{
+		$driver = 'CI_DB_'.$this->dbdriver.'_result';
+
+		if ( ! class_exists($driver, FALSE))
+		{
+			require_once(BASEPATH.'database/DB_result.php');
+			require_once(BASEPATH.'database/drivers/'.$this->dbdriver.'/'.$this->dbdriver.'_result.php');
+		}
+
+		return $driver;
+	}
+
+	// --------------------------------------------------------------------
+
+	/**
 	 * Simple Query
 	 * This is a simplified version of the query() function. Internally
 	 * we only use it when running transaction commands since they do
@@ -725,7 +780,14 @@ abstract class CI_DB_driver {
 	 */
 	public function simple_query($sql)
 	{
-		empty($this->conn_id) && $this->initialize();
+		if ( ! $this->conn_id)
+		{
+			if ( ! $this->initialize())
+			{
+				return FALSE;
+			}
+		}
+
 		return $this->_execute($sql);
 	}
 
@@ -1321,11 +1383,10 @@ abstract class CI_DB_driver {
 	 *
 	 * This function escapes column and table names
 	 *
-	 * @param	mixed	$item	Identifier to escape
-	 * @param	bool	$split	Whether to split identifiers when a dot is encountered
+	 * @param	mixed
 	 * @return	mixed
 	 */
-	public function escape_identifiers($item, $split = TRUE)
+	public function escape_identifiers($item)
 	{
 		if ($this->_escape_char === '' OR empty($item) OR in_array($item, $this->_reserved_identifiers))
 		{
@@ -1346,22 +1407,22 @@ abstract class CI_DB_driver {
 			return $item;
 		}
 
-		static $preg_ec;
+		static $preg_ec = array();
 
 		if (empty($preg_ec))
 		{
 			if (is_array($this->_escape_char))
 			{
 				$preg_ec = array(
-					preg_quote($this->_escape_char[0]),
-					preg_quote($this->_escape_char[1]),
+					preg_quote($this->_escape_char[0], '/'),
+					preg_quote($this->_escape_char[1], '/'),
 					$this->_escape_char[0],
 					$this->_escape_char[1]
 				);
 			}
 			else
 			{
-				$preg_ec[0] = $preg_ec[1] = preg_quote($this->_escape_char);
+				$preg_ec[0] = $preg_ec[1] = preg_quote($this->_escape_char, '/');
 				$preg_ec[2] = $preg_ec[3] = $this->_escape_char;
 			}
 		}
@@ -1370,13 +1431,11 @@ abstract class CI_DB_driver {
 		{
 			if (strpos($item, '.'.$id) !== FALSE)
 			{
-				return preg_replace('#'.$preg_ec[0].'?([^'.$preg_ec[1].'\.]+)'.$preg_ec[1].'?\.#i', $preg_ec[2].'$1'.$preg_ec[3].'.', $item);
+				return preg_replace('/'.$preg_ec[0].'?([^'.$preg_ec[1].'\.]+)'.$preg_ec[1].'?\./i', $preg_ec[2].'$1'.$preg_ec[3].'.', $item);
 			}
 		}
 
-		$dot = ($split !== FALSE) ? '\.' : '';
-
-		return preg_replace('#'.$preg_ec[0].'?([^'.$preg_ec[1].$dot.']+)'.$preg_ec[1].'?(\.)?#i', $preg_ec[2].'$1'.$preg_ec[3].'$2', $item);
+		return preg_replace('/'.$preg_ec[0].'?([^'.$preg_ec[1].'\.]+)'.$preg_ec[1].'?(\.)?/i', $preg_ec[2].'$1'.$preg_ec[3].'$2', $item);
 	}
 
 	// --------------------------------------------------------------------
@@ -1790,14 +1849,14 @@ abstract class CI_DB_driver {
 		if ($offset = strripos($item, ' AS '))
 		{
 			$alias = ($protect_identifiers)
-				? substr($item, $offset, 4).$this->escape_identifiers(substr($item, $offset + 4), FALSE)
+				? substr($item, $offset, 4).$this->escape_identifiers(substr($item, $offset + 4))
 				: substr($item, $offset);
 			$item = substr($item, 0, $offset);
 		}
 		elseif ($offset = strrpos($item, ' '))
 		{
 			$alias = ($protect_identifiers)
-				? ' '.$this->escape_identifiers(substr($item, $offset + 1), FALSE)
+				? ' '.$this->escape_identifiers(substr($item, $offset + 1))
 				: substr($item, $offset);
 			$item = substr($item, 0, $offset);
 		}
@@ -1867,19 +1926,15 @@ abstract class CI_DB_driver {
 					$i++;
 				}
 
-				// dbprefix may've already been applied, with or without the identifier escaped
-				$ec = '(?<ec>'.preg_quote(is_array($this->_escape_char) ? $this->_escape_char[0] : $this->_escape_char).')?';
-				isset($ec[0]) && $ec .= '?'; // Just in case someone has disabled escaping by forcing an empty escape character
-
 				// Verify table prefix and replace if necessary
-				if ($this->swap_pre !== '' && preg_match('#^'.$ec.preg_quote($this->swap_pre).'#', $parts[$i]))
+				if ($this->swap_pre !== '' && strpos($parts[$i], $this->swap_pre) === 0)
 				{
-					$parts[$i] = preg_replace('#^'.$ec.preg_quote($this->swap_pre).'(\S+?)#', '\\1'.$this->dbprefix.'\\2', $parts[$i]);
+					$parts[$i] = preg_replace('/^'.$this->swap_pre.'(\S+?)/', $this->dbprefix.'\\1', $parts[$i]);
 				}
 				// We only add the table prefix if it does not already exist
-				else
+				elseif (strpos($parts[$i], $this->dbprefix) !== 0)
 				{
-					preg_match('#^'.$ec.preg_quote($this->dbprefix).'#', $parts[$i]) OR $parts[$i] = $this->dbprefix.$parts[$i];
+					$parts[$i] = $this->dbprefix.$parts[$i];
 				}
 
 				// Put the parts back together

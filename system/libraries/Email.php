@@ -147,7 +147,7 @@ class CI_Email {
 	 *
 	 * @var	string
 	 */
-	public $charset		= 'utf-8';
+	public $charset		= 'UTF-8';
 
 	/**
 	 * Alternative message (for HTML messages only)
@@ -161,7 +161,7 @@ class CI_Email {
 	 *
 	 * @var	bool
 	 */
-	public $validate	= TRUE;
+	public $validate	= FALSE;
 
 	/**
 	 * X-Priority header value.
@@ -224,6 +224,13 @@ class CI_Email {
 	public $bcc_batch_size	= 200;
 
 	// --------------------------------------------------------------------
+
+	/**
+	 * Whether PHP is running in safe mode. Initialized by the class constructor.
+	 *
+	 * @var	bool
+	 */
+	protected $_safe_mode		= FALSE;
 
 	/**
 	 * Subject header
@@ -388,6 +395,7 @@ class CI_Email {
 	{
 		$this->charset = config_item('charset');
 		$this->initialize($config);
+		$this->_safe_mode = ( ! is_php('5.4') && ini_get('safe_mode'));
 
 		isset(self::$func_overload) OR self::$func_overload = (extension_loaded('mbstring') && ini_get('mbstring.func_overload'));
 
@@ -667,6 +675,18 @@ class CI_Email {
 	public function message($body)
 	{
 		$this->_body = rtrim(str_replace("\r", '', $body));
+
+		/* strip slashes only if magic quotes is ON
+		   if we do it with magic quotes OFF, it strips real, user-inputted chars.
+
+		   NOTE: In PHP 5.4 get_magic_quotes_gpc() will always return 0 and
+			 it will probably not exist in future versions at all.
+		*/
+		if ( ! is_php('5.4') && get_magic_quotes_gpc())
+		{
+			$this->_body = stripslashes($this->_body);
+		}
+
 		return $this;
 	}
 
@@ -1014,9 +1034,9 @@ class CI_Email {
 	 */
 	public function valid_email($email)
 	{
-		if (function_exists('idn_to_ascii') && strpos($email, '@'))
+		if (function_exists('idn_to_ascii') && $atpos = strpos($email, '@'))
 		{
-			$email = self::substr($email, 0, ++$atpos).idn_to_ascii(self::substr($email, $atpos), 0, INTL_IDNA_VARIANT_UTS46);
+			$email = self::substr($email, 0, ++$atpos).idn_to_ascii(self::substr($email, $atpos));
 		}
 
 		return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
@@ -1235,7 +1255,7 @@ class CI_Email {
 	/**
 	 * Build Final Body and attachments
 	 *
-	 * @return	void
+	 * @return	bool
 	 */
 	protected function _build_message()
 	{
@@ -1402,6 +1422,8 @@ class CI_Email {
 		$this->_finalbody = ($this->_get_protocol() === 'mail')
 			? $body
 			: $hdr.$this->newline.$this->newline.$body;
+
+		return TRUE;
 	}
 
 	// --------------------------------------------------------------------
@@ -1663,8 +1685,8 @@ class CI_Email {
 			$this->reply_to($this->_headers['From']);
 		}
 
-		if (empty($this->_recipients) && ! isset($this->_headers['To'])
-			&& empty($this->_bcc_array) && ! isset($this->_headers['Bcc'])
+		if ( ! isset($this->_recipients) && ! isset($this->_headers['To'])
+			&& ! isset($this->_bcc_array) && ! isset($this->_headers['Bcc'])
 			&& ! isset($this->_headers['Cc']))
 		{
 			$this->_set_error_message('lang:email_no_recipients');
@@ -1675,17 +1697,21 @@ class CI_Email {
 
 		if ($this->bcc_batch_mode && count($this->_bcc_array) > $this->bcc_batch_size)
 		{
-			$this->batch_bcc_send();
+			$result = $this->batch_bcc_send();
 
-			if ($auto_clear)
+			if ($result && $auto_clear)
 			{
 				$this->clear();
 			}
 
-			return TRUE;
+			return $result;
 		}
 
-		$this->_build_message();
+		if ($this->_build_message() === FALSE)
+		{
+			return FALSE;
+		}
+
 		$result = $this->_spool_email();
 
 		if ($result && $auto_clear)
@@ -1744,7 +1770,11 @@ class CI_Email {
 				$this->_bcc_array = $bcc;
 			}
 
-			$this->_build_message();
+			if ($this->_build_message() === FALSE)
+			{
+				return FALSE;
+			}
+
 			$this->_spool_email();
 		}
 	}
@@ -1821,9 +1851,9 @@ class CI_Email {
 	 */
 	protected function _validate_email_for_shell(&$email)
 	{
-		if (function_exists('idn_to_ascii') && strpos($email, '@'))
+		if (function_exists('idn_to_ascii') && $atpos = strpos($email, '@'))
 		{
-			$email = self::substr($email, 0, ++$atpos).idn_to_ascii(self::substr($email, $atpos), 0, INTL_IDNA_VARIANT_UTS46);
+			$email = self::substr($email, 0, ++$atpos).idn_to_ascii(self::substr($email, $atpos));
 		}
 
 		return (filter_var($email, FILTER_VALIDATE_EMAIL) === $email && preg_match('#\A[a-z0-9._+-]+@[a-z0-9.-]{1,253}\z#i', $email));
@@ -1847,14 +1877,16 @@ class CI_Email {
 		// so this needs to be assigned to a variable
 		$from = $this->clean_email($this->_headers['Return-Path']);
 
-		if ( ! $this->_validate_email_for_shell($from))
+		if ($this->_safe_mode === TRUE || ! $this->_validate_email_for_shell($from))
 		{
 			return mail($this->_recipients, $this->_subject, $this->_finalbody, $this->_header_str);
 		}
-
-		// most documentation of sendmail using the "-f" flag lacks a space after it, however
-		// we've encountered servers that seem to require it to be in place.
-		return mail($this->_recipients, $this->_subject, $this->_finalbody, $this->_header_str, '-f '.$from);
+		else
+		{
+			// most documentation of sendmail using the "-f" flag lacks a space after it, however
+			// we've encountered servers that seem to require it to be in place.
+			return mail($this->_recipients, $this->_subject, $this->_finalbody, $this->_header_str, '-f '.$from);
+		}
 	}
 
 	// --------------------------------------------------------------------
@@ -1935,21 +1967,27 @@ class CI_Email {
 			}
 		}
 
-		foreach ($this->_cc_array as $val)
+		if (count($this->_cc_array) > 0)
 		{
-			if ($val !== '' && ! $this->_send_command('to', $val))
+			foreach ($this->_cc_array as $val)
 			{
-				$this->_smtp_end();
-				return FALSE;
+				if ($val !== '' && ! $this->_send_command('to', $val))
+				{
+					$this->_smtp_end();
+					return FALSE;
+				}
 			}
 		}
 
-		foreach ($this->_bcc_array as $val)
+		if (count($this->_bcc_array) > 0)
 		{
-			if ($val !== '' && ! $this->_send_command('to', $val))
+			foreach ($this->_bcc_array as $val)
 			{
-				$this->_smtp_end();
-				return FALSE;
+				if ($val !== '' && ! $this->_send_command('to', $val))
+				{
+					$this->_smtp_end();
+					return FALSE;
+				}
 			}
 		}
 
@@ -1963,6 +2001,7 @@ class CI_Email {
 		$this->_send_data($this->_header_str.preg_replace('/^\./m', '..$1', $this->_finalbody));
 
 		$this->_send_data('.');
+
 		$reply = $this->_get_smtp_data();
 		$this->_set_error_message($reply);
 
@@ -1988,7 +2027,9 @@ class CI_Email {
 	 */
 	protected function _smtp_end()
 	{
-		$this->_send_command($this->smtp_keepalive ? 'reset' : 'quit');
+		($this->smtp_keepalive)
+			? $this->_send_command('reset')
+			: $this->_send_command('quit');
 	}
 
 	// --------------------------------------------------------------------
@@ -2007,13 +2048,11 @@ class CI_Email {
 
 		$ssl = ($this->smtp_crypto === 'ssl') ? 'ssl://' : '';
 
-		$this->_smtp_connect = fsockopen(
-			$ssl.$this->smtp_host,
-			$this->smtp_port,
-			$errno,
-			$errstr,
-			$this->smtp_timeout
-		);
+		$this->_smtp_connect = fsockopen($ssl.$this->smtp_host,
+							$this->smtp_port,
+							$errno,
+							$errstr,
+							$this->smtp_timeout);
 
 		if ( ! is_resource($this->_smtp_connect))
 		{
@@ -2054,49 +2093,57 @@ class CI_Email {
 	{
 		switch ($cmd)
 		{
-			case 'hello':
-				if ($this->_smtp_auth OR $this->_get_encoding() === '8bit')
-				{
-					$this->_send_data('EHLO '.$this->_get_hostname());
-				}
-				else
-				{
-					$this->_send_data('HELO '.$this->_get_hostname());
-				}
+			case 'hello' :
 
-				$resp = 250;
-				break;
-			case 'starttls':
-				$this->_send_data('STARTTLS');
-				$resp = 220;
-				break;
-			case 'from':
-				$this->_send_data('MAIL FROM:<'.$data.'>');
-				$resp = 250;
-				break;
-			case 'to':
-				if ($this->dsn)
-				{
-					$this->_send_data('RCPT TO:<'.$data.'> NOTIFY=SUCCESS,DELAY,FAILURE ORCPT=rfc822;'.$data);
-				}
-				else
-				{
-					$this->_send_data('RCPT TO:<'.$data.'>');
-				}
-				$resp = 250;
-				break;
-			case 'data':
-				$this->_send_data('DATA');
-				$resp = 354;
-				break;
+						if ($this->_smtp_auth OR $this->_get_encoding() === '8bit')
+						{
+							$this->_send_data('EHLO '.$this->_get_hostname());
+						}
+						else
+						{
+							$this->_send_data('HELO '.$this->_get_hostname());
+						}
+
+						$resp = 250;
+			break;
+			case 'starttls'	:
+
+						$this->_send_data('STARTTLS');
+						$resp = 220;
+			break;
+			case 'from' :
+
+						$this->_send_data('MAIL FROM:<'.$data.'>');
+						$resp = 250;
+			break;
+			case 'to' :
+
+						if ($this->dsn)
+						{
+							$this->_send_data('RCPT TO:<'.$data.'> NOTIFY=SUCCESS,DELAY,FAILURE ORCPT=rfc822;'.$data);
+						}
+						else
+						{
+							$this->_send_data('RCPT TO:<'.$data.'>');
+						}
+
+						$resp = 250;
+			break;
+			case 'data'	:
+
+						$this->_send_data('DATA');
+						$resp = 354;
+			break;
 			case 'reset':
-				$this->_send_data('RSET');
-				$resp = 250;
-				break;
-			case 'quit':
-				$this->_send_data('QUIT');
-				$resp = 221;
-				break;
+
+						$this->_send_data('RSET');
+						$resp = 250;
+			break;
+			case 'quit'	:
+
+						$this->_send_data('QUIT');
+						$resp = 221;
+			break;
 		}
 
 		$reply = $this->_get_smtp_data();
@@ -2138,6 +2185,7 @@ class CI_Email {
 		}
 
 		$this->_send_data('AUTH LOGIN');
+
 		$reply = $this->_get_smtp_data();
 
 		if (strpos($reply, '503') === 0)	// Already authenticated
@@ -2151,6 +2199,7 @@ class CI_Email {
 		}
 
 		$this->_send_data(base64_encode($this->smtp_user));
+
 		$reply = $this->_get_smtp_data();
 
 		if (strpos($reply, '334') !== 0)
@@ -2160,6 +2209,7 @@ class CI_Email {
 		}
 
 		$this->_send_data(base64_encode($this->smtp_pass));
+
 		$reply = $this->_get_smtp_data();
 
 		if (strpos($reply, '235') !== 0)
@@ -2282,15 +2332,34 @@ class CI_Email {
 	 */
 	public function print_debugger($include = array('headers', 'subject', 'body'))
 	{
-		$msg = implode('', $this->_debug_msg);
+		$msg = '';
+
+		if (count($this->_debug_msg) > 0)
+		{
+			foreach ($this->_debug_msg as $val)
+			{
+				$msg .= $val;
+			}
+		}
 
 		// Determine which parts of our raw data needs to be printed
 		$raw_data = '';
 		is_array($include) OR $include = array($include);
 
-		in_array('headers', $include, TRUE) && $raw_data  = htmlspecialchars($this->_header_str)."\n";
-		in_array('subject', $include, TRUE) && $raw_data .= htmlspecialchars($this->_subject)."\n";
-		in_array('body', $include, TRUE)    && $raw_data .= htmlspecialchars($this->_finalbody);
+		if (in_array('headers', $include, TRUE))
+		{
+			$raw_data = htmlspecialchars($this->_header_str)."\n";
+		}
+
+		if (in_array('subject', $include, TRUE))
+		{
+			$raw_data .= htmlspecialchars($this->_subject)."\n";
+		}
+
+		if (in_array('body', $include, TRUE))
+		{
+			$raw_data .= htmlspecialchars($this->_finalbody);
+		}
 
 		return $msg.($raw_data === '' ? '' : '<pre>'.$raw_data.'</pre>');
 	}
@@ -2384,6 +2453,9 @@ class CI_Email {
 	{
 		if (self::$func_overload)
 		{
+			// mb_substr($str, $start, null, '8bit') returns an empty
+			// string on PHP 5.3
+			isset($length) OR $length = ($start >= 0 ? self::strlen($str) - $start : -$start);
 			return mb_substr($str, $start, $length, '8bit');
 		}
 

@@ -1,17 +1,11 @@
 {
-	"description": "The CodeIgniter framework",
-	"name": "codeigniter/framework",
+	"description": "The CodeIgniter framework with HMVC Library",
+	"name": "alzen8work/ci_hmvc",
 	"type": "project",
-	"homepage": "https://codeigniter.com",
+	"homepage": "https://github.com/alzen8work/ci_hmvc",
 	"license": "MIT",
-	"support": {
-		"forum": "http://forum.codeigniter.com/",
-		"wiki": "https://github.com/bcit-ci/CodeIgniter/wiki",
-		"slack": "https://codeigniterchat.slack.com",
-		"source": "https://github.com/bcit-ci/CodeIgniter"
-	},
 	"require": {
-		"php": ">=5.4.8"
+		"php": ">=5.2.4"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

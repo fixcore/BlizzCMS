@@ -1240,18 +1240,18 @@ body[data-device=desktop] .Home-gameGridScroll:hover {
   background-color: #001845;
   background-repeat: no-repeat;
   background-position: bottom center;
-  background-image: url("../images/backgrounds/top-stories-events_section-background_xs-ce2b7659e4a9224c1aa5b0ae20d145b6e918b1f343f773f20f6be23e864de05899360d0661bffaf605f44faa5890877770e9a7d274");
+  background-image: url("../images/backgrounds/top-stories-events_section-background_xs.jpg");
   background-size: 768px 800px; }
   @media (min-width: 768px) {
     .Home-storiesPane {
-      background-image: url("../images/backgrounds/top-stories-events_section-background_sm-9174dc91a31c774ef515849948810eacccaae3eb469e80803286b0fc169f3b8951b7269c0f225c414aa5de7dc8562130a48fd61101");
+      background-image: url("../images/backgrounds/top-stories-events_section-background_sm.jpg");
       background-size: auto; } }
   @media (min-width: 992px) {
     .Home-storiesPane {
-      background-image: url("../images/backgrounds/top-stories-events_section-background_md-0d09d4f594ce23a8c39bb2d367501de2fb6900cbbb963ceab8403142f811da6985a3e3e28f995cf47364730b3ffa2d6144a9955f92"); } }
+      background-image: url("../images/backgrounds/top-stories-events_section-background_md.jpg"); } }
   @media (min-width: 1200px) {
     .Home-storiesPane {
-      background-image: url("../images/backgrounds/top-stories-events_section-background_lrg-b81ac9b879c693e7e05f049b5f913706fe0bae6e45523140fcf45aa3fac871c488749bf6fe38e89c9f84d372f690e485652fed36d"); } }
+      background-image: url("../images/backgrounds/top-stories-events_section-background_lrg.jpg"); } }
 
 .Home-storiesEventsGrid {
   margin-left: -25px;

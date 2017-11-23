@@ -31,6 +31,7 @@ $lang['account_cre']		= 'Accounts created';
 $lang['staff_count']		= 'STAFF accounts';
 $lang['bann_count'] 		= 'Banned accounts';
 $lang['users_list'] 		= 'List of created accounts';
+$lang['news_list'] 			= 'List of News';
 $lang['chars_list'] 		= 'List of created characters';
 
 
@@ -44,15 +45,29 @@ $lang['new_imgT'] 			= 'Your image must be in .jpg format';
 
 $lang['expr_yes'] 			= 'Yes';
 $lang['expr_no'] 			= 'No';
+$lang['expr_level'] 		= 'Level';
+$lang['expr_rename'] 		= 'Rename';
 
 
 $lang['user_manage']		= 'Manage user';
+$lang['char_manage']		= 'Manage character';
+$lang['char_newlevel']		= 'Receive a new level';
+$lang['char_oldlevel']		= 'Before it was';
+$lang['char_isonline']		= 'Player is Online, please disconnect';
+$lang['char_namexist']		= 'This name already exist';
+$lang['char_newname']		= 'It has a new name';
+$lang['char_oldname']		= 'Before it was';
+
+$lang['char_change_level']	= 'Change Level';
 
 $lang['reason']				= 'Reason';
 $lang['gmlevel']			= 'Gm Level';
 $lang['ban']				= 'Ban';
 $lang['unban']				= 'Unban';
 $lang['unban_acc']			= 'Unban Account';
+$lang['ban_char']			= 'Ban Character';
+$lang['unban_char']			= 'Unban Character';
+$lang['unbanned_char']		= 'Unbanned';
 $lang['ban_acc']			= 'Ban Account';
 $lang['rank_acc']			= 'GM Rank';
 $lang['grant_acc']			= 'Grant GM';
@@ -60,6 +75,12 @@ $lang['re_gran_acc']		= 'Remove GM';
 $lang['grantW_acc']			= 'Grant ADM';
 $lang['reW_gran_acc']		= 'Remove ADM';
 $lang['web_rank']			= 'Web Rank';
+$lang['char_customize']		= 'Customize Character';
+$lang['char_customAction']	= 'Get a customization';
+$lang['char_changerace']	= 'Change Race';
+$lang['char_chanraceAction']= 'Get a Race Change';
+$lang['char_changefaction']	= 'Change Faction';
+$lang['char_chanfactAction']= 'Get a Faction Change';
 
 
 

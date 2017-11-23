@@ -1259,7 +1259,9 @@ class CI_Upload {
 		 */
 		if (DIRECTORY_SEPARATOR !== '\\')
 		{
-			$cmd = 'file --brief --mime '.escapeshellarg($file['tmp_name']).' 2>&1';
+			$cmd = function_exists('escapeshellarg')
+				? 'file --brief --mime '.escapeshellarg($file['tmp_name']).' 2>&1'
+				: 'file --brief --mime '.$file['tmp_name'].' 2>&1';
 
 			if (function_usable('exec'))
 			{
@@ -1276,7 +1278,7 @@ class CI_Upload {
 				}
 			}
 
-			if (function_usable('shell_exec'))
+			if ( ! ini_get('safe_mode') && function_usable('shell_exec'))
 			{
 				$mime = @shell_exec($cmd);
 				if (strlen($mime) > 0)

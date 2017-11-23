@@ -1,15 +1,15 @@
 <!-- footer -->
 <div class="Pane Pane--full Pane--backgroundTop Pane--innerBorderTop" id="Page-footer">
     <div style="background-color:#00214a" class="Pane-backgroundContainer">
-    <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-base.km)" class="Pane-background">
+    <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-base.jpg)" class="Pane-background">
 </div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-xs.km)" class="Pane-background show-xs-sm hide">
+<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-xs.jpg)" class="Pane-background show-xs-sm hide">
 </div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-sm.km)" class="Pane-background show-sm-md hide">
+<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-sm.jpg)" class="Pane-background show-sm-md hide">
 </div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-md.km)" class="Pane-background show-md-lg hide">
+<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-md.jpg)" class="Pane-background show-md-lg hide">
 </div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-lg.km)" class="Pane-background show-lg hide">
+<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-lg.jpg)" class="Pane-background show-lg hide">
 </div>
 </div>
 <div style="" class="Pane-content">
