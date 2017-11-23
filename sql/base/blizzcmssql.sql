@@ -1,8 +1,9 @@
 /*
 SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.7.20-0ubuntu0.16.04.1 : Database - blizzcms
+MySQL - 5.6.37-log : Database - blizzcms-extraction
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -11,6 +12,20 @@ MySQL - 5.7.20-0ubuntu0.16.04.1 : Database - blizzcms
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+/*Table structure for table `fx_chars_annotations` */
+
+DROP TABLE IF EXISTS `fx_chars_annotations`;
+
+CREATE TABLE `fx_chars_annotations` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `idchar` int(10) NOT NULL,
+  `annotation` text NOT NULL,
+  `date` int(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
+
+/*Data for the table `fx_chars_annotations` */
+
 /*Table structure for table `fx_country` */
 
 DROP TABLE IF EXISTS `fx_country`;
@@ -297,7 +312,7 @@ CREATE TABLE `fx_news` (
   `description` text NOT NULL,
   `date` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_news` */
 
@@ -332,11 +347,9 @@ CREATE TABLE `fx_news_top` (
   PRIMARY KEY (`id`),
   KEY `id_new` (`id_new`),
   CONSTRAINT `fx_news_top_ibfk_1` FOREIGN KEY (`id_new`) REFERENCES `fx_news` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_news_top` */
-
-insert  into `fx_news_top`(`id`,`id_new`) values (1,1);
 
 /*Table structure for table `fx_questions` */
 
@@ -464,7 +477,7 @@ CREATE TABLE `fx_users_annotations` (
   `annotation` text NOT NULL,
   `date` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_users_annotations` */
 
