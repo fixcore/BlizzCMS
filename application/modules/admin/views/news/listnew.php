@@ -1,3 +1,6 @@
+<?php if (isset($_POST['button_delNew'])) {
+$this->admin_model->delSpecifyNew($_POST['button_delNew']);
+} ?>
 <!-- Page Content -->
         <!-- ============================================================== -->
         <div id="page-wrapper">
@@ -15,6 +18,7 @@
                                         <tr>
                                             <th>Title</th>
                                             <th>Date</th>
+                                            <th><center>Action</center></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -22,6 +26,11 @@
                                         <tr>
                                             <td><a href="<?= base_url(); ?>admin/nlist/<?= $news->id ?>" title="<?= $news->title ?>"><?= $news->title ?></a></td>
                                             <td><a href="<?= base_url(); ?>admin/nlist/<?= $news->id ?>" title="<?= $news->date ?>"><?= $news->date ?></a></td>
+                                            <td>
+                                                <form action="" method="post" accept-charset="utf-8">
+                                                    <button class="btn btn-block btn-danger" name="button_delNew" value="<?= $news->id ?>" type="submit"><?= $this->lang->line('button_delete'); ?></button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     <?php } ?>
                                     </tbody>

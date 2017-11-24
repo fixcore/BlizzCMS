@@ -15,14 +15,6 @@ class M_general extends CI_Model {
 		return $this->auth->query("SELECT id FROM account_access WHERE id = '".$id."'");
 	}
 
-	public function getNewIDperTitle($date)
-	{
-		$qq = $this->db->query("SELECT id FROM fx_news WHERE date = '".$date."'");
-		foreach ($qq->result() as $row) {
-			return $row->id;
-		}
-	}
-
 	public function getGeneralCharactersSpecifyAcc($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
@@ -31,10 +23,7 @@ class M_general extends CI_Model {
 
 	public function getSpecifyQuestion($id)
 	{
-		$qq = $this->db->query("SELECT question FROM fx_questions WHERE id = '".$id."'");
-		foreach ($qq->result() as $row) {
-			return $row->question;
-		}
+		return $this->db->query("SELECT question FROM fx_questions WHERE id = '".$id."'")->row()->question;
 	}
 
 	public function getUserInfoGeneral($id)
@@ -57,10 +46,7 @@ class M_general extends CI_Model {
 	public function getNameCharacterSpecifyGuid($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
-		$qq = $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'");
-		foreach ($qq->result() as $row) {
-			return $row->name;
-		}
+		return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row()->name;
 	}
 
 	public function getShopID($id)
@@ -70,10 +56,7 @@ class M_general extends CI_Model {
 
 	public function getPermissions($id)
 	{
-		$qq = $this->db->query("SELECT permission FROM fx_ranks WHERE id = '".$id."'");
-		foreach ($qq->result() as $row) {
-			return $row->permission;
-		}
+		return $this->db->query("SELECT permission FROM fx_ranks WHERE id = '".$id."'")->row()->permission;
 	}
 
 	public function getCharNameAlreadyExist($name)
@@ -91,31 +74,19 @@ class M_general extends CI_Model {
 	public function getCharName($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
-		$qq = $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'");
-
-		foreach ($qq->result() as $row) {
-			return $row->name;
-		}
+		return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row()->name;
 	}
 
 	public function getCharLevel($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
-		$qq = $this->characters->query("SELECT level FROM characters WHERE guid = '".$id."'");
-
-		foreach ($qq->result() as $row) {
-			return $row->level;
-		}
+		return $this->characters->query("SELECT level FROM characters WHERE guid = '".$id."'")->row()->level;
 	}
 
 	public function getCharActive($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
-		$qq = $this->characters->query("SELECT online FROM characters WHERE guid = '".$id."'");
-
-		foreach ($qq->result() as $row) {
-			return $row->online;
-		}
+		return $this->characters->query("SELECT online FROM characters WHERE guid = '".$id."'")->row()->online;
 	}
 
 	public function getMonth($id)
@@ -201,6 +172,18 @@ class M_general extends CI_Model {
             case 25: 	return $this->lang->line('race_panda_alli'); 	break;
             case 26: 	return $this->lang->line('race_panda_horde'); 	break;
         }
+    }
+
+    public function getCharactersOnlineAlliance()
+    {
+    	$this->characters = $this->load->database('characters', TRUE);
+    	return $this->characters->query("SELECT guid FROM characters WHERE online = 1 AND race = '1,3,4,7,11,22,25'")->num_rows();
+    }
+
+    public function getCharactersOnlineHorde()
+    {
+    	$this->characters = $this->load->database('characters', TRUE);
+    	return $this->characters->query("SELECT guid FROM characters WHERE online = 1 AND race = '2,5,6,8,10,9,26'")->num_rows();
     }
 
     public function getNameClass($class)

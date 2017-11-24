@@ -9,6 +9,40 @@ class Admin_model extends CI_Model {
 		parent::__construct();
 	}
 
+	public function insertApiCharType($id, $type)
+	{
+		$this->db->query("INSERT INTO fx_api_generator (id, type, active) VALUES ('$id','$type','1')");
+		redirect(base_url('admin/capic/?generated=').$id,'refresh');
+	}
+
+	public function getUltimateApiCharID()
+	{
+		$qq = $this->db->query("SELECT id FROM fx_api_generator ORDER BY id DESC LIMIT 1")->row()->id;
+		return $qq+1;
+	}
+
+	public function delSpecifyNew($id)
+	{
+		$this->db->query("DELETE FROM fx_news WHERE id = '".$id."'");
+		$this->db->query("DELETE FROM fx_news_top WHERE id_new = '".$id."'");
+		redirect(base_url('admin/listnew'),'refresh');
+	}
+
+	public function getGeneralNewsSpecifyName($id)
+	{
+		return $this->db->query("SELECT title FROM fx_news WHERE id = '".$id."'")->row()->title;
+	}
+
+	public function getGeneralNewsSpecifyDesc($id)
+	{
+		return $this->db->query("SELECT description FROM fx_news WHERE id = '".$id."'")->row()->description;
+	}
+
+	public function getGeneralNewsSpecifyRows($id)
+	{
+		return $this->db->query("SELECT * FROM fx_news WHERE id = '".$id."'")->num_rows();
+	}
+
 	public function getAdminAccountsList()
 	{
 		return $this->auth->query("SELECT id, username, email FROM account ORDER BY id ASC");
@@ -83,11 +117,38 @@ class Admin_model extends CI_Model {
 
 		if ($type == 2)
 		{
-			$id = $this->m_general->getNewIDperTitle($date);
+			$id = $this->getNewIDperDate($date);
 			$this->db->query("INSERT INTO fx_news_top (id_new) VALUES ($id)");
 		}
 
 		redirect(base_url(),'refresh');
+	}
+
+	public function updateNewADM($id, $title, $image, $description, $type)
+	{
+		$unlink = $this->getFileNameImage($id);
+		unlink('./assets/images/news/'.$unlink);
+
+		$date = $this->m_data->getTimestamp();
+		
+		$this->db->query("UPDATE fx_news SET title = '$title', image = '$image', description = '$description', date = '$date' WHERE id = '$id'");
+
+		$this->db->query("DELETE FROM fx_news_top WHERE id_new = '$id'");
+
+		if ($type == 2)
+			$this->db->query("INSERT INTO fx_news_top (id_new) VALUES ($id)");
+
+		redirect(base_url(),'refresh');
+	}
+
+	public function getNewIDperDate($date)
+	{
+		return $this->db->query("SELECT id FROM fx_news WHERE date = '".$date."'")->row()->id;
+	}
+
+	public function getFileNameImage($id)
+	{
+		return $this->db->query("SELECT image FROM fx_news WHERE id = '".$id."'")->row_array()['image'];
 	}
 
 	public function insertChangeFactionChar($id)

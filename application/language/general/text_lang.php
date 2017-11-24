@@ -49,6 +49,7 @@ $lang['expr_level'] 		= 'Level';
 $lang['expr_rename'] 		= 'Rename';
 
 
+$lang['news_manage']		= 'Manage new';
 $lang['user_manage']		= 'Manage user';
 $lang['char_manage']		= 'Manage character';
 $lang['char_newlevel']		= 'Receive a new level';
@@ -67,7 +68,7 @@ $lang['unban']				= 'Unban';
 $lang['unban_acc']			= 'Unban Account';
 $lang['ban_char']			= 'Ban Character';
 $lang['unban_char']			= 'Unban Character';
-$lang['unbanned_char']		= 'Unbanned';
+$lang['unbanned']			= 'Unbanned';
 $lang['ban_acc']			= 'Ban Account';
 $lang['rank_acc']			= 'GM Rank';
 $lang['grant_acc']			= 'Grant GM';
@@ -115,6 +116,8 @@ $lang['race_panda_horde']	= 'Pandaren Horde';
 
 $lang['gender_male']		= 'Male';
 $lang['gender_female']		= 'Female';
+$lang['faction_alliance']	= 'Alliance';
+$lang['faction_horde']		= 'Horde';
 
 
 $lang['was_ban']			= 'Was banned';
@@ -130,6 +133,7 @@ $lang['last_comments']		= 'Last comments';
 
 
 $lang['button_crea']		= 'Create';
+$lang['button_delete']		= 'Delete';
 
 
 $lang['chang_pass'] 		= 'Change Password';

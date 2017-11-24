@@ -107,7 +107,14 @@
                     <li> <a href="<?= base_url('admin/listnew'); ?>" class="waves-effect"><i class="mdi mdi-google-maps fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_listnew'); ?></span></a> </li>
 
                     <li class="devider"></li>
+                    
+                    <li><a href="<?= base_url('admin/apic'); ?>" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">API</span></a></li>
+                    
+                    <li class="devider"></li>
+
+                    
                     <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/wiki" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Wiki</span></a></li>
+
                     <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/issues" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu">Issues</span></a></li>
                 </ul>
             </div>

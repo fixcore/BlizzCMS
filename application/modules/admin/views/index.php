@@ -8,45 +8,49 @@
         <!-- ============================================================== -->
         <!-- Different data widgets -->
         <!-- ============================================================== -->
-        <!-- .row -->
+        <!--/.row -->
         <div class="row">
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="white-box analytics-info">
-                    <h3 class="box-title"><?= $this->lang->line('players_on'); ?></h3>
-                    <ul class="list-inline two-part">
-                        <li class="text-right">
-                            <span class="counter text-success"><?= $this->admin_model->getCharOn(); ?></span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <a href="<?= base_url('admin/users'); ?>" title="<?= $this->lang->line('account_cre'); ?>">
-                    <div class="white-box analytics-info">
-                        <h3 class="box-title"><?= $this->lang->line('account_cre'); ?></h3>
-                        <ul class="list-inline two-part">
-                            <li class="text-right"><span class="counter text-purple"><?= $this->admin_model->getAccCreated(); ?></span></li>
-                        </ul>
+                <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <div class="row">
+                        <div class="col-lg-6 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title"><?= $this->lang->line('players_on'); ?></h3>
+                                <ul class="list-inline m-t-30 p-t-10 two-part">
+                                    <li><i class="icon-people text-info"></i></li>
+                                    <li class="text-right"><span class="counter"><?= $this->admin_model->getCharOn(); ?></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title"><?= $this->lang->line('account_cre'); ?></h3>
+                                <ul class="list-inline m-t-30 p-t-10 two-part">
+                                    <li><i class="fa fa-user text-purple"></i></li>
+                                    <li class="text-right"><span class="counter"><?= $this->admin_model->getAccCreated(); ?></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title"><?= $this->lang->line('staff_count'); ?></h3>
+                                <ul class="list-inline m-t-30 p-t-10 two-part">
+                                    <li><i class="fa fa-spin fa-circle-o-notch text-danger"></i></li>
+                                    <li class="text-right"><span class=""><?= $this->admin_model->getGmCount(); ?></span></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6 col-xs-12">
+                            <div class="white-box">
+                                <h3 class="box-title"><?= $this->lang->line('bann_count'); ?></h3>
+                                <ul class="list-inline m-t-30 p-t-10 two-part">
+                                    <li><i class="fa fa-th-large text-success"></i></li>
+                                    <li class="text-right"><span class=""><?= $this->admin_model->getBanCount(); ?></span></li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="white-box analytics-info">
-                    <h3 class="box-title"><?= $this->lang->line('staff_count'); ?></h3>
-                    <ul class="list-inline two-part">
-                        <li class="text-right"><span class="counter text-info"><?= $this->admin_model->getGmCount(); ?></span></li>
-                    </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-sm-6 col-xs-12">
-                <div class="white-box analytics-info">
-                    <h3 class="box-title"><?= $this->lang->line('bann_count'); ?></h3>
-                    <ul class="list-inline two-part">
-                        <li class="text-right"><span class="text-danger"><?= $this->admin_model->getBanCount(); ?></span></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <!--/.row -->
     </div>
     <!-- /.container-fluid -->

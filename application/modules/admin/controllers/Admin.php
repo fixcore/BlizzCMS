@@ -36,6 +36,40 @@ class Admin extends MX_Controller {
 		$this->load->view('general/footer');
 	}
 
+	public function apic()
+	{
+		$this->load->model('admin_model');
+
+		if (!$this->m_data->isLogged())
+			redirect(base_url(),'refresh');
+		if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+			redirect(base_url(),'refresh');
+
+		if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+			redirect(base_url(),'refresh');
+
+		$this->load->view('general/header');
+		$this->load->view('api/create');
+		$this->load->view('general/footer');
+	}
+
+	public function capic()
+	{
+		$this->load->model('admin_model');
+
+		if (!$this->m_data->isLogged())
+			redirect(base_url(),'refresh');
+		if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+			redirect(base_url(),'refresh');
+
+		if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+			redirect(base_url(),'refresh');
+
+		$this->load->view('general/header');
+		$this->load->view('api/capic');
+		$this->load->view('general/footer');
+	}
+
 	public function listnew()
 	{
 		$this->load->model('admin_model');
@@ -131,6 +165,31 @@ class Admin extends MX_Controller {
 
 		$this->load->view('general/header');
 		$this->load->view('characters/clist', $data);
+		$this->load->view('general/footer');
+	}
+
+	public function nlist($id)
+	{
+		$this->load->model('admin_model');
+
+		if (is_null($id) || empty($id))
+			redirect(base_url(),'refresh');
+		if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+			redirect(base_url(),'refresh');
+
+		if (!$this->m_data->isLogged())
+			redirect(base_url(),'refresh');
+
+		if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+			redirect(base_url(),'refresh');
+
+		if ($this->admin_model->getGeneralNewsSpecifyRows($id) < 1)
+			redirect(base_url(),'refresh');
+
+		$data['idlink'] = $id;
+
+		$this->load->view('general/header');
+		$this->load->view('news/nlist', $data);
 		$this->load->view('general/footer');
 	}
 

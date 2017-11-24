@@ -256,7 +256,28 @@
 <div class="Pane Pane--full Home-additionalLinkPane">
     <div style="" class="Pane-content">
     <div class="Home-additionalLinks clearfix">
-        <h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3>
+        <!--<h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3>
+         online -->
+        <div class="">
+            <div class="ui labeled button" tabindex="0">
+              <div class="ui blue button">
+                <i class="diamond icon"></i> <?= $this->lang->line('faction_alliance'); ?>
+              </div>
+              <a class="ui basic blue left pointing label">
+                <?= $this->m_general->getCharactersOnlineAlliance(); ?>
+              </a>
+            </div>
+
+            <div class="ui labeled button" tabindex="0">
+              <div class="ui red button">
+                <i class="diamond icon"></i> <?= $this->lang->line('faction_horde'); ?>
+              </div>
+              <a class="ui basic red left pointing label">
+                <?= $this->m_general->getCharactersOnlineHorde(); ?>
+              </a>
+            </div>
+          </div>
+        <!-- online -->
     </div>
 </div>
 </div>
