@@ -151,7 +151,7 @@
       <!-- old pass -->
       <div class="ui fluid right labeled left icon input">
         <i class="unhide icon"></i>
-        <input name="oldpass" type="text" required placeholder="<?= $this->lang->line('old_password'); ?>">
+        <input name="oldpass" type="password" required placeholder="<?= $this->lang->line('old_password'); ?>">
         <a class="ui tag label">
           <?= $this->lang->line('old_password'); ?>
         </a>
@@ -161,7 +161,7 @@
       <!-- old pass -->
       <div class="ui fluid right labeled left icon input">
         <i class="unhide icon"></i>
-        <input name="newpass" type="text" required placeholder="<?= $this->lang->line('new_password'); ?>">
+        <input name="newpass" type="password" required placeholder="<?= $this->lang->line('new_password'); ?>">
         <a class="ui tag label">
           <?= $this->lang->line('new_password'); ?>
         </a>
@@ -171,7 +171,7 @@
       <!-- old pass -->
       <div class="ui fluid right labeled left icon input">
         <i class="unhide icon"></i>
-        <input name="newpassr" type="text" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
+        <input name="newpassr" type="password" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
         <a class="ui tag label">
           <?= $this->lang->line('pascword_re'); ?>
         </a>
