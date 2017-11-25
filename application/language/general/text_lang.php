@@ -26,6 +26,8 @@ $lang['acc_setting']		= 'Account Settings';
 $lang['acc_gifs']			= 'My Gifts';
 $lang['acc_exist']			= 'This account already exists';
 $lang['pass_nmatch']		= 'Passwords do not match';
+$lang['pass_omatch']		= 'Old Password do not match';
+$lang['password_same']		= 'The password is the same.';
 
 $lang['account_cre']		= 'Accounts created';
 $lang['staff_count']		= 'STAFF accounts';
@@ -134,9 +136,13 @@ $lang['last_comments']		= 'Last comments';
 
 $lang['button_crea']		= 'Create';
 $lang['button_delete']		= 'Delete';
+$lang['button_change']		= 'Change';
+$lang['button_cancel']		= 'Cancel';
 
 
 $lang['chang_pass'] 		= 'Change Password';
+$lang['old_password'] 		= 'Old Password';
+$lang['new_password'] 		= 'New Password';
 
 
 $lang['store'] 				= 'Store';
@@ -155,6 +161,7 @@ $lang['button_learnmore']	= 'Learn More';
 
 
 $lang['up_events']			= 'Upcoming Events';
+$lang['expansion_notfound']	= 'Expansion not found.';
 
 $lang['month_January'] 		= 'January';
 $lang['month_February'] 	= 'February';

@@ -52,9 +52,9 @@ class M_data extends CI_Model {
 
     public function getUsernameID($id)
     {
-        $this->db = $this->load->database('auth', TRUE);
+    	$this->db = $this->load->database('auth', TRUE);
 
-        return $this->db->query("SELECT username FROM account WHERE id = '".$id."'")->row_array()['username'];
+    	return $this->db->query("SELECT username FROM account WHERE id = '".$id."'")->row_array()['username'];
     }
 
     public function getEmailID($id)
@@ -67,9 +67,9 @@ class M_data extends CI_Model {
 
     public function getPasswordAccountID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT sha_pass_hash FROM account WHERE id = '".$id."'")->row();
+        $qq = $this->db->query("SELECT sha_pass_hash FROM account WHERE id = '".$id."'")->row();
         return $qq->sha_pass_hash;
     }
 

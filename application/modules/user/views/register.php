@@ -13,6 +13,17 @@
 <!-- semantic ui Start -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
 <!-- semantic ui End -->
+
+<!-- custom footer -->
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<!-- semantic -->
+<script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
+<!-- semantic -->
+<!-- custom footer -->
+
 </head>
 
 <body lang="en" data-locale="en-gb" data-device="desktop" data-name="index">

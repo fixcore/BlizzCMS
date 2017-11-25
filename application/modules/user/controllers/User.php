@@ -33,6 +33,8 @@ class User extends MX_Controller {
 	{
 		if (!$this->m_data->isLogged())
 			redirect(base_url(),'refresh');
+
+		$this->load->model('user_model');
 		
 		$this->load->view('settings');
 		$this->load->view('footer');
