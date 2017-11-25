@@ -80,13 +80,6 @@
 </div>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
-  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-  crossorigin="anonymous"></script>
-<!-- semantic -->
-<script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-<!-- semantic -->
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzard-a4a1541cff453fc7fb38ab8c3c21a48d3eb9feeaab0f8da0c51a60a33485884c6ca2a5e7c78d99533fee7e806e95608e32b04d6ddc028cdd34d3c282912cb0b5.js">
 </script>
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/app-3ce504d73c6ad390e088f0378c44f77a39cee074bffeeb3da6e73c01e54a1be1702ce8262531930ec6a4619a9ee8169a51b090e9215320a053a02247bf182e7f.js">
@@ -95,5 +88,7 @@
 </script>
 <script type="text/javascript" src="<?= base_url(); ?>assets/js/root-ui-575b63757c6991750864ad7ee971d893edd78ea664aa05c07b59af47be16768c19c5db1928591215826a6fd4b8df10ddecdef690dc348e11c7ec0a1ea3ba66ee.js">
 </script>
+</script>
+
 </body>
 </html>

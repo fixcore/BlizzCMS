@@ -180,3 +180,5 @@ $lang['month_September'] 	= 'September';
 $lang['month_October'] 		= 'October';
 $lang['month_November'] 	= 'November';
 $lang['month_December'] 	= 'December';
+
+$lang['forum_welcometext']	= 'Welcome to the official forums';
