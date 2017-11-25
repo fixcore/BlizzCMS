@@ -52,10 +52,9 @@ class M_data extends CI_Model {
 
     public function getUsernameID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT username FROM account WHERE id = '".$id."'")->row();
-    	return $qq->username;
+        return $this->db->query("SELECT username FROM account WHERE id = '".$id."'")->row_array()['username'];
     }
 
     public function getEmailID($id)

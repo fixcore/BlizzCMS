@@ -56,7 +56,7 @@ class M_general extends CI_Model {
 
 	public function getPermissions($id)
 	{
-		return $this->db->query("SELECT permission FROM fx_ranks WHERE id = '".$id."'")->row()->permission;
+		return $this->db->query("SELECT permission FROM fx_ranks WHERE id = '".$id."'")->row_array()['permission'];
 	}
 
 	public function getCharNameAlreadyExist($name)
