@@ -21,4 +21,22 @@ class User_model extends CI_Model {
 		redirect(base_url('user/logout'),'refresh');
 	}
 
+	public function changeEmailI($id, $email, $password)
+	{
+		$this->auth->query("UPDATE account SET email = '$email' WHERE id = '$id'");
+		redirect(base_url('user/logout'),'refresh');
+	}
+
+	public function changeEmailII($id, $email, $password)
+	{
+		$this->auth->query("UPDATE account SET email = '$email' WHERE id = '$id'");
+		$this->auth->query("UPDATE battlenet_accounts SET sha_pass_hash = '$password', email = '$email' WHERE id = '$id'");
+		redirect(base_url('user/logout'),'refresh');
+	}
+
+	public function getExistEmail($email)
+    {
+        return $this->auth->query("SELECT email FROM account WHERE email = '".$email."'")->num_rows();
+    }
+
 }

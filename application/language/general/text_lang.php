@@ -27,6 +27,8 @@ $lang['acc_gifs']			= 'My Gifts';
 $lang['acc_exist']			= 'This account already exists';
 $lang['pass_nmatch']		= 'Passwords do not match';
 $lang['pass_omatch']		= 'Old Password do not match';
+$lang['email_omatch']		= 'The current email is not correct';
+$lang['email_use']			= 'Email in use';
 $lang['password_same']		= 'The password is the same.';
 
 $lang['account_cre']		= 'Accounts created';
@@ -141,8 +143,11 @@ $lang['button_cancel']		= 'Cancel';
 
 
 $lang['chang_pass'] 		= 'Change Password';
+$lang['chang_email'] 		= 'Change Email';
+$lang['old_email']	 		= 'Old Email';
 $lang['old_password'] 		= 'Old Password';
 $lang['new_password'] 		= 'New Password';
+$lang['new_email'] 			= 'New Email';
 
 
 $lang['store'] 				= 'Store';

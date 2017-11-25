@@ -118,7 +118,54 @@
   echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_nmatch').'</p></div>';
 }?>
 
+<?php if(isset($_POST['button_changeemail'])) {
+  $password = $_POST['password'];
+  $oldemail = $_POST['oldemail'];
+  $newemail = $_POST['newemail'];
 
+    if($this->m_general->getExpansionAction() == 1)
+    {
+      $compare = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $password);
+
+      if(strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
+      {
+        if($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
+        {
+            $this->user_model->changeEmailI($this->session->userdata('fx_sess_id'), $newemail);
+        }
+        else
+          echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_omatch').'</p></div>';
+      }
+      else
+        echo '<div class="ui inverted red segment"><p>'.$this->lang->line('email_omatch').'</p></div>';
+
+    }
+    elseif ($this->m_general->getExpansionAction() == 2)
+    {
+      $compare = $this->m_data->encryptBattlenet($this->session->userdata('fx_sess_email'), $password);
+
+      $newpasscompare = $this->m_data->encryptBattlenet($newemail, $password);
+
+      if ($this->user_model->getExistEmail(strtoupper($newemail)) > 0)
+        echo '<div class="ui inverted red segment"><p>'.$this->lang->line('email_use').'</p></div>';
+      else
+      {
+        if(strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
+        {
+          if($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
+          {
+              $this->user_model->changeEmailII($this->session->userdata('fx_sess_id'), $newemail, $newpasscompare);
+          }
+          else
+            echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_omatch').'</p></div>';
+        }
+        else
+          echo '<div class="ui inverted red segment"><p>'.$this->lang->line('email_omatch').'</p></div>';
+      }
+    }
+    else
+      echo '<div class="ui inverted red segment"><p>'.$this->lang->line('expansion_notfound').'</p></div>';
+}?>
 <!-- forms -->
 
 <!-- step START -->
@@ -133,6 +180,29 @@
               <h2 class="ui center aligned icon header" style="color: white;">
                 <i class="lock icon"></i>
                 <?= $this->lang->line('chang_pass'); ?>
+              </h2>
+              <!-- image END -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+<!-- step END -->
+
+<!-- step START -->
+<div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
+  <a href="#" id="changeEmail">
+    <div style="" class="Tile Tile--transparent Tile--innerBorder ExampleTile" data-index='0'>
+      <div class="Tile-content">
+        <div class="ExampleTile-content align-center">
+          <div class="text-accent-warm">
+            <div class="Icon Icon--jumbo hide inline-xs">
+              <!-- image START -->
+              <h2 class="ui center aligned icon header" style="color: white;">
+                <i class="mail icon"></i>
+                <?= $this->lang->line('chang_email'); ?>
               </h2>
               <!-- image END -->
             </div>
@@ -185,12 +255,62 @@
 </form>
   </div>
 
+
+<div class="ui changeemail mini modal">
+    <div class="header"><?= $this->lang->line('chang_pass'); ?></div>
+    <div class="content">
+<form action="" method="post" accept-charset="utf-8">
+      <!-- pass -->
+      <div class="ui fluid right labeled left icon input">
+        <i class="unhide icon"></i>
+        <input name="password" type="password" required placeholder="<?= $this->lang->line('password_re'); ?>">
+        <a class="ui tag label">
+          <?= $this->lang->line('password_re'); ?>
+        </a>
+      </div>
+      <!-- pass -->
+      <hr>
+      <!-- old email -->
+      <div class="ui fluid right labeled left icon input">
+        <i class="mail icon"></i>
+        <input name="oldemail" type="email" required placeholder="<?= $this->lang->line('old_email'); ?>">
+        <a class="ui tag label">
+          <?= $this->lang->line('old_email'); ?>
+        </a>
+      </div>
+      <!-- old email -->
+      <hr>
+      <!-- new pass -->
+      <div class="ui fluid right labeled left icon input">
+        <i class="unhide icon"></i>
+        <input name="newemail" type="email" required placeholder="<?= $this->lang->line('new_email'); ?>">
+        <a class="ui tag label">
+          <?= $this->lang->line('new_email'); ?>
+        </a>
+      </div>
+      <!-- new pass -->
+    </div>
+    <div class="actions">
+      <input class="ui primary basic button" type="submit" name="button_changeemail" value="<?= $this->lang->line('button_change'); ?>">
+      <input class="ui negative basic button" type="button" value="<?= $this->lang->line('button_cancel'); ?>">
+    </div>
+</form>
+  </div>
+
 <script>
   $('.ui.changepass.mini.modal')
   .modal({
     blurring: true
   })
   .modal('attach events', '#changePassword', 'show');
+</script>
+
+<script>
+  $('.ui.changeemail.mini.modal')
+  .modal({
+    blurring: true
+  })
+  .modal('attach events', '#changeEmail', 'show');
 </script>
 
 
