@@ -1,24 +1,37 @@
 version: 2
-
 jobs:
   build:
+    working_directory: /var/www/html
     docker:
-      - image: notnoopci/php:7.1.5-browsers
-    working_directory: ~/laravel
+      - image: php:7.1-apache
+        environment:
+          APP_ENV: test
     steps:
+      - run:
+          name: Install system packages
+          command: apt-get update && apt-get -y install git
+      - run:
+          name: Install PHP extensions
+          command: docker-php-ext-install pdo
       - checkout
-      - run: sudo apt install -y libsqlite3-dev
-      - run: composer self-update
-      - restore_cache:
-          keys:
-            - composer-v1-{{ checksum "composer.json" }}
-            - composer-v1-
-      - run: composer install -n --prefer-dist
-      - save_cache:
-          key: composer-v1-{{ checksum "composer.json" }}
-          paths:
-            - vendor
-      - run: touch storage/testing.sqlite
-      - run: php artisan migrate --env=testing --database=sqlite_testing --force
-      - run: ./vendor/bin/codecept build
-      - run: ./vendor/bin/codecept run
+      - run:
+          name: Install Composer
+          command: |
+            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+            php -r "if (hash_file('SHA384', 'composer-setup.php') === trim(file_get_contents('https://composer.github.io/installer.sig'))) { echo 'Installer verified'; } else { echo 'Installer invalid'; unlink('composer-setup.php'); } echo PHP_EOL;"
+            php composer-setup.php
+            php -r "unlink('composer-setup.php');"
+      - run:
+          name: Display PHP information
+          command: |
+            php -v
+            php composer.phar --version
+      - run:
+          name: Install project dependencies
+          command: php composer.phar install
+      - run:
+          name: Run CS tests
+          command: vendor/bin/phpcs
+      - run:
+          name: Run Unit tests
+          command: vendor/bin/phpunit
