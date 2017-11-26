@@ -1,52 +1,75 @@
+# Config file for https://travis-ci.org/
+# Validate this file here - http://lint.travis-ci.org/
+
+# Tell Travis CI we are using PHP
 language: php
-dist: precise
 
-php:
-  - 5.6
-  - 7.0
-  - 7.1
-  - 7.2
-  - master
-  - hhvm
+# The platforms you wants to test on
+os:
+  - linux
   
-env:
-  - DB=mysql
-  - DB=mysqli
-  - DB=pgsql
-  - DB=sqlite
-  - DB=pdo/mysql
-  - DB=pdo/pgsql
-  - DB=pdo/sqlite
+# git configs
+git:
+  depth: 1
 
-sudo: false
+# Define the php versions against we want to test our code
+php:
+    - 5.6
+    - 7.0
+    - 7.1
 
-before_script:
-  - sh -c "composer install --dev --no-progress"
-  - sh -c "if [ '$DB' = 'pgsql' ] || [ '$DB' = 'pdo/pgsql' ]; then psql -c 'DROP DATABASE IF EXISTS ci_test;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'pgsql' ] || [ '$DB' = 'pdo/pgsql' ]; then psql -c 'create database ci_test;' -U postgres; fi"
-  - sh -c "if [ '$DB' = 'mysql' ] || [ '$DB' = 'mysqli' ] || [ '$DB' = 'pdo/mysql' ]; then mysql -e 'create database IF NOT EXISTS ci_test;'; fi"
-
-script: php -d zend.enable_gc=0 -d date.timezone=UTC -d mbstring.func_overload=7 -d mbstring.internal_encoding=UTF-8 vendor/bin/phpunit --coverage-text --configuration tests/travis/$DB.phpunit.xml
 
 matrix:
-  allow_failures:
-    - php: hhvm
-    - php: master
-  exclude:
-    - php: hhvm
-      env: DB=pgsql
-    - php: hhvm
-      env: DB=pdo/pgsql
-    - php: 7.0
-      env: DB=mysql
-    - php: 7.1
-      env: DB=mysql
-    - php: 7.2
-      env: DB=mysql
-    - php: master
-      env: DB=mysql
+  fast_finish: true
 
+
+# We don't want to run linux commands as super user
+sudo: false
+
+# Note: Code coverage requires php Xdebug extension  to enabled
+
+# Composer package installation
+install:
+  # Install composer packages, will also trigger dump-autoload
+  - travis_retry composer install --no-interaction
+  # Install coveralls.phar
+  - wget -c -nc --retry-connrefused --tries=0 https://github.com/satooshi/php-coveralls/releases/download/v1.0.1/coveralls.phar
+  - chmod +x coveralls.phar
+  - php coveralls.phar --version
+
+# Create a storage folder for Coverage report
+before_script:
+    - mkdir -p build/logs
+    - ls -al
+
+# Testing the app (see phpunit.xml), generating Code Coverage report
+script:
+  - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+
+#after_script:
+
+
+after_success:
+# Submit coverage report to Coveralls servers, see .coveralls.yml
+ - travis_retry php coveralls.phar -v
+# Submit coverage report to codecov.io
+ - bash <(curl -s https://codecov.io/bash)
+
+#after_failure:
+
+# Tell Travis CI to monitor only 'master' branch
 branches:
-  only:
-    - master
-    - /^feature\/.+$/
+  only: master
+
+# Configure email notifications
+notifications:
+     email:
+        on_success: never
+        on_failure: always
+
+# You can delete cache using travis-ci web interface
+cache:
+  directories:
+  - vendor
+  - $HOME/.cache/composer
