@@ -107,11 +107,8 @@
 <?php if (!$this->m_data->isLogged()) { ?>
 <div class="Navbar-modalSection">
     <a href="<?= base_url(); ?>user/login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('menu_login'); ?>">
-        <div class="Navbar-button is-full ui animated ui primary basic button" tabindex="0">
+    <div class="Navbar-button is-full ui ui primary basic button" tabindex="0">
       <div class="visible content"><?= $this->lang->line('menu_login'); ?></div>
-      <div class="hidden content">
-        <i class="right arrow icon"></i>
-      </div>
     </div>
     </a>
 </div>
