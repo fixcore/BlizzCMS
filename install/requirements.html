@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Installation - BlizzCMS</title>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+
+		<link rel="stylesheet" href="css/main.css" type="text/css" />
+
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript" ></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript" ></script>
+
+		<!-- semantic ui Start -->
+		<link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
+		<!-- semantic ui End -->
+
+		<!-- custom footer -->
+		<script
+		  src="https://code.jquery.com/jquery-3.1.1.min.js"
+		  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		  crossorigin="anonymous"></script>
+		<!-- semantic -->
+		<script src="../assets/semanticui/semantic.min.js"></script>
+		<!-- semantic -->
+		<!-- custom footer -->
+
+		<script src="js/ui.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			$(document).ready(function()
+			{
+				UI.initialize();
+			})
+		</script>
+
+		<!--[if IE]>
+			<style type="text/css">
+			#main .right h2 img {
+				position:relative;
+			}
+			</style>
+		<![endif]-->
+
+		<!--[if LTE IE 7]>
+			<style type="text/css">
+			#main .right .statistics span {
+				width:320px;
+			}
+			</style>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div id="popup_bg"></div>
+
+		<!-- confirm box -->
+		<div id="confirm" class="popup">
+			<h1 class="popup_question" id="confirm_question"></h1>
+
+			<div class="popup_links">
+				<a href="javascript:void(0)" class="popup_button" id="confirm_button"></a>
+				<a href="javascript:void(0)" class="popup_hide" id="confirm_hide" onClick="UI.hidePopup()">
+					Cancel
+				</a>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+
+		<!-- alert box -->
+		<div id="alert" class="popup">
+			<h1 class="popup_message" id="alert_message"></h1>
+
+			<div class="popup_links">
+				<a href="javascript:void(0)" class="popup_button" id="alert_button">Okay</a>
+				<div style="clear:both;"></div>
+			</div>
+		</div>
+
+		<div id="wrap">
+			<div id="fixer">
+				<!-- Top bar -->
+					<div class="ui inverted three item menu">
+					  <a href="index.html" class="item active">Installation</a>
+					</div>
+
+				<!-- Main content -->
+				<section>
+					<div id="top_spacer"></div>
+					<div class="center_1020" id="main">
+
+						<!-- Main Left column -->
+						<aside class="left">
+							<nav>
+								<a class="active"><i class="heartbeat icon"></i> Install</a>
+								<section class="sub">
+									<a><i class="browser icon"></i> Introduction</a>
+									<a class="active"><i class="alarm outline icon"></i> Requirements</a>
+									<a><i class="lab icon"></i> General</a>
+									<a><i class="database icon"></i> Database</a>
+									<a><i class="paint brush icon"></i> Complete installation</a>
+								</section>
+							</nav>
+
+							<div class="spacer"></div>
+						</aside>
+
+						<!-- Main right column -->
+						<aside class="right">
+							<section class="box big" id="installer_step_1">
+								<h2><i class="alarm outline icon"></i> Server requirements <span style="color:red;display:inline;padding:0px;">(important!)</span></h2>
+
+								<span>
+
+									<div class="introduction">
+										<h3>What do I need to run this system?</h3>
+									
+										<div style="font-weight:bold;margin-bottom:20px;margin-top:20px;" id="config_folder">&bull; /application/config/ needs to be writable (see <a href="http://en.wikipedia.org/wiki/Chmod" target="_blank">chmod</a>)</div>
+
+										<div style="font-weight:bold;margin-bottom:20px;margin-top:20px;" id="modules_folder">&bull; /application/modules/ is writable</div>
+
+										<div style="font-weight:bold;margin-bottom:20px;margin-top:20px;" id="cache_folder">&bull; /application/cache/</div>
+
+										<div style="font-weight:bold;margin-bottom:20px;margin-top:20px;">If you're on a web host, Apache may already be properly configured.</div>
+
+										&bull; <b>Apache:</b> mod_rewrite, mod_headers, mod_expires, mod_deflate
+										<div class="how_to_box">
+											Go into your Apache directory and find the <b>httpd.conf</b> file. Mine was located in "C:\wamp\bin\apache\apache2.2.22\conf\". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the #-character in front of the line.<br /><br />
+											<img src="images/apache.jpg" style="border:1px solid #ccc" />
+										</div>
+
+										&bull; <b>PHP:</b> php_curl, php_openssl, php_soap, php_gd, php_mbstring, php_json
+										<div class="how_to_box">
+											Go into your PHP directory and find the <b>php.ini</b> file. Mine was located in "C:\wamp\bin\php\php5.3.13". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the ;-character in front of the line.<br /><br />
+
+											<img src="images/php.jpg" style="border:1px solid #ccc" />
+										</div>
+									</div>
+								</span>
+
+								<div class="installer_navigation">
+									<a href="index.html" class="ui negative basic button">Previous step</a>
+									<a href="general.php" onClick="UI.Navigation.next()" class="ui primary basic button">Next step</a>
+								</div>
+							</section>
+
+						</aside>
+
+						<div class="clear"></div>
+					</div>
+				</section>
+			</div>
+		</div>
+
+	</body>
+</html>
