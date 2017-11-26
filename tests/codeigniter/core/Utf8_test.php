@@ -1,27 +1,31 @@
 <?php
 
-/**
- * @runTestsInSeparateProcesses
- */
 class Utf8_test extends CI_TestCase {
 
-	public function test___constructUTF8_ENABLED()
+	public function set_up()
 	{
-		if ( ! defined('PREG_BAD_UTF8_ERROR') OR (ICONV_ENABLED === FALSE && MB_ENABLED === FALSE))
-		{
-			return $this->markTestSkipped('PCRE_UTF8 and/or both ext/mbstring & ext/iconv are unavailable');
-		}
-
-		new CI_Utf8('UTF-8');
-		$this->assertTrue(UTF8_ENABLED);
+		$this->ci_set_config('charset', 'UTF-8');
+		$this->utf8 = new Mock_Core_Utf8();
+		$this->ci_instance_var('utf8', $this->utf8);
 	}
 
 	// --------------------------------------------------------------------
 
-	public function test__constructUTF8_DISABLED()
+	/**
+	 * __construct() test
+	 *
+	 * @covers	CI_Utf8::__construct
+	 */
+	public function test___construct()
 	{
-		new CI_Utf8('WINDOWS-1251');
-		$this->assertFalse(UTF8_ENABLED);
+		if (defined('PREG_BAD_UTF8_ERROR') && (ICONV_ENABLED === TRUE OR MB_ENABLED === TRUE) && strtoupper(config_item('charset')) === 'UTF-8')
+		{
+			$this->assertTrue(UTF8_ENABLED);
+		}
+		else
+		{
+			$this->assertFalse(UTF8_ENABLED);
+		}
 	}
 
 	// --------------------------------------------------------------------
@@ -33,9 +37,8 @@ class Utf8_test extends CI_TestCase {
 	 */
 	public function test_is_ascii()
 	{
-		$utf8 = new CI_Utf8('UTF-8');
-		$this->assertTrue($utf8->is_ascii('foo bar'));
-		$this->assertFalse($utf8->is_ascii('тест'));
+		$this->assertTrue($this->utf8->is_ascii('foo bar'));
+		$this->assertFalse($this->utf8->is_ascii('тест'));
 	}
 
 	// --------------------------------------------------------------------
@@ -48,22 +51,21 @@ class Utf8_test extends CI_TestCase {
 	 */
 	public function test_clean_string()
 	{
-		$utf8 = new CI_Utf8('UTF-8');
-		$this->assertEquals('foo bar', $utf8->clean_string('foo bar'));
+		$this->assertEquals('foo bar', $this->utf8->clean_string('foo bar'));
 
 		$illegal_utf8 = "\xc0тест";
 		if (MB_ENABLED)
 		{
-			$this->assertEquals('тест', $utf8->clean_string($illegal_utf8));
+			$this->assertEquals('тест', $this->utf8->clean_string($illegal_utf8));
 		}
 		elseif (ICONV_ENABLED)
 		{
 			// This is a known issue, iconv doesn't always work with //IGNORE
-			$this->assertTrue(in_array($utf8->clean_string($illegal_utf8), array('тест', ''), TRUE));
+			$this->assertTrue(in_array($this->utf8->clean_string($illegal_utf8), array('тест', ''), TRUE));
 		}
 		else
 		{
-			$this->assertEquals($illegal_utf8, $utf8->clean_string($illegal_utf8));
+			$this->assertEquals($illegal_utf8, $this->utf8->clean_string($illegal_utf8));
 		}
 	}
 
@@ -76,14 +78,13 @@ class Utf8_test extends CI_TestCase {
 	 */
 	public function test_convert_to_utf8()
 	{
-		$utf8 = new CI_Utf8('UTF-8');
 		if (MB_ENABLED OR ICONV_ENABLED)
 		{
-			$this->assertEquals('тест', $utf8->convert_to_utf8('����', 'WINDOWS-1251'));
+			$this->assertEquals('тест', $this->utf8->convert_to_utf8('����', 'WINDOWS-1251'));
 		}
 		else
 		{
-			$this->assertFalse($utf8->convert_to_utf8('����', 'WINDOWS-1251'));
+			$this->assertFalse($this->utf8->convert_to_utf8('����', 'WINDOWS-1251'));
 		}
 	}
 

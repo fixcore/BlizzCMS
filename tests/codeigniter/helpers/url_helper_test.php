@@ -7,13 +7,8 @@ class Url_helper_test extends CI_TestCase {
 		$this->helper('url');
 	}
 
-	/**
-	 * @runInSeparateProcess
-	 */
 	public function test_url_title()
 	{
-		define('UTF8_ENABLED', FALSE);
-
 		$words = array(
 			'foo bar /' 	=> 'foo-bar',
 			'\  testing 12' => 'testing-12'
@@ -27,13 +22,8 @@ class Url_helper_test extends CI_TestCase {
 
 	// --------------------------------------------------------------------
 
-	/**
-	 * @runInSeparateProcess
-	 */
 	public function test_url_title_extra_dashes()
 	{
-		define('UTF8_ENABLED', FALSE);
-
 		$words = array(
 			'_foo bar_' 	=> 'foo_bar',
 			'_What\'s wrong with CSS?_' => 'Whats_wrong_with_CSS'
