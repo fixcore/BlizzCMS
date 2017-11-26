@@ -36,16 +36,13 @@ This page is compatible with all game versions.
 
 ## Configuration
 
-> application/config/config.php.dist **rename** to config.php
+* Enter the URL of your website and at the end enter /install
 
-> application/config/database.php.dist **rename** to database.php
+> Example: http://yourdomain.com/install/
 
-* In the file config.php change the line 26
-> $config['base_url'] = 'http://project-blizzcms.site/';
+* Follow the installation steps.
 
-* In the file database.php change the necessary data for the correct connection to your database.
-
-* In the file fixcore.php you can edit the values to your liking.
+> When finished installing, delete the folder (install) it is not advisable to change its name.
 
 ## Warning
 
