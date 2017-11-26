@@ -41,8 +41,11 @@ class M_data extends CI_Model {
     {
         $this->db = $this->load->database('default', TRUE);
 
-        $qq = $this->db->query("SELECT tag FROM fx_tags WHERE id = '".$id."'")->row();
-        return $qq->tag;
+        $qq = $this->db->query("SELECT tag FROM fx_tags WHERE id = '".$id."'");
+        if ($qq->num_rows() > 0)
+            return $qq->row()->tag;
+        else
+            return '0';
     }
 
     public function randomUTF()
