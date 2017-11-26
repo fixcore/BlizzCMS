@@ -81,7 +81,7 @@
       {
         $password = $this->m_data->encryptBattlenet($email, $password);
 
-        if (strtoupper($this->m_data->getPasswordBnetID($id) == strtoupper($password)))
+        if (strtoupper($this->m_data->getPasswordBnetID($id)) == strtoupper($password))
         {
           $this->m_data->arraySession($id);
         }

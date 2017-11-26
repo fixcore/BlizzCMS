@@ -81,7 +81,7 @@
       {
         $password = $this->m_data->encryptAccount($username, $password);
 
-        if (strtoupper($this->m_data->getPasswordAccountID($id) == strtoupper($password)))
+        if (strtoupper($this->m_data->getPasswordAccountID($id)) == strtoupper($password))
         {
           $this->m_data->arraySession($id);
         }
