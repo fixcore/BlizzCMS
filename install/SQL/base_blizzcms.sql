@@ -39,10 +39,10 @@ DROP TABLE IF EXISTS `fx_chars_annotations`;
 CREATE TABLE `fx_chars_annotations` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `idchar` int(10) NOT NULL,
-  `annotation` text NOT NULL,
+  `annotation` text CHARACTER SET utf8 NOT NULL,
   `date` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `fx_country` */
 
@@ -61,24 +61,23 @@ DROP TABLE IF EXISTS `fx_events`;
 
 CREATE TABLE `fx_events` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
-  `title` varchar(100) NOT NULL,
-  `description` text NOT NULL,
+  `title` varchar(100) CHARACTER SET utf8 NOT NULL,
+  `description` text CHARACTER SET utf8 NOT NULL,
   `date_event_start` int(10) NOT NULL,
   `date_event_end` int(10) NOT NULL,
   `date` int(10) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `fx_forum_category` */
 
 DROP TABLE IF EXISTS `fx_forum_category`;
 
 CREATE TABLE `fx_forum_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `categoryName` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `categoryName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`,`categoryName`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `fx_forum_forums` */
 
@@ -86,14 +85,14 @@ DROP TABLE IF EXISTS `fx_forum_forums`;
 
 CREATE TABLE `fx_forum_forums` (
   `id` int(2) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
+  `name` varchar(100) CHARACTER SET utf8 NOT NULL,
   `category` int(10) NOT NULL,
-  `description` text NOT NULL,
-  `icon` varchar(100) NOT NULL DEFAULT 'icon1.png',
+  `description` text CHARACTER SET utf8 NOT NULL,
+  `icon` varchar(100) CHARACTER SET utf8 NOT NULL DEFAULT 'icon1.png',
   `type` int(1) NOT NULL DEFAULT '1' COMMENT '1 = everyone | 2 = staff | 3 = staff post + everyone see',
   PRIMARY KEY (`id`),
   KEY `category` (`category`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `fx_forum_topics` */
 
@@ -102,21 +101,15 @@ DROP TABLE IF EXISTS `fx_forum_topics`;
 CREATE TABLE `fx_forum_topics` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `forums` int(10) unsigned NOT NULL,
-  `title` varchar(100) CHARACTER SET latin1 NOT NULL,
+  `title` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `author` int(10) unsigned NOT NULL,
   `date` int(10) unsigned NOT NULL,
-  `content` text CHARACTER SET latin1 NOT NULL,
+  `content` text COLLATE utf8_unicode_ci NOT NULL,
   `locked` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `pined` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `archivar` int(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id` (`id`),
-  KEY `id_2` (`id`),
-  KEY `id_3` (`id`),
-  KEY `id_4` (`id`),
-  KEY `id_5` (`id`),
-  KEY `forums` (`forums`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `fx_news` */
 
@@ -165,7 +158,7 @@ CREATE TABLE `fx_questions` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `question` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `fx_ranks` */
 
