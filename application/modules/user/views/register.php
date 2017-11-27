@@ -83,10 +83,10 @@
       <div class="field">
         <div class="two fields">
           <div class="field">
-            <input type="text" name="reg_firstname" required placeholder="<?= $this->lang->line('first_name'); ?>">
+            <input type="text" name="reg_firstname" pattern=".{2,}" required title="2 characters minimum" placeholder="<?= $this->lang->line('first_name'); ?>">
           </div>
           <div class="field">
-            <input type="text" name="reg_lastname" required placeholder="<?= $this->lang->line('last_name'); ?>">
+            <input type="text" name="reg_lastname" pattern=".{2,}" required title="2 characters minimum" placeholder="<?= $this->lang->line('last_name'); ?>">
           </div>
         </div>
       </div>
@@ -144,17 +144,17 @@
           </select>
         </div>
         <div class="field">
-          <input type="number" name="reg_dateYearNace" required placeholder="<?= $this->lang->line('year'); ?>">
+          <input type="number" name="reg_dateYearNace" pattern=".{4,4}" min="1936" max="2010" required title="4 characters" placeholder="<?= $this->lang->line('year'); ?>">
         </div>
       </div>
 
       <div class="field">
         <div class="two fields">
           <div class="field">
-            <input type="text" name="reg_username" required placeholder="<?= $this->lang->line('username_re'); ?>">
+            <input type="text" name="reg_username" pattern=".{3}" required title="3 characters minimum" placeholder="<?= $this->lang->line('username_re'); ?>">
           </div>
           <div class="field">
-            <input type="text" name="reg_email" required placeholder="<?= $this->lang->line('email_re'); ?>">
+            <input type="email" name="reg_email" required placeholder="<?= $this->lang->line('email_re'); ?>">
           </div>
         </div>
       </div>
@@ -162,10 +162,10 @@
       <div class="field">
         <div class="two fields">
           <div class="field">
-            <input type="password" name="reg_password" required placeholder="<?= $this->lang->line('password_re'); ?>">
+            <input type="password" name="reg_password" pattern=".{5,}" required title="5 characters minimum" placeholder="<?= $this->lang->line('password_re'); ?>">
           </div>
           <div class="field">
-            <input type="password" name="reg_pascword" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
+            <input type="password" name="reg_pascword" pattern=".{5,}" required title="5 characters minimum" placeholder="<?= $this->lang->line('pascword_re'); ?>">
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@
           </select>
         </div>
         <div class="field">
-          <input type="text" name="reg_SecretAnswer" required placeholder="<?= $this->lang->line('secret_answ'); ?>">
+          <input type="text" name="reg_SecretAnswer" pattern=".{1,}" required title="1 characters minimum" placeholder="<?= $this->lang->line('secret_answ'); ?>">
         </div>
       </div>
 
