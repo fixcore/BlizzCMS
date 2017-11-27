@@ -254,7 +254,7 @@
 <div class="Pane Pane--full Home-additionalLinkPane">
     <div style="" class="Pane-content">
     <div class="Home-additionalLinks clearfix ">
-        <h2 style="color: #fff;"><?= $this->config->item('realmlist'); ?></h2>
+        <h2 style="color: #fff;"><i class="game icon"></i>set realmlist <?= $this->config->item('realmlist'); ?></h2>
     </div>
 </div>
 </div>
@@ -269,7 +269,7 @@
         <div class="">
             <div class="ui labeled button" tabindex="0">
               <div class="ui blue button">
-                <i class="diamond icon"></i> <?= $this->lang->line('faction_alliance'); ?>
+                <i class="users icon"></i> <?= $this->lang->line('faction_alliance'); ?>
               </div>
               <a class="ui basic blue left pointing label">
                 <?= $this->m_general->getCharactersOnlineAlliance(); ?>
@@ -278,7 +278,7 @@
 
             <div class="ui labeled button" tabindex="0">
               <div class="ui red button">
-                <i class="diamond icon"></i> <?= $this->lang->line('faction_horde'); ?>
+                <i class="users icon"></i> <?= $this->lang->line('faction_horde'); ?>
               </div>
               <a class="ui basic red left pointing label">
                 <?= $this->m_general->getCharactersOnlineHorde(); ?>
@@ -300,7 +300,7 @@
     <div class="GridItem col-md-8">
     <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top">
     <a href="<?= base_url('news'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('all_news'); ?>" class="Home-topStoriesHeadingLink Home-sectionHeadingLink">
-    <span class="Home-topStoriesHeadingText Home-sectionHeadingText"><?= $this->lang->line('last_news'); ?></span>
+    <span class="Home-topStoriesHeadingText Home-sectionHeadingText"><i class="newspaper icon"></i><?= $this->lang->line('last_news'); ?></span>
 <span class="Home-topStoriesHeadingLinkText Home-sectionHeadingLinkText"><?= $this->lang->line('all_news'); ?></span>
 </a>
 </h2>
@@ -368,7 +368,7 @@
 <div class="GridItem col-md-4">
     <div class="space-medium hide-md">
 </div>
-<h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><?= $this->lang->line('up_events'); ?></h2>
+<h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="announcement icon"></i><?= $this->lang->line('up_events'); ?></h2>
 
 <div class="Home-eventsTableWrapper">
     <div class="Home-eventsTable">

@@ -12,7 +12,7 @@
 
 <div style="position: relative; margin-left: 12em;" class="Navbar-profileItems">
     <a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-games" data-index='0' data-name="<?= $this->lang->line('menu_more'); ?>" data-target="Navbar-gamesDropdown">
-    <div class="Navbar-label"><?= $this->lang->line('menu_more'); ?></div>
+    <div class="Navbar-label"><i class="grid layout icon"></i><?= $this->lang->line('menu_more'); ?></div>
 <div class="Navbar-icon Navbar-dropdownIcon">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
     <use xlink:href="#Navbar-icon-dropdown">
@@ -22,18 +22,18 @@
 </a>
 
 <a href="<?= base_url(); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('menu_home'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_home'); ?>">
-    <div class="Navbar-label"><?= $this->lang->line('menu_home'); ?></div>
+    <div class="Navbar-label"><i class="home icon"></i><?= $this->lang->line('menu_home'); ?></div>
 </a>
 
 <a href="<?= base_url('news'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('menu_news'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_news'); ?>">
-    <div class="Navbar-label"><?= $this->lang->line('menu_news'); ?></div>
+    <div class="Navbar-label"><i class="newspaper icon"></i><?= $this->lang->line('menu_news'); ?></div>
 </a>
 
 </div>
 
 <div class="Navbar-profileItems">
     <a href="<?= base_url('support'); ?>" class="Navbar-support Navbar-item Navbar-link is-noSelect" data-index="0" data-name="<?= $this->lang->line('menu_support'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_support'); ?>">
-    <div class="Navbar-label"><?= $this->lang->line('menu_support'); ?></div>
+    <div class="Navbar-label"><i class="alarm outline icon"></i><?= $this->lang->line('menu_support'); ?></div>
 </a>
 
 <?php if ($this->m_data->isLogged()) { ?>
