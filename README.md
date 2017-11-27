@@ -36,13 +36,18 @@ This page is compatible with all game versions.
 
 ## Configuration
 
-* Enter the URL of your website and at the end enter /install
+* In the installation you must:
+* Download the web page
+* Go to your url and at the end write / install
+* Fill all requested fields without ignoring
+* In the last step you will have to put your url, using http or https and an / at the end, example: http: 
+mydomain.com/
+* Press the last button which ends the process
+* A red advertisement will appear asking you to delete your install folder
+* Delete your install folder manually and go back to your main url
+* Enjoy the We
 
-> Example: http://yourdomain.com/install/
-
-* Follow the installation steps.
-
-> When finished installing, delete the folder (install) it is not advisable to change its name.
+> It is not advisable to change its name.
 
 ## Warning
 

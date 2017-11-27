@@ -34,9 +34,6 @@
 <!-- header -->
 <?php $this->load->view('general/icons'); ?>
 
-<div data-url="https://d9me64que7cqs.cloudfront.net/components/Icon/Icon-6e31618f7193f6dc334044c35440d52262a57acee5f4393fd60c597d1f12fb749b4e25d9e4b275a3379cbbd592aa756fcf8cab6bdbea43f95ff50e29699136d8.svg" class="SvgLoader">
-</div>
-
 <div class="Page-container">
     <div class="Page-content en-GB">
     <div id="home-promoted-carousel-container" class="position-relative">

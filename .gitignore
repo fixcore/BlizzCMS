@@ -6,6 +6,7 @@ application/cache/*
 # Configuration files
 application/config/database.php
 application/config/config.php
+application/config/fixcore.php
 
 application/logs/*
 !application/logs/index.html

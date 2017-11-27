@@ -10,3 +10,4 @@ $lang['adm_menu_users']		= 'Users List';
 $lang['adm_menu_chars'] 	= 'Characters List';
 $lang['adm_menu_addnew']	= 'Create news';
 $lang['adm_menu_listnew']	= 'List news';
+$lang['adm_forums']			= 'Forums';
