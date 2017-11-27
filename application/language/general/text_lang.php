@@ -43,7 +43,6 @@ $lang['create_new'] 		= 'Create a new news';
 $lang['new_title']  		= 'Title of the news';
 $lang['new_desc'] 			= 'Description';
 $lang['newup_fi'] 			= 'File upload';
-$lang['new_highl'] 			= 'Highlight';
 $lang['new_imgT'] 			= 'Your image must be in .jpg format';
 
 
@@ -51,6 +50,9 @@ $lang['expr_yes'] 			= 'Yes';
 $lang['expr_no'] 			= 'No';
 $lang['expr_level'] 		= 'Level';
 $lang['expr_rename'] 		= 'Rename';
+$lang['expr_title'] 		= 'Title';
+$lang['expr_highl'] 		= 'Highlight';
+$lang['expr_lock'] 			= 'Lock';
 
 
 $lang['news_manage']		= 'Manage new';
@@ -154,6 +156,7 @@ $lang['forum_categoryCrea'] = 'Create Category';
 $lang['forum_categoryMan']  = 'Manage Category';
 $lang['forum_forumCrea'] 	= 'Create Forums';
 $lang['forum_forumMan'] 	= 'Manage Forums';
+$lang['forum_newtopic'] 	= 'New Topic';
 
 
 
