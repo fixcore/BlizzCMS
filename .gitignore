@@ -7,6 +7,9 @@ application/cache/*
 application/config/database.php
 application/config/config.php
 
+# Installation
+install/*
+
 application/logs/*
 !application/logs/index.html
 
