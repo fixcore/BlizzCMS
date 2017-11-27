@@ -96,15 +96,17 @@
                 <div class="user-profile"></div>
                 <ul class="nav" id="side-menu">
                    
-                    <li> <a href="<?= base_url('admin'); ?>" class="waves-effect"><i class="mdi mdi-google-maps fa-fw"></i><span class="hide-menu"><?= $this->lang->line('menu_home'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('menu_home'); ?></span></a> </li>
 
-                    <li> <a href="<?= base_url('admin/users'); ?>" class="waves-effect"><i class="mdi mdi-google-maps fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_users'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/users'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_users'); ?></span></a> </li>
 
-                    <li> <a href="<?= base_url('admin/chars'); ?>" class="waves-effect"><i class="mdi mdi-google-maps fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_chars'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/chars'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_chars'); ?></span></a> </li>
                     
-                    <li> <a href="<?= base_url('admin/addnew'); ?>" class="waves-effect"><i class="mdi mdi-google-maps fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_addnew'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/addnew'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_addnew'); ?></span></a> </li>
 
-                    <li> <a href="<?= base_url('admin/listnew'); ?>" class="waves-effect"><i class="mdi mdi-google-maps fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_listnew'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/listnew'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_listnew'); ?></span></a> </li>
+
+                    <li> <a href="<?= base_url('admin/forums'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span></a> </li>
 
                     <li class="devider"></li>
                     

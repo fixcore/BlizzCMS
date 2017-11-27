@@ -9,6 +9,6 @@ class Home_model extends CI_Model {
 
 	public function getSlides()
 	{
-		return $this->db->query("SELECT * FROM fx_slides");
+		return $this->db->query("SELECT * FROM fx_slides ORDER BY id ASC");
 	}
 }

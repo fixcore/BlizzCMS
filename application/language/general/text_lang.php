@@ -150,6 +150,13 @@ $lang['new_password'] 		= 'New Password';
 $lang['new_email'] 			= 'New Email';
 
 
+$lang['forum_categoryCrea'] = 'Create Category';
+$lang['forum_categoryMan']  = 'Manage Category';
+$lang['forum_forumCrea'] 	= 'Create Forums';
+$lang['forum_forumMan'] 	= 'Manage Forums';
+
+
+
 $lang['store'] 				= 'Store';
 $lang['store_see'] 			= 'See the Store';
 
@@ -157,7 +164,7 @@ $lang['no_players'] 		= 'No players Online';
 $lang['players_on'] 		= 'Players Online';
 
 $lang['news']				= 'News';
-$lang['last_news']			= 'Last News';
+$lang['last_news']			= 'Latest News';
 $lang['all_news']			= 'All News';
 $lang['recent_news']		= 'RECENT NEWS';
 $lang['new_comment']		= 'comment';

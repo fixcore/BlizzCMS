@@ -70,6 +70,40 @@ class Admin_model extends CI_Model {
 		redirect(base_url().'admin/alist/'.$id,'refresh');
 	}
 
+	public function deleteCategory($id)
+	{
+		$this->db->query("DELETE FROM fx_forum_category WHERE id = '$id'");
+		redirect(base_url('admin/mcategory'),'refresh');
+	}
+
+	public function insertCategory($name)
+	{
+		$this->db->query("INSERT INTO fx_forum_category (categoryName) VALUES ('$name')");
+		redirect(base_url('admin/mcategory'),'refresh');
+	}
+
+	public function insertForum($name, $category, $description, $icon, $type)
+	{
+		$this->db->query("INSERT INTO fx_forum_forums (name, category, description, icon, type) VALUES ('$name', '$category', '$description', '$icon', 'type')");
+		redirect(base_url('admin/mforum'),'refresh');
+	}
+
+	public function deleteForum($id)
+	{
+		$this->db->query("DELETE FROM fx_forum_forums WHERE id = '$id'");
+		redirect(base_url('admin/mforum'),'refresh');
+	}
+
+	public function getForumCategoryList()
+	{
+		return $this->db->query("SELECT * FROM fx_forum_category ORDER BY id ASC");
+	}
+
+	public function getForumForumList()
+	{
+		return $this->db->query("SELECT * FROM fx_forum_forums ORDER BY id ASC");
+	}
+
 	public function getAdminCharactersList()
 	{
 		return $this->characters->query("SELECT guid, account, name FROM characters ORDER BY name ASC");
