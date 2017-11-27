@@ -52,6 +52,11 @@ class News_model extends CI_Model {
 
 	public function getPrincipalNew()
 	{
-		return $this->db->query("SELECT id_new FROM fx_news_top ORDER BY id DESC LIMIT 1")->row()->id_new;
+		$qq = $this->db->query("SELECT id_new FROM fx_news_top ORDER BY id DESC LIMIT 1");
+
+		if($qq->num_rows() > 0)
+			return $qq->row()->id_new;
+		else
+			return false;
 	}
 }

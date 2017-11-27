@@ -49,6 +49,8 @@ mydomain.com/
 
 > It is not advisable to change its name.
 
+> If you are using Linux you must give write permissions to the entire folder to avoid problems in your installation.
+
 ## Warning
 
 > This system uses .htaccess, your machine must have the necessary extensions to read it.
