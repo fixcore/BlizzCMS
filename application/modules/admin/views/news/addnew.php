@@ -47,7 +47,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-sm-12"><?= $this->lang->line('new_highl'); ?></label>
+                                    <label class="col-sm-12"><?= $this->lang->line('expr_highl'); ?></label>
                                     <div class="col-sm-2">
                                         <select class="form-control" name="new_destac">
                                             <option value="1"><?= $this->lang->line('expr_no'); ?></option>

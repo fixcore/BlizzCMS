@@ -1,3 +1,17 @@
+<?php if(isset($_POST['button_createTopic'])){
+
+	$title 			= $_POST['topic_title'];
+	$description 	= $_POST['topic_description'];
+
+    if (isset($_POST['check_highl']) && $_POST['check_highl'] == '1')
+        $highl = '1'; else $highl = '0';
+
+    if (isset($_POST['check_lock']) && $_POST['check_lock'] == '1')
+    	$lock = '1'; else $lock = '0';
+
+	$this->forum_model->insertTopic($idlink, $title, $this->session->userdata('fx_sess_id'), $description, $lock, $highl);
+
+}?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -49,12 +63,27 @@
 				<h1 class="Forum-heading">
 					<?= $this->forum_model->getCategoryName($idlink); ?>
 				<div class="Forum-controls">
-					<button class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
-						<span class="Overlay-element" ></span>
-						<span class="Button-content">
-							New Topic
-						</span>
-					</button>
+						
+						<?php if($this->forum_model->getType($idlink) == 1) { ?>
+						<button id="nnewtopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
+							<span class="Overlay-element" ></span>
+								<span class="Button-content">
+									<?= $this->lang->line('forum_newtopic'); ?>
+								</span>
+						</button>
+						<?php } elseif ($this->forum_model->getType($idlink) == 2 || $this->forum_model->getType($idlink) == 3) { ?>
+							<?php if($this->m_data->isLogged()) { ?>
+								<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+									<button id="nnewtopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
+										<span class="Overlay-element" ></span>
+											<span class="Button-content">
+												<?= $this->lang->line('forum_newtopic'); ?>
+											</span>
+									</button>
+								<?php } ?>
+							<?php } ?>
+
+						<?php } ?>
 				</div>
 			</div>
 
@@ -96,5 +125,86 @@
 </div>
 
 	</section>
+
+
+
+
+
+<div class="ui newtopicc longer modal">
+    <div class="header"><?= $this->lang->line('forum_newtopic'); ?></div>
+    <div class="content">
+<form action="" method="post" accept-charset="utf-8">
+		<!-- title -->
+		<h2 class="ui header"><?= $this->lang->line('expr_title'); ?></h2>
+		<div class="ui fluid icon input">
+		  <input name="topic_title" required="" type="text" placeholder="<?= $this->lang->line('expr_title'); ?>">
+		</div>
+		<!-- title -->
+		<!-- text area -->
+		<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+		<script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
+		<?php } else { ?>
+		<script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+		<?php } ?>
+
+		<br>
+
+		<div class="form-group">
+            <h2 class="ui header"><?= $this->lang->line('new_desc'); ?></h2>
+            <div class="col-md-12">
+                <textarea required="" name="topic_description" id="ckeditor" rows="10" cols="80">
+                </textarea>
+            </div>
+        </div>
+		<!-- text area -->
+
+		<br>
+
+		<!-- more -->
+		<div class="ui center aligned basic segment">
+
+			<div class="ui toggle checkbox">
+			  <input id="hightl" type="checkbox" name="check_highl" value="1">
+			  <label for="hightl"><?= $this->lang->line('expr_highl'); ?></label>
+			</div>
+
+			<div class="ui toggle checkbox">
+			  <input id="llock" type="checkbox" name="check_lock" value="1">
+			  <label for="llock"><?= $this->lang->line('expr_lock'); ?></label>
+			</div>
+
+
+			<br><br><br>
+
+			<div class="actions">
+			  <div class="ui black deny button">
+			    <?= $this->lang->line('button_cancel'); ?>
+			  </div>
+
+			  <button class="ui blue deny button" type="submit" name="button_createTopic">
+			  	<?= $this->lang->line('button_crea'); ?>
+			  </button>
+
+			</div>
+		</div>
+		<!-- more -->
+</form>
+  </div>
+</div>
+
+<script>
+  $('.ui.newtopicc.longer.modal')
+  .modal({
+    blurring: true
+  })
+  .modal('attach events', '#nnewtopic', 'show');
+</script>
+
+
+<script>
+    CKEDITOR.replace( 'ckeditor' );
+</script>
+
+
 
 </div>

@@ -65,14 +65,29 @@
 <div class="ForumCards ">
 
 <?php foreach($this->forum_model->getCategoryForums($categorys->id) as $sections) { ?>
-<a href="<?= base_url(); ?>forum/category/<?= $sections->id ?>" class="ForumCard ForumCard--content  ">
-	<i class="ForumCard-icon" style="background-image: url('<?= base_url();?>assets/images/forums/icons/<?= $sections->icon ?>')"></i>
-	<div class="ForumCard-details">
-		<h1 class="ForumCard-heading"><?= $sections->name ?>
-		</h1>
-			<span class="ForumCard-description"><?= $sections->description ?></span>
-	</div>
-</a>
+	<?php if ($sections->type == 1 || $sections->type == 3) { ?>
+		<a href="<?= base_url(); ?>forum/category/<?= $sections->id ?>" class="ForumCard ForumCard--content  ">
+			<i class="ForumCard-icon" style="background-image: url('<?= base_url();?>assets/images/forums/icons/<?= $sections->icon ?>')"></i>
+			<div class="ForumCard-details">
+				<h1 class="ForumCard-heading"><?= $sections->name ?>
+				</h1>
+					<span class="ForumCard-description"><?= $sections->description ?></span>
+			</div>
+		</a>
+	<?php } elseif($sections->type == 2) { ?>
+	<?php if($this->m_data->isLogged()) { ?>
+	<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+	<a href="<?= base_url(); ?>forum/category/<?= $sections->id ?>" style="border-color: #00aeff; border-radius: 10px;" class="ForumCard ForumCard--content ">
+		<i class="ForumCard-icon" style="background-image: url('<?= base_url();?>assets/images/forums/icons/<?= $sections->icon ?>')"></i>
+		<div class="ForumCard-details">
+			<h1 class="ForumCard-heading"><?= $sections->name ?>
+			</h1>
+				<span class="ForumCard-description"><?= $sections->description ?></span>
+		</div>
+	</a>
+	<?php } ?>
+	<?php } ?>
+	<?php } ?>
 <?php } ?>
 
 </div>

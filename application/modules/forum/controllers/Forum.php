@@ -16,19 +16,29 @@ class Forum extends MX_Controller {
 			redirect(base_url('forum'),'refresh');
 
 		$this->load->model('forum_model');
-
 		$data['idlink'] = $id;
 
-		$this->load->view('category', $data);
-		$this->load->view('footer');
+		if ($this->forum_model->getType($id) == 2 && $this->m_data->isLogged())
+			if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) {}
+		else
+			redirect(base_url('forum'),'refresh');
+
+		
+			$this->load->view('category', $data);
+			$this->load->view('footer');
+
 	}
 
 	public function topic($id)
 	{
+		$this->load->model('forum_model');
+		
 		if(empty($id) || is_null($id))
 			redirect(base_url('forum'),'refresh');
 
-		$this->load->model('forum_model');
+		if($this->forum_model->getRowTopicExist($id)  < 1)
+			redirect(base_url('forum'),'refresh');
+
 
 		$data['idlink'] = $id;
 
