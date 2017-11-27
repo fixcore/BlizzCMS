@@ -22,6 +22,7 @@ The nicknames of these people are from Discord.
 > Thank you for believing in my project and using it on your server
 
 * @Darkero12#3477 - [ExileHeroes](http://exileheroes.com/)
+* Felstrider#0548- [Uncrowned](http://uncrowned.servegame.com/)
 
 
 ##### Premium
