@@ -84,7 +84,7 @@ class Admin_model extends CI_Model {
 
 	public function insertForum($name, $category, $description, $icon, $type)
 	{
-		$this->db->query("INSERT INTO fx_forum_forums (name, category, description, icon, type) VALUES ('$name', '$category', '$description', '$icon', 'type')");
+		$this->db->query("INSERT INTO fx_forum_forums (name, category, description, icon, type) VALUES ('$name', '$category', '$description', '$icon', '$type')");
 		redirect(base_url('admin/mforum'),'refresh');
 	}
 
