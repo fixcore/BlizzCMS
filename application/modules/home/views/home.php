@@ -273,7 +273,7 @@
          online -->
         <div class="">
             <div class="ui labeled button" tabindex="0">
-              <div class="ui blue button">
+              <div class="ui blue active button">
                 <i class="users icon"></i> <?= $this->lang->line('faction_alliance'); ?>
               </div>
               <a class="ui basic blue left pointing label">
@@ -281,13 +281,13 @@
               </a>
             </div>
 
-            <div class="ui labeled button" tabindex="0">
-              <div class="ui red button">
-                <i class="users icon"></i> <?= $this->lang->line('faction_horde'); ?>
-              </div>
-              <a class="ui basic red left pointing label">
+            <div class="ui left labeled button" tabindex="0">
+              <a class="ui basic red right pointing label">
                 <?= $this->m_general->getCharactersOnlineHorde(); ?>
               </a>
+              <div class="ui red active button">
+                <i class="users icon"></i> <?= $this->lang->line('faction_horde'); ?>
+              </div>
             </div>
           </div>
         <!-- online -->
