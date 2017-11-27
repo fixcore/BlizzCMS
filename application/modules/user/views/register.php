@@ -119,7 +119,7 @@
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
-            <option value="10">10></option>
+            <option value="10">10</option>
             <option value="11">11</option>
             <option value="12">12</option>
             <option value="13">13</option>
@@ -151,7 +151,7 @@
       <div class="field">
         <div class="two fields">
           <div class="field">
-            <input type="text" name="reg_username" pattern=".{3}" required title="3 characters minimum" placeholder="<?= $this->lang->line('username_re'); ?>">
+            <input type="text" name="reg_username" pattern=".{3,}" required title="3 characters minimum" placeholder="<?= $this->lang->line('username_re'); ?>">
           </div>
           <div class="field">
             <input type="email" name="reg_email" required placeholder="<?= $this->lang->line('email_re'); ?>">
