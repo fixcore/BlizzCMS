@@ -177,13 +177,13 @@ class M_general extends CI_Model {
     public function getCharactersOnlineAlliance()
     {
     	$this->characters = $this->load->database('characters', TRUE);
-    	return $this->characters->query("SELECT guid FROM characters WHERE online = 1 AND race = '1,3,4,7,11,22,25'")->num_rows();
+    	return $this->characters->query("SELECT guid FROM characters WHERE race IN ('1','3','4','7','11','22','25') AND online = 1")->num_rows();
     }
 
     public function getCharactersOnlineHorde()
     {
     	$this->characters = $this->load->database('characters', TRUE);
-    	return $this->characters->query("SELECT guid FROM characters WHERE online = 1 AND race = '2,5,6,8,10,9,26'")->num_rows();
+    	return $this->characters->query("SELECT guid FROM characters WHERE race IN ('2','5','6','8','10','9','26') AND online = 1")->num_rows();
     }
 
     public function getNameClass($class)
