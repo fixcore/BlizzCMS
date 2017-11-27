@@ -254,7 +254,12 @@
 <div class="Pane Pane--full Home-additionalLinkPane">
     <div style="" class="Pane-content">
     <div class="Home-additionalLinks clearfix ">
-        <h2 style="color: #fff;"><i class="game icon"></i>set realmlist <?= $this->config->item('realmlist'); ?></h2>
+        <h2 style="color: #fff;"><i class="game icon"></i>
+            <?php if ($this->m_general->getExpansionAction() == 1) { ?>
+            Set Realmlist <?= $this->config->item('realmlist'); ?></h2>
+            <?php } else { ?>
+            Set Portal "<?= $this->config->item('realmlist'); ?></h2>"
+            <?php } ?>
     </div>
 </div>
 </div>
