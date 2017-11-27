@@ -1,4 +1,4 @@
-<footer class="footer text-center"> 2015 - <?= date('Y'); ?> &copy; <a href="https://www.facebook.com/fixcore1/">FixCore</a> - All rights reserved. </footer>
+<footer class="footer text-center"><a href="https://github.com/fixcore/BlizzCMS"><i class="github icon"></i>Proudly powered by BlizzCMS</a></footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->
