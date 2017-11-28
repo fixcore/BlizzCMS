@@ -67,7 +67,7 @@
                                 <div class="panel-body">
                                     <form method="post" action="">
                                         <div class="form-group has-error">
-                                                <input type="text" id="state-danger" required name="action_reason" class="form-control" placeholder="<?= $this->lang->line('reason'); ?>">
+                                            <input type="text" id="state-danger" required name="action_reason" class="form-control" placeholder="<?= $this->lang->line('reason'); ?>">
                                         </div>
                                         <div class="col-md-12">
                                             <button type="submit" name="action_ban" class="btn btn-block btn-outline btn-danger"><?= $this->lang->line('ban'); ?></button>
@@ -81,7 +81,7 @@
                 <?php } ?>
                     <!-- /.col-lg-4 -->
                     <div class="col-lg-4 col-sm-4">
-                        <div class="panel panel-primary">
+                        <div class="panel panel-success">
                             <div class="panel-heading"> <?= $this->lang->line('rank_acc'); ?>
                                 <div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a></div>
                             </div>
@@ -89,12 +89,16 @@
                                 <div class="panel-body">
                                 <form action="" method="post" accept-charset="utf-8">
                                     <?php if($this->m_general->getGmSpecify($idlink)->num_rows() > 0) { ?>
-                                        <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-primary"><?= $this->lang->line('re_gran_acc'); ?></button>
+                                        <div class="col-md-12">
+                                            <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><?= $this->lang->line('re_gran_acc'); ?></button>
+                                        </div>
                                     <?php } else { ?>
-
-                                        <input type="number" min="1" required name="gmlevel" class="form-control" placeholder="<?= $this->lang->line('gmlevel'); ?>">
-
-                                        <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-primary"><?= $this->lang->line('grant_acc'); ?></button>
+                                        <div class="form-group has-success">
+                                            <input type="number" min="1" required name="gmlevel" class="form-control" placeholder="<?= $this->lang->line('gmlevel'); ?>">
+                                        </div>
+                                        <div class="col-md-12">
+                                            <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-success"><?= $this->lang->line('grant_acc'); ?></button>
+                                        </div>
                                     <?php } ?>
                                 </form>
                                 </div>
@@ -104,7 +108,7 @@
                     <!-- /.col-lg-4 -->
                     <!-- /.col-lg-4 -->
                     <div class="col-lg-4 col-sm-4">
-                        <div class="panel panel-inverse">
+                        <div class="panel panel-warning">
                             <div class="panel-heading"> <?= $this->lang->line('web_rank'); ?>
                                 <div class="pull-right"><a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>  </div>
                             </div>
@@ -112,9 +116,13 @@
                                 <div class="panel-body">
                                     <form action="" method="post" accept-charset="utf-8">
                                         <?php if($this->m_general->getPermissions($idlink) == 1) { ?>
-                                        <button name="button_removeADM" class="btn btn-block btn-outline btn-default"><?= $this->lang->line('reW_gran_acc'); ?></button>
+										<div class="col-md-12">
+                                            <button name="button_removeADM" class="btn btn-block btn-outline btn-warning"><?= $this->lang->line('reW_gran_acc'); ?></button>
+                                        </div>
                                         <?php } else { ?>
-                                        <button name="button_addADM" class="btn btn-block btn-outline btn-default"><?= $this->lang->line('grantW_acc'); ?></button>
+										<div class="col-md-12">
+                                            <button name="button_addADM" class="btn btn-block btn-outline btn-warning"><?= $this->lang->line('grantW_acc'); ?></button>
+                                        </div>
                                         <?php } ?>
                                     </form>
                                 </div>
@@ -224,9 +232,9 @@
                                 <div class="panel-body">
                                     <h3><?= $this->lang->line('mov_forum'); ?></h3>
 
-                                    <li>acciones de foro</li>
-                                    <li>acciones de foro</li>
-                                    <li>acciones de foro</li>
+                                    <li>forum actions</li>
+                                    <li>forum actions</li>
+                                    <li>forum actions</li>
                                 </div>
                             </div>
                         </div>
@@ -238,9 +246,9 @@
                                 <div class="panel-body">
                                     <h3><?= $this->lang->line('last_comments'); ?></h3>
 
-                                    <li>acciones comentarios</li>
-                                    <li>acciones comentarios</li>
-                                    <li>acciones comentarios</li>
+                                    <li>comments actions</li>
+                                    <li>comments actions</li>
+                                    <li>comments actions</li>
                             </div>
                         </div>
                     </div>

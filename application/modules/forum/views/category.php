@@ -61,7 +61,7 @@
 		<header class="Forum-header">
 			<div class="Container Container--content">
 				<h1 class="Forum-heading">
-					<?= $this->forum_model->getCategoryName($idlink); ?>
+					<i class="bookmark icon"></i> <?= $this->forum_model->getCategoryName($idlink); ?>
 				<div class="Forum-controls">
 					<?php if($this->m_data->isLogged()) { ?>
 						<?php if($this->forum_model->getType($idlink) == 1) { ?>
