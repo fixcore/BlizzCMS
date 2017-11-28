@@ -33,6 +33,8 @@ $lang['language_location'] = 'English (EU)';
 $lang['account'] = 'Account';
 $lang['account_log'] = 'Log In';
 $lang['account_out'] = 'Log Out';
+$lang['text_login_forums'] = 'Have something to say? Log in to join the conversation.';
+$lang['text_login_forumstxt'] = 'Join the Conversation';
 $lang['create_acc'] = 'Create a Free Account';
 $lang['cr_acc_des'] = 'Fill out the form below to sign-up for a new account';
 $lang['log_acc_des'] = 'Enjoy all the options we have for you';
@@ -58,6 +60,7 @@ $lang['pass_omatch'] = 'Old Password do not match';
 $lang['email_omatch'] = 'The current email is not correct';
 $lang['email_use'] = 'Email in use';
 $lang['password_same'] = 'The password is the same.';
+$lang['not_authorized'] = 'Not Authorized';
 
 $lang['account_cre'] = 'Accounts created';
 $lang['staff_count'] = 'STAFF accounts';
@@ -163,6 +166,8 @@ $lang['button_crea'] = 'Create';
 $lang['button_delete'] = 'Delete';
 $lang['button_change'] = 'Change';
 $lang['button_cancel'] = 'Cancel';
+$lang['button_addreply'] = 'Add Reply';
+$lang['button_remove'] = 'Remove';
 
 $lang['chang_pass'] = 'Change Password';
 $lang['chang_email'] = 'Change Email';
@@ -171,12 +176,18 @@ $lang['old_password'] = 'Old Password';
 $lang['new_password'] = 'New Password';
 $lang['new_email'] = 'New Email';
 
+
+$lang['text_codeConduct'] = 'Code of Conduct';
+$lang['text_postHistory'] = 'View Post History';
+
+
 $lang['forum_categoryCrea'] = 'Create Category';
 $lang['forum_categoryMan'] = 'Manage Category';
 $lang['forum_forumCrea'] = 'Create Forums';
 $lang['forum_forumMan'] = 'Manage Forums';
 $lang['forum_newtopic'] = 'New Topic';
 $lang['forum_postCount'] = 'posts';
+$lang['forum_topic_locked'] = 'This topic is locked.';
 
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
