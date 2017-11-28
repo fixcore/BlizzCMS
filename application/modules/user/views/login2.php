@@ -76,7 +76,7 @@
       $id = $this->m_data->getIDEmail($email);
 
       if ($id == "0")
-        echo $this->lang->line('account_error');
+        echo '<div class="ui icon negative message"><i class="remove user icon"></i><div class="content"><div class="header">'.$this->lang->line('account_error').'</div><p>'.$this->lang->line('account_error_info').'.</p></div></div>';
       else
       {
         $password = $this->m_data->encryptBattlenet($email, $password);
@@ -86,7 +86,7 @@
           $this->m_data->arraySession($id);
         }
         else
-          echo $this->lang->line('password_error');
+          echo '<div class="ui icon negative message"><i class="remove icon"></i><div class="content"><div class="header">'.$this->lang->line('password_error').'</div><p>'.$this->lang->line('password_error_info').'.</p></div></div>';
       }
         
     } ?>
