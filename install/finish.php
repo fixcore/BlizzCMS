@@ -106,8 +106,8 @@
 						<!-- Main right column -->
 						<aside class="right">
 							<section class="box big" id="installer_step_1">
-								<h2 class="ui center aligned icon header">
-								  <i class="circular check icon"></i>
+								<h3 class="ui center aligned icon header">
+								  <i class="green check icon"></i>
 								  <p>Installation complete</p>
 								  	<form action="" method="post" accept-charset="utf-8">
 								  		<div>
@@ -121,7 +121,7 @@
 									  	<br>
 										<button name="button_continue" type="submit" class="ui purple button">Accept and continue</button>
 								  	</form>
-								</h2>
+								</h3>
 
 							<?php if(isset($_GET['ready'])) { ?>
 								<div class="ui error icon message">
