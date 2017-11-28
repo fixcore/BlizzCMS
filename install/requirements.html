@@ -119,19 +119,52 @@
 
 										<div style="font-weight:bold;margin-bottom:20px;margin-top:20px;" id="cache_folder">&bull; /application/cache/</div>
 
-										<div style="font-weight:bold;margin-bottom:20px;margin-top:20px;">If you're on a web host, Apache may already be properly configured.</div>
-
-										&bull; <b>Apache:</b> mod_rewrite, mod_headers, mod_expires, mod_deflate
-										<div class="how_to_box">
-											Go into your Apache directory and find the <b>httpd.conf</b> file. Mine was located in "C:\wamp\bin\apache\apache2.2.22\conf\". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the #-character in front of the line.<br /><br />
-											<img src="images/apache.jpg" style="border:1px solid #ccc" />
+										<div class="ui icon warning message">
+										  <i class="warning sign icon"></i>
+										  <div class="content">
+										    <div class="header">
+										      Configuration Warning
+										    </div>
+											<p>If you're on a web hosting, Apache may already be properly configured.</p>
+										  </div>
 										</div>
 
-										&bull; <b>PHP:</b> php_curl, php_openssl, php_soap, php_gd, php_mbstring, php_json
-										<div class="how_to_box">
-											Go into your PHP directory and find the <b>php.ini</b> file. Mine was located in "C:\wamp\bin\php\php5.3.13". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the ;-character in front of the line.<br /><br />
+										<div class="ui icon message">
+										  <i class="info icon"></i>
+										  <div class="content">
+										    <div class="header">
+										      Apache Modules Required
+										    </div>
+											<p>mod_rewrite, mod_headers, mod_expires, mod_deflate</p>
+										  </div>
+										</div>
+										<div class="ui info message">
+										  <div class="content">
+										    <div class="header">
+										      How to Enable Apache Modules?
+										    </div>
+											<p>Go into your Apache directory and find the <b>httpd.conf</b> file. Mine was located in "C:\wamp\bin\apache\apache2.2.22\conf\". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the #-character in front of the line.</p>
+											<img src="images/apache.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" />
+										  </div>
+										</div>
 
-											<img src="images/php.jpg" style="border:1px solid #ccc" />
+										<div class="ui icon message">
+										  <i class="info icon"></i>
+										  <div class="content">
+										    <div class="header">
+										      PHP Extensions Required
+										    </div>
+											<p>php_curl, php_openssl, php_soap, php_gd, php_mbstring, php_json</p>
+										  </div>
+										</div>
+										<div class="ui info message">
+										  <div class="content">
+										    <div class="header">
+										      How to Enable PHP Extensions?
+										    </div>
+											<p>Go into your PHP directory and find the <b>php.ini</b> file. Mine was located in "C:\wamp\bin\php\php5.3.13". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the ;-character in front of the line.</p>
+											<img src="images/php.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" />
+										  </div>
 										</div>
 									</div>
 								</span>

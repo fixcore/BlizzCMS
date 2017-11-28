@@ -1,4 +1,6 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 /*
 |--------------------------------------------------------------------------
 | Website Title
@@ -31,11 +33,11 @@ $config['realmlist'] = "ProjectRealmlist_fixcore";
 | 'soap_type' Default TC (only support Trinitycore)
 |
 */
-$config['soap_ip'] 		= "ProjectSoapIP_fixcore";
-$config['soap_user'] 	= "ProjectSoapUsername_fixcore";
-$config['soap_pass'] 	= "ProjectSoapPass_fixcore";
-$config['soap_port'] 	= "ProjectSoapPort_fixcore";
-$config['soap_type'] 	= "TC";
+$config['soap_ip'] = "ProjectSoapIP_fixcore";
+$config['soap_user'] = "ProjectSoapUsername_fixcore";
+$config['soap_pass'] = "ProjectSoapPass_fixcore";
+$config['soap_port'] = "ProjectSoapPort_fixcore";
+$config['soap_type'] = "TC";
 
 /*
 |--------------------------------------------------------------------------

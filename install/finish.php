@@ -124,7 +124,15 @@
 								</h2>
 
 							<?php if(isset($_GET['ready'])) { ?>
-								<button class="negative ui fluid button">Please remove the INSTALL folder</button>
+								<div class="ui error icon message">
+								  <i class="warning circle icon"></i>
+								  <div class="content">
+								  	<div class="header">
+								  		Security Warning
+								  	</div>
+								  	<p>Please delete install folder.</p>
+								  </div>
+								</div>
 							<?php } ?>
 
 							</section>
