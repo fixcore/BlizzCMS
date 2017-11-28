@@ -89,14 +89,14 @@
                                 <div class="panel-body">
                                 <form action="" method="post" accept-charset="utf-8">
                                     <?php if($this->m_general->getGmSpecify($idlink)->num_rows() > 0) { ?>
-										<div class="col-md-12">
+                                        <div class="col-md-12">
                                             <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><?= $this->lang->line('re_gran_acc'); ?></button>
                                         </div>
                                     <?php } else { ?>
                                         <div class="form-group has-success">
                                             <input type="number" min="1" required name="gmlevel" class="form-control" placeholder="<?= $this->lang->line('gmlevel'); ?>">
                                         </div>
-										<div class="col-md-12">
+                                        <div class="col-md-12">
                                             <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-success"><?= $this->lang->line('grant_acc'); ?></button>
                                         </div>
                                     <?php } ?>
