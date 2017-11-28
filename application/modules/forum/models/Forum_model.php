@@ -13,9 +13,27 @@ class Forum_model extends CI_Model {
       return $this->db->select('id, categoryName')->from('fx_forum_category')->get()->result();
     }
 
+    public function insertComment($comment, $topic, $author)
+    {
+        $date = $this->m_data->getTimestamp();
+        $this->db->query("INSERT INTO fx_forum_comments (topic, author, commentary, date) VALUES ('$topic' ,'$author' ,'$comment' ,'$date')");
+        redirect(base_url('forum/topic/'.$topic),'refresh');
+    }
+
+    public function getComments($id)
+    {
+        return $this->db->query("SELECT * FROM fx_forum_comments WHERE topic = '".$id."'");
+    }
+
     public function getCountPostAuthor($id)
     {
         return $this->db->query("SELECT author FROM fx_forum_topics WHERE author = '".$id."'")->num_rows();
+    }
+
+    public function removeComment($id, $link)
+    {
+        $this->db->query("DELETE FROM fx_forum_comments WHERE id = '$id'");
+        redirect(base_url('forum/topic/').$link,'refresh');
     }
 
     public function getRowTopicExist($id)
@@ -75,6 +93,16 @@ class Forum_model extends CI_Model {
     public function getSpecifyPostContent($id)
     {
     	return $this->db->query("SELECT content FROM fx_forum_topics WHERE id = '".$id."'")->row()->content;
+    }
+
+    public function getTopicLocked($id)
+    {
+        return $this->db->query("SELECT locked FROM fx_forum_topics WHERE id = '".$id."'")->row()->locked;
+    }
+
+    public function getTopicForum($id)
+    {
+        return $this->db->query("SELECT forums FROM fx_forum_topics WHERE id = '".$id."'")->row()->forums;
     }
 
 }

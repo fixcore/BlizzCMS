@@ -37,6 +37,11 @@ class Forum extends MX_Controller {
 		if(empty($id) || is_null($id))
 			redirect(base_url('forum'),'refresh');
 
+		if ($this->forum_model->getType($this->forum_model->getTopicForum($id)) == 2 && $this->m_data->isLogged())
+			if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) {}
+		else
+			redirect(base_url('forum'),'refresh');
+
 		if($this->forum_model->getRowTopicExist($id)  < 1)
 			redirect(base_url('forum'),'refresh');
 

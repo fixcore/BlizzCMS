@@ -50,12 +50,6 @@
 				<h1 class="Topic-heading">
 					<span class="Topic-title" data-topic-heading="true"><?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
 				</h1>
-
-				<div class="Topic-controls">
-          <button class="Topic-button Topic-button--reply" id="Button-reply" >
-            <span class="Button-content"><i class="reply icon"></i>Reply</span>
-          </button>
-        </div>
 			</div>
 		</header>
 
@@ -68,7 +62,7 @@
 
 			<aside class="TopicPost-author">
 				<div class="Author-block">
-<div class="Author Author--blizzard" id="" data-topic-post-body-content="true"><a href="#" class="Author-avatar hasNoProfile" ><img src="http://bnetcmsus-a.akamaihd.net/cms/user_avatar/S6VPDCUDYAHS1287737062331.gif" alt="" /></a><div class="Author-details"> <span class="Author-name">
+<div class="Author Author--blizzard" id="" data-topic-post-body-content="true"><a href="#" class="Author-avatar hasNoProfile" ><img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" /></a><div class="Author-details"> <span class="Author-name">
 <?= $this->m_data->getUsernameID($this->forum_model->getSpecifyPostAuthor($idlink)); ?>
 </span>
 <span class="Author-posts">
@@ -116,12 +110,166 @@
 		</footer>
 	</section>
 
-	<section class="Section Section--secondary">
+<?php if($this->m_data->isLogged() == FALSE && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
+<!-- isn't login -->
+<section class="Section Section--secondary">
 	<div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
 
-      <div class="Author-data" data-topic-form = '{}'>
-<div class="LoginPlaceholder" id="create-topic"> <header class="LoginPlaceholder-header"><h1 class="LoginPlaceholder-heading">Join the Conversation</h1></header> <div class="LoginPlaceholder-content"> <aside class="LoginPlaceholder-author"> <div class="Author" id="" data-topic-post-body-content="true"><div class="Author-avatar Author-avatar--default"></div><div class="Author-details"><span class="Author-name is-blank"></span> <span class="Author-posts is-blank"></span></div></div> <div class="Author-ignored is-hidden" data-topic-post-ignored-author="true"> <span class="Author-name"> </span><div class="Author-posts Author-posts--ignored">Ignored</div></div> </aside> <div class="LoginPlaceholder-details"> <div class="LogIn-message">Have something to say? Log in to join the conversation.</div> <a class="LogIn-button" href="<?= base_url('user/login'); ?>"> <span class="LogIn-button-content" >Log In</span> </a> </div> </div> </div>      </div>
+	    <div class="Author-data" data-topic-form=''>
+			<div class="LoginPlaceholder" id="create-topic">
+				<header class="LoginPlaceholder-header">
+					<h1 class="LoginPlaceholder-heading"><?= $this->lang->line('text_login_forumstxt'); ?></h1>
+				</header>
+				<div class="LoginPlaceholder-content">
+					<div class="LoginPlaceholder-details">
+						<div class="LogIn-message"><?= $this->lang->line('text_login_forums'); ?></div>
+						<a class="LogIn-button" href="<?= base_url('user/login'); ?>">
+							<span class="LogIn-button-content" ><?= $this->lang->line('button_log'); ?></span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+  	</div>
+</section>
+<!-- isn't login -->
+<?php } ?>
 
+
+<?php if($this->forum_model->getTopicLocked($idlink) == 1) { ?>
+<!-- locked -->
+<section xmlns="http://www.w3.org/1999/xhtml" class="Section Section--secondary">
+	<div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
+      <div class="Author-data" data-topic-form="{&quot;userId&quot;: 207424185944    }">
+		<div class="LoginPlaceholder" id="create-topic">
+			<header class="LoginPlaceholder-header">
+				<h1 class="LoginPlaceholder-heading"><?= $this->lang->line('not_authorized'); ?></h1>
+				<a class="LoginPlaceholder-button--close" data-trigger="create.topicpost.forum" data-forum-button="true"></a>
+			</header>
+			<div class="LoginPlaceholder-content">
+				<div class="LoginPlaceholder-details">
+					<div class="LogIn-message LogIn-message--center"><?= $this->lang->line('forum_topic_locked'); ?></div>
+				</div>
+			</div>
+		</div>
+	</div>
   </div>
-	</section>
+</section>
+<!-- locked -->
+<?php } ?>
+
+
+<?php foreach ($this->forum_model->getComments($idlink)->result() as $commentss) { ?>
+<!-- first comments -->
+<div class="TopicPost">
+	<!-- Deprecated: Deeplink for existing Quotes 02/19/2016 -->
+	<div class="TopicPost-content">
+		<aside class="TopicPost-author">
+			<div class="Author-block">
+				<?php if($this->m_data->getRank($commentss->author) > 0) { ?>
+					<div class="Author Author--blizzard" id="" data-topic-post-body-content="true">
+				<?php } else { ?>
+					<div class="Author" id="" data-topic-post-body-content="true">
+				<?php } ?>
+					<a href="" class="Author-avatar hasNoProfile">
+						<img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" /></a>
+					<div class="Author-details">
+						<span class="Author-name"> <?= $this->m_data->getUsernameID($commentss->author); ?> </span>
+						<span class="Author-posts">
+							<a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="<?= $this->lang->line('text_postHistory'); ?>" data-original-title="" title="">
+							<?= $this->forum_model->getCountPostAuthor($commentss->author); ?> <?= $this->lang->line('forum_postCount'); ?>
+							</a>
+						</span>
+					<?php if($this->m_data->getRank($commentss->author) > 0) { ?>
+						<span class="Author-job">STAFF</span>
+					<?php } ?>
+					</div>
+				</div>
+			</div>
+		</aside>
+
+		<div class="TopicPost-body" data-topic-post-body="true">
+			<div class="TopicPost-details">
+				<div class="Timestamp-details">
+					<a class="TopicPost-timestamp" href="#" data-toggle="tooltip" data-tooltip-content="<?= date('d-m-Y', $commentss->date); ?>">
+						<?= date('d-m-Y', $commentss->date); ?>
+					</a>
+				</div>
+			</div>
+
+			<div class="TopicPost-bodyContent" data-topic-post-body-content="true">
+				<?= $commentss->commentary ?>
+			</div>
+
+			<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+			<footer class="TopicPost-actions" data-topic-post-body-content="true">
+				<form action="" method="post" accept-charset="utf-8">
+					<button type="submit" name="button_removecomment" class="ui inverted blue button"><?= $this->lang->line('button_remove'); ?></button>
+				</form>
+			</footer>
+			<?php if(isset($_POST['button_removecomment'])) {
+				$this->forum_model->removeComment($commentss->id, $idlink);
+			}?>
+			<?php } ?>
+		</div>
+	</div>
 </div>
+<!-- first comments -->
+<?php } ?>
+
+<?php if($this->m_data->isLogged() && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
+<!-- comment login -->
+<section xmlns="http://www.w3.org/1999/xhtml" class="Section Section--secondary">
+	<div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
+	        <header class="TopicForm-header">
+	            <h1 class="TopicForm-heading"><?= $this->lang->line('text_login_forumstxt'); ?></h1>
+	        </header>
+	        <div class="TopicForm-content">
+	            <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944    }">
+					<div class="Author" id="" data-topic-post-body-content="true">
+						<a href="" class="Author-avatar hasNoProfile">
+							<img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+						</a>
+						<div class="Author-details">
+							<span class="Author-name"> <?= $this->session->userdata('fx_sess_username'); ?> </span>
+							<span class="Author-posts">
+								<?= $this->forum_model->getCountPostAuthor($this->session->userdata('fx_sess_id')); ?> <?= $this->lang->line('forum_postCount'); ?>
+							</span>
+						</div>
+					</div>
+				</aside>
+
+				<script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+
+	            <form class="Form" id="topic-reply-form" method="post" action="" data-post-form="true" accept-charset="utf-8">
+	                
+	                <div class="TopicForm-group TopicForm-group-content TopicForm-group--isActivated" data-topic-form="true">
+	                	<textarea required="" class="TopicForm-control needsclick TopicForm-control--detail active" data-topic-post-body-edit="true" tabindex="1" spellcheck="true" name="reply_comment" id="ckeditor" rows="10" cols="80"></textarea>
+	                </div>
+            
+		            <span class="TopicForm-link">
+		            	<a href="#" class="TopicForm-link--conduct"><?= $this->lang->line('text_codeConduct'); ?></a>
+		            </span>
+
+		            <div class="TopicForm-action--buttons">
+		            	<button type="submit" name="button_addcommentary" class="TopicForm-button TopicForm-button--reply" id="submit-button">
+		            		<span class="Button-content"><?= $this->lang->line('button_addreply'); ?></span>
+		            	</button>
+		            </div>
+		        </form>
+
+		        <?php if(isset($_POST['button_addcommentary'])){
+		        	$commentary = $_POST['reply_comment'];
+		        	$idsession = $this->session->userdata('fx_sess_id');
+		        	$this->forum_model->insertComment($commentary, $idlink, $idsession);
+		        }?>
+	    </div>
+	</div>
+</section>
+<!-- comment login -->
+<?php } ?>
+
+
+<script>
+    CKEDITOR.replace( 'ckeditor' );
+</script>
