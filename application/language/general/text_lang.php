@@ -176,6 +176,7 @@ $lang['forum_categoryMan'] = 'Manage Category';
 $lang['forum_forumCrea'] = 'Create Forums';
 $lang['forum_forumMan'] = 'Manage Forums';
 $lang['forum_newtopic'] = 'New Topic';
+$lang['forum_postCount'] = 'posts';
 
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';

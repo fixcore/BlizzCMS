@@ -23,6 +23,19 @@ $config['realmlist'] = "ProjectRealmlist_fixcore";
 
 /*
 |--------------------------------------------------------------------------
+| Forum STAFF Color
+|--------------------------------------------------------------------------
+|
+| Enter the code of the color you want for STAFF publications in the forum
+| Use the following page to obtain the color code.
+| http://htmlcolorcodes.com/
+| Default: 00b4ff
+|
+*/
+$config['staff_forum_color'] = "00b4ff";
+
+/*
+|--------------------------------------------------------------------------
 | SOAP Configuration
 |--------------------------------------------------------------------------
 |
