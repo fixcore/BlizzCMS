@@ -219,31 +219,31 @@
     <div class="content">
 <form action="" method="post" accept-charset="utf-8">
       <!-- old pass -->
-      <div class="ui fluid right labeled left icon input">
+      <div class="ui fluid corner labeled icon input">
         <i class="unhide icon"></i>
         <input name="oldpass" type="password" required placeholder="<?= $this->lang->line('old_password'); ?>">
-        <a class="ui tag label">
-          <?= $this->lang->line('old_password'); ?>
+        <a class="ui corner label">
+          <i class="asterisk icon"></i>
         </a>
       </div>
       <!-- old pass -->
       <hr>
       <!-- old pass -->
-      <div class="ui fluid right labeled left icon input">
-        <i class="unhide icon"></i>
+      <div class="ui fluid corner labeled icon input">
+        <i class="lock icon"></i>
         <input name="newpass" type="password" required placeholder="<?= $this->lang->line('new_password'); ?>">
-        <a class="ui tag label">
-          <?= $this->lang->line('new_password'); ?>
+        <a class="ui corner label">
+          <i class="asterisk icon"></i>
         </a>
       </div>
       <!-- old pass -->
-
+      <hr>
       <!-- old pass -->
-      <div class="ui fluid right labeled left icon input">
-        <i class="unhide icon"></i>
+      <div class="ui fluid corner labeled icon input">
+        <i class="lock icon"></i>
         <input name="newpassr" type="password" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
-        <a class="ui tag label">
-          <?= $this->lang->line('pascword_re'); ?>
+        <a class="ui corner label">
+          <i class="asterisk icon"></i>
         </a>
       </div>
       <!-- old pass -->
@@ -257,35 +257,35 @@
 
 
 <div class="ui changeemail mini modal">
-    <div class="header"><?= $this->lang->line('chang_pass'); ?></div>
+    <div class="header"><?= $this->lang->line('chang_email'); ?></div>
     <div class="content">
 <form action="" method="post" accept-charset="utf-8">
       <!-- pass -->
-      <div class="ui fluid right labeled left icon input">
-        <i class="unhide icon"></i>
+      <div class="ui fluid corner labeled icon input">
+        <i class="lock icon"></i>
         <input name="password" type="password" required placeholder="<?= $this->lang->line('password_re'); ?>">
-        <a class="ui tag label">
-          <?= $this->lang->line('password_re'); ?>
+        <a class="ui corner label">
+          <i class="asterisk icon"></i>
         </a>
       </div>
       <!-- pass -->
       <hr>
       <!-- old email -->
-      <div class="ui fluid right labeled left icon input">
+      <div class="ui fluid corner labeled icon input">
         <i class="mail icon"></i>
         <input name="oldemail" type="email" required placeholder="<?= $this->lang->line('old_email'); ?>">
-        <a class="ui tag label">
-          <?= $this->lang->line('old_email'); ?>
+        <a class="ui corner label">
+          <i class="asterisk icon"></i>
         </a>
       </div>
       <!-- old email -->
       <hr>
       <!-- new pass -->
-      <div class="ui fluid right labeled left icon input">
-        <i class="unhide icon"></i>
+      <div class="ui fluid corner labeled icon input">
+        <i class="mail icon"></i>
         <input name="newemail" type="email" required placeholder="<?= $this->lang->line('new_email'); ?>">
-        <a class="ui tag label">
-          <?= $this->lang->line('new_email'); ?>
+        <a class="ui corner label">
+          <i class="asterisk icon"></i>
         </a>
       </div>
       <!-- new pass -->
