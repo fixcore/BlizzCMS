@@ -128,7 +128,7 @@
 								  <i class="warning circle icon"></i>
 								  <div class="content">
 								  	<div class="header">
-								  		Security Warning
+								  	  	Security Warning
 								  	</div>
 								  	<p>Please delete install folder.</p>
 								  </div>
