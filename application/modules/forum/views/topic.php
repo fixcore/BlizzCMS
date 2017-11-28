@@ -89,9 +89,18 @@
 				  </div>
 				</div>
 
-        <div class="TopicPost-bodyContent" data-topic-post-body-content="true">
+        <!-- colors -->
+        <?php if($this->m_data->getRank($this->forum_model->getSpecifyPostAuthor($idlink)) > 0) { ?>
+		<div class="TopicPost-bodyContent" style="color: #<?= $this->config->item('staff_forum_color'); ?>; data-topic-post-body-content="true">
           <?= $this->forum_model->getSpecifyPostContent($idlink); ?>
         </div>
+		<?php } else { ?>
+		<div class="TopicPost-bodyContent" style="color: white;" data-topic-post-body-content="true">
+          <?= $this->forum_model->getSpecifyPostContent($idlink); ?>
+        </div>
+		<?php } ?>
+        <!-- colors -->
+
 		</div>
 	</div>
 
