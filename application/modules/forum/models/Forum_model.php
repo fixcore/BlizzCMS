@@ -49,7 +49,12 @@ class Forum_model extends CI_Model {
 
     public function getSpecifyCategoryPosts($id)
     {
-    	return $this->db->query("SELECT * FROM fx_forum_topics WHERE forums = '".$id."' ORDER BY id DESC");
+        return $this->db->query("SELECT * FROM fx_forum_topics WHERE forums = '".$id."' ORDER BY id DESC");
+    }
+
+    public function getSpecifyCategoryPostsPined($id)
+    {
+        return $this->db->query("SELECT * FROM fx_forum_topics WHERE forums = '".$id."' AND pined = '1' ORDER BY id DESC");
     }
 
     public function getSpecifyPostName($id)

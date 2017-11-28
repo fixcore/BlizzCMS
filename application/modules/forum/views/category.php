@@ -91,7 +91,38 @@
 <div class="Forum-content" data-track="nexus.checkbox" id="forum-topics">
 	<div class="Forum-ForumTopicList ">
 		<div data-topics-container="sticky">
-		<?php foreach($this->forum_model->getSpecifyCategoryPosts($idlink)->result() as $lists) { ?>
+		<?php foreach($this->forum_model->getSpecifyCategoryPostsPined($idlink)->result() as $lists) { ?>
+			<a xmlns="http://www.w3.org/1999/xhtml" style="border-color: #00aeff; border-radius: 10px;"  class="ForumTopic ForumTopic--sticky has-blizzard-post is-locked is-inactive" href="<?= base_url(); ?>forum/topic/<?= $lists->id ?>" data-created-date="<?= date('d-m-Y', $lists->date); ?>"  data-creator="<?= $this->m_data->getUsernameID($lists->author); ?>">
+
+				<span class="ForumTopic-details">
+					<span class="ForumTopic-heading">
+					<span class="ForumTopic-title--wrapper">
+						<span class="ForumTopic-title" data-toggle="tooltip" data-tooltip-content="Content description" data-original-title="" title="">
+							<!-- title -->
+							<i class="blue users icon"></i><?= $lists->title; ?>
+							<!-- title -->
+							<i class="statusIcon statusIcon-mobile" data-toggle="tooltip" data-tooltip-content="Locked" data-original-title="" title=""></i>
+						</span>
+					</span>
+
+						<i class="statusIcon statusIcon-desktop" data-toggle="tooltip" data-tooltip-content="Locked" data-original-title="" title=""></i>
+					</span>
+					<?php if($this->m_data->getRank($lists->author) > 0) { ?>
+					<span class="ForumTopic-author ForumTopic-author--blizzard"><?= $this->m_data->getUsernameID($lists->author); ?></span>
+					<?php } else { ?>
+					<span class="ForumTopic-author"><?= $this->m_data->getUsernameID($lists->author); ?></span>
+					<?php } ?>
+					<span class="ForumTopic-timestamp "><?= date('d-m-Y', $lists->date); ?></span>
+					<span class="ForumTopic-replies">
+						<i class="inverted blue reply icon"></i>
+						<span>0</span>
+					</span>
+				</span>
+			</a>
+			<?php } ?>
+			<!-- test -->
+			<hr>
+			<?php foreach($this->forum_model->getSpecifyCategoryPosts($idlink)->result() as $lists) { ?>
 			<a xmlns="http://www.w3.org/1999/xhtml" class="ForumTopic ForumTopic--sticky has-blizzard-post is-locked is-inactive" href="<?= base_url(); ?>forum/topic/<?= $lists->id ?>" data-created-date="<?= date('d-m-Y', $lists->date); ?>"  data-creator="<?= $this->m_data->getUsernameID($lists->author); ?>">
 
 				<span class="ForumTopic-details">
@@ -107,7 +138,11 @@
 
 						<i class="statusIcon statusIcon-desktop" data-toggle="tooltip" data-tooltip-content="Locked" data-original-title="" title=""></i>
 					</span>
+					<?php if($this->m_data->getRank($lists->author) > 0) { ?>
 					<span class="ForumTopic-author ForumTopic-author--blizzard"><?= $this->m_data->getUsernameID($lists->author); ?></span>
+					<?php } else { ?>
+					<span class="ForumTopic-author"><?= $this->m_data->getUsernameID($lists->author); ?></span>
+					<?php } ?>
 					<span class="ForumTopic-timestamp "><?= date('d-m-Y', $lists->date); ?></span>
 					<span class="ForumTopic-replies">
 						<i class="inverted blue reply icon"></i>
@@ -116,7 +151,6 @@
 				</span>
 			</a>
 			<?php } ?>
-			<!-- test -->
 			<!-- test -->
 		</div>
 	</div>
