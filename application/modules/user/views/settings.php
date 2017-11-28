@@ -299,17 +299,11 @@
 
 <script>
   $('.ui.changepass.mini.modal')
-  .modal({
-    blurring: true
-  })
   .modal('attach events', '#changePassword', 'show');
 </script>
 
 <script>
   $('.ui.changeemail.mini.modal')
-  .modal({
-    blurring: true
-  })
   .modal('attach events', '#changeEmail', 'show');
 </script>
 

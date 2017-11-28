@@ -227,9 +227,6 @@
 
 <script>
   $('.ui.newtopicc.longer.modal')
-  .modal({
-    blurring: true
-  })
   .modal('attach events', '#nnewtopic', 'show');
 </script>
 
