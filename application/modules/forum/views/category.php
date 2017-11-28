@@ -63,7 +63,7 @@
 				<h1 class="Forum-heading">
 					<?= $this->forum_model->getCategoryName($idlink); ?>
 				<div class="Forum-controls">
-						
+					<?php if($this->m_data->isLogged()) { ?>
 						<?php if($this->forum_model->getType($idlink) == 1) { ?>
 						<button id="nnewtopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
 							<span class="Overlay-element" ></span>
@@ -72,7 +72,6 @@
 								</span>
 						</button>
 						<?php } elseif ($this->forum_model->getType($idlink) == 2 || $this->forum_model->getType($idlink) == 3) { ?>
-							<?php if($this->m_data->isLogged()) { ?>
 								<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
 									<button id="nnewtopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
 										<span class="Overlay-element" ></span>
@@ -81,9 +80,8 @@
 											</span>
 									</button>
 								<?php } ?>
-							<?php } ?>
-
 						<?php } ?>
+					<?php } ?>
 				</div>
 			</div>
 
@@ -163,6 +161,8 @@
 		<!-- more -->
 		<div class="ui center aligned basic segment">
 
+		<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+
 			<div class="ui toggle checkbox">
 			  <input id="hightl" type="checkbox" name="check_highl" value="1">
 			  <label for="hightl"><?= $this->lang->line('expr_highl'); ?></label>
@@ -173,8 +173,8 @@
 			  <label for="llock"><?= $this->lang->line('expr_lock'); ?></label>
 			</div>
 
-
 			<br><br><br>
+		<?php } ?>
 
 			<div class="actions">
 			  <div class="ui black deny button">
@@ -184,7 +184,6 @@
 			  <button class="ui blue deny button" type="submit" name="button_createTopic">
 			  	<?= $this->lang->line('button_crea'); ?>
 			  </button>
-
 			</div>
 		</div>
 		<!-- more -->
