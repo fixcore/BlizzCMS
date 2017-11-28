@@ -73,7 +73,7 @@
 </span>
 <span class="Author-posts">
 <a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="View Post History">
-0 posts
+<?= $this->forum_model->getCountPostAuthor($this->forum_model->getSpecifyPostAuthor($idlink)); ?> <?= $this->lang->line('forum_postCount'); ?>
 </a>
 </span></div></div>
 </div>

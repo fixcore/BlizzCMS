@@ -13,6 +13,11 @@ class Forum_model extends CI_Model {
       return $this->db->select('id, categoryName')->from('fx_forum_category')->get()->result();
     }
 
+    public function getCountPostAuthor($id)
+    {
+        return $this->db->query("SELECT author FROM fx_forum_topics WHERE author = '".$id."'")->num_rows();
+    }
+
     public function getRowTopicExist($id)
     {
         return $this->db->query("SELECT id FROM fx_forum_topics WHERE id = '".$id."'")->num_rows();
