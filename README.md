@@ -53,3 +53,7 @@ This page is compatible with all game versions.
 ## Warning
 
 > This system uses .htaccess, your machine must have the necessary extensions to read it.
+
+## Database
+
+* [Structure](https://fixcore.github.io/database/)
