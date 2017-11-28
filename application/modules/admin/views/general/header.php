@@ -70,7 +70,7 @@
                                     <div class="u-img"><img src="<?= base_url(); ?>assets/images/profiles/<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" alt="<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" /></div>
                                     <div class="u-text">
                                         <h4><?= $this->session->userdata('fx_sess_username'); ?></h4>
-                                        <p class="text-muted"><?= $this->session->userdata('fx_sess_email'); ?></p><a href="<?= base_url('user/settings'); ?>" class="btn btn-rounded btn-danger btn-sm"><?= $this->lang->line('adm_settings'); ?></a></div>
+                                        <p class="text-muted"><?= $this->session->userdata('fx_sess_email'); ?></p><a href="<?= base_url('user/settings'); ?>" class="btn btn-rounded btn-danger btn-sm"><i class="fa fa-cog"></i> <?= $this->lang->line('adm_settings'); ?></a></div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
@@ -96,17 +96,17 @@
                 <div class="user-profile"></div>
                 <ul class="nav" id="side-menu">
                    
-                    <li> <a href="<?= base_url('admin'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('menu_home'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin'); ?>" class="waves-effect"><i class="fa fa-home fa-fw text-info"></i><span class="hide-menu"><?= $this->lang->line('menu_home'); ?></span></a> </li>
 
-                    <li> <a href="<?= base_url('admin/users'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_users'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/users'); ?>" class="waves-effect"><i class="fa fa-list-ul fa-fw text-danger"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_users'); ?></span></a> </li>
 
-                    <li> <a href="<?= base_url('admin/chars'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_chars'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/chars'); ?>" class="waves-effect"><i class="fa fa-list-ul fa-fw text-warning"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_chars'); ?></span></a> </li>
                     
-                    <li> <a href="<?= base_url('admin/addnew'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_addnew'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/addnew'); ?>" class="waves-effect"><i class="fa fa-newspaper-o fa-fw text-success"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_addnew'); ?></span></a> </li>
 
-                    <li> <a href="<?= base_url('admin/listnew'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_listnew'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/listnew'); ?>" class="waves-effect"><i class="fa fa-list-ul fa-fw text-purple"></i><span class="hide-menu"><?= $this->lang->line('adm_menu_listnew'); ?></span></a> </li>
 
-                    <li> <a href="<?= base_url('admin/forums'); ?>" class="waves-effect"><i class="fa fa-modx fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span></a> </li>
+                    <li> <a href="<?= base_url('admin/forums'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw text-inverse"></i><span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span></a> </li>
 
                     <li class="devider"></li>
                     
@@ -115,9 +115,9 @@
                     <li class="devider"></li>
 
                     
-                    <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/wiki" class="waves-effect"><i class="fa fa-circle-o text-danger"></i> <span class="hide-menu">Wiki</span></a></li>
+                    <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/wiki" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu">Wiki</span></a></li>
 
-                    <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/issues" class="waves-effect"><i class="fa fa-circle-o text-info"></i> <span class="hide-menu">Issues</span></a></li>
+                    <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/issues" class="waves-effect"><i class="fa fa-circle-o text-inverse"></i> <span class="hide-menu">Issues</span></a></li>
                 </ul>
             </div>
         </div>

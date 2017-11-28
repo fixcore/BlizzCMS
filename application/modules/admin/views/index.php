@@ -16,7 +16,7 @@
                             <div class="white-box">
                                 <h3 class="box-title"><?= $this->lang->line('players_on'); ?></h3>
                                 <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="icon-people text-info"></i></li>
+                                    <li><i class="fa fa-area-chart text-info"></i></li>
                                     <li class="text-right"><span class="counter"><?= $this->admin_model->getCharOn(); ?></span></li>
                                 </ul>
                             </div>
@@ -25,7 +25,7 @@
                             <div class="white-box">
                                 <h3 class="box-title"><?= $this->lang->line('account_cre'); ?></h3>
                                 <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="fa fa-user text-purple"></i></li>
+                                    <li><i class="fa fa-globe text-success"></i></li>
                                     <li class="text-right"><span class="counter"><?= $this->admin_model->getAccCreated(); ?></span></li>
                                 </ul>
                             </div>
@@ -34,7 +34,7 @@
                             <div class="white-box">
                                 <h3 class="box-title"><?= $this->lang->line('staff_count'); ?></h3>
                                 <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="fa fa-spin fa-circle-o-notch text-danger"></i></li>
+                                    <li><i class="icon-people text-purple"></i></li>
                                     <li class="text-right"><span class=""><?= $this->admin_model->getGmCount(); ?></span></li>
                                 </ul>
                             </div>
@@ -43,7 +43,7 @@
                             <div class="white-box">
                                 <h3 class="box-title"><?= $this->lang->line('bann_count'); ?></h3>
                                 <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="fa fa-th-large text-success"></i></li>
+                                    <li><i class="fa fa-ban text-danger"></i></li>
                                     <li class="text-right"><span class=""><?= $this->admin_model->getBanCount(); ?></span></li>
                                 </ul>
                             </div>

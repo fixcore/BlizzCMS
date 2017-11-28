@@ -19,7 +19,7 @@
                                     <a href="<?= base_url('admin/mcategory'); ?>" title="<?= $this->lang->line('forum_categoryMan'); ?>">
                                         <h3 class="box-title"><?= $this->lang->line('forum_categoryMan'); ?></h3>
                                         <ul class="list-inline m-t-30 p-t-10 two-part">
-                                            <li><i class="fa fa-location-arrow"></i></li>
+                                            <li><i class="fa fa-cogs"></i></li>
                                         </ul>
                                     </a>
                                 </center>
@@ -32,7 +32,7 @@
                                     <a href="<?= base_url('admin/ccategory'); ?>" title="<?= $this->lang->line('forum_categoryCrea'); ?>">
                                         <h3 class="box-title"><?= $this->lang->line('forum_categoryCrea'); ?></h3>
                                         <ul class="list-inline m-t-30 p-t-10 two-part">
-                                            <li><i class="fa fa-cog"></i></li>
+                                            <li><i class="fa fa-plus-circle"></i></li>
                                         </ul>
                                     </a>
                                 </center>
@@ -45,7 +45,7 @@
                                     <a href="<?= base_url('admin/mforum'); ?>" title="<?= $this->lang->line('forum_forumMan'); ?>">
                                         <h3 class="box-title"><?= $this->lang->line('forum_forumMan'); ?></h3>
                                         <ul class="list-inline m-t-30 p-t-10 two-part">
-                                            <li><i class="fa fa-location-arrow"></i></li>
+                                            <li><i class="fa fa-cogs"></i></li>
                                         </ul>
                                     </a>
                                 </center>
@@ -58,7 +58,7 @@
                                     <a href="<?= base_url('admin/cforum'); ?>" title="<?= $this->lang->line('forum_forumCrea'); ?>">
                                         <h3 class="box-title"><?= $this->lang->line('forum_forumCrea'); ?></h3>
                                         <ul class="list-inline m-t-30 p-t-10 two-part">
-                                            <li><i class="fa fa-cog"></i></li>
+                                            <li><i class="fa fa-plus-circle"></i></li>
                                         </ul>
                                     </a>
                                 </center>

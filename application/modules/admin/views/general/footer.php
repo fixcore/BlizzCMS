@@ -1,4 +1,4 @@
-<footer class="footer text-center"><a href="https://github.com/fixcore/BlizzCMS"><i class="github icon"></i>Proudly powered by BlizzCMS</a></footer>
+<footer class="footer text-center"><a href="https://github.com/fixcore/BlizzCMS"><i class="fa fa-github fa-lg"></i>Proudly powered by BlizzCMS</a></footer>
         </div>
         <!-- ============================================================== -->
         <!-- End Page Content -->

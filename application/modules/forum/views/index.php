@@ -43,7 +43,7 @@
 			<div class="Community-wrapper">
 			<div class="Welcome">
 				<div class="Welcome-logo--container">	
-					<p class="Welcome-text"><?= $this->lang->line('forum_welcometext'); ?></span></p>
+					<p class="Welcome-text"><i class="talk icon"></i> <?= $this->lang->line('forum_welcometext'); ?></span></p>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 <div class="ForumCategory ">
 	<header class="ForumCategory-header">
 	<br>
-		<h1 class="ForumCategory-heading"><?= $categorys->categoryName ?></h1>
+		<h1 class="ForumCategory-heading"><i class="bookmark icon"> <?= $categorys->categoryName ?></h1>
 			<button class="Community-button--search" id="toggle-search-field" data-trigger="toggle.search.field" type="button">
 				<span class="Button-content">
 					<i class="Icon"></i>

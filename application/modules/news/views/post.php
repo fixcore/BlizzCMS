@@ -49,7 +49,7 @@
 </div>
 <div class="HeroPane-content">
     <div class="max-sm max-left align-left">
-    <div class="Heading Heading--articleHeadline" style="color: #fff;"><?= $this->news_model->getNewTitle($idlink); ?></div>
+    <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="newspaper icon"></i> <?= $this->news_model->getNewTitle($idlink); ?></div>
 
 <div class="space-medium">
 </div>
