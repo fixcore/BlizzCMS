@@ -28,5 +28,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['account_error'] = 'Account not found';
-$lang['password_error'] = 'Password not found';
+$lang['account_error'] = 'Incorrect Account';
+$lang['account_error_info'] = 'The account provided was not possible to find, please write a valid account';
+$lang['password_error'] = 'Incorrect Password';
+$lang['password_error_info'] = 'The password provided is incorrect, please write it again';
