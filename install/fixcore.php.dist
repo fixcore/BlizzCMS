@@ -96,7 +96,7 @@ $config['expansion_id'] = "ProjectExpansion_fixcore";
 | 6 = blizzcms
 | 7 = uncrowned
 | 8 = xavius
-| 8 = exile
+| 9 = exile
 | 
 | Default: 4
 */
