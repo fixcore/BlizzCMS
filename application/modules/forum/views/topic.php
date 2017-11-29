@@ -48,7 +48,7 @@
 		<header class="Topic-header">
 			<div class="Container Container--content">
 				<h1 class="Topic-heading">
-					<span class="Topic-title" data-topic-heading="true"><?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
+					<span class="Topic-title" data-topic-heading="true"><i class="talk icon"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
 				</h1>
 			</div>
 		</header>
@@ -118,7 +118,7 @@
 	    <div class="Author-data" data-topic-form=''>
 			<div class="LoginPlaceholder" id="create-topic">
 				<header class="LoginPlaceholder-header">
-					<h1 class="LoginPlaceholder-heading"><?= $this->lang->line('text_login_forumstxt'); ?></h1>
+					<h1 class="LoginPlaceholder-heading"><i class="comments outline icon"></i> <?= $this->lang->line('text_login_forumstxt'); ?></h1>
 				</header>
 				<div class="LoginPlaceholder-content">
 					<div class="LoginPlaceholder-details">
@@ -222,7 +222,7 @@
 <section xmlns="http://www.w3.org/1999/xhtml" class="Section Section--secondary">
 	<div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
 	        <header class="TopicForm-header">
-	            <h1 class="TopicForm-heading"><?= $this->lang->line('text_login_forumstxt'); ?></h1>
+	            <h1 class="TopicForm-heading"><i class="comments outline icon"></i> <?= $this->lang->line('text_login_forumstxt'); ?></h1>
 	        </header>
 	        <div class="TopicForm-content">
 	            <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944    }">
@@ -253,7 +253,7 @@
 
 		            <div class="TopicForm-action--buttons">
 		            	<button type="submit" name="button_addcommentary" class="TopicForm-button TopicForm-button--reply" id="submit-button">
-		            		<span class="Button-content"><?= $this->lang->line('button_addreply'); ?></span>
+		            		<span class="Button-content"><i class="write icon"></i> <?= $this->lang->line('button_addreply'); ?></span>
 		            	</button>
 		            </div>
 		        </form>

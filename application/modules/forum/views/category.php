@@ -68,7 +68,7 @@
 						<button id="nnewtopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
 							<span class="Overlay-element" ></span>
 								<span class="Button-content">
-									<?= $this->lang->line('forum_newtopic'); ?>
+									<i class="write icon"></i> <?= $this->lang->line('forum_newtopic'); ?>
 								</span>
 						</button>
 						<?php } elseif ($this->forum_model->getType($idlink) == 2 || $this->forum_model->getType($idlink) == 3) { ?>
@@ -76,7 +76,7 @@
 									<button id="nnewtopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
 										<span class="Overlay-element" ></span>
 											<span class="Button-content">
-												<?= $this->lang->line('forum_newtopic'); ?>
+												<i class="write icon"></i> <?= $this->lang->line('forum_newtopic'); ?>
 											</span>
 									</button>
 								<?php } ?>
@@ -99,7 +99,7 @@
 					<span class="ForumTopic-title--wrapper">
 						<span class="ForumTopic-title" data-toggle="tooltip" data-tooltip-content="Content description" data-original-title="" title="">
 							<!-- title -->
-							<i class="blue users icon"></i><?= $lists->title; ?>
+							<i class="talk icon"></i><?= $lists->title; ?>
 							<!-- title -->
 							<i class="statusIcon statusIcon-mobile" data-toggle="tooltip" data-tooltip-content="Locked" data-original-title="" title=""></i>
 						</span>
@@ -130,7 +130,7 @@
 					<span class="ForumTopic-title--wrapper">
 						<span class="ForumTopic-title" data-toggle="tooltip" data-tooltip-content="Content description" data-original-title="" title="">
 							<!-- title -->
-							<i class="blue users icon"></i><?= $lists->title; ?>
+							<i class="talk icon"></i><?= $lists->title; ?>
 							<!-- title -->
 							<i class="statusIcon statusIcon-mobile" data-toggle="tooltip" data-tooltip-content="Locked" data-original-title="" title=""></i>
 						</span>
@@ -163,7 +163,7 @@
 
 
 <div class="ui newtopicc longer modal">
-    <div class="header"><?= $this->lang->line('forum_newtopic'); ?></div>
+    <div class="header"><i class="write icon"></i> <?= $this->lang->line('forum_newtopic'); ?></div>
     <div class="content">
 <form action="" method="post" accept-charset="utf-8">
 		<!-- title -->
@@ -197,27 +197,28 @@
 
 		<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
 
-			<div class="ui toggle checkbox">
-			  <input id="hightl" type="checkbox" name="check_highl" value="1">
-			  <label for="hightl"><?= $this->lang->line('expr_highl'); ?></label>
-			</div>
-
-			<div class="ui toggle checkbox">
-			  <input id="llock" type="checkbox" name="check_lock" value="1">
-			  <label for="llock"><?= $this->lang->line('expr_lock'); ?></label>
+            <div class="ui blue secondary segment">
+			  <div class="field">
+			    <div class="ui toggle checkbox">
+			      <input id="hightl" type="checkbox" name="check_highl" value="1">
+			      <label for="hightl"><?= $this->lang->line('expr_highl'); ?></label>
+			    </div>
+				<div class="ui toggle checkbox">
+				  <input id="llock" type="checkbox" name="check_lock" value="1">
+			      <label for="llock"><?= $this->lang->line('expr_lock'); ?></label>
+			    </div>
+			  </div>
 			</div>
 
 			<br><br><br>
 		<?php } ?>
 
 			<div class="actions">
-			  <div class="ui black deny button">
-			    <?= $this->lang->line('button_cancel'); ?>
+			  <div class="ui buttons">
+			    <button class="ui negative button"><i class="remove circle icon"></i> <?= $this->lang->line('button_cancel'); ?></button>
+			    <div class="or"></div>
+				<button class="ui positive button" type="submit" name="button_createTopic"><i class="add circle icon"></i> <?= $this->lang->line('button_crea'); ?></button>
 			  </div>
-
-			  <button class="ui blue deny button" type="submit" name="button_createTopic">
-			  	<?= $this->lang->line('button_crea'); ?>
-			  </button>
 			</div>
 		</div>
 		<!-- more -->

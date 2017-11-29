@@ -43,7 +43,7 @@
 			<div class="Community-wrapper">
 			<div class="Welcome">
 				<div class="Welcome-logo--container">	
-					<p class="Welcome-text"><i class="talk icon"></i> <?= $this->lang->line('forum_welcometext'); ?></span></p>
+					<p class="Welcome-text"><i class="talk outline icon"></i> <?= $this->lang->line('forum_welcometext'); ?></span></p>
 				</div>
 			</div>
 		</div>
