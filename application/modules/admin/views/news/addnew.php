@@ -28,7 +28,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0"><?= $this->lang->line('create_new'); ?></h3>
+                            <h3 class="box-title m-b-0"><i class="fa fa-newspaper-o fa-fw"></i><?= $this->lang->line('create_new'); ?></h3>
                             <p class="text-muted m-b-30 font-13"></p>
                             <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
 
@@ -68,7 +68,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <button type="submit" name="button_createNew" class="btn btn-success waves-effect waves-light m-r-10"><?= $this->lang->line('button_crea'); ?></button>
+                                <button type="submit" name="button_createNew" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
                             </form>
                         </div>
                     </div>

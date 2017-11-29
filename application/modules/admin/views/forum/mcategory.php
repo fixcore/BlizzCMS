@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0"><?= $this->lang->line('forum_categoryMan'); ?></h3>
+                            <h3 class="box-title m-b-0"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('forum_categoryMan'); ?></h3>
                             <p class="text-muted m-b-30"></p>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-striped">
@@ -32,7 +32,7 @@
 
                                             <td>
                                                 <form action="" method="post" accept-charset="utf-8">
-                                                    <button name="button_deleteCategory" value="<?= $list->id ?>" type="submit" class="btn btn-danger waves-effect waves-light m-r-10">Delete</button>
+                                                    <button name="button_deleteCategory" value="<?= $list->id ?>" type="submit" class="btn btn-danger waves-effect waves-light m-r-10"><i class="fa fa-eraser fa-fw"></i>Delete</button>
                                                 </form>
                                             </td>
                                         </tr>
