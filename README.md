@@ -3,7 +3,7 @@
 Welcome to a new website for World of warcraft
 This page is compatible with all game versions.
 
-## [DEMO](http://149.202.243.15/)
+## [DEMO](http://blizzcms.projectscms.ml/)
 
 * If you find bugs please report them in the [issues](https://github.com/fixcore/BlizzCMS/issues) section.
 * If you need support about the database please see the [wiki](https://github.com/fixcore/BlizzCMS/wiki) section
