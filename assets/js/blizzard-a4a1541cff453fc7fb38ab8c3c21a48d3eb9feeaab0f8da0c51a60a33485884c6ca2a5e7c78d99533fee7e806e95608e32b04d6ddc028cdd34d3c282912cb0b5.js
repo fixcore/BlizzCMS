@@ -5675,7 +5675,7 @@ var VideoPane = { getVideoElements: function () {
 							console.error(err);
 						}
 					}, function (err) {
-						console.error('Couldn\'t retrieve notification count', err);
+						//console.error('Couldn\'t retrieve notification count', err);
 					});
 				},
 				showPromotion: function (promotion, promotionId, imageUrl, label, text, linkText, linkUrl) {

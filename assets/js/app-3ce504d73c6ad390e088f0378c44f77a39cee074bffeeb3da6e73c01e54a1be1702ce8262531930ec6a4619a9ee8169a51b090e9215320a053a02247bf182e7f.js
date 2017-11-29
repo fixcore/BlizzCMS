@@ -8,8 +8,8 @@ UI.afterInitHandlers.push(function (context) {
           dl = l != 'dataLayer' ? '&l=' + l : '';
       j.async = true;
       j.src = '//www.googletagmanager.com/gtm.js?id=' + i + dl;
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'dataLayer', window.blizzard['gtmId']);
+      /*f.parentNode.insertBefore(j, f);*/
+    })(window, document, 'script', 'dataLayer'/*, window.blizzard['gtmId']*/);
 
     !function (i, d, e, n) {
       i[e] = i[e] || {}, i[e][n] || (i[e][n] = function (i, e, n) {

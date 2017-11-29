@@ -15,13 +15,13 @@ var Page = {
     Page.initMoment();
 
     // WMBLZ-743 - Temporary ICP code solution, replace when Global Nav accepts arbitrary content ( WMBLZ-790 )
-    if (blizzard.chinaMode) {
+    /*if (blizzard.chinaMode) {
       $('.NavbarFooter-additionalLegal:nth-child(3)').after('<div class="NavbarFooter-additionalLegal NavbarFooter-additionalLegalPull"><div class="NavbarFooter-additionalLegalLine">沪ICP备16024552号</div></div>');
-    }
+    }*/
   },
   initMoment: function () {
     // Use user's locale so we can properly format strings
-    moment.locale(blizzard.locale);
+    moment.locale(/*blizzard.locale*/);
 
     // Change the time to the user's local timezone
     $('.Home-eventsTableRow').each(function (index, row) {
