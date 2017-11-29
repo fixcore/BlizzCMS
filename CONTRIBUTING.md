@@ -24,6 +24,7 @@ The nicknames of these people are from Discord.
 * @Darkero12#3477 - [ExileHeroes](http://exileheroes.com/)
 * @Felstrider#0548 - [Uncrowned](http://uncrowned.servegame.com/)
 * @Sagrario#5625 - [Xavius](http://xavius.ru/)
+* @Alterac WoW#2591 - [Alterac WoW](https://www.alterac-wow.org/)
 
 
 ##### Premium
