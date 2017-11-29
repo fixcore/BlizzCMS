@@ -197,7 +197,7 @@
 
 		<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
 
-            <div class="ui blue secondary segment">
+			<div class="ui blue secondary segment">
 			  <div class="field">
 			    <div class="ui toggle checkbox">
 			      <input id="hightl" type="checkbox" name="check_highl" value="1">
@@ -217,7 +217,7 @@
 			  <div class="ui buttons">
 			    <button class="ui negative button"><i class="remove circle icon"></i> <?= $this->lang->line('button_cancel'); ?></button>
 			    <div class="or"></div>
-				<button class="ui positive button" type="submit" name="button_createTopic"><i class="add circle icon"></i> <?= $this->lang->line('button_crea'); ?></button>
+			    <button class="ui positive button" type="submit" name="button_createTopic"><i class="add circle icon"></i> <?= $this->lang->line('button_crea'); ?></button>
 			  </div>
 			</div>
 		</div>
