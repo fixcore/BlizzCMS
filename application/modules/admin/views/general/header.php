@@ -61,9 +61,9 @@
                 <!-- Search input and Toggle icon -->
                 <ul class="nav navbar-top-links navbar-left">
                     <li><a href="javascript:void(0)" class="open-close waves-effect waves-light"><i class="ti-menu"></i></a></li>
-					<li><a href="<?= base_url(); ?>" class="waves-effect"><i class="fa fa-home fa-fw"></i><?= $this->lang->line('menu_home'); ?></a></li>
-					<li><a href="<?= base_url('news'); ?>" class="waves-effect"><i class="fa fa-newspaper-o fa-fw"></i><?= $this->lang->line('menu_news'); ?></a></li>
-					<li><a href="<?= base_url('forum'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw"></i><?= $this->lang->line('forums'); ?></a></li>
+                    <li><a href="<?= base_url(); ?>" class="waves-effect"><i class="fa fa-home fa-fw"></i><?= $this->lang->line('menu_home'); ?></a></li>
+                    <li><a href="<?= base_url('news'); ?>" class="waves-effect"><i class="fa fa-newspaper-o fa-fw"></i><?= $this->lang->line('menu_news'); ?></a></li>
+                    <li><a href="<?= base_url('forum'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw"></i><?= $this->lang->line('forums'); ?></a></li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown">
