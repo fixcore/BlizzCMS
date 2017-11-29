@@ -1,20 +1,7 @@
 <!-- footer -->
 <div class="Pane Pane--full Pane--backgroundTop Pane--innerBorderTop" id="Page-footer">
-    <div style="background-color:#00214a" class="Pane-backgroundContainer">
-    <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-base.jpg)" class="Pane-background">
-</div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-xs.jpg)" class="Pane-background show-xs-sm hide">
-</div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-sm.jpg)" class="Pane-background show-sm-md hide">
-</div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-md.jpg)" class="Pane-background show-md-lg hide">
-</div>
-<div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/footer-bg-lg.jpg)" class="Pane-background show-lg hide">
-</div>
-</div>
+    
 <div style="" class="Pane-content">
-    <div class="space-adaptive-large">
-</div>
 <div data-hash="1aa386d69ed4b4c6a6a5fdb3b0af2b627ce93558" data-region-selection="none" data-region="us" data-locale="en-gb" class="NavbarFooter is-regionless">
     <div class="NavbarFooter-overlay">
 </div>

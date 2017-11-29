@@ -1236,22 +1236,7 @@ body[data-device=desktop] .Home-gameGridScroll:hover {
     .Home-additionalLinkArrow {
       display: none; } }
 
-.Home-storiesPane {
-  background-color: #001845;
-  background-repeat: no-repeat;
-  background-position: bottom center;
-  background-image: url("../images/backgrounds/top-stories-events_section-background_xs.jpg");
-  background-size: 768px 800px; }
-  @media (min-width: 768px) {
-    .Home-storiesPane {
-      background-image: url("../images/backgrounds/top-stories-events_section-background_sm.jpg");
-      background-size: auto; } }
-  @media (min-width: 992px) {
-    .Home-storiesPane {
-      background-image: url("../images/backgrounds/top-stories-events_section-background_md.jpg"); } }
-  @media (min-width: 1200px) {
-    .Home-storiesPane {
-      background-image: url("../images/backgrounds/top-stories-events_section-background_lrg.jpg"); } }
+
 
 .Home-storiesEventsGrid {
   margin-left: -25px;

@@ -33,7 +33,7 @@
 </head>
 
 <!-- <body class="en-us Theme--bnet no-js preload">-->
-<body class="en-us Theme--bnet">
+<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
 
 <!-- header -->
 <?php $this->load->view('general/icons'); ?>
