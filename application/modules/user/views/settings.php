@@ -215,7 +215,7 @@
 <!-- step END -->
 
   <div class="ui changepass mini modal">
-    <div class="header"><?= $this->lang->line('chang_pass'); ?></div>
+    <div class="header"><i class="lock icon"></i> <?= $this->lang->line('chang_pass'); ?></div>
     <div class="content">
 <form action="" method="post" accept-charset="utf-8">
       <!-- old pass -->
@@ -257,7 +257,7 @@
 
 
 <div class="ui changeemail mini modal">
-    <div class="header"><?= $this->lang->line('chang_email'); ?></div>
+    <div class="header"><i class="mail icon"></i> <?= $this->lang->line('chang_email'); ?></div>
     <div class="content">
 <form action="" method="post" accept-charset="utf-8">
       <!-- pass -->
