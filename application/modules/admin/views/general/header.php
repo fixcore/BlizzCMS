@@ -144,13 +144,13 @@
                 <div class="user-profile"></div>
                 <ul class="nav" id="side-menu">
                     <li><a href="<?= base_url('admin'); ?>" class="waves-effect"><i class="fa fa-tachometer fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_dashboard'); ?></span></a></li>
-                    <li><a href="#" class="waves-effect"><i class="fa fa-bars fa-fw text-danger"></i><span class="hide-menu"><?= $this->lang->line('adm_users'); ?><span class="fa arrow"></span> <span class="label label-rouded label-info pull-right">2</span> </span></a>
+                    <li><a href="#" class="waves-effect"><i class="fa fa-bars fa-fw text-danger"></i><span class="hide-menu"><?= $this->lang->line('adm_users'); ?><span class="fa arrow"></span> <span class="label label-rouded label-inverse pull-right">2</span> </span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?= base_url('admin/users'); ?>"><i class="fa fa-list fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_users_list'); ?></span></a></li>
                             <li><a href="<?= base_url('admin/chars'); ?>"><i class="fa fa-list fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_chars_list'); ?></span></a></li>
                         </ul>
                     </li>
-                    <li><a href="#" class="waves-effect"><i class="fa fa-newspaper-o fa-fw text-purple"></i><span class="hide-menu"><?= $this->lang->line('adm_news'); ?><span class="fa arrow"></span> <span class="label label-rouded label-info pull-right">2</span> </span></a>
+                    <li><a href="#" class="waves-effect"><i class="fa fa-newspaper-o fa-fw text-purple"></i><span class="hide-menu"><?= $this->lang->line('adm_news'); ?><span class="fa arrow"></span> <span class="label label-rouded label-inverse pull-right">2</span> </span></a>
                         <ul class="nav nav-second-level">
                             <li><a href="<?= base_url('admin/addnew'); ?>"><i class="fa fa-pencil fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_add_news'); ?></span></a></li>
                             <li><a href="<?= base_url('admin/listnew'); ?>"><i class="fa fa-list fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_news_list'); ?></span></a></li>
