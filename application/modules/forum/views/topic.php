@@ -197,11 +197,15 @@
 				</div>
 			</div>
 
+			<?php if($this->m_data->getRank($commentss->author) > 0) { ?>
+			<div class="TopicPost-bodyContent" style="color: <?= $this->config->item('staff_forum_color'); ?>;" data-topic-post-body-content="true">
+			<?php } else { ?>
 			<div class="TopicPost-bodyContent" data-topic-post-body-content="true">
+			<?php } ?>
 				<?= $commentss->commentary ?>
 			</div>
 
-			<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+			<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0 || $this->session->userdata('fx_sess_id') == $commentss->author && $this->m_data->getTimestamp() < strtotime('+30 minutes', $commentss->date)) { ?>
 			<footer class="TopicPost-actions" data-topic-post-body-content="true">
 				<form action="" method="post" accept-charset="utf-8">
 					<button type="submit" name="button_removecomment" class="ui inverted blue button"><?= $this->lang->line('button_remove'); ?></button>
