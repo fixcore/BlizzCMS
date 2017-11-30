@@ -101,7 +101,7 @@ class M_api_char extends CI_Model {
                 'CharYesterdayKills'  => $this->getCharYesterdayKills($guid),
             );
         else $char_kills = array();
-        
+
         if ($this->getGenerated('9', $selections) == '1')
             $char_personal = array
             (
@@ -126,6 +126,7 @@ class M_api_char extends CI_Model {
     {
         return $this->characters->query('SELECT guid FROM characters WHERE guid = "'.$guid.'"')->num_rows();
     }
+
     private function getCharName($guid)
     {
         return $this->characters->query("SELECT name FROM characters WHERE guid = '".$guid."'")->row()->name;
@@ -135,7 +136,7 @@ class M_api_char extends CI_Model {
     {
         $qq = $this->characters->query("SELECT account FROM characters WHERE guid = '".$guid."'")->row()->account;
 
-        if(isset($_GET['api_username']))
+        if (isset($_GET['api_username']))
             $qq = $this->m_data->getUsernameID($qq);
 
         return $qq;
@@ -145,7 +146,7 @@ class M_api_char extends CI_Model {
     {
         $qq = $this->characters->query("SELECT class FROM characters WHERE guid = '".$guid."'")->row()->class;
 
-        if(isset($_GET['api_class']))
+        if (isset($_GET['api_class']))
             $qq = $this->m_general->getNameClass($qq);
 
         return $qq;
@@ -155,7 +156,7 @@ class M_api_char extends CI_Model {
     {
         $qq = $this->characters->query("SELECT race FROM characters WHERE guid = '".$guid."'")->row()->race;
 
-        if(isset($_GET['api_race']))
+        if (isset($_GET['api_race']))
             $qq = $this->m_general->getRaceName($qq);
 
         return $qq;
@@ -165,7 +166,7 @@ class M_api_char extends CI_Model {
     {
         $qq = $this->characters->query("SELECT gender FROM characters WHERE guid = '".$guid."'")->row()->gender;
 
-        if(isset($_GET['api_gender']))
+        if (isset($_GET['api_gender']))
             $qq = $this->m_general->getGender($qq);
 
         return $qq;
@@ -419,5 +420,4 @@ class M_api_char extends CI_Model {
     {
         return $this->db->query("SELECT type FROM fx_api_char WHERE id = '".$id."'")->row_array()['type'];
     }
-
 }
