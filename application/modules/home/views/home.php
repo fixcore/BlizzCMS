@@ -353,7 +353,6 @@
                 </div>
             </div>
             <div class="Card-content">
-                <div class="Heading Heading--gridSubtitle Home-topStoriesSubtitle"><?= $this->lang->line('news'); ?></div>
                 <div class="Heading Home-topStoriesTitle"><?= $newstree->title ?></div>
             </div>
         </div>
