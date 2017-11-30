@@ -33,6 +33,11 @@
     <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('forums'); ?></div>
 </a>
 
+<a href="<?= base_url('forum'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('changelogs'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_news'); ?>">
+    <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('changelogs'); ?></div>
+</a>
+
+
 </div>
 
 <div class="Navbar-profileItems">
