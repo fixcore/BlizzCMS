@@ -9,6 +9,7 @@
 
 <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzard-dc9d0faea4c4a01c35477637614e4bbab87305d0b07b1dfb8e0f09a21283294707def12b40e4cb9f13b56d8cbd92e8b40a3c956f0da1b5cf1d25b558efeffc31.css">
 <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app-65d540bb92d74ad1518ba050a969a68fe7cca3e0b202351c63b7742d39e87267a3bd8210f6a567b4b05819727690c48601a94036e4e498deb0519f50edb50a65.css">
+<link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
 <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 <!-- semantic ui Start -->
 <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
@@ -29,7 +30,7 @@
 
 </head>
 
-<body lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
 
 <!-- header -->
 <?php $this->load->view('general/icons'); ?>
@@ -140,9 +141,9 @@
 </div>
 </div>
 </div>
-<div class="Pane Pane--backgroundTop Pane--full Home-gameBackgroundPane">
+<div class="Pane Pane--backgroundTop Pane--full">
     <div class="Pane-backgroundContainer">
-    <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/step2.jpg)" class="Pane-background">
+    <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/step2.png)" class="Pane-background">
 </div>
 </div>
 <div style="" class="Pane-content">
@@ -352,7 +353,6 @@
                 </div>
             </div>
             <div class="Card-content">
-                <div class="Heading Heading--gridSubtitle Home-topStoriesSubtitle"><?= $this->lang->line('news'); ?></div>
                 <div class="Heading Home-topStoriesTitle"><?= $newstree->title ?></div>
             </div>
         </div>
@@ -405,8 +405,6 @@
 </div>
 </div>
 </div>
-</div>
-<div class="Divider Home-blueDivider">
 </div>
 
 </div>

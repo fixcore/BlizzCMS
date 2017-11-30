@@ -80,3 +80,24 @@ $config['realmlistPort'] = "ProjectRealmPort_fixcore";
 |
 */
 $config['expansion_id'] = "ProjectExpansion_fixcore";
+
+/*
+|--------------------------------------------------------------------------
+| Theme Name
+|--------------------------------------------------------------------------
+|
+| Select the expansion that your website will use among these options:
+|
+| 1 = zwolf
+| 2 = alterac
+| 3 = thranrion
+| 4 = fixcore
+| 5 = theme2
+| 6 = blizzcms
+| 7 = uncrowned
+| 8 = xavius
+| 9 = exile
+| 
+| Default: 4
+*/
+$config['themeid'] = "4";
