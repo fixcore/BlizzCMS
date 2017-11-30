@@ -29,11 +29,11 @@
     <div class="Navbar-label"><i class="newspaper icon"></i><?= $this->lang->line('menu_news'); ?></div>
 </a>
 
-<a href="<?= base_url('forum'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('forums'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_news'); ?>">
+<a href="<?= base_url('forum'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('forums'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('forums'); ?>">
     <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('forums'); ?></div>
 </a>
 
-<a href="<?= base_url('forum'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('changelogs'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_news'); ?>">
+<a href="<?= base_url('changelogs'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('changelogs'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('changelogs'); ?>">
     <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('changelogs'); ?></div>
 </a>
 
