@@ -197,7 +197,11 @@
 				</div>
 			</div>
 
+			<?php if($this->m_data->getRank($commentss->author) > 0) { ?>
+			<div class="TopicPost-bodyContent" style="color: <?= $this->config->item('staff_forum_color'); ?>;" data-topic-post-body-content="true">
+			<?php } else { ?>
 			<div class="TopicPost-bodyContent" data-topic-post-body-content="true">
+			<?php } ?>
 				<?= $commentss->commentary ?>
 			</div>
 
