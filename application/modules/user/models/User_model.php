@@ -22,7 +22,7 @@ class User_model extends CI_Model {
         redirect(base_url('user/logout'),'refresh');
     }
 
-    public function changeEmailI($id, $email, $password)
+    public function changeEmailI($id, $email)
     {
         $this->auth->query("UPDATE account SET email = '$email' WHERE id = '$id'");
         redirect(base_url('user/logout'),'refresh');
