@@ -10,7 +10,7 @@ $this->admin_model->delSpecifyNew($_POST['button_delNew']);
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0"><?= $this->lang->line('news_list'); ?></h3>
+                            <h3 class="box-title m-b-0"><i class="fa fa-list fa-fw"></i><?= $this->lang->line('news_list'); ?></h3>
                             <p class="text-muted m-b-30"></p>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-striped">
@@ -28,7 +28,7 @@ $this->admin_model->delSpecifyNew($_POST['button_delNew']);
                                             <td><a href="<?= base_url(); ?>admin/nlist/<?= $news->id ?>" title="<?= $news->date ?>"><?= $news->date ?></a></td>
                                             <td>
                                                 <form action="" method="post" accept-charset="utf-8">
-                                                    <button class="btn btn-block btn-danger" name="button_delNew" value="<?= $news->id ?>" type="submit"><?= $this->lang->line('button_delete'); ?></button>
+                                                    <button class="btn btn-block btn-danger" name="button_delNew" value="<?= $news->id ?>" type="submit"><i class="fa fa-eraser fa-fw"></i><?= $this->lang->line('button_delete'); ?></button>
                                                 </form>
                                             </td>
                                         </tr>

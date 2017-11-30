@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0"><?= $this->lang->line('chars_list'); ?></h3>
+                            <h3 class="box-title m-b-0"><i class="fa fa-list fa-fw"></i><?= $this->lang->line('chars_list'); ?></h3>
                             <p class="text-muted m-b-30"></p>
                             <div class="table-responsive">
                                 <table id="myTable" class="table table-striped">

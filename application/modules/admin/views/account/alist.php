@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="white-box">
-                            <h3 class="box-title"><?= $this->lang->line('user_manage'); ?> - <?= $this->m_data->getUsernameID($idlink) ?></h3>
+                            <h3 class="box-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('user_manage'); ?> - <?= $this->m_data->getUsernameID($idlink) ?></h3>
                         </div>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
                                     <form action="" method="post">
-                                        <button name="button_unban" class="btn btn-block btn-outline    btn-success"><?= $this->lang->line('unban'); ?></button>
+                                        <button name="button_unban" class="btn btn-block btn-outline btn-success"><i class="fa fa-check-circle fa-fw"></i><?= $this->lang->line('unban'); ?></button>
                                     </form>
                                 </div>
                             </div>
@@ -70,7 +70,7 @@
                                             <input type="text" id="state-danger" required name="action_reason" class="form-control" placeholder="<?= $this->lang->line('reason'); ?>">
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" name="action_ban" class="btn btn-block btn-outline btn-danger"><?= $this->lang->line('ban'); ?></button>
+                                            <button type="submit" name="action_ban" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('ban'); ?></button>
                                         </div>
                                     </form>
                                 </div>
@@ -90,14 +90,14 @@
                                 <form action="" method="post" accept-charset="utf-8">
                                     <?php if($this->m_general->getGmSpecify($idlink)->num_rows() > 0) { ?>
                                         <div class="col-md-12">
-                                            <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><?= $this->lang->line('re_gran_acc'); ?></button>
+                                            <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('re_gran_acc'); ?></button>
                                         </div>
                                     <?php } else { ?>
                                         <div class="form-group has-success">
                                             <input type="number" min="1" required name="gmlevel" class="form-control" placeholder="<?= $this->lang->line('gmlevel'); ?>">
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-success"><?= $this->lang->line('grant_acc'); ?></button>
+                                            <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('grant_acc'); ?></button>
                                         </div>
                                     <?php } ?>
                                 </form>
@@ -117,11 +117,11 @@
                                     <form action="" method="post" accept-charset="utf-8">
                                         <?php if($this->m_general->getPermissions($idlink) == 1) { ?>
 										<div class="col-md-12">
-                                            <button name="button_removeADM" class="btn btn-block btn-outline btn-warning"><?= $this->lang->line('reW_gran_acc'); ?></button>
+                                            <button name="button_removeADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('reW_gran_acc'); ?></button>
                                         </div>
                                         <?php } else { ?>
 										<div class="col-md-12">
-                                            <button name="button_addADM" class="btn btn-block btn-outline btn-warning"><?= $this->lang->line('grantW_acc'); ?></button>
+                                            <button name="button_addADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('grantW_acc'); ?></button>
                                         </div>
                                         <?php } ?>
                                     </form>

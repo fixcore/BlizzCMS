@@ -352,7 +352,7 @@
 
                                 <div class="form-group m-b-0">
                                     <div class="col-sm-offset-3 col-sm-9">
-                                        <button type="submit" name="button_createApi" class="btn btn-info waves-effect waves-light m-t-10">Create</button>
+                                        <button type="submit" name="button_createApi" class="btn btn-success waves-effect waves-light m-t-10"><i class="fa fa-wrench fa-fw"></i>Create</button>
                                     </div>
                                 </div>
                             </form>
@@ -363,7 +363,7 @@
                 <?php if(isset($_GET['generated'])) { $generated = $_GET['generated']; } else { $generated = 'Nothing'; }?>
                 <div class="input-group">
                     <span class="input-group-btn">
-                    <button type="button" class="btn waves-effect waves-light btn-info">
+                    <button type="button" class="btn waves-effect waves-light btn-success">
                         Your ID is: <?= $generated ?>
                     </button>
                       </span>
