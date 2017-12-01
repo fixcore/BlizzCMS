@@ -57,6 +57,60 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function changelogs()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('changelogs/index');
+        $this->load->view('general/footer');
+    }
+
+    public function mchangelog()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('changelogs/mchangelog');
+        $this->load->view('general/footer');
+    }
+
+    public function cchngelog()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('changelogs/cchngelog');
+        $this->load->view('general/footer');
+    }
+
     public function capic()
     {
         $this->load->model('admin_model');
