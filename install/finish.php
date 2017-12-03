@@ -89,29 +89,38 @@
                     <!-- Main right column -->
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
-                            <h3 class="ui center aligned icon header">
-                                <i class="green check icon"></i>
-                                <p>Installation complete</p>
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <div>
-                                        <div class="ui fluid input focus">
-                                            <input name="urlSev" required type="url" placeholder="Enter the URL of your website, along with http: // or https: //">
-                                        </div>
-                                        <p>Maybe your domain is: <strong>http://<?= $_SERVER['SERVER_NAME']; ?></strong></p>
-                                        <p>At the end of your URL enter /</p>
-                                        <p>Example: <i>http://<?= $_SERVER['SERVER_NAME']; ?>/</i></p>
+                            <h2><i class="database icon"></i> Last settings</h2>
+                            <form action="" method="post" accept-charset="utf-8">
+                                <div class="ui info message">
+                                    <div class="content">
+                                        <div class="header">Languages</div>
+                                        <p>At this time the default language on <strong>BlizzCMS</strong> is English, if you want to collaborate with another type of language you can do it by creating a pull request in the official repository.</p>
                                     </div>
-                                    <br>
-                                    <button name="button_continue" type="submit" class="ui purple button">Accept and continue</button>
-                                </form>
-                            </h3>
+                                </div>
+                                <label for="language">Website Main Language:</label>
+                                <select id="language" name="language">
+                                    <option value="english">English</option>
+                                </select>
+                                <div class="ui info message">
+                                    <div class="content">
+                                        <div class="header">How to set the URL correctly?</div>
+                                        <p>Maybe your domain is: <strong>http://<?= $_SERVER['SERVER_NAME']; ?></strong> at the end of URL enter <strong>/</strong> Example: <strong>http://<?= $_SERVER['SERVER_NAME']; ?>/</strong></p>
+                                        <p>Remember that if you use ssl you must use <strong>https://</strong></p>
+                                    </div>
+                                </div>
+                                <label for="urlSev">URL of Website</label>
+                                <input required type="text" id="urlSev" name="urlSev" placeholder="use http:// or https://" />
+                                <div class="installer_navigation">
+                                    <input type="submit" name="button_continue" class="ui purple button" value="Accept and continue">
+                                </div>
+                            </form>
 
                             <?php if(isset($_GET['ready'])) { ?>
-                                <div class="ui error icon message">
-                                    <i class="warning circle icon"></i>
+                                <div class="ui success icon message">
+                                    <i class="green check icon"></i>
                                     <div class="content">
-                                        <div class="header">Security Warning</div>
-                                        <p>Please delete install folder.</p>
+                                        <div class="header">Installation Complete!</div>
+                                        <p><i class="warning circle icon"></i><strong>Attention: Please delete install folder.</strong></p>
                                     </div>
                                 </div>
                             <?php } ?>
@@ -120,18 +129,21 @@
 
                     <?php if(isset($_POST['button_continue']))
                     {
-                        $urlSev	= $_POST['urlSev'];
+                        $urlSev   = $_POST['urlSev'];
+                        $language = $_POST['language'];
 
                         $fileContents = file_get_contents("config.php.dist");
 
                         $search = array
                         (
-                            'BlizzCMSURL'
+                            'BlizzCMSURL',
+                            'BlizzCMSMAINLANGUAGE'
                         );
 
                         $replace = array
                         (
-                            $urlSev
+                            $urlSev,
+                            $language
                         );
 
                         $newContents = str_replace($search, $replace, $fileContents);
