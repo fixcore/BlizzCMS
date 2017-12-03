@@ -1,153 +1,130 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Installation - BlizzCMS</title>
+<head>
+    <title>Installation - BlizzCMS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="css/main.css" type="text/css"/>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
 
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <!-- semantic ui Start -->
+    <link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
+    <!-- semantic ui End -->
 
-		<link rel="stylesheet" href="css/main.css" type="text/css" />
+    <!-- custom footer -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- semantic -->
+    <script src="../assets/semanticui/semantic.min.js"></script>
+    <!-- semantic -->
+    <!-- custom footer -->
 
-		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript" ></script>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript" ></script>
+    <script src="js/ui.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function()
+        {
+            UI.initialize();
+        })
+    </script>
 
-		<!-- semantic ui Start -->
-		<link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
-		<!-- semantic ui End -->
+    <!--[if IE]>
+    <style type="text/css">
+        #main .right h2 img {
+            position:relative;
+        }
+    </style>
+    <![endif]-->
 
-		<!-- custom footer -->
-		<script
-		  src="https://code.jquery.com/jquery-3.1.1.min.js"
-		  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-		  crossorigin="anonymous"></script>
-		<!-- semantic -->
-		<script src="../assets/semanticui/semantic.min.js"></script>
-		<!-- semantic -->
-		<!-- custom footer -->
+    <!--[if LTE IE 7]>
+    <style type="text/css">
+        #main .right .statistics span {
+            width:320px;
+        }
+    </style>
+    <![endif]-->
+</head>
 
-		<script src="js/ui.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			$(document).ready(function()
-			{
-				UI.initialize();
-			})
-		</script>
+<body>
+    <div id="popup_bg"></div>
+    <!-- confirm box -->
+    <div id="confirm" class="popup">
+        <h1 class="popup_question" id="confirm_question"></h1>
+        <div class="popup_links">
+            <a href="javascript:void(0)" class="popup_button" id="confirm_button"></a>
+            <a href="javascript:void(0)" class="popup_hide" id="confirm_hide" onClick="UI.hidePopup()">Cancel</a>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
 
-		<!--[if IE]>
-			<style type="text/css">
-			#main .right h2 img {
-				position:relative;
-			}
-			</style>
-		<![endif]-->
+    <!-- alert box -->
+    <div id="alert" class="popup">
+        <h1 class="popup_message" id="alert_message"></h1>
+        <div class="popup_links">
+            <a href="javascript:void(0)" class="popup_button" id="alert_button">Okay</a>
+            <div style="clear:both;"></div>
+        </div>
+    </div>
 
-		<!--[if LTE IE 7]>
-			<style type="text/css">
-			#main .right .statistics span {
-				width:320px;
-			}
-			</style>
-		<![endif]-->
-	</head>
-
-	<body>
-		<div id="popup_bg"></div>
-
-		<!-- confirm box -->
-		<div id="confirm" class="popup">
-			<h1 class="popup_question" id="confirm_question"></h1>
-
-			<div class="popup_links">
-				<a href="javascript:void(0)" class="popup_button" id="confirm_button"></a>
-				<a href="javascript:void(0)" class="popup_hide" id="confirm_hide" onClick="UI.hidePopup()">
-					Cancel
-				</a>
-				<div style="clear:both;"></div>
-			</div>
-		</div>
-
-		<!-- alert box -->
-		<div id="alert" class="popup">
-			<h1 class="popup_message" id="alert_message"></h1>
-
-			<div class="popup_links">
-				<a href="javascript:void(0)" class="popup_button" id="alert_button">Okay</a>
-				<div style="clear:both;"></div>
-			</div>
-		</div>
-
-		<div id="wrap">
-			<div id="fixer">
-				<!-- Top bar -->
-					<div class="ui inverted three item menu">
-					  <a href="index.html" class="item active">Installation</a>
-					</div>
-
-				<!-- Main content -->
-				<section>
-					<div id="top_spacer"></div>
-					<div class="center_1020" id="main">
-
-						<!-- Main Left column -->
-						<aside class="left">
-							<nav>
-								<a class="active"><i class="heartbeat icon"></i> Install</a>
-								<section class="sub">
-									<a class="active"><i class="browser icon"></i> Introduction</a>
-									<a><i class="alarm outline icon"></i> Requirements</a>
-									<a><i class="lab icon"></i> General</a>
-									<a><i class="database icon"></i> Database</a>
-									<a><i class="paint brush icon"></i> Complete installation</a>
-								</section>
-							</nav>
-
-							<div class="spacer"></div>
-						</aside>
-
-						<!-- Main right column -->
-						<aside class="right">
-							<section class="box big" id="installer_step_1">
-								<h2><i class="browser icon"></i> Introduction</h2>
-
-								<span>
-
-									<div class="introduction">
-										<h2 class="ui center aligned icon header">
-										  <i class="circular users icon"></i>
-										  Welcome to <strong>BlizzCMS</strong>
-										</h2>
-										<h3></h3>
-										<p>The system grows with big steps.</p>
-										<p>As strong as ever and eager to continue working on it.</p>
-										<p>I thank all the people who give me help with ideas, images or reporting problems.</p>
-										<p>My goal is not to abandon this, and that is why I dedicate many hours of my day working to give them a quality website totally free.</p>
-										<p>I hope to always count on all of you!</p>
-
-										<div class="ui horizontal list">
-										  <div class="item">
-										    <img class="ui mini circular image" src="images/vipo.png">
-										    <div class="content">
-										      <div class="ui sub header">Vipo</div>
-										      Project Manager
-										    </div>
-										  </div>
-										</div>
-									</div>
-								</span>
-
-								<div class="installer_navigation">
-									<a href="requirements.html" class="ui primary basic button">
-										<i class="hand pointer icon"></i>Start the installer
-									</a>
-								</div>
-							</section>
-
-						</aside>
-
-						<div class="clear"></div>
-					</div>
-				</section>
-			</div>
-		</div>
-
-	</body>
+    <div id="wrap">
+        <div id="fixer">
+            <!-- Top bar -->
+            <div class="ui inverted three item menu">
+                <a href="index.html" class="item active">Installation</a>
+            </div>
+            <!-- Main content -->
+            <section>
+                <div id="top_spacer"></div>
+                <div class="center_1020" id="main">
+                    <!-- Main Left column -->
+                    <aside class="left">
+                        <nav>
+                            <a class="active"><i class="heartbeat icon"></i> Install</a>
+                            <section class="sub">
+                                <a class="active"><i class="browser icon"></i> Introduction</a>
+                                <a><i class="alarm outline icon"></i> Requirements</a>
+                                <a><i class="lab icon"></i> General</a>
+                                <a><i class="database icon"></i> Database</a>
+                                <a><i class="paint brush icon"></i> Complete installation</a>
+                            </section>
+                        </nav>
+                        <div class="spacer"></div>
+                    </aside>
+                    <!-- Main right column -->
+                    <aside class="right">
+                        <section class="box big" id="installer_step_1">
+                            <h2><i class="browser icon"></i> Introduction</h2>
+                            <span>
+                                <div class="introduction">
+                                    <h2 class="ui center aligned icon header">
+                                        <i class="circular users icon"></i>Welcome to <strong>BlizzCMS</strong>
+                                    </h2>
+                                    <h3></h3>
+                                    <p>The system grows with big steps.</p>
+                                    <p>As strong as ever and eager to continue working on it.</p>
+                                    <p>I thank all the people who give me help with ideas, images or reporting problems.</p>
+                                    <p>My goal is not to abandon this, and that is why I dedicate many hours of my day working to give them a quality website totally free.</p>
+                                    <p>I hope to always count on all of you!</p>
+                                    <div class="ui horizontal list">
+                                        <div class="item">
+                                            <img class="ui mini circular image" src="images/vipo.png">
+                                            <div class="content">
+                                                <div class="ui sub header">Vipo</div>
+                                                    Project Manager
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </span>
+                            <div class="installer_navigation">
+                                <a href="requirements.html" class="ui primary basic button">
+                                    <i class="hand pointer icon"></i>Start the installer
+                                </a>
+                            </div>
+                        </section>
+                    </aside>
+                    <div class="clear"></div>
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
 </html>
