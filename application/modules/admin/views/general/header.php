@@ -63,7 +63,7 @@
                     <li><a href="javascript:void(0)" class="open-close waves-effect waves-light"><i class="ti-menu"></i></a></li>
                     <li><a href="<?= base_url(); ?>" class="waves-effect"><i class="fa fa-home fa-fw"></i><?= $this->lang->line('menu_home'); ?></a></li>
                     <li><a href="<?= base_url('news'); ?>" class="waves-effect"><i class="fa fa-newspaper-o fa-fw"></i><?= $this->lang->line('menu_news'); ?></a></li>
-                    <li><a href="<?= base_url('forum'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw"></i><?= $this->lang->line('forums'); ?></a></li>
+                    <li><a href="<?= base_url('forums'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw"></i><?= $this->lang->line('forums'); ?></a></li>
                 </ul>
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown">
@@ -120,9 +120,9 @@
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?= base_url('user/settings'); ?>"><i class="fa fa-cog text-info"></i> <?= $this->lang->line('adm_account_settings'); ?></a></li>
+                            <li><a href="<?= base_url('settings'); ?>"><i class="fa fa-cog text-info"></i> <?= $this->lang->line('adm_account_settings'); ?></a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="<?= base_url('user/logout'); ?>"><i class="fa fa-power-off text-danger"></i> <?= $this->lang->line('account_out'); ?></a></li>
+                            <li><a href="<?= base_url('logout'); ?>"><i class="fa fa-power-off text-danger"></i> <?= $this->lang->line('account_out'); ?></a></li>
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>

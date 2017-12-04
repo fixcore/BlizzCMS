@@ -58,8 +58,8 @@ $route['register'] = 'user/register';
 $route['settings'] = 'user/settings';
 $route['logout'] = 'user/logout';
 //forums
-$route['forums/category/(:any)'] = 'forum/category/$1';
-$route['forums/topic/(:any)'] = 'forum/topic/$1';
+$route['forums/category/(:num)'] = 'forum/category/$1';
+$route['forums/topic/(:num)'] = 'forum/topic/$1';
 $route['forums'] = 'forum';
 //changelogs
-$route['changelogs/(:any)'] = 'changelogs/id/$1';
+$route['changelogs/(:num)'] = 'changelogs/id/$1';

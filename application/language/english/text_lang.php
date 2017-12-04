@@ -61,6 +61,7 @@ $lang['email_omatch'] = 'The current email is not correct';
 $lang['email_use'] = 'Email in use';
 $lang['password_same'] = 'The password is the same.';
 $lang['not_authorized'] = 'Not Authorized';
+$lang['shop'] = 'Shop';
 
 $lang['account_cre'] = 'Accounts created';
 $lang['staff_count'] = 'STAFF accounts';

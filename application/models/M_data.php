@@ -150,7 +150,7 @@ class M_data extends CI_Model {
 
         $this->db->query("INSERT INTO fx_tags (id, tag) VALUES ('$id', '$tag')");
 
-        redirect(base_url('user/login'),'refresh');
+        redirect(base_url('login'),'refresh');
     }
 
     public function getCountry()

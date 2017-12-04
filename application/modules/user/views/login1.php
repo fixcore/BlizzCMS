@@ -55,7 +55,7 @@
                                     </div>
                                     <button class="ui blue submit button" type="submit" name="button_login"><i class="address card outline icon"></i> <?= $this->lang->line('button_log'); ?></button>
                                 </form>
-                                <h4><a href="<?= base_url('user/register'); ?>" title="<?= $this->lang->line('no_account'); ?>"> <i class="add user icon"></i> <?= $this->lang->line('no_account'); ?></a></h4>
+                                <h4><a href="<?= base_url('register'); ?>" title="<?= $this->lang->line('no_account'); ?>"> <i class="add user icon"></i> <?= $this->lang->line('no_account'); ?></a></h4>
                             </div>
                             <!-- content END -->
                             <?php if(isset($_POST['button_login']))

@@ -123,7 +123,7 @@
 				<div class="LoginPlaceholder-content">
 					<div class="LoginPlaceholder-details">
 						<div class="LogIn-message"><?= $this->lang->line('text_login_forums'); ?></div>
-						<a class="LogIn-button" href="<?= base_url('user/login'); ?>">
+						<a class="LogIn-button" href="<?= base_url('login'); ?>">
 							<span class="LogIn-button-content" ><?= $this->lang->line('button_log'); ?></span>
 						</a>
 					</div>

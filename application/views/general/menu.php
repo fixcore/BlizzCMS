@@ -29,7 +29,7 @@
     <div class="Navbar-label"><i class="newspaper icon"></i><?= $this->lang->line('menu_news'); ?></div>
 </a>
 
-<a href="<?= base_url('forum'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('forums'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('forums'); ?>">
+<a href="<?= base_url('forums'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('forums'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('forums'); ?>">
     <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('forums'); ?></div>
 </a>
 
@@ -115,7 +115,7 @@
 
 <?php if (!$this->m_data->isLogged()) { ?>
 <div class="Navbar-modalSection">
-    <a href="<?= base_url(); ?>user/login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('menu_login'); ?>">
+    <a href="<?= base_url(); ?>login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('menu_login'); ?>">
     <div class="Navbar-button is-full ui ui primary basic button" tabindex="0">
       <div class="visible content"><?= $this->lang->line('menu_login'); ?></div>
     </div>
@@ -146,7 +146,7 @@
 </a>
 <?php } ?>
 
-<a href="<?= base_url('user/settings'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('acc_setting'); ?>">
+<a href="<?= base_url('settings'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('acc_setting'); ?>">
     <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
     <use xlink:href="#Navbar-icon-settings">
@@ -166,7 +166,7 @@
 <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('acc_gifs'); ?></div>
 </a>
 
-<a href="<?= base_url('user/logout'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account_out'); ?>">
+<a href="<?= base_url('logout'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account_out'); ?>">
 <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
 <use xlink:href="#Navbar-icon-logout">
@@ -179,7 +179,7 @@
 <?php } ?>
 
 <?php if (!$this->m_data->isLogged()) { ?>
-<a href="<?= base_url('user/register'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('create_acc'); ?>">
+<a href="<?= base_url('register'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('create_acc'); ?>">
     <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
     <use xlink:href="#Navbar-icon-account-add">
