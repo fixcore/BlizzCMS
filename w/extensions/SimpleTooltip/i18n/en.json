@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Fannon",
+			"Kghbln"
+		]
+	},
+	"simpletooltip-desc": "Provides basic tooltips supporting inline text and info icons"
+}

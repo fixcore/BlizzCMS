@@ -1,0 +1,35 @@
+.simple-tooltip-inline {
+    border-bottom: 1px dotted #AAA;
+}
+
+.simple-tooltip-info {
+  display: inline-block;
+  background: url(question.png) no-repeat left bottom;
+  height: 16px;
+  width: 16px;
+  margin: 0 3px;
+  vertical-align: middle;
+}
+
+.simple-tooltip-img {
+  display: inline-block;
+  height: auto;
+  width: auto;
+  vertical-align: bottom;
+  border: 1px dotted #CCC;
+  padding: 2px;
+}
+
+.tooltipster-default {
+    border-radius: 5px;
+    border: none;
+    background: #000;
+    color: #fff;
+}
+
+/* Use this next selector to style things like font-size and line-height: */
+.tooltipster-default .tooltipster-content {
+    font-size: 12px;
+    line-height: 1.2rem;
+    padding: 6px 10px;
+}
