@@ -56,8 +56,8 @@
                                                 <p><i class="configure icon"></i> Changes Applied</p>
                                             </div>
                                             <div class="ui secondary segment">
-                                                <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
-                                                <p align=right><i class="wait icon"></i><?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
+                                                <p><?= $this->changelogs_model->getChanglogDesc($idlink); ?></p>
+                                                <p align=right><i class="wait icon"></i><?= date('d-m-Y', $this->changelogs_model->getChanglogDate($idlink)); ?></p>
                                             </div>
                                         </div>
                                     </div>
