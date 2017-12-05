@@ -81,7 +81,7 @@
                                 <a><i class="alarm outline icon"></i> Requirements</a>
                                 <a><i class="lab icon"></i> General</a>
                                 <a><i class="database icon"></i> Database</a>
-                                <a class="active"><i class="paint brush icon"></i> Complete installation</a>
+                                <a class="active"><i class="connectdevelop icon"></i> Complete installation</a>
                             </section>
                         </nav>
                         <div class="spacer"></div>
@@ -89,7 +89,7 @@
                     <!-- Main right column -->
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
-                            <h2><i class="database icon"></i> Last settings</h2>
+                            <h2><i class="connectdevelop icon"></i> Last settings</h2>
                             <form action="" method="post" accept-charset="utf-8">
                                 <div class="ui info message">
                                     <div class="content">
