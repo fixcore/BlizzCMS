@@ -17,7 +17,7 @@ class Forum_model extends CI_Model {
     {
         $date = $this->m_data->getTimestamp();
         $this->db->query("INSERT INTO fx_forum_comments (topic, author, commentary, date) VALUES ('$topic' ,'$author' ,'$comment' ,'$date')");
-        redirect(base_url('forum/topic/'.$topic),'refresh');
+        redirect(base_url('forums/topic/'.$topic),'refresh');
     }
 
     public function getComments($id)
@@ -33,7 +33,7 @@ class Forum_model extends CI_Model {
     public function removeComment($id, $link)
     {
         $this->db->query("DELETE FROM fx_forum_comments WHERE id = '$id'");
-        redirect(base_url('forum/topic/').$link,'refresh');
+        redirect(base_url('forums/topic/').$link,'refresh');
     }
 
     public function getRowTopicExist($id)
@@ -47,7 +47,7 @@ class Forum_model extends CI_Model {
 
         $this->db->query("INSERT INTO fx_forum_topics (forums, title, author, date, content, locked, pined) VALUES ('$idlink', '$title', '$userid', '$date', '$description', '$lock', '$highl')");
 
-        redirect(base_url('forum/category/').$idlink,'refresh');
+        redirect(base_url('forums/category/').$idlink,'refresh');
     }
 
     public function getType($id)

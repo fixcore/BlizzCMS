@@ -61,12 +61,14 @@ $lang['email_omatch'] = 'The current email is not correct';
 $lang['email_use'] = 'Email in use';
 $lang['password_same'] = 'The password is the same.';
 $lang['not_authorized'] = 'Not Authorized';
+$lang['shop'] = 'Shop';
 
 $lang['account_cre'] = 'Accounts created';
 $lang['staff_count'] = 'STAFF accounts';
 $lang['bann_count'] = 'Banned accounts';
 $lang['users_list'] = 'List of created accounts';
 $lang['news_list'] = 'List of News';
+$lang['chang_list'] = 'List of Changelogs';
 $lang['chars_list'] = 'List of created characters';
 
 $lang['create_new'] = 'Create a new news';
@@ -191,6 +193,8 @@ $lang['forum_topic_locked'] = 'This topic is locked.';
 
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
+
+$lang['changelog_titlec'] = 'Title of the Changelog';
 
 $lang['no_players'] = 'No players Online';
 $lang['players_on'] = 'Players Online';

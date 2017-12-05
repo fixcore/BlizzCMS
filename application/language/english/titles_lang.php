@@ -34,3 +34,4 @@ $lang['forums'] = 'Forums';
 $lang['register'] = 'Register';
 $lang['news'] = 'News';
 $lang['settings'] = 'Settings';
+$lang['changelogs'] = 'Changelogs';

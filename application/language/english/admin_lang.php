@@ -41,3 +41,5 @@ $lang['adm_add_news'] = 'Create News';
 $lang['adm_news_list'] = 'News List';
 $lang['adm_forums'] = 'Forums';
 $lang['adm_account_settings'] = 'Account Settings';
+$lang['adm_manageChangelog'] = 'Manage Changelog';
+$lang['adm_createChangelog'] = 'Create Changelog';

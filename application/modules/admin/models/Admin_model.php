@@ -10,6 +10,24 @@ class Admin_model extends CI_Model {
         parent::__construct();
     }
 
+    public function insertChangelog($title, $desc)
+    {
+        $date = $this->m_data->getTimestamp();
+        $this->db->query("INSERT INTO fx_changelogs (title, description, date) VALUES ('$title', '$desc', '$date')");
+        redirect(base_url('admin/changelogs'),'refresh');
+    }
+
+    public function getChangelogs()
+    {
+        return $this->db->query("SELECT * FROM fx_changelogs")->result();
+    }
+
+    public function delChangelog($id)
+    {
+        $this->db->query("DELETE FROM fx_changelogs WHERE id = '$id'");
+        redirect(base_url('admin/mchangelog'),'refresh');
+    }
+
     public function insertApiCharType($id, $type)
     {
         $this->db->query("INSERT INTO fx_api_generator (id, type, active) VALUES ('$id','$type','1')");
