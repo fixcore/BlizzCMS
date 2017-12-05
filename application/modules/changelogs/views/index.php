@@ -43,30 +43,26 @@
                         </div>
                         <div class="HeroPane-content">
                             <div class="max-sm max-left align-left">
-                                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="newspaper icon"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></div>
-                                <div class="space-medium"></div>
-                                <div class="space-adaptive-large"></div>
+                                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="list icon"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></div>
                             </div>
                         </div>
-                    </div>
-                    <div class="Pane Pane--flush Pane--adaptive Pane--backgroundTop Pane--innerBorderTop">
-                        <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/generic-texture_bg.png)" class="Pane-background"></div>
-                        <div style="" class="Pane-content">
-                            <div class="space-adaptive-large"></div>
-                            <div class="max-sm max-left align-left">
-                                <div class="Markup Markup--html">
-                                    <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
+                        <div class="Pane Pane--flush Pane--adaptive Pane--backgroundTop Pane--innerBorderTop">
+                            <div style="" class="Pane-content">
+                                <div class="space-adaptive-medium"></div>
+                                <div class="max-sm max-left align-left">
+                                    <div class="Markup Markup--html">
+                                        <div class="ui segments">
+                                            <div class="ui segment">
+                                                <p><i class="configure icon"></i> Recent Changes</p>
+                                            </div>
+                                            <div class="ui secondary segment">
+                                                <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
+                                                <p align=right><i class="wait icon"></i><?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="space-medium"></div>
-                                <div class="space-medium"></div>
-                            </div>
-                            <div class="space-large hide show-sm"></div>
-                            <div class="space-small hide-sm"></div>
-                            <div class="col-md-11">
-                                <div style="position: relative; text-align: right; color: #fff;">
-                                    <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?>
-                                </div>
-                                <br>
+                                <div class="space-large hide show-sm"></div>
                             </div>
                         </div>
                     </div>
