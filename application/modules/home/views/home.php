@@ -219,7 +219,7 @@
                                 <?php if ($this->m_general->getExpansionAction() == 1) { ?>
                                     Set Realmlist <?= $this->config->item('realmlist'); ?></h2>
                                 <?php } else { ?>
-                                    Set Portal "<?= $this->config->item('realmlist'); ?></h2>"
+                                    Set Portal "<?= $this->config->item('realmlist'); ?>"</h2>"
                                 <?php } ?>
                             </div>
                         </div>
