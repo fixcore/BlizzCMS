@@ -8,6 +8,11 @@ class Changelogs_model extends CI_Model {
         parent::__construct();
     }
 
+    public function getAll()
+    {
+        return $this->db->query("SELECT id FROM fx_changelogs");
+    }
+
     public function getChangelogs()
     {
         return $this->db->query("SELECT title, id, date FROM fx_changelogs ORDER BY id DESC LIMIT 20");

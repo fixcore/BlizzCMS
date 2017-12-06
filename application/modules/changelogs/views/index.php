@@ -73,6 +73,9 @@
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-7">
+
+            <?php if($this->changelogs_model->getAll()->num_rows() < 1) 
+            die(); ?>
             <!-- content START -->
             <div class="Page-container" style="top: -150px; position: relative;">
                 <div class="Page-content en-US">
