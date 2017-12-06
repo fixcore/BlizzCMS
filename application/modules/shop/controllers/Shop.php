@@ -11,6 +11,17 @@ class Shop extends MX_Controller {
         $this->load->view('footer');
     }
 
+    public function cart()
+    {
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        $this->load->model('shop_model');
+        
+        $this->load->view('cart');
+        $this->load->view('footer');
+    }
+
     public function addtocart()
     {
     	$this->load->model('shop_model');
@@ -34,7 +45,9 @@ class Shop extends MX_Controller {
                 $this->shop_model->getType($item), 
                 $this->shop_model->getPriceType($item, $mode), 
                 $mode, 
-                $this->shop_model->getQuery($item)
+                $this->shop_model->getQuery($item),
+                $this->shop_model->getIcon($item),
+                $this->shop_model->getName($item)
             );
 
         }

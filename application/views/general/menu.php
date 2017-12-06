@@ -41,7 +41,13 @@
 </div>
 
 <div class="Navbar-profileItems">
-    <a href="<?= base_url('support'); ?>" class="Navbar-support Navbar-item Navbar-link is-noSelect" data-index="0" data-name="<?= $this->lang->line('menu_support'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_support'); ?>">
+
+<a class="ui label" href="<?= base_url('shop/cart'); ?>">
+  <i class="shop icon"></i> <?= $this->m_general->getShopCarCount($this->session->userdata('fx_sess_id')); ?>
+</a>
+
+
+<a href="<?= base_url('support'); ?>" class="Navbar-support Navbar-item Navbar-link is-noSelect" data-index="0" data-name="<?= $this->lang->line('menu_support'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_support'); ?>">
     <div class="Navbar-label"><i class="alarm outline icon"></i><?= $this->lang->line('menu_support'); ?></div>
 </a>
 
@@ -195,8 +201,4 @@
 </div>
 </div>
 
-</div>
-
-</div>
-</div>
 </div>

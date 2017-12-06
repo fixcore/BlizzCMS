@@ -63,3 +63,8 @@ $route['forums/topic/(:num)'] = 'forum/topic/$1';
 $route['forums'] = 'forum';
 //changelogs
 $route['changelogs/(:num)'] = 'changelogs/id/$1';
+//news
+$route['news/(:num)'] = 'news/post/$1';
+$route['news'] = 'news';
+//shop
+$route['store'] = 'shop';

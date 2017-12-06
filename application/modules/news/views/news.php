@@ -29,6 +29,11 @@
 <body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
+    <!-- submenu -->
+    </div>
+    </div>
+    </div>
+    <!-- submenu -->
 
     <div data-url="https://d9me64que7cqs.cloudfront.net/components/Icon/Icon-6e31618f7193f6dc334044c35440d52262a57acee5f4393fd60c597d1f12fb749b4e25d9e4b275a3379cbbd592aa756fcf8cab6bdbea43f95ff50e29699136d8.svg" class="SvgLoader"></div>
 
@@ -36,7 +41,7 @@
         <div class="Page-content en-GB">
             <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-storiesPane">
                 <!-- news list top START -->
-                <div id="featured-articles">
+                <div id="featured-articles"><br><br>
                     <div data-selector=".Card" data-target=".Card, .Gallery-wrapper" class="SyncHeight">
                         <div class="Gallery is-constrained is-adaptive">
                             <div class="Gallery-wrapper">
@@ -44,7 +49,7 @@
                                     <div class="Gallery-inner">
                                         <?php foreach($this->news_model->getNewsTopsList()->result() as $listTop) { ?>
                                             <div class="GalleryItem GalleryItem--mediumMargins GalleryItem--adaptiveMargins GalleryItem--landing is-focus">
-                                                <a href="<?= base_url(); ?>news/post/<?= $listTop->id_new ?>" data-external="false" data-article-id="<?= $listTop->id_new ?>" data-analytics="news-promotion" data-analytics-placement="blog:<?= $listTop->id_new ?> - <?= $this->news_model->getNewTitle($listTop->id_new); ?>" class="ArticleLink FeaturedArticle-link align-left">
+                                                <a href="<?= base_url(); ?>news/<?= $listTop->id_new ?>" data-external="false" data-article-id="<?= $listTop->id_new ?>" data-analytics="news-promotion" data-analytics-placement="blog:<?= $listTop->id_new ?> - <?= $this->news_model->getNewTitle($listTop->id_new); ?>" class="ArticleLink FeaturedArticle-link align-left">
                                                     <div data-ratio="0.5" data-offset="0" class="Card Card--galleryAdaptiveHeight Card--transparent Card--innerBorder Card--shadow is-adaptive" style="height: 306px;">
                                                         <div class="Card-imageWrapper" style="height: 147px;">
                                                             <div style="background-image:url(<?= base_url(); ?>assets/images/news/<?= $this->news_model->getNewImage($listTop->id_new); ?>)" class="Card-image"></div>
@@ -94,7 +99,7 @@
                                 <div class="ArticleList" id="recent-articles">
                                     <?php foreach($this->news_model->getNewsList()->result() as $list) { ?>
                                         <div class="ArticleListItem">
-                                            <a href="<?= base_url(); ?>news/post/<?= $list->id ?>" data-external="false" data-article-id="<?= $list->id ?>" data-analytics="<?= $this->lang->line('news'); ?>" data-analytics-placement="blog:<?= $list->id ?> - <?= $list->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
+                                            <a href="<?= base_url(); ?>news/<?= $list->id ?>" data-external="false" data-article-id="<?= $list->id ?>" data-analytics="<?= $this->lang->line('news'); ?>" data-analytics-placement="blog:<?= $list->id ?> - <?= $list->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
                                             <div class="Grid row ArticleListItem-content">
                                                 <div class="GridItem col-xs-4 col-md-3 ArticleListItem-imageGrid">
                                                     <div style="background-image: url(<?= base_url(); ?>assets/images/news/<?= $list->image ?>); height: 122.5px;" class="ArticleListItem-image"></div>
@@ -105,7 +110,7 @@
                                                         <div class="space-tiny"></div>
                                                     </div>
                                                     <div class="ArticleListItem-footer h6">
-                                                        <a href="<?= base_url(); ?>news/post/<?= $list->id ?>" data-analytics="<?= $this->lang->line('new_comment'); ?>" data-analytics-placement="<?= $list->id ?>" data-community="<?= $list->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank">
+                                                        <a href="<?= base_url(); ?>news/<?= $list->id ?>" data-analytics="<?= $this->lang->line('new_comment'); ?>" data-analytics-placement="<?= $list->id ?>" data-community="<?= $list->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank">
                                                             <div class="Icon Icon--inline ArticleCommentCount-icon">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
                                                                     <use xlink:href="#Icon_chat"></use>
@@ -127,6 +132,5 @@
                 </div>
             </div>
             <!-- 1984 END -->
-            <div class="Divider Home-blueDivider"></div>
         </div>
     </div>

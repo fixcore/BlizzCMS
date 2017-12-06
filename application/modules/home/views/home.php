@@ -28,6 +28,11 @@
 <body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
+    <!-- submenu -->
+    </div>
+    </div>
+    </div>
+    <!-- submenu -->
 
     <div class="Page-container">
         <div class="Page-content en-GB">
@@ -264,7 +269,7 @@
                             <div class="Home-topStories">
                                 <?php foreach ($this->news_model->getNewSpecifyID($this->news_model->getPrincipalNew())->result() as $principalNew) { ?>
                                     <div class="Home-topStoriesFeatured">
-                                        <a href="<?= base_url() ;?>news/post/<?= $principalNew->id ?>" data-analytics="panel-news" data-analytics-panel="slot:1 - size:lg - type:blog - id:21192216 - image:unknown || Hearthstone: Kobolds &amp; Catacombs Revealed" class="Home-topStoriesFeaturedLink">
+                                        <a href="<?= base_url() ;?>news/<?= $principalNew->id ?>" data-analytics="panel-news" data-analytics-panel="slot:1 - size:lg - type:blog - id:21192216 - image:unknown || Hearthstone: Kobolds &amp; Catacombs Revealed" class="Home-topStoriesFeaturedLink">
                                             <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesFeaturedCard Card--innerBorder Card--transparent is-primary is-adaptive">
                                                 <div class="Card-imageWrapper">
                                                     <div style="background-image:url(<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>)" class="Card-image"></div>
@@ -289,7 +294,7 @@
                                                     <!-- tree news START -->
                                                     <?php foreach ($this->news_model->getNewsTree()->result() as $newstree) { ?>
                                                         <div class="GalleryItem Home-topStoriesGalleryItem is-focus">
-                                                            <a href="<?= base_url() ;?>news/post/<?= $newstree->id ?>" data-analytics="panel-news" data-analytics-panel="slot:1 - size:sm - type:blog - id:<?= $newstree->id ?> - || <?= $newstree->title ?>" class="Home-topStoriesGalleryLink">
+                                                            <a href="<?= base_url() ;?>news/<?= $newstree->id ?>" data-analytics="panel-news" data-analytics-panel="slot:1 - size:sm - type:blog - id:<?= $newstree->id ?> - || <?= $newstree->title ?>" class="Home-topStoriesGalleryLink">
                                                                 <div data-ratio="0.5" data-offset="0" class="Card Home-topStoriesGalleryCard Card--innerBorder Card--transparent is-adaptive" style="height: 328px;">
                                                                     <div class="Card-imageWrapper" style="height: 128px;">
                                                                         <div style="background-image:url(<?= base_url(); ?>assets/images/news/<?= $newstree->image ?>)" class="Card-image"></div>

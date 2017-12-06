@@ -15,6 +15,11 @@ class M_general extends CI_Model {
 		return $this->auth->query("SELECT id FROM account_access WHERE id = '".$id."'");
 	}
 
+	public function getShopCarCount($id)
+    {
+        return $this->db->query("SELECT id FROM fx_shop_cart WHERE accountid = '".$id."'")->num_rows();
+    }
+
 	public function getGeneralCharactersSpecifyAcc($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
@@ -87,6 +92,16 @@ class M_general extends CI_Model {
 	{
 		$this->characters = $this->load->database('characters', TRUE);
 		return $this->characters->query("SELECT online FROM characters WHERE guid = '".$id."'")->row()->online;
+	}
+
+	public function getCharDPTotal($id)
+	{
+		return $this->db->query("SELECT dp FROM fx_credits WHERE accountid = '".$id."'")->row()->dp;
+	}
+
+	public function getCharVPTotal($id)
+	{
+		return $this->db->query("SELECT vp FROM fx_credits WHERE accountid = '".$id."'")->row()->vp;
 	}
 
 	public function getMonth($id)
@@ -171,6 +186,27 @@ class M_general extends CI_Model {
             case 24: 	return $this->lang->line('race_panda_neutral'); break;
             case 25: 	return $this->lang->line('race_panda_alli'); 	break;
             case 26: 	return $this->lang->line('race_panda_horde'); 	break;
+        }
+    }
+
+    public function getRaceIcon($race)
+    {
+        switch ($race)
+        {
+            case 1: 	return 'human.jpg'; 			break;
+            case 2: 	return 'orc.jpg'; 				break;
+            case 3: 	return 'dwarf.jpg'; 			break;
+            case 4: 	return 'night_elf.jpg'; 		break;
+            case 5: 	return 'undead.jpg'; 			break;
+            case 6: 	return 'tauren.jpg'; 			break;
+            case 7: 	return 'gnome.jpg'; 			break;
+            case 8: 	return 'troll.jpg'; 			break;
+            case 9: 	return 'goblin.jpg'; 			break;
+            case 10: 	return 'blood_elf.jpg'; 		break;
+            case 11: 	return 'draenei.jpg'; 			break;
+            case 22: 	return 'worgen.jpg'; 			break;
+            case 25: 	return 'pandaren_male.jpg'; 	break;
+            case 26: 	return 'pandaren_female.jpg';	break;
         }
     }
 

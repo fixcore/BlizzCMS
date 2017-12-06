@@ -65,6 +65,11 @@ class Forum_model extends CI_Model {
         return $this->db->query("SELECT name FROM fx_forum_forums WHERE id = '".$id."'")->row()->name;
     }
 
+    public function getForumName($id)
+    {
+        return $this->db->query("SELECT name FROM fx_forum_forums WHERE id = '".$id."'")->row_array()['name'];
+    }
+
     public function getSpecifyCategoryPosts($id)
     {
         return $this->db->query("SELECT * FROM fx_forum_topics WHERE forums = '".$id."' ORDER BY id DESC");

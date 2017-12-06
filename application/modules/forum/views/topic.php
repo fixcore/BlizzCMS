@@ -36,7 +36,61 @@
 <body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
 
 <!-- header -->
-<?php $this->load->view('general/icons'); ?>
+    <?php $this->load->view('general/icons'); ?>
+    <!-- submenu -->
+        <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
+	<div class="Container Container--content Container--breadcrumbs">
+
+<div class="GameSite-link"> 
+	<a class="GameSite-link--heading" href="<?= base_url('forums'); ?>"> 
+		<?= $this->lang->line('forums'); ?> 
+	</a> 
+</div>
+
+<!-- cat -->
+<div class="GameSite-link"> 
+	<a class="GameSite-link--heading" href="<?= base_url('forums/category/').$this->forum_model->getTopicForum($idlink); ?>"> 
+		<?= $this->forum_model->getForumName($this->forum_model->getTopicForum($idlink)); ?> 
+	</a> 
+</div> 
+	
+	<div class="Breadcrumbs"> 
+		
+		<span class="Breadcrumb"> <i class="talk icon"></i>
+			<a class="Breadcrumb-content"> 
+				 <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
+			</a> 
+		</span>
+
+	</div>
+
+<div class="User-menu"> 
+	<!-- right -->
+	<span class="Breadcrumb"> 
+		<a class="Breadcrumb-content"> 
+			<!-- logged -->
+			<?php if ($this->m_data->isLogged()) { ?>
+				    <!-- credits -->
+				    <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+				    <?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?>
+				     | 
+				    <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+				    <?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?>
+				    <!-- credits -->
+			<?php } ?>
+			<!-- logged -->
+		</a> 
+	</span>
+	<!-- right -->
+</div>
+
+	</div>
+</div>
+
+    </div>
+    </div>
+    </div>
+    <!-- submenu -->
 
 <!-- main -->
 

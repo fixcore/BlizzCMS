@@ -165,6 +165,7 @@ $lang['mov_forum'] = 'Movements in the forum';
 $lang['last_comments'] = 'Last comments';
 
 $lang['button_crea'] = 'Create';
+$lang['button_continue'] = 'Continue';
 $lang['button_delete'] = 'Delete';
 $lang['button_change'] = 'Change';
 $lang['button_cancel'] = 'Cancel';
@@ -191,6 +192,10 @@ $lang['forum_newtopic'] = 'New Topic';
 $lang['forum_postCount'] = 'posts';
 $lang['forum_topic_locked'] = 'This topic is locked.';
 
+$lang['total'] = 'Total';
+$lang['buy_frist'] = 'You must first add items to your car.';
+$lang['points_insuff'] = 'Insufficient points';
+$lang['shopping_cart'] = 'Shopping Cart';
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
 
