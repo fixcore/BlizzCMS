@@ -28,7 +28,47 @@
 
 <body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
+    <!-- header -->
     <?php $this->load->view('general/icons'); ?>
+    <!-- submenu -->
+        <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
+    <div class="Container Container--content Container--breadcrumbs">
+
+<div class="GameSite-link"> 
+    <a class="GameSite-link--heading" href="<?= base_url('changelogs'); ?>"> 
+        <?= $this->lang->line('changelogs'); ?> 
+    </a> 
+</div> 
+    
+    <div class="Breadcrumbs"></div>
+
+<div class="User-menu"> 
+    <!-- right -->
+    <span class="Breadcrumb"> 
+        <a class="Breadcrumb-content"> 
+            <!-- logged -->
+            <?php if ($this->m_data->isLogged()) { ?>
+                    <!-- credits -->
+                    <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+                    <?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?>
+                     | 
+                    <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+                    <?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?>
+                    <!-- credits -->
+            <?php } ?>
+            <!-- logged -->
+        </a> 
+    </span>
+    <!-- right -->
+</div>
+
+    </div>
+</div>
+
+    </div>
+    </div>
+    </div>
+    <!-- submenu -->
 
     <div class="row">
         <div class="col-md-1"></div>
@@ -84,7 +124,7 @@
                                 <?php foreach($this->changelogs_model->getChangelogs()->result() as $changelogsList) { ?>
                                     <div class="ArticleList" id="recent-articles">
                                         <div class="ArticleListItem">
-                                            <a href="<?= base_url('changelogs/id/'); ?><?= $changelogsList->id ?>" data-external="false" data-article-id="1" data-analytics="Changelog" data-analytics-placement="Changelog:<?= $changelogsList->id ?> - <?= $changelogsList->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
+                                            <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-external="false" data-article-id="1" data-analytics="Changelog" data-analytics-placement="Changelog:<?= $changelogsList->id ?> - <?= $changelogsList->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
                                             <div class="Grid row ArticleListItem-content">
                                                 <div class="GridItem col-xs-12 col-md-12 ArticleListItem-contentGrid">
                                                     <h3 class="ArticleListItem-title"><?= $changelogsList->title ?></h3>
@@ -92,7 +132,7 @@
                                                         <div class="space-tiny"></div>
                                                     </div>
                                                     <div class="ArticleListItem-footer h6">
-                                                        <a href="<?= base_url('changelogs/id/'); ?><?= $changelogsList->id ?>" data-analytics="comment" data-analytics-placement="<?= $changelogsList->id ?>" data-community="<?= $changelogsList->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank"></a>
+                                                        <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-analytics="comment" data-analytics-placement="<?= $changelogsList->id ?>" data-community="<?= $changelogsList->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank"></a>
                                                         <span class="ArticleListItem-footerTimestamp"><?= date('d-m-Y', $changelogsList->date); ?></span>
                                                     </div>
                                                 </div>
