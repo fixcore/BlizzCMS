@@ -81,7 +81,7 @@
                                 <a><i class="alarm outline icon"></i> Requirements</a>
                                 <a><i class="lab icon"></i> General</a>
                                 <a class="active"><i class="database icon"></i> Database</a>
-                                <a><i class="paint brush icon"></i> Complete installation</a>
+                                <a><i class="connectdevelop icon"></i> Complete installation</a>
                             </section>
                         </nav>
                         <div class="spacer"></div>
