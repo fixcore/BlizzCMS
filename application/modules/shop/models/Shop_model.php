@@ -120,4 +120,9 @@ class Shop_model extends CI_Model {
     {
         return $this->db->query("SELECT * FROM fx_shop_groups");
     }
+
+    public function getSpecifyGroup($id)
+    {
+        return $this->db->query("SELECT name FROM fx_shop_groups WHERE id = '".$id."'")->row_array()['name'];
+    }
 }
