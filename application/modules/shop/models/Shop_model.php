@@ -96,29 +96,28 @@ class Shop_model extends CI_Model {
             redirect(base_url('shop'),'refresh');
     }
 
-
     public function getDPTrue($id)
     {
-    	$qq = $this->db->query("SELECT price_dp FROM fx_shop WHERE id = '".$id."'")->row()->price_dp;
-    	if ($qq > 0)
-    		return true;
+        $qq = $this->db->query("SELECT price_dp FROM fx_shop WHERE id = '".$id."'")->row()->price_dp;
+        if ($qq > 0)
+            return true;
         else
-    		redirect(base_url('shop'),'refresh');
+            redirect(base_url('shop'),'refresh');
     }
 
     public function getShopGeneral()
     {
-    	if (isset($_GET['group']))
-    	{
-    		$gp = $_GET['group'];
-	    	return $this->db->query("SELECT * FROM fx_shop WHERE groups = '".$gp."'");
-    	}
-	    else
-	    	return $this->db->query("SELECT * FROM fx_shop");
+        if (isset($_GET['group']))
+        {
+            $gp = $_GET['group'];
+            return $this->db->query("SELECT * FROM fx_shop WHERE groups = '".$gp."'");
+        }
+        else
+            return $this->db->query("SELECT * FROM fx_shop");
     }
 
     public function getGroups()
     {
-    	return $this->db->query("SELECT * FROM fx_shop_groups");
+        return $this->db->query("SELECT * FROM fx_shop_groups");
     }
 }

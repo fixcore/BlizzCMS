@@ -6,7 +6,7 @@ class Shop extends MX_Controller {
     public function index()
     {
         $this->load->model('shop_model');
-		
+
         $this->load->view('index');
         $this->load->view('footer');
     }
@@ -24,15 +24,15 @@ class Shop extends MX_Controller {
 
     public function addtocart()
     {
-    	$this->load->model('shop_model');
+        $this->load->model('shop_model');
 
         if ($this->m_data->isLogged() == FALSE)
             redirect(base_url('login'),'refresh');
 
         if(isset($_GET['id']) && isset($_GET['tp']))
         {
-        	$mode = $_GET['tp'];
-        	$item = $_GET['id'];
+            $mode = $_GET['tp'];
+            $item = $_GET['id'];
 
             if ($mode == "vp")
                 $this->shop_model->getVPTrue($item);
@@ -49,9 +49,8 @@ class Shop extends MX_Controller {
                 $this->shop_model->getIcon($item),
                 $this->shop_model->getName($item)
             );
-
         }
         else
-        	redirect(base_url('shop'),'refresh');
+            redirect(base_url('shop'),'refresh');
     }
 }
