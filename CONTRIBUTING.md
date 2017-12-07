@@ -10,6 +10,7 @@ The nicknames of these people are from Discord.
 ##### Sponsor
 > Thanks for your monetary help
 
+* @Rinzler#6754
 
 ##### Developers
 > Thanks for your work to improve the development of BlizzCMS
@@ -25,6 +26,7 @@ The nicknames of these people are from Discord.
 * @Felstrider#0548 - [Uncrowned](http://uncrowned.servegame.com/)
 * @Sagrario#5625 - [Xavius](http://xavius.ru/)
 * @Alterac WoW#2591 - [Alterac WoW](https://www.alterac-wow.org/)
+* @OMGhixD#4382 - [Cruel-WoW](https://www.cruel-wow.net/)
 
 
 ##### Premium
