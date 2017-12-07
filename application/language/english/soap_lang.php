@@ -28,11 +28,6 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['home'] = 'Home';
-$lang['login'] = 'Login';
-$lang['forums'] = 'Forums';
-$lang['register'] = 'Register';
-$lang['news'] = 'News';
-$lang['settings'] = 'Settings';
-$lang['changelogs'] = 'Changelogs';
-$lang['cart'] = 'Cart';
+//Store
+$lang['store_senditem_subject'] = 'Purchase online';
+$lang['store_senditem_text'] = 'Thank you for making your purchase, here is your purchase';
