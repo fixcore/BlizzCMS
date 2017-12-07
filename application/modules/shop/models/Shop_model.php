@@ -13,6 +13,11 @@ class Shop_model extends CI_Model {
         return $this->db->query("SELECT id_shop FROM fx_shop_top ORDER BY id DESC LIMIT 10");
     }
 
+    public function getShopTop()
+    {
+        return $this->db->query("SELECT id_shop FROM fx_shop_top ORDER BY id ASC");
+    }
+
     public function getExistItem($id)
     {
         return $this->db->query("SELECT * FROM fx_shop WHERE id = '".$id."'")->num_rows();

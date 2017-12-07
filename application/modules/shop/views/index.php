@@ -32,6 +32,46 @@
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
+        <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
+	<div class="Container Container--content Container--breadcrumbs">
+
+
+<?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
+<div class="GameSite-link"> 
+	<a class="GameSite-link--heading" href="<?= base_url('store?group=').$ggroups->id; ?>"> 
+		<?= $ggroups->name ?> 
+	</a> 
+</div>
+<?php } ?>
+
+<!-- cat -->
+
+	
+	<div class="Breadcrumbs"></div>
+
+<div class="User-menu"> 
+    <!-- right -->
+    <span class="Breadcrumb"> 
+        <a class="Breadcrumb-content"> 
+            <!-- logged -->
+            <?php if ($this->m_data->isLogged()) { ?>
+                    <!-- credits -->
+                    <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+                    <?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?>
+                     | 
+                    <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+                    <?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?>
+                    <!-- credits -->
+            <?php } ?>
+            <!-- logged -->
+        </a> 
+    </span>
+    <!-- right -->
+</div>
+
+    </div>
+</div>
+
     </div>
     </div>
     </div>
@@ -57,6 +97,7 @@
         	<!-- header -->
 
         	<!-- message -->
+        <?php if(isset($_GET['complete'])): ?>
         	<div class="row">
         		<div class="col-sm-3"></div>
         		<div class="col-sm-6">
@@ -68,6 +109,7 @@
         		</div>
         	</div>
         	<!-- message -->
+        <?php endif; ?>
 
 			<main _ngcontent-c19="">
             	<storefront-browsing-module _ngcontent-c19="" class="app-container" _nghost-c9="">
@@ -130,7 +172,6 @@
 									</storefront-browsing-card>
 								</div>
 							<?php } ?>
-
 							</div>
 						</div>
 					</div>
