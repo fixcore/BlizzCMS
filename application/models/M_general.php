@@ -15,11 +15,6 @@ class M_general extends CI_Model {
 		return $this->auth->query("SELECT id FROM account_access WHERE id = '".$id."'");
 	}
 
-	public function getShopCarCount($id)
-    {
-        return $this->db->query("SELECT id FROM fx_shop_cart WHERE accountid = '".$id."'")->num_rows();
-    }
-
 	public function getGeneralCharactersSpecifyAcc($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
@@ -51,7 +46,7 @@ class M_general extends CI_Model {
 	public function getNameCharacterSpecifyGuid($id)
 	{
 		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row()->name;
+		return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row_array()['name'];
 	}
 
 	public function getShopID($id)
@@ -96,12 +91,22 @@ class M_general extends CI_Model {
 
 	public function getCharDPTotal($id)
 	{
-		return $this->db->query("SELECT dp FROM fx_credits WHERE accountid = '".$id."'")->row()->dp;
+		$qq = $this->db->query("SELECT dp FROM fx_credits WHERE accountid = '".$id."'");
+
+		if ($qq->num_rows() > 0)
+			return $qq->row()->dp;
+		else
+			return '0';
 	}
 
 	public function getCharVPTotal($id)
 	{
-		return $this->db->query("SELECT vp FROM fx_credits WHERE accountid = '".$id."'")->row()->vp;
+		$qq = $this->db->query("SELECT vp FROM fx_credits WHERE accountid = '".$id."'");
+
+		if ($qq->num_rows() > 0)
+			return $qq->row()->vp;
+		else
+			return '0';
 	}
 
 	public function getMonth($id)

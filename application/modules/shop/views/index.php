@@ -5,6 +5,7 @@
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('shop'); ?></title>
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzard-dc9d0faea4c4a01c35477637614e4bbab87305d0b07b1dfb8e0f09a21283294707def12b40e4cb9f13b56d8cbd92e8b40a3c956f0da1b5cf1d25b558efeffc31.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app-65d540bb92d74ad1518ba050a969a68fe7cca3e0b202351c63b7742d39e87267a3bd8210f6a567b4b05819727690c48601a94036e4e498deb0519f50edb50a65.css">
+    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/shop.css" />
     <!-- semantic ui Start -->
@@ -55,6 +56,19 @@
         	</header>
         	<!-- header -->
 
+        	<!-- message -->
+        	<div class="row">
+        		<div class="col-sm-3"></div>
+        		<div class="col-sm-6">
+        			<div class="ui success message">
+					  <div class="header">
+					    <?=$this->lang->line('shop_success');?>
+					  </div>
+					</div>
+        		</div>
+        	</div>
+        	<!-- message -->
+
 			<main _ngcontent-c19="">
             	<storefront-browsing-module _ngcontent-c19="" class="app-container" _nghost-c9="">
                 	<div _ngcontent-c9="" class="main">
@@ -66,7 +80,7 @@
 									<storefront-browsing-card _ngcontent-c9="" _nghost-c16="">
 										<div _ngcontent-c16="" class="browsing-card">
 											<storefront-link _ngcontent-c16="" _nghost-c2="">
-												<a _ngcontent-c2="" title="<?= $itemsG->name ?>" href="/en-gb/product/world-of-warcraft-pet-shadow">
+												<a _ngcontent-c2="" title="<?= $itemsG->name ?>">
 													<div _ngcontent-c16="" class="background">
 														<div _ngcontent-c16="" class="vertical" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>) rgb(13, 17, 39);">
 														</div>
@@ -89,7 +103,7 @@
 																	<span class="full">
 																		<!-- price -->
 																		<?php if(!is_null($itemsG->price_vp) || !empty($itemsG->price_vp)) { ?>
-																	      <a href="<?= base_url(); ?>shop/addtocart?id=<?= $itemsG->id; ?>&tp=vp">
+																	      <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=vp">
 																	        <div class="ui inverted grey button">
 																	          <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
 																	          <h6><?= $itemsG->price_vp ?></h6>
@@ -97,7 +111,7 @@
 																	      </a>
 																	      <?php } ?>
 																	        <?php if(!is_null($itemsG->price_dp) || !empty($itemsG->price_dp)) { ?>
-																	      <a href="<?= base_url(); ?>shop/addtocart?id=<?= $itemsG->id; ?>&tp=dp">
+																	      <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=dp">
 																	        <div class="ui inverted orange button">
 																	          <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
 																	          <h6><?= $itemsG->price_dp ?></h6>

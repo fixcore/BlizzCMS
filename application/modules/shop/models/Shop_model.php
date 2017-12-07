@@ -13,17 +13,9 @@ class Shop_model extends CI_Model {
         return $this->db->query("SELECT id_shop FROM fx_shop_top ORDER BY id DESC LIMIT 10");
     }
 
-    public function addtoCar($item, $type, $price, $mode, $queryorcommand, $icon, $name)
+    public function getExistItem($id)
     {
-        $session = $this->session->userdata('fx_sess_id');
-        $this->db->query("INSERT INTO fx_shop_cart (type, accountid, itemid, price, mode, queryorcommand, icon, name) VALUES ('$type', '$session', '$item', '$price', '$mode', '$queryorcommand', '$icon', '$name')");
-        redirect(base_url('shop'),'refresh');
-    }
-
-    public function getCar()
-    {
-        $id = $this->session->userdata('fx_sess_id');
-        return $this->db->query("SELECT * FROM fx_shop_cart WHERE accountid = '".$id."'");
+        return $this->db->query("SELECT * FROM fx_shop WHERE id = '".$id."'")->num_rows();
     }
 
     public function getType($id)
@@ -59,50 +51,22 @@ class Shop_model extends CI_Model {
             return $this->db->query("SELECT price_vp FROM fx_shop WHERE id = '".$id."'")->row()->price_vp;
     }
 
-    public function getTotalBuyDP()
-    {
-        $id = $this->session->userdata('fx_sess_id');
-        $inst = $this->db->query("SELECT price, mode, SUM(price) AS total FROM fx_shop_cart WHERE accountid = '".$id."' AND mode = 'dp'")->result();
-
-        foreach ($inst as $key => $dpresult) {
-            $dpresult = $inst['0'];
-            return $dpresult->total;
-        }
-    }
-
-    public function getTotalBuyVP()
-    {
-        $id = $this->session->userdata('fx_sess_id');
-        $inst = $this->db->query("SELECT price, mode, SUM(price) AS total FROM fx_shop_cart WHERE accountid = '".$id."' AND mode = 'vp'")->result();
-
-        foreach ($inst as $key => $dpresult) {
-            $dpresult = $inst['0'];
-            return $dpresult->total;
-        }
-    }
-
-    public function removeSpecifyCarItem($id)
-    {
-        $this->db->query("DELETE FROM fx_shop_cart WHERE id = '$id'");
-        redirect(base_url('shop/cart'),'refresh');
-    }
-
     public function getVPTrue($id)
     {
         $qq = $this->db->query("SELECT price_vp FROM fx_shop WHERE id = '".$id."'")->row()->price_vp;
         if (!is_null($qq) && $qq > 0)
             return true;
         else
-            redirect(base_url('shop'),'refresh');
+            redirect(base_url('store'),'refresh');
     }
 
     public function getDPTrue($id)
     {
         $qq = $this->db->query("SELECT price_dp FROM fx_shop WHERE id = '".$id."'")->row()->price_dp;
-        if ($qq > 0)
+        if (!is_null($qq) && $qq > 0)
             return true;
         else
-            redirect(base_url('shop'),'refresh');
+            redirect(base_url('store'),'refresh');
     }
 
     public function getShopGeneral()
@@ -124,5 +88,26 @@ class Shop_model extends CI_Model {
     public function getSpecifyGroup($id)
     {
         return $this->db->query("SELECT name FROM fx_shop_groups WHERE id = '".$id."'")->row_array()['name'];
+    }
+
+    public function insertHistory($idshop, $itemid, $accountid, $charid, $method, $price)
+    {
+        $date = $this->m_data->getTimestamp();
+
+        $getCharName = $this->m_general->getNameCharacterSpecifyGuid($charid);
+        $subject = $this->lang->line('store_senditem_subject');
+        $message = $this->lang->line('store_senditem_text');
+
+        $this->m_soap->commandSoap('.send items '.$getCharName.' "'.$subject.'" "'.$message.'" '.$itemid);
+
+        
+        $this->db->query("INSERT INTO fx_shop_history (idshop, itemid, date, accountid, charid, method) VALUES ('$idshop', '$itemid', '$date', '$accountid', '$charid', '$method')");
+
+        if ($method == "dp")
+            $this->db->query("UPDATE fx_credits SET dp = (dp - '$price') WHERE accountid = '$accountid'");
+        else
+            $this->db->query("UPDATE fx_credits SET vp = (vp - '$price') WHERE accountid = '$accountid'");
+
+        redirect(base_url('store?complete'),'refresh');
     }
 }

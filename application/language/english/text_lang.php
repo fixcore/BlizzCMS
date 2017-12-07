@@ -171,6 +171,7 @@ $lang['button_change'] = 'Change';
 $lang['button_cancel'] = 'Cancel';
 $lang['button_addreply'] = 'Add Reply';
 $lang['button_remove'] = 'Remove';
+$lang['button_buy'] = 'Buy';
 
 $lang['chang_pass'] = 'Change Password';
 $lang['chang_email'] = 'Change Email';

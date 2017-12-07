@@ -11,46 +11,34 @@ class Shop extends MX_Controller {
         $this->load->view('footer');
     }
 
-    public function cart()
+    public function cart($id)
     {
+        $this->load->model('shop_model');
+
         if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        $this->load->model('shop_model');
-        
-        $this->load->view('cart');
-        $this->load->view('footer');
-    }
-
-    public function addtocart()
-    {
-        $this->load->model('shop_model');
-
-        if ($this->m_data->isLogged() == FALSE)
             redirect(base_url('login'),'refresh');
 
-        if(isset($_GET['id']) && isset($_GET['tp']))
+        if ($this->shop_model->getExistItem($id) < 1)
+            redirect(base_url('store'),'refresh');
+
+        if(isset($_GET['tp']))
         {
             $mode = $_GET['tp'];
-            $item = $_GET['id'];
 
+            if ($mode != 'vp' && $mode != 'dp')
+                redirect(base_url('store'),'refresh');
+            
             if ($mode == "vp")
-                $this->shop_model->getVPTrue($item);
-
+                $this->shop_model->getVPTrue($id);
             if ($mode == "dp")
-                $this->shop_model->getDPTrue($item);
+                $this->shop_model->getDPTrue($id);
 
-            $this->shop_model->addtoCar(
-                $this->shop_model->getItem($item), 
-                $this->shop_model->getType($item), 
-                $this->shop_model->getPriceType($item, $mode), 
-                $mode, 
-                $this->shop_model->getQuery($item),
-                $this->shop_model->getIcon($item),
-                $this->shop_model->getName($item)
-            );
+            $data['idlink'] = $id;
+            $this->load->view('cart', $data);
+            $this->load->view('footer');
         }
         else
-            redirect(base_url('shop'),'refresh');
+            redirect(base_url('store'),'refresh');
     }
+    
 }
