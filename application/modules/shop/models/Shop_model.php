@@ -15,7 +15,7 @@ class Shop_model extends CI_Model {
 
     public function getShopTop()
     {
-        return $this->db->query("SELECT id_shop FROM fx_shop_top ORDER BY id ASC");
+        return $this->db->query("SELECT * FROM fx_shop_top ORDER BY id ASC");
     }
 
     public function getExistItem($id)
@@ -46,6 +46,16 @@ class Shop_model extends CI_Model {
     public function getName($id)
     {
         return $this->db->query("SELECT name FROM fx_shop WHERE id = '".$id."'")->row_array()['name'];
+    }
+
+    public function getImage($id)
+    {
+        return $this->db->query("SELECT image FROM fx_shop WHERE id = '".$id."'")->row_array()['image'];
+    }
+
+    public function getGroup($id)
+    {
+        return $this->db->query("SELECT groups FROM fx_shop WHERE id = '".$id."'")->row()->groups;
     }
 
     public function getPriceType($id, $type)

@@ -109,6 +109,11 @@ class M_general extends CI_Model {
 			return '0';
 	}
 
+	public function getRealmName()
+	{
+		return $this->auth->query("SELECT name FROM realmlist ORDER BY id ASC LIMIT 1")->row_array()['name'];
+	}
+
 	public function getMonth($id)
 	{
 		switch ($id) {

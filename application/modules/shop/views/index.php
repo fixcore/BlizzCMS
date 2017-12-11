@@ -144,7 +144,7 @@
 																<span _ngcontent-c18="" class="price">
 																	<span class="full">
 																		<!-- price -->
-																		<?php if(!is_null($itemsG->price_vp) || !empty($itemsG->price_vp)) { ?>
+																		<?php if(!is_null($itemsG->price_vp) && !empty($itemsG->price_vp) && $itemsG->price_vp != '0') { ?>
 																	      <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=vp">
 																	        <div class="ui inverted grey button">
 																	          <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
@@ -152,7 +152,7 @@
 																	        </div>
 																	      </a>
 																	      <?php } ?>
-																	        <?php if(!is_null($itemsG->price_dp) || !empty($itemsG->price_dp)) { ?>
+																	        <?php if(!is_null($itemsG->price_dp) && !empty($itemsG->price_dp) && $itemsG->price_dp != '0') { ?>
 																	      <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=dp">
 																	        <div class="ui inverted orange button">
 																	          <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">

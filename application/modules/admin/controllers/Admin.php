@@ -39,6 +39,60 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function shop()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('shop/index');
+        $this->load->view('general/footer');
+    }
+
+    public function mshop()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('shop/mshop');
+        $this->load->view('general/footer');
+    }
+
+    public function cshop()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('shop/cshop');
+        $this->load->view('general/footer');
+    }
+
     public function apic()
     {
         $this->load->model('admin_model');
