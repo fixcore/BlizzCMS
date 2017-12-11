@@ -68,3 +68,4 @@ $route['news/(:num)'] = 'news/post/$1';
 $route['news'] = 'news';
 //shop
 $route['store'] = 'shop';
+$route['cart/(:num)'] = 'shop/cart/$1';

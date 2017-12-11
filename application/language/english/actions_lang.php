@@ -33,3 +33,4 @@ $lang['account_error_info'] = 'The account provided was not possible to find, pl
 $lang['password_error'] = 'Incorrect Password';
 $lang['password_error_info'] = 'The password provided is incorrect, please write it again';
 $lang['select_char_shop'] = 'Select a character what will receive this.';
+$lang['shop_success'] = 'Item purchased successfully.';

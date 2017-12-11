@@ -61,6 +61,10 @@ $lang['email_omatch'] = 'The current email is not correct';
 $lang['email_use'] = 'Email in use';
 $lang['password_same'] = 'The password is the same.';
 $lang['not_authorized'] = 'Not Authorized';
+$lang['serv_status'] = 'Server Status';
+$lang['type'] = 'Type';
+$lang['item'] = 'Item';
+$lang['price'] = 'Price';
 $lang['shop'] = 'Shop';
 
 $lang['account_cre'] = 'Accounts created';
@@ -69,6 +73,8 @@ $lang['bann_count'] = 'Banned accounts';
 $lang['users_list'] = 'List of created accounts';
 $lang['news_list'] = 'List of News';
 $lang['chang_list'] = 'List of Changelogs';
+$lang['shop_list'] = 'List of Items';
+$lang['shop_create'] = 'Create item';
 $lang['chars_list'] = 'List of created characters';
 
 $lang['create_new'] = 'Create a new news';
@@ -171,6 +177,8 @@ $lang['button_change'] = 'Change';
 $lang['button_cancel'] = 'Cancel';
 $lang['button_addreply'] = 'Add Reply';
 $lang['button_remove'] = 'Remove';
+$lang['button_buy'] = 'Buy';
+$lang['button_save'] = 'Save';
 
 $lang['chang_pass'] = 'Change Password';
 $lang['chang_email'] = 'Change Email';
@@ -198,6 +206,8 @@ $lang['points_insuff'] = 'Insufficient points';
 $lang['shopping_cart'] = 'Shopping Cart';
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
+$lang['store_productName'] = 'Product Name';
+$lang['store_category'] = 'Category';
 
 $lang['changelog_titlec'] = 'Title of the Changelog';
 

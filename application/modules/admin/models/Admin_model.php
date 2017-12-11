@@ -10,11 +10,43 @@ class Admin_model extends CI_Model {
         parent::__construct();
     }
 
+    public function insertShop($itemid, $type, $name, $pricedp, $pricevp, $iconname, $groups, $image)
+    {
+        if ($pricevp == '0' && $pricedp == '0')
+        redirect(base_url('admin/shop?p'),'refresh');
+
+        if ($pricedp == '0')
+            $pricedp = NULL;
+
+        if ($pricevp == '0')
+            $pricevp = NULL;
+
+        $this->db->query("INSERT INTO fx_shop (itemid, type, name, price_dp, price_vp, iconname, groups, image) VALUES ('$itemid', '$type', '$name', '$pricedp', '$pricevp', '$iconname', '$groups', '$image')");
+        redirect(base_url('admin/shop'),'refresh');
+    }
+
+    public function getCategoryStore()
+    {
+        return $this->db->query("SELECT * FROM fx_shop_groups");
+    }
+
     public function insertChangelog($title, $desc)
     {
         $date = $this->m_data->getTimestamp();
         $this->db->query("INSERT INTO fx_changelogs (title, description, date) VALUES ('$title', '$desc', '$date')");
         redirect(base_url('admin/changelogs'),'refresh');
+    }
+
+    public function delShopItm($id)
+    {
+        $this->db->query("DELETE FROM fx_shop WHERE id = '$id'");
+        $this->db->query("DELETE FROM fx_shop_top WHERE id_shop = '$id'");
+        redirect(base_url('admin/mshop'),'refresh');
+    }
+
+    public function getShopAll()
+    {
+        return $this->db->query("SELECT * FROM fx_shop ORDER BY id ASC");
     }
 
     public function getChangelogs()

@@ -117,145 +117,6 @@
                     </div>
                 </div>
             </div>
-            <div class="Pane Pane--backgroundTop Pane--full">
-                <div class="Pane-backgroundContainer">
-                    <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/step2.png)" class="Pane-background"></div>
-                </div>
-                <div style="" class="Pane-content">
-                    <?php if ($this->shop_model->getShopTop10()->num_rows() > 0) { ?>
-                        <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-gamePane">
-                            <div style="" class="Pane-content">
-                                <h2 class="Heading Home-gameHeading Home-sectionHeading flush-top">
-                                    <a href="<?= base_url('store'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('store_see'); ?>" class="Home-gameHeadingLink Home-sectionHeadingLink">
-                                        <span class="Home-gameHeadingText Home-sectionHeadingText"><?= $this->lang->line('store'); ?></span>
-                                        <span class="Home-gameHeadingLinkText Home-sectionHeadingLinkText"><?= $this->lang->line('store_see'); ?></span>
-                                    </a>
-                                </h2>
-                                <div data-selector=".Home-gameGridCell" data-target=".Home-gameGridContainer" data-below="sm" class="SyncHeight">
-                                    <div class="Home-gameGridContainer">
-                                        <div class="Home-gameGrid">
-                                            <div class="Home-gameGridRow">
-                                                <div data-id="blizzard" class="Home-gameGridCell">
-                                                    <div data-selector=".Home-gameGridGalleryItem" data-target=".Home-gameGridGallery" class="SyncHeight">
-                                                        <div class="Gallery is-disableSnap is-constrained Gallery--lowProfile is-adaptive Home-gameGridGallery">
-                                                            <div class="Gallery-wrapper">
-                                                                <div class="Gallery-container">
-                                                                    <div class="Gallery-inner">
-                                                                        <!-- item store START -->
-                                                                        <div class="GalleryItem Home-gameGridGalleryItem">
-                                                                            <div class="Home-gameGridTileContainer">
-                                                                                <a href="<!-- CAMBIAR POR LINK -->" data-analytics="<!-- CAMBIAR POR TITULO -->" data-analytics-placement="<!-- CAMBIAR POR DESCRIPCION -->" class="Home-gameGridGalleryLink">
-                                                                                    <div style="background-image:url(<?= base_url(); ?>assets/images/store/item1.jpg)" class="Home-gameGridTile"></div>
-                                                                                </a>
-                                                                                <div class="Home-gameGridTileOverlay">
-                                                                                    <div class="Home-gameGridTileOverlayContent">
-                                                                                        <a href="https://playoverwatch.com/" data-analytics="game-card" data-analytics-placement="Overwatch - Explore" class="Home-gameGridTileOverlayButtonLink">
-                                                                                            <button class="Button Button--small Home-gameGridTileOverlayButton">Explore</button>
-                                                                                        </a>
-                                                                                        <a href="https://eu.shop.battle.net/en-gb/product/overwatch?blzcmp=blizzard_hp_Overwatch_card" data-analytics="game-card" data-analytics-placement="Overwatch - Shop Now" class="Home-gameGridTileOverlayLink">
-                                                                                            <div class="Icon Home-gameGridTileOverlayLinkIcon">
-                                                                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                                                                                    <use xlink:href="#Icon_shop"></use>
-                                                                                                </svg>
-                                                                                            </div>
-                                                                                            <span class="Home-gameGridTileOverlayLinkText">Shop Now</span>
-                                                                                        </a>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!-- item store END -->
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- scrolls START -->
-                                                            <div class="Gallery-scroll Gallery-left">
-                                                                <div class="Icon Gallery-scrollIcon text-highlight-disable">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                                                        <use xlink:href="#Icon_chevron_left"></use>
-                                                                    </svg>
-                                                                </div>
-                                                            </div>
-                                                            <div class="Gallery-scroll Gallery-right">
-                                                                <div class="Icon Gallery-scrollIcon text-highlight-disable">
-                                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                                                        <use xlink:href="#Icon_chevron_right"></use>
-                                                                    </svg>
-                                                                </div>
-                                                            </div>
-                                                            <!-- scrolls END -->
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="Home-gameGridFixedTitle Home-gameGridCellTitle"><?= $this->config->item('ProjectName'); ?></div>
-                                            <div class="Home-gameGridScroll Home-gameGridScrollLeft">
-                                                <div class="Icon Gallery-scrollIcon text-highlight-disable">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                                        <use xlink:href="#Icon_chevron_left"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                            <div class="Home-gameGridScroll Home-gameGridScrollRight">
-                                                <div class="Icon Gallery-scrollIcon text-highlight-disable">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                                        <use xlink:href="#Icon_chevron_right"></use>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <div class="Divider Divider--light"></div>
-                    <link href="https://fonts.googleapis.com/css?family=Bad+Script" rel="stylesheet">
-                    <!-- realmlist START -->
-                    <div class="Pane Pane--full Home-additionalLinkPane">
-                        <div style="" class="Pane-content">
-                            <div class="Home-additionalLinks clearfix ">
-                                <h2 style="color: #fff;"><i class="game icon"></i>
-                                <?php if ($this->m_general->getExpansionAction() == 1) { ?>
-                                    Set Realmlist <?= $this->config->item('realmlist'); ?></h2>
-                                <?php } else { ?>
-                                    Set Portal "<?= $this->config->item('realmlist'); ?>"</h2>"
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- realmlist END -->
-                    <div class="Divider Divider--light"></div>
-                    <!-- status server START -->
-                    <div class="Pane Pane--full Home-additionalLinkPane">
-                        <div style="" class="Pane-content">
-                            <div class="Home-additionalLinks clearfix">
-                                <!--<h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3> online -->
-                                <div class="">
-                                    <div class="ui labeled button" tabindex="0">
-                                        <div class="ui blue active button">
-                                            <i class="users icon"></i> <?= $this->lang->line('faction_alliance'); ?>
-                                        </div>
-                                        <a class="ui basic blue left pointing label">
-                                            <?= $this->m_general->getCharactersOnlineAlliance(); ?>
-                                        </a>
-                                    </div>
-                                    <div class="ui left labeled button" tabindex="0">
-                                        <a class="ui basic red right pointing label">
-                                            <?= $this->m_general->getCharactersOnlineHorde(); ?>
-                                        </a>
-                                        <div class="ui red active button">
-                                            <i class="users icon"></i> <?= $this->lang->line('faction_horde'); ?>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- online -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- status server END -->
-                </div>
-            </div>
             <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-storiesPane">
                 <div class="Pane-content">
                     <div class="Grid row Home-storiesEventsGrid">
@@ -266,6 +127,7 @@
                                     <span class="Home-topStoriesHeadingLinkText Home-sectionHeadingLinkText"><?= $this->lang->line('all_news'); ?></span>
                                 </a>
                             </h2>
+                            <div class="Divider Divider--light"></div>
                             <div class="Home-topStories">
                                 <?php foreach ($this->news_model->getNewSpecifyID($this->news_model->getPrincipalNew())->result() as $principalNew) { ?>
                                     <div class="Home-topStoriesFeatured">
@@ -315,8 +177,42 @@
                             </div>
                         </div>
                         <div class="GridItem col-md-4">
-                            <div class="space-medium hide-md"></div>
+                            <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="server icon"></i><?=$this->lang->line('serv_status');?></h2>
+                            <div class="Divider Divider--light"></div>
+                            <div class="Home-topStories">
+                                <div class="Home-topStoriesFeatured">
+                                    <a data-analytics="panel-<?=$this->lang->line('serv_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
+                                        <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
+                                            <div class="Home-additionalLinks clearfix">
+                                                <!--<h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3> online -->
+                                                <div class="">
+                                                    <div class="GridItem col-md-12">
+                                                        <h2 style="color: #fff;"><div class="ui green empty large circular label" style="transition-duration: 300ms;"></div> <?= $this->m_general->getRealmName(); ?></h2>
+                                                        <div class="ui blue large label"><i class="users icon"></i><?= $this->m_general->getCharactersOnlineAlliance(); ?><div class="detail">
+                                                            <?= $this->lang->line('faction_alliance'); ?></div></div>
+                                                        <div class="ui red large label"><i class="users icon"></i><?= $this->m_general->getCharactersOnlineHorde(); ?><div class="detail">
+                                                            <?= $this->lang->line('faction_horde'); ?></div></div>
+                                                        <br></br>
+                                                        <div class="label"><h3 style="color: #fff;">
+                                                            <?php if ($this->m_general->getExpansionAction() == 1) { ?>
+                                                                <i class="game icon"></i>Set Realmlist <?= $this->config->item('realmlist'); ?></h3>
+                                                            <?php } else { ?>
+                                                                <i class="game icon"></i>Set Portal "<?= $this->config->item('realmlist'); ?>"</h3>
+                                                            <?php } ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- online -->
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <?php if ($this->events_model->getEventsLimitFive()->num_rows() > 0) { ?>
+                        <div class="GridItem col-md-4">
                             <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="announcement icon"></i><?= $this->lang->line('up_events'); ?></h2>
+                            <div class="Divider Divider--light"></div>
                             <div class="Home-eventsTableWrapper">
                                 <div class="Home-eventsTable">
                                     <!-- Events START -->
@@ -332,9 +228,7 @@
                                             <div class="Home-eventsTableCell Home-eventsTableCaretCell">
                                                 <div class="Home-eventsTableIconContainer">
                                                     <div class="Icon Home-eventsTableCaret">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                                            <use xlink:href="#Icon_chevron_right"></use>
-                                                        </svg>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg"><use xlink:href="#Icon_chevron_right"></use></svg>
                                                     </div>
                                                 </div>
                                             </div>
@@ -344,7 +238,75 @@
                                 </div>
                             </div>
                         </div>
+                        <?php } ?>
                     </div>
+                </div>
+            </div>
+            <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-gamePane">
+                <div class="Pane-content">
+                    <?php if ($this->shop_model->getShopTop10()->num_rows() > 0) { ?>
+                        <h2 class="Heading Home-gameHeading Home-sectionHeading flush-top">
+                            <a href="<?= base_url('store'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('store_see'); ?>" class="Home-gameHeadingLink Home-sectionHeadingLink">
+                                <span class="Home-gameHeadingText Home-sectionHeadingText"><i class="shopping bag icon"></i><?= $this->lang->line('store'); ?></span>
+                            </a>
+                        </h2>
+                        <div class="Divider Divider--light"></div>
+                        <div data-selector=".Home-gameGridCell" data-target=".Home-gameGridContainer" data-below="sm" class="SyncHeight">
+                            <div class="Home-gameGridContainer">
+                                <div class="Home-gameGrid">
+                                    <div class="Home-gameGridRow">
+                                        <div data-id="blizzard" class="Home-gameGridCell">
+                                            <div data-selector=".Home-gameGridGalleryItem" data-target=".Home-gameGridGallery" class="SyncHeight">
+                                                <div class="Gallery is-disableSnap is-constrained Gallery--lowProfile is-adaptive Home-gameGridGallery">
+                                                    <div class="Gallery-wrapper">
+                                                        <div class="Gallery-container">
+                                                            <div class="Gallery-inner">
+                                                            <?php foreach ($this->shop_model->getShopTop()->result() as $listTopShop) { ?>
+                                                                <!-- item store START -->
+                                                                <div class="GalleryItem Home-gameGridGalleryItem">
+                                                                    <div class="Home-gameGridTileContainer">
+                                                                        <a href="<?=  base_url('store?group='); ?><?= $this->shop_model->getGroup($listTopShop->id_shop); ?>" data-analytics="<?= $this->shop_model->getName($listTopShop->id_shop); ?>" data-analytics-placement="<?= $this->shop_model->getName($listTopShop->id_shop); ?>" class="Home-gameGridGalleryLink">
+                                                                            <div style="background-image:url(<?= base_url(); ?>assets/images/store/<?= $this->shop_model->getImage($listTopShop->id_shop); ?>)" class="Home-gameGridTile"></div>
+                                                                            <div class="floating ui green label">Top</div>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                                <!-- item store END -->
+                                                            <?php } ?>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- scrolls START -->
+                                                    <div class="Gallery-scroll Gallery-left">
+                                                        <div class="Icon Gallery-scrollIcon text-highlight-disable">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg"><use xlink:href="#Icon_chevron_left"></use></svg>
+                                                        </div>
+                                                    </div>
+                                                    <div class="Gallery-scroll Gallery-right">
+                                                        <div class="Icon Gallery-scrollIcon text-highlight-disable">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg"><use xlink:href="#Icon_chevron_right"></use></svg>
+                                                        </div>
+                                                    </div>
+                                                    <!-- scrolls END -->
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="Home-gameGridFixedTitle Home-gameGridCellTitle"><?= $this->config->item('ProjectName'); ?></div>
+                                    <div class="Home-gameGridScroll Home-gameGridScrollLeft">
+                                        <div class="Icon Gallery-scrollIcon text-highlight-disable">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg"><use xlink:href="#Icon_chevron_left"></use></svg>
+                                        </div>
+                                    </div>
+                                    <div class="Home-gameGridScroll Home-gameGridScrollRight">
+                                        <div class="Icon Gallery-scrollIcon text-highlight-disable">
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg"><use xlink:href="#Icon_chevron_right"></use></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>

@@ -35,3 +35,4 @@ $lang['register'] = 'Register';
 $lang['news'] = 'News';
 $lang['settings'] = 'Settings';
 $lang['changelogs'] = 'Changelogs';
+$lang['cart'] = 'Cart';
