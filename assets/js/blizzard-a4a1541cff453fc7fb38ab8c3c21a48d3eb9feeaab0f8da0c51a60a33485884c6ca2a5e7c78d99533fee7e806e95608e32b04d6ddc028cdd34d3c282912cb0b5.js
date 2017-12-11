@@ -5827,7 +5827,6 @@ var VideoPane = { getVideoElements: function () {
 							}
 						}
 					}.bind(xhr, callback, error);
-					xhr.send();
 				},
 
 				get: function (url, callback, error) {
