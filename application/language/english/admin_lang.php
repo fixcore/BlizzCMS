@@ -43,3 +43,5 @@ $lang['adm_forums'] = 'Forums';
 $lang['adm_account_settings'] = 'Account Settings';
 $lang['adm_manageChangelog'] = 'Manage Changelog';
 $lang['adm_createChangelog'] = 'Create Changelog';
+$lang['adm_manageShop'] = 'Manage Shop';
+$lang['adm_createShop'] = 'Create Shop';
