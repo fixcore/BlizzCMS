@@ -33,11 +33,6 @@
     <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('forums'); ?></div>
 </a>
 
-<a href="<?= base_url('changelogs'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('changelogs'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('changelogs'); ?>">
-    <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('changelogs'); ?></div>
-</a>
-
-
 </div>
 
 <div class="Navbar-profileItems">
@@ -98,7 +93,11 @@
 <nav class="Navbar-posters Navbar-imagePanel">
 
 <a href="<?= base_url('store'); ?>" class="Navbar-poster animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('store'); ?>">
-    <img src="<?= base_url(); ?>assets/images/menu/more1.jpg" title="<?= $this->lang->line('store'); ?>" class="Navbar-posterImage"/>
+    <img src="<?= base_url(); ?>assets/images/menu/store.jpg" title="<?= $this->lang->line('store'); ?>" class="Navbar-posterImage"/>
+</a>
+
+<a href="<?= base_url('changelogs'); ?>" class="Navbar-poster animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('changelogs'); ?>">
+    <img src="<?= base_url(); ?>assets/images/menu/changelogs.jpg" title="<?= $this->lang->line('changelogs'); ?>" class="Navbar-posterImage"/>
 </a>
 
 </nav>

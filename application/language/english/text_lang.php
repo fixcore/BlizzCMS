@@ -67,6 +67,10 @@ $lang['item'] = 'Item';
 $lang['price'] = 'Price';
 $lang['shop'] = 'Shop';
 
+
+$lang['lad_pvp'] = 'Ladder PVP';
+
+
 $lang['account_cre'] = 'Accounts created';
 $lang['staff_count'] = 'STAFF accounts';
 $lang['bann_count'] = 'Banned accounts';
