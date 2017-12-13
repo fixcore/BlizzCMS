@@ -2,7 +2,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('news'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('lad_pvp'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -34,49 +34,41 @@
     </div>
     </div>
     <!-- submenu -->
-
-    <div data-url="https://d9me64que7cqs.cloudfront.net/components/Icon/Icon-6e31618f7193f6dc334044c35440d52262a57acee5f4393fd60c597d1f12fb749b4e25d9e4b275a3379cbbd592aa756fcf8cab6bdbea43f95ff50e29699136d8.svg" class="SvgLoader"></div>
-
     <div class="Page-container">
         <div class="Page-content en-GB">
             <div class="space-adaptive-medium"></div>
-           <!-- -->
-           <div class="container">
-
-            <br><br>
             <!-- -->
-            <h1 class="ui header grey fx_center">asd</h1>
-            <!-- -->
-
-               <table class="ui celled table">
-                  <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Faction</th>
-                    <th>Total Kills</th>
-                    <th>Today Kills</th>
-                    <th>Yesterday Kills</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-
-                  <?php foreach ($this->pvp_model->getTop20PVP()->result() as $tops) { ?>
-                    <tr>
-                      <td><?= $tops->name ?></td>
-                      <td>test</td>
-                      <td><?= $tops->totalKills ?></td>
-                      <td><?= $tops->todayKills ?></td>
-                      <td><?= $tops->yesterdayKills ?></td>
-                    </tr>
-                  <?php } ?>
-                    
-                  </tbody>
+            <div class="container">
+                <br><br>
+                <!-- -->
+                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="trophy icon"></i><?= $this->m_general->getRealmName(); ?></h2>
+                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('lad_pvp');?></h3>
+                <br><br>
+                <!-- -->
+                <table class="ui selectable inverted table">
+                    <thead>
+                        <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui purple horizontal large label">TOP 20</div></h3>
+                        <tr>
+                            <th><i class="user circle outline icon"></i><?=$this->lang->line('name');?></th>
+                            <th class="center aligned"><i class="flag outline icon"></i><?=$this->lang->line('faction');?></th>
+                            <th class="center aligned"><i class="crosshairs icon"></i><?=$this->lang->line('total_kills');?></th>
+                            <th class="center aligned"><i class="crosshairs icon"></i><?=$this->lang->line('today_kills');?></th>
+                            <th class="center aligned"><i class="crosshairs icon"></i><?=$this->lang->line('yersterday_kills');?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->pvp_model->getTop20PVP()->result() as $tops) { ?>
+                            <tr>
+                                <td><?= $tops->name ?></td>
+                                <td class="center aligned"><img src="<?= base_url(); ?>assets/images/<?= $this->m_general->getFaction($tops->race) ?>.png" class="img-circle"></td>
+                                <td class="center aligned"><?= $tops->totalKills ?></td>
+                                <td class="center aligned"><?= $tops->todayKills ?></td>
+                                <td class="center aligned"><?= $tops->yesterdayKills ?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
                 </table>
-
-             </div>
-
-
-           </div>
-           <!-- -->
+            </div>
         </div>
+        <!-- -->
     </div>

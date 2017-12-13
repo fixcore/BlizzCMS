@@ -5,6 +5,9 @@ class News extends MX_Controller {
 
     public function index()
     {
+        if ($this->m_modules->getStatusNews() != '1')
+            redirect(base_url(),'refresh');
+
         $this->load->model('news_model');
 
         $this->load->view('news/news');
@@ -13,6 +16,9 @@ class News extends MX_Controller {
 
     public function post($id)
     {
+        if ($this->m_modules->getStatusNews() != '1')
+            redirect(base_url(),'refresh');
+        
         $this->load->model('news_model');
 
         if ($this->news_model->getNewSpecifyID($id)->num_rows() < 1)

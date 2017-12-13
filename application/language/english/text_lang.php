@@ -66,9 +66,22 @@ $lang['type'] = 'Type';
 $lang['item'] = 'Item';
 $lang['price'] = 'Price';
 $lang['shop'] = 'Shop';
+$lang['discord'] = 'Discord';
+$lang['name'] = 'Name';
+$lang['faction'] = 'Faction';
+$lang['total_kills'] = 'Total Kills';
+$lang['today_kills'] = 'Today Kills';
+$lang['yersterday_kills'] = 'Yesterday Kills';
+$lang['team_name'] = 'Team Name';
+$lang['wins'] = 'Wins';
+$lang['losses'] = 'Losses';
+$lang['members'] = 'Members';
+$lang['rating'] = 'Rating';
+$lang['games'] = 'Games';
 
 
-$lang['lad_pvp'] = 'Ladder PVP';
+$lang['lad_pvp'] = 'PvP Statistics';
+$lang['lad_arena'] = 'Arena Statistics';
 
 
 $lang['account_cre'] = 'Accounts created';
@@ -217,6 +230,7 @@ $lang['changelog_titlec'] = 'Title of the Changelog';
 
 $lang['no_players'] = 'No players Online';
 $lang['players_on'] = 'Players Online';
+$lang['users_on'] = 'Users Online';
 
 $lang['news'] = 'News';
 $lang['last_news'] = 'Latest News';

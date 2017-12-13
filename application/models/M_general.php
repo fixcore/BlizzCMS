@@ -232,6 +232,26 @@ class M_general extends CI_Model {
     	return $this->characters->query("SELECT guid FROM characters WHERE race IN ('2','5','6','8','10','9','26') AND online = 1")->num_rows();
     }
 
+    public function getFaction($race)
+    {
+    	switch ($race) {
+    		case '1': return 'Alliance'; break;
+    		case '3': return 'Alliance'; break;
+    		case '4': return 'Alliance'; break;
+    		case '7': return 'Alliance'; break;
+    		case '11': return 'Alliance'; break;
+    		case '22': return 'Alliance'; break;
+    		case '25': return 'Alliance'; break;
+    		case '2': return 'Horde'; break;
+    		case '5': return 'Horde'; break;
+    		case '6': return 'Horde'; break;
+    		case '8': return 'Horde'; break;
+    		case '10': return 'Horde'; break;
+    		case '9': return 'Horde'; break;
+    		case '26': return 'Horde'; break;
+    	}
+    }
+
     public function getNameClass($class)
     {
         switch ($class) 

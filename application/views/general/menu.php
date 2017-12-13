@@ -92,17 +92,42 @@
 
 <nav class="Navbar-posters Navbar-imagePanel">
 
+<?php if($this->m_modules->getStatusStore() == '1') { ?>
 <a href="<?= base_url('store'); ?>" class="Navbar-poster animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('store'); ?>">
     <img src="<?= base_url(); ?>assets/images/menu/store.jpg" title="<?= $this->lang->line('store'); ?>" class="Navbar-posterImage"/>
 </a>
+<?php } ?>
 
+<?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
 <a href="<?= base_url('changelogs'); ?>" class="Navbar-poster animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('changelogs'); ?>">
     <img src="<?= base_url(); ?>assets/images/menu/changelogs.jpg" title="<?= $this->lang->line('changelogs'); ?>" class="Navbar-posterImage"/>
 </a>
+<?php } ?>
 
 </nav>
 </div>
 </div>
+<!-- nav -->
+<link rel="stylesheet" type="text/css" href="<?=base_url('core/rpg_awesome/css/rpg-awesome.css')?>">
+
+<nav xmlns="http://www.w3.org/1999/xhtml" class="Navbar-modalSection Navbar-dropdownFooter Navbar-gameMenu is-center">
+    
+    <?php if ($this->m_modules->getStatusLadPVP() == '1') { ?>
+    <a href="<?= base_url('pvp'); ?>" class="Navbar-gameMenuItem animation-delay-9" data-analytics="global-nav" data-analytics-placement="Nav - Games - More Games">
+        <div class="Navbar-icon Navbar-gameMenuItemIcon"></div>
+        <div class="Navbar-gameMenuItemLabel"><i class="ra ra-axe"></i> <?=$this->lang->line('lad_pvp');?></div>
+    </a>
+    <?php } ?>
+
+    <?php if ($this->m_modules->getStatusLadArena() == '1') { ?>
+    <a href="<?= base_url('arena'); ?>" class="Navbar-gameMenuItem animation-delay-9" data-analytics="global-nav" data-analytics-placement="Nav - Games - More Games">
+        <div class="Navbar-icon Navbar-gameMenuItemIcon"></div>
+        <div class="Navbar-gameMenuItemLabel"><i class="ra ra-arena"></i> <?=$this->lang->line('lad_arena');?></div>
+    </a>
+    <?php } ?>
+    
+</nav>
+<!-- nav -->
 </div>
 </div>
 <div class="Navbar-constrained">
@@ -114,6 +139,7 @@
     <div class="Navbar-accountDropdownLoggedOut">
 
 <?php if (!$this->m_data->isLogged()) { ?>
+<?php if($this->m_modules->getStatusLogin() == '1') { ?>
 <div class="Navbar-modalSection">
     <a href="<?= base_url(); ?>login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('menu_login'); ?>">
     <div class="Navbar-button is-full ui ui primary basic button" tabindex="0">
@@ -121,6 +147,7 @@
     </div>
     </a>
 </div>
+<?php } ?>
 <?php } ?>
 
 <?php if ($this->m_data->isLogged()) { ?>
@@ -146,6 +173,7 @@
 </a>
 <?php } ?>
 
+<?php if($this->m_modules->getStatusUCP() == '1') { ?>
 <a href="<?= base_url('settings'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('acc_setting'); ?>">
     <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
@@ -155,7 +183,9 @@
     </div>
     <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('acc_setting'); ?></div>
 </a>
+<?php } ?>
 
+<?php if($this->m_modules->getStatusGifts() == '1') { ?>
 <a href="<?= base_url('user/gifts'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('acc_gifs'); ?>">
 <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
@@ -165,6 +195,7 @@
 </div>
 <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('acc_gifs'); ?></div>
 </a>
+<?php } ?>
 
 <a href="<?= base_url('logout'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account_out'); ?>">
 <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
@@ -179,6 +210,7 @@
 <?php } ?>
 
 <?php if (!$this->m_data->isLogged()) { ?>
+<?php if($this->m_modules->getStatusRegister() == '1') { ?>
 <a href="<?= base_url('register'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('create_acc'); ?>">
     <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
@@ -188,6 +220,7 @@
 </div>
 <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('create_acc'); ?></div>
 </a>
+<?php } ?>
 <?php } ?>
 
 </div>
