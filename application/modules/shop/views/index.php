@@ -117,7 +117,9 @@
 						<div class="ui two column centered grid">
 							<div class="five column centered row">
 
-							<?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
+							<?php if(isset($_GET['group'])) { $km = 'getShopGeneralGP'; } else { $km = 'getShopGeneral'; } ?>
+							<?php if(isset($_GET['group'])) { $gpp = $_GET['group']; } else { $gpp = '0'; } ?>
+							<?php foreach($this->shop_model->$km($gpp)->result() as $itemsG) { ?>
 								<div class="column">
 									<storefront-browsing-card _ngcontent-c9="" _nghost-c16="">
 										<div _ngcontent-c16="" class="browsing-card">
