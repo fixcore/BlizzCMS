@@ -86,10 +86,15 @@ class Shop_model extends CI_Model {
 
     public function getShopGeneral()
     {
-        if (isset($_GET['group']))
+        if ((int)isset($_GET['group']))
         {
-            $gp = $_GET['group'];
-            return $this->db->query("SELECT * FROM fx_shop WHERE groups = '".$gp."'");
+            (int)$gp = (int)$_GET['group'];
+
+            $this->db->select('*')
+            ->from('fx_shop')
+            ->where('groups = '.$gp);
+            
+            return $this->db->get();
         }
         else
             return $this->db->query("SELECT * FROM fx_shop");
