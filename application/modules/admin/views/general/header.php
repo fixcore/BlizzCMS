@@ -156,13 +156,13 @@
                             <li><a href="<?= base_url('admin/listnew'); ?>"><i class="fa fa-list fa-fw"></i><span class="hide-menu"><?= $this->lang->line('adm_news_list'); ?></span></a></li>
                         </ul>
                     </li>
-                    <li><a href="<?= base_url('admin/shop'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw text-inverse"></i><span class="hide-menu"><?= $this->lang->line('shop'); ?></span></a></li>
-                    <li><a href="<?= base_url('admin/changelogs'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw text-inverse"></i><span class="hide-menu"><?= $this->lang->line('changelogs'); ?></span></a></li>
-                    <li><a href="<?= base_url('admin/forums'); ?>" class="waves-effect"><i class="fa fa-bookmark fa-fw text-inverse"></i><span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span></a></li>
+                    <li><a href="<?= base_url('admin/shop'); ?>" class="waves-effect"><i class="fa fa-shopping-cart fa-fw text-warning"></i><span class="hide-menu"><?= $this->lang->line('shop'); ?></span></a></li>
+                    <li><a href="<?= base_url('admin/changelogs'); ?>" class="waves-effect"><i class="fa fa-history fa-fw text-info"></i><span class="hide-menu"><?= $this->lang->line('changelogs'); ?></span></a></li>
+                    <li><a href="<?= base_url('admin/forums'); ?>" class="waves-effect"><i class="fa fa-commenting fa-fw text-inverse"></i><span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span></a></li>
                     <li class="devider"></li>
                     <li><a href="<?= base_url('admin/apic'); ?>" class="waves-effect"><i class="fa fa-circle-o text-danger"></i><span class="hide-menu"> API</span></a></li>
                     <li class="devider"></li>
-                    <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/wiki" class="waves-effect"><i class="fa fa-circle-o text-info"></i><span class="hide-menu"> Wiki</span></a></li>
+                    <li><a target="_blank" href="https://fixcore.github.io" class="waves-effect"><i class="fa fa-circle-o text-info"></i><span class="hide-menu"> Wiki</span></a></li>
                     <li><a target="_blank" href="https://github.com/fixcore/BlizzCMS/issues" class="waves-effect"><i class="fa fa-circle-o text-inverse"></i><span class="hide-menu"> Issues</span></a></li>
                 </ul>
             </div>
