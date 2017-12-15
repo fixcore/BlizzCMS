@@ -100,6 +100,15 @@ class Shop_model extends CI_Model {
             return $this->db->query("SELECT * FROM fx_shop");
     }
 
+    public function getShopGeneralGP($id)
+    {
+            $this->db->select('*')
+            ->from('fx_shop')
+            ->where('groups = '.$id);
+            
+            return $this->db->get();
+    }
+
     public function getGroups()
     {
         return $this->db->query("SELECT * FROM fx_shop_groups");
