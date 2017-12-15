@@ -12,4 +12,12 @@ class Home_model extends CI_Model {
     {
         return $this->db->query("SELECT * FROM fx_slides ORDER BY id ASC");
     }
+
+    public function getDiscordInfo()
+    {
+    	$invitation = $this->config->item('discord_inv');
+    	$discord = file_get_contents('https://discordapp.com/api/v6/invite/'.$invitation.'?with_counts=true');
+    	$vars = json_decode($discord, true);
+    	return $vars;
+    }
 }
