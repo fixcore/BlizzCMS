@@ -30,7 +30,7 @@
 </a>
 
 <a href="<?= base_url('forums'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('forums'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('forums'); ?>">
-    <div class="Navbar-label"><i class="bookmark icon"></i><?= $this->lang->line('forums'); ?></div>
+    <div class="Navbar-label"><i class="talk icon"></i><?= $this->lang->line('forums'); ?></div>
 </a>
 
 </div>
