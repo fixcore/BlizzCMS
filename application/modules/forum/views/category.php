@@ -162,7 +162,7 @@
 					<span class="ForumTopic-timestamp "><?= date('d-m-Y', $lists->date); ?></span>
 					<span class="ForumTopic-replies">
 						<i class="inverted blue reply icon"></i>
-						<span>0</span>
+						<span><?= $this->forum_model->getComments($lists->id)->num_rows(); ?></span>
 					</span>
 				</span>
 			</a>
@@ -193,7 +193,7 @@
 					<span class="ForumTopic-timestamp "><?= date('d-m-Y', $lists->date); ?></span>
 					<span class="ForumTopic-replies">
 						<i class="inverted blue reply icon"></i>
-						<span>0</span>
+						<span><?= $this->forum_model->getComments($lists->id)->num_rows(); ?></span>
 					</span>
 				</span>
 			</a>

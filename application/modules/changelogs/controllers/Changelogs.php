@@ -5,6 +5,9 @@ class Changelogs extends MX_Controller {
 
     public function index()
     {
+        if($this->m_modules->getStatusChangelogs() != '1')
+            redirect(base_url(),'refresh');
+
         $this->load->model('changelogs_model');
 
         $this->load->view('index');
@@ -13,6 +16,9 @@ class Changelogs extends MX_Controller {
 
     public function id($id)
     {
+        if($this->m_modules->getStatusChangelogs() != '1')
+            redirect(base_url(),'refresh');
+        
         if (empty($id) || is_null($id))
             redirect(base_url(),'refresh');
 

@@ -1,3 +1,12 @@
+/*  custom  */
+
+.fx_center {
+	text-align: center;"
+}
+
+
+/*  scroll  */
+
 body::-webkit-scrollbar {
     width: 1em;
     background-color: #427FB9;

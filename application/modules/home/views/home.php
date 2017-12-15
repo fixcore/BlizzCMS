@@ -16,7 +16,7 @@
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
-
+    <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- semantic -->
@@ -37,11 +37,12 @@
     <div class="Page-container">
         <div class="Page-content en-GB">
             <div id="home-promoted-carousel-container" class="position-relative">
+                    <?php if ($this->m_modules->getStatusSlides() == '1') { ?>
+                        <?php if ($this->home_model->getSlides()->num_rows() > 0) { ?>
                 <div data-in="0" data-out="0" data-scroll="#home-promoted-scroll" data-analytics="arrowClick" data-analytics-placement="Home" class="Carousel Carousel--fullHg Carousel--fill is-infinite" id="home-promoted-carousel">
                     <div class="Carousel-container">
                         <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
                         <!-- slides start -->
-                        <?php if ($this->home_model->getSlides()->num_rows() > 0) { ?>
                             <?php foreach ($this->home_model->getSlides()->result() as $slides) { ?>
                                 <div class="CarouselItem Home-promotedCarouselItem">
                                     <div class="CarouselItem-content">
@@ -80,7 +81,6 @@
                                     </div>
                                 </div>
                             <?php } ?>
-                        <?php } ?>
                         <!-- slides end -->
                         <!-- icons slides start -->
                         <div class="Carousel-scroll Carousel-prev">
@@ -100,6 +100,8 @@
                         <!-- icons slides end -->
                     </div>
                 </div>
+                        <?php } ?>
+                        <?php } ?>
                 <div class="Overlay Overlay--bottom" id="home-promoted-scroll-overlay">
                     <div class="Overlay-content">
                         <div class="align-center">
@@ -120,6 +122,7 @@
             <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-storiesPane">
                 <div class="Pane-content">
                     <div class="Grid row Home-storiesEventsGrid">
+                        <?php if ($this->m_modules->getStatusNews() == '1') { ?>
                         <div class="GridItem col-md-8">
                             <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top">
                                 <a href="<?= base_url('news'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('all_news'); ?>" class="Home-topStoriesHeadingLink Home-sectionHeadingLink">
@@ -176,11 +179,13 @@
                                 </div>
                             </div>
                         </div>
+                        <?php } ?>
                         <div class="GridItem col-md-4">
                             <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="server icon"></i><?=$this->lang->line('serv_status');?></h2>
                             <div class="Divider Divider--light"></div>
                             <div class="Home-topStories">
                                 <div class="Home-topStoriesFeatured">
+                                    <?php if ($this->m_modules->getStatusNews() == '1') { ?>
                                     <a data-analytics="panel-<?=$this->lang->line('serv_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
                                         <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
                                             <div class="Home-additionalLinks clearfix">
@@ -201,14 +206,73 @@
                                                             <?php } ?>
                                                         </div>
                                                     </div>
+
                                                 </div>
                                                 <!-- online -->
                                             </div>
                                         </div>
                                     </a>
+                                    <?php } ?>
+                                    <?php if ($this->m_modules->getStatusDiscordExperimental() == '1') { ?>
+                                    <!-- discord experimental -->
+                                    <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" data-analytics="panel-<?=$this->lang->line('serv_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
+                                        <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
+                                            <div class="Home-additionalLinks clearfix">
+                                                <!--<h3 style="color: #fff;"><?=$this->lang->line('discord');?></h3> online -->
+                                                <div class="">
+                                                    <div class="GridItem col-md-12">
+                                                        
+                                                        <!-- image -->
+                                                        <div class="ui center horizontal list">
+                                                          <div class="item">
+                                                            <img class="ui center aligned mini header circular image" src="https://cdn.discordapp.com/icons/<?= $this->home_model->getDiscordInfo()['guild']['id']; ?>/<?= $this->home_model->getDiscordInfo()['guild']['icon']; ?>.png">
+                                                          </div>
+                                                        </div>
+                                                        <!-- image -->
+                                                        
+                                                        <div class="label"><h3 style="color: #fff;">
+                                                            <i class="icon-discord"></i>
+                                                                <?= $this->home_model->getDiscordInfo()['guild']['name']; ?>
+                                                            <i class="icon-discord"></i>
+                                                        </div>
+
+                                                        <br>
+                                                        <!-- count -->
+                                                        <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" class="ui grey circular label">
+                                                            <?=$this->lang->line('users_on');?>
+                                                            <?= $this->home_model->getDiscordInfo()['approximate_presence_count']; ?> 
+                                                        </a>
+                                                        <!-- count -->
+                                                                                                                
+                                                    </div>
+
+                                                </div>
+                                                <!-- online -->
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- discord experimental -->
+                                    <?php } ?>
+                                    <?php if ($this->m_modules->getStatusDiscordClassic() == '1') { ?>
+                                    <!-- discord classic -->
+                                    <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" data-analytics="panel-<?=$this->lang->line('serv_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
+                                        <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
+                                            <div class="Home-additionalLinks clearfix">
+                                                <div class="GridItem col-md-12">
+                                                    
+                                                    <iframe src="https://discordapp.com/widget?id=<?= $this->home_model->getDiscordInfo()['guild']['id']; ?>&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0"></iframe>
+                                                                                           
+                                                </div>
+                                                <!-- online -->
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!-- discord classic -->
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
+                        <?php if ($this->m_modules->getStatusEvents() == '1') { ?>
                         <?php if ($this->events_model->getEventsLimitFive()->num_rows() > 0) { ?>
                         <div class="GridItem col-md-4">
                             <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="announcement icon"></i><?= $this->lang->line('up_events'); ?></h2>
@@ -239,9 +303,11 @@
                             </div>
                         </div>
                         <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
+            <?php if ($this->m_modules->getStatusStore() == '1') { ?>
             <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-gamePane">
                 <div class="Pane-content">
                     <?php if ($this->shop_model->getShopTop10()->num_rows() > 0) { ?>
@@ -309,5 +375,6 @@
                     <?php } ?>
                 </div>
             </div>
+            <?php } ?>
         </div>
     </div>
