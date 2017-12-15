@@ -39,129 +39,108 @@
             <div class="space-adaptive-medium"></div>
             <!-- -->
             <div class="container">
-                <br><br>
                 <!-- -->
+                <div class="space-adaptive-small"></div>
                 <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="protect icon"></i><?= $this->m_general->getRealmName(); ?></h2>
                 <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('lad_arena');?></h3>
-                <br><br>
+                <div class="space-adaptive-small"></div>
                 <!-- -->
-                <div class="rows">
-                    <div class="col-sm-4">
-                        <!-- 2v2 -->
-                            <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui red horizontal large label">TOP 2v2</div></h3>
-                            <table class="ui very basic collapsing celled table">
-                              <thead>
-                                <tr>
-                                  <th style="text-align: center;"><?=$this->lang->line('name');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('members');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('rating');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('games');?></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                            <?php foreach ($this->arena_model->getTopArena2v2()->result() as $tops2v2) { ?>
-                                <tr>
-                                  <td style="text-align: center;"><?=$tops2v2->name?></td>
-                                  <td>
+                <!-- 2v2 -->
+                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui red horizontal large label">TOP 2v2</div></h3>
+                <table class="ui selectable inverted table">
+                    <thead>
+                        <tr>
+                            <th><i class="sitemap icon"></i><?=$this->lang->line('name');?></th>
+                            <th class="center aligned"><i class="users icon"></i><?=$this->lang->line('members');?></th>
+                            <th class="center aligned"><i class="area chart icon"></i><?=$this->lang->line('rating');?></th>
+                            <th class="center aligned"><i class="line chart icon"></i><?=$this->lang->line('games');?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->arena_model->getTopArena2v2()->result() as $tops2v2) { ?>
+                            <tr>
+                                <td><?=$tops2v2->name?></td>
+                                <td class="center aligned">
                                     <h4 class="ui image header">
-                                      <div class="content">
-                                        <?php foreach ($this->arena_model->getMemberTeam($tops2v2->arenaTeamId)->result() as $mmberteam) { ?>
-                                            <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
-                                        <?php } ?>
-                                      </div>
+                                        <div class="content">
+                                            <?php foreach ($this->arena_model->getMemberTeam($tops2v2->arenaTeamId)->result() as $mmberteam) { ?>
+                                                <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
+                                            <?php } ?>
+                                        </div>
                                     </h4>
-                                  </td>
-                                  <td>
-                                    <?=$tops2v2->rating?>
-                                  </td>
-                                  <td>
-                                    <?=$tops2v2->seasonWins?>
-                                  </td>
-                                </tr>
-                            <?php } ?>
-
-                              </tbody>
-                            </table>
-                        <!-- 2v2 -->
-                    </div>
-                    <div class="col-sm-4">
-                        <!-- 3v3 -->
-                            <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui orange horizontal large label">TOP 3v3</div></h3>
-                            <table class="ui very basic collapsing celled table">
-                              <thead>
-                                <tr>
-                                  <th style="text-align: center;"><?=$this->lang->line('name');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('members');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('rating');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('games');?></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                            <?php foreach ($this->arena_model->getTopArena3v3()->result() as $tops3v3) { ?>
-                                <tr>
-                                  <td style="text-align: center;"><?=$tops3v3->name?></td>
-                                  <td>
+                                </td>
+                                <td class="center aligned"><?=$tops2v2->rating?></td>
+                                <td class="center aligned"><?=$tops2v2->seasonWins?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <!-- 2v2 -->
+                <div class="space-adaptive-small"></div>
+                <!-- 3v3 -->
+                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui orange horizontal large label">TOP 3v3</div></h3>
+                <table class="ui selectable inverted table">
+                    <thead>
+                        <tr>
+                            <th><i class="sitemap icon"></i><?=$this->lang->line('name');?></th>
+                            <th class="center aligned"><i class="users icon"></i><?=$this->lang->line('members');?></th>
+                            <th class="center aligned"><i class="area chart icon"></i><?=$this->lang->line('rating');?></th>
+                            <th class="center aligned"><i class="line chart icon"></i><?=$this->lang->line('games');?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->arena_model->getTopArena3v3()->result() as $tops3v3) { ?>
+                            <tr>
+                                <td><?=$tops3v3->name?></td>
+                                <td class="center aligned">
                                     <h4 class="ui image header">
-                                      <div class="content">
-                                        <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId)->result() as $mmberteam) { ?>
-                                            <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
-                                        <?php } ?>
-                                      </div>
+                                        <div class="content">
+                                            <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId)->result() as $mmberteam) { ?>
+                                                <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
+                                            <?php } ?>
+                                        </div>
                                     </h4>
-                                  </td>
-                                  <td>
-                                    <?=$tops3v3->rating?>
-                                  </td>
-                                  <td>
-                                    <?=$tops3v3->seasonWins?>
-                                  </td>
-                                </tr>
-                            <?php } ?>
-
-                              </tbody>
-                            </table>
-                        <!-- 3v3 -->
-                    </div>
-                    <div class="col-sm-4">
-                        <!-- 5v5 -->
-                            <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui yellow horizontal large label">TOP 5v5</div></h3>
-                            <table class="ui very basic collapsing celled table">
-                              <thead>
-                                <tr>
-                                  <th style="text-align: center;"><?=$this->lang->line('name');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('members');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('rating');?></th>
-                                  <th style="text-align: center;"><?=$this->lang->line('games');?></th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                            <?php foreach ($this->arena_model->getTopArena5v5()->result() as $tops5v5) { ?>
-                                <tr>
-                                  <td style="text-align: center;"><?=$tops5v5->name?></td>
-                                  <td>
+                                </td>
+                                <td class="center aligned"><?=$tops3v3->rating?></td>
+                                <td class="center aligned"><?=$tops3v3->seasonWins?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <!-- 3v3 -->
+                <div class="space-adaptive-small"></div>
+                <!-- 5v5 -->
+                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui yellow horizontal large label">TOP 5v5</div></h3>
+                <table class="ui selectable inverted table">
+                    <thead>
+                        <tr>
+                            <th><i class="sitemap icon"></i><?=$this->lang->line('name');?></th>
+                            <th class="center aligned"><i class="users icon"></i><?=$this->lang->line('members');?></th>
+                            <th class="center aligned"><i class="area chart icon"></i><?=$this->lang->line('rating');?></th>
+                            <th class="center aligned"><i class="line chart icon"></i><?=$this->lang->line('games');?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($this->arena_model->getTopArena5v5()->result() as $tops5v5) { ?>
+                            <tr>
+                                <td><?=$tops5v5->name?></td>
+                                <td class="center aligned">
                                     <h4 class="ui image header">
-                                      <div class="content">
-                                        <?php foreach ($this->arena_model->getMemberTeam($tops5v5->arenaTeamId)->result() as $mmberteam) { ?>
-                                            <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
-                                        <?php } ?>
-                                      </div>
+                                        <div class="content">
+                                            <?php foreach ($this->arena_model->getMemberTeam($tops5v5->arenaTeamId)->result() as $mmberteam) { ?>
+                                                <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
+                                            <?php } ?>
+                                        </div>
                                     </h4>
-                                  </td>
-                                  <td>
-                                    <?=$tops5v5->rating?>
-                                  </td>
-                                  <td>
-                                    <?=$tops5v5->seasonWins?>
-                                  </td>
-                                </tr>
-                            <?php } ?>
-
-                              </tbody>
-                            </table>
-                        <!-- 5v5 -->
-                    </div>
-                    </div>
-                </div>
+                                </td>
+                                <td class="center aligned"><?=$tops5v5->rating?></td>
+                                <td class="center aligned"><?=$tops5v5->seasonWins?></td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+                <!-- 5v5 -->
             </div>
         </div>
         <!-- -->
+    </div>
