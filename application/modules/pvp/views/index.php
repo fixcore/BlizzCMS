@@ -39,11 +39,11 @@
             <div class="space-adaptive-medium"></div>
             <!-- -->
             <div class="container">
-                <br><br>
                 <!-- -->
+                <div class="space-adaptive-small"></div>
                 <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="trophy icon"></i><?= $this->m_general->getRealmName(); ?></h2>
                 <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('lad_pvp');?></h3>
-                <br><br>
+                <div class="space-adaptive-small"></div>
                 <!-- -->
                 <table class="ui selectable inverted table">
                     <thead>
