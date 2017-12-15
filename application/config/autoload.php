@@ -131,4 +131,4 @@ $autoload['language'] = array('titles', 'text', 'menu', 'actions', 'admin', 'soa
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
-$autoload['model'] = array('m_general', 'm_soap', 'm_data');
+$autoload['model'] = array('m_general', 'm_soap', 'm_data', 'm_modules');

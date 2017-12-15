@@ -5,6 +5,9 @@ class Shop extends MX_Controller {
 
     public function index()
     {
+        if($this->m_modules->getStatusStore() != '1')
+            redirect(base_url(),'refresh');
+
         $this->load->model('shop_model');
 
         $this->load->view('index');
@@ -13,6 +16,9 @@ class Shop extends MX_Controller {
 
     public function cart($id)
     {
+        if($this->m_modules->getStatusStore() != '1')
+            redirect(base_url(),'refresh');
+        
         $this->load->model('shop_model');
 
         if (!$this->m_data->isLogged())

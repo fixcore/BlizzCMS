@@ -5,6 +5,9 @@ class User extends MX_Controller {
 
     public function login()
     {
+        if($this->m_modules->getStatusLogin() != '1')
+            redirect(base_url(),'refresh');
+        
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -18,6 +21,9 @@ class User extends MX_Controller {
 
     public function register()
     {
+        if($this->m_modules->getStatusRegister() != '1')
+            redirect(base_url(),'refresh');
+        
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -32,6 +38,9 @@ class User extends MX_Controller {
 
     public function settings()
     {
+        if($this->m_modules->getStatusUCP() != '1')
+            redirect(base_url(),'refresh');
+
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
