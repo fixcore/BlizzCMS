@@ -35,6 +35,9 @@
         <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
 	<div class="Container Container--content Container--breadcrumbs">
 
+<div class="GameSite-link"> 
+	<a class="GameSite-link--heading" href="<?= base_url('store') ?>"><?=$this->lang->line('store');?></a>
+</div>
 
 <?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
 <div class="GameSite-link"> 
@@ -117,7 +120,7 @@
 						<div class="ui two column centered grid">
 							<div class="five column centered row">
 
-							<?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
+							<?php foreach($this->shop_model->getShopGeneralGP($idlink)->result() as $itemsG) { ?>
 								<div class="column">
 									<storefront-browsing-card _ngcontent-c9="" _nghost-c16="">
 										<div _ngcontent-c16="" class="browsing-card">
