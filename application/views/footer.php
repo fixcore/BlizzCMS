@@ -56,7 +56,7 @@
 
 <div class="NavbarFooter-links NavbarFooter-mainLinks"><!-- here --></div>
 <div class="NavbarFooter-copyright">&copy; <?= date('Y'); ?> <?= $this->config->item('ProjectName'); ?>. All rights reserved.</div>
-<div class="NavbarFooter-trademark"><a href="https://github.com/fixcore/BlizzCMS" title="FixCore"><i class="github icon"></i>Proudly powered by BlizzCMS</a></div>
+<div class="NavbarFooter-trademark"><a href="https://github.com/fixcore/BlizzCMS" title="FixCore"><i class="fa fa-github" aria-hidden="true"></i> Proudly powered by BlizzCMS</a></div>
 
 <div class="NavbarFooter-legal">
     <div class="NavbarFooter-legalRatings">
