@@ -24,7 +24,15 @@
     <!-- custom -->
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/cart.css" />
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <!-- semantic ui Start -->
+    <!-- UiKit Start -->
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+<!-- UiKit end -->
+<!-- semantic ui Start -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
     <!-- semantic ui End -->
     <!-- custom START -->
