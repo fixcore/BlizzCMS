@@ -18,9 +18,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
 <!-- UiKit end -->
-<!-- semantic ui Start -->
-	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-	<!-- semantic ui End -->
 	<!-- custom START -->
 	    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
 	<!-- custom END -->
@@ -30,9 +27,6 @@
 	  src="https://code.jquery.com/jquery-3.1.1.min.js"
 	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	  crossorigin="anonymous"></script>
-	<!-- semantic -->
-	<script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-	<!-- semantic -->
 	<!-- custom footer -->
 	<!--[if lte IE 8]>
 		<script type="text/javascript" src="/<?= base_url(); ?>assets/js/jquery.min.js?v=88"></script>
