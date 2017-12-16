@@ -14,6 +14,22 @@ class Shop extends MX_Controller {
         $this->load->view('footer');
     }
 
+    public function order($id)
+    {
+        if (empty($id) || is_null($id) || $id == '0')
+            redirect(base_url(),'refresh');
+
+        if($this->m_modules->getStatusStore() != '1')
+            redirect(base_url(),'refresh');
+
+        $this->load->model('shop_model');
+
+        $data['idlink'] = $id;
+
+        $this->load->view('order', $data);
+        $this->load->view('footer');
+    }
+
     public function cart($id)
     {
         if($this->m_modules->getStatusStore() != '1')

@@ -78,7 +78,11 @@ $lang['losses'] = 'Losses';
 $lang['members'] = 'Members';
 $lang['rating'] = 'Rating';
 $lang['games'] = 'Games';
+$lang['report_list'] = 'Report List';
 
+
+$lang['bugtracker'] = 'Bugtracker';
+$lang['create_report'] = 'Create Report';
 
 $lang['lad_pvp'] = 'PvP Statistics';
 $lang['lad_arena'] = 'Arena Statistics';
@@ -107,6 +111,9 @@ $lang['expr_rename'] = 'Rename';
 $lang['expr_title'] = 'Title';
 $lang['expr_highl'] = 'Highlight';
 $lang['expr_lock'] = 'Lock';
+$lang['expr_category'] = 'Category';
+$lang['expr_status'] = 'Status';
+$lang['expr_priority'] = 'Priority';
 
 $lang['news_manage'] = 'Manage news';
 $lang['user_manage'] = 'Manage user';
@@ -224,7 +231,6 @@ $lang['shopping_cart'] = 'Shopping Cart';
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
 $lang['store_productName'] = 'Product Name';
-$lang['store_category'] = 'Category';
 
 $lang['changelog_titlec'] = 'Title of the Changelog';
 

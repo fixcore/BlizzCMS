@@ -36,8 +36,8 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        <label class="control-label"><?= $this->lang->line('store_category');?></label>
-                                                        <select class="form-control" name="categorySelect" data-placeholder="<?= $this->lang->line('store_category');?>" tabindex="1">
+                                                        <label class="control-label"><?= $this->lang->line('expr_category');?></label>
+                                                        <select class="form-control" name="categorySelect" data-placeholder="<?= $this->lang->line('expr_category');?>" tabindex="1">
                                                             <?php foreach ($this->admin_model->getCategoryStore()->result() as $groupsStore) { ?>
                                                             <option value="<?= $groupsStore->id ?>"><?= $groupsStore->name ?></option>
                                                             <?php } ?>
