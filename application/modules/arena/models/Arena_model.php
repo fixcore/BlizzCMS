@@ -31,7 +31,7 @@ class Arena_model extends CI_Model {
 
     public function getRaceGuid($id)
     {
-        return $this->characters->query("SELECT race FROM characters WHERE guid = '".$id."'")->row()->race;
+        return $this->characters->query("SELECT race FROM characters WHERE guid = '".$id."'")->row_array()['race'];
     }
 
     public function getNameGuid($id)
