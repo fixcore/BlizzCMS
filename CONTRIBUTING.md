@@ -27,6 +27,7 @@ The nicknames of these people are from Discord.
 * @Sagrario#5625 - [Xavius](http://xavius.ru/)
 * @Alterac WoW#2591 - [Alterac WoW](https://www.alterac-wow.org/)
 * @OMGhixD#4382 - [Cruel-WoW](https://www.cruel-wow.net/)
+* @GamesBX#2152 - [Iwow](http://iwow.uz/)
 
 
 ##### Premium
