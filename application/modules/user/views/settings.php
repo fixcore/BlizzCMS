@@ -11,25 +11,22 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
-<!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
 
-<!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
-<!-- UiKit end -->
-<!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 </head>
 
@@ -52,7 +49,7 @@
                         <div class="max-md">
                             <div class="h5">
                                 <div id="locations-description" class="text-light">
-                                    <i style="color: white;" class="heartbeat icon"></i>
+                                    <i style="color: white;" class="fa fa-heartbeat fa-2x" aria-hidden="true"></i>
                                     <br><br>
                                 </div>
                             </div>
@@ -80,14 +77,14 @@
                                             if ($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
                                             {
                                                 if ($newpassI == $this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')))
-                                                    echo '<div class="ui inverted red segment"><p>'.$this->lang->line('password_same').'</p></div>';
+                                                    echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('password_same').'</p></div>';
                                                 else
                                                 {
                                                     $this->user_model->changePasswordI($this->session->userdata('fx_sess_id'), $newpassI);
                                                 }
                                             }
                                             else
-                                                echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                                                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
                                         }
                                         else if ($this->m_general->getExpansionAction() == 2)
                                         {
@@ -100,20 +97,20 @@
                                             if ($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
                                             {
                                                 if ($newpassII == $this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')))
-                                                    echo '<div class="ui inverted red segment"><p>'.$this->lang->line('password_same').'</p></div>';
+                                                    echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('password_same').'</p></div>';
                                                 else
                                                 {
                                                     $this->user_model->changePasswordII($this->session->userdata('fx_sess_id'), $newpassI, $newpassII);
                                                 }
                                             }
                                             else
-                                                echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                                                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
                                         }
                                         else
-                                            echo '<div class="ui inverted red segment"><p>'.$this->lang->line('expansion_notfound').'</p></div>';
+                                            echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('expansion_notfound').'</p></div>';
                                     }
                                     else
-                                        echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_nmatch').'</p></div>';
+                                        echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_nmatch').'</p></div>';
                                 } ?>
 
                                 <?php if(isset($_POST['button_changeemail']))
@@ -133,10 +130,10 @@
                                                 $this->user_model->changeEmailI($this->session->userdata('fx_sess_id'), $newemail);
                                             }
                                             else
-                                                echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                                                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
                                         }
                                         else
-                                            echo '<div class="ui inverted red segment"><p>'.$this->lang->line('email_omatch').'</p></div>';
+                                            echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('email_omatch').'</p></div>';
                                     }
                                     else if ($this->m_general->getExpansionAction() == 2)
                                     {
@@ -145,7 +142,7 @@
                                         $newpasscompare = $this->m_data->encryptBattlenet($newemail, $password);
 
                                         if ($this->user_model->getExistEmail(strtoupper($newemail)) > 0)
-                                            echo '<div class="ui inverted red segment"><p>'.$this->lang->line('email_use').'</p></div>';
+                                            echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('email_use').'</p></div>';
                                         else
                                         {
                                             if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
@@ -155,26 +152,26 @@
                                                     $this->user_model->changeEmailII($this->session->userdata('fx_sess_id'), $newemail, $newpasscompare);
                                                 }
                                                 else
-                                                    echo '<div class="ui inverted red segment"><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                                                    echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
                                             }
                                             else
-                                                echo '<div class="ui inverted red segment"><p>'.$this->lang->line('email_omatch').'</p></div>';
+                                                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('email_omatch').'</p></div>';
                                         }
                                     }
                                     else
-                                        echo '<div class="ui inverted red segment"><p>'.$this->lang->line('expansion_notfound').'</p></div>';
+                                        echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('expansion_notfound').'</p></div>';
                                 } ?>
                                 <!-- forms -->
                                 <!-- step START -->
                                 <div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
-                                    <a href="#" id="changePassword">
+                                    <a href="#" uk-toggle="target: #changePassword">
                                         <div style="" class="Tile Tile--transparent Tile--innerBorder ExampleTile" data-index='0'>
                                             <div class="Tile-content">
                                                 <div class="ExampleTile-content align-center">
                                                     <div class="text-accent-warm">
                                                         <div class="Icon Icon--jumbo hide inline-xs">
                                                             <!-- image START -->
-                                                            <h2 class="ui center aligned icon header" style="color: white;"><i class="lock icon"></i><?= $this->lang->line('chang_pass'); ?></h2>
+                                                            <h2 class="ui center aligned icon header" style="color: white;"><i class="fa fa-key fa-2x" aria-hidden="true"></i> <?= $this->lang->line('chang_pass'); ?></h2>
                                                             <!-- image END -->
                                                         </div>
                                                     </div>
@@ -186,14 +183,14 @@
                                 <!-- step END -->
                                 <!-- step START -->
                                 <div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
-                                    <a href="#" id="changeEmail">
+                                    <a href="#" uk-toggle="target: #changeEmail">
                                         <div style="" class="Tile Tile--transparent Tile--innerBorder ExampleTile" data-index='0'>
                                             <div class="Tile-content">
                                                 <div class="ExampleTile-content align-center">
                                                     <div class="text-accent-warm">
                                                         <div class="Icon Icon--jumbo hide inline-xs">
                                                             <!-- image START -->
-                                                            <h2 class="ui center aligned icon header" style="color: white;"><i class="mail icon"></i><?= $this->lang->line('chang_email'); ?></h2>
+                                                            <h2 class="ui center aligned icon header" style="color: white;"><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> <?= $this->lang->line('chang_email'); ?></h2>
                                                             <!-- image END -->
                                                         </div>
                                                     </div>
@@ -204,96 +201,89 @@
                                 </div>
                                 <!-- step END -->
 
-                                <div class="ui changepass mini modal">
-                                    <div class="header"><i class="lock icon"></i> <?= $this->lang->line('chang_pass'); ?></div>
-                                    <div class="content">
+                                <div id="changePassword" uk-modal>
+                                    <div class="uk-modal-dialog">
+                                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                                        <div class="uk-modal-header">
+                                            <h2 class="uk-modal-title"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('chang_pass'); ?></h2>
+                                        </div>
                                         <form action="" method="post" accept-charset="utf-8">
-                                            <!-- old pass -->
-                                            <div class="ui fluid corner labeled icon input">
-                                                <i class="unhide icon"></i>
-                                                <input name="oldpass" type="password" required placeholder="<?= $this->lang->line('old_password'); ?>">
-                                                <a class="ui corner label">
-                                                    <i class="asterisk icon"></i>
-                                                </a>
-                                            </div>
-                                            <!-- old pass -->
-                                            <hr>
-                                            <!-- old pass -->
-                                            <div class="ui fluid corner labeled icon input">
-                                                <i class="lock icon"></i>
-                                                <input name="newpass" type="password" required placeholder="<?= $this->lang->line('new_password'); ?>">
-                                                <a class="ui corner label">
-                                                    <i class="asterisk icon"></i>
-                                                </a>
-                                            </div>
-                                            <!-- old pass -->
-                                            <hr>
-                                            <!-- old pass -->
-                                            <div class="ui fluid corner labeled icon input">
-                                                <i class="lock icon"></i>
-                                                <input name="newpassr" type="password" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
-                                                <a class="ui corner label">
-                                                    <i class="asterisk icon"></i>
-                                                </a>
-                                            </div>
-                                            <!-- old pass -->
-                                            <div class="actions">
-                                                <input class="ui primary basic button" type="submit" name="button_changepass" value="<?= $this->lang->line('button_change'); ?>">
-                                                <input class="ui negative basic button" type="button" value="<?= $this->lang->line('button_cancel'); ?>">
+                                            <div class="uk-modal-body">
+                                                <!-- old pass -->
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-width-large" name="oldpass" type="password" required placeholder="<?= $this->lang->line('old_password'); ?>">
+                                                    </div>
+                                                </div>
+                                                <!-- old pass -->
+                                                <hr>
+                                                <!-- old pass -->
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-width-large" name="newpass" type="password" required placeholder="<?= $this->lang->line('new_password'); ?>">
+                                                    </div>
+                                                </div>
+                                                <!-- old pass -->
+                                                <hr>
+                                                <!-- old pass -->
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-width-large" name="newpassr" type="password" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="uk-modal-footer uk-text-right actions">
+                                                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                                                    <button class="uk-button uk-button-primary" type="submit" name="button_changepass"><?= $this->lang->line('button_change'); ?></button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-                                <div class="ui changeemail mini modal">
-                                    <div class="header"><i class="mail icon"></i> <?= $this->lang->line('chang_email'); ?></div>
-                                    <div class="content">
+                                <div id="changeEmail" uk-modal>
+                                    <div class="uk-modal-dialog">
+                                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                                        <div class="uk-modal-header">
+                                            <h2 class="uk-modal-title"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('chang_email'); ?></h2>
+                                        </div>
                                         <form action="" method="post" accept-charset="utf-8">
-                                            <!-- pass -->
-                                            <div class="ui fluid corner labeled icon input">
-                                                <i class="lock icon"></i>
-                                                <input name="password" type="password" required placeholder="<?= $this->lang->line('password_re'); ?>">
-                                                <a class="ui corner label">
-                                                    <i class="asterisk icon"></i>
-                                                </a>
-                                            </div>
-                                            <!-- pass -->
-                                            <hr>
-                                            <!-- old email -->
-                                            <div class="ui fluid corner labeled icon input">
-                                                <i class="mail icon"></i>
-                                                <input name="oldemail" type="email" required placeholder="<?= $this->lang->line('old_email'); ?>">
-                                                <a class="ui corner label">
-                                                    <i class="asterisk icon"></i>
-                                                </a>
-                                            </div>
-                                            <!-- old email -->
-                                            <hr>
-                                            <!-- new pass -->
-                                            <div class="ui fluid corner labeled icon input">
-                                                <i class="mail icon"></i>
-                                                <input name="newemail" type="email" required placeholder="<?= $this->lang->line('new_email'); ?>">
-                                                <a class="ui corner label">
-                                                    <i class="asterisk icon"></i>
-                                                </a>
-                                            </div>
-                                            <!-- new pass -->
-                                            <div class="actions">
-                                                <input class="ui primary basic button" type="submit" name="button_changeemail" value="<?= $this->lang->line('button_change'); ?>">
-                                                <input class="ui negative basic button" type="button" value="<?= $this->lang->line('button_cancel'); ?>">
+                                            <div class="uk-modal-body">
+                                                <!-- pass -->
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                                        <input class="uk-input uk-form-width-large" name="password" type="password" required placeholder="<?= $this->lang->line('password_re'); ?>">
+                                                    </div>
+                                                </div>
+                                                <!-- pass -->
+                                                <hr>
+                                                <!-- old email -->
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-width-large" name="oldemail" type="email" required placeholder="<?= $this->lang->line('old_email'); ?>">
+                                                    </div>
+                                                </div>
+                                                <!-- old email -->
+                                                <hr>
+                                                <!-- new pass -->
+                                                <div class="uk-margin">
+                                                    <div class="uk-inline">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+                                                        <input class="uk-input uk-form-width-large" name="newemail" type="email" required placeholder="<?= $this->lang->line('new_email'); ?>">
+                                                    </div>
+                                                </div>
+                                                <!-- new pass -->
+                                                <div class="uk-modal-footer uk-text-right actions">
+                                                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                                                    <button class="uk-button uk-button-primary" type="submit" name="button_changeemail"><?= $this->lang->line('button_change'); ?></button>
+                                                </div>
                                             </div>
                                         </form>
                                     </div>
                                 </div>
-
-                                <script>
-                                    $('.ui.changepass.mini.modal')
-                                    .modal('attach events', '#changePassword', 'show');
-                                </script>
-
-                                <script>
-                                    $('.ui.changeemail.mini.modal')
-                                    .modal('attach events', '#changeEmail', 'show');
-                                </script>
                             </div>
                         </div>
                     </div>
