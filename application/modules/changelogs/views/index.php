@@ -12,25 +12,22 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
-<!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
 
-<!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
-<!-- UiKit end -->
-<!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 </head>
 
@@ -94,7 +91,7 @@
                         </div>
                         <div class="HeroPane-content">
                             <div class="max-sm max-left align-left">
-                                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="list icon"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></div>
+                                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="fa fa-spinner fa-pulse fa-fw"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></div>
                             </div>
                         </div>
                         <div class="Pane Pane--flush Pane--adaptive Pane--backgroundTop Pane--innerBorderTop">
@@ -102,13 +99,21 @@
                                 <div class="space-adaptive-medium"></div>
                                 <div class="max-sm max-left align-left">
                                     <div class="Markup Markup--html">
-                                        <div class="ui segments">
-                                            <div class="ui segment">
-                                                <p><i class="configure icon"></i> Recent Changes</p>
+                                        <div class="uk-margin uk-card uk-card-default uk-card-small uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
+                                            <div class="uk-width-xxlarge uk-margin">
+                                                <div class="uk-card uk-card-primary uk-card-body">
+                                                    <h3 class="el-title uk-margin uk-h3"><i class="fa fa-wrench" aria-hidden="true"></i> Recent Changes</h3>
+                                                </div>
                                             </div>
-                                            <div class="ui secondary segment">
-                                                <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
-                                                <p align=right><i class="wait icon"></i><?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
+                                            <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack" uk-grid="">
+                                                <div class="uk-grid-margin uk-first-column">
+                                                    <div class="uk-card-body">
+                                                        <div class="el-content uk-margin">
+                                                            <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
+                                                            <p align=right><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -138,7 +143,7 @@
                                             <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-external="false" data-article-id="1" data-analytics="Changelog" data-analytics-placement="Changelog:<?= $changelogsList->id ?> - <?= $changelogsList->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
                                             <div class="Grid row ArticleListItem-content">
                                                 <div class="GridItem col-xs-12 col-md-12 ArticleListItem-contentGrid">
-                                                    <h3 class="ArticleListItem-title"><?= $changelogsList->title ?></h3>
+                                                    <h3 class="ArticleListItem-title"><i class="fa fa-list-ul" aria-hidden="true"></i> <?= $changelogsList->title ?></h3>
                                                     <div class="ArticleListItem-description">
                                                         <div class="space-tiny"></div>
                                                     </div>
