@@ -11,25 +11,22 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
-<!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
 
-<!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
-<!-- UiKit end -->
-<!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 </head>
 
@@ -48,9 +45,9 @@
     
     <div class="Breadcrumbs"> 
         
-        <span class="Breadcrumb"> <i class="newspaper icon"></i>
+        <span class="Breadcrumb">
             <a class="Breadcrumb-content"> 
-                 <?= $this->news_model->getNewTitle($idlink); ?>
+                 <i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->news_model->getNewTitle($idlink); ?>
             </a> 
         </span>
 
@@ -95,16 +92,15 @@
                 </div>
                 <div class="HeroPane-content">
                     <div class="max-sm max-left align-left">
-                        <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="newspaper icon"></i> <?= $this->news_model->getNewTitle($idlink); ?></div>
+                        <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->news_model->getNewTitle($idlink); ?></div>
                         <div class="space-medium"></div>
                         <div class="space-adaptive-large"></div>
                     </div>
                 </div>
             </div>
             <div class="Pane Pane--flush Pane--adaptive Pane--backgroundTop Pane--innerBorderTop">
-                <div style="background-image:url(<?= base_url(); ?>assets/images/backgrounds/generic-texture_bg.png)" class="Pane-background"></div>
                 <div style="" class="Pane-content">
-                    <div class="space-adaptive-large"></div>
+                    <div class="space-adaptive-medium"></div>
                     <div class="max-sm max-left align-left">
                         <div class="Markup Markup--html">
                             <p><?= $this->news_model->getNewDescription($idlink); ?></p>
