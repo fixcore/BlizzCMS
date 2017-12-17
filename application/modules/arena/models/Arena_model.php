@@ -29,6 +29,11 @@ class Arena_model extends CI_Model {
     	return $this->characters->query("SELECT * FROM arena_team_member WHERE arenaTeamId = '".$id."'");
     }
 
+    public function getRaceGuid($id)
+    {
+        return $this->characters->query("SELECT race FROM characters WHERE guid = '".$id."'")->row_array()['race'];
+    }
+
     public function getNameGuid($id)
     {
     	return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row_array()['name'];

@@ -8,7 +8,15 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/shop.css" />
-    <!-- semantic ui Start -->
+    <!-- UiKit Start -->
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+<!-- UiKit end -->
+<!-- semantic ui Start -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
     <!-- semantic ui End -->
     <!-- custom START -->
@@ -38,7 +46,7 @@
 
 <?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
 <div class="GameSite-link"> 
-	<a class="GameSite-link--heading" href="<?= base_url('store?group=').$ggroups->id; ?>"> 
+	<a class="GameSite-link--heading" href="<?= base_url('store/order/').$ggroups->id; ?>"> 
 		<?= $ggroups->name ?> 
 	</a> 
 </div>
@@ -117,9 +125,7 @@
 						<div class="ui two column centered grid">
 							<div class="five column centered row">
 
-							<?php if(isset($_GET['group'])) { $km = 'getShopGeneralGP'; } else { $km = 'getShopGeneral'; } ?>
-							<?php if(isset($_GET['group'])) { $gpp = $_GET['group']; } else { $gpp = '0'; } ?>
-							<?php foreach($this->shop_model->$km($gpp)->result() as $itemsG) { ?>
+							<?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
 								<div class="column">
 									<storefront-browsing-card _ngcontent-c9="" _nghost-c16="">
 										<div _ngcontent-c16="" class="browsing-card">

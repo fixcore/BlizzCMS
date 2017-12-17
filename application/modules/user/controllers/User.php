@@ -23,11 +23,21 @@ class User extends MX_Controller {
     {
         if($this->m_modules->getStatusRegister() != '1')
             redirect(base_url(),'refresh');
-        
+
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        $this->load->view('register');
+        if ($this->config->item('maintenance_mode') == '1')
+        {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+                $this->load->view('register');
+            }
+            else
+                $this->load->view('maintenance');
+        }
+        else
+            $this->load->view('register');
+
         $this->load->view('footer');
     }
 
@@ -41,12 +51,22 @@ class User extends MX_Controller {
         if($this->m_modules->getStatusUCP() != '1')
             redirect(base_url(),'refresh');
 
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
         $this->load->model('user_model');
 
-        $this->load->view('settings');
+        if ($this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->config->item('maintenance_mode') == '1')
+        {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+                $this->load->view('settings');
+            }
+            else
+                $this->load->view('maintenance');
+        }
+        else
+            $this->load->view('settings');
+
         $this->load->view('footer');
     }
 }

@@ -8,4 +8,9 @@ class Bugtracker_model extends CI_Model {
         parent::__construct();
     }
 
+    public function getBugtracker()
+    {
+    	return $this->db->query("SELECT * FROM fx_bugtracker");
+    }
+
 }

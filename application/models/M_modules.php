@@ -82,4 +82,9 @@ class M_modules extends CI_Model {
 		return $this->db->query("SELECT status FROM fx_modules WHERE id = '15'")->row()->status;
 	}
 
+	public function getStatusLadBugtracker()
+	{
+		return $this->db->query("SELECT status FROM fx_modules WHERE id = '16'")->row()->status;
+	}
+
 }

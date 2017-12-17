@@ -11,18 +11,23 @@
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app-26b4d398e5ef87ac677896e9ff940ebf3ff9a773b2d40151f1ee0688a79f58d7a4df1d7b7a67702e8f96e354bb40eb77f69d6069635e638a47632474421f721f.css">
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UiKit Start -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 </head>
 
@@ -41,36 +46,32 @@
             <div class="container">
                 <!-- -->
                 <div class="space-adaptive-small"></div>
-                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="protect icon"></i><?= $this->m_general->getRealmName(); ?></h2>
-                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('lad_arena');?></h3>
+                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="fa fa-shield" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?></h2>
+                <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('lad_arena');?></h4>
                 <div class="space-adaptive-small"></div>
                 <!-- -->
                 <!-- 2v2 -->
-                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui red horizontal large label">TOP 2v2</div></h3>
-                <table class="ui selectable inverted table">
+                <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-danger">TOP 2V2</span></h4>
+                <table class="uk-table uk-table-responsive uk-table-divider">
                     <thead>
                         <tr>
-                            <th><i class="sitemap icon"></i><?=$this->lang->line('name');?></th>
-                            <th class="center aligned"><i class="users icon"></i><?=$this->lang->line('members');?></th>
-                            <th class="center aligned"><i class="area chart icon"></i><?=$this->lang->line('rating');?></th>
-                            <th class="center aligned"><i class="line chart icon"></i><?=$this->lang->line('games');?></th>
+                            <th class="uk-width-small" style="color: #fff;"><i class="fa fa-sitemap" aria-hidden="true"></i> <?=$this->lang->line('name');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-users" aria-hidden="true"></i> <?=$this->lang->line('members');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-line-chart" aria-hidden="true"></i> <?=$this->lang->line('rating');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-line-chart" aria-hidden="true"></i> <?=$this->lang->line('games');?></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($this->arena_model->getTopArena2v2()->result() as $tops2v2) { ?>
                             <tr>
                                 <td><?=$tops2v2->name?></td>
-                                <td class="center aligned">
-                                    <h4 class="ui image header">
-                                        <div class="content">
-                                            <?php foreach ($this->arena_model->getMemberTeam($tops2v2->arenaTeamId)->result() as $mmberteam) { ?>
-                                                <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
-                                            <?php } ?>
-                                        </div>
-                                    </h4>
+                                <td style="text-align: center;">
+                                    <?php foreach ($this->arena_model->getMemberTeam($tops2v2->arenaTeamId)->result() as $mmberteam) { ?>
+                                    <img src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                    <?php } ?>
                                 </td>
-                                <td class="center aligned"><?=$tops2v2->rating?></td>
-                                <td class="center aligned"><?=$tops2v2->seasonWins?></td>
+                                <td style="text-align: center;"><?=$tops2v2->rating?></td>
+                                <td style="text-align: center;"><?=$tops2v2->seasonWins?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -78,31 +79,27 @@
                 <!-- 2v2 -->
                 <div class="space-adaptive-small"></div>
                 <!-- 3v3 -->
-                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui orange horizontal large label">TOP 3v3</div></h3>
-                <table class="ui selectable inverted table">
+                <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-warning">TOP 3V3</span></h4>
+                <table class="uk-table uk-table-responsive uk-table-divider">
                     <thead>
                         <tr>
-                            <th><i class="sitemap icon"></i><?=$this->lang->line('name');?></th>
-                            <th class="center aligned"><i class="users icon"></i><?=$this->lang->line('members');?></th>
-                            <th class="center aligned"><i class="area chart icon"></i><?=$this->lang->line('rating');?></th>
-                            <th class="center aligned"><i class="line chart icon"></i><?=$this->lang->line('games');?></th>
+                            <th class="uk-width-small" style="color: #fff;"><i class="fa fa-sitemap" aria-hidden="true"></i> <?=$this->lang->line('name');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-users" aria-hidden="true"></i> <?=$this->lang->line('members');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-line-chart" aria-hidden="true"></i> <?=$this->lang->line('rating');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-line-chart" aria-hidden="true"></i> <?=$this->lang->line('games');?></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($this->arena_model->getTopArena3v3()->result() as $tops3v3) { ?>
                             <tr>
                                 <td><?=$tops3v3->name?></td>
-                                <td class="center aligned">
-                                    <h4 class="ui image header">
-                                        <div class="content">
-                                            <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId)->result() as $mmberteam) { ?>
-                                                <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
-                                            <?php } ?>
-                                        </div>
-                                    </h4>
+                                <td style="text-align: center;">
+                                    <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId)->result() as $mmberteam) { ?>
+                                    <img src="<?= base_url('assets/images/races/').$this->m_general->getRaceName($this->arena_model->getRaceGuid($mmberteam->guid)).'.jpg' ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                    <?php } ?>
                                 </td>
-                                <td class="center aligned"><?=$tops3v3->rating?></td>
-                                <td class="center aligned"><?=$tops3v3->seasonWins?></td>
+                                <td style="text-align: center;"><?=$tops3v3->rating?></td>
+                                <td style="text-align: center;"><?=$tops3v3->seasonWins?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -110,31 +107,27 @@
                 <!-- 3v3 -->
                 <div class="space-adaptive-small"></div>
                 <!-- 5v5 -->
-                <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><div class="ui yellow horizontal large label">TOP 5v5</div></h3>
-                <table class="ui selectable inverted table">
+                <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-success">TOP 5V5</span></h4>
+                <table class="uk-table uk-table-responsive uk-table-divider">
                     <thead>
                         <tr>
-                            <th><i class="sitemap icon"></i><?=$this->lang->line('name');?></th>
-                            <th class="center aligned"><i class="users icon"></i><?=$this->lang->line('members');?></th>
-                            <th class="center aligned"><i class="area chart icon"></i><?=$this->lang->line('rating');?></th>
-                            <th class="center aligned"><i class="line chart icon"></i><?=$this->lang->line('games');?></th>
+                            <th class="uk-width-small" style="color: #fff;"><i class="fa fa-sitemap" aria-hidden="true"></i> <?=$this->lang->line('name');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-users" aria-hidden="true"></i> <?=$this->lang->line('members');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-line-chart" aria-hidden="true"></i> <?=$this->lang->line('rating');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-line-chart" aria-hidden="true"></i> <?=$this->lang->line('games');?></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($this->arena_model->getTopArena5v5()->result() as $tops5v5) { ?>
                             <tr>
                                 <td><?=$tops5v5->name?></td>
-                                <td class="center aligned">
-                                    <h4 class="ui image header">
-                                        <div class="content">
-                                            <?php foreach ($this->arena_model->getMemberTeam($tops5v5->arenaTeamId)->result() as $mmberteam) { ?>
-                                                <div class="sub header"><?= $this->arena_model->getNameGuid($mmberteam->guid) ?></div>
-                                            <?php } ?>
-                                        </div>
-                                    </h4>
+                                <td style="text-align: center;">
+                                    <?php foreach ($this->arena_model->getMemberTeam($tops5v5->arenaTeamId)->result() as $mmberteam) { ?>
+                                    <img src="<?= base_url('assets/images/races/').$this->m_general->getRaceName($this->arena_model->getRaceGuid($mmberteam->guid)).'.jpg' ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                    <?php } ?>
                                 </td>
-                                <td class="center aligned"><?=$tops5v5->rating?></td>
-                                <td class="center aligned"><?=$tops5v5->seasonWins?></td>
+                                <td style="text-align: center;"><?=$tops5v5->rating?></td>
+                                <td style="text-align: center;"><?=$tops5v5->seasonWins?></td>
                             </tr>
                         <?php } ?>
                     </tbody>

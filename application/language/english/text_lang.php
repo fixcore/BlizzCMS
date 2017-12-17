@@ -78,7 +78,11 @@ $lang['losses'] = 'Losses';
 $lang['members'] = 'Members';
 $lang['rating'] = 'Rating';
 $lang['games'] = 'Games';
+$lang['report_list'] = 'Report List';
 
+
+$lang['bugtracker'] = 'Bugtracker';
+$lang['create_report'] = 'Create Report';
 
 $lang['lad_pvp'] = 'PvP Statistics';
 $lang['lad_arena'] = 'Arena Statistics';
@@ -100,6 +104,7 @@ $lang['new_desc'] = 'Description';
 $lang['newup_fi'] = 'File upload';
 $lang['new_imgT'] = 'Your image must be in .jpg format';
 
+$lang['expr_avatar'] = 'Avatar';
 $lang['expr_yes'] = 'Yes';
 $lang['expr_no'] = 'No';
 $lang['expr_level'] = 'Level';
@@ -107,6 +112,9 @@ $lang['expr_rename'] = 'Rename';
 $lang['expr_title'] = 'Title';
 $lang['expr_highl'] = 'Highlight';
 $lang['expr_lock'] = 'Lock';
+$lang['expr_category'] = 'Category';
+$lang['expr_status'] = 'Status';
+$lang['expr_priority'] = 'Priority';
 
 $lang['news_manage'] = 'Manage news';
 $lang['user_manage'] = 'Manage user';
@@ -197,6 +205,12 @@ $lang['button_remove'] = 'Remove';
 $lang['button_buy'] = 'Buy';
 $lang['button_save'] = 'Save';
 
+
+$lang['chang_avatar'] = 'Change Avatar';
+
+$lang['update_information'] = 'Update Information';
+
+
 $lang['chang_pass'] = 'Change Password';
 $lang['chang_email'] = 'Change Email';
 $lang['old_email'] = 'Old Email';
@@ -224,7 +238,6 @@ $lang['shopping_cart'] = 'Shopping Cart';
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
 $lang['store_productName'] = 'Product Name';
-$lang['store_category'] = 'Category';
 
 $lang['changelog_titlec'] = 'Title of the Changelog';
 
