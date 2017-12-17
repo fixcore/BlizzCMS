@@ -10,6 +10,9 @@
 	<link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 	<link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/navbar0e26.css?v=58-88" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+    <!-- font-awesome End -->
 	<!-- UiKit Start -->
 <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
@@ -18,9 +21,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
 <!-- UiKit end -->
-<!-- semantic ui Start -->
-	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-	<!-- semantic ui End -->
 	<!-- custom START -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
 	<!-- custom END -->
@@ -30,9 +30,6 @@
 	  src="https://code.jquery.com/jquery-3.1.1.min.js"
 	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	  crossorigin="anonymous"></script>
-	<!-- semantic -->
-	<script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-	<!-- semantic -->
 	<!-- custom footer -->
 	<!--[if lte IE 8]>
 		<script type="text/javascript" src="/<?= base_url(); ?>assets/js/jquery.min.js?v=88"></script>
@@ -40,7 +37,6 @@
 
 </head>
 
-<!-- <body class="en-us Theme--bnet no-js preload">-->
 <body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
 
 <!-- header -->
@@ -110,7 +106,7 @@
 		<header class="Topic-header">
 			<div class="Container Container--content">
 				<h1 class="Topic-heading">
-					<span class="Topic-title" data-topic-heading="true"><i class="talk icon"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
+					<span class="Topic-title" data-topic-heading="true" style="color: #fff;"><i class="talk icon"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
 				</h1>
 			</div>
 		</header>
@@ -124,7 +120,13 @@
 
 			<aside class="TopicPost-author">
 				<div class="Author-block">
-<div class="Author Author--blizzard" id="" data-topic-post-body-content="true"><a href="#" class="Author-avatar hasNoProfile" ><img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" /></a><div class="Author-details"> <span class="Author-name">
+<div class="Author Author--blizzard" id="" data-topic-post-body-content="true"><a href="#" class="Author-avatar hasNoProfile" >
+	<?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows() > 0) { ?>
+	<img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->forum_model->getSpecifyPostAuthor($idlink))); ?>" alt="" />
+	<?php } else { ?>
+	<img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+	<?php } ?>
+</a><div class="Author-details"> <span class="Author-name">
 <?= $this->m_data->getUsernameID($this->forum_model->getSpecifyPostAuthor($idlink)); ?>
 </span>
 <span class="Author-posts">
@@ -234,7 +236,12 @@
 					<div class="Author" id="" data-topic-post-body-content="true">
 				<?php } ?>
 					<a href="" class="Author-avatar hasNoProfile">
-						<img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" /></a>
+						<?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows() > 0) { ?>
+						<img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($commentss->author)); ?>" alt="" />
+						<?php } else { ?>
+						<img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+						<?php } ?>
+					</a>
 					<div class="Author-details">
 						<span class="Author-name"> <?= $this->m_data->getUsernameID($commentss->author); ?> </span>
 						<span class="Author-posts">
@@ -270,7 +277,9 @@
 			<?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0 || $this->session->userdata('fx_sess_id') == $commentss->author && $this->m_data->getTimestamp() < strtotime('+30 minutes', $commentss->date)) { ?>
 			<footer class="TopicPost-actions" data-topic-post-body-content="true">
 				<form action="" method="post" accept-charset="utf-8">
-					<button type="submit" name="button_removecomment" class="ui inverted blue button"><?= $this->lang->line('button_remove'); ?></button>
+                    <p uk-margin>
+                        <button name="button_removecomment" type="submit" class="uk-button uk-button-danger"><?= $this->lang->line('button_remove'); ?></button>
+                    </p>
 				</form>
 			</footer>
 			<?php if(isset($_POST['button_removecomment'])) {
@@ -294,7 +303,11 @@
 	            <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944    }">
 					<div class="Author" id="" data-topic-post-body-content="true">
 						<a href="" class="Author-avatar hasNoProfile">
+							<?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows() > 0) { ?>
+							<img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" alt="" />
+							<?php } else { ?>
 							<img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+							<?php } ?>
 						</a>
 						<div class="Author-details">
 							<span class="Author-name"> <?= $this->session->userdata('fx_sess_username'); ?> </span>
@@ -319,7 +332,7 @@
 
 		            <div class="TopicForm-action--buttons">
 		            	<button type="submit" name="button_addcommentary" class="TopicForm-button TopicForm-button--reply" id="submit-button">
-		            		<span class="Button-content"><i class="write icon"></i> <?= $this->lang->line('button_addreply'); ?></span>
+		            		<span class="Button-content"><i class="fa fa-reply"></i> <?= $this->lang->line('button_addreply'); ?></span>
 		            	</button>
 		            </div>
 		        </form>
