@@ -8,9 +8,9 @@ class Changelogs extends MX_Controller {
         if($this->m_modules->getStatusChangelogs() != '1')
             redirect(base_url(),'refresh');
 
-        $this->load->model('forum_model');
+        $this->load->model('changelogs_model');
 
-        if ($this->config->item('changelogs_model') == '1')
+        if ($this->config->item('maintenance_mode') == '1')
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
                 $this->load->view('index');
@@ -32,11 +32,11 @@ class Changelogs extends MX_Controller {
         if (empty($id) || is_null($id))
             redirect(base_url(),'refresh');
 
-        $this->load->model('forum_model');
+        $this->load->model('changelogs_model');
 
         $data['idlink'] = $id;
 
-        if ($this->config->item('changelogs_model') == '1')
+        if ($this->config->item('maintenance_mode') == '1')
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
                 $this->load->view('changelog');
@@ -45,9 +45,9 @@ class Changelogs extends MX_Controller {
                 $this->load->view('maintenance');
         }
         else
-            $this->load->view('changelog');
+            $this->load->view('index');
 
-        $this->load->view('footer');
+        $this->load->view('changelog');
     }
 
 }
