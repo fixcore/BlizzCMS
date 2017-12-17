@@ -53,7 +53,7 @@ class User extends MX_Controller {
 
         $this->load->model('user_model');
 
-        if ($this->m_data->isLogged())
+        if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
         if ($this->config->item('maintenance_mode') == '1')
