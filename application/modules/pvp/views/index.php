@@ -65,9 +65,9 @@
                     <tbody>
                         <?php foreach ($this->pvp_model->getTop20PVP()->result() as $tops) { ?>
                             <tr>
-                                <td><img src="<?= base_url('assets/images/races/').$this->m_general->getRaceName($tops->race).'.jpg' ?>" title="<?= $tops->name ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                <td><img class="uk-border-circle" src="<?= base_url('assets/images/races/').$this->m_general->getRaceIcon($tops->race) ?>" title="<?= $tops->name ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                      <?= $tops->name ?></td>
-                                <td style="text-align: center;"><img src="<?= base_url(); ?>assets/images/<?= $this->m_general->getFaction($tops->race) ?>.png" class="img-circle"></td>
+                                <td style="text-align: center;"><img class="uk-border-circle" src="<?= base_url(); ?>assets/images/<?= $this->m_general->getFaction($tops->race) ?>.png"></td>
                                 <td style="text-align: center;"><?= $tops->totalKills ?></td>
                                 <td style="text-align: center;"><?= $tops->todayKills ?></td>
                                 <td style="text-align: center;"><?= $tops->yesterdayKills ?></td>

@@ -10,6 +10,12 @@ class Admin_model extends CI_Model {
         parent::__construct();
     }
 
+    public function restartNowServer()
+    {
+        $this->m_soap->commandSoap('.server restart');
+        echo 'Restarting...';
+    }
+
     public function insertShop($itemid, $type, $name, $pricedp, $pricevp, $iconname, $groups, $image)
     {
         if ($pricevp == '0' && $pricedp == '0')

@@ -95,7 +95,7 @@
                                 <td><?=$tops3v3->name?></td>
                                 <td style="text-align: center;">
                                     <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId)->result() as $mmberteam) { ?>
-                                    <img src="<?= base_url('assets/images/races/').$this->m_general->getRaceName($this->arena_model->getRaceGuid($mmberteam->guid)).'.jpg' ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)).'.jpg' ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                     <?php } ?>
                                 </td>
                                 <td style="text-align: center;"><?=$tops3v3->rating?></td>
