@@ -9,8 +9,18 @@ class Home extends MX_Controller {
         $this->load->model('shop/shop_model');
         $this->load->model('news/news_model');
         $this->load->model('events/events_model');
-		
-        $this->load->view('home');
+
+        if ($this->config->item('maintenance_mode') == '1')
+        {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+                $this->load->view('home');
+            }
+            else
+                $this->load->view('maintenance');
+        }
+        else
+            $this->load->view('home');
+
         $this->load->view('footer');
     }
 }

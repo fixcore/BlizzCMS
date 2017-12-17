@@ -1,3 +1,6 @@
+<?php if (isset($_POST['serverRestartNow'])) {
+    $this->admin_model->restartNowServer();
+} ?>
 <!-- ============================================================== -->
 <!-- Page Content -->
 <!-- ============================================================== -->
@@ -9,6 +12,20 @@
         <!-- Different data widgets -->
         <!-- ============================================================== -->
         <!--/.row -->
+
+        <!-- options -->
+        <div class="row">
+            
+            <form method="post" action="">
+                <div class="col-lg-3 col-sm-6 col-xs-12">
+                    <div class="white-box analytics-info">
+                        <button type="submit" name="serverRestartNow" class="btn btn-block btn-danger btn-rounded">Restart Server</button>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+        <!-- options -->
         <div class="row">
                 <div class="col-lg-12 col-sm-12 col-xs-12">
                     <div class="row">
