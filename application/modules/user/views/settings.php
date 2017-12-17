@@ -165,9 +165,9 @@
                                 <!-- step START -->
                                 <div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
                                     <a href="#" uk-toggle="target: #changePassword">
-                                        <div style="" class="Tile Tile--transparent Tile--innerBorder ExampleTile" data-index='0'>
+                                        <div style="" class="Tile Tile--transparent Tile--innerBorder fixcore" data-index='0'>
                                             <div class="Tile-content">
-                                                <div class="ExampleTile-content align-center">
+                                                <div class="fixcore-content align-center">
                                                     <div class="text-accent-warm">
                                                         <div class="Icon Icon--jumbo hide inline-xs">
                                                             <!-- image START -->
@@ -184,9 +184,9 @@
                                 <!-- step START -->
                                 <div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
                                     <a href="#" uk-toggle="target: #changeEmail">
-                                        <div style="" class="Tile Tile--transparent Tile--innerBorder ExampleTile" data-index='0'>
+                                        <div style="" class="Tile Tile--transparent Tile--innerBorder fixcore" data-index='0'>
                                             <div class="Tile-content">
-                                                <div class="ExampleTile-content align-center">
+                                                <div class="fixcore-content align-center">
                                                     <div class="text-accent-warm">
                                                         <div class="Icon Icon--jumbo hide inline-xs">
                                                             <!-- image START -->
@@ -201,6 +201,32 @@
                                 </div>
                                 <!-- step END -->
 
+                                <!-- step START -->
+                                <?php if($this->user_model->getExistInfo()->num_rows() > 0) { ?>
+                                <div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
+                                    <a href="#" uk-toggle="target: #avatars">
+                                        <div style="" class="Tile Tile--transparent Tile--innerBorder fixcore" data-index='0'>
+                                            <div class="Tile-content">
+                                                <div class="fixcore-content align-center">
+                                                    <div class="text-accent-warm">
+                                                        <div class="Icon Icon--jumbo hide inline-xs">
+                                                            <!-- image START -->
+                                                            <h2 class="ui center aligned icon header" style="color: white;">
+                                                                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                                                <?= $this->lang->line('chang_avatar'); ?></h2>
+                                                            <!-- image END -->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <?php } ?>
+                                <!-- step END -->
+
+                                <!-- step START -->
+                                <!-- step END -->
                                 <div id="changePassword" uk-modal>
                                     <div class="uk-modal-dialog">
                                         <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -284,6 +310,55 @@
                                         </form>
                                     </div>
                                 </div>
+
+                                <!-- avatars -->
+                                <div id="avatars" uk-modal>
+                                    <div class="uk-modal-dialog">
+                                        <button class="uk-modal-close-default" type="button" uk-close></button>
+                                        <div class="uk-modal-header">
+                                            <h2 class="uk-modal-title"><i class="fa fa-camera" aria-hidden="true"></i>
+                                                <?= $this->lang->line('chang_avatar'); ?>
+                                            </h2>
+                                        </div>
+                                        <form action="" method="post" accept-charset="utf-8">
+                                            <div class="uk-modal-body">
+                                                <!-- avatrs -->
+                                                    <!-- foreach -->
+                                                    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+
+                                                        <div class="row">
+                                                            <?php foreach($this->user_model->getAllAvatars()->result() as $allAvts) { ?>
+                                                            <div class="col-sm-3">
+                                                                <div style="width: 150px; height: 150px;" class="uk-margin uk-card uk-card-default uk-card-body">
+                                                                    <label>
+                                                                    <img src="<?= base_url('assets/images/profiles/'.$allAvts->name); ?>" alt="">
+                                                                    <input type="radio" name="radioAvatars" checked value="<?= $allAvts->id ?>">
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <?php } ?>
+
+                                                        </div>
+
+
+                                                    </div>
+                                                    <!-- foreach -->
+                                                <!-- avatrs -->
+                                                <div class="uk-modal-footer uk-text-right actions">
+                                                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                                                    <button class="uk-button uk-button-primary" type="submit" name="button_changeavatar"><?= $this->lang->line('button_change'); ?></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <!-- php -->
+                                <?php if (isset($_POST['button_changeavatar'])) {
+                                    $valueAvatar = $_POST['radioAvatars'];
+                                    $this->user_model->insertAvatar($valueAvatar);
+                                } ?>
+                                <!-- php -->
+                                <!-- avatars end -->
                             </div>
                         </div>
                     </div>

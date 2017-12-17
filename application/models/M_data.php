@@ -170,6 +170,11 @@ class M_data extends CI_Model {
         return $qq['profile'];
     }
 
+    public function getNameAvatar($id)
+    {
+        return $this->db->query("SELECT name FROM fx_avatars WHERE id = '".$id."'")->row_array()['name'];
+    }
+
     public function getIDEmail($email)
     {
         $email = strtoupper($email);

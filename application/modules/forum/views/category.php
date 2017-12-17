@@ -18,9 +18,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('forums'); ?></title>
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="index.html" />
-	<meta property="og:title" content="Blizzard Forums" />
 	<link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 	<link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/navbar0e26.css?v=58-88" />
 	<link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
@@ -115,7 +112,7 @@
 
 		<header class="Forum-header">
 			<div class="Container Container--content">
-				<h1 class="Forum-heading">
+				<h1 class="Forum-heading" style="color: #fff;">
 					<i class="bookmark icon"></i> <?= $this->forum_model->getCategoryName($idlink); ?>
 				<div class="Forum-controls">
 					<?php if($this->m_data->isLogged()) { ?>

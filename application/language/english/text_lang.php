@@ -104,6 +104,7 @@ $lang['new_desc'] = 'Description';
 $lang['newup_fi'] = 'File upload';
 $lang['new_imgT'] = 'Your image must be in .jpg format';
 
+$lang['expr_avatar'] = 'Avatar';
 $lang['expr_yes'] = 'Yes';
 $lang['expr_no'] = 'No';
 $lang['expr_level'] = 'Level';
@@ -203,6 +204,12 @@ $lang['button_addreply'] = 'Add Reply';
 $lang['button_remove'] = 'Remove';
 $lang['button_buy'] = 'Buy';
 $lang['button_save'] = 'Save';
+
+
+$lang['chang_avatar'] = 'Change Avatar';
+
+$lang['update_information'] = 'Update Information';
+
 
 $lang['chang_pass'] = 'Change Password';
 $lang['chang_email'] = 'Change Email';

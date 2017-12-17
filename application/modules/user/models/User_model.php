@@ -39,4 +39,26 @@ class User_model extends CI_Model {
     {
         return $this->auth->query("SELECT email FROM account WHERE email = '".$email."'")->num_rows();
     }
+    
+    public function getAllAvatars()
+    {
+        return $this->db->query("SELECT * FROM fx_avatars ORDER BY id ASC");
+    }
+
+    public function insertAvatar($id)
+    {
+        $sessid = $this->session->userdata('fx_sess_id');
+
+        $this->db->query("UPDATE fx_users SET profile = '$id' WHERE id = '$sessid'");
+
+        redirect(base_url('settings'),'refresh');
+    }
+
+    public function getExistInfo()
+    {
+        $sessid = $this->session->userdata('fx_sess_id');
+
+        return $this->db->query("SELECT id FROM fx_users WHERE id = '".$sessid."'");
+    }
+
 }
