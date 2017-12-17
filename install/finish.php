@@ -100,6 +100,7 @@
                                 <label for="language">Website Main Language:</label>
                                 <select id="language" name="language">
                                     <option value="english">English</option>
+                                    <option value="russian">Russian</option>
                                 </select>
                                 <div class="ui info message">
                                     <div class="content">
