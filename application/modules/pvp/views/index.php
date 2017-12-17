@@ -54,7 +54,8 @@
                     <thead>
                         <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-danger">TOP 20</span></h4>
                         <tr>
-                            <th class="uk-width-small" style="color: #fff;"><i class="fa fa-user" aria-hidden="true"></i> <?=$this->lang->line('name');?></th>
+                            <th class="uk-width-small" style="color: #fff;"><i class="fa fa-user" aria-hidden="true"></i> 
+                                <?=$this->lang->line('name');?></th>
                             <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-flag" aria-hidden="true"></i> <?=$this->lang->line('faction');?></th>
                             <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('total_kills');?></th>
                             <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('today_kills');?></th>
@@ -64,7 +65,8 @@
                     <tbody>
                         <?php foreach ($this->pvp_model->getTop20PVP()->result() as $tops) { ?>
                             <tr>
-                                <td><?= $tops->name ?></td>
+                                <td><img src="<?= base_url('assets/images/races/').$this->m_general->getRaceName($tops->race).'.jpg' ?>" title="<?= $tops->name ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                     <?= $tops->name ?></td>
                                 <td style="text-align: center;"><img src="<?= base_url(); ?>assets/images/<?= $this->m_general->getFaction($tops->race) ?>.png" class="img-circle"></td>
                                 <td style="text-align: center;"><?= $tops->totalKills ?></td>
                                 <td style="text-align: center;"><?= $tops->todayKills ?></td>

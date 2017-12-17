@@ -220,6 +220,25 @@ class M_general extends CI_Model {
         }
     }
 
+    public function getClassIcon($race)
+    {
+        switch ($race)
+        {
+            case 1: 	return 'warrior.png'; 		break;
+            case 2: 	return 'paladin.png'; 		break;
+            case 3: 	return 'hunter.png'; 		break;
+            case 4: 	return 'rogue.png'; 		break;
+            case 5: 	return 'priest.png'; 		break;
+            case 6: 	return 'dk.png'; 			break;
+            case 7: 	return 'shaman.png'; 		break;
+            case 8: 	return 'mage.png'; 			break;
+            case 9: 	return 'warlock.png'; 		break;
+            case 10: 	return 'monk.png'; 			break;
+            case 11: 	return 'druid.png'; 		break;
+            case 12: 	return 'demonhunter.png'; 	break;
+        }
+    }
+
     public function getCharactersOnlineAlliance()
     {
     	$this->characters = $this->load->database('characters', TRUE);
