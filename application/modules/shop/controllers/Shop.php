@@ -10,15 +10,22 @@ class Shop extends MX_Controller {
 
         $this->load->model('shop_model');
 
-        $this->load->view('index');
+        if ($this->config->item('maintenance_mode') == '1')
+        {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+                $this->load->view('index');
+            }
+            else
+                $this->load->view('maintenance');
+        }
+        else
+            $this->load->view('index');
+
         $this->load->view('footer');
     }
 
     public function order($id)
     {
-        if (empty($id) || is_null($id) || $id == '0')
-            redirect(base_url(),'refresh');
-
         if($this->m_modules->getStatusStore() != '1')
             redirect(base_url(),'refresh');
 
@@ -26,7 +33,17 @@ class Shop extends MX_Controller {
 
         $data['idlink'] = $id;
 
-        $this->load->view('order', $data);
+        if ($this->config->item('maintenance_mode') == '1')
+        {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+                $this->load->view('order', $data);
+            }
+            else
+                $this->load->view('maintenance');
+        }
+        else
+            $this->load->view('order', $data);
+
         $this->load->view('footer');
     }
 
@@ -34,7 +51,7 @@ class Shop extends MX_Controller {
     {
         if($this->m_modules->getStatusStore() != '1')
             redirect(base_url(),'refresh');
-        
+
         $this->load->model('shop_model');
 
         if (!$this->m_data->isLogged())
@@ -43,24 +60,55 @@ class Shop extends MX_Controller {
         if ($this->shop_model->getExistItem($id) < 1)
             redirect(base_url('store'),'refresh');
 
-        if(isset($_GET['tp']))
+        $data['idlink'] = $id;
+
+        if ($this->config->item('maintenance_mode') == '1')
         {
-            $mode = $_GET['tp'];
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
+                if(isset($_GET['tp']))
+                {
+                    $mode = $_GET['tp'];
 
-            if ($mode != 'vp' && $mode != 'dp')
-                redirect(base_url('store'),'refresh');
-            
-            if ($mode == "vp")
-                $this->shop_model->getVPTrue($id);
-            if ($mode == "dp")
-                $this->shop_model->getDPTrue($id);
+                    if ($mode != 'vp' && $mode != 'dp')
+                        redirect(base_url('store'),'refresh');
+                    
+                    if ($mode == "vp")
+                        $this->shop_model->getVPTrue($id);
+                    if ($mode == "dp")
+                        $this->shop_model->getDPTrue($id);
 
-            $data['idlink'] = $id;
-            $this->load->view('cart', $data);
-            $this->load->view('footer');
+                    $data['idlink'] = $id;
+                    $this->load->view('cart', $data);
+                }
+                else
+                    redirect(base_url('store'),'refresh');
+            }
+            else
+                $this->load->view('maintenance');
         }
         else
-            redirect(base_url('store'),'refresh');
+        {
+            if(isset($_GET['tp']))
+            {
+                $mode = $_GET['tp'];
+
+                if ($mode != 'vp' && $mode != 'dp')
+                    redirect(base_url('store'),'refresh');
+                
+                if ($mode == "vp")
+                    $this->shop_model->getVPTrue($id);
+                if ($mode == "dp")
+                    $this->shop_model->getDPTrue($id);
+
+                $data['idlink'] = $id;
+                $this->load->view('cart', $data);
+            }
+            else
+                redirect(base_url('store'),'refresh');
+        }
+
+        $this->load->view('footer');
     }
-    
+
 }
