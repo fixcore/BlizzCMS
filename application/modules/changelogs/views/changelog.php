@@ -44,7 +44,15 @@
     </a> 
 </div> 
     
-    <div class="Breadcrumbs"></div>
+    <div class="Breadcrumbs"> 
+        
+        <span class="Breadcrumb">
+            <a class="Breadcrumb-content"> 
+                 <i class="fa fa-cog" aria-hidden="true"></i> <?= $this->changelogs_model->getChanglogTitle($idlink); ?>
+            </a> 
+        </span>
+
+    </div>
 
 <div class="User-menu"> 
     <!-- right -->
@@ -53,12 +61,9 @@
             <!-- logged -->
             <?php if ($this->m_data->isLogged()) { ?>
                     <!-- credits -->
-                    <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
-                    <?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?>
+                    <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
                      | 
-                    <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
-                    <?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?>
-                    <!-- credits -->
+                    <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
             <?php } ?>
             <!-- logged -->
         </a> 
@@ -90,7 +95,7 @@
                         </div>
                         <div class="HeroPane-content">
                             <div class="max-sm max-left align-left">
-                                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="fa fa-cog fa-spin fa-fw"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></div>
+                                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="fa fa-cog fa-spin fa-fw"></i> <?= $this->changelogs_model->getChanglogTitle($idlink); ?></div>
                             </div>
                         </div>
                         <div class="Pane Pane--flush Pane--adaptive Pane--backgroundTop Pane--innerBorderTop">
@@ -107,7 +112,7 @@
                                             <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack" uk-grid="">
                                                 <div class="uk-grid-margin uk-first-column">
                                                     <div class="uk-card-body">
-                                                        <div class="el-content uk-margin">
+                                                        <div class="el-content uk-margin uk-text-break">
                                                             <p><?= $this->changelogs_model->getChanglogDesc($idlink); ?></p>
                                                             <p align=right><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($idlink)); ?></p>
                                                         </div>

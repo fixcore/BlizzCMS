@@ -13,13 +13,13 @@ class Changelogs extends MX_Controller {
         if ($this->config->item('maintenance_mode') == '1')
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
-                $this->load->view('index');
+                $this->load->view('changelogs/index');
             }
             else
                 $this->load->view('maintenance');
         }
         else
-            $this->load->view('index');
+            $this->load->view('changelogs/index');
 
         $this->load->view('footer');
     }
@@ -39,15 +39,15 @@ class Changelogs extends MX_Controller {
         if ($this->config->item('maintenance_mode') == '1')
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
-                $this->load->view('changelog');
+                $this->load->view('changelogs/changelog', $data);
             }
             else
                 $this->load->view('maintenance');
         }
         else
-            $this->load->view('index');
+            $this->load->view('changelogs/changelog', $data);
 
-        $this->load->view('changelog');
+        $this->load->view('footer');
     }
 
 }
