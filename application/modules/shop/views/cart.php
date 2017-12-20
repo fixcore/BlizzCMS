@@ -25,16 +25,16 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/cart.css" />
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
-<!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
 
-<!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
-<!-- UiKit end -->
-<!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
@@ -44,9 +44,6 @@
     <!-- Wowhead START -->
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
     <!-- custom -->
 </head>
@@ -67,9 +64,9 @@
 <!-- cat -->
   <div class="Breadcrumbs"> 
     
-    <span class="Breadcrumb"> <i class="talk icon"></i>
+    <span class="Breadcrumb">
       <a class="Breadcrumb-content"> 
-         <?=$this->lang->line('cart');?>
+         <i class="fa fa-cart-plus" aria-hidden="true"></i> <?=$this->lang->line('cart');?>
       </a> 
     </span>
 
@@ -82,11 +79,9 @@
       <!-- logged -->
       <?php if ($this->m_data->isLogged()) { ?>
             <!-- credits -->
-            <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
-            <?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?>
+            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
              | 
-            <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
-            <?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?>
+            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
             <!-- credits -->
       <?php } ?>
       <!-- logged -->
@@ -132,7 +127,7 @@
                                                     <div class="col-sm-5"></div>
                                                     <div class="col-sm-5">
                                                       <a rel="item=<?= $this->shop_model->getItem($idlink); ?>">
-                                                        <img class="circular icon" src="//wow.zamimg.com/images/wow/icons/large/<?= $this->shop_model->getIcon($idlink) ?>.jpg" />
+                                                        <img class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/<?= $this->shop_model->getIcon($idlink) ?>.jpg" />
                                                       </a>
                                                     </div>
                                                   </div>
@@ -189,9 +184,9 @@
                                                         <div _ngcontent-c22="" class="name-price-container">
                                                             <h4 _ngcontent-c22="" class="name">
                                                             <?php if($_GET['tp'] == "dp"): ?>
-                                                              <img src="<?= base_url('assets/images/dp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+                                                              <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="30px" height="30px" uk-tooltip="pos: bottom">
                                                             <?php else: ?>
-                                                              <img src="<?= base_url('assets/images/vp.jpg'); ?>" alt="" style="width: 20px; height: 20px;">
+                                                              <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="30px" height="30px" uk-tooltip="pos: bottom">
                                                             </h4>
                                                           <?php endif; ?>
                                                             <h4 _ngcontent-c22="" class="price">
@@ -224,7 +219,7 @@
                                                                         <?php if ($qqs >= $this->shop_model->getPriceType($idlink, $_GET['tp'])) { ?>
 
                                                                         <button type="submit" name="buyNowGetItem" class="button" title="<?= $this->lang->line('button_buy'); ?>">
-                                                                            <i class="shop icon"></i>
+                                                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i> 
                                                                             <?= $this->lang->line('button_buy'); ?>
                                                                         </button>
                                                                         <?php } else { ?>
@@ -232,7 +227,7 @@
                                                                         <?php } ?>
                                                                             
                                                                             <!--<button class="button" title="">
-                                                                                <i class="gift icon"></i>
+                                                                                <i class="fa fa-gift" aria-hidden="true"></i> 
                                                                                 Buy
                                                                             </button>-->
                                                                         </storefront-link>
