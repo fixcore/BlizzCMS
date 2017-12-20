@@ -11,14 +11,17 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
-<!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
 
-<!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
-<!-- UiKit end -->
-<!-- semantic ui Start -->
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
+    <!-- semantic ui Start -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
     <!-- semantic ui End -->
     <!-- custom START -->
@@ -134,7 +137,7 @@
                         <div class="GridItem col-md-8">
                             <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top">
                                 <a href="<?= base_url('news'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('all_news'); ?>" class="Home-topStoriesHeadingLink Home-sectionHeadingLink">
-                                    <span class="Home-topStoriesHeadingText Home-sectionHeadingText"><i class="newspaper icon"></i><?= $this->lang->line('last_news'); ?></span>
+                                    <span class="Home-topStoriesHeadingText Home-sectionHeadingText"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('last_news'); ?></span>
                                     <span class="Home-topStoriesHeadingLinkText Home-sectionHeadingLinkText"><?= $this->lang->line('all_news'); ?></span>
                                 </a>
                             </h2>
@@ -189,7 +192,7 @@
                         </div>
                         <?php } ?>
                         <div class="GridItem col-md-4">
-                            <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="server icon"></i><?=$this->lang->line('serv_status');?></h2>
+                            <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('serv_status');?></h2>
                             <div class="Divider Divider--light"></div>
                             <div class="Home-topStories">
                                 <div class="Home-topStoriesFeatured">
@@ -201,16 +204,16 @@
                                                 <div class="">
                                                     <div class="GridItem col-md-12">
                                                         <h2 style="color: #fff;"><div class="ui green empty large circular label" style="transition-duration: 300ms;"></div> <?= $this->m_general->getRealmName(); ?></h2>
-                                                        <div class="ui blue large label"><i class="users icon"></i><?= $this->m_general->getCharactersOnlineAlliance(); ?><div class="detail">
+                                                        <div class="ui blue large label"><i class="fa fa-users" aria-hidden="true"></i> <?= $this->m_general->getCharactersOnlineAlliance(); ?><div class="detail">
                                                             <?= $this->lang->line('faction_alliance'); ?></div></div>
-                                                        <div class="ui red large label"><i class="users icon"></i><?= $this->m_general->getCharactersOnlineHorde(); ?><div class="detail">
+                                                        <div class="ui red large label"><i class="fa fa-users" aria-hidden="true"></i> <?= $this->m_general->getCharactersOnlineHorde(); ?><div class="detail">
                                                             <?= $this->lang->line('faction_horde'); ?></div></div>
                                                         <br></br>
                                                         <div class="label"><h3 style="color: #fff;">
                                                             <?php if ($this->m_general->getExpansionAction() == 1) { ?>
-                                                                <i class="game icon"></i>Set Realmlist <?= $this->config->item('realmlist'); ?></h3>
+                                                                <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?></h3>
                                                             <?php } else { ?>
-                                                                <i class="game icon"></i>Set Portal "<?= $this->config->item('realmlist'); ?>"</h3>
+                                                                <i class="fa fa-gamepad" aria-hidden="true"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"</h3>
                                                             <?php } ?>
                                                         </div>
                                                     </div>
@@ -283,7 +286,7 @@
                         <?php if ($this->m_modules->getStatusEvents() == '1') { ?>
                         <?php if ($this->events_model->getEventsLimitFive()->num_rows() > 0) { ?>
                         <div class="GridItem col-md-4">
-                            <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="announcement icon"></i><?= $this->lang->line('up_events'); ?></h2>
+                            <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-bullhorn" aria-hidden="true"></i> <?= $this->lang->line('up_events'); ?></h2>
                             <div class="Divider Divider--light"></div>
                             <div class="Home-eventsTableWrapper">
                                 <div class="Home-eventsTable">
@@ -321,7 +324,7 @@
                     <?php if ($this->shop_model->getShopTop10()->num_rows() > 0) { ?>
                         <h2 class="Heading Home-gameHeading Home-sectionHeading flush-top">
                             <a href="<?= base_url('store'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('store_see'); ?>" class="Home-gameHeadingLink Home-sectionHeadingLink">
-                                <span class="Home-gameHeadingText Home-sectionHeadingText"><i class="shopping bag icon"></i><?= $this->lang->line('store'); ?></span>
+                                <span class="Home-gameHeadingText Home-sectionHeadingText"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <?= $this->lang->line('store'); ?></span>
                             </a>
                         </h2>
                         <div class="Divider Divider--light"></div>
