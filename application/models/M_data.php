@@ -123,7 +123,7 @@ class M_data extends CI_Model {
         $passwordBn = $this->encryptBattlenet($email, $password);
         $tag = rand(1111, 9999);
 
-        if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) == 1)
+        if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) <= 3)
         {
             $this->auth = $this->load->database('auth', TRUE);
             
