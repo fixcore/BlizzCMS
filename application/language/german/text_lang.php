@@ -88,7 +88,7 @@ $lang['lad_pvp'] = 'PvP-Statistiken';
 $lang['lad_arena'] = 'Arena-Statistiken';
 
 
-$lang['account_cre'] = 'Accounts wurden erstellt';
+$lang['account_cre'] = 'Erstellte Accounts';
 $lang['staff_count'] = 'Mitarbeiteraccounts';
 $lang['bann_count'] = 'Gesperrte Accounts';
 $lang['users_list'] = 'Liste mit erstellen Accounts';

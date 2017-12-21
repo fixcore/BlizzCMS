@@ -28,7 +28,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['menu_menu'] = 'Men+';
+$lang['menu_menu'] = 'Menü';
 $lang['menu_more'] = 'Mehr';
 $lang['menu_news'] = 'Neuigkeiten';
 $lang['menu_home'] = 'Hauptseite';
