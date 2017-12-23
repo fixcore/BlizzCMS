@@ -53,45 +53,47 @@
                 </div>
             </header>
             <div class="Tracker-content" data-track="nexus.checkbox" id="forum-topics">
-                <!-- table -->
-                <table class="uk-table uk-table-divider">
-                    <?php if ($this->m_data->isLogged()) { ?>
+
+                <!-- table START -->
+
+                <?php if ($this->m_data->isLogged()) { ?>
                     <a href="#" uk-toggle="target: #createReport">
-                        <button class="uk-button uk-button-primary"><?= $this->lang->line('create_report'); ?></button>
+                        <button class="uk-button uk-button-primary">
+                            <?= $this->lang->line('create_report'); ?>
+                        </button>
                     </a>
                     <?php } ?>
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th><?= $this->lang->line('expr_title'); ?></th>
-                            <th><?= $this->lang->line('type'); ?></th>
-                            <th><?= $this->lang->line('expr_status'); ?></th>
-                            <th><?= $this->lang->line('expr_priority'); ?></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                     <?php foreach ($this->bugtracker_model->getBugtracker()->result() as $buglist) { ?>
-                        <tr>
-                                <td><a href="<?= base_url('bugtracker/post/'); ?><?= $buglist->id ?>">
-                                    <?= $buglist->id ?>           
-                                </a></td>
-                                <td><a href="<?= base_url('bugtracker/post/'); ?><?= $buglist->id ?>">
-                                    <span class="uk-label"><?= $buglist->title ?></span>            
-                                </a></td>
-                                <td><a href="<?= base_url('bugtracker/post/'); ?><?= $buglist->id ?>">
-                                    <span class="uk-label uk-label-success"><?= $buglist->type ?></span>            
-                                </a></td>
-                                <td><a href="<?= base_url('bugtracker/post/'); ?><?= $buglist->id ?>">
-                                    <span class="uk-label uk-label-warning"><?= $buglist->status ?></span>            
-                                </a></td>
-                                <td><a href="<?= base_url('bugtracker/post/'); ?><?= $buglist->id ?>">
-                                    <span class="uk-label uk-label-warning"><?= $buglist->priority ?></span>            
-                                </a></td>
-                            </tr>
-                    <?php } ?>
-                    </tbody>
-                </table>
-                <!-- table -->
+                <div align="right" id="pagination_link"></div>
+                <div class="table-responsive" id="country_table"></div>
+                <!-- table END -->
+
+                <script>
+                    $(document).ready(function(){
+
+                     function load_country_data(page)
+                     {
+                      $.ajax({
+                       url:"<?php echo base_url(); ?>bugtracker/pagination/"+page,
+                       method:"GET",
+                       dataType:"json",
+                       success:function(data)
+                       {
+                        $('#country_table').html(data.country_table);
+                        $('#pagination_link').html(data.pagination_link);
+                       }
+                      });
+                     }
+                     
+                     load_country_data(1);
+
+                     $(document).on("click", ".pagination li a", function(event){
+                      event.preventDefault();
+                      var page = $(this).data("ci-pagination-page");
+                      load_country_data(page);
+                     });
+
+                    });
+                </script>
             </div>
         </section>
     </div>
@@ -125,7 +127,19 @@
                     <div class="form-group">
                         <h2 class="uk-text-large"><?= $this->lang->line('new_desc'); ?></h2>
                         <div class="col-md-12">
-                            <textarea required="" name="bug_description" id="ckeditor" rows="10" cols="80"></textarea>
+                            <textarea required="" name="bug_description" id="ckeditor" rows="10" cols="80">
+                                <!-- text -->
+                                <p>Realm:</p> 
+
+                                <p>Character (name, faction, level...): </p>
+
+                                <p>Difficult mode of the instance in which you found this issue: </p>
+
+                                <p>Complete description of your issue (do not forget to specify the issue, all conditions for making the issue to happen, and if the issue is related to a phase, specify the phase in which you found this issue): </p>
+
+                                <p>Steps for reproducing the issue: </p>
+                                <!-- text -->
+                            </textarea>
                             <script>
                                 CKEDITOR.replace('ckeditor');
                             </script>
