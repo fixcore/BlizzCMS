@@ -6,7 +6,7 @@
     @import url('https://fonts.googleapis.com/css?family=Lobster');
 </style>
 <a href="<?= base_url(); ?>" class="" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->config->item('ProjectName'); ?> Icon">
-    <h3 style="font-family: 'Lobster', cursive; position: absolute; top: 10px; font-size: 30px;"><?= $this->config->item('ProjectName'); ?></h3>
+    <h3 style="font-family: 'Lobster', cursive; position: absolute; top: 10px; font-size: 30px; color: #fff;"><?= $this->config->item('ProjectName'); ?></h3>
 </a>
 <!-- logo END -->
 
