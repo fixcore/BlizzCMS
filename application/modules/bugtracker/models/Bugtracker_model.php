@@ -10,7 +10,7 @@ class Bugtracker_model extends CI_Model {
 
     public function getBugtracker()
     {
-    	return $this->db->query("SELECT * FROM fx_bugtracker");
+    	return $this->db->query("SELECT * FROM fx_bugtracker WHERE close = 0");
     }
 
 }

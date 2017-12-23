@@ -12,11 +12,11 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
 <!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/css/uikit.min.css" />
+<link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
 
 <!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-beta.35/js/uikit-icons.min.js"></script>
+<script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
+<script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
 <!-- UiKit end -->
 <!-- semantic ui Start -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
