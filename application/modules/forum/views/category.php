@@ -1,7 +1,6 @@
-<?php if(isset($_POST['button_createTopic'])){
-
-	$title 			= $_POST['topic_title'];
-	$description 	= $_POST['topic_description'];
+<?php if (isset($_POST['button_createTopic'])) {
+	$title = $_POST['topic_title'];
+	$description = $_POST['topic_description'];
 
     if (isset($_POST['check_highl']) && $_POST['check_highl'] == '1')
         $highl = '1'; else $highl = '0';
@@ -10,8 +9,8 @@
     	$lock = '1'; else $lock = '0';
 
 	$this->forum_model->insertTopic($idlink, $title, $this->session->userdata('fx_sess_id'), $description, $lock, $highl);
-
 }?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -48,35 +47,6 @@
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
-    <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
-        <div class="Container Container--content Container--breadcrumbs">
-            <div class="GameSite-link"> 
-                <a class="GameSite-link--heading" href="<?= base_url('forums'); ?>"><?= $this->lang->line('forums'); ?></a> 
-            </div> 
-            <div class="Breadcrumbs"> 
-                <span class="Breadcrumb">
-                    <a class="Breadcrumb-content"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $this->forum_model->getCategoryName($idlink); ?></a>
-                </span>
-            </div>
-            <div class="User-menu"> 
-                <!-- right -->
-                <span class="Breadcrumb"> 
-                    <a class="Breadcrumb-content"> 
-                        <!-- logged -->
-                        <?php if ($this->m_data->isLogged()) { ?>
-                            <!-- credits -->
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            | 
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            <!-- credits -->
-                        <?php } ?>
-                        <!-- logged -->
-                    </a> 
-                </span>
-                <!-- right -->
-            </div>
-        </div>
-    </div>
     </div>
     </div>
     </div>
@@ -90,83 +60,14 @@
                     <h1 class="Forum-heading"><span class="Forum-title" style="color: #fff;"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $this->forum_model->getCategoryName($idlink); ?></span></h1>
                     <div class="Forum-controls">
                         <?php if($this->m_data->isLogged()) { ?>
-                            <?php if($this->forum_model->getType($idlink) == 1) { ?>
-                                <button uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
-                                    <span class="Overlay-element" ></span>
-                                    <span class="Button-content">
-                                        <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
-                                    </span>
-                                </button>
-                            <?php } elseif ($this->forum_model->getType($idlink) == 2 || $this->forum_model->getType($idlink) == 3) { ?>
-                                <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
-                                    <button uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
-                                        <span class="Overlay-element" ></span>
-                                        <span class="Button-content">
-                                            <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
-                                        </span>
-                                    </button>
-                                <?php } ?>
-                            <?php } ?>
+                            <button uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
+                                <span class="Overlay-element" ></span>
+                                <span class="Button-content">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
+                                </span>
+                            </button>
                         <?php } ?>
                     </div>
-                    <div id="newTopic" class="uk-modal-container" uk-modal>
-                        <div class="uk-modal-dialog">
-                            <button class="uk-modal-close-default" type="button" uk-close></button>
-                            <div class="uk-modal-header">
-                                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?></h2>
-                            </div>
-                            <form action="" method="post" accept-charset="utf-8">
-                                <div class="uk-modal-body">
-                                    <!-- topic title -->
-                                    <div class="uk-margin">
-                                        <!-- title -->
-                                        <h2 class="ui header"><?= $this->lang->line('expr_title'); ?></h2>
-                                        <!-- title -->
-                                        <div class="uk-inline uk-width-1-1">
-                                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
-                                            <input class="uk-input" name="topic_title" required="" type="text" required placeholder="<?= $this->lang->line('expr_title'); ?>">
-                                        </div>
-                                    </div>
-                                    <!-- topic title -->
-                                    <hr>
-                                    <!-- editor -->
-                                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
-                                        <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
-                                    <?php } else { ?>
-                                        <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-                                    <?php } ?>
-                                    <!-- editor -->
-                                    <!-- topic description -->
-                                    <div class="uk-margin">
-                                        <!-- title -->
-                                        <h2 class="ui header"><?= $this->lang->line('new_desc'); ?></h2>
-                                        <!-- title -->
-                                        <div class="uk-inline uk-width-1-1">
-                                            <textarea></textarea>
-                                        </div>
-                                    </div>
-                                    <!-- topic description -->
-                                    <hr>
-                                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
-                                        <div class="uk-margin">
-                                            <div class="uk-inline uk-width-1-1">
-                                                <label><input id="hightl" class="uk-checkbox" type="checkbox" name="check_highl" value="1"> <?= $this->lang->line('expr_highl'); ?></label>
-                                                <label><input id="llock" class="uk-checkbox" type="checkbox" name="check_lock" value="1"> <?= $this->lang->line('expr_lock'); ?></label>
-                                            </div>
-                                        </div>
-                                    <?php } ?>
-                                    <hr>
-                                    <div class="uk-modal-footer uk-text-right actions">
-                                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                                        <button class="uk-button uk-button-primary" type="submit" name="button_createTopic"><?= $this->lang->line('button_crea'); ?></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <script>
-                        CKEDITOR.replace('ckeditor');
-                    </script>
                 </div>
             </header>
             <!-- main -->
@@ -232,4 +133,59 @@
                 </div>
             </div>
         </section>
+    </div>
+
+    <div id="newTopic" class="uk-modal-container" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
+                </h2>
+            </div>
+            <form action="" method="post" accept-charset="utf-8">
+                <div class="uk-modal-body">
+                    <!-- content -->
+                    <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
+                    <div class="uk-margin uk-inline uk-width-1-1">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                        <input class="uk-input" name="topic_title" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?>">
+                    </div>
+                    <!-- text area -->
+                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+                        <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
+                    <?php } else { ?>
+                        <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+                    <?php } ?>
+
+                    <br>
+
+                    <div class="form-group">
+                        <h2 class="uk-text-large"><?= $this->lang->line('new_desc'); ?></h2>
+                        <div class="col-md-12">
+                            <textarea required="" name="topic_description" id="ckeditor" rows="10" cols="80"></textarea>
+                            <script>
+                                CKEDITOR.replace('ckeditor');
+                            </script>
+                        </div>
+                    </div>
+                    <!-- text area -->
+                    <br>
+                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+                        <div class="uk-margin">
+                            <div class="uk-inline uk-width-1-1 uk-text-center">
+                                <label><input id="hightl" class="uk-checkbox" type="checkbox" name="check_highl" value="1"> <?= $this->lang->line('expr_highl'); ?></label>
+                                <span style="display:inline-block; width: 14px;"></span>
+                                <label><input id="llock" class="uk-checkbox" type="checkbox" name="check_lock" value="1"> <?= $this->lang->line('expr_lock'); ?></label>
+                            </div>
+                        </div>
+                    <?php } ?>
+
+                    <div class="uk-modal-footer uk-text-right actions">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                        <button class="uk-button uk-button-primary" type="submit" name="button_createTopic"><?= $this->lang->line('button_crea'); ?></button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
