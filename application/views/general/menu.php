@@ -33,6 +33,10 @@
     <div class="Navbar-label"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->lang->line('forums'); ?></div>
 </a>
 
+<a href="<?= base_url('bugtracker'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('bugtracker'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('bugtracker'); ?>">
+    <div class="Navbar-label"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->lang->line('bugtracker'); ?></div>
+</a>
+
 </div>
 
 <div class="Navbar-profileItems">
