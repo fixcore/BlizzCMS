@@ -83,6 +83,21 @@ class Bugtracker_model extends CI_Model {
     	return $output;
     }
 
+    public function insertIssue($title, $type, $desc, $url)
+    {
+    	$date = $this->m_data->getTimestamp();
+    	$author = $this->session->userdata('fx_sess_id');
+
+    	$this->db->query("INSERT INTO fx_bugtracker (title, description, type, url, date, author, close) VALUES ('$title', '$desc', '$type', '$url', '$date', '$author', '0')");
+
+    	redirect(base_url('bugtracker'),'refresh');
+    }
+
+    public function getTypes()
+    {
+    	return $this->db->query("SELECT id, title FROM fx_bugtracker_type ORDER BY id");
+    }
+
     public function getType($id)
     {
     	return $this->db->query("SELECT title FROM fx_bugtracker_type WHERE id = '".$id."'")->row_array()['title'];

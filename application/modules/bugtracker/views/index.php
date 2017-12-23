@@ -1,3 +1,12 @@
+<?php if (isset($_POST['button_createIssue'])) {
+    $title = $_POST['bug_title'];
+    $type = $_POST['type_Bug'];
+    $desc = $_POST['bug_description'];
+    $url = $_POST['bug_url'];
+
+    $this->bugtracker_model->insertIssue($title, $type, $desc, $url);
+} ?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -112,11 +121,23 @@
         <form action="" method="post" accept-charset="utf-8">
             <div class="uk-modal-body">
                 <!-- content -->
-                <form action="" method="post" accept-charset="utf-8">
                     <!-- title -->
                     <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
                     <div class="uk-margin">
-                        <input name="bug_title" class="uk-input uk-form-width-large" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?>">
+                        <input name="bug_title" class="uk-input uk-form-width-large" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?> *">
+                    </div>
+
+                    <div class="uk-margin">
+                        <div class="uk-margin">
+                            <h2 class="uk-text-large"><?= $this->lang->line('type'); ?></h2>
+                            <div class="uk-form-controls">
+                                <select class="uk-select" name="type_Bug" id="form-stacked-select">
+                                    <?php foreach($this->bugtracker_model->getTypes()->result() as $rowTypes) { ?>
+                                    <option value="<?= $rowTypes->id ?>"><?= $rowTypes->title ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <!-- title -->
                     <!-- text area -->
@@ -146,11 +167,14 @@
                         </div>
                     </div>
                     <!-- text area -->
-                </form>
+
+                    <div class="uk-margin">
+                        <input name="bug_url" class="uk-input uk-form-width-large" type="text" placeholder="URL">
+                    </div>
                 <!-- content -->
                 <div class="uk-modal-footer uk-text-right actions">
                     <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                    <button class="uk-button uk-button-primary" type="submit" name="button_changeavatar"><?= $this->lang->line('button_change'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_createIssue"><?= $this->lang->line('button_crea'); ?></button>
                 </div>
             </div>
         </form>
