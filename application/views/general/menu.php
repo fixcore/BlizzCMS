@@ -6,7 +6,7 @@
     @import url('https://fonts.googleapis.com/css?family=Lobster');
 </style>
 <a href="<?= base_url(); ?>" class="" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->config->item('ProjectName'); ?> Icon">
-    <h3 style="font-family: 'Lobster', cursive; position: absolute; top: 10px; font-size: 30px;"><?= $this->config->item('ProjectName'); ?></h3>
+    <h3 style="font-family: 'Lobster', cursive; position: absolute; top: 10px; font-size: 30px; color: #fff;"><?= $this->config->item('ProjectName'); ?></h3>
 </a>
 <!-- logo END -->
 
@@ -25,17 +25,23 @@
     <div class="Navbar-label"><i class="fa fa-home" aria-hidden="true"></i> <?= $this->lang->line('menu_home'); ?></div>
 </a>
 
+<?php if($this->m_modules->getStatusNews() == '1') { ?>
 <a href="<?= base_url('news'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('menu_news'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_news'); ?>">
     <div class="Navbar-label"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('menu_news'); ?></div>
 </a>
+<?php } ?>
 
+<?php if($this->m_modules->getStatusForums() == '1') { ?>
 <a href="<?= base_url('forums'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('forums'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('forums'); ?>">
     <div class="Navbar-label"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->lang->line('forums'); ?></div>
 </a>
+<?php } ?>
 
+<?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
 <a href="<?= base_url('bugtracker'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('bugtracker'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('bugtracker'); ?>">
     <div class="Navbar-label"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->lang->line('bugtracker'); ?></div>
 </a>
+<?php } ?>
 
 </div>
 
