@@ -32,6 +32,7 @@ class Bugtracker_model extends CI_Model {
     	<table class="uk-table uk-table-divider">
     		<thead>
                 <tr>
+                    <th>#</th>
 	    			<th>'.$this->lang->line("expr_title").'</th>
 	    			<th>'.$this->lang->line("type").'</th>
 	    			<th>'.$this->lang->line("expr_status").'</th>
@@ -103,14 +104,64 @@ class Bugtracker_model extends CI_Model {
     	return $this->db->query("SELECT title FROM fx_bugtracker_type WHERE id = '".$id."'")->row_array()['title'];
     }
 
+    public function getTitleIssue($id)
+    {
+        return $this->db->query("SELECT title FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['title'];
+    }
+
+    public function getDescIssue($id)
+    {
+        return $this->db->query("SELECT description FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['description'];
+    }
+
+    public function getUrlIssue($id)
+    {
+        $qq = $this->db->query("SELECT url FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['url'];
+
+        if (empty($qq))
+            return 'Empty';
+        else
+            return $qq;
+    }
+
     public function getStatus($id)
     {
-    	return $this->db->query("SELECT title FROM fx_bugtracker_status WHERE id = '".$id."'")->row_array()['title'];
+        return $this->db->query("SELECT title FROM fx_bugtracker_status WHERE id = '".$id."'")->row_array()['title'];
+    }
+
+    public function getStatusID($id)
+    {
+        return $this->db->query("SELECT status FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['status'];
     }
 
     public function getPriority($id)
     {
-    	return $this->db->query("SELECT title FROM fx_bugtracker_priority WHERE id = '".$id."'")->row_array()['title'];
+        return $this->db->query("SELECT title FROM fx_bugtracker_priority WHERE id = '".$id."'")->row_array()['title'];
+    }
+
+    public function getPriorityID($id)
+    {
+        return $this->db->query("SELECT priority FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['priority'];
+    }
+
+    public function getTypeID($id)
+    {
+        return $this->db->query("SELECT type FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['type'];
+    }
+
+    public function getDate($id)
+    {
+        return $this->db->query("SELECT date FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['date'];
+    }
+
+    public function closeStatus($id)
+    {
+        return $this->db->query("SELECT close FROM fx_bugtracker WHERE id = '".$id."'")->row()->close;
+    }
+
+    public function getAuthor($id)
+    {
+        return $this->db->query("SELECT author FROM fx_bugtracker WHERE id = '".$id."'")->row()->author;
     }
 
 }

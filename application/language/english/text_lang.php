@@ -104,6 +104,7 @@ $lang['new_desc'] = 'Description';
 $lang['newup_fi'] = 'File upload';
 $lang['new_imgT'] = 'Your image must be in .jpg format';
 
+$lang['expr_author'] = 'Author';
 $lang['expr_avatar'] = 'Avatar';
 $lang['expr_yes'] = 'Yes';
 $lang['expr_no'] = 'No';
@@ -115,6 +116,9 @@ $lang['expr_lock'] = 'Lock';
 $lang['expr_category'] = 'Category';
 $lang['expr_status'] = 'Status';
 $lang['expr_priority'] = 'Priority';
+$lang['expr_open'] = 'Open';
+$lang['expr_closed'] = 'Closed';
+$lang['expr_date'] = 'Date';
 
 $lang['news_manage'] = 'Manage news';
 $lang['user_manage'] = 'Manage user';

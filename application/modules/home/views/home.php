@@ -203,7 +203,13 @@
                                                 <!--<h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3> online -->
                                                 <div class="">
                                                     <div class="GridItem col-md-12">
-                                                        <h2 style="color: #fff;"><div class="ui green empty large circular label" style="transition-duration: 300ms;"></div> <?= $this->m_general->getRealmName(); ?></h2>
+                                                        <h2 style="color: #fff;">
+                                                        <?php if ($this->m_data->realm_status()) { ?>
+                                                            <div class="ui green empty large circular label" style="transition-duration: 300ms;"></div>
+                                                        <?php } else { ?>
+                                                            <div class="ui red empty large circular label" style="transition-duration: 300ms;"></div>
+                                                        <?php } ?>
+                                                            <?= $this->m_general->getRealmName(); ?></h2>
                                                         <div class="ui blue large label"><i class="fa fa-users" aria-hidden="true"></i> <?= $this->m_general->getCharactersOnlineAlliance(); ?><div class="detail">
                                                             <?= $this->lang->line('faction_alliance'); ?></div></div>
                                                         <div class="ui red large label"><i class="fa fa-users" aria-hidden="true"></i> <?= $this->m_general->getCharactersOnlineHorde(); ?><div class="detail">
