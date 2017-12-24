@@ -70,3 +70,5 @@ $route['news'] = 'news';
 $route['store'] = 'shop';
 $route['cart/(:num)'] = 'shop/cart/$1';
 $route['store/order/(:num)'] = 'shop/order/$1';
+//pages
+$route['pages/(:num)'] = 'pages/index/$1';

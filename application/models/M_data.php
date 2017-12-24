@@ -260,4 +260,18 @@ class M_data extends CI_Model {
     	$this->session->sess_destroy();
 		redirect(base_url(),'refresh');
     }
+
+    public function realm_status()
+    {
+        $host = $this->config->item('soap_ip');
+        $port = $this->config->item('realmlistPort');
+        
+        error_reporting(0);
+        $etat = fsockopen($host,$port,$errno,$errstr,3);
+                    
+        if(!$etat)
+            return false;
+        else
+            return true;
+    }
 }
