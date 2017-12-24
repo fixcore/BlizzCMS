@@ -1,3 +1,24 @@
+<?php if(isset($_POST['button_login']))
+{
+    $email    = $_POST['login_email'];
+    $password = $_POST['login_password'];
+
+    $id = $this->m_data->getIDEmail($email);
+
+    if ($id == "0")
+        echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
+    else
+    {
+        $password = $this->m_data->encryptBattlenet($email, $password);
+
+        if (strtoupper($this->m_data->getPasswordBnetID($id)) == strtoupper($password))
+        {
+            $this->m_data->arraySession($id);
+        }
+        else
+            echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('password_error').': '.$this->lang->line('password_error_info').'</p></div>';
+    }
+} ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -68,28 +89,6 @@
                                 <!-- custom -->
                                 <h4><a href="<?= base_url('register'); ?>" title="<?= $this->lang->line('no_account'); ?>"> <i class="add user icon"></i> <?= $this->lang->line('no_account'); ?></a></h4>
                             <!-- content END -->
-
-                            <?php if(isset($_POST['button_login']))
-                            {
-                                $email    = $_POST['login_email'];
-                                $password = $_POST['login_password'];
-
-                                $id = $this->m_data->getIDEmail($email);
-
-                                if ($id == "0")
-                                    echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
-                                else
-                                {
-                                    $password = $this->m_data->encryptBattlenet($email, $password);
-
-                                    if (strtoupper($this->m_data->getPasswordBnetID($id)) == strtoupper($password))
-                                    {
-                                        $this->m_data->arraySession($id);
-                                    }
-                                    else
-                                        echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('password_error').': '.$this->lang->line('password_error_info').'</p></div>';
-                                }
-                            } ?>
                         </div>
                     </div>
                 </div>
