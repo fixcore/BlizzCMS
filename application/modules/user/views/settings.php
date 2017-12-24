@@ -212,7 +212,7 @@
                                                         <div class="Icon Icon--jumbo hide inline-xs">
                                                             <!-- image START -->
                                                             <h2 class="ui center aligned icon header" style="color: white;">
-                                                                <i class="fa fa-info-circle fa-2x" aria-hidden="true"></i>
+                                                                <i class="fa fa-camera fa-2x" aria-hidden="true"></i>
                                                                 <?= $this->lang->line('chang_avatar'); ?></h2>
                                                             <!-- image END -->
                                                         </div>

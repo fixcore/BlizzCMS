@@ -39,7 +39,7 @@
 
 <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
 <a href="<?= base_url('bugtracker'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('bugtracker'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('bugtracker'); ?>">
-    <div class="Navbar-label"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->lang->line('bugtracker'); ?></div>
+    <div class="Navbar-label"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('bugtracker'); ?></div>
 </a>
 <?php } ?>
 
@@ -73,7 +73,7 @@
 </use>
 </svg>
 </div>
-<div class="Navbar-label"><?= $this->lang->line('my_account'); ?></div>
+<div class="Navbar-label"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('my_account'); ?></div>
 <div class="Navbar-icon Navbar-dropdownIcon">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
     <use xlink:href="#Navbar-icon-dropdown">
@@ -153,7 +153,7 @@
 <div class="Navbar-modalSection">
     <a href="<?= base_url(); ?>login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('menu_login'); ?>">
     <div class="Navbar-button is-full ui ui primary basic button" tabindex="0">
-      <div class="visible content"><?= $this->lang->line('menu_login'); ?></div>
+      <div class="visible content"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('menu_login'); ?></div>
     </div>
     </a>
 </div>
