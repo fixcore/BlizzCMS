@@ -20,13 +20,16 @@
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/navbar0e26.css?v=58-88" />
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e27.css?v=58-88" />
     <!-- UiKit Start -->
-<!-- UIkit CSS -->
-<link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
 
-<!-- UIkit JS -->
-<script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
-<script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
-<!-- UiKit end -->
+    <!-- UIkit JS -->
+    <script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
+    <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
@@ -55,23 +58,23 @@
                 <div class="Container Container--content">
                     <div class="space-adaptive-medium"></div>
                     <br></br>
-                    <h1 class="Tracker-heading" style="color: #fff;"><i class="bug icon"></i><?= $this->lang->line('bugtracker'); ?></h1>
+                    <h1 class="Tracker-heading" style="color: #fff;"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('bugtracker'); ?></h1>
+                    <div class="Tracker-controls">
+                        <?php if ($this->m_data->isLogged()) { ?>
+                            <a href="#" uk-toggle="target: #createReport">
+                                <button class="uk-button uk-button-primary">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('create_report'); ?>
+                                </button>
+                            </a>
+                        <?php } ?>
+                    </div>
                 </div>
                 <div class="Container Container--content">
                     <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?= $this->lang->line('report_list'); ?></h3>
                 </div>
             </header>
             <div class="Tracker-content" data-track="nexus.checkbox" id="forum-topics">
-
                 <!-- table START -->
-
-                <?php if ($this->m_data->isLogged()) { ?>
-                    <a href="#" uk-toggle="target: #createReport">
-                        <button class="uk-button uk-button-primary">
-                            <?= $this->lang->line('create_report'); ?>
-                        </button>
-                    </a>
-                    <?php } ?>
                 <div align="right" id="pagination_link"></div>
                 <div class="table-responsive" id="country_table"></div>
                 <!-- table END -->
@@ -109,12 +112,12 @@
 
 
 <!-- create report -->
-<div id="createReport" uk-modal>
+<div id="createReport" class="uk-modal-container" uk-modal>
     <div class="uk-modal-dialog">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <div class="uk-modal-header">
             <h2 class="uk-modal-title">
-                <i class="fa fa-camera" aria-hidden="true"></i>
+                <i class="fa fa-bug" aria-hidden="true"></i>
                 Create Bug Report
             </h2>
         </div>
@@ -123,20 +126,19 @@
                 <!-- content -->
                     <!-- title -->
                     <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
-                    <div class="uk-margin">
-                        <input name="bug_title" class="uk-input uk-form-width-large" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?> *">
+                    <div class="uk-margin uk-inline uk-width-1-1">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                        <input name="bug_title" class="uk-input" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?> *">
                     </div>
 
                     <div class="uk-margin">
-                        <div class="uk-margin">
-                            <h2 class="uk-text-large"><?= $this->lang->line('type'); ?></h2>
-                            <div class="uk-form-controls">
-                                <select class="uk-select" name="type_Bug" id="form-stacked-select">
-                                    <?php foreach($this->bugtracker_model->getTypes()->result() as $rowTypes) { ?>
+                        <h2 class="uk-text-large"><?= $this->lang->line('type'); ?></h2>
+                        <div class="uk-form-controls">
+                            <select class="uk-select" name="type_Bug" id="form-stacked-select">
+                                <?php foreach($this->bugtracker_model->getTypes()->result() as $rowTypes) { ?>
                                     <option value="<?= $rowTypes->id ?>"><?= $rowTypes->title ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
+                                <?php } ?>
+                            </select>
                         </div>
                     </div>
                     <!-- title -->
@@ -168,8 +170,9 @@
                     </div>
                     <!-- text area -->
 
-                    <div class="uk-margin">
-                        <input name="bug_url" class="uk-input uk-form-width-large" type="text" placeholder="URL">
+                    <div class="uk-margin uk-inline uk-width-1-1">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: link"></span>
+                        <input name="bug_url" class="uk-input" type="text" placeholder="URL">
                     </div>
                 <!-- content -->
                 <div class="uk-modal-footer uk-text-right actions">
