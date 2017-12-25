@@ -5,14 +5,15 @@ class Forum extends MX_Controller {
 
     public function index()
     {
-        if($this->m_modules->getStatusForums() != '1')
+        if ($this->m_modules->getStatusForums() != '1')
             redirect(base_url(),'refresh');
 
         $this->load->model('forum_model');
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('index');
             }
             else
@@ -26,7 +27,7 @@ class Forum extends MX_Controller {
 
     public function category($id)
     {
-        if($this->m_modules->getStatusForums() != '1')
+        if ($this->m_modules->getStatusForums() != '1')
             redirect(base_url(),'refresh');
 
         if (empty($id) || is_null($id))
@@ -36,7 +37,6 @@ class Forum extends MX_Controller {
 
         $data['idlink'] = $id;
 
-
         if ($this->forum_model->getType($id) == 2 && $this->m_data->isLogged())
             if ($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { }
         else
@@ -44,11 +44,12 @@ class Forum extends MX_Controller {
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
-                $this->load->view('category');
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
+                $this->load->view('category', $data);
             }
             else
-                $this->load->view('maintenance', $data);
+                $this->load->view('maintenance');
         }
         else
             $this->load->view('category', $data);
@@ -58,7 +59,7 @@ class Forum extends MX_Controller {
 
     public function topic($id)
     {
-        if($this->m_modules->getStatusForums() != '1')
+        if ($this->m_modules->getStatusForums() != '1')
             redirect(base_url(),'refresh');
 
         $this->load->model('forum_model');
@@ -75,7 +76,8 @@ class Forum extends MX_Controller {
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('topic', $data);
             }
             else
@@ -86,5 +88,4 @@ class Forum extends MX_Controller {
 
         $this->load->view('footer');
     }
-
 }

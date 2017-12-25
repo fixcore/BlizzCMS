@@ -27,5 +27,4 @@ class Pages_model extends CI_Model {
     {
         return $this->db->query("SELECT id FROM fx_pages WHERE id = '".$id."'")->num_rows();
     }
-
 }

@@ -10,100 +10,92 @@ class Bugtracker_model extends CI_Model {
 
     public function getBugtracker()
     {
-    	return $this->db->query("SELECT * FROM fx_bugtracker WHERE close = 0");
+        return $this->db->query("SELECT * FROM fx_bugtracker WHERE close = 0");
     }
 
     public function count_all()
     {
-    	return $this->db->get("fx_bugtracker")->num_rows();
+        return $this->db->get("fx_bugtracker")->num_rows();
     }
 
     public function fetch_details($limit, $start)
     {
-    	$output = '';
-    	$this->db->select("*");
-    	$this->db->from("fx_bugtracker");
-    	$this->db->where("close = 0");
-    	$this->db->order_by("id", "ASC");
-    	$this->db->limit($limit, $start);
-    	$query = $this->db->get();
+        $output = '';
+        $this->db->select("*");
+        $this->db->from("fx_bugtracker");
+        $this->db->where("close = 0");
+        $this->db->order_by("id", "ASC");
+        $this->db->limit($limit, $start);
+        $query = $this->db->get();
 
-    	$output .= '
-    	<table class="uk-table uk-table-divider">
-    		<thead>
+        $output .= '
+            <table class="uk-table uk-table-divider">
+                <thead>
+                    <tr>
+                        <th style="color: #fff;"><i class="fa fa-book" aria-hidden="true"></i> '.$this->lang->line("id").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-bookmark" aria-hidden="true"></i> '.$this->lang->line("expr_title").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-list" aria-hidden="true"></i> '.$this->lang->line("type").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("expr_status").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("expr_priority").'</th>
+                    </tr>
+                <tbody>
+        ';
+
+        foreach ($query->result() as $row)
+        {
+            $output .= '
                 <tr>
-                    <th style="color: #fff;"><i class="fa fa-book" aria-hidden="true"></i> '.$this->lang->line("id").'</th>
-	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-bookmark" aria-hidden="true"></i> '.$this->lang->line("expr_title").'</th>
-	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-list" aria-hidden="true"></i> '.$this->lang->line("type").'</th>
-	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("expr_status").'</th>
-	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("expr_priority").'</th>
-	    		</tr>
+                    <td>
+                        <a href="'.base_url('bugtracker/post/').$row->id.'">
+                            <span class="uk-light">'.$row->id.'</span>
+                        </a>
+                    </td>
+                    <td class="uk-text-center">
+                        <a href="'.base_url('bugtracker/post/').$row->id.'">
+                            <span class="uk-light">'.$row->title.'</span>
+                        </a>
+                    </td>
+                    <td class="uk-text-center">
+                        <a href="'.base_url('bugtracker/post/').$row->id.'">
+                            <span class="uk-label">'.$this->bugtracker_model->getType($row->type).'</span>
+                        </a>
+                    </td>
+                    <td class="uk-text-center">
+                        <a href="'.base_url('bugtracker/post/').$row->id.'">
+                            <span class="uk-label uk-label-success">'.$this->bugtracker_model->getStatus($row->status).'</span>
+                        </a>
+                    </td>
+                    <td class="uk-text-center">
+                        <a href="'.base_url('bugtracker/post/').$row->id.'">
+                            <span class="uk-label uk-label-warning">'.$this->bugtracker_model->getPriority($row->priority).'</span>
+                        </a>
+                    </td>
+                <tr>
+            ';
+        }
 
-	    		<tbody>
-    	';
-
-    	foreach ($query->result() as $row) {
-    		$output .= '
-
-    		<tr>
-
-    		<td>
-    			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-light">'.$row->id.'</span>
-				</a>
-    		</td>
-
-    		<td class="uk-text-center">
-    			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-light">'.$row->title.'</span>
-                </a>
-            </td>
-
-            <td class="uk-text-center">
-    			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-label">'.$this->bugtracker_model->getType($row->type).'</span>
-                </a>
-            </td>
-
-            <td class="uk-text-center">
-    			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-label uk-label-success">'.$this->bugtracker_model->getStatus($row->status).'</span>
-                </a>
-            </td>
-
-            <td class="uk-text-center">
-    			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-label uk-label-warning">'.$this->bugtracker_model->getPriority($row->priority).'</span>
-                </a>
-            </td>
-
-            <tr>
-
-    		';
-    	}
-
-    	$output .= '</tbody> </table>';
-    	return $output;
+        $output .= '</tbody> </table>';
+        return $output;
     }
 
     public function insertIssue($title, $type, $desc, $url)
     {
-    	$date = $this->m_data->getTimestamp();
-    	$author = $this->session->userdata('fx_sess_id');
+        $date = $this->m_data->getTimestamp();
+        $author = $this->session->userdata('fx_sess_id');
 
-    	$this->db->query("INSERT INTO fx_bugtracker (title, description, type, url, date, author, close) VALUES ('$title', '$desc', '$type', '$url', '$date', '$author', '0')");
+        $this->db->query("INSERT INTO fx_bugtracker (title, description, type, url, date, author, close) VALUES ('$title', '$desc', '$type', '$url', '$date', '$author', '0')");
 
-    	redirect(base_url('bugtracker'),'refresh');
+        redirect(base_url('bugtracker'),'refresh');
     }
 
     public function getTypes()
     {
-    	return $this->db->query("SELECT id, title FROM fx_bugtracker_type ORDER BY id");
+        return $this->db->query("SELECT id, title FROM fx_bugtracker_type ORDER BY id");
     }
 
     public function getType($id)
     {
-    	return $this->db->query("SELECT title FROM fx_bugtracker_type WHERE id = '".$id."'")->row_array()['title'];
+        return $this->db->query("SELECT title FROM fx_bugtracker_type WHERE id = '".$id."'")->row_array()['title'];
     }
 
     public function getTitleIssue($id)
@@ -165,5 +157,4 @@ class Bugtracker_model extends CI_Model {
     {
         return $this->db->query("SELECT author FROM fx_bugtracker WHERE id = '".$id."'")->row()->author;
     }
-
 }

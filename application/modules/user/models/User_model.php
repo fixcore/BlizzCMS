@@ -39,7 +39,7 @@ class User_model extends CI_Model {
     {
         return $this->auth->query("SELECT email FROM account WHERE email = '".$email."'")->num_rows();
     }
-    
+
     public function getAllAvatars()
     {
         return $this->db->query("SELECT * FROM fx_avatars ORDER BY id ASC");
@@ -60,5 +60,4 @@ class User_model extends CI_Model {
 
         return $this->db->query("SELECT id FROM fx_users WHERE id = '".$sessid."'");
     }
-
 }
