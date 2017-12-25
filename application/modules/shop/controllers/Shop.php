@@ -5,14 +5,15 @@ class Shop extends MX_Controller {
 
     public function index()
     {
-        if($this->m_modules->getStatusStore() != '1')
+        if ($this->m_modules->getStatusStore() != '1')
             redirect(base_url(),'refresh');
 
         $this->load->model('shop_model');
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('index');
             }
             else
@@ -26,7 +27,7 @@ class Shop extends MX_Controller {
 
     public function order($id)
     {
-        if($this->m_modules->getStatusStore() != '1')
+        if ($this->m_modules->getStatusStore() != '1')
             redirect(base_url(),'refresh');
 
         $this->load->model('shop_model');
@@ -35,7 +36,8 @@ class Shop extends MX_Controller {
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('order', $data);
             }
             else
@@ -49,7 +51,7 @@ class Shop extends MX_Controller {
 
     public function cart($id)
     {
-        if($this->m_modules->getStatusStore() != '1')
+        if ($this->m_modules->getStatusStore() != '1')
             redirect(base_url(),'refresh');
 
         $this->load->model('shop_model');
@@ -66,13 +68,13 @@ class Shop extends MX_Controller {
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
             {
-                if(isset($_GET['tp']))
+                if (isset($_GET['tp']))
                 {
                     $mode = $_GET['tp'];
 
                     if ($mode != 'vp' && $mode != 'dp')
                         redirect(base_url('store'),'refresh');
-                    
+
                     if ($mode == "vp")
                         $this->shop_model->getVPTrue($id);
                     if ($mode == "dp")
@@ -89,13 +91,13 @@ class Shop extends MX_Controller {
         }
         else
         {
-            if(isset($_GET['tp']))
+            if (isset($_GET['tp']))
             {
                 $mode = $_GET['tp'];
 
                 if ($mode != 'vp' && $mode != 'dp')
                     redirect(base_url('store'),'refresh');
-                
+
                 if ($mode == "vp")
                     $this->shop_model->getVPTrue($id);
                 if ($mode == "dp")
@@ -110,5 +112,4 @@ class Shop extends MX_Controller {
 
         $this->load->view('footer');
     }
-
 }
