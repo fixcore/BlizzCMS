@@ -34,30 +34,25 @@
 </head>
 
 <body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
-
-<!-- header -->
+    <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
     </div>
     </div>
     </div>
     <!-- submenu -->
-
-<!-- main -->
-
-<div role="main">
-    <section class="Topic" data-topic='{ "id":<?= $idlink ?>, "lastPosition":0,"forum":{"id":<?= $idlink ?>},"isSticky":true,"isFeatured":false,"isLocked":true,"isHidden":false,"isFrozen":false, "isSpam":false, "pollId":0 }' data-user='{}'>
-
-        <header class="Topic-header">
-            <div class="Container Container--content">
-                <p><?= $this->pages_model->getDesc($idlink); ?></p>
-            </div>
-        </header>
-
-        <header class="Topic-header">
-            <div class="Container Container--content">
-                <p><?= date('Y-m-d', $this->pages_model->getDate($idlink)); ?></p>
-            </div>
-        </header>
-
-    </section>
+    <!-- main -->
+    <div role="main">
+        <section class="Topic" data-topic='{ "id":<?= $idlink ?>, "lastPosition":0,"forum":{"id":<?= $idlink ?>},"isSticky":true,"isFeatured":false,"isLocked":true,"isHidden":false,"isFrozen":false, "isSpam":false, "pollId":0 }' data-user='{}'>
+            <header class="Topic-header">
+                <div class="Container Container--content">
+                    <p><?= $this->pages_model->getDesc($idlink); ?></p>
+                </div>
+            </header>
+            <header class="Topic-header">
+                <div class="Container Container--content">
+                    <p><?= date('Y-m-d', $this->pages_model->getDate($idlink)); ?></p>
+                </div>
+            </header>
+        </section>
+    </div>
