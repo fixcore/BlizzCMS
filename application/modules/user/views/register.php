@@ -173,6 +173,7 @@
                                         </div>
                                     </div>
                                     <div class="uk-inline">
+                                        <span class="uk-form-icon" uk-icon="icon: question"></span>
                                         <input class="uk-input" type="text" name="reg_SecretAnswer" pattern=".{1,}" required title="1 characters minimum" placeholder="<?= $this->lang->line('secret_answ'); ?>">
                                     </div>
                                 </div>
