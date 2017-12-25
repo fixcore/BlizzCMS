@@ -62,6 +62,7 @@ $lang['email_use'] = 'Email in use';
 $lang['password_same'] = 'The password is the same.';
 $lang['not_authorized'] = 'Not Authorized';
 $lang['serv_status'] = 'Server Status';
+$lang['id'] = 'ID';
 $lang['type'] = 'Type';
 $lang['item'] = 'Item';
 $lang['price'] = 'Price';

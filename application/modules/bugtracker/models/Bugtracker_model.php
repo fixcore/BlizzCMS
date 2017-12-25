@@ -32,11 +32,11 @@ class Bugtracker_model extends CI_Model {
     	<table class="uk-table uk-table-divider">
     		<thead>
                 <tr>
-                    <th>#</th>
-	    			<th>'.$this->lang->line("expr_title").'</th>
-	    			<th>'.$this->lang->line("type").'</th>
-	    			<th>'.$this->lang->line("expr_status").'</th>
-	    			<th>'.$this->lang->line("expr_priority").'</th>
+                    <th style="color: #fff;"><i class="fa fa-book" aria-hidden="true"></i> '.$this->lang->line("id").'</th>
+	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-bookmark" aria-hidden="true"></i> '.$this->lang->line("expr_title").'</th>
+	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-list" aria-hidden="true"></i> '.$this->lang->line("type").'</th>
+	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("expr_status").'</th>
+	    			<th class="uk-text-center" style="color: #fff;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("expr_priority").'</th>
 	    		</tr>
 
 	    		<tbody>
@@ -46,32 +46,34 @@ class Bugtracker_model extends CI_Model {
     		$output .= '
 
     		<tr>
-    		
+
     		<td>
-    			<a href="'.base_url('bugtracker/post/').$row->id.'">'.$row->id.'</a>
+    			<a href="'.base_url('bugtracker/post/').$row->id.'">
+                    <span class="uk-light">'.$row->id.'</span>
+				</a>
     		</td>
 
-    		<td>
+    		<td class="uk-text-center">
     			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-label">'.$row->title.'</span>            
+                    <span class="uk-light">'.$row->title.'</span>
                 </a>
             </td>
 
-            <td>
+            <td class="uk-text-center">
     			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-label uk-label-success">'.$this->bugtracker_model->getType($row->type).'</span>            
+                    <span class="uk-label">'.$this->bugtracker_model->getType($row->type).'</span>
                 </a>
             </td>
 
-            <td>
+            <td class="uk-text-center">
     			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-label uk-label-warning">'.$this->bugtracker_model->getStatus($row->status).'</span>            
+                    <span class="uk-label uk-label-success">'.$this->bugtracker_model->getStatus($row->status).'</span>
                 </a>
             </td>
 
-            <td>
+            <td class="uk-text-center">
     			<a href="'.base_url('bugtracker/post/').$row->id.'">
-                    <span class="uk-label uk-label-warning">'.$this->bugtracker_model->getPriority($row->priority).'</span>            
+                    <span class="uk-label uk-label-warning">'.$this->bugtracker_model->getPriority($row->priority).'</span>
                 </a>
             </td>
 

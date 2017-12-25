@@ -21,18 +21,12 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
     <!-- custom START -->
     <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
     <!-- custom END -->
     <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="<?= base_url(); ?>assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 </head>
 
@@ -44,39 +38,31 @@
     </div>
     </div>
     <!-- submenu -->
-<br><br><br>
-
-<div role="main">
-  <section class="Scm-content">
-<div class="section">
-<h2 style="color: #fff;"><?= $this->bugtracker_model->getTitleIssue($idlink); ?></h2>
-
-<p><?= $this->bugtracker_model->getDescIssue($idlink); ?></p>
-
-<div class="uk-margin">
-    <input class="uk-input uk-form-width-medium" type="text" placeholder="<?= $this->bugtracker_model->getUrlIssue($idlink); ?>" disabled>
-</div>
-
-<div class="uk-column-1-2 uk-column-divider">
-
-    <p><?= $this->lang->line('type'); ?>: <span class="uk-label uk-label-success"><?= $this->bugtracker_model->getType($this->bugtracker_model->getTypeID($idlink)); ?></span></p>
-
-    <p><?= $this->lang->line('expr_status'); ?>: <span class="uk-label uk-label-warning"><?= $this->bugtracker_model->getStatus($this->bugtracker_model->getStatusID($idlink)); ?></span></p>
-
-    <p><?= $this->lang->line('expr_priority'); ?>: <span class="uk-label uk-label-warning"><?= $this->bugtracker_model->getPriority($this->bugtracker_model->getPriorityID($idlink)); ?></span></p>
-
-    <p><?= $this->lang->line('expr_date'); ?>: <span class="uk-label uk-label-danger"><?= date('Y-m-d', $this->bugtracker_model->getDate($idlink)) ?></span></p>
-
-    <p><?= $this->lang->line('expr_author'); ?>: <?= $this->m_data->getUsernameID($this->bugtracker_model->getAuthor($idlink)); ?></p>
-    
-    <p> <?= $this->lang->line('expr_status'); ?>:
-        <?php if ($this->bugtracker_model->closeStatus($idlink) == '0') { ?>
-        <span class="uk-label uk-label-success"><?= $this->lang->line('expr_open'); ?></span>
-        <?php } else { ?>
-        <span class="uk-label uk-label-danger"><?= $this->lang->line('expr_closed'); ?></span>
-        <?php } ?>
-    </p>
-
-</div>
-
-</div>
+    <br><br><br>
+    <div role="main">
+        <section class="Scm-content">
+            <div class="section">
+                <h2 style="color: #fff;"><i class="fa fa-bookmark" aria-hidden="true"></i> <?= $this->bugtracker_model->getTitleIssue($idlink); ?></h2>
+                <p><?= $this->bugtracker_model->getDescIssue($idlink); ?></p>
+                <div class="uk-margin">
+                    <div class="uk-placeholder uk-text-center"><?= $this->bugtracker_model->getUrlIssue($idlink); ?></div>
+                </div>
+                <div class="uk-column-1-3 uk-column-divider">
+                    <p><i class="fa fa-list" aria-hidden="true"></i> <?= $this->lang->line('type'); ?>: <span class="uk-label"><?= $this->bugtracker_model->getType($this->bugtracker_model->getTypeID($idlink)); ?></span></p>
+                    <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <?= $this->lang->line('expr_priority'); ?>: <span class="uk-label uk-label-danger"><?= $this->bugtracker_model->getPriority($this->bugtracker_model->getPriorityID($idlink)); ?></span></p>
+                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('expr_date'); ?>: <span class="uk-badge"><?= date('Y-m-d', $this->bugtracker_model->getDate($idlink)) ?></span></p>
+                </div>
+                <div class="uk-column-1-3 uk-column-divider">
+                    <p><i class="fa fa-tags" aria-hidden="true"></i> <?= $this->lang->line('expr_status'); ?>: <span class="uk-label uk-label-success"><?= $this->bugtracker_model->getStatus($this->bugtracker_model->getStatusID($idlink)); ?></span></p>
+                    <p><i class="fa fa-info-circle" aria-hidden="true"></i> <?= $this->lang->line('expr_status'); ?>:
+                        <?php if ($this->bugtracker_model->closeStatus($idlink) == '0') { ?>
+                            <span class="uk-label uk-label-success"><?= $this->lang->line('expr_open'); ?></span>
+                        <?php } else { ?>
+                            <span class="uk-label uk-label-danger"><?= $this->lang->line('expr_closed'); ?></span>
+                        <?php } ?>
+                    </p>
+                    <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('expr_author'); ?>: <?= $this->m_data->getUsernameID($this->bugtracker_model->getAuthor($idlink)); ?></p>
+                </div>
+            </div>
+        </section>
+    </div>

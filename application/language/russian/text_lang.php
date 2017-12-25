@@ -60,6 +60,7 @@ $lang['email_use'] = 'Данный Email уже занят';
 $lang['password_same'] = 'Одинаковый пароль.';
 $lang['not_authorized'] = 'Не авторизован';
 $lang['serv_status'] = 'Статус сервера';
+$lang['id'] = 'ID';
 $lang['type'] = 'Тип';
 $lang['item'] = 'Предмет';
 $lang['price'] = 'Цена';
