@@ -97,7 +97,7 @@
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-6">
-                            <div class="uk-alert-success">
+                            <div class="uk-alert-success" uk-alert>
                                 <p><?=$this->lang->line('shop_success');?></p>
                             </div>
                         </div>
@@ -110,7 +110,7 @@
                         <div _ngcontent-c9="" class="main">
                             <div class="uk-grid uk-grid-small uk-child-width-1-1 uk-flex-center uk-text-center">
                                 <div class="uk-grid uk-grid-medium uk-child-width-1-4 uk-flex-center uk-text-center">
-                                    <?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
+                                    <?php foreach($this->shop_model->getShopGeneralGP($idlink)->result() as $itemsG) { ?>
                                         <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack">
                                             <storefront-browsing-card _ngcontent-c9="" _nghost-c16="">
                                                 <div _ngcontent-c16="" class="browsing-card">
