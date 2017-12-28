@@ -5,9 +5,9 @@ class User extends MX_Controller {
 
     public function login()
     {
-        if($this->m_modules->getStatusLogin() != '1')
+        if ($this->m_modules->getStatusLogin() != '1')
             redirect(base_url(),'refresh');
-        
+
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -21,7 +21,7 @@ class User extends MX_Controller {
 
     public function register()
     {
-        if($this->m_modules->getStatusRegister() != '1')
+        if ($this->m_modules->getStatusRegister() != '1')
             redirect(base_url(),'refresh');
 
         if ($this->m_data->isLogged())
@@ -29,7 +29,8 @@ class User extends MX_Controller {
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('register');
             }
             else
@@ -48,7 +49,7 @@ class User extends MX_Controller {
 
     public function settings()
     {
-        if($this->m_modules->getStatusUCP() != '1')
+        if ($this->m_modules->getStatusUCP() != '1')
             redirect(base_url(),'refresh');
 
         $this->load->model('user_model');
@@ -58,7 +59,8 @@ class User extends MX_Controller {
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('settings');
             }
             else

@@ -11,7 +11,6 @@ class Pvp_model extends CI_Model {
 
     public function getTop20PVP()
     {
-    	return $this->characters->query("SELECT name, race, totalKills, todayKills, yesterdayKills FROM characters ORDER BY totalKills DESC LIMIT 20");
+        return $this->characters->query("SELECT name, race, totalKills, todayKills, yesterdayKills FROM characters ORDER BY totalKills DESC LIMIT 20");
     }
-
 }

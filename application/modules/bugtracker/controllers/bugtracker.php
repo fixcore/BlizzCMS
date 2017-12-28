@@ -5,14 +5,15 @@ class Bugtracker extends MX_Controller {
 
     public function index()
     {
-        if($this->m_modules->getStatusLadBugtracker() != '1')
+        if ($this->m_modules->getStatusLadBugtracker() != '1')
             redirect(base_url(),'refresh');
 
         $this->load->model('bugtracker_model');
 
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('index');
             }
             else
@@ -20,6 +21,33 @@ class Bugtracker extends MX_Controller {
         }
         else
             $this->load->view('index');
+
+        $this->load->view('footer');
+    }
+
+    public function post($id)
+    {
+        if (empty($id) || is_null($id) || $id == '0')
+            redirect(base_url(),'refresh');
+
+        if ($this->m_modules->getStatusLadBugtracker() != '1')
+            redirect(base_url(),'refresh');
+
+        $this->load->model('bugtracker_model');
+
+        $data['idlink'] = $id;
+
+        if ($this->config->item('maintenance_mode') == '1')
+        {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
+                $this->load->view('post', $data);
+            }
+            else
+                $this->load->view('maintenance');
+        }
+        else
+            $this->load->view('post', $data);
 
         $this->load->view('footer');
     }
@@ -63,5 +91,4 @@ class Bugtracker extends MX_Controller {
 
         echo json_encode($output);
     }
-
 }
