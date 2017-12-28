@@ -52,6 +52,7 @@
                             <div class="Gallery-wrapper">
                                 <div class="Gallery-container">
                                     <div class="Gallery-inner">
+                                        <?php if ($this->news_model->getNewsTopsList()->num_rows() > 0) { ?>
                                         <?php foreach($this->news_model->getNewsTopsList()->result() as $listTop) { ?>
                                             <div class="GalleryItem GalleryItem--mediumMargins GalleryItem--adaptiveMargins GalleryItem--landing is-focus">
                                                 <a href="<?= base_url(); ?>news/<?= $listTop->id_new ?>" data-external="false" data-article-id="<?= $listTop->id_new ?>" data-analytics="news-promotion" data-analytics-placement="blog:<?= $listTop->id_new ?> - <?= $this->news_model->getNewTitle($listTop->id_new); ?>" class="ArticleLink FeaturedArticle-link align-left">
@@ -67,6 +68,7 @@
                                                     </div>
                                                 </a>
                                             </div>
+                                        <?php } ?>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -102,6 +104,7 @@
                                 <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('recent_news'); ?></h2>
                                 <div class="space-adaptive-card"></div>
                                 <div class="ArticleList" id="recent-articles">
+                                    <?php if ($this->news_model->getNewsList()->num_rows() > 0) { ?>
                                     <?php foreach($this->news_model->getNewsList()->result() as $list) { ?>
                                         <div class="ArticleListItem">
                                             <a href="<?= base_url(); ?>news/<?= $list->id ?>" data-external="false" data-article-id="<?= $list->id ?>" data-analytics="<?= $this->lang->line('news'); ?>" data-analytics-placement="blog:<?= $list->id ?> - <?= $list->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
@@ -128,6 +131,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    <?php } ?>
                                     <?php } ?>
                                 </div>
                             </div>

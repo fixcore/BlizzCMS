@@ -105,7 +105,7 @@
                         <!-- /.dropdown-messages -->
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="<?= base_url(); ?>assets/images/profiles/<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" alt="<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" width="36" class="img-circle">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> 
                             <b class="hidden-xs">
                                 <?= $this->session->userdata('fx_sess_username'); ?>
                             </b>
@@ -113,7 +113,6 @@
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li>
                                 <div class="dw-user-box">
-                                    <div class="u-img"><img src="<?= base_url(); ?>assets/images/profiles/<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" alt="<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" /></div>
                                     <div class="u-text">
                                         <h4><?= $this->session->userdata('fx_sess_username'); ?></h4>
                                         <p class="text-muted"><?= $this->session->userdata('fx_sess_email'); ?></p></div>
