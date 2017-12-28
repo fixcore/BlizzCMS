@@ -69,6 +69,7 @@ class Shop_model extends CI_Model {
     public function getVPTrue($id)
     {
         $qq = $this->db->query("SELECT price_vp FROM fx_shop WHERE id = '".$id."'")->row()->price_vp;
+
         if (!is_null($qq) && $qq > 0)
             return true;
         else
@@ -78,6 +79,7 @@ class Shop_model extends CI_Model {
     public function getDPTrue($id)
     {
         $qq = $this->db->query("SELECT price_dp FROM fx_shop WHERE id = '".$id."'")->row()->price_dp;
+
         if (!is_null($qq) && $qq > 0)
             return true;
         else
@@ -114,7 +116,6 @@ class Shop_model extends CI_Model {
 
         $this->m_soap->commandSoap('.send items '.$getCharName.' "'.$subject.'" "'.$message.'" '.$itemid);
 
-        
         $this->db->query("INSERT INTO fx_shop_history (idshop, itemid, date, accountid, charid, method) VALUES ('$idshop', '$itemid', '$date', '$accountid', '$charid', '$method')");
 
         if ($method == "dp")

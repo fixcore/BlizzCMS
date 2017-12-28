@@ -94,7 +94,7 @@
                     <div class="row">
                         <div class="col-sm-3"></div>
                         <div class="col-sm-6">
-                            <div class="uk-alert-success">
+                            <div class="uk-alert-success" uk-alert>
                                 <p><?=$this->lang->line('shop_success');?></p>
                             </div>
                         </div>

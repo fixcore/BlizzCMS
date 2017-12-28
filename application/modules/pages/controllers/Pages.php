@@ -9,16 +9,16 @@ class Pages extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->model('pages_model');
-        
+
         if ($this->pages_model->getVerifyExist($id) < 1)
             redirect(base_url(),'refresh');
 
         $data['idlink'] = $id;
 
-
         if ($this->config->item('maintenance_mode') == '1')
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
                 $this->load->view('page', $data);
             }
             else
@@ -29,5 +29,4 @@ class Pages extends MX_Controller {
 
         $this->load->view('footer');
     }
-
 }

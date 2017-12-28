@@ -46,7 +46,7 @@
             <div class="container">
                 <!-- -->
                 <div class="space-adaptive-small"></div>
-                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="fa fa-trophy" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?></h2>
+                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="ra ra-axe"></i> <?= $this->m_general->getRealmName(); ?></h2>
                 <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('lad_pvp');?></h4>
                 <div class="space-adaptive-small"></div>
                 <!-- -->

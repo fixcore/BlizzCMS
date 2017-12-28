@@ -95,7 +95,7 @@
                             </span>
                             <form method="post" action="">
                                 <label for="server_name">Server name</label>
-                                <input required type="text" id="server_name" name="server_name" placeholder="MyServer" />
+                                <input required type="text" id="server_name" name="server_name" pattern=".{2,9}" required title="2 characters minimum and 9 maximum" placeholder="MyServer" />
                                 <label for="realmlist">Realmlist</label>
                                 <input required type="text" id="realmlist" name="realmlist" placeholder="logon.domain.com" />
                                 <label for="expansion">Expansion:</label>
