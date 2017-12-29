@@ -47,7 +47,17 @@ class Forum_model extends CI_Model {
     {
         $date = $this->m_data->getTimestamp();
 
-        $this->db->query("INSERT INTO fx_forum_topics (forums, title, author, date, content, locked, pined) VALUES ('$idlink', '$title', '$userid', '$date', '$description', '$lock', '$highl')");
+        $data = array(
+        'forums' => $idlink,
+        'title' => $title,
+        'author' => $userid,
+        'date' => $date,
+        'content' => $description,
+        'locked' => $lock,
+        'pined' => $highl,
+        );
+
+        $this->db->insert('fx_forum_topics', $data);
 
         redirect(base_url('forums/category/').$idlink,'refresh');
     }
