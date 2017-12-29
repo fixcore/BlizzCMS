@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.5-10.1.29-MariaDB : Database - blizzcms
+MySQL - 5.6.38-log : Database - blizzcms
 *********************************************************************
 */
 
@@ -19,9 +19,11 @@ CREATE TABLE `fx_bugtracker_priority` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `title` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_bugtracker_priority` */
+
+insert  into `fx_bugtracker_priority`(`id`,`title`) values (1,'High'),(2,'Medium'),(3,'Low');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
