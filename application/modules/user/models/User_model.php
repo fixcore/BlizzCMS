@@ -60,4 +60,11 @@ class User_model extends CI_Model {
 
         return $this->db->query("SELECT id FROM fx_users WHERE id = '".$sessid."'");
     }
+
+    public function updateInformation($id, $name, $surname, $username, $email, $question, $answer, $day, $month, $year)
+    {
+        $this->db->query("DELETE FROM fx_users WHERE id = '$id'");
+        $this->db->query("INSERT INTO fx_users (id, name, surname, username, email, question, answer, year, month, day) VALUES ('$id' ,'$name', '$surname', '$username', '$email', '$question', '$answer', '$day', '$month', '$year')");
+        redirect(base_url('settings'),'refresh');
+    }
 }
