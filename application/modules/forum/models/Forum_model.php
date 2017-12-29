@@ -17,7 +17,14 @@ class Forum_model extends CI_Model {
     {
         $date = $this->m_data->getTimestamp();
 
-        $this->db->query("INSERT INTO fx_forum_comments (topic, author, commentary, date) VALUES ('$topic' ,'$author' ,'$comment' ,'$date')");
+        $data = array(
+            'topic' => $topic,
+            'author' => $author,
+            'commentary' => $comment,
+            'date' => $date,
+            );
+
+        $this->auth->insert('fx_forum_comments', $data);
 
         redirect(base_url('forums/topic/'.$topic),'refresh');
     }

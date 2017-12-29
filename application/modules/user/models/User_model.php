@@ -64,7 +64,22 @@ class User_model extends CI_Model {
     public function updateInformation($id, $name, $surname, $username, $email, $question, $answer, $day, $month, $year)
     {
         $this->db->query("DELETE FROM fx_users WHERE id = '$id'");
-        $this->db->query("INSERT INTO fx_users (id, name, surname, username, email, question, answer, year, month, day) VALUES ('$id' ,'$name', '$surname', '$username', '$email', '$question', '$answer', '$day', '$month', '$year')");
+
+        $data = array(
+            'id' => $id,
+            'name' => $name,
+            'surname' => $surname,
+            'username' => $username,
+            'email' => $email,
+            'question' => $question,
+            'answer' => $answer,
+            'year' => $year,
+            'month' => $month,
+            'day' => $day,
+            );
+
+        $this->auth->insert('fx_users', $data);
+
         redirect(base_url('settings'),'refresh');
     }
 }

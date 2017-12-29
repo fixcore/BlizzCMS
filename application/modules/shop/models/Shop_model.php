@@ -116,7 +116,16 @@ class Shop_model extends CI_Model {
 
         $this->m_soap->commandSoap('.send items '.$getCharName.' "'.$subject.'" "'.$message.'" '.$itemid);
 
-        $this->db->query("INSERT INTO fx_shop_history (idshop, itemid, date, accountid, charid, method) VALUES ('$idshop', '$itemid', '$date', '$accountid', '$charid', '$method')");
+        $data = array(
+            'idshop' => $idshop,
+            'itemid' => $itemid,
+            'date' => $date,
+            'accountid' => $accountid,
+            'charid' => $charid,
+            'method' => $method,
+            );
+
+        $this->auth->insert('fx_shop_history', $data);
 
         if ($method == "dp")
             $this->db->query("UPDATE fx_credits SET dp = (dp - '$price') WHERE accountid = '$accountid'");
