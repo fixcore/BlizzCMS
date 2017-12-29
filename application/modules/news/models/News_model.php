@@ -10,12 +10,12 @@ class News_model extends CI_Model {
 
     public function getNewTitle($id)
     {
-        $qq = $this->db->query("SELECT title FROM fx_news WHERE id = '".$id."'")->row_array()['title'];
+        return $this->db->query("SELECT title FROM fx_news WHERE id = '".$id."'")->row_array()['title'];
     }
 
     public function getNewImage($id)
     {
-        $qq = $this->db->query("SELECT image FROM fx_news WHERE id = '".$id."'")->row_array()['image'];
+        return $this->db->query("SELECT image FROM fx_news WHERE id = '".$id."'")->row_array()['image'];
     }
 
     public function getNewDescription($id)
