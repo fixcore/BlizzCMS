@@ -102,6 +102,7 @@
                                     <option value="english">English</option>
                                     <option value="german">German</option>
                                     <option value="russian">Russian</option>
+                                    <option value="french">French</option>
                                 </select>
                                 <div class="ui info message">
                                     <div class="content">

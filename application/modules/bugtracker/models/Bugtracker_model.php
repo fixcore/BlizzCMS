@@ -83,7 +83,17 @@ class Bugtracker_model extends CI_Model {
         $date = $this->m_data->getTimestamp();
         $author = $this->session->userdata('fx_sess_id');
 
-        $this->db->query("INSERT INTO fx_bugtracker (title, description, type, url, date, author, close) VALUES ('$title', '$desc', '$type', '$url', '$date', '$author', '0')");
+        $data = array(
+            'title' => $title,
+            'description' => $desc,
+            'type' => $type,
+            'url' => $url,
+            'date' => $date,
+            'author' => $author,
+            'close' => '0',
+            );
+
+        $this->auth->insert('fx_bugtracker', $data);
 
         redirect(base_url('bugtracker'),'refresh');
     }

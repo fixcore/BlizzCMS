@@ -211,6 +211,9 @@ $lang['button_buy'] = 'Buy';
 $lang['button_save'] = 'Save';
 
 
+$lang['add_personal_info'] = 'Add Personal Information';
+$lang['personalinfo'] = 'Personal Information';
+
 $lang['chang_avatar'] = 'Change Avatar';
 
 $lang['update_information'] = 'Update Information';
