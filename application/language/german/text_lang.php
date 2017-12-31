@@ -207,7 +207,7 @@ $lang['button_buy'] = 'Erwerben';
 $lang['button_save'] = 'speichern';
 
 $lang['add_personal_info'] = 'Persönliche Informationen hinzufügen';
-$lang['personalinfo'] = 'PPersönliche Informationen';
+$lang['personalinfo'] = 'Persönliche Informationen';
 
 $lang['chang_avatar'] = 'Avatar ändern';
 
