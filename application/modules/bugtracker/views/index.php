@@ -76,7 +76,7 @@
             <div class="Tracker-content" data-track="nexus.checkbox" id="forum-topics">
                 <!-- table START -->
                 <div align="right" id="pagination_link"></div>
-                <div class="table-responsive" id="country_table"></div>
+                <div class="table-responsive" id="bugtracker_table"></div>
                 <!-- table END -->
 
                 <script>
@@ -90,7 +90,7 @@
                        dataType:"json",
                        success:function(data)
                        {
-                        $('#country_table').html(data.country_table);
+                        $('#bugtracker_table').html(data.bugtracker_table);
                         $('#pagination_link').html(data.pagination_link);
                        }
                       });

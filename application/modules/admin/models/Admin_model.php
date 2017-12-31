@@ -27,7 +27,19 @@ class Admin_model extends CI_Model {
         if ($pricevp == '0')
             $pricevp = NULL;
 
-        $this->db->query("INSERT INTO fx_shop (itemid, type, name, price_dp, price_vp, iconname, groups, image) VALUES ('$itemid', '$type', '$name', '$pricedp', '$pricevp', '$iconname', '$groups', '$image')");
+        $data = array(
+        'itemid' => $itemid,
+        'type' => $type,
+        'name' => $name,
+        'price_dp' => $pricedp,
+        'price_vp' => $pricevp,
+        'iconname' => $iconname,
+        'groups' => $groups,
+        'image' => $image,
+        );
+
+        $this->db->insert('fx_shop', $data);
+        
         redirect(base_url('admin/shop'),'refresh');
     }
 
@@ -39,7 +51,15 @@ class Admin_model extends CI_Model {
     public function insertChangelog($title, $desc)
     {
         $date = $this->m_data->getTimestamp();
-        $this->db->query("INSERT INTO fx_changelogs (title, description, date) VALUES ('$title', '$desc', '$date')");
+
+        $data = array(
+        'title' => $title,
+        'description' => $desc,
+        'date' => $date,
+        );
+
+        $this->db->insert('fx_changelogs', $data);
+
         redirect(base_url('admin/changelogs'),'refresh');
     }
 
@@ -68,7 +88,14 @@ class Admin_model extends CI_Model {
 
     public function insertApiCharType($id, $type)
     {
-        $this->db->query("INSERT INTO fx_api_generator (id, type, active) VALUES ('$id','$type','1')");
+        $data = array(
+        'id' => $id,
+        'type' => $type,
+        'active' => '1'
+        );
+
+        $this->db->insert('fx_api_generator', $data);
+
         redirect(base_url('admin/capic/?generated=').$id,'refresh');
     }
 
@@ -111,18 +138,37 @@ class Admin_model extends CI_Model {
 
         $date 	= $this->m_data->getTimestamp();
         $reason = $this->lang->line('remove_addmAnnoW');
-        $this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
+
+        $data = array(
+        'iduser' => $id,
+        'annotation' => $reason,
+        'date' => $date,
+        );
+
+        $this->db->insert('fx_users_annotations', $data);
 
         redirect(base_url().'admin/alist/'.$id,'refresh');
     }
 
     public function getADDADMRank($id)
     {
-        $this->db->query("INSERT INTO fx_ranks (id, permission) VALUES ('$id', '1')");
+        $data1 = array(
+        'id' => $id,
+        'permission' => '1',
+        );
+
+        $this->db->insert('fx_ranks', $data1);
 
         $date 	= $this->m_data->getTimestamp();
         $reason = $this->lang->line('receive_addmAnnoW');
-        $this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
+
+        $data2 = array(
+        'iduser' => $id,
+        'annotation' => $reason,
+        'date' => $date,
+        );
+
+        $this->db->insert('fx_users_annotations', $data2);
 
         redirect(base_url().'admin/alist/'.$id,'refresh');
     }
@@ -135,13 +181,27 @@ class Admin_model extends CI_Model {
 
     public function insertCategory($name)
     {
-        $this->db->query("INSERT INTO fx_forum_category (categoryName) VALUES ('$name')");
+        $data = array(
+        'categoryName' => $name,
+        );
+
+        $this->db->insert('fx_forum_category', $data);
+
         redirect(base_url('admin/mcategory'),'refresh');
     }
 
     public function insertForum($name, $category, $description, $icon, $type)
     {
-        $this->db->query("INSERT INTO fx_forum_forums (name, category, description, icon, type) VALUES ('$name', '$category', '$description', '$icon', '$type')");
+        $data = array(
+        'name' => $name,
+        'category,' => $category,
+        'description' => $description,
+        'icon' => $icon,
+        'type' => $type,
+        );
+
+        $this->db->insert('fx_forum_forums', $data);
+
         redirect(base_url('admin/mforum'),'refresh');
     }
 
@@ -174,9 +234,23 @@ class Admin_model extends CI_Model {
         if (empty($reason))
             $reason = $this->lang->line('was_ban');
 
-        $this->db->query("INSERT INTO fx_chars_annotations (idchar, annotation, date) VALUES ('$id', '$reason', '$date')");
+        $data1 = array(
+        'idchar' => $id,
+        'annotation,' => $reason,
+        'date' => $date,
+        );
 
-        $this->characters->query("INSERT INTO character_banned (guid, bandate, unbandate, bannedby, banreason) VALUES ('$id', '$date', '$date', '$idsession','$reason')");
+        $this->db->insert('fx_chars_annotations', $data1);
+
+        $data2 = array(
+        'guid' => $id,
+        'bandate,' => $date,
+        'unbandate' => $date,
+        'bannedby' => $idsession,
+        'banreason' => $reason,
+        );
+
+        $this->characters->insert('character_banned', $data2);
 
         redirect(base_url().'admin/clist/'.$id,'refresh');
     }
@@ -188,7 +262,14 @@ class Admin_model extends CI_Model {
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_customAction');
-        $this->db->query("INSERT INTO fx_chars_annotations (idchar, annotation, date) VALUES ('$id', '$annotation', '$date')");
+
+        $data = array(
+        'idchar' => $id,
+        'annotation,' => $annotation,
+        'date' => $date,
+        );
+
+        $this->db->insert('fx_chars_annotations', $data);
 
         $this->characters = $this->load->database('characters', TRUE);
         $this->characters->query("UPDATE characters SET at_login = 8 WHERE guid= '$id'");
@@ -204,12 +285,25 @@ class Admin_model extends CI_Model {
     public function createNewADM($title, $image, $description, $type)
     {
         $date = $this->m_data->getTimestamp();
-        $this->db->query("INSERT INTO fx_news (title, image, description, date) VALUES ('$title', '$image', '$description', '$date')");
+
+        $data = array(
+        'title' => $title,
+        'image,' => $image,
+        'description' => $description,
+        'date' => $date,
+        );
+
+        $this->db->insert('fx_news', $data);
 
         if ($type == 2)
         {
             $id = $this->getNewIDperDate($date);
-            $this->db->query("INSERT INTO fx_news_top (id_new) VALUES ($id)");
+
+            $data = array(
+            'id_new' => $id,
+            );
+
+            $this->db->insert('fx_news_top', $data);
         }
 
         redirect(base_url(),'refresh');
@@ -227,7 +321,13 @@ class Admin_model extends CI_Model {
         $this->db->query("DELETE FROM fx_news_top WHERE id_new = '$id'");
 
         if ($type == 2)
-            $this->db->query("INSERT INTO fx_news_top (id_new) VALUES ($id)");
+        {
+            $data = array(
+            'id_new' => $id,
+            );
+
+            $this->db->insert('fx_news_top', $data);
+        }
 
         redirect(base_url(),'refresh');
     }
@@ -249,7 +349,14 @@ class Admin_model extends CI_Model {
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_chanfactAction');
-        $this->db->query("INSERT INTO fx_chars_annotations (idchar, annotation, date) VALUES ('$id', '$annotation', '$date')");
+
+        $data = array(
+            'idchar' => $id,
+            'annotation' => $annotation,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_chars_annotations', $data);
 
         $this->characters->query("UPDATE characters SET at_login = 64 WHERE guid= '$id'");
 
@@ -263,7 +370,14 @@ class Admin_model extends CI_Model {
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_chanraceAction');
-        $this->db->query("INSERT INTO fx_chars_annotations (idchar, annotation, date) VALUES ('$id', '$annotation', '$date')");
+
+        $data = array(
+            'idchar' => $id,
+            'annotation' => $annotation,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_chars_annotations', $data);
 
         $this->characters->query("UPDATE characters SET at_login = 128 WHERE guid= '$id'");
 
@@ -276,7 +390,14 @@ class Admin_model extends CI_Model {
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('unbanned');
-        $this->db->query("INSERT INTO fx_chars_annotations (idchar, annotation, date) VALUES ('$id', '$annotation', '$date')");
+
+        $data = array(
+            'idchar' => $id,
+            'annotation' => $annotation,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_chars_annotations', $data);
 
         redirect(base_url().'admin/clist/'.$id,'refresh');
     }
@@ -292,7 +413,13 @@ class Admin_model extends CI_Model {
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_newname').' -> '.$name.' | '.$this->lang->line('char_oldname').' -> '.$this->m_general->getCharName($id);
 
-        $this->db->query("INSERT INTO fx_chars_annotations (idchar, annotation, date) VALUES ('$id', '$annotation', '$date')");
+        $data = array(
+            'idchar' => $id,
+            'annotation' => $annotation,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_chars_annotations', $data);
 
         $this->characters->query("UPDATE characters SET name = '$name' WHERE guid = $id");
 
@@ -307,7 +434,13 @@ class Admin_model extends CI_Model {
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_newlevel').' -> '.$level.' | '.$this->lang->line('char_oldlevel').' -> '.$this->m_general->getCharLevel($id);
 
-        $this->db->query("INSERT INTO fx_chars_annotations (idchar, annotation, date) VALUES ('$id', '$annotation', '$date')");
+        $data = array(
+            'idchar' => $id,
+            'annotation' => $annotation,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_chars_annotations', $data);
 
         $this->characters = $this->load->database('characters', TRUE);
         $this->characters->query("UPDATE characters SET level = $level WHERE guid = $id");
@@ -322,12 +455,24 @@ class Admin_model extends CI_Model {
 
     public function insertRankAcc($id, $gmlevel)
     {
-        $this->auth->query("INSERT INTO account_access (id, gmlevel, RealmID) VALUES ('$id', '$gmlevel', '-1')");
+        $data = array(
+            'id' => $id,
+            'gmlevel' => $gmlevel,
+            'RealmID' => '-1',
+            );
+
+        $this->auth->insert('account_access', $data);
 
         $date 	= $this->m_data->getTimestamp();
         $reason = $this->lang->line('receive_gmAnno');
 
-        $this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
+        $data = array(
+            'iduser' => $id,
+            'annotation' => $reason,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_users_annotations', $data);
 
         redirect(base_url().'admin/alist/'.$id,'refresh');
     }
@@ -344,7 +489,13 @@ class Admin_model extends CI_Model {
         if (empty($reason))
             $reason = $this->lang->line('unbanned');
 
-        $this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
+        $data = array(
+            'iduser' => $id,
+            'annotation' => $reason,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_users_annotations', $data);
 
         $this->auth->query("DELETE FROM account_banned WHERE id = $id");
 
@@ -358,7 +509,13 @@ class Admin_model extends CI_Model {
         $date 	= $this->m_data->getTimestamp();
         $reason = $this->lang->line('remove_gmAnnotation');
 
-        $this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$id', '$reason', '$date')");
+        $data = array(
+            'iduser' => $id,
+            'annotation' => $reason,
+            'date' => $date,
+            );
+
+        $this->db->insert('fx_users_annotations', $data);
 
         redirect(base_url().'admin/alist/'.$id,'refresh');
     }
@@ -371,9 +528,23 @@ class Admin_model extends CI_Model {
         if (empty($reason))
             $reason = $this->lang->line('was_ban');
 
-        $this->db->query("INSERT INTO fx_users_annotations (iduser, annotation, date) VALUES ('$iduser', '$reason', '$date')");
+        $data1 = array(
+            'iduser' => $iduser,
+            'annotation' => $reason,
+            'date' => $date,
+            );
 
-        $this->auth->query("INSERT INTO account_banned (id, bandate, unbandate, bannedby, banreason) VALUES ('$iduser', '$date', '$date', '$id','$reason')");
+        $this->db->insert('fx_users_annotations', $data1);
+
+        $data2 = array(
+            'id' => $iduser,
+            'bandate' => $date,
+            'unbandate' => $date,
+            'bannedby' => $id,
+            'banreason' => $reason,
+            );
+
+        $this->auth->insert('account_banned', $data2);
 
         redirect(base_url().'admin/alist/'.$iduser,'refresh');
     }

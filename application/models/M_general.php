@@ -314,4 +314,39 @@ class M_general extends CI_Model {
     		case 9:	return 'exile'; break;
     	}
     }
+
+    public function getStylesPagination($perpage, $count)
+    {
+        $this->load->library("pagination");
+
+    	$config = array
+        (
+            'base_url'          => "#",
+            'total_rows'        => $count,
+            'per_page'          => $perpage,
+            'uri_segment'       => 3,
+            'use_page_numbers'  => TRUE,
+            'full_tag_open'     => '<ul class="pagination uk-pagination uk-flex-right edium>-top" uk-margin">',
+            'full_tag_close'    => '</ul>',
+            'first_tag_open'    => '<li>',
+            'first_tag_close'   => '</li>',
+            'last_tag_open'     => '<li>',
+            'last_tag_close'    => '</li>',
+            'next_link'         => '&gt;',
+            'next_tag_open'     => '<li>',
+            'next_tag_close'    => '</li>',
+            'prev_link'         => "&lt;",
+            'prev_tag_open'     => "<li>",
+            'prev_tag_close'    => "</li>",
+            'cur_tag_open'      => "<li class='active'><a href='#'>",
+            'cur_tag_close'     => "</a></li>",
+            'num_tag_open'      => "<li>",
+            'num_tag_close'     => "</li>",
+            'num_links'          => 1,
+        );
+
+        $this->pagination->initialize($config);
+
+        return $config;
+    }
 }
