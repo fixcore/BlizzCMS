@@ -78,7 +78,7 @@ class User_model extends CI_Model {
             'day' => $day,
             );
 
-        $this->auth->insert('fx_users', $data);
+        $this->db->insert('fx_users', $data);
 
         redirect(base_url('settings'),'refresh');
     }
