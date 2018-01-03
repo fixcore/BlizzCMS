@@ -194,7 +194,7 @@ class Admin_model extends CI_Model {
     {
         $data = array(
         'name' => $name,
-        'category,' => $category,
+        'category' => $category,
         'description' => $description,
         'icon' => $icon,
         'type' => $type,
