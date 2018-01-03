@@ -24,7 +24,7 @@ class Forum_model extends CI_Model {
             'date' => $date,
             );
 
-        $this->auth->insert('fx_forum_comments', $data);
+        $this->db->insert('fx_forum_comments', $data);
 
         redirect(base_url('forums/topic/'.$topic),'refresh');
     }
