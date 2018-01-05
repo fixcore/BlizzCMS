@@ -288,7 +288,7 @@ class Admin_model extends CI_Model {
 
         $data = array(
         'title' => $title,
-        'image,' => $image,
+        'image' => $image,
         'description' => $description,
         'date' => $date,
         );
