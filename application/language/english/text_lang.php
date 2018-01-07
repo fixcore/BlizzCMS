@@ -41,6 +41,7 @@ $lang['log_acc_des'] = 'Enjoy all the options we have for you';
 $lang['username_re'] = 'Username';
 $lang['password_re'] = 'Password';
 $lang['pascword_re'] = 'Repeat Password';
+$lang['pages'] = 'Pages';
 $lang['email_re'] = 'Email';
 $lang['no_account'] = 'Create a free account';
 $lang['reg_country'] = 'Country';

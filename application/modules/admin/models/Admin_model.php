@@ -63,6 +63,23 @@ class Admin_model extends CI_Model {
         redirect(base_url('admin/changelogs'),'refresh');
     }
 
+    public function insertPage($title, $desc)
+    {
+        $date = $this->m_data->getTimestamp();
+
+        $data = array(
+        'title' => $title,
+        'description' => $desc,
+        'date' => $date,
+        );
+
+        $this->db->insert('fx_pages', $data);
+
+        $idd = $this->db->query("SELECT id FROM fx_pages WHERE title = '".$title."'")->row()->id;
+
+        redirect(base_url('admin/pages?newpage='.$idd),'refresh');
+    }
+
     public function delShopItm($id)
     {
         $this->db->query("DELETE FROM fx_shop WHERE id = '$id'");
@@ -78,6 +95,17 @@ class Admin_model extends CI_Model {
     public function getChangelogs()
     {
         return $this->db->query("SELECT * FROM fx_changelogs")->result();
+    }
+
+    public function getPages()
+    {
+        return $this->db->query("SELECT * FROM fx_pages")->result();
+    }
+
+    public function delPage($id)
+    {
+        $this->db->query("DELETE FROM fx_pages WHERE id = $id");
+        redirect(base_url('admin/mpages'),'refresh');
     }
 
     public function delChangelog($id)
