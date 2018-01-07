@@ -499,6 +499,9 @@ class Admin_model extends CI_Model {
 
         $this->auth->query("DELETE FROM account_banned WHERE id = $id");
 
+        if ($this->m_general->getExpansionAction() == 2)
+            $this->auth->query("DELETE FROM battlenet_account_bans WHERE id = $id");
+
         redirect(base_url().'admin/alist/'.$id,'refresh');
     }
 
@@ -545,6 +548,9 @@ class Admin_model extends CI_Model {
             );
 
         $this->auth->insert('account_banned', $data2);
+
+        if ($this->m_general->getExpansionAction() == 2)
+            $this->auth->insert('battlenet_account_bans', $data2);
 
         redirect(base_url().'admin/alist/'.$iduser,'refresh');
     }
