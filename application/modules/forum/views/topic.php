@@ -101,6 +101,11 @@
 			<div class="Container Container--content">
 				<h1 class="Topic-heading">
 					<span class="Topic-title" data-topic-heading="true" style="color: #fff;"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
+					<p uk-margin>
+					    <button type="submit" name="button_addcommentary" class="TopicForm-button TopicForm-button--reply" id="submit-button">
+		            		<span class="Button-content"><?= $this->lang->line('button_edit'); ?></span>
+		            	</button>
+					</p>
 				</h1>
 			</div>
 		</header>

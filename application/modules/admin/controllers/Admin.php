@@ -401,4 +401,49 @@ class Admin extends MX_Controller {
         $this->load->view('news/nlist', $data);
         $this->load->view('general/footer');
     }
+
+    public function pages()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('pages/index');
+        $this->load->view('general/footer');
+    }
+
+    public function mpages()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('pages/mpages');
+        $this->load->view('general/footer');
+    }
+
+    public function cpage()
+    {
+        $this->load->model('admin_model');
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+
+        $this->load->view('general/header');
+        $this->load->view('pages/cpage');
+        $this->load->view('general/footer');
+    }
 }

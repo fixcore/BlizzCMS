@@ -143,6 +143,21 @@ class Bugtracker_model extends CI_Model {
         return $this->db->query("SELECT title FROM fx_bugtracker_priority WHERE id = '".$id."'")->row_array()['title'];
     }
 
+    public function getPriorityGeneral()
+    {
+        return $this->db->query("SELECT * FROM fx_bugtracker_priority");
+    }
+
+    public function getStatusGeneral()
+    {
+        return $this->db->query("SELECT * FROM fx_bugtracker_status");
+    }
+
+    public function getTypesGeneral()
+    {
+        return $this->db->query("SELECT * FROM fx_bugtracker_type");
+    }
+
     public function getPriorityID($id)
     {
         return $this->db->query("SELECT priority FROM fx_bugtracker WHERE id = '".$id."'")->row_array()['priority'];
