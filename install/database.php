@@ -177,11 +177,11 @@
                                 require('settings.php');
                                 $fixcore = connect($website_host, $website_user, $website_pass, $website_dbweb);
                                 /* connect -- */
-                                SplitSQL($fixcore, "SQL/base_blizzcms.sql");
-                                $updates = glob("SQL/updates/*.sql");
-                                if (count($updates))
+                                /* -- SplitSQL($fixcore, "SQL/base_blizzcms.sql"); -- */
+                                $cmsdb = glob("SQL/*.sql");
+                                if (count($cmsdb))
                                 {
-                                    foreach($updates as $update)
+                                    foreach($cmsdb as $update)
                                     {
                                         SplitSQL($fixcore, $update);
                                     }
