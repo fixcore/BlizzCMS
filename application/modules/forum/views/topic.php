@@ -119,8 +119,14 @@
 
 			<aside class="TopicPost-author">
 				<div class="Author-block">
-<div class="Author Author--blizzard" id="" data-topic-post-body-content="true"><a href="#" class="Author-avatar hasNoProfile" >
-	<?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows() > 0) { ?>
+
+<?php if($this->m_data->getRank($this->forum_model->getSpecifyPostAuthor($idlink)) > 0) { ?>
+	<div class="Author Author--blizzard" id="" data-topic-post-body-content="true"><a href="#" class="Author-avatar hasNoProfile" >
+<?php } else { ?>
+	<div class="Author" id="" data-topic-post-body-content="true"><a href="#" class="Author-avatar hasNoProfile" >
+<?php } ?>
+
+	<?php if($this->m_general->getUserInfoGeneral($this->forum_model->getSpecifyPostAuthor($idlink))->num_rows() > 0) { ?>
 	<img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->forum_model->getSpecifyPostAuthor($idlink))); ?>" alt="" />
 	<?php } else { ?>
 	<img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
