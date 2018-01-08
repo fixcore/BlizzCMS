@@ -93,7 +93,7 @@ class Bugtracker_model extends CI_Model {
             'close' => '0',
             );
 
-        $this->auth->insert('fx_bugtracker', $data);
+        $this->db->insert('fx_bugtracker', $data);
 
         redirect(base_url('bugtracker'),'refresh');
     }
