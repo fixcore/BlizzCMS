@@ -45,3 +45,6 @@ $lang['adm_manageChangelog'] = 'Changelogs verwalten';
 $lang['adm_createChangelog'] = 'Changelog erstellen';
 $lang['adm_manageShop'] = 'Shopeinträge verwalten';
 $lang['adm_createShop'] = 'Shopeintrag erstellen';
+$lang['adm_managePages'] = 'Seiten verwalten';
+$lang['adm_createPages'] = 'Seite erstellen';
+$lang['adm_pagesList'] = 'Seitenübersicht';
