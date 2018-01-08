@@ -252,6 +252,10 @@ $lang['shopping_cart'] = 'Shopping Cart';
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
 $lang['store_productName'] = 'Product Name';
+$lang['store_cart_header'] = 'Buy:';
+$lang['store_price'] = 'Price:';
+$lang['store_select_char'] = 'Select your character:';
+$lang['store_item_name'] = 'Item Name:';
 
 $lang['changelog_titlec'] = 'Title of the Changelog';
 
