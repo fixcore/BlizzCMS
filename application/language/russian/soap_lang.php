@@ -2,11 +2,11 @@
 /**
  * BlizzCMS
  *
- * An open source application based on Codeigniter for PHP
+ * An open source application based on CodeIgniter for PHP
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,6 +27,7 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 //Store
 $lang['store_senditem_subject'] = 'Приобрести онлайн';
 $lang['store_senditem_text'] = 'Спасибо за вашу покупку, вот ваша покупка';
