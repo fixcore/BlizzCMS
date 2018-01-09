@@ -1,3 +1,21 @@
+<?php if (isset($_POST['changePriory'])) {
+    $value = $_POST['prioryValue'];
+    $this->bugtracker_model->changePriority($idlink, $value);
+} ?>
+
+<?php if (isset($_POST['changeStatus'])) {
+    $value = $_POST['StatusValue'];
+    $this->bugtracker_model->changeStatus($idlink, $value);
+} ?>
+
+<?php if (isset($_POST['changetypes'])) {
+    $value = $_POST['typesValue'];
+    $this->bugtracker_model->changeType($idlink, $value);
+} ?>
+
+<?php if (isset($_POST['btn_closeBugtracker'])) {
+    $this->bugtracker_model->closeIssue($idlink);
+} ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -124,7 +142,9 @@
                     </div>
                     <!-- buttons -->
                     <br>
-                    <button class="uk-button uk-button-secondary uk-width-1-1"><?= $this->lang->line('button_close'); ?></button>
+                    <form method="post" action="">
+                        <button type="submit" name="btn_closeBugtracker" class="uk-button uk-button-secondary uk-width-1-1"><?= $this->lang->line('button_close'); ?></button>
+                    </form>
                 </div>
             </section>
         <?php } ?>

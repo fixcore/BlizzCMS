@@ -13,6 +13,30 @@ class Bugtracker_model extends CI_Model {
         return $this->db->query("SELECT * FROM fx_bugtracker WHERE close = 0");
     }
 
+    public function changePriority($id, $priority)
+    {
+        return $this->db->query("UPDATE fx_bugtracker SET priority = '$priority' WHERE id = $id");
+        redirect(base_url('bugtracker/post/').$id,'refresh');
+    }
+
+    public function closeIssue($id)
+    {
+        return $this->db->query("UPDATE fx_bugtracker SET close = '1' WHERE id = '$id'");
+        redirect(base_url('bugtracker/post/').$id,'refresh');
+    }
+
+    public function changeType($id, $type)
+    {
+        return $this->db->query("UPDATE fx_bugtracker SET type = '$type' WHERE id = $id");
+        redirect(base_url('bugtracker/post/').$id,'refresh');
+    }
+
+    public function changeStatus($id, $status)
+    {
+        return $this->db->query("UPDATE fx_bugtracker SET status = '$status' WHERE id = $id");
+        redirect(base_url('bugtracker/post/').$id,'refresh');
+    }
+
     public function count_all()
     {
         return $this->db->get("fx_bugtracker")->num_rows();
