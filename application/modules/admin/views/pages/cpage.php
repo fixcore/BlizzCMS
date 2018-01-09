@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="white-box">
-                            <h3 class="box-title m-b-0"><i class="fa fa-newspaper-o fa-fw"></i><?= $this->lang->line('adm_createPages'); ?></h3>
+                            <h3 class="box-title m-b-0"><i class="fa fa-file-text-o fa-fw"></i><?= $this->lang->line('adm_createPages'); ?></h3>
                             <p class="text-muted m-b-30 font-13"></p>
                             <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
 
