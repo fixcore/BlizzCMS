@@ -204,17 +204,19 @@
                                                                 <?php } ?>
                                                                 <?= $this->m_general->getRealmName(); ?>
                                                             </h2>
-                                                            <span class="uk-label">
+                                                            <?php if ($this->m_data->realm_status()) { ?>
+                                                                <span class="uk-label">
                                                                     <span uk-icon="icon: users"></span>
                                                                     <?= $this->m_general->getCharactersOnlineAlliance(); ?>
                                                                     <?= $this->lang->line('faction_alliance'); ?>
-                                                            </span>
-                                                            <span class="uk-label uk-label-danger">
-                                                                <span uk-icon="icon: users"></span>
-                                                                <?= $this->m_general->getCharactersOnlineHorde(); ?>
-                                                                <?= $this->lang->line('faction_horde'); ?>
-                                                            </span>
-                                                            <br></br>
+                                                                </span>
+                                                                <span class="uk-label uk-label-danger">
+                                                                    <span uk-icon="icon: users"></span>
+                                                                    <?= $this->m_general->getCharactersOnlineHorde(); ?>
+                                                                    <?= $this->lang->line('faction_horde'); ?>
+                                                                </span>
+                                                                <br>
+                                                            <?php } ?>
                                                             <div class="label">
                                                                 <h4 style="color: #fff;">
                                                                 <?php if ($this->m_general->getExpansionAction() == 1) { ?>
