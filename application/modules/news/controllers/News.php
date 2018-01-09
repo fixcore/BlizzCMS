@@ -30,6 +30,7 @@ class News extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->model('news_model');
+        $this->load->model('forum/forum_model');
 
         $data['idlink'] = $id;
 
