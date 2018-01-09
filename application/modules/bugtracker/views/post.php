@@ -65,86 +65,67 @@
                 </div>
             </div>
         </section>
-
-        <section class="Scm-content">
-            <div class="section">
-                <!-- buttons -->
-
-                <div class="uk-column-1-4 uk-column-divider">
-                    <!-- priority -->
-                    <div>
-                        <div class="uk-margin">
-                            
-                            <form method="post" action="">
-                                
-                                <div class="uk-form-controls">
-                                    <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="prioryValue">
-                                    <?php foreach($this->bugtracker_model->getPriorityGeneral()->result() as $priory) { ?>
-                                        <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
-                                    <?php } ?>
-                                    </select>
-                                
-                                </div>
-
-                                <button class="uk-button uk-button-secondary" type="submit" name="changePriory"><?= $this->lang->line('button_change'); ?></button>
-                            
-                            </form>
+        <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+            <section class="Scm-content">
+                <div class="section">
+                    <!-- buttons -->
+                    <div class="uk-column-1-3 uk-column-divider">
+                        <!-- priority -->
+                        <div>
+                            <div class="uk-margin">
+                                <form method="post" action="">
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="prioryValue">
+                                            <?php foreach($this->bugtracker_model->getPriorityGeneral()->result() as $priory) { ?>
+                                                <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" name="changePriory"><?= $this->lang->line('button_change'); ?></button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <!-- priority -->
-
-                    <!-- status -->
-                    <div>
-                        <div class="uk-margin">
-                            
-                            <form method="post" action="">
-                                
-                                <div class="uk-form-controls">
-                                    <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="StatusValue">
-                                    <?php foreach($this->bugtracker_model->getStatusGeneral()->result() as $priory) { ?>
-                                        <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
-                                    <?php } ?>
-                                    </select>
-                                
-                                </div>
-
-                                <button class="uk-button uk-button-secondary" type="submit" name="changeStatus"><?= $this->lang->line('button_change'); ?></button>
-                            
-                            </form>
+                        <!-- priority -->
+                        <!-- status -->
+                        <div>
+                            <div class="uk-margin">
+                                <form method="post" action="">
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="StatusValue">
+                                            <?php foreach($this->bugtracker_model->getStatusGeneral()->result() as $priory) { ?>
+                                                <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" name="changeStatus"><?= $this->lang->line('button_change'); ?></button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                    <!-- status -->
-
-                    <!-- type -->
-                    <div>
-                        <div class="uk-margin">
-                            
-                            <form method="post" action="">
-                                
-                                <div class="uk-form-controls">
-                                    <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="typesValue">
-                                    <?php foreach($this->bugtracker_model->getTypesGeneral()->result() as $priory) { ?>
-                                        <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
-                                    <?php } ?>
-                                    </select>
-                                
-                                </div>
-
-                                <button class="uk-button uk-button-secondary" type="submit" name="changetypes"><?= $this->lang->line('button_change'); ?></button>
-                            
-                            </form>
+                        <!-- status -->
+                        <!-- type -->
+                        <div>
+                            <div class="uk-margin">
+                                <form method="post" action="">
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="typesValue">
+                                            <?php foreach($this->bugtracker_model->getTypesGeneral()->result() as $priory) { ?>
+                                                <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" name="changetypes"><?= $this->lang->line('button_change'); ?></button>
+                                </form>
+                            </div>
                         </div>
+                        <!-- type -->
                     </div>
-                    <!-- type -->
-
-                    <div>
-                        <div class="uk-margin">
-                            <button class="uk-button uk-button-secondary"><?= $this->lang->line('button_close'); ?></button>
-                        </div>
-                    </div>
-
+                    <!-- buttons -->
+                    <br>
+                    <button class="uk-button uk-button-secondary uk-width-1-1"><?= $this->lang->line('button_close'); ?></button>
                 </div>
-                <!-- buttons -->
-            </div>
-        </section>
+            </section>
+        <?php } ?>
     </div>
