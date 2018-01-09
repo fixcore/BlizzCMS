@@ -57,6 +57,7 @@ $route['login'] = 'user/login';
 $route['register'] = 'user/register';
 $route['settings'] = 'user/settings';
 $route['logout'] = 'user/logout';
+$route['profile/(:num)'] = 'user/profile/$1';
 //forums
 $route['forums/category/(:num)'] = 'forum/category/$1';
 $route['forums/topic/(:num)'] = 'forum/topic/$1';

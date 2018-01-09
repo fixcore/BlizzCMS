@@ -151,7 +151,7 @@
                 </footer>
         </section>
 
-        <?php if($this->m_data->isLogged() == FALSE && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
+        <?php if(!$this->m_data->isLogged() && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
             <!-- isn't login -->
             <section class="Section Section--secondary">
                 <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">

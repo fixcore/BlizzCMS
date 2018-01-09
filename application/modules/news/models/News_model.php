@@ -8,6 +8,33 @@ class News_model extends CI_Model {
         parent::__construct();
     }
 
+    public function insertComment($commentary, $idlink, $idsession)
+    {
+        $date = $this->m_data->getTimestamp();
+
+        $data = array(
+        'id_new' => $idlink,
+        'commentary' => $commentary,
+        'date' => $date,
+        'author' => $idsession,
+        );
+
+        $this->db->insert('fx_news_comments', $data);
+
+        redirect(base_url('news/'.$idlink),'refresh');
+    }
+
+    public function removeComment($id)
+    {
+        $this->db->query("DELETE FROM fx_news_comments WHERE id = '".$id."'");
+        redirect(base_url('news/'.$id),'refresh');
+    }
+
+    public function getComments($idlink)
+    {
+        return $this->db->query("SELECT * FROM fx_news_comments WHERE id_new = '".$idlink."'");
+    }
+
     public function getNewTitle($id)
     {
         return $this->db->query("SELECT title FROM fx_news WHERE id = '".$id."'")->row_array()['title'];
