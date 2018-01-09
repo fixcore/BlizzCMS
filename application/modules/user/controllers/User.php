@@ -84,9 +84,6 @@ class User extends MX_Controller {
 
         $data['idlink'] = $id;
 
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
         if ($this->config->item('maintenance_mode') == '1')
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)

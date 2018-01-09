@@ -80,7 +80,7 @@
                 <div class="HeroPane-content">
                     <div class="align-center">
                         <div class="space-huge hide show-sm"></div>
-                        <div class="Heading Heading--siteTitle" id="locations-title" style="color: #fff;"><?= $this->session->userdata('fx_sess_username'); ?></div>
+                        <div class="Heading Heading--siteTitle" id="locations-title" style="color: #fff;"><?= $this->m_data->getUsernameID($idlink); ?></div>
                         <div class="space-medium"></div>
                         <div class="max-md">
                             <div class="h5">
