@@ -158,10 +158,46 @@
 <body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
+        <!-- submenu -->
+        <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
+    <div class="Container Container--content Container--breadcrumbs">
+
+<div class="GameSite-link"></div>
+
+<!-- cat -->
+<div class="GameSite-link"> </div> 
+    
+    <div class="Breadcrumbs"></div>
+
+<div class="User-menu"> 
+    <!-- right -->
+    <span class="Breadcrumb"> 
+        <a class="Breadcrumb-content"> 
+            <!-- logged -->
+            <?php if ($this->m_data->isLogged()) { ?>
+                    <!-- credits -->
+                    <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
+                     | 
+                    <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
+                    <!-- credits -->
+            <?php } ?>
+            <!-- logged -->
+        </a> 
+    </span>
+    <!-- right -->
+</div>
+
+    </div>
+</div>
+
     </div>
     </div>
     </div>
     <!-- submenu -->
+
+<!-- main -->
+
+<br><br>
 
     <div class="Page-container">
         <div class="Page-content en-US">
@@ -362,34 +398,20 @@
                                     <div class="uk-modal-dialog">
                                         <button class="uk-modal-close-default" type="button" uk-close></button>
                                         <div class="uk-modal-header">
-                                            <h2 class="uk-modal-title"><i class="fa fa-camera" aria-hidden="true"></i>
-                                                <?= $this->lang->line('chang_avatar'); ?>
-                                            </h2>
+                                            <h2 class="uk-modal-title"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('chang_avatar'); ?></h2>
                                         </div>
                                         <form action="" method="post" accept-charset="utf-8">
                                             <div class="uk-modal-body">
-                                                <!-- avatrs -->
-                                                    <!-- foreach -->
-                                                    <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
-
-                                                        <div class="row">
-                                                            <?php foreach($this->user_model->getAllAvatars()->result() as $allAvts) { ?>
+                                                <div class="uk-margin">
+                                                    <div class="uk-grid uk-grid-medium uk-child-width-1-5 uk-flex-center uk-text-center">
+                                                        <?php foreach($this->user_model->getAllAvatars()->result() as $allAvts) { ?>
                                                             <div class="col-sm-3">
-                                                                <div style="width: 150px; height: 150px;" class="uk-margin uk-card uk-card-default uk-card-body">
-                                                                    <label>
-                                                                    <img src="<?= base_url('assets/images/profiles/'.$allAvts->name); ?>" alt="">
-                                                                    <input type="radio" name="radioAvatars" checked value="<?= $allAvts->id ?>">
-                                                                    </label>
-                                                                </div>
+                                                                <img class="uk-border-rounded" src="<?= base_url('assets/images/profiles/'.$allAvts->name); ?>" width="100" height="100">
+                                                                <input type="radio" name="radioAvatars" checked value="<?= $allAvts->id ?>">
                                                             </div>
-                                                            <?php } ?>
-
-                                                        </div>
-
-
+                                                        <?php } ?>
                                                     </div>
-                                                    <!-- foreach -->
-                                                <!-- avatrs -->
+                                                </div>
                                                 <div class="uk-modal-footer uk-text-right actions">
                                                     <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
                                                     <button class="uk-button uk-button-primary" type="submit" name="button_changeavatar"><?= $this->lang->line('button_change'); ?></button>
@@ -401,7 +423,6 @@
                                 <!-- avatars end -->
 
                                 <!-- no info -->
-                                <!-- noinfo -->
                                 <div id="personalinfo" uk-modal>
                                     <div class="uk-modal-dialog">
                                         <button class="uk-modal-close-default" type="button" uk-close></button>

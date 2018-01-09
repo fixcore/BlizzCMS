@@ -2,11 +2,11 @@
 /**
  * BlizzCMS
  *
- * An open source application based on Codeigniter for PHP
+ * An open source application based on CodeIgniter for PHP
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,9 +41,8 @@ $lang['log_acc_des'] = 'Enjoy all the options we have for you';
 $lang['username_re'] = 'Username';
 $lang['password_re'] = 'Password';
 $lang['pascword_re'] = 'Repeat Password';
+$lang['pages'] = 'Pages';
 $lang['email_re'] = 'Email';
-$lang['button_log'] = 'Log In';
-$lang['button_reg'] = 'Register';
 $lang['no_account'] = 'Create a free account';
 $lang['reg_country'] = 'Country';
 $lang['first_name'] = 'First Name';
@@ -200,6 +199,11 @@ $lang['annotations'] = 'Annotations';
 $lang['mov_forum'] = 'Movements in the forum';
 $lang['last_comments'] = 'Last comments';
 
+
+$lang['button_close'] = 'Close';
+$lang['button_open'] = 'Open';
+$lang['button_log'] = 'Log In';
+$lang['button_reg'] = 'Register';
 $lang['button_crea'] = 'Create';
 $lang['button_continue'] = 'Continue';
 $lang['button_delete'] = 'Delete';
@@ -209,6 +213,8 @@ $lang['button_addreply'] = 'Add Reply';
 $lang['button_remove'] = 'Remove';
 $lang['button_buy'] = 'Buy';
 $lang['button_save'] = 'Save';
+$lang['button_edit'] = 'Edit';
+$lang['button_learnmore'] = 'Learn More';
 
 
 $lang['add_personal_info'] = 'Add Personal Information';
@@ -246,6 +252,10 @@ $lang['shopping_cart'] = 'Shopping Cart';
 $lang['store'] = 'Store';
 $lang['store_see'] = 'See the Store';
 $lang['store_productName'] = 'Product Name';
+$lang['store_cart_header'] = 'Buy:';
+$lang['store_price'] = 'Price:';
+$lang['store_select_char'] = 'Select your character:';
+$lang['store_item_name'] = 'Item Name:';
 
 $lang['changelog_titlec'] = 'Title of the Changelog';
 
@@ -258,8 +268,6 @@ $lang['last_news'] = 'Latest News';
 $lang['all_news'] = 'All News';
 $lang['recent_news'] = 'RECENT NEWS';
 $lang['new_comment'] = 'comment';
-
-$lang['button_learnmore'] = 'Learn More';
 
 $lang['up_events'] = 'Upcoming Events';
 $lang['expansion_notfound'] = 'Expansion not found.';

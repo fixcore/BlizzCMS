@@ -2,11 +2,11 @@
 /**
  * BlizzCMS
  *
- * An open source application based on Codeigniter for PHP
+ * An open source application based on CodeIgniter for PHP
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -45,3 +45,6 @@ $lang['adm_manageChangelog'] = 'Changelogs verwalten';
 $lang['adm_createChangelog'] = 'Changelog erstellen';
 $lang['adm_manageShop'] = 'Shopeinträge verwalten';
 $lang['adm_createShop'] = 'Shopeintrag erstellen';
+$lang['adm_managePages'] = 'Seiten verwalten';
+$lang['adm_createPages'] = 'Seite erstellen';
+$lang['adm_pagesList'] = 'Seitenübersicht';

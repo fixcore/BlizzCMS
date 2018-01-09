@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * BlizzCMS
  *
@@ -28,9 +28,20 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['account_error'] = 'Falscher Accountname';
-$lang['account_error_info'] = 'Der angegebene Accountname wurde nicht gefunden. Bitte gebe einen gültigen Accountnamen an.';
-$lang['password_error'] = 'Falsches Passwort';
-$lang['password_error_info'] = 'Das angegebene Passwort stimmt nicht überein. Bitte gebe das richtige Passwort ein.';
-$lang['select_char_shop'] = 'Bitte wähle einen Charakter für den Erhalt aus.';
-$lang['shop_success'] = 'Gegenstand erfolgreich erworben.';
+$lang['adm_home'] = 'Inicio';
+$lang['adm_panel'] = 'Panel de administración';
+$lang['adm_admin'] = 'Administrador';
+$lang['adm_nav'] = 'Navegación';
+$lang['adm_dashboard'] = 'Tablero';
+$lang['adm_users'] = 'Usuarios';
+$lang['adm_users_list'] = 'Lista de usuarios';
+$lang['adm_chars_list'] = 'Lista de personajes';
+$lang['adm_news'] = 'Noticias';
+$lang['adm_add_news'] = 'Crear noticias';
+$lang['adm_news_list'] = 'Lista de noticias';
+$lang['adm_forums'] = 'Foros';
+$lang['adm_account_settings'] = 'Configuración de la cuenta';
+$lang['adm_manageChangelog'] = 'Administrar registro de cambios';
+$lang['adm_createChangelog'] = 'Crear registro de cambios';
+$lang['adm_manageShop'] = 'Administrar Tienda';
+$lang['adm_createShop'] = 'Crear Tienda';

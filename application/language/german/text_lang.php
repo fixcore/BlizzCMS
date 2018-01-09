@@ -2,11 +2,11 @@
 /**
  * BlizzCMS
  *
- * An open source application based on Codeigniter for PHP
+ * An open source application based on CodeIgniter for PHP
  *
  * This content is released under the MIT License (MIT)
  *
- * Copyright (c) 2014 - 2017, British Columbia Institute of Technology
+ * Copyright (c) 2014 - 2018, British Columbia Institute of Technology
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,9 +41,8 @@ $lang['log_acc_des'] = 'Genießen Sie unser Angebot.';
 $lang['username_re'] = 'Nutzername';
 $lang['password_re'] = 'Passwort';
 $lang['pascword_re'] = 'Passwort wiederholen';
+$lang['pages'] = 'Seiten';
 $lang['email_re'] = 'E-Mail';
-$lang['button_log'] = 'Einloggen';
-$lang['button_reg'] = 'Registrieren';
 $lang['no_account'] = 'Kostenlosen Account erstellen';
 $lang['reg_country'] = 'Land';
 $lang['first_name'] = 'Vorname';
@@ -196,6 +195,10 @@ $lang['annotations'] = 'Anmerkungen';
 $lang['mov_forum'] = 'Forenaktivität';
 $lang['last_comments'] = 'Neuesten Beiträge';
 
+$lang['button_close'] = 'Schließen';
+$lang['button_open'] = 'Öffnen';
+$lang['button_log'] = 'Einloggen';
+$lang['button_reg'] = 'Registrieren';
 $lang['button_crea'] = 'Erstellen';
 $lang['button_continue'] = 'Fortfahren';
 $lang['button_delete'] = 'Löschen';
@@ -204,7 +207,9 @@ $lang['button_cancel'] = 'Abbrechen';
 $lang['button_addreply'] = 'Antwort hinzufügen';
 $lang['button_remove'] = 'Entfernen';
 $lang['button_buy'] = 'Erwerben';
-$lang['button_save'] = 'speichern';
+$lang['button_save'] = 'Speichern';
+$lang['button_edit'] = 'Bearbeiten';
+$lang['button_learnmore'] = 'Mehr erfahren';
 
 $lang['add_personal_info'] = 'Persönliche Informationen hinzufügen';
 $lang['personalinfo'] = 'Persönliche Informationen';
@@ -253,8 +258,6 @@ $lang['last_news'] = 'Aktuelle Neuigkeiten';
 $lang['all_news'] = 'Alle Neuigkeiten';
 $lang['recent_news'] = 'AKTUELLE NEUIGKEITEN';
 $lang['new_comment'] = 'kommentieren';
-
-$lang['button_learnmore'] = 'Mehr erfahren';
 
 $lang['up_events'] = 'Anstehende Events';
 $lang['expansion_notfound'] = 'Erweiterung nicht gefunden';

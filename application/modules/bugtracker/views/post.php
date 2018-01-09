@@ -1,3 +1,21 @@
+<?php if (isset($_POST['changePriory'])) {
+    $value = $_POST['prioryValue'];
+    $this->bugtracker_model->changePriority($idlink, $value);
+} ?>
+
+<?php if (isset($_POST['changeStatus'])) {
+    $value = $_POST['StatusValue'];
+    $this->bugtracker_model->changeStatus($idlink, $value);
+} ?>
+
+<?php if (isset($_POST['changetypes'])) {
+    $value = $_POST['typesValue'];
+    $this->bugtracker_model->changeType($idlink, $value);
+} ?>
+
+<?php if (isset($_POST['btn_closeBugtracker'])) {
+    $this->bugtracker_model->closeIssue($idlink);
+} ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -65,4 +83,69 @@
                 </div>
             </div>
         </section>
+        <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+            <section class="Scm-content">
+                <div class="section">
+                    <!-- buttons -->
+                    <div class="uk-column-1-3 uk-column-divider">
+                        <!-- priority -->
+                        <div>
+                            <div class="uk-margin">
+                                <form method="post" action="">
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="prioryValue">
+                                            <?php foreach($this->bugtracker_model->getPriorityGeneral()->result() as $priory) { ?>
+                                                <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" name="changePriory"><?= $this->lang->line('button_change'); ?></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- priority -->
+                        <!-- status -->
+                        <div>
+                            <div class="uk-margin">
+                                <form method="post" action="">
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="StatusValue">
+                                            <?php foreach($this->bugtracker_model->getStatusGeneral()->result() as $priory) { ?>
+                                                <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" name="changeStatus"><?= $this->lang->line('button_change'); ?></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- status -->
+                        <!-- type -->
+                        <div>
+                            <div class="uk-margin">
+                                <form method="post" action="">
+                                    <div class="uk-form-controls">
+                                        <select class="uk-select uk-form-width-medium" id="form-stacked-select" name="typesValue">
+                                            <?php foreach($this->bugtracker_model->getTypesGeneral()->result() as $priory) { ?>
+                                                <option value="<?= $priory->id ?>"><?= $priory->title ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" type="submit" name="changetypes"><?= $this->lang->line('button_change'); ?></button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- type -->
+                    </div>
+                    <!-- buttons -->
+                    <br>
+                    <form method="post" action="">
+                        <button type="submit" name="btn_closeBugtracker" class="uk-button uk-button-secondary uk-width-1-1"><?= $this->lang->line('button_close'); ?></button>
+                    </form>
+                </div>
+            </section>
+        <?php } ?>
     </div>

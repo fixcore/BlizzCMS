@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * BlizzCMS
  *
@@ -28,9 +28,9 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['account_error'] = 'Falscher Accountname';
-$lang['account_error_info'] = 'Der angegebene Accountname wurde nicht gefunden. Bitte gebe einen gültigen Accountnamen an.';
-$lang['password_error'] = 'Falsches Passwort';
-$lang['password_error_info'] = 'Das angegebene Passwort stimmt nicht überein. Bitte gebe das richtige Passwort ein.';
-$lang['select_char_shop'] = 'Bitte wähle einen Charakter für den Erhalt aus.';
-$lang['shop_success'] = 'Gegenstand erfolgreich erworben.';
+$lang['account_error'] = 'Cuenta incorrecta';
+$lang['account_error_info'] = 'La cuenta provista no fue posible de encontrar, por favor escriba una cuenta válida';
+$lang['password_error'] = 'Contraseña incorrecta';
+$lang['password_error_info'] = 'La contraseña proporcionada es incorrecta, por favor, vuelva a escribirla';
+$lang['select_char_shop'] = 'Seleccione el personaje que recibirá esto.';
+$lang['shop_success'] = 'Artículo comprado con éxito.';
