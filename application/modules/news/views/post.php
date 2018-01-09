@@ -261,7 +261,7 @@
                     </form>
                 </footer>
                 <?php if(isset($_POST['button_removecomment'])) {
-                    $this->forum_model->removeComment($commentss->id, $idlink);
+                    $this->news_model->removeComment($commentss->id, $idlink);
                 }?>
             <?php } ?>
         </div>

@@ -24,6 +24,12 @@ class News_model extends CI_Model {
         redirect(base_url('news/'.$idlink),'refresh');
     }
 
+    public function removeComment($id)
+    {
+        $this->db->query("DELETE FROM fx_news_comments WHERE id = '".$id."'");
+        redirect(base_url('news/'.$id),'refresh');
+    }
+
     public function getComments($idlink)
     {
         return $this->db->query("SELECT * FROM fx_news_comments WHERE id_new = '".$idlink."'");
