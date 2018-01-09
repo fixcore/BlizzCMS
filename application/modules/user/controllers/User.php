@@ -71,4 +71,34 @@ class User extends MX_Controller {
 
         $this->load->view('footer');
     }
+
+    public function profile($id)
+    {
+        if ($this->m_modules->getStatusUCP() != '1')
+            redirect(base_url(),'refresh');
+
+        if (empty($id) || is_null($id) || $id == '0')
+            redirect(base_url(),'refresh');
+
+        $this->load->model('user_model');
+
+        $data['idlink'] = $id;
+
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->config->item('maintenance_mode') == '1')
+        {
+            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
+            {
+                $this->load->view('profile', $data);
+            }
+            else
+                $this->load->view('maintenance');
+        }
+        else
+            $this->load->view('profile', $data);
+
+        $this->load->view('footer');
+    }
 }
