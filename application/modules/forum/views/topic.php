@@ -164,7 +164,7 @@
                                 <div class="LoginPlaceholder-details">
                                     <div class="LogIn-message"><?= $this->lang->line('text_login_forums'); ?></div>
                                     <a class="LogIn-button" href="<?= base_url('login'); ?>">
-                                        <span class="LogIn-button-content" ><?= $this->lang->line('button_log'); ?></span>
+                                        <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_log'); ?></span>
                                     </a>
                                 </div>
                             </div>
@@ -245,7 +245,7 @@
                             <footer class="TopicPost-actions" data-topic-post-body-content="true">
                                 <form action="" method="post" accept-charset="utf-8">
                                     <p uk-margin>
-                                        <button name="button_removecomment" type="submit" class="uk-button uk-button-danger"><?= $this->lang->line('button_remove'); ?></button>
+                                        <button name="button_removecomment" type="submit" class="uk-button uk-button-danger"><i class="fa fa-eraser" aria-hidden="true"></i> <?= $this->lang->line('button_remove'); ?></button>
                                     </p>
                                 </form>
                             </footer>
