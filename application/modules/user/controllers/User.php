@@ -27,6 +27,8 @@ class User extends MX_Controller {
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
+        $this->load->library('recaptcha');
+
         if ($this->config->item('maintenance_mode') == '1')
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)

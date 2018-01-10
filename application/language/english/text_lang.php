@@ -79,6 +79,7 @@ $lang['members'] = 'Members';
 $lang['rating'] = 'Rating';
 $lang['games'] = 'Games';
 $lang['report_list'] = 'Report List';
+$lang['captcha_error'] = 'please check the captcha';
 
 
 $lang['bugtracker'] = 'Bugtracker';
