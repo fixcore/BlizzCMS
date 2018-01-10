@@ -1,3 +1,47 @@
+<?php if (isset($_POST['button_register']))
+{
+    $country = $_POST['reg_country'];
+    $name    = strtoupper($_POST['reg_firstname']);
+    $surname = strtoupper($_POST['reg_lastname']);
+    $month   = $_POST['reg_dateMonthNace'];
+    $day     = $_POST['reg_dateDayNace'];
+    $year    = $_POST['reg_dateYearNace'];
+    $username= strtoupper($_POST['reg_username']);
+    $email   = strtoupper($_POST['reg_email']);
+    $password= strtoupper($_POST['reg_password']);
+    $pascword= strtoupper($_POST['reg_pascword']);
+    $question= $_POST['reg_question'];
+    $answer  = $_POST['reg_SecretAnswer'];
+
+    if($this->m_modules->getCaptcha() == 1)
+    {
+        $captcha_answer = $this->input->post('g-recaptcha-response');
+        $response = $this->recaptcha->verifyResponse($captcha_answer);
+
+        $rr = $response['success'];
+    }
+    else
+    {
+        $rr = TRUE;
+    }
+
+    if($rr)
+    {
+        if ($password == $pascword)
+        {
+            if ($this->m_data->getSpecifyAccount($username)->num_rows() > 0)
+            {
+                echo $this->lang->line('acc_exist');
+            }
+            else
+                $this->m_data->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day);
+        }
+        else
+            echo $this->lang->line('pass_nmatch');
+    }
+    else
+        echo $this->lang->line('captcha_error');
+} ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -177,48 +221,15 @@
                                         <input class="uk-input" type="text" name="reg_SecretAnswer" pattern=".{1,}" required title="1 characters minimum" placeholder="<?= $this->lang->line('secret_answ'); ?>">
                                     </div>
                                     <!-- catpcha -->
-                                    <?= $this->recaptcha->render(); ?>
+                                    <?php if($this->m_modules->getCaptcha() == 1) { ?>
+                                        <?= $this->recaptcha->render(); ?>
+                                    <?php } ?>
                                     <!-- catpcha -->
                                 </div>
                                 <button class="ui blue submit button" type="submit" name="button_register"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('button_reg'); ?></button>
                             </form>
                         </div>
                         <!-- content END -->
-
-                        <?php if (isset($_POST['button_register']))
-                        {
-                            $country = $_POST['reg_country'];
-                            $name    = strtoupper($_POST['reg_firstname']);
-                            $surname = strtoupper($_POST['reg_lastname']);
-                            $month   = $_POST['reg_dateMonthNace'];
-                            $day     = $_POST['reg_dateDayNace'];
-                            $year    = $_POST['reg_dateYearNace'];
-                            $username= strtoupper($_POST['reg_username']);
-                            $email   = strtoupper($_POST['reg_email']);
-                            $password= strtoupper($_POST['reg_password']);
-                            $pascword= strtoupper($_POST['reg_pascword']);
-                            $question= $_POST['reg_question'];
-                            $answer  = $_POST['reg_SecretAnswer'];
-                            $captcha_answer = $this->input->post('g-recaptcha-response');
-                            $response = $this->recaptcha->verifyResponse($captcha_answer);
-
-                            if($response['success'])
-                            {
-                                if ($password == $pascword)
-                                {
-                                    if ($this->m_data->getSpecifyAccount($username)->num_rows() > 0)
-                                    {
-                                        echo $this->lang->line('acc_exist');
-                                    }
-                                    else
-                                        $this->m_data->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day);
-                                }
-                                else
-                                    echo $this->lang->line('pass_nmatch');
-                            }
-                            else
-                                echo $this->lang->line('captcha_error');
-                        } ?>
                     </div>
                 </div>
             </div>
