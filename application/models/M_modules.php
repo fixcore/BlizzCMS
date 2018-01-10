@@ -87,4 +87,9 @@ class M_modules extends CI_Model {
 		return $this->db->query("SELECT status FROM fx_modules WHERE id = '16'")->row()->status;
 	}
 
+	public function getCaptcha()
+	{
+		return $this->db->query("SELECT status FROM fx_modules WHERE id = '17'")->row()->status;
+	}
+
 }

@@ -1,25 +1,3 @@
-<?php if(isset($_POST['button_login']))
-{
-    $username = $_POST['login_username'];
-    $password = $_POST['login_password'];
-
-    $id = $this->m_data->getIDAccount($username);
-
-    if ($id == "0")
-        echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
-    else
-    {
-        $password = $this->m_data->encryptAccount($username, $password);
-
-        if (strtoupper($this->m_data->getPasswordAccountID($id)) == strtoupper($password))
-        {
-            $this->m_data->arraySession($id);
-        }
-        else
-            echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('password_error').': '.$this->lang->line('password_error_info').'</p></div>';
-    }
-} ?>
-
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -69,21 +47,32 @@
                             <!-- content START -->
                             <h2 class="uk-text-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('account_log'); ?></h2>
                             <p style="color: #fff;"><?= $this->lang->line('log_acc_des'); ?></p>
-                            <form action="" method="post" accept-charset="utf-8">
+                            
+                            <?= form_open(base_url('user/verify1')); ?>
                                 <div uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-inline; delay: 500; repeat: true">
                                     <div class="uk-margin">
                                         <div class="uk-inline">
                                             <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                            <input class="uk-input" name="login_username" required placeholder="<?= $this->lang->line('username_re'); ?>" type="text">
+                                            <?= form_input($email_form); ?>
                                         </div>
                                         <div class="uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                            <input class="uk-input" name="login_password" required placeholder="<?= $this->lang->line('password_re'); ?>" type="password">
+                                            <?= form_input($password_form); ?>
                                         </div>
                                     </div>
                                 </div>
-                                <button class="ui blue submit button" type="submit" name="button_login"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_log'); ?></button>
-                            </form>
+                                <?= form_submit($submit_form); ?>
+
+                            <?= form_close(); ?>
+
+                            <?php if(isset($_GET['password'])) {
+                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('password_error').': '.$this->lang->line('password_error_info').'</p></div>';
+                            } ?>
+
+                            <?php if(isset($_GET['account'])) {
+                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
+                            } ?>
+
                             <h4><a class="uk-button uk-button-text" href="<?= base_url('register'); ?>" title="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('no_account'); ?></a></h4>
                             <!-- content END -->
                         </div>
