@@ -46,7 +46,6 @@
                             <!-- content START -->
                             <h2 class="uk-text-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('account_log'); ?></h2>
                             <p style="color: #fff;"><?= $this->lang->line('log_acc_des'); ?></p>
-
                             <?= form_open(base_url('user/verify2')); ?>
                                 <div uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-inline; delay: 500; repeat: true">
                                     <div class="uk-margin">
@@ -60,9 +59,7 @@
                                         </div>
                                     </div>
                                 </div>
-
                                 <?= form_submit($submit_form); ?>
-
                             <?= form_close(); ?>
 
                             <?php if(isset($_GET['password'])) {
@@ -73,8 +70,9 @@
                                 echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
                             } ?>
 
-
-                            <h4><a class="uk-button uk-button-text" href="<?= base_url('register'); ?>" title="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('no_account'); ?></a></h4>
+                            <h4>
+                                <a class="uk-button uk-button-text" href="<?= base_url('register'); ?>" title="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('no_account'); ?></a>
+                            </h4>
                             <!-- content END -->
                         </div>
                     </div>
