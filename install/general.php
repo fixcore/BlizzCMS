@@ -4,18 +4,21 @@
     <title>Installation - BlizzCMS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <!-- UiKit Start -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
 
-    <!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="../core/uikit/js/uikit.min.js"></script>
+    <script src="../core/uikit/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="../assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 
     <script src="js/ui.js" type="text/javascript"></script>
@@ -64,10 +67,6 @@
     </div>
     <div id="wrap">
         <div id="fixer">
-            <!-- Top bar -->
-            <div class="ui inverted three item menu">
-                <a href="index.html" class="item active">Installation</a>
-            </div>
             <!-- Main content -->
             <section>
                 <div id="top_spacer"></div>
@@ -75,13 +74,13 @@
                     <!-- Main Left column -->
                     <aside class="left">
                         <nav>
-                            <a class="active"><i class="heartbeat icon"></i> Install</a>
+                            <a class="active"><i class="fa fa-chrome" aria-hidden="true"></i> Install</a>
                             <section class="sub">
-                                <a><i class="browser icon"></i> Introduction</a>
-                                <a><i class="alarm outline icon"></i> Requirements</a>
-                                <a class="active"><i class="lab icon"></i> General</a>
-                                <a><i class="database icon"></i> Database</a>
-                                <a><i class="connectdevelop icon"></i> Complete installation</a>
+                                <a><i class="fa fa-info-circle" aria-hidden="true"></i> Introduction</a>
+                                <a><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Requirements</a>
+                                <a class="active"><i class="fa fa-wrench" aria-hidden="true"></i> General</a>
+                                <a><i class="fa fa-database" aria-hidden="true"></i> Database</a>
+                                <a><i class="fa fa-connectdevelop" aria-hidden="true"></i> Complete installation</a>
                             </section>
                         </nav>
                         <div class="spacer"></div>
@@ -89,10 +88,7 @@
                     <!-- Main right column -->
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
-                            <h2><i class="lab icon"></i> General settings</h2>
-                            <span>
-                                <strong>All options can be modified later.</strong>
-                            </span>
+                            <h2><i class="fa fa-wrench" aria-hidden="true"></i> General Settings</h2>
                             <form method="post" action="">
                                 <label for="server_name">Server name</label>
                                 <input required type="text" id="server_name" name="server_name" pattern=".{2,9}" required title="2 characters minimum and 9 maximum" placeholder="MyServer" />
@@ -124,8 +120,8 @@
                                 <input required type="text" id="realm_port" name="realm_port" placeholder="8085" />
                                 <!-- realm -->
                                 <div class="installer_navigation">
-                                    <a href="requirements.html" class="ui negative basic button">Previous step</a>
-                                    <input type="submit" name="button_general" required class="ui primary basic button" value="Next Step">
+                                    <a href="requirements.html"><button class="uk-button uk-button-danger"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous step</button></a>
+                                    <button class="uk-button uk-button-primary" type="submit" name="button_general">Next Step <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                                 </div>
                             </form>
 
