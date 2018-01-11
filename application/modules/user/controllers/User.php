@@ -15,23 +15,23 @@ class User extends MX_Controller {
         {
             $data = array(
                 "email_form" => array(
-                    'id' => 'login_username', 
-                    'name' => 'login_username', 
-                    'class' => 'uk-input', 
-                    'required' => 'required', 
-                    'placeholder' => $this->lang->line('username_re'), 
+                    'id' => 'login_username',
+                    'name' => 'login_username',
+                    'class' => 'uk-input',
+                    'required' => 'required',
+                    'placeholder' => $this->lang->line('username_re'),
                     'type' => 'text'),
 
                 "password_form" => array(
-                    'id' => 'login_password', 
-                    'name' => 'login_password', 
-                    'class' => 'uk-input', 
-                    'required' => 'required', 
+                    'id' => 'login_password',
+                    'name' => 'login_password',
+                    'class' => 'uk-input',
+                    'required' => 'required',
                     'placeholder' => $this->lang->line('password_re')),
 
                 "submit_form" => array(
-                    'id' => 'button_log', 
-                    'name' => 'button_log', 
+                    'id' => 'button_log',
+                    'name' => 'button_log',
                     'value' => $this->lang->line('button_log'),
                     'class' => 'uk-button uk-button-primary')
             );
@@ -42,23 +42,23 @@ class User extends MX_Controller {
         {
             $data = array(
                 "email_form" => array(
-                    'id' => 'login_email', 
-                    'name' => 'login_email', 
-                    'class' => 'uk-input', 
-                    'required' => 'required', 
-                    'placeholder' => $this->lang->line('email_re'), 
+                    'id' => 'login_email',
+                    'name' => 'login_email',
+                    'class' => 'uk-input',
+                    'required' => 'required',
+                    'placeholder' => $this->lang->line('email_re'),
                     'type' => 'email'),
 
                 "password_form" => array(
-                    'id' => 'login_password', 
-                    'name' => 'login_password', 
-                    'class' => 'uk-input', 
-                    'required' => 'required', 
+                    'id' => 'login_password',
+                    'name' => 'login_password',
+                    'class' => 'uk-input',
+                    'required' => 'required',
                     'placeholder' => $this->lang->line('password_re')),
 
                 "submit_form" => array(
-                    'id' => 'button_log', 
-                    'name' => 'button_log', 
+                    'id' => 'button_log',
+                    'name' => 'button_log',
                     'value' => $this->lang->line('button_log'),
                     'class' => 'uk-button uk-button-primary')
             );
