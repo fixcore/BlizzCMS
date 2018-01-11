@@ -27,7 +27,8 @@ class User extends MX_Controller {
                     'name' => 'login_password',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('password_re')),
+                    'placeholder' => $this->lang->line('password_re'),
+                    'type' => 'password'),
 
                 "submit_form" => array(
                     'id' => 'button_log',
@@ -54,7 +55,8 @@ class User extends MX_Controller {
                     'name' => 'login_password',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('password_re')),
+                    'placeholder' => $this->lang->line('password_re'),
+                    'type' => 'password'),
 
                 "submit_form" => array(
                     'id' => 'button_log',
