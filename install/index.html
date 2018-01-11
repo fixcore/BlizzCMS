@@ -4,18 +4,21 @@
     <title>Installation - BlizzCMS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <!-- UiKit Start -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
 
-    <!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="../core/uikit/js/uikit.min.js"></script>
+    <script src="../core/uikit/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="../assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 
     <script src="js/ui.js" type="text/javascript"></script>
@@ -66,10 +69,6 @@
 
     <div id="wrap">
         <div id="fixer">
-            <!-- Top bar -->
-            <div class="ui inverted three item menu">
-                <a href="index.html" class="item active">Installation</a>
-            </div>
             <!-- Main content -->
             <section>
                 <div id="top_spacer"></div>
@@ -77,13 +76,13 @@
                     <!-- Main Left column -->
                     <aside class="left">
                         <nav>
-                            <a class="active"><i class="heartbeat icon"></i> Install</a>
+                            <a class="active"><i class="fa fa-chrome" aria-hidden="true"></i> Install</a>
                             <section class="sub">
-                                <a class="active"><i class="browser icon"></i> Introduction</a>
-                                <a><i class="alarm outline icon"></i> Requirements</a>
-                                <a><i class="lab icon"></i> General</a>
-                                <a><i class="database icon"></i> Database</a>
-                                <a><i class="connectdevelop icon"></i> Complete installation</a>
+                                <a class="active"><i class="fa fa-info-circle" aria-hidden="true"></i> Introduction</a>
+                                <a><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Requirements</a>
+                                <a><i class="fa fa-wrench" aria-hidden="true"></i> General</a>
+                                <a><i class="fa fa-database" aria-hidden="true"></i> Database</a>
+                                <a><i class="fa fa-connectdevelop" aria-hidden="true"></i> Complete installation</a>
                             </section>
                         </nav>
                         <div class="spacer"></div>
@@ -91,32 +90,24 @@
                     <!-- Main right column -->
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
-                            <h2><i class="browser icon"></i> Introduction</h2>
+                            <h2><i class="fa fa-info-circle" aria-hidden="true"></i> Introduction</h2>
                             <span>
                                 <div class="introduction">
-                                    <h2 class="ui center aligned icon header">
-                                        <i class="circular users icon"></i>Welcome to <strong>BlizzCMS</strong>
-                                    </h2>
-                                    <h3></h3>
-                                    <p>The system grows with big steps.</p>
-                                    <p>As strong as ever and eager to continue working on it.</p>
-                                    <p>I thank all the people who give me help with ideas, images or reporting problems.</p>
-                                    <p>My goal is not to abandon this, and that is why I dedicate many hours of my day working to give them a quality website totally free.</p>
-                                    <p>I hope to always count on all of you!</p>
-                                    <div class="ui horizontal list">
-                                        <div class="item">
-                                            <img class="ui mini circular image" src="images/vipo.png">
-                                            <div class="content">
-                                                <div class="ui sub header">Vipo</div>
-                                                    Project Manager
-                                            </div>
+                                    <div class="uk-child-width-1-1 uk-text-center" uk-grid>
+                                        <div>
+                                            <img class="uk-border-circle" src="images/aebc52c351072a4c934b9aa025c4ca4a.png" width="100" height="100" alt="">
+                                            <h3>Welcome to <strong>BlizzCMS</strong></h3>
                                         </div>
+                                    </div>
+                                    <p>We are pleased to present a new <strong>Free CMS</strong> for <strong>World of Warcraft</strong>! this cms is in constant development based on the <strong>CodeIgniter</strong> Framework and clean <strong>PHP</strong> code. For now the main functionalities are concentrated in an integrated forum, store, setting for accounts and more...</p>
+                                    <div class="uk-alert-primary" uk-alert>
+                                        <p><i class="fa fa-info-circle" aria-hidden="true"></i> If you are interested in contributing to the development you can join our <a target="_blank" href="https://discord.gg/WGGGVgX"><strong>Discord</strong></a>!</p>
                                     </div>
                                 </div>
                             </span>
                             <div class="installer_navigation">
-                                <a href="requirements.html" class="ui primary basic button">
-                                    <i class="hand pointer icon"></i>Start the installer
+                                <a href="requirements.html">
+                                    <button class="uk-button uk-button-primary"><i class="hand pointer icon"></i>Start the installer <i class="fa fa-hand-o-up" aria-hidden="true"></i></button>
                                 </a>
                             </div>
                         </section>
