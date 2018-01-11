@@ -95,7 +95,7 @@
                                 <label for="blizzcms_username">Website database username</label>
                                 <input required type="text" id="blizzcms_username" name="blizzcms_username" />
                                 <label for="blizzcms_password">Website database password</label>
-                                <input required type="text" id="blizzcms_password" name="blizzcms_password" />
+                                <input required type="password" id="blizzcms_password" name="blizzcms_password" />
                                 <label for="blizzcms_database">Website database name</label>
                                 <input required type="text" id="blizzcms_database" name="blizzcms_database" />
                                 <hr class="uk-divider-icon">
@@ -104,7 +104,7 @@
                                 <label for="realmd_username">Auth database username</label>
                                 <input required type="text" id="realmd_username" name="realmd_username" />
                                 <label for="realmd_password">Auth database password</label>
-                                <input required type="text" id="realmd_password" name="realmd_password" />
+                                <input required type="password" id="realmd_password" name="realmd_password" />
                                 <label for="realmd_database">Auth database name</label>
                                 <input required type="text" id="realmd_database" name="realmd_database" />
                                 <hr class="uk-divider-icon">
@@ -113,7 +113,7 @@
                                 <label for="char_username">Character database username</label>
                                 <input required type="text" id="char_username" name="char_username" />
                                 <label for="char_password">Character database password</label>
-                                <input required type="text" id="char_password" name="char_password" />
+                                <input required type="password" id="char_password" name="char_password" />
                                 <label for="char_database">Character database name</label>
                                 <input required type="text" id="char_database" name="char_database" />
                                 <div class="installer_navigation">
