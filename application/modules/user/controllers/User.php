@@ -73,7 +73,7 @@ class User extends MX_Controller {
 
     public function verify1()
     {
-        $email    = $this->input->post('login_username');
+        $username = $this->input->post('login_username');
         $password = $this->input->post('login_password');
 
         $id = $this->m_data->getIDAccount($username);
