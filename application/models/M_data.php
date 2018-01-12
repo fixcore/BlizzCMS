@@ -1,8 +1,9 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_data extends CI_Model {
 
-	public function encryptBattlenet($email, $password)
+    public function encryptBattlenet($email, $password)
     {
         $sha_pass_hash_bnet = strtoupper(bin2hex(strrev(hex2bin(strtoupper(hash("sha256",strtoupper(hash("sha256", strtoupper($email)).":".strtoupper($password))))))));
 
@@ -11,30 +12,37 @@ class M_data extends CI_Model {
 
     public function encryptAccount($username, $password)
     {
-        if(!is_string($username)) { $username = ""; }
-        if(!is_string($password)) { $password = ""; }
+        if (!is_string($username))
+        {
+            $username = "";
+        }
+
+        if (!is_string($password))
+        {
+            $password = "";
+        }
+
         $sha_pass_hash = sha1(strtoupper($username).':'.strtoupper($password));
-        
+
         return strtoupper($sha_pass_hash);
     }
 
     public function arraySession($id)
     {
-    	$data = array
-    	(
-    		'fx_sess_username'  => $this->getUsernameID($id),
-    		'fx_sess_email'		=> $this->getEmailID($id),
-    		'fx_sess_id'		=> $id,
-    		'fx_sess_expansion'	=> $this->getExpansionID($id),
-    		'fx_sess_last_ip'	=> $this->getLastIPID($id),
-    		'fx_sess_last_login'=> $this->getLastLoginID($id),
-    		'fx_sess_gmlevel'	=> $this->getRank($id),
+        $data = array(
+            'fx_sess_username'  => $this->getUsernameID($id),
+            'fx_sess_email'     => $this->getEmailID($id),
+            'fx_sess_id'        => $id,
+            'fx_sess_expansion'	=> $this->getExpansionID($id),
+            'fx_sess_last_ip'   => $this->getLastIPID($id),
+            'fx_sess_last_login'=> $this->getLastLoginID($id),
+            'fx_sess_gmlevel'   => $this->getRank($id),
             'fx_sess_ban_status'=> $this->getBanStatus($id),
-    		'fx_sess_tag'       => $this->getTag($id),
-	        'logged_in' => TRUE
-    	);
+            'fx_sess_tag'       => $this->getTag($id),
+            'logged_in' => TRUE
+        );
 
-    	return $this->sessionConnect($data);
+        return $this->sessionConnect($data);
     }
 
     public function getTag($id)
@@ -55,16 +63,16 @@ class M_data extends CI_Model {
 
     public function getUsernameID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	return $this->db->query("SELECT username FROM account WHERE id = '".$id."'")->row_array()['username'];
+        return $this->db->query("SELECT username FROM account WHERE id = '".$id."'")->row_array()['username'];
     }
 
     public function getEmailID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT email FROM account WHERE id = '".$id."'")->row();
+        $qq = $this->db->query("SELECT email FROM account WHERE id = '".$id."'")->row();
         return $qq->email;
     }
 
@@ -78,9 +86,9 @@ class M_data extends CI_Model {
 
     public function getPasswordBnetID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT sha_pass_hash FROM battlenet_accounts WHERE id = '".$id."'")->row();
+        $qq = $this->db->query("SELECT sha_pass_hash FROM battlenet_accounts WHERE id = '".$id."'")->row();
         return $qq->sha_pass_hash;
     }
 
@@ -126,17 +134,17 @@ class M_data extends CI_Model {
         if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) == 1)
         {
             $this->auth = $this->load->database('auth', TRUE);
-            
+
             $this->auth->query("INSERT INTO account (username, sha_pass_hash, email, expansion) VALUES ('$username', '$passwordAc', '$email', '$expansion')");
         }
         else
         {
             $this->auth = $this->load->database('auth', TRUE);
-            
+
             $this->auth->query("INSERT INTO account (username, sha_pass_hash, email, expansion, battlenet_index) VALUES ('$username', '$passwordAc', '$email', '$expansion', '1')");
 
             $id = $this->getIDAccount($username);
-            
+
             $this->auth->query("INSERT INTO battlenet_accounts (id, email, sha_pass_hash) VALUES ('$id', '$email', '$passwordBn')");
 
             $this->auth->query("UPDATE account SET battlenet_account = $id WHERE id = $id");
@@ -192,84 +200,84 @@ class M_data extends CI_Model {
 
     public function getExpansionID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT expansion FROM account WHERE id = '".$id."'")->row();
+        $qq = $this->db->query("SELECT expansion FROM account WHERE id = '".$id."'")->row();
         return $qq->expansion;
     }
 
     public function getLastIPID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT last_ip FROM account WHERE id = '".$id."'")->row();
+        $qq = $this->db->query("SELECT last_ip FROM account WHERE id = '".$id."'")->row();
         return $qq->last_ip;
     }
 
     public function getLastLoginID($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT last_login FROM account WHERE id = '".$id."'")->row();
+        $qq = $this->db->query("SELECT last_login FROM account WHERE id = '".$id."'")->row();
         return $qq->last_login;
     }
 
     public function getRank($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT * FROM account_access WHERE id = '".$id."'");
+        $qq = $this->db->query("SELECT * FROM account_access WHERE id = '".$id."'");
         $query = $qq->row();
 
-    	if ($qq->num_rows() > 0)
-    	{
-    		return $query->gmlevel;
-    	}
-    	else
-    		return "0";
+        if ($qq->num_rows() > 0)
+        {
+            return $query->gmlevel;
+        }
+        else
+            return "0";
     }
 
     public function getBanStatus($id)
     {
-    	$this->db = $this->load->database('auth', TRUE);
+        $this->db = $this->load->database('auth', TRUE);
 
-    	$qq = $this->db->query("SELECT * FROM account_banned WHERE id = '".$id."' AND active = 1");
+        $qq = $this->db->query("SELECT * FROM account_banned WHERE id = '".$id."' AND active = 1");
 
-    	if ($qq->num_rows() > 0)
-    		return true;
-    	else
-    		return false;
+        if ($qq->num_rows() > 0)
+            return true;
+        else
+            return false;
     }
 
     public function isLogged()
     {
-    	if ($this->session->userdata('fx_sess_username'))
-			return true;
-		else
-			return false;
+        if ($this->session->userdata('fx_sess_username'))
+            return true;
+        else
+            return false;
     }
 
     public function sessionConnect($data)
     {
-    	$this->session->set_userdata($data);
-    	redirect(base_url(),'refresh');
+        $this->session->set_userdata($data);
+        redirect(base_url(),'refresh');
     }
 
     public function logout()
     {
-    	$this->session->sess_destroy();
-		redirect(base_url(),'refresh');
+        $this->session->sess_destroy();
+        redirect(base_url(),'refresh');
     }
 
     public function realm_status()
     {
         $host = $this->config->item('soap_ip');
         $port = $this->config->item('realmlistPort');
-        
+
         error_reporting(0);
         $etat = fsockopen($host,$port,$errno,$errstr,3);
-                    
-        if(!$etat)
+
+        if (!$etat)
             return false;
         else
             return true;
