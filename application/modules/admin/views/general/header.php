@@ -268,20 +268,20 @@
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= base_url('admin/apic'); ?>">
-                                    <i class="fa fa-circle-o text-danger"></i>
+                                    <i class="fa fa-microchip text-info"></i>
                                     <span class="hide-menu">API</span>
                                 </a>
                             </li>
                             <li class="devider"></li>
                             <li>
                                 <a target="_blank" href="https://fixcore.github.io">
-                                    <i class="fa fa-circle-o text-info"></i>
+                                    <i class="fa fa-circle-o text-inverse"></i>
                                     <span class="hide-menu">Wiki</span>
                                 </a>
                             </li>
                             <li>
                                 <a target="_blank" href="https://github.com/fixcore/BlizzCMS/issues">
-                                    <i class="fa fa-circle-o text-inverse"></i>
+                                    <i class="fa fa-circle-o text-danger"></i>
                                     <span class="hide-menu">Issues</span>
                                 </a>
                             </li>
