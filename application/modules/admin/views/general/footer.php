@@ -1,7 +1,5 @@
         <footer class="footer text-center">
-            <a href="https://github.com/fixcore/BlizzCMS">
-                <i class="fa fa-github fa-lg"></i> Proudly powered by BlizzCMS
-            </a>
+            <i class="fa fa-github"></i> Proudly powered by <a href="https://github.com/fixcore/BlizzCMS">BlizzCMS</a>
         </footer>
     </div>
     <!-- End Page Content -->

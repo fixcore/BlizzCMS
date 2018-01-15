@@ -28,7 +28,7 @@
     <!-- Custom CSS -->
     <link href="<?= base_url(); ?>core/css/style.css" rel="stylesheet">
     <!-- color CSS -->
-    <link href="<?= base_url(); ?>core/css/colors/default.css" id="theme" rel="stylesheet">
+    <link href="<?= base_url(); ?>core/css/colors/dark.css" id="theme" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -38,45 +38,35 @@
 </head>
 
 <body class="fix-header">
-    <!-- Preloader -->
-    <div class="preloader">
-        <svg class="circular" viewBox="25 25 50 50">
-            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
-        </svg>
-    </div>
     <!-- Wrapper -->
     <div id="wrapper">
         <!-- Topbar header - style you can find in pages.scss -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header">
-                <div class="top-left-part"></div>
-                <!-- /Logo -->
+                <div class="top-left-part">
+                    <!-- Logo -->
+                    <a class="logo" href="">
+                        <b>
+                            <img src="<?= base_url('assets/images/logo/blizzcms-icon-light.png'); ?>" alt="home" class="dark-logo"/>
+                            <img src="<?= base_url('assets/images/logo/blizzcms-icon-dark.png'); ?>" alt="home" class="light-logo"/>
+                        </b>
+                        <span class="hidden-xs">
+                            <img src="<?= base_url('assets/images/logo/blizzcms-light.png'); ?>" alt="home" class="dark-logo"/>
+                            <img src="<?= base_url('assets/images/logo/blizzcms-dark.png'); ?>" alt="home" class="light-logo"/>
+                        </span>
+                    </a>
+                    <!-- /Logo -->
+                </div>
                 <!-- Search input and Toggle icon -->
                 <ul class="nav navbar-top-links navbar-left">
                     <li>
-                        <a href="javascript:void(0)" class="open-close waves-effect waves-light">
-                            <i class="ti-menu"></i>
+                        <a href="javascript:void(0)" class="open-close waves-effect waves-light visible-xs">
+                            <i class="ti-close ti-menu"></i>
                         </a>
                     </li>
-                    <li>
-                        <a href="<?= base_url(); ?>" class="waves-effect">
-                            <i class="fa fa-home fa-fw"></i><?= $this->lang->line('menu_home'); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url('news'); ?>" class="waves-effect">
-                            <i class="fa fa-newspaper-o fa-fw"></i><?= $this->lang->line('menu_news'); ?>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="<?= base_url('forums'); ?>" class="waves-effect">
-                            <i class="fa fa-bookmark fa-fw"></i><?= $this->lang->line('forums'); ?>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#"> <i class="fa fa-ticket fa-fw"></i>
+                        <a class="dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="javascript:void(0)">
+                            <i class="fa fa-envelope-o"></i>
                             <div class="notify">
                                 <span class="heartbit"></span>
                                 <span class="point"></span>
@@ -90,7 +80,6 @@
                                 <div class="message-center">
                                     <a href="#">
                                         <div class="user-img">
-                                            <img src="<?= base_url(); ?>assets/images/profiles/<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" alt="user" class="img-circle">
                                             <span class="profile-status online pull-right"></span>
                                         </div>
                                         <div class="mail-contnet">
@@ -101,7 +90,6 @@
                                     </a>
                                     <a href="#">
                                         <div class="user-img">
-                                            <img src="<?= base_url(); ?>assets/images/profiles/<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" alt="user" class="img-circle">
                                             <span class="profile-status busy pull-right"></span>
                                         </div>
                                         <div class="mail-contnet">
@@ -112,7 +100,6 @@
                                     </a>
                                     <a href="#">
                                         <div class="user-img">
-                                            <img src="<?= base_url(); ?>assets/images/profiles/<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" alt="user" class="img-circle">
                                             <span class="profile-status away pull-right"></span>
                                         </div>
                                         <div class="mail-contnet">
@@ -123,7 +110,6 @@
                                     </a>
                                     <a href="#">
                                         <div class="user-img">
-                                            <img src="<?= base_url(); ?>assets/images/profiles/<?= $this->m_data->getImageProfile($this->session->userdata('fx_sess_id')); ?>" alt="user" class="img-circle">
                                             <span class="profile-status offline pull-right"></span>
                                         </div>
                                         <div class="mail-contnet">
@@ -142,8 +128,10 @@
                         </ul>
                         <!-- /.dropdown-messages -->
                     </li>
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> 
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)">
                             <b class="hidden-xs">
                                 <?= $this->session->userdata('fx_sess_username'); ?>
                             </b>
@@ -173,7 +161,6 @@
                         </ul>
                         <!-- /.dropdown-user -->
                     </li>
-                    <!-- /.dropdown -->
                 </ul>
             </div>
             <!-- /.navbar-header -->
@@ -183,29 +170,27 @@
         <!-- End Top Navigation -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav slimscrollsidebar">
+            <div class="sidebar-nav">
                 <div class="sidebar-head">
                     <h3>
-                        <span class="fa-fw open-close"><i class="ti-close ti-menu"></i></span>
+                        <span class="fa-fw open-close">
+                            <i class="ti-menu hidden-xs"></i>
+                            <i class="ti-close visible-xs"></i>
+                        </span>
                         <span class="hide-menu">Navigation</span>
                     </h3>
                 </div>
-                <div class="user-profile"></div>
                 <ul class="nav" id="side-menu">
                     <li>
-                        <a href="<?= base_url('admin'); ?>" class="waves-effect">
+                        <a href="<?= base_url('admin'); ?>" class="waves-effect active">
                             <i class="fa fa-tachometer fa-fw"></i>
                             <span class="hide-menu"><?= $this->lang->line('adm_dashboard'); ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect">
-                            <i class="fa fa-bars fa-fw text-danger"></i>
-                            <span class="hide-menu">
-                                <?= $this->lang->line('adm_users'); ?>
-                                <span class="fa arrow"></span>
-                                <span class="label label-rouded label-inverse pull-right">2</span>
-                            </span>
+                        <a href="javascript:void(0)" class="waves-effect">
+                            <i class="fa fa-users fa-fw text-danger"></i>
+                            <span class="hide-menu"><?= $this->lang->line('adm_users'); ?></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
@@ -223,72 +208,84 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#" class="waves-effect">
-                            <i class="fa fa-newspaper-o fa-fw text-purple"></i>
-                            <span class="hide-menu">
-                                <?= $this->lang->line('adm_news'); ?>
-                                <span class="fa arrow"></span>
-                                <span class="label label-rouded label-inverse pull-right">2</span>
-                            </span>
+                        <a href="javascript:void(0)" class="waves-effect">
+                            <i class="fa fa-mouse-pointer fa-fw text-info"></i>
+                            <span class="hide-menu">Website</span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?= base_url('admin/addnew'); ?>">
-                                    <i class="fa fa-pencil fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('adm_add_news'); ?></span>
+                                <a href="javascript:void(0)" class="waves-effect">
+                                    <i class="fa fa-newspaper-o fa-fw"></i>
+                                    <span class="hide-menu"><?= $this->lang->line('adm_news'); ?></span>
+                                    <span class="fa arrow"></span>
+                                </a>
+                                <ul class="nav nav-third-level">
+                                    <li>
+                                        <a href="<?= base_url('admin/addnew'); ?>">
+                                            <i class="fa fa-pencil fa-fw"></i>
+                                            <span class="hide-menu"><?= $this->lang->line('adm_add_news'); ?></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="<?= base_url('admin/listnew'); ?>">
+                                            <i class="fa fa-list fa-fw"></i>
+                                            <span class="hide-menu"><?= $this->lang->line('adm_news_list'); ?></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('admin/changelogs'); ?>" class="waves-effect">
+                                    <i class="fa fa-history fa-fw"></i>
+                                    <span class="hide-menu"><?= $this->lang->line('changelogs'); ?></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/listnew'); ?>">
-                                    <i class="fa fa-list fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('adm_news_list'); ?></span>
+                                <a href="<?= base_url('admin/pages'); ?>" class="waves-effect">
+                                    <i class="fa fa-file-text-o fa-fw"></i>
+                                    <span class="hide-menu"><?= $this->lang->line('pages'); ?></span>
                                 </a>
                             </li>
                         </ul>
                     </li>
                     <li>
                         <a href="<?= base_url('admin/shop'); ?>" class="waves-effect">
-                            <i class="fa fa-shopping-cart fa-fw text-warning"></i>
+                            <i class="fa fa-shopping-cart fa-fw text-success"></i>
                             <span class="hide-menu"><?= $this->lang->line('shop'); ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/changelogs'); ?>" class="waves-effect">
-                            <i class="fa fa-history fa-fw text-info"></i>
-                            <span class="hide-menu"><?= $this->lang->line('changelogs'); ?></span>
-                        </a>
-                    </li>
-                    <li>
                         <a href="<?= base_url('admin/forums'); ?>" class="waves-effect">
-                            <i class="fa fa-commenting fa-fw text-inverse"></i>
+                            <i class="fa fa-commenting fa-fw text-purple"></i>
                             <span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span>
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/pages'); ?>" class="waves-effect">
-                            <i class="fa fa-file-text-o fa-fw text-inverse"></i>
-                            <span class="hide-menu"><?= $this->lang->line('pages'); ?></span>
+                        <a href="javascript:void(0)" class="waves-effect">
+                            <i class="fa fa-bolt fa-fw text-warning"></i>
+                            <span class="hide-menu">BlizzCMS</span>
                         </a>
-                    </li>
-                    <li class="devider"></li>
-                    <li>
-                        <a href="<?= base_url('admin/apic'); ?>" class="waves-effect">
-                            <i class="fa fa-circle-o text-danger"></i>
-                            <span class="hide-menu">API</span>
-                        </a>
-                    </li>
-                    <li class="devider"></li>
-                    <li>
-                        <a target="_blank" href="https://fixcore.github.io" class="waves-effect">
-                            <i class="fa fa-circle-o text-info"></i>
-                            <span class="hide-menu">Wiki</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a target="_blank" href="https://github.com/fixcore/BlizzCMS/issues" class="waves-effect">
-                            <i class="fa fa-circle-o text-inverse"></i>
-                            <span class="hide-menu">Issues</span>
-                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?= base_url('admin/apic'); ?>">
+                                    <i class="fa fa-circle-o text-danger"></i>
+                                    <span class="hide-menu">API</span>
+                                </a>
+                            </li>
+                            <li class="devider"></li>
+                            <li>
+                                <a target="_blank" href="https://fixcore.github.io">
+                                    <i class="fa fa-circle-o text-info"></i>
+                                    <span class="hide-menu">Wiki</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a target="_blank" href="https://github.com/fixcore/BlizzCMS/issues">
+                                    <i class="fa fa-circle-o text-inverse"></i>
+                                    <span class="hide-menu">Issues</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>
