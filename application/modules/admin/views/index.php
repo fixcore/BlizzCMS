@@ -45,7 +45,7 @@
                             <div class="col-lg-3 col-sm-6 row-in-br">
                                 <ul class="col-in">
                                     <li>
-                                        <span class="circle circle-md bg-warning"><i class="icon-people"></i></span>
+                                        <span class="circle circle-md bg-warning"><i class="fa fa-id-badge"></i></span>
                                     </li>
                                     <li class="col-last">
                                         <h3 class="counter text-right m-t-15"><?= $this->admin_model->getGmCount(); ?></h3>
