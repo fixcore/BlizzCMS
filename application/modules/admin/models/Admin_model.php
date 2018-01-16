@@ -124,7 +124,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_api_generator', $data);
 
-        redirect(base_url('admin/capic/?generated=').$id,'refresh');
+        redirect(base_url('admin/manageapi/?generated=').$id,'refresh');
     }
 
     public function getUltimateApiCharID()

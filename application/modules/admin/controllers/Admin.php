@@ -57,7 +57,7 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function apic()
+    public function manageapi()
     {
         $this->load->model('admin_model');
 
@@ -71,7 +71,7 @@ class Admin extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('api/create');
+        $this->load->view('api/manageapi');
         $this->load->view('general/footer');
     }
 
@@ -90,24 +90,6 @@ class Admin extends MX_Controller {
 
         $this->load->view('general/header');
         $this->load->view('changelogs/managechangelogs');
-        $this->load->view('general/footer');
-    }
-
-    public function capic()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('api/capic');
         $this->load->view('general/footer');
     }
 
