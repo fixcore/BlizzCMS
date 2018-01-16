@@ -274,7 +274,7 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?= base_url('admin/apic'); ?>">
+                                <a href="<?= base_url('admin/manageapi'); ?>">
                                     <i class="fa fa-microchip text-info"></i>
                                     <span class="hide-menu">API</span>
                                 </a>
