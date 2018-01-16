@@ -214,25 +214,10 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="javascript:void(0)" class="waves-effect">
+                                <a href="<?= base_url('admin/managenews'); ?>" class="waves-effect">
                                     <i class="fa fa-newspaper-o fa-fw"></i>
                                     <span class="hide-menu"><?= $this->lang->line('adm_news'); ?></span>
-                                    <span class="fa arrow"></span>
                                 </a>
-                                <ul class="nav nav-third-level">
-                                    <li>
-                                        <a href="<?= base_url('admin/addnew'); ?>">
-                                            <i class="fa fa-pencil fa-fw"></i>
-                                            <span class="hide-menu"><?= $this->lang->line('adm_add_news'); ?></span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="<?= base_url('admin/listnew'); ?>">
-                                            <i class="fa fa-list fa-fw"></i>
-                                            <span class="hide-menu"><?= $this->lang->line('adm_news_list'); ?></span>
-                                        </a>
-                                    </li>
-                                </ul>
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/changelogs'); ?>" class="waves-effect">
