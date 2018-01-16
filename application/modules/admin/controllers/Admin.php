@@ -183,7 +183,7 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function listnew()
+    public function managenews()
     {
         $this->load->model('admin_model');
 
@@ -197,7 +197,7 @@ class Admin extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('news/listnew');
+        $this->load->view('news/managenews');
         $this->load->view('general/footer');
     }
 
@@ -309,21 +309,6 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function addnew()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('news/addnew');
-        $this->load->view('general/footer');
-    }
-
     public function alist($id)
     {
         $this->load->model('admin_model');
@@ -376,7 +361,7 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function nlist($id)
+    public function editnews($id)
     {
         $this->load->model('admin_model');
 
@@ -398,7 +383,7 @@ class Admin extends MX_Controller {
         $data['idlink'] = $id;
 
         $this->load->view('general/header');
-        $this->load->view('news/nlist', $data);
+        $this->load->view('news/editnews', $data);
         $this->load->view('general/footer');
     }
 
