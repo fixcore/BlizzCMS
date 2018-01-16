@@ -226,7 +226,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/pages'); ?>" class="waves-effect">
+                                <a href="<?= base_url('admin/managepages'); ?>" class="waves-effect">
                                     <i class="fa fa-file-text-o fa-fw"></i>
                                     <span class="hide-menu"><?= $this->lang->line('pages'); ?></span>
                                 </a>
