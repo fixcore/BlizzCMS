@@ -175,7 +175,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_users_annotations', $data);
 
-        redirect(base_url().'admin/alist/'.$id,'refresh');
+        redirect(base_url().'admin/manageaccount/'.$id,'refresh');
     }
 
     public function getADDADMRank($id)
@@ -198,7 +198,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_users_annotations', $data2);
 
-        redirect(base_url().'admin/alist/'.$id,'refresh');
+        redirect(base_url().'admin/manageaccount/'.$id,'refresh');
     }
 
     public function deleteCategory($id)
@@ -280,13 +280,13 @@ class Admin_model extends CI_Model {
 
         $this->characters->insert('character_banned', $data2);
 
-        redirect(base_url().'admin/clist/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
     }
 
     public function insertCustomizeChar($id)
     {
         if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/clist/'.$id.'?char','refresh');
+            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_customAction');
@@ -302,7 +302,7 @@ class Admin_model extends CI_Model {
         $this->characters = $this->load->database('characters', TRUE);
         $this->characters->query("UPDATE characters SET at_login = 8 WHERE guid= '$id'");
 
-        redirect(base_url().'admin/clist/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
     }
 
     public function getAdminNewsList()
@@ -373,7 +373,7 @@ class Admin_model extends CI_Model {
     public function insertChangeFactionChar($id)
     {
         if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/clist/'.$id.'?char','refresh');
+            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_chanfactAction');
@@ -388,13 +388,13 @@ class Admin_model extends CI_Model {
 
         $this->characters->query("UPDATE characters SET at_login = 64 WHERE guid= '$id'");
 
-        redirect(base_url().'admin/clist/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
     }
 
     public function insertChangeRaceChar($id)
     {
         if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/clist/'.$id.'?char','refresh');
+            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_chanraceAction');
@@ -409,7 +409,7 @@ class Admin_model extends CI_Model {
 
         $this->characters->query("UPDATE characters SET at_login = 128 WHERE guid= '$id'");
 
-        redirect(base_url().'admin/clist/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
     }
 
     public function insertUnbanChar($id)
@@ -427,16 +427,16 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_chars_annotations', $data);
 
-        redirect(base_url().'admin/clist/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
     }
 
     public function insertCharRename($id, $name)
     {
         if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/clist/'.$id.'?char','refresh');
+            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
 
         if ($this->m_general->getCharNameAlreadyExist($name)->num_rows() > 0)
-            redirect(base_url().'admin/clist/'.$id.'?name','refresh');
+            redirect(base_url().'admin/managecharacter/'.$id.'?name','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_newname').' -> '.$name.' | '.$this->lang->line('char_oldname').' -> '.$this->m_general->getCharName($id);
@@ -451,13 +451,13 @@ class Admin_model extends CI_Model {
 
         $this->characters->query("UPDATE characters SET name = '$name' WHERE guid = $id");
 
-        redirect(base_url().'admin/clist/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
     }
 
     public function insertChangeLevelChar($id, $level)
     {
         if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/clist/'.$id.'?char','refresh');
+            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_newlevel').' -> '.$level.' | '.$this->lang->line('char_oldlevel').' -> '.$this->m_general->getCharLevel($id);
@@ -473,7 +473,7 @@ class Admin_model extends CI_Model {
         $this->characters = $this->load->database('characters', TRUE);
         $this->characters->query("UPDATE characters SET level = $level WHERE guid = $id");
 
-        redirect(base_url().'admin/clist/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
     }
 
     public function getAnnotationsSpecifyChar($id)
@@ -502,7 +502,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_users_annotations', $data);
 
-        redirect(base_url().'admin/alist/'.$id,'refresh');
+        redirect(base_url().'admin/manageaccount/'.$id,'refresh');
     }
 
     public function getAnnotationsSpecify($id)
@@ -530,7 +530,7 @@ class Admin_model extends CI_Model {
         if ($this->m_general->getExpansionAction() == 2)
             $this->auth->query("DELETE FROM battlenet_account_bans WHERE id = $id");
 
-        redirect(base_url().'admin/alist/'.$id,'refresh');
+        redirect(base_url().'admin/manageaccount/'.$id,'refresh');
     }
 
     public function removeRankAcc($id)
@@ -548,7 +548,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_users_annotations', $data);
 
-        redirect(base_url().'admin/alist/'.$id,'refresh');
+        redirect(base_url().'admin/manageaccount/'.$id,'refresh');
     }
 
     public function insertBanAcc($iduser, $reason)
@@ -580,7 +580,7 @@ class Admin_model extends CI_Model {
         if ($this->m_general->getExpansionAction() == 2)
             $this->auth->insert('battlenet_account_bans', $data2);
 
-        redirect(base_url().'admin/alist/'.$iduser,'refresh');
+        redirect(base_url().'admin/manageaccount/'.$iduser,'refresh');
     }
 
     public function getBanCount()

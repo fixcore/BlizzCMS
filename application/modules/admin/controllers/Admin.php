@@ -21,7 +21,7 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function users()
+    public function accounts()
     {
         $this->load->model('admin_model');
 
@@ -35,7 +35,7 @@ class Admin extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('account/acclist');
+        $this->load->view('account/accounts');
         $this->load->view('general/footer');
     }
 
@@ -165,7 +165,7 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function chars()
+    public function characters()
     {
         $this->load->model('admin_model');
 
@@ -179,7 +179,7 @@ class Admin extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('characters/charlist');
+        $this->load->view('characters/characters');
         $this->load->view('general/footer');
     }
 
@@ -273,7 +273,7 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function alist($id)
+    public function manageaccount($id)
     {
         $this->load->model('admin_model');
 
@@ -295,11 +295,11 @@ class Admin extends MX_Controller {
         $data['idlink'] = $id;
 
         $this->load->view('general/header');
-        $this->load->view('account/alist', $data);
+        $this->load->view('account/manageaccount', $data);
         $this->load->view('general/footer');
     }
 
-    public function clist($id)
+    public function managecharacter($id)
     {
         $this->load->model('admin_model');
 
@@ -321,7 +321,7 @@ class Admin extends MX_Controller {
         $data['idlink'] = $id;
 
         $this->load->view('general/header');
-        $this->load->view('characters/clist', $data);
+        $this->load->view('characters/managecharacter', $data);
         $this->load->view('general/footer');
     }
 

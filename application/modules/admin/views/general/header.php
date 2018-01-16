@@ -194,13 +194,13 @@
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="<?= base_url('admin/users'); ?>">
+                                <a href="<?= base_url('admin/accounts'); ?>">
                                     <i class="fa fa-list fa-fw"></i>
                                     <span class="hide-menu"><?= $this->lang->line('adm_users_list'); ?></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/chars'); ?>">
+                                <a href="<?= base_url('admin/characters'); ?>">
                                     <i class="fa fa-list fa-fw"></i>
                                     <span class="hide-menu"><?= $this->lang->line('adm_chars_list'); ?></span>
                                 </a>
