@@ -13,11 +13,11 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-mouse-pointer fa-fw"></i>Forum - <?= $this->lang->line('forum_categoryMan'); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-commenting fa-fw"></i><?= $this->lang->line('adm_forums'); ?> - <?= $this->lang->line('forum_categoryMan'); ?></h4>
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <a href="#" data-toggle="modal" data-target="#createcat-modal">
-                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i></i><?= $this->lang->line('button_crea'); ?></button>
+                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
                     </a>
                 </div>
             </div>

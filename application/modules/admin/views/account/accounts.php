@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-mouse-pointer fa-fw"></i>Website - <?= $this->lang->line('users_list'); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-users fa-fw"></i><?= $this->lang->line('adm_users'); ?> - <?= $this->lang->line('users_list'); ?></h4>
                 </div>
             </div>
             <!-- /row -->
