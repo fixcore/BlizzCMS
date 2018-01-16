@@ -77,7 +77,7 @@ class Admin_model extends CI_Model {
 
         $idd = $this->db->query("SELECT id FROM fx_pages WHERE title = '".$title."'")->row()->id;
 
-        redirect(base_url('admin/pages?newpage='.$idd),'refresh');
+        redirect(base_url('admin/managepages?newpage='.$idd),'refresh');
     }
 
     public function delShopItm($id)
@@ -105,7 +105,7 @@ class Admin_model extends CI_Model {
     public function delPage($id)
     {
         $this->db->query("DELETE FROM fx_pages WHERE id = $id");
-        redirect(base_url('admin/mpages'),'refresh');
+        redirect(base_url('admin/managepages'),'refresh');
     }
 
     public function delChangelog($id)
