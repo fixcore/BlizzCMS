@@ -1,29 +1,31 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-            <div class="row bg-title"></div>
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title"><i class="fa fa-mouse-pointer fa-fw"></i>Website - <?= $this->lang->line('users_list'); ?></h4>
+                </div>
+            </div>
             <!-- /row -->
             <div class="row">
                 <div class="col-sm-12">
                     <div class="white-box">
-                        <h3 class="box-title m-b-0"><i class="fa fa-list fa-fw"></i><?= $this->lang->line('users_list'); ?></h3>
-                        <p class="text-muted m-b-30"></p>
                         <div class="table-responsive">
-                            <table id="myTable" class="table table-striped">
+                            <table id="myTable" class="table color-table info-table table-striped">
                                 <thead>
                                     <tr>
                                         <th>Username</th>
-                                        <th>Email</th>
+                                        <th class="text-center">Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach($this->admin_model->getAdminAccountsList()->result() as $accs) { ?>
                                         <tr>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/alist/<?= $accs->id ?>" title="<?= $accs->username ?>"><?= $accs->username ?></a>
+                                                <a href="<?= base_url(); ?>admin/manageaccount/<?= $accs->id ?>" title="<?= $accs->username ?>"><?= $accs->username ?></a>
                                             </td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/alist/<?= $accs->id ?>" title="<?= $accs->email ?>"><?= $accs->email ?></a>
+                                            <td class="text-center">
+                                                <a href="<?= base_url(); ?>admin/manageaccount/<?= $accs->id ?>" title="<?= $accs->email ?>"><?= $accs->email ?></a>
                                             </td>
                                         </tr>
                                     <?php } ?>

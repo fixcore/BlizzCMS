@@ -33,13 +33,9 @@
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
-            <div class="row bg-title"></div>
-            <!-- .row -->
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="white-box">
-                        <h3 class="box-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('char_manage'); ?> - <?= $this->m_general->getNameCharacterSpecifyGuid($idlink); ?></h3>
-                    </div>
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('char_manage'); ?> - <?= $this->m_general->getNameCharacterSpecifyGuid($idlink); ?></h4>
                 </div>
             </div>
             <?php if(isset($_GET['char'])) { ?>
@@ -49,7 +45,6 @@
             <?php if(isset($_GET['name'])) { ?>
                 <div class="alert alert-danger"><?= $this->lang->line('char_namexist'); ?></div>
             <?php } ?>
-            <!-- /.row -->
             <!-- .row -->
             <div class="row">
                 <div class="col-lg-4 col-sm-4">
@@ -208,10 +203,12 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="well">
-                        <h4><?= $this->lang->line('annotations'); ?></h4>
-                        <?php foreach($this->admin_model->getAnnotationsSpecifyChar($idlink)->result() as $charlistannotation) { ?>
-                            <li><?= $charlistannotation->annotation ?></li>
-                        <?php } ?>
+                        <h4><i class="fa fa-list fa-fw"></i><?= $this->lang->line('annotations'); ?></h4>
+                        <ul class="list-icons">
+                            <?php foreach($this->admin_model->getAnnotationsSpecifyChar($idlink)->result() as $charlistannotation) { ?>
+                                <li><i class="fa fa-caret-right text-primary"></i><?= $charlistannotation->annotation ?></li>
+                            <?php } ?>
+                        </ul>
                     </div>
                 </div>
                 <!-- /.col-lg-4 -->
