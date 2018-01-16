@@ -19,7 +19,7 @@ class Admin_model extends CI_Model {
     public function insertShop($itemid, $type, $name, $pricedp, $pricevp, $iconname, $groups, $image)
     {
         if ($pricevp == '0' && $pricedp == '0')
-        redirect(base_url('admin/shop?p'),'refresh');
+        redirect(base_url('admin/manageitems?p'),'refresh');
 
         if ($pricedp == '0')
             $pricedp = NULL;
@@ -40,7 +40,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_shop', $data);
         
-        redirect(base_url('admin/shop'),'refresh');
+        redirect(base_url('admin/manageitems'),'refresh');
     }
 
     public function getCategoryStore()
@@ -84,7 +84,7 @@ class Admin_model extends CI_Model {
     {
         $this->db->query("DELETE FROM fx_shop WHERE id = '$id'");
         $this->db->query("DELETE FROM fx_shop_top WHERE id_shop = '$id'");
-        redirect(base_url('admin/mshop'),'refresh');
+        redirect(base_url('admin/manageitems'),'refresh');
     }
 
     public function getShopAll()

@@ -234,10 +234,18 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/shop'); ?>" class="waves-effect">
+                        <a href="javascript:void(0)" class="waves-effect">
                             <i class="fa fa-shopping-cart fa-fw text-success"></i>
                             <span class="hide-menu"><?= $this->lang->line('shop'); ?></span>
                         </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?= base_url('admin/manageitems'); ?>" class="waves-effect">
+                                    <i class="fa fa-cube fa-fw"></i>
+                                    <span class="hide-menu">Items</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0)" class="waves-effect">
