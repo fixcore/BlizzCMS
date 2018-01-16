@@ -220,7 +220,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="<?= base_url('admin/changelogs'); ?>" class="waves-effect">
+                                <a href="<?= base_url('admin/managechangelogs'); ?>" class="waves-effect">
                                     <i class="fa fa-history fa-fw"></i>
                                     <span class="hide-menu"><?= $this->lang->line('changelogs'); ?></span>
                                 </a>

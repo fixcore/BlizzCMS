@@ -60,7 +60,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_changelogs', $data);
 
-        redirect(base_url('admin/changelogs'),'refresh');
+        redirect(base_url('admin/managechangelogs'),'refresh');
     }
 
     public function insertPage($title, $desc)
@@ -111,7 +111,7 @@ class Admin_model extends CI_Model {
     public function delChangelog($id)
     {
         $this->db->query("DELETE FROM fx_changelogs WHERE id = '$id'");
-        redirect(base_url('admin/mchangelog'),'refresh');
+        redirect(base_url('admin/managechangelogs'),'refresh');
     }
 
     public function insertApiCharType($id, $type)
@@ -137,7 +137,7 @@ class Admin_model extends CI_Model {
     {
         $this->db->query("DELETE FROM fx_news WHERE id = '".$id."'");
         $this->db->query("DELETE FROM fx_news_top WHERE id_new = '".$id."'");
-        redirect(base_url('admin/listnew'),'refresh');
+        redirect(base_url('admin/managenews'),'refresh');
     }
 
     public function getGeneralNewsSpecifyName($id)
@@ -334,7 +334,7 @@ class Admin_model extends CI_Model {
             $this->db->insert('fx_news_top', $data);
         }
 
-        redirect(base_url(),'refresh');
+        redirect(base_url('admin/managenews'),'refresh');
     }
 
     public function updateNewADM($id, $title, $image, $description, $type)
@@ -357,7 +357,7 @@ class Admin_model extends CI_Model {
             $this->db->insert('fx_news_top', $data);
         }
 
-        redirect(base_url(),'refresh');
+        redirect(base_url('admin/managenews'),'refresh');
     }
 
     public function getNewIDperDate($date)
