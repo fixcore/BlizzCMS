@@ -183,7 +183,7 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function forums()
+    public function managecategories()
     {
         $this->load->model('admin_model');
 
@@ -197,11 +197,11 @@ class Admin extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('forum/index');
+        $this->load->view('forum/managecategories');
         $this->load->view('general/footer');
     }
 
-    public function mcategory()
+    public function manageforums()
     {
         $this->load->model('admin_model');
 
@@ -215,61 +215,7 @@ class Admin extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('forum/mcategory');
-        $this->load->view('general/footer');
-    }
-
-    public function ccategory()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('forum/ccategory');
-        $this->load->view('general/footer');
-    }
-
-    public function mforum()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('forum/mforum');
-        $this->load->view('general/footer');
-    }
-
-    public function cforum()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('forum/cforum');
+        $this->load->view('forum/manageforums');
         $this->load->view('general/footer');
     }
 

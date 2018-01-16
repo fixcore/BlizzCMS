@@ -204,7 +204,7 @@ class Admin_model extends CI_Model {
     public function deleteCategory($id)
     {
         $this->db->query("DELETE FROM fx_forum_category WHERE id = '$id'");
-        redirect(base_url('admin/mcategory'),'refresh');
+        redirect(base_url('admin/managecategories'),'refresh');
     }
 
     public function insertCategory($name)
@@ -215,7 +215,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_forum_category', $data);
 
-        redirect(base_url('admin/mcategory'),'refresh');
+        redirect(base_url('admin/managecategories'),'refresh');
     }
 
     public function insertForum($name, $category, $description, $icon, $type)
@@ -230,13 +230,13 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_forum_forums', $data);
 
-        redirect(base_url('admin/mforum'),'refresh');
+        redirect(base_url('admin/manageforums'),'refresh');
     }
 
     public function deleteForum($id)
     {
         $this->db->query("DELETE FROM fx_forum_forums WHERE id = '$id'");
-        redirect(base_url('admin/mforum'),'refresh');
+        redirect(base_url('admin/manageforums'),'refresh');
     }
 
     public function getForumCategoryList()

@@ -240,10 +240,24 @@
                         </a>
                     </li>
                     <li>
-                        <a href="<?= base_url('admin/forums'); ?>" class="waves-effect">
+                        <a href="javascript:void(0)" class="waves-effect">
                             <i class="fa fa-commenting fa-fw text-purple"></i>
                             <span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span>
                         </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="<?= base_url('admin/managecategories'); ?>" class="waves-effect">
+                                    <i class="fa fa-bookmark-o fa-fw"></i>
+                                    <span class="hide-menu"><?= $this->lang->line('forum_categoryMan'); ?></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="<?= base_url('admin/manageforums'); ?>" class="waves-effect">
+                                    <i class="fa fa-comments-o fa-fw"></i>
+                                    <span class="hide-menu"><?= $this->lang->line('forum_forumMan'); ?></span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="javascript:void(0)" class="waves-effect">
