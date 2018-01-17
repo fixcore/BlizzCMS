@@ -10,6 +10,9 @@ class Events_model extends CI_Model {
 
     public function getEventsLimitFive()
     {
-        return $this->db->query("SELECT * FROM fx_events ORDER BY id DESC LIMIT 5");
+        return $this->db->select('*')
+        		->order_by('id', 'DESC')
+        		->limit('5')
+        		->get('fx_events');
     }
 }

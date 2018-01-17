@@ -12,107 +12,140 @@ class M_general extends CI_Model {
 
     public function getGmSpecify($id)
     {
-        $this->auth = $this->load->database('auth', TRUE);
-        return $this->auth->query("SELECT id FROM account_access WHERE id = '".$id."'");
+        return $this->auth->select('id')
+                ->where('id', $id)
+                ->get('account_access');
     }
 
     public function getGeneralCharactersSpecifyAcc($id)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT * FROM characters WHERE account = '".$id."'");
+        return $this->characters->select('*')
+                ->where('account', $id)
+                ->get('characters');
     }
 
     public function getSpecifyQuestion($id)
     {
-        return $this->db->query("SELECT question FROM fx_questions WHERE id = '".$id."'")->row()->question;
+        return $this->db->select('question')
+                ->where('id', $id)
+                ->get('fx_questions')
+                ->row_array()['question'];
     }
 
     public function getUserInfoGeneral($id)
     {
-        return $this->db->query("SELECT * FROM fx_users WHERE id = '".$id."'");
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_users');
     }
 
     public function getAccountExist($id)
     {
-        $this->auth = $this->load->database('auth', TRUE);
-        return $this->auth->query("SELECT * FROM account WHERE id = '".$id."'");
+        return $this->auth->select('*')
+                ->where('id', $id)
+                ->get('account');
     }
 
     public function getGeneralCharactersSpecifyGuid($id)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT * FROM characters WHERE guid = '".$id."'");
+        return $this->characters->select('*')
+                ->where('guid', $id)
+                ->get('characters');
     }
 
     public function getNameCharacterSpecifyGuid($id)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row_array()['name'];
+        return $this->characters->select('name')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row_array()['name'];
     }
 
     public function getShopID($id)
     {
-        return $this->db->query("SELECT * FROM fx_shop WHERE id = '".$id."'");
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_shop');
     }
 
     public function getPermissions($id)
     {
-        return $this->db->query("SELECT permission FROM fx_ranks WHERE id = '".$id."'")->row_array()['permission'];
+        return $this->db->select('permission')
+                ->where('id', $id)
+                ->get('fx_ranks')
+                ->row('permission');
     }
 
     public function getCharNameAlreadyExist($name)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT name FROM characters WHERE name = '".$name."'");
+        return $this->characters->select('name')
+                ->where('name', $name)
+                ->get('characters');
     }
 
     public function getCharBanSpecifyGuid($id)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT guid FROM character_banned WHERE guid = '".$id."' AND active = 1");
+        return $this->characters->select('guid')
+                ->where('guid', $id)
+                ->where('active', '1')
+                ->get('character_banned');
     }
 
     public function getCharName($id)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row()->name;
+        return $this->characters->select('name')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row_array()['name'];
     }
 
     public function getCharLevel($id)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT level FROM characters WHERE guid = '".$id."'")->row()->level;
+        return $this->characters->select('level')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row('level');
     }
 
     public function getCharActive($id)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT online FROM characters WHERE guid = '".$id."'")->row()->online;
+        return $this->characters->select('online')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row('online');
     }
 
     public function getCharDPTotal($id)
     {
-        $qq = $this->db->query("SELECT dp FROM fx_credits WHERE accountid = '".$id."'");
+        $qq = $this->db->select('dp')
+                ->where('accountid', $id)
+                ->get('fx_credits');
 
         if ($qq->num_rows() > 0)
-            return $qq->row()->dp;
+            return $qq->row('dp');
         else
             return '0';
     }
 
     public function getCharVPTotal($id)
     {
-        $qq = $this->db->query("SELECT vp FROM fx_credits WHERE accountid = '".$id."'");
+        $qq = $this->db->select('vp')
+                ->where('accountid', $id)
+                ->get('fx_credits');
 
         if ($qq->num_rows() > 0)
-            return $qq->row()->vp;
+            return $qq->row('vp');
         else
             return '0';
     }
 
     public function getRealmName()
     {
-        return $this->auth->query("SELECT name FROM realmlist ORDER BY id ASC LIMIT 1")->row_array()['name'];
+        return $this->auth->select('name')
+                ->order_by('id', 'ASC')
+                ->limit('1')
+                ->get('realmlist')
+                ->row_array()['name'];
     }
 
     public function getMonth($id)
@@ -186,6 +219,38 @@ class M_general extends CI_Model {
                 break;
             case 8:
                 return "2";
+                break;
+        }
+    }
+
+    public function getExpansionName()
+    {
+        $expansion = $this->config->item('expansion_id');
+        switch ($expansion)
+        {
+            case 1:
+                return "Vanilla";
+                break;
+            case 2:
+                return "The Burning Crusade";
+                break;
+            case 3:
+                return "Wrath of the Lich King";
+                break;
+            case 4:
+                return "Cataclysm";
+                break;
+            case 5:
+                return "Mist of Pandaria";
+                break;
+            case 6:
+                return "Warlords of Draenor";
+                break;
+            case 7:
+                return "Legion";
+                break;
+            case 8:
+                return "Battle of Azeroth";
                 break;
         }
     }
@@ -400,14 +465,22 @@ class M_general extends CI_Model {
 
     public function getCharactersOnlineAlliance()
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT guid FROM characters WHERE race IN ('1','3','4','7','11','22','25') AND online = 1")->num_rows();
+        $races = array('1','3','4','7','11','22','25');
+
+        return $this->characters->select('guid')
+                ->where_in('race', $races)
+                ->where('online', '1')
+                ->num_rows();
     }
 
     public function getCharactersOnlineHorde()
     {
-        $this->characters = $this->load->database('characters', TRUE);
-        return $this->characters->query("SELECT guid FROM characters WHERE race IN ('2','5','6','8','10','9','26') AND online = 1")->num_rows();
+        $races = array('2','5','6','8','10','9','26');
+
+        return $this->characters->select('guid')
+                ->where_in('race', $races)
+                ->where('online', '1')
+                ->num_rows();
     }
 
     public function getFaction($race)

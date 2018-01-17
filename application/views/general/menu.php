@@ -136,10 +136,16 @@
                                 <div class="Navbar-modalSection">
                                     <div class="Navbar-accountDropdownProfileInfo">
                                         <div class="Navbar-accountDropdownBattleTag">
-                                            <?= $this->session->userdata('fx_sess_username'); ?>#<?= $this->session->userdata('fx_sess_tag'); ?>
+                                            <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                                                <?= $this->session->userdata('fx_sess_username'); ?>#<?= $this->session->userdata('fx_sess_tag'); ?>
+                                            </a>
                                         </div>
                                     </div>
-                                    <div class="Navbar-accountDropdownEmail"><?= $this->session->userdata('fx_sess_email'); ?></div>
+                                    <div class="Navbar-accountDropdownEmail">
+                                        <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                                            <?= $this->session->userdata('fx_sess_email'); ?>
+                                        </a>
+                                    </div>
                                 </div>
                                 <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
                                     <a href="<?= base_url('admin'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('adm_panel'); ?>">

@@ -82,6 +82,9 @@ $lang['report_list'] = 'Report List';
 $lang['captcha_error'] = 'please check the captcha';
 
 
+$lang['member_sice'] = 'Member since';
+
+
 $lang['bugtracker'] = 'Bugtracker';
 $lang['create_report'] = 'Create Report';
 
@@ -106,6 +109,10 @@ $lang['newup_fi'] = 'File upload';
 $lang['new_imgT'] = 'Your image must be in .jpg format';
 
 $lang['expr_author'] = 'Author';
+$lang['expr_vp'] = 'Donor Points';
+$lang['expr_dp'] = 'Vote Points';
+$lang['expr_expansion'] = 'Expansion';
+$lang['expr_location'] = 'Location';
 $lang['expr_avatar'] = 'Avatar';
 $lang['expr_yes'] = 'Yes';
 $lang['expr_no'] = 'No';
@@ -143,6 +150,7 @@ $lang['unban_char'] = 'Unban Character';
 $lang['unbanned'] = 'Unbanned';
 $lang['ban_acc'] = 'Ban Account';
 $lang['rank_acc'] = 'GM Rank';
+$lang['acc_rank'] = 'Account Rank';
 $lang['grant_acc'] = 'Grant GM';
 $lang['re_gran_acc'] = 'Remove GM';
 $lang['grantW_acc'] = 'Grant ADM';
