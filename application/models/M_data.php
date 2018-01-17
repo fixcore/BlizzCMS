@@ -115,9 +115,6 @@ class M_data extends CI_Model {
     {
         $account = strtoupper($account);
 
-        $qq = $this->db->query("SELECT id FROM account WHERE username = '".$account."'");
-        $query = $qq->row();
-
         $qq = $this->auth->select('id')
                 ->where('username', $account)
                 ->get('account');
