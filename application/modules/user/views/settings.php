@@ -465,7 +465,7 @@
                                                     <div class="uk-width-1-2@s">
                                                         <div class="uk-form-controls">
                                                             <select class="uk-select" id="form-stacked-select" name="question_us">
-                                                            <?php foreach ($this->m_data->getQuestion()->result() as $question_us) { ?>
+                                                            <?php foreach ($this->user_model->getQuestion()->result() as $question_us) { ?>
                                                                 <option value="<?= $question_us->id ?>"><?= $question_us->question; ?></option>
                                                             <?php } ?>
                                                             </select>
