@@ -193,7 +193,7 @@ class Admin_model extends CI_Model {
 
     public function getAdminAccountsList()
     {
-        $this->db->select('id, username, email')
+        $this->auth->select('id, username, email')
             ->order_by('id', 'ASC')
             ->get('account');
     }
