@@ -193,9 +193,9 @@ class Admin_model extends CI_Model {
 
     public function getAdminAccountsList()
     {
-        $this->auth->select('id, username, email')
-            ->order_by('id', 'ASC')
-            ->get('account');
+        return $this->auth->select('id, username, email')
+                ->order_by('id', 'ASC')
+                ->get('account');
     }
 
     public function getRemoveADMRank($id)
