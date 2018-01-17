@@ -34,7 +34,7 @@
                 echo $this->lang->line('acc_exist');
             }
             else
-                $this->m_data->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day);
+                $this->user_model->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day, $country);
         }
         else
             echo $this->lang->line('pass_nmatch');
@@ -110,7 +110,7 @@
                                 <div class="uk-margin">
                                     <div class="uk-form-controls">
                                         <select class="uk-select" name="reg_country">
-                                            <?php foreach($this->m_data->getCountry()->result() as $countrys) { ?>
+                                            <?php foreach($this->user_model->getCountry()->result() as $countrys) { ?>
                                                 <option value="<?= $countrys->id; ?>"><?= $countrys->country_name ?></option>
                                             <?php } ?>
                                         </select>
@@ -210,7 +210,7 @@
                                     <div class="uk-inline">
                                         <div class="uk-form-controls">
                                             <select class="uk-select" name="reg_question">
-                                                <?php foreach($this->m_data->getQuestion()->result() as $question) { ?>
+                                                <?php foreach($this->user_model->getQuestion()->result() as $question) { ?>
                                                     <option value="1"><?= $question->question; ?></option>
                                                 <?php } ?>
                                             </select>

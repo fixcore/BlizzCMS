@@ -124,17 +124,26 @@ class M_api_char extends CI_Model {
     //private principal functions
     private function getCharRow($guid)
     {
-        return $this->characters->query('SELECT guid FROM characters WHERE guid = "'.$guid.'"')->num_rows();
+        return $this->characters->select('guid')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->num_rows();
     }
 
     private function getCharName($guid)
     {
-        return $this->characters->query("SELECT name FROM characters WHERE guid = '".$guid."'")->row()->name;
+        return $this->characters->select('name')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('name');
     }
 
     private function getCharAccount($guid)
     {
-        $qq = $this->characters->query("SELECT account FROM characters WHERE guid = '".$guid."'")->row()->account;
+        $qq = $this->characters->select('account')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('account');
 
         if (isset($_GET['api_username']))
             $qq = $this->m_data->getUsernameID($qq);
@@ -144,7 +153,10 @@ class M_api_char extends CI_Model {
 
     private function getCharClass($guid)
     {
-        $qq = $this->characters->query("SELECT class FROM characters WHERE guid = '".$guid."'")->row()->class;
+        $qq = $this->characters->select('class')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('class');
 
         if (isset($_GET['api_class']))
             $qq = $this->m_general->getNameClass($qq);
@@ -154,7 +166,10 @@ class M_api_char extends CI_Model {
 
     private function getCharRace($guid)
     {
-        $qq = $this->characters->query("SELECT race FROM characters WHERE guid = '".$guid."'")->row()->race;
+        $qq = $this->characters->select('race')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('race');
 
         if (isset($_GET['api_race']))
             $qq = $this->m_general->getRaceName($qq);
@@ -164,7 +179,10 @@ class M_api_char extends CI_Model {
 
     private function getCharGender($guid)
     {
-        $qq = $this->characters->query("SELECT gender FROM characters WHERE guid = '".$guid."'")->row()->gender;
+        $qq = $this->characters->select('gender')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('gender');
 
         if (isset($_GET['api_gender']))
             $qq = $this->m_general->getGender($qq);
@@ -174,250 +192,394 @@ class M_api_char extends CI_Model {
 
     private function getCharLevel($guid)
     {
-        return $this->characters->query("SELECT level FROM characters WHERE guid = '".$guid."'")->row()->level;
+        return $this->characters->select('level')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('level');
     }
 
     private function getCharOnline($guid)
     {
-        return $this->characters->query("SELECT online FROM characters WHERE guid = '".$guid."'")->row()->online;
+        return $this->characters->select('online')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('online');
     }
 
     private function getCharMoney($guid)
     {
-        return $this->characters->query("SELECT money FROM characters WHERE guid = '".$guid."'")->row()->money;
+        return $this->characters->select('money')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('money');
     }
 
     //private internal functions
     private function getCharXP($guid)
     {
-        return $this->characters->query("SELECT xp FROM characters WHERE guid = '".$guid."'")->row()->xp;
+        return $this->characters->select('xp')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('xp');
     }
 
     private function getCharbankSlots($guid)
     {
-        return $this->characters->query("SELECT bankSlots FROM characters WHERE guid = '".$guid."'")->row()->bankSlots;
+        return $this->characters->select('bankSlots')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('bankSlots');
     }
 
     private function getCharplayerFlags($guid)
     {
-        return $this->characters->query("SELECT playerFlags FROM characters WHERE guid = '".$guid."'")->row()->playerFlags;
+        return $this->characters->select('playerFlags')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('playerFlags');
     }
 
     private function getCharInstaceguid($guid)
     {
-        return $this->characters->query("SELECT instance_id FROM characters WHERE guid = '".$guid."'")->row()->instance_id;
+        return $this->characters->select('instance_id')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('instance_id');
     }
 
     private function getCharTitle($guid)
     {
-        return $this->characters->query("SELECT chosenTitle FROM characters WHERE guid = '".$guid."'")->row()->chosenTitle;
+        return $this->characters->select('chosenTitle')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('chosenTitle');
     }
 
     private function getCharTitles($guid)
     {
-        return $this->characters->query("SELECT knownTitles FROM characters WHERE guid = '".$guid."'")->row()->knownTitles;
+        return $this->characters->select('knownTitles')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('knownTitles');
     }
 
     private function getCharLatency($guid)
     {
-        return $this->characters->query("SELECT latency FROM characters WHERE guid = '".$guid."'")->row()->latency;
+        return $this->characters->select('latency')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('latency');
     }
 
     //private positions functions
     private function getCharX($guid)
     {
-        return $this->characters->query("SELECT position_x FROM characters WHERE guid = '".$guid."'")->row()->position_x;
+        return $this->characters->select('position_x')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('position_x');
     }
 
     private function getCharY($guid)
     {
-        return $this->characters->query("SELECT position_y FROM characters WHERE guid = '".$guid."'")->row()->position_y;
+        return $this->characters->select('position_y')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('position_y');
     }
 
     private function getCharZ($guid)
     {
-        return $this->characters->query("SELECT position_z FROM characters WHERE guid = '".$guid."'")->row()->position_z;
+        return $this->characters->select('position_z')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('position_z');
     }
 
     private function getCharO($guid)
     {
-        return $this->characters->query("SELECT orientation FROM characters WHERE guid = '".$guid."'")->row()->orientation;
+        return $this->characters->select('orientation')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('orientation');
     }
 
     private function getCharMap($guid)
     {
-        return $this->characters->query("SELECT map FROM characters WHERE guid = '".$guid."'")->row()->map;
+        return $this->characters->select('map')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('map');
     }
 
     private function getCharZone($guid)
     {
-        return $this->characters->query("SELECT zone FROM characters WHERE guid = '".$guid."'")->row()->zone;
+        return $this->characters->select('zone')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('zone');
     }
 
     private function getCharTaxiMask($guid)
     {
-        return $this->characters->query("SELECT taximask FROM characters WHERE guid = '".$guid."'")->row()->taximask;
+        return $this->characters->select('taximask')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('taximask');
     }
 
     private function getCharExploreZones($guid)
     {
-        return $this->characters->query("SELECT exploredZones FROM characters WHERE guid = '".$guid."'")->row()->exploredZones;
+        return $this->characters->select('exploredZones')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('exploredZones');
     }
 
     //private skins functions
     private function getCharSkin($guid)
     {
-        return $this->characters->query("SELECT skin FROM characters WHERE guid = '".$guid."'")->row()->skin;
+        return $this->characters->select('skin')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('skin');
     }
 
     private function getCharFace($guid)
     {
-        return $this->characters->query("SELECT face FROM characters WHERE guid = '".$guid."'")->row()->face;
+        return $this->characters->select('face')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('face');
     }
 
     private function getCharhairStyle($guid)
     {
-        return $this->characters->query("SELECT hairStyle FROM characters WHERE guid = '".$guid."'")->row()->hairStyle;
+        return $this->characters->select('hairStyle')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('hairStyle');
     }
 
     private function getCharhairColor($guid)
     {
-        return $this->characters->query("SELECT hairColor FROM characters WHERE guid = '".$guid."'")->row()->hairColor;
+        return $this->characters->select('hairColor')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('hairColor');
     }
 
     private function getCharfacialStyle($guid)
     {
-        return $this->characters->query("SELECT facialStyle FROM characters WHERE guid = '".$guid."'")->row()->facialStyle;
+        return $this->characters->select('facialStyle')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('facialStyle');
     }
 
     //private times functions
     private function getCharTotalTime($guid)
     {
-        return $this->characters->query("SELECT totaltime FROM characters WHERE guid = '".$guid."'")->row()->totaltime;
+        return $this->characters->select('totaltime')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('totaltime');
     }
 
     private function getCharLevelTime($guid)
     {
-        return $this->characters->query("SELECT leveltime FROM characters WHERE guid = '".$guid."'")->row()->leveltime;
+        return $this->characters->select('leveltime')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('leveltime');
     }
 
     private function getCharLogoutTime($guid)
     {
-        return $this->characters->query("SELECT logout_time FROM characters WHERE guid = '".$guid."'")->row()->logout_time;
+        return $this->characters->select('logout_time')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('logout_time');
     }
 
     private function getCharDeathExpireTime($guid)
     {
-        return $this->characters->query("SELECT death_expire_time FROM characters WHERE guid = '".$guid."'")->row()->death_expire_time;
+        return $this->characters->select('death_expire_time')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('death_expire_time');
     }
 
     //private logins functions
     private function getCharAtLogin($guid)
     {
-        return $this->characters->query("SELECT at_login FROM characters WHERE guid = '".$guid."'")->row()->at_login;
+        return $this->characters->select('at_login')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('at_login');
     }
 
     //private points functions
     private function getCharTotalArena($guid)
     {
-        return $this->characters->query("SELECT arenaPoints FROM characters WHERE guid = '".$guid."'")->row()->arenaPoints;
+        return $this->characters->select('arenaPoints')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('arenaPoints');
     }
 
     private function getCharTotalHonor($guid)
     {
-        return $this->characters->query("SELECT totalHonorPoints FROM characters WHERE guid = '".$guid."'")->row()->totalHonorPoints;
+        return $this->characters->select('totalHonorPoints')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('totalHonorPoints');
     }
 
     private function getCharTodayHonor($guid)
     {
-        return $this->characters->query("SELECT todayHonorPoints FROM characters WHERE guid = '".$guid."'")->row()->todayHonorPoints;
+        return $this->characters->select('todayHonorPoints')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('todayHonorPoints');
     }
 
     private function getCharYesterdayHonor($guid)
     {
-        return $this->characters->query("SELECT yesterdayHonorPoints FROM characters WHERE guid = '".$guid."'")->row()->yesterdayHonorPoints;
+        return $this->characters->()('map')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('()');
     }
 
     //private kills functions
     private function getCharTotalKills($guid)
     {
-        return $this->characters->query("SELECT totalKills FROM characters WHERE guid = '".$guid."'")->row()->totalKills;
+        return $this->characters->select('totalKills')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('totalKills');
     }
 
     private function getCharTodayKills($guid)
     {
-        return $this->characters->query("SELECT todayKills FROM characters WHERE guid = '".$guid."'")->row()->todayKills;
+        return $this->characters->select('todayKills')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('todayKills');
     }
 
     private function getCharYesterdayKills($guid)
     {
-        return $this->characters->query("SELECT yesterdayKills FROM characters WHERE guid = '".$guid."'")->row()->yesterdayKills;
+        return $this->characters->select('yesterdayKills')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('yesterdayKills');
     }
 
     //private personal functions
     private function getCharhealth($guid)
     {
-        return $this->characters->query("SELECT health FROM characters WHERE guid = '".$guid."'")->row()->health;
+        return $this->characters->select('health')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('health');
     }
 
     private function getCharPowerOne($guid)
     {
-        return $this->characters->query("SELECT power1 FROM characters WHERE guid = '".$guid."'")->row()->power1;
+        return $this->characters->select('power1')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('power1');
     }
 
     private function getCharPowerTwo($guid)
     {
-        return $this->characters->query("SELECT power2 FROM characters WHERE guid = '".$guid."'")->row()->power2;
+        return $this->characters->select('power2')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('power2');
     }
 
     private function getCharPowerThree($guid)
     {
-        return $this->characters->query("SELECT power3 FROM characters WHERE guid = '".$guid."'")->row()->power3;
+        return $this->characters->select('power3')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('power3');
     }
 
     private function getCharPowerFourth($guid)
     {
-        return $this->characters->query("SELECT power4 FROM characters WHERE guid = '".$guid."'")->row()->power4;
+        return $this->characters->select('power4')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('power4');
     }
 
     private function getCharPowerFive($guid)
     {
-        return $this->characters->query("SELECT power5 FROM characters WHERE guid = '".$guid."'")->row()->power5;
+        return $this->characters->select('power5')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('power5');
     }
 
     private function getCharPowerSix($guid)
     {
-        return $this->characters->query("SELECT power6 FROM characters WHERE guid = '".$guid."'")->row()->power6;
+        return $this->characters->select('power6')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('power6');
     }
 
     private function getCharPowerSeven($guid)
     {
-        return $this->characters->query("SELECT power7 FROM characters WHERE guid = '".$guid."'")->row()->power7;
+        return $this->characters->select('power7')
+                ->where('guid', $guid)
+                ->get('characters')
+                ->row('power7');
     }
 
     //selections
     private function getGenerated($type, $selection)
     {
-        $qq = $this->db->query("SELECT id FROM fx_api_generator WHERE id = '".$selection."'")->num_rows();
+        $qq = $this->db->select('id')
+                ->where('id', $selection)
+                ->get('fx_api_generator')
+                ->num_rows();
 
         if ($qq > 0)
-            return $this->db->query("SELECT active FROM fx_api_generator WHERE type = '".$type."' AND id = '".$selection."'")->row_array()['active'];
+            return $this->db->select('active')
+                ->where('type', $type)
+                ->where('id', $selection)
+                ->row_array()['active'];
         else
             return false;
     }
 
     private function getGeneratedType($selection)
     {
-        return $this->db->query("SELECT type FROM fx_api_generator WHERE active = 1 AND id = '".$selection."'");
+        return $this->db->select('type')
+                ->where('active', '1')
+                ->where('id', $selection)
+                ->get('fx_api_generator');
     }
 
     public function getApiGenerateCount($id)
     {
-        return $this->db->query("SELECT id FROM fx_api_generator WHERE id = '".$id."'")->num_rows();
+        return $this->db->select('id')
+                ->where('id', $id)
+                ->get('fx_api_generator')
+                ->num_rows();
     }
 
     public function getTypeApiGenerate($id)
     {
-        return $this->db->query("SELECT type FROM fx_api_char WHERE id = '".$id."'")->row_array()['type'];
+        return $this->db->select('type')
+                ->where('id', $id)
+                ->get('fx_api_char')
+                ->row_array()['type'];
     }
 }

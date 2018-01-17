@@ -46,8 +46,8 @@
                     <div class="align-center">
                         <div class="space-large hide show-sm"></div>
                         <a href="">
-                            <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows() > 0) { ?>
-                                <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="120" height="120" alt="" />
+                            <?php if($this->m_general->getUserInfoGeneral($idlink)->num_rows() > 0) { ?>
+                                <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($idlink)); ?>" width="120" height="120" alt="" />
                             <?php } else { ?>
                                 <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="120" height="120" alt="" />
                             <?php } ?>
@@ -57,18 +57,19 @@
                     </div>
                     <section class="Scm-content">
                         <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
-                            <h3 style="color: #fff;"><i class="fa fa-tachometer" aria-hidden="true"></i> User Panel</h3>
                             <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> Account Rank: <span class="uk-badge">Player</span></p>
-                                <p><i class="fa fa-credit-card" aria-hidden="true"></i> Donor Points: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                                <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('acc_rank'); ?>: <span class="uk-badge">
+                                    <?php if($this->m_data->getRank($idlink) > 0) { echo 'STAFF'; } else echo 'Player'; ?>
+                                </span></p>
+                                <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('expr_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($idlink); ?></span></p>
                             </div>
                             <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-globe" aria-hidden="true"></i> Location: <span class="uk-badge">Test</span></p>
-                                <p><i class="fa fa-star" aria-hidden="true"></i> Voter Points: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                                <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('expr_location'); ?>: <span class="uk-badge"><?= $this->user_model->getLocation($idlink); ?></span></p>
+                                <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('expr_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($idlink); ?></span></p>
                             </div>
                             <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-gamepad" aria-hidden="true"></i> Expansion: <span class="uk-badge">Test</span></p>
-                                <p><i class="fa fa-clock-o" aria-hidden="true"></i> Member since: <span class="uk-badge">01/01/2018</span></p>
+                                <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('expr_expansion'); ?>: <span class="uk-badge"><?= $this->m_general->getExpansionName(); ?></span></p>
+                                <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('member_sice'); ?>: <span class="uk-badge"><?= date('Y/m/d',$this->user_model->getDateMember($idlink)); ?></span></p>
                             </div>
                             <?php if ($this->m_data->isLogged()) { ?>
                                 <hr class="uk-divider-icon">

@@ -11,31 +11,51 @@ class Arena_model extends CI_Model {
 
     public function getTopArena2v2()
     {
-        return $this->characters->query("SELECT rating, seasonWins, arenaTeamId, name FROM arena_team WHERE type = '2' ORDER BY rating DESC LIMIT 10");
+        return $this->characters->select('rating, seasonWins, arenaTeamId, name')
+                ->where('type', '2')
+                ->order_by('rating', 'DESC')
+                ->limit('10')
+                ->get('arena_team');
     }
 
     public function getTopArena3v3()
     {
-        return $this->characters->query("SELECT rating, seasonWins, arenaTeamId, name FROM arena_team WHERE type = '3' ORDER BY rating DESC LIMIT 10");
+        return $this->characters->select('rating, seasonWins, arenaTeamId, name')
+                ->where('type', '3')
+                ->order_by('rating', 'DESC')
+                ->limit('10')
+                ->get('arena_team');
     }
 
     public function getTopArena5v5()
     {
-        return $this->characters->query("SELECT rating, seasonWins, arenaTeamId, name FROM arena_team WHERE type = '5' ORDER BY rating DESC LIMIT 10");
+        return $this->characters->select('rating, seasonWins, arenaTeamId, name')
+                ->where('type', '5')
+                ->order_by('rating', 'DESC')
+                ->limit('10')
+                ->get('arena_team');
     }
 
     public function getMemberTeam($id)
     {
-        return $this->characters->query("SELECT * FROM arena_team_member WHERE arenaTeamId = '".$id."'");
+        return $this->characters->select('*')
+                ->where('arenaTeamId', $id)
+                ->get('arena_team_member');
     }
 
     public function getRaceGuid($id)
     {
-        return $this->characters->query("SELECT race FROM characters WHERE guid = '".$id."'")->row_array()['race'];
+        return $this->characters->select('race')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row_array()['race'];
     }
 
     public function getNameGuid($id)
     {
-        return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row_array()['name'];
+        return $this->characters->select('name')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row_array()['name'];
     }
 }

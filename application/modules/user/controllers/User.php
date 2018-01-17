@@ -123,6 +123,8 @@ class User extends MX_Controller {
 
         $this->load->library('recaptcha');
 
+        $this->load->model('user_model');
+
         if ($this->config->item('maintenance_mode') == '1')
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
