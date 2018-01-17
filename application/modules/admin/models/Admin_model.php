@@ -401,7 +401,7 @@ class Admin_model extends CI_Model {
         $update1 = array(
             'title' => $title,
             'image' => $image,
-            'status' => $description,
+            'description' => $description,
             'date' => $date
         );
 
