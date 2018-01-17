@@ -10,7 +10,8 @@ class Changelogs_model extends CI_Model {
 
     public function getAll()
     {
-        return $this->db->query("SELECT id FROM fx_changelogs");
+        return $this->db->select('id')
+            ->get('fx_changelogs');
     }
 
     public function getChangelogs()
