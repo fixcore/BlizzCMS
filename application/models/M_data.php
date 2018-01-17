@@ -82,7 +82,7 @@ class M_data extends CI_Model {
     {
         return $this->auth->select('email')
                 ->where('id', $id)
-                ->get('email')
+                ->get('account')
                 ->row('email');
     }
 

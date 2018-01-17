@@ -147,8 +147,13 @@ class Admin_model extends CI_Model {
 
     public function getUltimateApiCharID()
     {
-        $qq = $this->db->query("SELECT id FROM fx_api_generator ORDER BY id DESC LIMIT 1")->row()->id;
-        return $qq+1;
+        $qq = $this->db->select('id')
+            ->order_by('id', 'DESC')
+            ->limit('1')
+            ->get('fx_api_generator')
+            ->row('1');
+
+        return ($qq+1);
     }
 
     public function delSpecifyNew($id)
@@ -180,9 +185,10 @@ class Admin_model extends CI_Model {
 
     public function getGeneralNewsSpecifyRows($id)
     {
-        return $this->db->query("SELECT * FROM fx_news WHERE id = '".$id."'")->num_rows();
         return $this->db->select('*')
-                ->get('fx_news');
+                ->where('id', $id)
+                ->get('fx_news')
+                ->num_rows();
     }
 
     public function getAdminAccountsList()
@@ -236,7 +242,9 @@ class Admin_model extends CI_Model {
 
     public function deleteCategory($id)
     {
-        $this->db->query("DELETE FROM fx_forum_category WHERE id = '$id'");
+        $this->db->where('id', $id)
+                ->delete('fx_forum_category');
+
         redirect(base_url('admin/managecategories'),'refresh');
     }
 
@@ -612,7 +620,8 @@ class Admin_model extends CI_Model {
 
     public function removeRankAcc($id)
     {
-        $this->auth->query("DELETE FROM account_access WHERE id = $id");
+        $this->auth->where('id', $id)
+                ->delete('account_access');
 
         $date 	= $this->m_data->getTimestamp();
         $reason = $this->lang->line('remove_gmAnnotation');

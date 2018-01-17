@@ -60,12 +60,11 @@ class Bugtracker_model extends CI_Model {
     {
         $output = '';
 
-        $query = $this->db->select("*")
-                ->from("fx_bugtracker")
-                ->where("close = 0")
-                ->order_by("id", "ASC")
+        $query = $this->db->select('*')
+                ->where('close', '0')
+                ->order_by('id', 'ASC')
                 ->limit($limit, $start)
-                ->get();
+                ->get('fx_bugtracker');
 
         $output .= '
             <table class="uk-table uk-table-divider">
