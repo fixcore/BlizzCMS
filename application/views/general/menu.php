@@ -140,7 +140,7 @@
                                         <?php } else { ?>
                                             <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="60" height="60" alt="">
                                         <?php } ?>
-                                        <div class="Navbar-accountDropdownBattleTag uk-text-center">
+                                        <div class="Navbar-accountDropdownBattleTag">
                                             <?= $this->session->userdata('fx_sess_username'); ?>#<?= $this->session->userdata('fx_sess_tag'); ?>
                                         </div>
                                         <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
