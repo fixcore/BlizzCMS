@@ -88,15 +88,15 @@ body.Theme--exile{background:url(../themes/theme8/background-fx-top.jpg) center 
 .Theme--xavius .Navbar{background-color:#42331e;background-image:url(../themes/theme7/background-fx-top.jpg)}
 .Theme--exile .Navbar{background-color:#1b0756;background-image:url(../themes/theme8/background-fx-top.jpg)}
 .glass-header .Navbar{background-color:#0d1e30;background-position:center bottom -40px;background-repeat:no-repeat}
-.Theme--zwolf.glass-header .Navbar{background-color:#0b2e52;background-image:url(../themes/theme1/fx-glass.jpg)}
-.Theme--alterac.glass-header .Navbar{background-color:#e5dbe7;background-image:url(../themes/theme4/fx-glass.jpg)}
-.Theme--thranrion.glass-header .Navbar{background-color:#353e15;background-image:url(../themes/theme3/fx-glass.jpg)}
-.Theme--fixcore.glass-header .Navbar{background-color:#1d4276;background-image:url(../themes/theme6/fx-glass.jpg)}
-.Theme--theme2.glass-header .Navbar{background-color:#FF530D;background-image:url(../themes/theme2/fx-glass.jpg)}
-.Theme--blizzcms.glass-header .Navbar{background-color:#17151e;background-image:url(../themes/theme9/fx-glass.jpg)}
-.Theme--uncrowned.glass-header .Navbar{background-color:#000;background-image:url(../themes/theme5/fx-glass.jpg)}
-.Theme--xavius.glass-header .Navbar{background-color:#281d36;background-image:url(../themes/theme7/fx-glass.jpg)}
-.Theme--exile.glass-header .Navbar{background-color:#3e0001;background-image:url(../themes/theme8/fx-glass.jpg)}}
+.Theme--zwolf.glass-header .Navbar{background-color:#0b2e52;}
+.Theme--alterac.glass-header .Navbar{background-color:#e5dbe7;}
+.Theme--thranrion.glass-header .Navbar{background-color:#353e15;}
+.Theme--fixcore.glass-header .Navbar{background-color:#1d4276;}
+.Theme--theme2.glass-header .Navbar{background-color:#FF530D;}
+.Theme--blizzcms.glass-header .Navbar{background-color:#17151e;}
+.Theme--uncrowned.glass-header .Navbar{background-color:#000;}
+.Theme--xavius.glass-header .Navbar{background-color:#281d36;}
+.Theme--exile.glass-header .Navbar{background-color:#3e0001;}}
 .glass-header .Navbar{border-bottom:1px solid rgba(255,255,255,.15)}
 .Navbar .Navbar-container{max-width:1600px}
 .Navbar-modalContent .nav-mobile-menu-title{background:#202636;border-bottom:1px solid rgba(255,255,255,.07);height:44px;line-height:44px;text-align:center;vertical-align:middle}
