@@ -17,7 +17,7 @@ class Bugtracker_model extends CI_Model {
 
     public function changePriority($id, $priority)
     {
-        return $this->db->set('priority', $priority, FALSE)
+        return $this->db->set('priority', $priority)
                 ->where('id', $id)
                 ->update('fx_bugtracker');
 
@@ -26,7 +26,7 @@ class Bugtracker_model extends CI_Model {
 
     public function closeIssue($id)
     {
-        return $this->db->set('close','1', FALSE)
+        return $this->db->set('close','1')
                 ->where('id', $id)
                 ->update('fx_bugtracker');
 
@@ -35,7 +35,7 @@ class Bugtracker_model extends CI_Model {
 
     public function changeType($id, $type)
     {
-        return $this->db->set('type','$type', FALSE)
+        return $this->db->set('type','$type')
                 ->where('id', $id)
                 ->update('fx_bugtracker');
 
@@ -44,7 +44,7 @@ class Bugtracker_model extends CI_Model {
 
     public function changeStatus($id, $status)
     {
-        return $this->db->set('status','$status', FALSE)
+        return $this->db->set('status','$status')
                 ->where('id', $id)
                 ->update('fx_bugtracker');
 

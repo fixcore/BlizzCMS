@@ -177,11 +177,11 @@ class Shop_model extends CI_Model {
         $this->auth->insert('fx_shop_history', $data);
 
         if ($method == "dp")
-            $this->db->set('dp', '(dp - $price)', FALSE)
+            $this->db->set('dp', '(dp - $price)')
                 ->where('accountid', $accountid)
                 ->update('fx_credits');
         else
-            $this->db->set('vp', '(vp - $price)', FALSE)
+            $this->db->set('vp', '(vp - $price)')
                 ->where('accountid', $accountid)
                 ->update('fx_credits');
 
