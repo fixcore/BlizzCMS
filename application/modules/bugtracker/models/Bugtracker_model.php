@@ -35,7 +35,7 @@ class Bugtracker_model extends CI_Model {
 
     public function changeType($id, $type)
     {
-        return $this->db->set('type','$type')
+        return $this->db->set('type', $type)
                 ->where('id', $id)
                 ->update('fx_bugtracker');
 
@@ -44,7 +44,7 @@ class Bugtracker_model extends CI_Model {
 
     public function changeStatus($id, $status)
     {
-        return $this->db->set('status','$status')
+        return $this->db->set('status', $status)
                 ->where('id', $id)
                 ->update('fx_bugtracker');
 
