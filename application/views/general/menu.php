@@ -124,7 +124,7 @@
                             <?php if($this->m_modules->getStatusLogin() == '1') { ?>
                                 <div class="Navbar-modalSection">
                                     <a href="<?= base_url(); ?>login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('menu_login'); ?>">
-                                        <div class="Navbar-button is-full ui ui primary basic button" tabindex="0">
+                                        <div class="Navbar-button is-full" tabindex="0">
                                             <div class="visible content"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('menu_login'); ?></div>
                                         </div>
                                     </a>
@@ -134,16 +134,19 @@
                         <?php if ($this->m_data->isLogged()) { ?>
                             <div class="Navbar-accountDropdownLoggedOut">
                                 <div class="Navbar-modalSection">
-                                    <div class="Navbar-accountDropdownProfileInfo">
-                                        <div class="Navbar-accountDropdownBattleTag">
-                                            <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
-                                                <?= $this->session->userdata('fx_sess_username'); ?>#<?= $this->session->userdata('fx_sess_tag'); ?>
-                                            </a>
+                                    <div class="Navbar-accountDropdownProfileInfo uk-text-center">
+                                        <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows() > 0) { ?>
+                                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="60" height="60" alt="">
+                                        <?php } else { ?>
+                                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="60" height="60" alt="">
+                                        <?php } ?>
+                                        <div class="Navbar-accountDropdownBattleTag uk-text-center">
+                                            <?= $this->session->userdata('fx_sess_username'); ?>#<?= $this->session->userdata('fx_sess_tag'); ?>
                                         </div>
-                                    </div>
-                                    <div class="Navbar-accountDropdownEmail">
                                         <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
-                                            <?= $this->session->userdata('fx_sess_email'); ?>
+                                            <div class="Navbar-button is-full" tabindex="0">
+                                                <div class="visible content"><i class="fa fa-user-circle-o" aria-hidden="true"></i> User Panel</div>
+                                            </div>
                                         </a>
                                     </div>
                                 </div>
