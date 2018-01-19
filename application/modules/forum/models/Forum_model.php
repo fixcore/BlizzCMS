@@ -105,6 +105,14 @@ class Forum_model extends CI_Model {
                 ->row('name');
     }
 
+    public function getCategoryRows($id)
+    {
+        return $this->db->select('category')
+                ->where('category', $id)
+                ->get('fx_forum_forums')
+                ->num_rows();
+    }
+
     public function getForumName($id)
     {
         return $this->db->select('name')

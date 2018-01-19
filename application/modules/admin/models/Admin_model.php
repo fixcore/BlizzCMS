@@ -509,7 +509,7 @@ class Admin_model extends CI_Model {
         if ($this->m_general->getCharActive($id) == 1)
             redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
 
-        if ($this->m_general->getCharNameAlreadyExist($name)->num_rows() > 0)
+        if ($this->m_general->getCharNameAlreadyExist($name)->num_rows())
             redirect(base_url().'admin/managecharacter/'.$id.'?name','refresh');
 
         $date 		= $this->m_data->getTimestamp();

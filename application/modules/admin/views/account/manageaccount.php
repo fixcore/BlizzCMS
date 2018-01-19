@@ -35,7 +35,7 @@
             </div>
             <!-- /.row -->
             <div class="row">
-                <?php if($this->admin_model->getBanSpecify($idlink)->num_rows() > 0) { ?>
+                <?php if($this->admin_model->getBanSpecify($idlink)->num_rows()) { ?>
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-success">
                             <div class="panel-heading"> <?= $this->lang->line('unban_acc'); ?>
@@ -90,7 +90,7 @@
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
                                 <form action="" method="post" accept-charset="utf-8">
-                                    <?php if($this->m_general->getGmSpecify($idlink)->num_rows() > 0) { ?>
+                                    <?php if($this->m_general->getGmSpecify($idlink)->num_rows()) { ?>
                                         <div class="col-md-12">
                                             <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('re_gran_acc'); ?></button>
                                         </div>

@@ -121,7 +121,7 @@ class User_model extends CI_Model {
                ->where('id', $id)
                ->get('fx_users');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('year').'/'.$qq->row('month').'/'.$qq->row('day');
         else
             return 'Unknow';
@@ -133,7 +133,7 @@ class User_model extends CI_Model {
                ->where('id', $id)
                ->get('fx_users');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('date');
         else
             return 'Unknow';
@@ -145,7 +145,7 @@ class User_model extends CI_Model {
                 ->where('id', $id)
                 ->get('fx_users');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('expansion');
         else
             return 'Unknow';

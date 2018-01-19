@@ -10,7 +10,7 @@ class Admin extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
@@ -28,7 +28,7 @@ class Admin extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
@@ -46,7 +46,7 @@ class Admin extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
@@ -64,7 +64,7 @@ class Admin extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
@@ -82,7 +82,7 @@ class Admin extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
@@ -100,7 +100,7 @@ class Admin extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
@@ -121,7 +121,7 @@ class Admin extends MX_Controller {
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
@@ -139,7 +139,7 @@ class Admin extends MX_Controller {
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
@@ -157,7 +157,7 @@ class Admin extends MX_Controller {
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
@@ -172,7 +172,7 @@ class Admin extends MX_Controller {
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if (!$this->m_data->isLogged())
@@ -198,7 +198,7 @@ class Admin extends MX_Controller {
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if (!$this->m_data->isLogged())
@@ -224,7 +224,7 @@ class Admin extends MX_Controller {
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if (!$this->m_data->isLogged())

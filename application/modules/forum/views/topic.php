@@ -107,7 +107,7 @@
                                 <div class="Author" id="" data-topic-post-body-content="true">
                                 <?php } ?>
                                     <a href="#" class="Author-avatar hasNoProfile">
-                                        <?php if($this->m_general->getUserInfoGeneral($this->forum_model->getSpecifyPostAuthor($idlink))->num_rows() > 0) { ?>
+                                        <?php if($this->m_general->getUserInfoGeneral($this->forum_model->getSpecifyPostAuthor($idlink))->num_rows()) { ?>
                                             <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->forum_model->getSpecifyPostAuthor($idlink))); ?>" alt="" />
                                         <?php } else { ?>
                                             <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
@@ -210,7 +210,7 @@
                             <div class="Author" id="" data-topic-post-body-content="true">
                             <?php } ?>
                                 <a href="" class="Author-avatar hasNoProfile">
-                                    <?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows() > 0) { ?>
+                                    <?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows()) { ?>
                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($commentss->author)); ?>" alt="" />
                                     <?php } else { ?>
                                         <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
@@ -270,7 +270,7 @@
                         <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944    }">
                             <div class="Author" id="" data-topic-post-body-content="true">
                                 <a href="" class="Author-avatar hasNoProfile">
-                                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows() > 0) { ?>
+                                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" alt="" />
                                     <?php } else { ?>
                                         <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />

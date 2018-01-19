@@ -46,7 +46,7 @@
                     <div class="align-center">
                         <div class="space-large hide show-sm"></div>
                         <a href="">
-                            <?php if($this->m_general->getUserInfoGeneral($idlink)->num_rows() > 0) { ?>
+                            <?php if($this->m_general->getUserInfoGeneral($idlink)->num_rows()) { ?>
                                 <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($idlink)); ?>" width="120" height="120" alt="" />
                             <?php } else { ?>
                                 <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="120" height="120" alt="" />
