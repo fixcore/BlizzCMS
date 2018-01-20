@@ -57,55 +57,15 @@
                     </div>
                     <section class="Scm-content">
                         <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
-                            <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('acc_rank'); ?>: <span class="uk-badge">
-                                    <?php if($this->m_data->getRank($idlink) > 0) { echo 'STAFF'; } else echo 'Player'; ?>
-                                </span></p>
-                                <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('expr_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($idlink); ?></span></p>
-                            </div>
-                            <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('expr_location'); ?>: <span class="uk-badge"><?= $this->user_model->getLocation($idlink); ?></span></p>
-                                <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('expr_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($idlink); ?></span></p>
-                            </div>
-                            <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('expr_expansion'); ?>: <span class="uk-badge"><?= $this->m_general->getExpansionName(); ?></span></p>
-                                <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('member_sice'); ?>: <span class="uk-badge"><?= date('Y/m/d',$this->user_model->getDateMember($idlink)); ?></span></p>
-                            </div>
-                            <?php if ($this->m_data->isLogged()) { ?>
-                                <hr class="uk-divider-icon">
-                                <div class="uk-column-1-2">
-                                    <div>
-                                        <div class="uk-margin">
-                                            <a href="">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> Vote Panel</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="uk-margin">
-                                            <a href="">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> Donate Panel</button>
-                                            </a>
-                                        </div>
+                            <div class="uk-column-1-1">
+                                <div>
+                                    <div class="uk-margin">
+                                        <a href="">
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope" aria-hidden="true"></i> Send Private Message</button>
+                                        </a>
                                     </div>
                                 </div>
-                                <div class="uk-column-1-2">
-                                    <div>
-                                        <div class="uk-margin">
-                                            <a href="<?= base_url('settings'); ?>">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-cog" aria-hidden="true"></i> Account Settings</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <div class="uk-margin">
-                                            <a href="">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-info" aria-hidden="true"></i> Other</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php } ?>
+                            </div>
                             <hr class="uk-divider-icon">
                             <ul uk-accordion>
                                 <li class="uk-open">

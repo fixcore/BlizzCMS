@@ -80,7 +80,7 @@ class User_model extends CI_Model {
              ->where('id', $sessid)
              ->update('fx_users');
 
-        redirect(base_url('settings'),'refresh');
+        redirect(base_url('panel'),'refresh');
     }
 
     public function getExistInfo()
@@ -112,7 +112,7 @@ class User_model extends CI_Model {
 
         $this->db->insert('fx_users', $data);
 
-        redirect(base_url('settings'),'refresh');
+        redirect(base_url('panel'),'refresh');
     }
 
     public function getBorn($id)
