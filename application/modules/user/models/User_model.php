@@ -100,7 +100,7 @@ class User_model extends CI_Model {
                 ->get('fx_users');
     }
 
-    public function updateInformation($id, $name, $surname, $username, $email, $question, $answer, $day, $month, $year)
+    public function updateInformation($id, $name, $surname, $username, $email, $question, $answer, $year, $month, $day, $country)
     {
         $this->db->where('id', $id)
              ->delete('fx_users');
@@ -116,9 +116,19 @@ class User_model extends CI_Model {
             'year' => $year,
             'month' => $month,
             'day' => $day,
+            'location' => $country,
             );
 
         $this->db->insert('fx_users', $data);
+
+        $tag = rand(1111, 9999);
+
+        $data1 = array(
+            'id' => $id,
+            'tag' => $tag,
+        );
+
+        $this->db->insert('fx_tags', $data1);
 
         redirect(base_url('panel'),'refresh');
     }
