@@ -38,9 +38,6 @@
                 <?php } ?>
             </div>
             <div class="Navbar-profileItems">
-                <a href="<?= base_url('support'); ?>" class="Navbar-support Navbar-item Navbar-link is-noSelect" data-index="0" data-name="<?= $this->lang->line('menu_support'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_support'); ?>">
-                    <div class="Navbar-label"><i class="fa fa-bell-o" aria-hidden="true"></i> <?= $this->lang->line('menu_support'); ?></div>
-                </a>
                 <?php if ($this->m_data->isLogged()) { ?>
                     <a data-target="Navbar-accountDropdown" data-name="account" class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect is-active">
                         <div class="Navbar-icon Navbar-employeeIcon">
@@ -48,7 +45,7 @@
                                 <use xlink:href="#Navbar-icon-blizz"></use>
                             </svg>
                         </div>
-                        <div class="Navbar-label Navbar-accountUnauthenticated"><?= $this->session->userdata('fx_sess_username'); ?></div>
+                        <div class="Navbar-label Navbar-accountUnauthenticated"><i class="fa fa-user" aria-hidden="true"></i> <?= $this->session->userdata('fx_sess_username'); ?></div>
                         <div class="Navbar-icon Navbar-dropdownIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
                                 <use xlink:href="#Navbar-icon-dropdown"></use>
