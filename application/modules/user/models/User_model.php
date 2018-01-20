@@ -37,6 +37,10 @@ class User_model extends CI_Model {
              ->where('id', $id)
              ->update('account');
 
+        $this->db->set('email', $email)
+             ->where('id', $id)
+             ->update('fx_users');
+
         redirect(base_url('logout'),'refresh');
     }
 
@@ -46,13 +50,17 @@ class User_model extends CI_Model {
              ->where('id', $id)
              ->update('account');
 
+        $this->db->set('email', $email)
+             ->where('id', $id)
+             ->update('fx_users');
+
         $update = array(
         'sha_pass_hash' => $password,
         'email' => $email
         );
 
-        $this->auth->where('id', $id);
-        $this->auth->update('battlenet_accounts', $update);
+        $this->auth->where('id', $id)
+             ->update('battlenet_accounts', $update);
 
         redirect(base_url('logout'),'refresh');
     }
