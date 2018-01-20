@@ -133,7 +133,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="javascript:void(0)">
                             <b class="hidden-xs">
-                                <?= $this->session->userdata('fx_sess_username'); ?>
+                                <i class="fa fa-user"></i> <?= $this->session->userdata('fx_sess_username'); ?>
                             </b>
                             <span class="caret"></span>
                         </a>
