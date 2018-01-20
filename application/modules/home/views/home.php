@@ -42,7 +42,7 @@
         <div class="Page-content en-GB">
             <div id="home-promoted-carousel-container" class="position-relative">
                 <?php if ($this->m_modules->getStatusSlides() == '1') { ?>
-                    <?php if ($this->home_model->getSlides()->num_rows() > 0) { ?>
+                    <?php if ($this->home_model->getSlides()->num_rows()) { ?>
                         <div data-in="0" data-out="0" data-scroll="#home-promoted-scroll" data-analytics="arrowClick" data-analytics-placement="Home" class="Carousel Carousel--fullHg Carousel--fill is-infinite" id="home-promoted-carousel">
                             <div class="Carousel-container">
                                 <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
@@ -281,7 +281,7 @@
                             </div>
                         </div>
                         <?php if ($this->m_modules->getStatusEvents() == '1') { ?>
-                            <?php if ($this->events_model->getEventsLimitFive()->num_rows() > 0) { ?>
+                            <?php if ($this->events_model->getEventsLimitFive()->num_rows()) { ?>
                                 <div class="GridItem col-md-4">
                                     <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-bullhorn" aria-hidden="true"></i> <?= $this->lang->line('up_events'); ?></h2>
                                     <div class="Divider Divider--light"></div>
@@ -320,7 +320,7 @@
             <?php if ($this->m_modules->getStatusStore() == '1') { ?>
                 <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-gamePane">
                     <div class="Pane-content">
-                        <?php if ($this->shop_model->getShopTop10()->num_rows() > 0) { ?>
+                        <?php if ($this->shop_model->getShopTop10()->num_rows()) { ?>
                             <h2 class="Heading Home-gameHeading Home-sectionHeading flush-top">
                                 <a href="<?= base_url('store'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('store_see'); ?>" class="Home-gameHeadingLink Home-sectionHeadingLink">
                                     <span class="Home-gameHeadingText Home-sectionHeadingText"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <?= $this->lang->line('store'); ?></span>

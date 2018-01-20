@@ -108,7 +108,7 @@ class News_model extends CI_Model {
                 ->limit('1')
                 ->get('fx_news_top');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('id_new');
         else
             return false;

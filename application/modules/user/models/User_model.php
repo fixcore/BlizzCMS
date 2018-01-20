@@ -11,7 +11,7 @@ class User_model extends CI_Model {
 
     public function changePasswordI($id, $password)
     {
-        $this->db->set('sha_pass_hash', $password, FALSE)
+        $this->db->set('sha_pass_hash', $password)
              ->where('id', $id)
              ->update('account');
 
@@ -20,11 +20,11 @@ class User_model extends CI_Model {
 
     public function changePasswordII($id, $password, $passbnet)
     {
-        $this->db->set('sha_pass_hash', $password, FALSE)
+        $this->auth->set('sha_pass_hash', $password)
              ->where('id', $id)
              ->update('account');
 
-        $this->db->set('sha_pass_hash', $passbnet, FALSE)
+        $this->auth->set('sha_pass_hash', $passbnet)
              ->where('id', $id)
              ->update('battlenet_accounts');
 
@@ -33,7 +33,7 @@ class User_model extends CI_Model {
 
     public function changeEmailI($id, $email)
     {
-        $this->db->set('email', $email, FALSE)
+        $this->db->set('email', $email)
              ->where('id', $id)
              ->update('account');
 
@@ -42,7 +42,7 @@ class User_model extends CI_Model {
 
     public function changeEmailII($id, $email, $password)
     {
-        $this->db->set('email', $email, FALSE)
+        $this->db->set('email', $email)
              ->where('id', $id)
              ->update('account');
 
@@ -121,7 +121,7 @@ class User_model extends CI_Model {
                ->where('id', $id)
                ->get('fx_users');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('year').'/'.$qq->row('month').'/'.$qq->row('day');
         else
             return 'Unknow';
@@ -133,7 +133,7 @@ class User_model extends CI_Model {
                ->where('id', $id)
                ->get('fx_users');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('date');
         else
             return 'Unknow';
@@ -145,7 +145,7 @@ class User_model extends CI_Model {
                 ->where('id', $id)
                 ->get('fx_users');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('expansion');
         else
             return 'Unknow';

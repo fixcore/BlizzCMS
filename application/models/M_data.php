@@ -59,7 +59,7 @@ class M_data extends CI_Model {
                 ->where('id', $id)
                 ->get('fx_tags');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row()->tag;
         else
             return '0';
@@ -119,7 +119,7 @@ class M_data extends CI_Model {
                 ->where('username', $account)
                 ->get('account');
         
-        if($qq->num_rows() > 0)
+        if($qq->num_rows())
             return $qq->row('id');
         else
             return '0';
@@ -155,7 +155,7 @@ class M_data extends CI_Model {
                 ->where('email', $email)
                 ->get('account');
 
-        if($qq->num_rows() > 0)
+        if($qq->num_rows())
             return $qq->row('id');
         else
             return '0';
@@ -191,7 +191,7 @@ class M_data extends CI_Model {
                 ->where('id', $id)
                 ->get('account_access');
 
-        if($qq->num_rows() > 0)
+        if($qq->num_rows())
             return $qq->row('gmlevel');
         else
             return '0';
@@ -204,7 +204,7 @@ class M_data extends CI_Model {
                 ->where('active', '1')
                 ->get('account_banned');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return true;
         else
             return false;

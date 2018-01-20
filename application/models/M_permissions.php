@@ -22,7 +22,7 @@ class M_permissions extends CI_Model {
                 ->where('id', $id)
                 ->get('fx_ranks_groups');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return true;
         else
             return false;

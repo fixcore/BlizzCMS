@@ -93,7 +93,7 @@
                     </div>
                 </div>
                 <!-- /.col-lg-4 -->
-                <?php if($this->m_general->getCharBanSpecifyGuid($idlink)->num_rows() > 0) { ?>
+                <?php if($this->m_general->getCharBanSpecifyGuid($idlink)->num_rows()) { ?>
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-success">
                             <div class="panel-heading">

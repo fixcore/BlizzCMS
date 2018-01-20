@@ -29,7 +29,7 @@
     {
         if ($password == $pascword)
         {
-            if ($this->m_data->getSpecifyAccount($username)->num_rows() > 0)
+            if ($this->m_data->getSpecifyAccount($username)->num_rows())
             {
                 echo $this->lang->line('acc_exist');
             }

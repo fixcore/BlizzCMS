@@ -58,6 +58,7 @@
 <!-- category START -->
 <?php foreach($this->forum_model->getCategory() as $categorys) { ?>
 <div class="ForumCategory ">
+	<?php if($this->forum_model->getCategoryRows($categorys->id)) { ?>
 	<header class="ForumCategory-header">
 	<br>
 		<h1 class="ForumCategory-heading"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $categorys->categoryName ?></h1>
@@ -67,6 +68,7 @@
 				</span>
 			</button>
 	</header>
+	<?php } ?>
 
 <div class="ForumCards ">
 

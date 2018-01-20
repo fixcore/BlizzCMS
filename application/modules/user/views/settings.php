@@ -260,7 +260,7 @@
                                 <!-- step END -->
 
                                 <!-- step START -->
-                                <?php if($this->user_model->getExistInfo()->num_rows() > 0) { ?>
+                                <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
                                 <div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
                                     <a href="#" uk-toggle="target: #avatars">
                                         <div style="" class="Tile Tile--transparent Tile--innerBorder fixcore" data-index='0'>
@@ -283,7 +283,7 @@
                                 <?php } ?>
                                 <!-- step END -->
                                 <!-- step START -->
-                                <?php if(!$this->user_model->getExistInfo()->num_rows() > 0) { ?>
+                                <?php if(!$this->user_model->getExistInfo()->num_rows()) { ?>
                                 <div class="GridItem col-xs-6 col-md-4 TileGroup-gridItem">
                                     <a href="#" uk-toggle="target: #personalinfo">
                                         <div style="" class="Tile Tile--transparent Tile--innerBorder fixcore" data-index='0'>

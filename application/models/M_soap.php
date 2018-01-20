@@ -9,7 +9,7 @@ class M_soap extends CI_Model {
 
         $qq = $this->characters->query("SELECT * FROM characters WHERE online = 1");
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $this->lang->line('players_on').': '.$qq->num_rows();
         else
             return $this->lang->line('no_players');

@@ -121,7 +121,7 @@ class M_general extends CI_Model {
                 ->where('accountid', $id)
                 ->get('fx_credits');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('dp');
         else
             return '0';
@@ -133,7 +133,7 @@ class M_general extends CI_Model {
                 ->where('accountid', $id)
                 ->get('fx_credits');
 
-        if ($qq->num_rows() > 0)
+        if ($qq->num_rows())
             return $qq->row('vp');
         else
             return '0';
