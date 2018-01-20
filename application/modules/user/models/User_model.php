@@ -11,7 +11,7 @@ class User_model extends CI_Model {
 
     public function changePasswordI($id, $password)
     {
-        $this->db->set('sha_pass_hash', $password)
+        $this->auth->set('sha_pass_hash', $password)
              ->where('id', $id)
              ->update('account');
 
@@ -33,7 +33,7 @@ class User_model extends CI_Model {
 
     public function changeEmailI($id, $email)
     {
-        $this->db->set('email', $email)
+        $this->auth->set('email', $email)
              ->where('id', $id)
              ->update('account');
 
@@ -42,7 +42,7 @@ class User_model extends CI_Model {
 
     public function changeEmailII($id, $email, $password)
     {
-        $this->db->set('email', $email)
+        $this->auth->set('email', $email)
              ->where('id', $id)
              ->update('account');
 
@@ -51,8 +51,8 @@ class User_model extends CI_Model {
         'email' => $email
         );
 
-        $this->db->where('id', $id);
-        $this->db->update('battlenet_accounts', $update);
+        $this->auth->where('id', $id);
+        $this->auth->update('battlenet_accounts', $update);
 
         redirect(base_url('logout'),'refresh');
     }
