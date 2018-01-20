@@ -37,6 +37,10 @@ class User_model extends CI_Model {
              ->where('id', $id)
              ->update('account');
 
+        $this->db->set('email', $email)
+             ->where('id', $id)
+             ->update('fx_users');
+
         redirect(base_url('logout'),'refresh');
     }
 
@@ -46,13 +50,17 @@ class User_model extends CI_Model {
              ->where('id', $id)
              ->update('account');
 
+        $this->db->set('email', $email)
+             ->where('id', $id)
+             ->update('fx_users');
+
         $update = array(
         'sha_pass_hash' => $password,
         'email' => $email
         );
 
-        $this->auth->where('id', $id);
-        $this->auth->update('battlenet_accounts', $update);
+        $this->auth->where('id', $id)
+             ->update('battlenet_accounts', $update);
 
         redirect(base_url('logout'),'refresh');
     }
@@ -153,10 +161,10 @@ class User_model extends CI_Model {
 
     public function insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day, $country)
     {
-        $date       = $this->getTimestamp();
+        $date       = $this->m_data->getTimestamp();
         $expansion  = $this->m_general->getRealExpansionDB();
-        $passwordAc = $this->encryptAccount($username, $password);
-        $passwordBn = $this->encryptBattlenet($email, $password);
+        $passwordAc = $this->m_data->encryptAccount($username, $password);
+        $passwordBn = $this->m_data->encryptBattlenet($email, $password);
         $tag = rand(1111, 9999);
 
         if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) == 1)
