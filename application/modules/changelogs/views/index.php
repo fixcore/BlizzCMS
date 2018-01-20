@@ -2,7 +2,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('home'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('changelogs'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -39,93 +39,70 @@
     </div>
     </div>
     <!-- submenu -->
-
-    <div class="row">
-        <div class="col-md-1"></div>
-        <div class="col-md-7">
-
-            <?php if($this->changelogs_model->getAll()->num_rows() < 1) 
-            die(); ?>
-            <!-- content START -->
-            <div class="Page-container" style="top: -150px; position: relative;">
-                <div class="Page-content en-US">
-                    <div style="" class="HeroPane HeroPane--detail HeroPane--adaptive"> 	
-                        <div class="HeroPane-padding">
-                            <div class="HeroPane-mobilePadding"></div>
-                            <div class="HeroPane-desktopPadding"></div>
-                        </div>
-                        <div class="HeroPane-content">
-                            <div class="max-sm max-left align-left">
-                                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="fa fa-spinner fa-pulse fa-fw"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></div>
+    <div class="Page-container">
+        <div class="Page-content en-GB">
+            <div class="space-adaptive-medium"></div>
+            <!-- -->
+            <div class="container">
+                <!-- -->
+                <div class="space-adaptive-small"></div>
+                <div class="Heading Heading--articleHeadline" style="color: #fff;"><i class="fa fa-spinner fa-pulse fa-fw"></i> Recent Changes</div>
+                <div class="space-adaptive-small"></div>
+                <?php if($this->changelogs_model->getAll()->num_rows()) { ?>
+                    <div class="col-md-7">
+                        <div class="max-sm max-left align-left">
+                            <div class="uk-margin uk-card uk-card-default uk-card-small uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
+                                <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack" uk-grid="">
+                                    <div class="uk-grid-margin uk-first-column">
+                                        <div class="uk-card-header uk-card-primary">
+                                            <h3 class="el-title uk-margin uk-h3 uk-text-break" style="color: #fff;"><i class="fa fa-wrench" aria-hidden="true"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></h3>
+                                        </div>
+                                        <div class="uk-card-body">
+                                            <div class="el-content uk-margin uk-text-break">
+                                                <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
+                                            </div>
+                                        </div>
+                                        <div class="uk-card-footer">
+                                            <p align=right><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="Pane Pane--flush Pane--adaptive Pane--backgroundTop Pane--innerBorderTop">
-                            <div style="" class="Pane-content">
-                                <div class="space-adaptive-medium"></div>
-                                <div class="max-sm max-left align-left">
-                                    <div class="Markup Markup--html">
-                                        <div class="uk-margin uk-card uk-card-default uk-card-small uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
-                                            <div class="uk-width-xxlarge uk-margin">
-                                                <div class="uk-card uk-card-primary uk-card-body">
-                                                    <h3 class="el-title uk-margin uk-h3"><i class="fa fa-wrench" aria-hidden="true"></i> Recent Changes</h3>
+                        <div class="space-large hide show-sm"></div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="max-sm max-center align-center">
+                            <!-- content right -->
+                            <?php foreach($this->changelogs_model->getChangelogs()->result() as $changelogsList) { ?>
+                                <div class="ArticleList" id="recent-articles">
+                                    <div class="ArticleListItem">
+                                        <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-external="false" data-article-id="1" data-analytics="Changelog" data-analytics-placement="Changelog:<?= $changelogsList->id ?> - <?= $changelogsList->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
+                                        <div class="Grid row ArticleListItem-content">
+                                            <div class="GridItem col-xs-12 col-md-12 ArticleListItem-contentGrid">
+                                                <h3 class="ArticleListItem-title"><i class="fa fa-file-text-o" aria-hidden="true"></i> <?= $changelogsList->title ?></h3>
+                                                <div class="ArticleListItem-description">
+                                                    <div class="space-tiny"></div>
                                                 </div>
-                                            </div>
-                                            <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack" uk-grid="">
-                                                <div class="uk-grid-margin uk-first-column">
-                                                    <div class="uk-card-body">
-                                                        <div class="el-content uk-margin uk-text-break">
-                                                            <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
-                                                            <p align=right><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
-                                                        </div>
-                                                    </div>
+                                                <div class="ArticleListItem-footer h6">
+                                                    <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-analytics="comment" data-analytics-placement="<?= $changelogsList->id ?>" data-community="<?= $changelogsList->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank"></a>
+                                                    <span class="ArticleListItem-footerTimestamp"><?= date('d-m-Y', $changelogsList->date); ?></span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="space-large hide show-sm"></div>
-                            </div>
+                            <?php } ?>
+                            <!-- content right -->
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- content END -->
-        </div>
-        <div class="col-md-4">
-            <div class="Page-container" style="top: -150px; position: relative;">
-                <div class="Page-content en-US">
-                    <div style="" class="HeroPane HeroPane--detail HeroPane--adaptive">
-                        <div class="HeroPane-padding">
-                            <div class="HeroPane-mobilePadding"></div>
-                            <div class="HeroPane-desktopPadding"></div>
-                        </div>
-                        <div class="HeroPane-content">
-                            <div class="max-sm max-center align-center">
-                                <!-- content right -->
-                                <?php foreach($this->changelogs_model->getChangelogs()->result() as $changelogsList) { ?>
-                                    <div class="ArticleList" id="recent-articles">
-                                        <div class="ArticleListItem">
-                                            <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-external="false" data-article-id="1" data-analytics="Changelog" data-analytics-placement="Changelog:<?= $changelogsList->id ?> - <?= $changelogsList->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
-                                            <div class="Grid row ArticleListItem-content">
-                                                <div class="GridItem col-xs-12 col-md-12 ArticleListItem-contentGrid">
-                                                    <h3 class="ArticleListItem-title"><i class="fa fa-list-ul" aria-hidden="true"></i> <?= $changelogsList->title ?></h3>
-                                                    <div class="ArticleListItem-description">
-                                                        <div class="space-tiny"></div>
-                                                    </div>
-                                                    <div class="ArticleListItem-footer h6">
-                                                        <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-analytics="comment" data-analytics-placement="<?= $changelogsList->id ?>" data-community="<?= $changelogsList->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank"></a>
-                                                        <span class="ArticleListItem-footerTimestamp"><?= date('d-m-Y', $changelogsList->date); ?></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                <!-- content right -->
-                            </div>
-                        </div>
+                <?php } else { ?>
+                    <div class="uk-alert-warning" uk-alert>
+                        <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> The server does not have changelogs to inform at this time.</p>
                     </div>
-                </div>
+                    <div class="space-adaptive-small"></div>
+                <?php } ?>
             </div>
         </div>
+        <!-- -->
     </div>
