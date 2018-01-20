@@ -163,8 +163,8 @@ class User_model extends CI_Model {
     {
         $date       = $this->m_data->getTimestamp();
         $expansion  = $this->m_general->getRealExpansionDB();
-        $passwordAc = $this->encryptAccount($username, $password);
-        $passwordBn = $this->encryptBattlenet($email, $password);
+        $passwordAc = $this->m_data->encryptAccount($username, $password);
+        $passwordBn = $this->m_data->encryptBattlenet($email, $password);
         $tag = rand(1111, 9999);
 
         if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) == 1)
