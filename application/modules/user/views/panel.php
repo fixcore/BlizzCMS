@@ -113,11 +113,12 @@
     $day = $_POST['day_us'];
     $month = $_POST['month_us'];
     $year = $_POST['year_us'];
-    $user = $this->session->userdata('fx_sess_email');
-    $mail = $this->session->userdata('fx_sess_username');
+    $country = $_POST['country_us'];
+    $user = $this->session->userdata('fx_sess_username');
+    $mail = $this->session->userdata('fx_sess_email');
     $id = $this->session->userdata('fx_sess_id');
 
-    $this->user_model->updateInformation($id, $name, $surname, $user, $mail, $question, $answer, $day, $month, $year);
+    $this->user_model->updateInformation($id, $name, $surname, $user, $mail, $question, $answer, $year, $month, $day, $country);
 } ?>
 
 <!DOCTYPE html>
@@ -405,6 +406,17 @@
                         </div>
                         <hr class="uk-divider-icon">
                         <h4><?= $this->lang->line('personalinfo'); ?></h4>
+                        <!-- country - location -->
+                        <div class="uk-grid-small" uk-grid>
+                            <div class="uk-width-1-1@s">
+                                <select class="uk-select" name="country_us">
+                                    <?php foreach($this->user_model->getCountry()->result() as $country_us) { ?>
+                                        <option value="<?= $country_us->id; ?>"><?= $country_us->country_name ?></option>
+                                    <?php } ?>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- country - location -->
                         <!-- name - surname -->
                         <div class="uk-grid-small" uk-grid>
                             <div class="uk-width-1-2@s">
