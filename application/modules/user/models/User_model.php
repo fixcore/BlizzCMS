@@ -210,9 +210,9 @@ class User_model extends CI_Model {
 
             $this->auth->insert('battlenet_accounts', $data1);
 
-            $this->db->set('account', $id)
-             ->db->where('id', $id)
-             ->db->update('battlenet_account');
+            $this->auth->set('account', $id)
+                 ->where('id', $id)
+                 ->update('battlenet_account');
         }
 
         $id = $this->m_data->getIDAccount($username);
