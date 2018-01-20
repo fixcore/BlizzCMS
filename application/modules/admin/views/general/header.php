@@ -148,8 +148,8 @@
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="<?= base_url('settings'); ?>">
-                                    <i class="fa fa-cog text-info"></i> <?= $this->lang->line('adm_account_settings'); ?>
+                                <a href="<?= base_url('panel'); ?>">
+                                    <i class="fa fa-user-circle-o text-info"></i> <?= $this->lang->line('adm_account_settings'); ?>
                                 </a>
                             </li>
                             <li role="separator" class="divider"></li>
