@@ -145,7 +145,7 @@ class User extends MX_Controller {
         $this->m_data->logout();
     }
 
-    public function settings()
+    public function panel()
     {
         if ($this->m_modules->getStatusUCP() != '1')
             redirect(base_url(),'refresh');
@@ -159,13 +159,13 @@ class User extends MX_Controller {
         {
             if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
             {
-                $this->load->view('settings');
+                $this->load->view('panel');
             }
             else
                 $this->load->view('maintenance');
         }
         else
-            $this->load->view('settings');
+            $this->load->view('panel');
 
         $this->load->view('footer');
     }

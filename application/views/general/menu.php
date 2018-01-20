@@ -143,11 +143,13 @@
                                         <div class="Navbar-accountDropdownBattleTag">
                                             <?= $this->session->userdata('fx_sess_username'); ?>#<?= $this->session->userdata('fx_sess_tag'); ?>
                                         </div>
-                                        <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
-                                            <div class="Navbar-button is-full" tabindex="0">
-                                                <div class="visible content"><i class="fa fa-user-circle-o" aria-hidden="true"></i> User Panel</div>
-                                            </div>
-                                        </a>
+                                        <?php if($this->m_modules->getStatusUCP() == '1') { ?>
+                                            <a href="<?= base_url('panel'); ?>">
+                                                <div class="Navbar-button is-full" tabindex="0">
+                                                    <div class="visible content"><i class="fa fa-user-circle-o" aria-hidden="true"></i> User Panel</div>
+                                                </div>
+                                            </a>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
@@ -158,16 +160,6 @@
                                             </svg>
                                         </div>
                                         <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('adm_panel'); ?></div>
-                                    </a>
-                                <?php } ?>
-                                <?php if($this->m_modules->getStatusUCP() == '1') { ?>
-                                    <a href="<?= base_url('settings'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('acc_setting'); ?>">
-                                        <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
-                                                <use xlink:href="#Navbar-icon-settings"></use>
-                                            </svg>
-                                        </div>
-                                        <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('acc_setting'); ?></div>
                                     </a>
                                 <?php } ?>
                                 <?php if($this->m_modules->getStatusGifts() == '1') { ?>

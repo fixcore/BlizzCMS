@@ -55,7 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 //user
 $route['login'] = 'user/login';
 $route['register'] = 'user/register';
-$route['settings'] = 'user/settings';
+$route['panel'] = 'user/panel';
 $route['logout'] = 'user/logout';
 $route['profile/(:num)'] = 'user/profile/$1';
 //forums
