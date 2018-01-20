@@ -161,7 +161,7 @@ class User_model extends CI_Model {
 
     public function insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day, $country)
     {
-        $date       = $this->getTimestamp();
+        $date       = $this->m_data->getTimestamp();
         $expansion  = $this->m_general->getRealExpansionDB();
         $passwordAc = $this->encryptAccount($username, $password);
         $passwordBn = $this->encryptBattlenet($email, $password);
