@@ -64,11 +64,11 @@
                             <?= form_close(); ?>
 
                             <?php if(isset($_GET['password'])) {
-                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('password_error').': '.$this->lang->line('password_error_info').'</p></div>';
+                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_error').': '.$this->lang->line('password_error_info').'</p></div>';
                             } ?>
 
                             <?php if(isset($_GET['account'])) {
-                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p>'.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
+                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
                             } ?>
 
                             <h4>
