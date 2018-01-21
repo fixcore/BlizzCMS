@@ -117,8 +117,8 @@
                                                     <storefront-link _ngcontent-c16="" _nghost-c2="">
                                                         <a _ngcontent-c2="" title="<?= $itemsG->name ?>">
                                                             <div _ngcontent-c16="" class="background">
-                                                                <div _ngcontent-c16="" class="vertical" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>) rgb(13, 17, 39);"></div>
-                                                                <div _ngcontent-c16="" class="horizontal" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>) rgb(13, 17, 39);"></div>
+                                                                <div _ngcontent-c16="" class="vertical" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>);"></div>
+                                                                <div _ngcontent-c16="" class="horizontal" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>);"></div>
                                                             </div>
                                                             <div _ngcontent-c16="" class="content">
                                                                 <div _ngcontent-c16="" class="family-img-container">
