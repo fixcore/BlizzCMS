@@ -15,14 +15,14 @@
             if ($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
             {
                 if ($newpassI == $this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')))
-                    echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('password_same').'</p></div>';
+                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_same').'</p></div>';
                 else
                 {
                     $this->user_model->changePasswordI($this->session->userdata('fx_sess_id'), $newpassI);
                 }
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
         }
         else if ($this->m_general->getExpansionAction() == 2)
         {
@@ -35,20 +35,20 @@
             if ($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
             {
                 if ($newpassII == $this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')))
-                    echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('password_same').'</p></div>';
+                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_same').'</p></div>';
                 else
                 {
                     $this->user_model->changePasswordII($this->session->userdata('fx_sess_id'), $newpassI, $newpassII);
                 }
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
         }
         else
-            echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('expansion_notfound').'</p></div>';
+            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_notfound').'</p></div>';
     }
     else
-        echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_nmatch').'</p></div>';
+        echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_nmatch').'</p></div>';
 } ?>
 
 <?php if(isset($_POST['button_changeemail']))
@@ -68,10 +68,10 @@
                 $this->user_model->changeEmailI($this->session->userdata('fx_sess_id'), $newemail);
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
         }
         else
-            echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('email_omatch').'</p></div>';
+            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_omatch').'</p></div>';
     }
     else if ($this->m_general->getExpansionAction() == 2)
     {
@@ -80,7 +80,7 @@
         $newpasscompare = $this->m_data->encryptBattlenet($newemail, $password);
 
         if ($this->user_model->getExistEmail(strtoupper($newemail)) > 0)
-            echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('email_use').'</p></div>';
+            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_use').'</p></div>';
         else
         {
             if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
@@ -90,14 +90,14 @@
                     $this->user_model->changeEmailII($this->session->userdata('fx_sess_id'), $newemail, $newpasscompare);
                 }
                 else
-                    echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('pass_omatch').'</p></div>';
+                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('email_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_omatch').'</p></div>';
         }
     }
     else
-        echo '<div class="uk-alert-danger" uk-alert><p>'.$this->lang->line('expansion_notfound').'</p></div>';
+        echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_notfound').'</p></div>';
 } ?>
 
 <?php if (isset($_POST['button_changeavatar'])) {

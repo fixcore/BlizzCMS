@@ -98,7 +98,7 @@
                         <div class="col-sm-3"></div>
                         <div class="col-sm-6">
                             <div class="uk-alert-success" uk-alert>
-                                <p><?=$this->lang->line('shop_success');?></p>
+                                <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> <?=$this->lang->line('shop_success');?></p>
                             </div>
                         </div>
                     </div>
