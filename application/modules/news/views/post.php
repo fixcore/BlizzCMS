@@ -248,7 +248,7 @@
                                                     <?php if ($this->news_model->getNewsList()->num_rows()) { ?>
                                                         <?php foreach($this->news_model->getNewsList()->result() as $list) { ?>
                                                             <div data-id='' class="ArticleSidebarItem">
-                                                                <a href="<?= base_url(); ?>" data-external="false" data-article-id='' data-analytics="News - Sidebar" class="ArticleLink ArticleSidebarItem-link">
+                                                                <a href="<?= base_url('news/'.$list->id); ?>" data-external="false" data-article-id='' data-analytics="News - Sidebar" class="ArticleLink ArticleSidebarItem-link">
                                                                     <div style="background-image: url(<?= base_url(); ?>assets/images/news/<?= $list->image ?>)" class="ArticleSidebarItem-image"></div>
                                                                     <div class="ArticleSidebarItem-text">
                                                                         <div class="ArticleSidebarItem-subtitle">

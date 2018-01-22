@@ -470,6 +470,7 @@ class M_general extends CI_Model {
         return $this->characters->select('guid')
                 ->where_in('race', $races)
                 ->where('online', '1')
+                ->get('characters')
                 ->num_rows();
     }
 
@@ -480,6 +481,7 @@ class M_general extends CI_Model {
         return $this->characters->select('guid')
                 ->where_in('race', $races)
                 ->where('online', '1')
+                ->get('characters')
                 ->num_rows();
     }
 
