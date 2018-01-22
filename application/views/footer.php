@@ -52,9 +52,9 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzard-51c65fab3150f2755194cd758daf1164c0dad3aead0fc90692e58adf1e6b236be345c7fd78a31fbd2254ddf82ce0db2edfb85c15197dd9d6c5f903e95514c14f.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/app-729cf5d6181c05cca2517e3f8388116e74a8b85db1639460ea0de2bd1ab924f9f623331638d05e77fe84e7c7f72956ecf4341d953387cb53b826383111bafd71.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/moment-d410e25d41b038388d05998a715a711bb67ef8da386035abe49d649ffd2a65f060fcd788d58ff9228c486fe0ac8854767e661bfe1e965b5df5ddd79ccf4ab6f8.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/root-ui-fe8efa099afd57be0d1d430408b7135f7848a498d971fcfbb6f8a2f57370fcef735a66d2bbbc87cd56c358a37ca5cae6fa972e5dbb6fd18184502849f2d97f10.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzcms-general.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzcms-app.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/moment.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/root-ui.js"></script>
 </body>
 </html>
