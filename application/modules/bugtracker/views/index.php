@@ -13,12 +13,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title><?= $this->config->item('ProjectName'); ?> -</title>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="index.html" />
-    <meta property="og:title" content="Blizzard Trackers" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/navbar0e26.css?v=58-88" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e27.css?v=58-88" />
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
@@ -50,16 +49,15 @@
     </div>
     </div>
     <!-- submenu -->
-
-    <!-- main -->
+    <br><br><br>
     <div role="main">
-        <section class="Tracker">
-            <header class="Tracker-header">
+        <section class="Forum">
+            <header class="Forum-header">
                 <div class="Container Container--content">
                     <div class="space-adaptive-medium"></div>
                     <br></br>
-                    <h1 class="Tracker-heading" style="color: #fff;"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('bugtracker'); ?></h1>
-                    <div class="Tracker-controls">
+                    <h1 class="Forum-heading" style="color: #fff;"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('bugtracker'); ?></h1>
+                    <div class="Forum-controls">
                         <?php if ($this->m_data->isLogged()) { ?>
                             <a href="#" uk-toggle="target: #createReport">
                                 <button class="uk-button uk-button-primary">
@@ -73,7 +71,7 @@
                     <h3 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?= $this->lang->line('report_list'); ?></h3>
                 </div>
             </header>
-            <div class="Tracker-content" data-track="nexus.checkbox" id="forum-topics">
+            <div class="Forum-content" data-track="nexus.checkbox" id="forum-topics">
                 <!-- table START -->
                 <div align="right" id="pagination_link"></div>
                 <div class="table-responsive" id="bugtracker_table"></div>
