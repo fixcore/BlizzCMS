@@ -1,3 +1,7 @@
+<!-- page loader -->
+<link href="<?= base_url(); ?>core/pageloader/pace-theme-minimal.tmpl.css" rel="stylesheet" />
+<script src="<?= base_url(); ?>core/pageloader/pace.min.js"></script>
+<!-- page loader -->
     <div class="Navbar-overlay"></div>
     <div class="Navbar-container">
         <nav class="Navbar-mobile">
@@ -109,18 +113,6 @@
                                     </a>
                                 <?php } ?>
                             </div>
-                        </nav>
-                        <nav class="Navbar-posters Navbar-imagePanel">
-                            <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
-                                <a href="<?= base_url('bugtracker'); ?>" class="Navbar-poster animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('bugtracker'); ?>">
-                                    <img src="<?= base_url(); ?>assets/images/menu/logo-wow-max.jpg" class="Navbar-posterImage"/>
-                                </a>
-                            <?php } ?>
-                            <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
-                                <a href="<?= base_url('changelogs'); ?>" class="Navbar-poster animation-delay-2" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('changelogs'); ?>">
-                                    <img src="<?= base_url(); ?>assets/images/menu/logo-wow-max.jpg" class="Navbar-posterImage"/>
-                                </a>
-                            <?php } ?>
                         </nav>
                     </div>
                 </div>
