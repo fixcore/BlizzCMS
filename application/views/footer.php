@@ -53,7 +53,6 @@
     </div>
 
     <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzcms-general.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzcms-app.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>assets/js/moment.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>assets/js/root-ui.js"></script>
 </body>
