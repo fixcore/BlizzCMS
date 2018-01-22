@@ -4,12 +4,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('forums'); ?></title>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="index.html" />
-    <meta property="og:title" content="Blizzard Forums" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/navbar0e26.css?v=58-88" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
@@ -21,9 +20,6 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <!-- custom START -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
-    <!-- custom END -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -37,50 +33,24 @@
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
-    <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
-        <div class="Container Container--content Container--breadcrumbs">
-            <div class="GameSite-link">
-                <a class="GameSite-link--heading" href="<?= base_url('forums'); ?>">
-                    <?= $this->lang->line('forums'); ?>
-                </a>
-            </div>
-            <!-- cat -->
-            <div class="GameSite-link">
-                <a class="GameSite-link--heading" href="<?= base_url('forums/category/').$this->forum_model->getTopicForum($idlink); ?>">
-                    <?= $this->forum_model->getForumName($this->forum_model->getTopicForum($idlink)); ?>
-                </a>
-            </div>
-            <div class="Breadcrumbs">
-                <span class="Breadcrumb">
-                    <a class="Breadcrumb-content">
-                        <i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?>
-                    </a>
-                </span>
-            </div>
-            <div class="User-menu">
-                <!-- right -->
-                <span class="Breadcrumb">
-                    <a class="Breadcrumb-content">
-                        <!-- logged -->
-                        <?php if ($this->m_data->isLogged()) { ?>
-                            <!-- credits -->
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            |
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            <!-- credits -->
-                        <?php } ?>
-                        <!-- logged -->
-                    </a>
-                </span>
-                <!-- right -->
+    <div class="Navigation is-dropdown Navigation--hg">
+        <div class="Navigation-wrapper">
+            <div touch-action="none" class="Navigation-container">
+                <ul class="List List--horizontal Navigation-list">
+                    <li class="ListItem ListItem--horizontal Navigation-item">
+                        <a data-name="topic" class="is-selected Navigation-link"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></a>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="Navigation-scroll Navigation-scrollLeft"><span>&lsaquo;</span></div>
+        <div class="Navigation-scroll Navigation-scrollRight"><span>&rsaquo;</span></div>
     </div>
     </div>
     </div>
     </div>
     <!-- submenu -->
-    <!-- main -->
+    <br><br><br>
     <div role="main">
         <section class="Topic" data-topic='{ "id":<?= $idlink ?>, "lastPosition":0,"forum":{"id":<?= $idlink ?>},"isSticky":true,"isFeatured":false,"isLocked":true,"isHidden":false,"isFrozen":false, "isSpam":false, "pollId":0 }' data-user='{}'>
             <header class="Topic-header">

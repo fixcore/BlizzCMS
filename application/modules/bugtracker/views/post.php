@@ -24,9 +24,9 @@
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzard-dc9d0faea4c4a01c35477637614e4bbab87305d0b07b1dfb8e0f09a21283294707def12b40e4cb9f13b56d8cbd92e8b40a3c956f0da1b5cf1d25b558efeffc31.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app-65d540bb92d74ad1518ba050a969a68fe7cca3e0b202351c63b7742d39e87267a3bd8210f6a567b4b05819727690c48601a94036e4e498deb0519f50edb50a65.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -39,9 +39,7 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <!-- custom START -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
-    <!-- custom END -->
+
     <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>

@@ -15,7 +15,6 @@ fieldset,img,legend{border:0}fieldset,legend,td,th,ul{padding:0}[role=main],sub,
 @font-face{font-family:'Open Sans';font-style:italic;font-weight:700;src:url(../../core/fonts/opensans-bolditalic.woff) format('woff'),url(../../core/fonts/opensans-bolditalic.ttf) format('truetype'),url(../../core/fonts/opensans-bolditalic.woff2) format('woff2'),url(../../core/images/opensans-bolditalic.svg#opensans/opensans-bolditalic) format('svg')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:600;src:url(../../core/fonts/opensans-semibold.woff) format('woff'),url(../../core/fonts/opensans-semibold.ttf) format('truetype'),url(../../core/fonts/opensans-semibold.woff2) format('woff2'),url(../../core/images/opensans-semibold.svg#opensans/opensans-semibold) format('svg')}@font-face{font-family:'Open Sans';font-style:italic;font-weight:600;src:url(../../core/fonts/opensans-semibolditalic.woff) format('woff'),url(../../core/fonts/opensans-semibolditalic.ttf) format('truetype'),url(../../core/fonts/opensans-semibolditalic.woff2) format('woff2'),url(../../core/images/opensans-semibolditalic.svg#opensans/opensans-semibolditalic) format('svg')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:800;src:url(../../core/fonts/opensans-extrabold.woff) format('woff'),url(../../core/fonts/opensans-extrabold.ttf) format('truetype'),url(../../core/fonts/opensans-extrabold.woff2) format('woff2'),url(../../core/images/opensans-extrabold.svg#opensans/opensans-extrabold) format('svg')}
 @font-face{font-family:'Open Sans';font-style:italic;font-weight:800;src:url(../../core/fonts/opensans-extrabolditalic.woff) format('woff'),url(../../core/fonts/opensans-extrabolditalic.ttf) format('truetype'),url(../../core/fonts/opensans-extrabolditalic.woff2) format('woff2'),url(../../core/images/opensans-extrabolditalic.svg#opensans/opensans-extrabolditalic) format('svg')}@font-face{font-family:'Open Sans';font-style:normal;font-weight:300;src:url(../../core/fonts/opensans-light.woff) format('woff'),url(../../core/fonts/opensans-light.ttf) format('truetype'),url(../../core/fonts/opensans-light.woff2) format('woff2'),url(../../core/fonts/opensans-light.svg#opensans/opensans-light) format('svg')}@font-face{font-family:'Open Sans';font-style:italic;font-weight:300;src:url(../../core/fonts/opensans-lightitalic.woff) format('woff'),url(../../core/fonts/opensans-lightitalic.ttf) format('truetype'),url(../../core/fonts/opensans-lightitalic.woff2) format('woff2'),url(../../core/images/opensans-lightitalic.svg#opensans/opensans-lightitalic) format('svg')}@font-face{font-family:Futura;font-style:normal;font-weight:400;src:url(../../core/fonts/f014015d.woff) format('woff'),url(../../core/fonts/f014015d.ttf) format('truetype'),url(../../core/fonts/f014015d.woff2) format('woff2'),url(../../core/images/f014015d.svg#f014015d/f014015d) format('svg')}html{box-sizing:border-box;font-size:16px;-webkit-tap-highlight-color:transparent}*,:after,:before{box-sizing:inherit}body{margin:0;background-color:#0f2a48;background-image:url(../images/forums/fx_default.jpg);background-position:center -200px;background-repeat:no-repeat;font-size:1.0625rem}
 @font-face{font-family:'Morpheus';font-style:normal;font-weight:400;src:url(../../core/fonts/morpheus.ttf) format('truetype')}
-body.preload *{transition:none!important}
 body.Theme--zwolf{background:url(../themes/theme1/background-fx-top.jpg) center -200px no-repeat,
 	url(../themes/theme1/background-fx-repeat.jpg) center 1800px repeat-y #0d1e30}@media only screen and (max-width:800px){
 	body.Theme--zwolf{background-position:center -164px}}
@@ -65,40 +64,6 @@ body.Theme--exile{background:url(../themes/theme8/background-fx-top.jpg) center 
 .Forums-footer{color:rgba(255,255,255,.3);font-size:.8125rem;margin-top:100px!important;text-align:center}
 .Forums-footer a{color:rgba(255,255,255,.5)!important}
 .Forums-footer a:hover{color:rgba(255,255,255,.7)!important}
-.Navbar{background-position:center 0;background-repeat:no-repeat}
-.Navbar.is-auto{background-color:#0f2a48}
-.Theme--zwolf .Navbar{background-color:#0b2e52}
-.Theme--alterac .Navbar{background-color:#1f2326}
-.Theme--thranrion .Navbar{background-color:#353e15}
-.Theme--fixcore .Navbar{background-color:#1d4276}
-.Theme--theme2 .Navbar{background-color:#FF530D}
-.Theme--blizzcms .Navbar{background-color:#17151e}
-.Theme--uncrowned .Navbar{background-color:#000}
-.Theme--xavius .Navbar{background-color:#281d36}
-.Theme--exile .Navbar{background-color:#3e0001}@media only screen and (min-width:768px){.Navbar{background-color:#0d1e30;background-image:url(../images/forums/fx_default.jpg)}
-.Navbar::after{background-color:rgba(255,255,255,.08);bottom:0;content:"";display:block;left:0;position:absolute;right:0;top:0}
-.Theme--alterac.glass-header .Navbar::after{background-color:rgba(255,255,255,.15)}
-.Theme--zwolf .Navbar{background-color:#0d1e30;background-image:url(../themes/theme1/background-fx-top.jpg)}
-.Theme--alterac .Navbar{background-color:#1f2326;background-image:url(../themes/theme4/background-fx-top.jpg)}
-.Theme--thranrion .Navbar{background-color:#231a13;background-image:url(../themes/theme3/background-fx-top.jpg)}
-.Theme--fixcore .Navbar{background-color:#062748;background-image:url(../themes/theme6/background-fx-top.jpg)}
-.Theme--theme2 .Navbar{background-color:#FF530D;background-image:url(../themes/theme2/background-fx-top.jpg)}
-.Theme--blizzcms .Navbar{background-color:#1e2629;background-image:url(../themes/theme9/background-fx-top.jpg)}
-.Theme--uncrowned .Navbar{background-color:#0a1b1e;background-image:url(../themes/theme5/background-fx-top.jpg)}
-.Theme--xavius .Navbar{background-color:#42331e;background-image:url(../themes/theme7/background-fx-top.jpg)}
-.Theme--exile .Navbar{background-color:#1b0756;background-image:url(../themes/theme8/background-fx-top.jpg)}
-.glass-header .Navbar{background-color:#0d1e30;background-position:center bottom -40px;background-repeat:no-repeat}
-.Theme--zwolf.glass-header .Navbar{background-color:#0b2e52;}
-.Theme--alterac.glass-header .Navbar{background-color:#e5dbe7;}
-.Theme--thranrion.glass-header .Navbar{background-color:#353e15;}
-.Theme--fixcore.glass-header .Navbar{background-color:#1d4276;}
-.Theme--theme2.glass-header .Navbar{background-color:#FF530D;}
-.Theme--blizzcms.glass-header .Navbar{background-color:#17151e;}
-.Theme--uncrowned.glass-header .Navbar{background-color:#000;}
-.Theme--xavius.glass-header .Navbar{background-color:#281d36;}
-.Theme--exile.glass-header .Navbar{background-color:#3e0001;}}
-.glass-header .Navbar{border-bottom:1px solid rgba(255,255,255,.15)}
-.Navbar .Navbar-container{max-width:1600px}
 .Navbar-modalContent .nav-mobile-menu-title{background:#202636;border-bottom:1px solid rgba(255,255,255,.07);height:44px;line-height:44px;text-align:center;vertical-align:middle}
 .Navbar-modalContent .Icon,.Navbar-modalContent .Navbar-modalContent .menu-content .menu-item .Icon-profileLink,.Navbar-modalContent .User-menu .Icon-profileLink{background-image:url(../images/icons/icon-sprites-24-blue.png);background-position:-168px -144px;height:24px;margin:10px 0 0 10px;opacity:.3;position:absolute;width:24px}
 .Navbar-modalContent .menu-content .menu-userDetails{padding-top:.75rem}
@@ -623,30 +588,10 @@ body.Theme--exile{background:url(../themes/theme8/background-fx-top.jpg) center 
 .Input--iconPrefix>input{padding-left:2.25rem}
 .Input--icon.Input--prefix{padding-left:2.25em}
 .Input--icon.Input--suffix{padding-right:2.25em}label.Control .Icon--input{position:absolute;top:50%;transform:translateY(-50%)}
-.Subnav{align-items:center;background-color:#0f2a48;background-image:url(../images/forums/fx_default.jpg);background-position:center -60px;background-repeat:no-repeat;box-shadow:inset 0 -1px 0 0 rgba(255,255,255,.15);display:none;font-size:0;height:40px;position:relative;z-index:1000}
-.Subnav:before{background-color:rgba(255,255,255,.08);content:"";height:100%;position:absolute;top:0;width:100%}
+.Subnav{align-items:center;background-color:rgba(255, 255, 255, 0.05);background-repeat:no-repeat;box-shadow:inset 0 -1px 0 0 rgba(255,255,255,.15);display:none;font-size:0;height:40px;position:relative;z-index:1000}
 .Author-avatar:after,.Dropdown-arrow{content:''}
 .Subnav>.Container,.Subnav>.Forums-footer,.Subnav>.LoginPlaceholder,.Subnav>.TopicForm{-ms-flex-align:center;align-items:center;display:-ms-flexbox;display:flex;-ms-flex:1 0 auto;flex:1 0 auto;height:100%;position:relative;top:-1px}
-.Theme--zwolf .Subnav{background-color:#0d1e30;background-image:url(../themes/theme1/background-fx-top.jpg)}
-.Theme--alterac .Subnav{background-color:#1f2326;background-image:url(../themes/theme4/background-fx-top.jpg)}
-.Theme--thranrion .Subnav{background-color:#231a13;background-image:url(../themes/theme3/background-fx-top.jpg)}
-.Theme--fixcore .Subnav{background-color:#062748;background-image:url(../themes/theme6/background-fx-top.jpg)}
-.Theme--theme2 .Subnav{background-color:#111d3c;background-image:url(../themes/theme2/background-fx-top.jpg)}
-.Theme--blizzcms .Subnav{background-color:#1e2629;background-image:url(../themes/theme9/background-fx-top.jpg)}
-.Theme--uncrowned .Subnav{background-color:#0a1b1e;background-image:url(../themes/theme5/background-fx-top.jpg)}
-.Theme--xavius .Subnav{background-color:#42331e;background-image:url(../themes/theme7/background-fx-top.jpg)}
-.Theme--exile .Subnav{background-color:#1b0756;background-image:url(../themes/theme8/background-fx-top.jpg)}
-.glass-header .Subnav{background-position:center bottom 0;background-repeat:no-repeat}
-.Theme--zwolf.glass-header .Subnav{background-color:#0b2e52;background-image:url(../themes/theme1/fx-glass.jpg)}
-.Theme--alterac.glass-header .Subnav{background-color:#e5dbe7;background-image:url(../themes/theme4/fx-glass.jpg)}
-.Theme--alterac.glass-header .Subnav:before{background-color:rgba(255,255,255,.15)}
-.Theme--thranrion.glass-header .Subnav{background-color:#353e15;background-image:url(../themes/theme3/fx-glass.jpg)}
-.Theme--fixcore.glass-header .Subnav{background-color:#1d4276;background-image:url(../themes/theme6/fx-glass.jpg)}
-.Theme--theme2.glass-header .Subnav{background-color:#030c15;background-image:url(../themes/theme2/fx-glass.jpg)}
-.Theme--blizzcms.glass-header .Subnav{background-color:#17151e;background-image:url(../themes/theme9/fx-glass.jpg)}
-.Theme--uncrowned.glass-header .Subnav{background-color:#000;background-image:url(../themes/theme5/fx-glass.jpg)}
-.Theme--xavius.glass-header .Subnav{background-color:#281d36;background-image:url(../themes/theme7/fx-glass.jpg)}
-.Theme--exile.glass-header .Subnav{background-color:#3e0001;background-image:url(../themes/theme8/fx-glass.jpg)}@media only screen and (min-width:768px){.Subnav{display:-ms-flexbox;display:flex}}@media only screen and (min-width:961px){.Subnav>.Container,.Subnav>.Forums-footer,.Subnav>.LoginPlaceholder,.Subnav>.TopicForm{-ms-flex:0 0 auto;flex:0 0 auto}}
+@media only screen and (min-width:768px){.Subnav{display:-ms-flexbox;display:flex}}@media only screen and (min-width:961px){.Subnav>.Container,.Subnav>.Forums-footer,.Subnav>.LoginPlaceholder,.Subnav>.TopicForm{-ms-flex:0 0 auto;flex:0 0 auto}}
 .Panel{color:#fff;display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column}
 .Panel-header{display:-ms-flexbox;display:flex}
 .Panel-heading{font-size:1.75rem;font-weight:100;margin:0}
@@ -656,13 +601,11 @@ body.Theme--exile{background:url(../themes/theme8/background-fx-top.jpg) center 
 .Jumbotron--thinBottom{padding-bottom:0}
 .Jumbotron--welcome{background-color:#1d70b9}
 .Jumbotron.is-hidden{display:none}
-.Card,.Characters .Author,.ForumCard{background-color:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);border-style:solid;border-width:0 0 1px;color:rgba(255,255,255,.7);display:-ms-flexbox;display:flex;-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-direction:column;flex-direction:column;margin:0;max-width:100%;min-height:0;padding:0;position:relative;text-decoration:none}
-.Card:hover,.ForumCard:hover{background-color:rgba(255,255,255,.1);color:#fff}
-.Card--content,.Card-content,.ForumCard--content{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;padding:1rem}
-.Card.Card--content{padding:1rem}
-.Card-image,.Card>.Card-content{display:-ms-flexbox;display:flex}
-.Cards,.ForumCards{border-top:1px solid rgba(255,255,255,.15);display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}@media only screen and (min-width:641px){.Card,.Characters .Author,.ForumCard{border-width:1px}
-.Cards,.ForumCards{border:none}}@media only screen and (min-width:961px){.Card--content,.Card-content,.ForumCard--content{padding:1.25rem}}
+.Characters .Author,.ForumCard{background-color:rgba(255,255,255,.05);border-color:rgba(255,255,255,.15);border-style:solid;border-width:0 0 1px;color:rgba(255,255,255,.7);display:-ms-flexbox;display:flex;-ms-flex:0 0 auto;flex:0 0 auto;-ms-flex-direction:column;flex-direction:column;margin:0;max-width:100%;min-height:0;padding:0;position:relative;text-decoration:none}
+.ForumCard:hover{background-color:rgba(255,255,255,.1);color:#fff}
+.ForumCard--content{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;padding:1rem}
+.Cards,.ForumCards{border-top:1px solid rgba(255,255,255,.15);display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}@media only screen and (min-width:641px){.Characters .Author,.ForumCard{border-width:1px}
+.Cards,.ForumCards{border:none}}@media only screen and (min-width:961px){.ForumCard--content{padding:1.25rem}}
 .Author{display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap}
 .is-ignored .Author{display:none}
 .Author-ignored{display:block}

@@ -1,27 +1,29 @@
 //- Core site Javascript file
 var Page = {
   MOMENT_MONTH_FORMAT: 'MMM',
+  MOMENT_DAY_MONTH: 'DM',
+  MOMENT_MONTH_DAY: 'MD',
 
   init: function (context) {
-    $('.Home-gameGridRow').scroll(Page.galleryResize);
-    $('.Home-gameGridScrollLeft').click(Page.galleryLeft);
-    $('.Home-gameGridScrollRight').click(Page.galleryRight);
+    if (!context) {
+      $('.Home-gameGridRow').scroll(Page.galleryResize);
+      $('.Home-gameGridScrollLeft').click(Page.galleryLeft);
+      $('.Home-gameGridScrollRight').click(Page.galleryRight);
 
-    $('.Home-promotedCarouselItem').on('animateout.CarouselItem', Page.topCarouselOut);
+      $('.Home-promotedCarouselItem').on('animateout.CarouselItem', Page.topCarouselOut);
 
-    if ($('body').attr('data-device') === 'desktop') {
-      $('.Home-gameGridTileContainer').on('mouseover', Page.gameTileHover);
+      if ($('body').attr('data-device') === 'desktop') {
+        $('.Home-gameGridTileContainer').on('mouseover', Page.gameTileHover);
+      }
+      Page.initMoment();
     }
-    Page.initMoment();
-
-    // WMBLZ-743 - Temporary ICP code solution, replace when Global Nav accepts arbitrary content ( WMBLZ-790 )
-    /*if (blizzard.chinaMode) {
-      $('.NavbarFooter-additionalLegal:nth-child(3)').after('<div class="NavbarFooter-additionalLegal NavbarFooter-additionalLegalPull"><div class="NavbarFooter-additionalLegalLine">沪ICP备16024552号</div></div>');
-    }*/
   },
   initMoment: function () {
     // Use user's locale so we can properly format strings
-    moment.locale(/*blizzard.locale*/);
+    moment.locale(blizzard.locale);
+
+    var dateFormat = $('.Home-eventsTable').attr('data-date-format');
+    var dayFormat = $('.Home-eventsTable').attr('data-day-format');
 
     // Change the time to the user's local timezone
     $('.Home-eventsTableRow').each(function (index, row) {
@@ -31,41 +33,26 @@ var Page = {
       var startTime = moment(startString).local();
       var endString = $row.attr('data-end');
       var endTime = endString ? moment(endString).local() : null;
+      var startTimeMonth = startTime.format(Page.MOMENT_MONTH_FORMAT).toUpperCase();
+      var startTimeDay = startTime.format(dayFormat);
+      var displayFunctionParameters = {
+        $row: $row,
+        startTimeMonth: startTimeMonth,
+        startTimeDay: startTimeDay,
+        startTime: startTime,
+        endTime: endTime,
+        dateFormat: dateFormat,
+        dayFormat: dayFormat
+      };
 
       if (isPartialDayEvent || !endTime) {
-        var $month = $row.find('.Home-eventsTableDateHeading');
-        $month.text(startTime.format(Page.MOMENT_MONTH_FORMAT).toUpperCase());
-
-        var $day = $row.find('.Home-eventsTableDateRange');
-        $day.text(startTime.date());
+        Page.displayPartialOrSingleDayEvent(displayFunctionParameters);
       } else {
-        // Cross-month display (OCT 31 - NOV 3)
         if (endTime.month() !== startTime.month()) {
-          var $startMonth = $row.find('.Home-eventsTableStartDate .Home-eventsTableDateHeading');
-          $startMonth.text(startTime.format(Page.MOMENT_MONTH_FORMAT).toUpperCase());
-
-          var $startDay = $row.find('.Home-eventsTableStartDate .Home-eventsTableDateRange');
-          $startDay.text(startTime.date());
-
-          var $endMonth = $row.find('.Home-eventsTableEndDate .Home-eventsTableDateHeading');
-          $endMonth.text(endTime.format(Page.MOMENT_MONTH_FORMAT).toUpperCase());
-
-          var $endDay = $row.find('.Home-eventsTableEndDate .Home-eventsTableDateRange');
-          $endDay.text(endTime.date());
+          // Cross-month display (OCT 31 - NOV 3)
+          Page.displayCrossMonthEvent(displayFunctionParameters);
         } else {
-          var $month = $row.find('.Home-eventsTableDateHeading');
-          $month.text(startTime.format(Page.MOMENT_MONTH_FORMAT).toUpperCase());
-
-          var $day = $row.find('.Home-eventsTableDateRange');
-
-          // Same-month, date-range display (NOV 3-4)
-          if (endTime.date() !== startTime.date()) {
-            $day.text(startTime.date() + '-' + endTime.date());
-          }
-          // Single-day display (NOV 3)
-          else {
-              $day.text(startTime.date());
-            }
+          Page.displaySingleDayOrDateRangeWithinSameMonth(displayFunctionParameters);
         }
       }
 
@@ -92,7 +79,7 @@ var Page = {
     $root.addClass('is-out');
     setTimeout(function () {
       $root.removeClass('is-out');
-    }, 2000);
+    }, 500);
   },
 
   getGalleryInner: function () {
@@ -164,6 +151,44 @@ var Page = {
         });
       }
     }
+  },
+  displayPartialOrSingleDayEvent: function (parms) {
+    var $heading1 = parms.$row.find('.Home-eventsTableDateHeading1');
+    $heading1.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? parms.startTimeMonth : parms.startTimeDay);
+
+    var $heading2 = parms.$row.find('.Home-eventsTableDateHeading2');
+    $heading2.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? parms.startTimeDay : parms.startTimeMonth);
+  },
+  displayCrossMonthEvent: function (parms) {
+    var endTimeMonth = parms.endTime.format(Page.MOMENT_MONTH_FORMAT).toUpperCase();
+    var endTimeDay = parms.endTime.format(parms.dayFormat);
+
+    var $startDateHeading1 = parms.$row.find('.Home-eventsTableStartDate .Home-eventsTableDateHeading1');
+    $startDateHeading1.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? parms.startTimeMonth : parms.startTimeDay);
+
+    var $startDateHeading2 = parms.$row.find('.Home-eventsTableStartDate .Home-eventsTableDateHeading2');
+    $startDateHeading2.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? parms.startTimeDay : parms.startTimeMonth);
+
+    var $endDateHeading1 = parms.$row.find('.Home-eventsTableEndDate .Home-eventsTableDateHeading1');
+    $endDateHeading1.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? endTimeMonth : endTimeDay);
+
+    var $endDateHeading2 = parms.$row.find('.Home-eventsTableEndDate .Home-eventsTableDateHeading2');
+    $endDateHeading2.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? endTimeDay : endTimeMonth);
+  },
+  displaySingleDayOrDateRangeWithinSameMonth: function (parms) {
+    var dateRange = parms.startTimeDay; // Initialize to single day (NOV 3)
+    var endTimeDay = parms.endTime.format(parms.dayFormat);
+
+    // Same-month, date-range display (NOV 3-4)
+    if (parms.endTime.date() !== parms.startTime.date()) {
+      dateRange = parms.startTimeDay + '-' + endTimeDay;
+    }
+
+    var $heading1 = parms.$row.find('.Home-eventsTableDateHeading1');
+    $heading1.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? parms.startTimeMonth : dateRange);
+
+    var $heading2 = parms.$row.find('.Home-eventsTableDateHeading2');
+    $heading2.text(parms.dateFormat === Page.MOMENT_MONTH_DAY ? dateRange : parms.startTimeMonth);
   }
 };
 
