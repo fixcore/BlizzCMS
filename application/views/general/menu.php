@@ -95,7 +95,7 @@
                     <div data-publisher="<?= $this->config->item('ProjectName'); ?>" data-name="<?= $this->lang->line('menu_home'); ?>" class="Navbar-gamePublisher Navbar-columns7">
                         <div class="Navbar-gamePublisherLabel animation-delay-9"><?= $this->lang->line('menu_more'); ?></div>
                         <nav class="Navbar-gameLogos">
-                            <!--<div class="Navbar-gameLogoBlock Navbar-columns3 Navbar-imagePanel">-->
+                            <div class="Navbar-gameLogoBlock Navbar-columns3 Navbar-imagePanel">
                                 <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
                                     <a href="<?= base_url('bugtracker'); ?>" class="Navbar-gameLogo animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('bugtracker'); ?>">
                                         <img src="<?= base_url(); ?>assets/images/menu/logo-wow.png" alt="" class="Navbar-gameLogoImage"/>
@@ -108,7 +108,7 @@
                                         <div class="Navbar-gameLogoLabel"><?= $this->lang->line('changelogs'); ?></div>
                                     </a>
                                 <?php } ?>
-                            <!--</div>-->
+                            </div>
                         </nav>
                     </div>
                 </div>
@@ -272,15 +272,13 @@
         </div>
         <div data-default-mode="true" data-simple-mode="true" class="Navbar-modal Navbar-siteMenu is-animated is-scroll-blocking is-top">
             <div class="Navbar-modalContent">
-                <a href="http://blizzard.com/" class="Navbar-logo Navbar-mobileModalLogo" data-analytics="global-nav" data-analytics-placement="Nav - Blizzard.com Icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 151.15 68.46" focusable="false"><use xlink:href="#Navbar-logo-blizzard"></use></svg>
-                </a>
-                <a href="http://blizzard.com/" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - Blizzard.com Icon">
+                <a href="<?= base_url(); ?>" class="Navbar-logo Navbar-mobileModalLogo" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->config->item('ProjectName'); ?> Icon"></a>
+                <a href="<?= base_url(); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - Home">
                     <div class="Navbar-modalLinkLabel">Home</div>
                 </a>
                 <div data-name="games" class="Navbar-expandable Navbar-gamesExpandable">
                     <div class="Navbar-expandableToggle">
-                        <div class="Navbar-expandableLabel">Games</div>
+                        <div class="Navbar-expandableLabel">Menu</div>
                         <div class="Navbar-icon Navbar-expandableIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-dropdown"></use></svg>
                         </div>
@@ -289,40 +287,51 @@
                         <div class="Navbar-expandableContent">
                             <nav class="Navbar-expandableList Navbar-gameList">
                                 <div data-publisher="blizzard" class="Navbar-gamePublisher">
-                                    <div class="Navbar-gamePublisherLabel">Blizzard</div>
-                                    <a href="https://worldofwarcraft.com/" class="Navbar-expandableItem" data-analytics="global-nav" data-analytics-placement="Nav - Games - World of Warcraft">
-                                        <img src="<?= base_url(); ?>assets/images/menu/logo-mobile-wow.png" alt="" class="Navbar-expandableItemImage"/>
-                                        <div class="Navbar-expandableItemLabel">World of Warcraft<span class="Navbar-registered">®</span></div>
-                                    </a>
+                                    <div class="Navbar-gamePublisherLabel"><?= $this->lang->line('menu_more'); ?></div>
+                                    <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
+                                        <a href="<?= base_url('bugtracker'); ?>" class="Navbar-expandableItem" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('bugtracker'); ?>">
+                                            <img src="<?= base_url(); ?>assets/images/menu/logo-mobile-wow.png" alt="" class="Navbar-expandableItemImage"/>
+                                            <div class="Navbar-expandableItemLabel"><?= $this->lang->line('bugtracker'); ?></div>
+                                        </a>
+                                    <?php } ?>
+                                    <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
+                                        <a href="<?= base_url('changelogs'); ?>" class="Navbar-expandableItem" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('changelogs'); ?>">
+                                            <img src="<?= base_url(); ?>assets/images/menu/logo-mobile-wow.png" alt="" class="Navbar-expandableItemImage"/>
+                                            <div class="Navbar-expandableItemLabel"><?= $this->lang->line('changelogs'); ?></div>
+                                        </a>
+                                    <?php } ?>
                                 </div>
-                                <a href="http://eu.blizzard.com/games/" class="Navbar-expandableItem Navbar-expandableSpecialItem" data-analytics="global-nav" data-analytics-placement="Nav - Games - More Games">
-                                    <div class="Navbar-icon Navbar-expandableItemIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-grid9"></use></svg>
-                                    </div>
-                                    <div class="Navbar-expandableItemLabel">More Games</div>
-                                </a>
-                                <a href="https://eu.battle.net/account/download/" class="Navbar-expandableItem Navbar-expandableSpecialItem" data-analytics="global-nav" data-analytics-placement="Nav - Games - Downloads">
-                                    <div class="Navbar-icon Navbar-expandableItemIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-download"></use></svg>
-                                    </div>
-                                    <div class="Navbar-expandableItemLabel">Downloads</div>
-                                </a>
-                                <a href="https://eu.battle.net/forums/" class="Navbar-expandableItem Navbar-expandableSpecialItem" data-analytics="global-nav" data-analytics-placement="Nav - Games - Game Forums">
-                                    <div class="Navbar-icon Navbar-expandableItemIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-chat"></use></svg>
-                                    </div>
-                                    <div class="Navbar-expandableItemLabel">Game Forums</div>
-                                </a>
+                                <?php if ($this->m_modules->getStatusLadPVP() == '1') { ?>
+                                    <a href="<?= base_url('pvp'); ?>" class="Navbar-expandableItem Navbar-expandableSpecialItem" data-analytics="global-nav" data-analytics-placement="Nav - <?=$this->lang->line('lad_pvp');?>">
+                                        <div class="Navbar-icon Navbar-expandableItemIcon"></div>
+                                        <div class="Navbar-expandableItemLabel"><i class="ra ra-axe"></i> <?=$this->lang->line('lad_pvp');?></div>
+                                    </a>
+                                <?php } ?>
+                                <?php if ($this->m_modules->getStatusLadArena() == '1') { ?>
+                                    <a href="<?= base_url('arena'); ?>" class="Navbar-expandableItem Navbar-expandableSpecialItem" data-analytics="global-nav" data-analytics-placement="Nav - <?=$this->lang->line('lad_arena');?>">
+                                        <div class="Navbar-icon Navbar-expandableItemIcon"></div>
+                                        <div class="Navbar-expandableItemLabel"><i class="ra ra-arena"></i> <?=$this->lang->line('lad_arena');?></div>
+                                    </a>
+                                <?php } ?>
                             </nav>
                         </div>
                     </div>
                 </div>
-                <a href="https://battle.net/shop/" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - Shop">
-                    <div class="Navbar-modalLinkLabel">Shop</div>
-                </a>
-                <a href="https://news.blizzard.com/" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - News">
-                    <div class="Navbar-modalLinkLabel">News</div>
-                </a>
+                <?php if($this->m_modules->getStatusNews() == '1') { ?>
+                    <a href="<?= base_url('news'); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('menu_news'); ?>">
+                        <div class="Navbar-modalLinkLabel"><?= $this->lang->line('menu_news'); ?></div>
+                    </a>
+                <?php } ?>
+                <?php if($this->m_modules->getStatusForums() == '1') { ?>
+                    <a href="<?= base_url('forums'); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('forums'); ?>">
+                        <div class="Navbar-modalLinkLabel"><?= $this->lang->line('forums'); ?></div>
+                    </a>
+                <?php } ?>
+                <?php if($this->m_modules->getStatusStore() == '1') { ?>
+                    <a href="<?= base_url('store'); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('store'); ?>">
+                        <div class="Navbar-modalLinkLabel"><?= $this->lang->line('store'); ?></div>
+                    </a>
+                <?php } ?>
                 <div class="Navbar-modalClose Navbar-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-close"></use></svg>
                 </div>
