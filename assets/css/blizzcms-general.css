@@ -5737,7 +5737,7 @@ body[data-device=desktop] .Tooltip-overlay .Tooltip-close:hover{color:#fff}
 
 .Navbar .Navbar-dropdown .Navbar-posters {
   display: none;
-  text-align: center;
+  text-align: left;
   font-size: 0; }
 
 .Navbar .Navbar-dropdown.is-open .Navbar-gamePublisherLabel {
