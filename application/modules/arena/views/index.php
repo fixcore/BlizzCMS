@@ -60,14 +60,14 @@
                     <tbody>
                         <?php foreach ($this->arena_model->getTopArena2v2()->result() as $tops2v2) { ?>
                             <tr>
-                                <td><?=$tops2v2->name?></td>
+                                <td style="color: #fff;"><?=$tops2v2->name?></td>
                                 <td style="text-align: center;">
                                     <?php foreach ($this->arena_model->getMemberTeam($tops2v2->arenaTeamId)->result() as $mmberteam) { ?>
                                     <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                     <?php } ?>
                                 </td>
-                                <td style="text-align: center;"><?=$tops2v2->rating?></td>
-                                <td style="text-align: center;"><?=$tops2v2->seasonWins?></td>
+                                <td style="color: #fff;text-align: center;"><?=$tops2v2->rating?></td>
+                                <td style="color: #fff;text-align: center;"><?=$tops2v2->seasonWins?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -88,14 +88,14 @@
                     <tbody>
                         <?php foreach ($this->arena_model->getTopArena3v3()->result() as $tops3v3) { ?>
                             <tr>
-                                <td><?=$tops3v3->name?></td>
-                                <td style="text-align: center;">
+                                <td style="color: #fff;"><?=$tops3v3->name?></td>
+                                <td style="color: #fff;text-align: center;">
                                     <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId)->result() as $mmberteam) { ?>
                                     <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                     <?php } ?>
                                 </td>
-                                <td style="text-align: center;"><?=$tops3v3->rating?></td>
-                                <td style="text-align: center;"><?=$tops3v3->seasonWins?></td>
+                                <td style="color: #fff;text-align: center;"><?=$tops3v3->rating?></td>
+                                <td style="color: #fff;text-align: center;"><?=$tops3v3->seasonWins?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
@@ -116,14 +116,14 @@
                     <tbody>
                         <?php foreach ($this->arena_model->getTopArena5v5()->result() as $tops5v5) { ?>
                             <tr>
-                                <td><?=$tops5v5->name?></td>
+                                <td style="color: #fff;"><?=$tops5v5->name?></td>
                                 <td style="text-align: center;">
                                     <?php foreach ($this->arena_model->getMemberTeam($tops5v5->arenaTeamId)->result() as $mmberteam) { ?>
                                     <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                     <?php } ?>
                                 </td>
-                                <td style="text-align: center;"><?=$tops5v5->rating?></td>
-                                <td style="text-align: center;"><?=$tops5v5->seasonWins?></td>
+                                <td style="color: #fff;text-align: center;"><?=$tops5v5->rating?></td>
+                                <td style="color: #fff;text-align: center;"><?=$tops5v5->seasonWins?></td>
                             </tr>
                         <?php } ?>
                     </tbody>
