@@ -20,7 +20,6 @@ var Page = {
   },
   initMoment: function () {
     // Use user's locale so we can properly format strings
-    moment.locale(blizzard.locale);
 
     var dateFormat = $('.Home-eventsTable').attr('data-date-format');
     var dayFormat = $('.Home-eventsTable').attr('data-day-format');
@@ -57,9 +56,6 @@ var Page = {
       }
 
       var $eventTime = $row.find('.Home-eventTime');
-      if ($eventTime.length !== 0) {
-        $eventTime.text(startTime.format(blizzard.localizedTimeFormat));
-      }
     });
 
     // Update timezone display

@@ -1,6 +1,6 @@
     <div class="Overlay Page-navigation Overlay--top">
         <div class="Overlay-content">
-            <div data-region="eu" data-locale="en-us" data-service-type="l" data-service-endpoint="P" data-service-version="3.2.1" data-middleware-version="3.2.0" data-ajax data-auth-url="/navbar/authenticate" data-notification-url="/navbar/notifications" data-support-url="<?= base_url(); ?>support" class="Navbar is-auto is-top">
+            <div data-region="eu" data-locale="en-us" data-service-type="l" data-service-endpoint="P" data-service-version="3.2.1" data-middleware-version="3.2.0" class="Navbar is-auto is-top">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Navbar-embedded">
                     <g id="Navbar-icon-new_window">
                         <path d="M21.737,39.117c3.938-6.052,8.981-10.014,19.089-10.014v7.024L53.708,24.95   L40.826,13.77v6.72C26.135,20.489,21.737,32.97,21.737,39.117L21.737,39.117z"/>

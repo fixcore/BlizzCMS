@@ -5349,9 +5349,6 @@ var VideoPane = { getVideoElements: function () {
 				init: function (root) {
 					if (root.classList.contains('is-disabled')) return;
 
-					// Register root click handler
-					root.addEventListener('click', Navbar.rootClickHandler.bind(root));
-
 					// Close all modals when a click is registered on the transparent overlay behind the navbar
 					Navbar.forEach(root.querySelectorAll('.Navbar-overlay'), function (overlay) {
 						overlay.addEventListener('click', Navbar.closeModals.bind(root));
@@ -5394,12 +5391,6 @@ var VideoPane = { getVideoElements: function () {
 					if (root.hasAttribute('data-ajax')) {
 						Navbar.authenticate(root);
 					}
-
-					// Check for promotional notifications
-					setTimeout(function () {
-						Navbar.showCookieCompliance(root);
-						Navbar.checkPromotions.call(Navbar, root);
-					}, Navbar.DEFAULT_POPUP_DELAY);
 
 					// Check support ticket count immediately if we're already authenticated via webapp
 					if (root.classList.contains('is-authenticated')) {
@@ -5541,12 +5532,6 @@ var VideoPane = { getVideoElements: function () {
 				/**
      * Root tag click handler
      */
-				rootClickHandler: function () {
-					// Close promotion popup if open
-					var promo = this.querySelector('.Navbar-promotion.is-open');
-					if (promo) Navbar.dismissPromotion.call(promo);
-				},
-
 				// Handlers for iOS scroll fix
 				touchMoving: false,
 				touchMoveHandler: function () {
@@ -5643,9 +5628,6 @@ var VideoPane = { getVideoElements: function () {
 
 					// Set focus on the root navbar tag to promote its layer
 					this.root.classList.toggle('is-focused', isActive);
-
-					// Soft dismiss promo popup if present
-					Navbar.rootClickHandler.call(this.root);
 
 					// Close all expandables
 					Navbar.toggleExpandable.call(this.root);
@@ -5756,119 +5738,10 @@ var VideoPane = { getVideoElements: function () {
 					return root && root.classList && root.classList.contains('is-disabled');
 				},
 
-				checkPromotionId: function (id) {
-					if (localStorage) {
-						var readPromotions = localStorage.getItem(Navbar.KEY_PROMOTIONS_READ) ? JSON.parse(localStorage.getItem(Navbar.KEY_PROMOTIONS_READ)) : {};
-						return !!readPromotions[id];
-					}
-					return false;
-				},
-				savePromotionId: function (id) {
-					if (localStorage) {
-						var readPromotions = localStorage.getItem(Navbar.KEY_PROMOTIONS_READ) ? JSON.parse(localStorage.getItem(Navbar.KEY_PROMOTIONS_READ)) : {};
-						readPromotions[id] = true;
-						localStorage.setItem(Navbar.KEY_PROMOTIONS_READ, JSON.stringify(readPromotions));
-					}
-				},
-
-				checkPromotions: function (root) {
-					if (Navbar.checkDisabled(root)) return;
-					var authUrl = root.getAttribute('data-notification-url');
-
-					// No promotions while cookie compliance is on-screen
-					var cookieCompliance = root.querySelector('.Navbar-cookieCompliance.is-open');
-					if (cookieCompliance) {
-						return;
-					}
-
-					Navbar.get(authUrl, function (res) {
-						if (!res) {
-							// not logged in
-							return;
-						}
-						if (Navbar.checkDisabled(root)) return;
-						var data = {};
-						try {
-							data = JSON.parse(res);
-							var notifications = data.notifications || data.notificationsList;
-							if (data.totalNotifications && notifications) {
-								for (var index in notifications) {
-									var notification = notifications[index];
-									if (!Navbar.checkPromotionId(notification.id)) {
-										var promotion = root.querySelector('.Navbar-promotion');
-										Navbar.showPromotion(promotion, notification.id, notification.img ? notification.img.url : null, notification.title, notification.content, notification.httpLink ? notification.httpLink.content : '', notification.httpLink ? notification.httpLink.link : '');
-										promotion.querySelector('.Navbar-promotionLink').addEventListener('click', Navbar.setPromotionAsRead.bind(promotion));
-										promotion.querySelector('.Navbar-toastClose').addEventListener('click', Navbar.dismissPromotion.bind(promotion, true));
-										break;
-									}
-								}
-							}
-						} catch (err) {
-							console.error(err);
-						}
-					}, function (err) {
-						console.error('Couldn\'t retrieve notification count', err);
-					});
-				},
-				showPromotion: function (promotion, promotionId, imageUrl, label, text, linkText, linkUrl) {
-					if (promotionId) promotion.setAttribute(Navbar.DATA_PROMOTION_ID, promotionId);
-					if (imageUrl) promotion.querySelector('.Navbar-promotionImage').src = imageUrl;
-					if (label) promotion.querySelector('.Navbar-promotionLabel').innerHTML = label;
-					if (text && typeof text === 'string') {
-						text = text.trim();
-						promotion.querySelector('.Navbar-promotionText').innerHTML = text;
-					}
-					if (linkText) promotion.querySelector('.Navbar-promotionLink').innerHTML = linkText;
-					if (linkUrl) {
-						var link = promotion.querySelector('.Navbar-promotionLink');
-						link.href = linkUrl;
-						promotion.addEventListener('click', Navbar.promotionClickHandler);
-						link.addEventListener('click', Navbar.promotionLinkClickHandler.bind(promotion));
-					}
-					promotion.classList.add('is-open');
-					promotion.addEventListener('click', Navbar.promotionClickHandler);
-
-					// This needs to be pulled back out to replace HTML Entities with actual unicode characters.
-					var labelString = promotion.querySelector('.Navbar-promotionLabel').innerHTML;
-					Navbar.pushGlobalNotificationAnalyticsEvent('Open - Automatic', promotionId, labelString);
-				},
-				dismissPromotion: function (isHardDismiss) {
-					var hideToast = Navbar.hideToast.bind(this);
-					this.hideToast = hideToast;
-					this.addEventListener('animationend', hideToast);
-					this.classList.add('is-dismissed');
-
-					var id = parseInt(this.getAttribute(Navbar.DATA_PROMOTION_ID));
-					var label = this.querySelector('.Navbar-promotionLabel').innerHTML;
-					if (isHardDismiss) {
-						Navbar.setPromotionAsRead.call(this);
-						event.stopPropagation();
-						event.preventDefault();
-					}
-					Navbar.pushGlobalNotificationAnalyticsEvent(isHardDismiss ? 'Close - X' : 'Close - Background', id, label);
-				},
-				setPromotionAsRead: function () {
-					var id = parseInt(this.getAttribute(Navbar.DATA_PROMOTION_ID));
-					Navbar.savePromotionId(id);
-				},
 				hideToast: function () {
 					if (this.hideToast) this.removeEventListener('animationend', this.hideToast);
 					this.classList.remove('is-dismissed');
 					this.classList.remove('is-open');
-				},
-				promotionClickHandler: function () {
-					event.stopPropagation();
-					return false;
-				},
-				promotionLinkClickHandler: function () {
-					var id = parseInt(this.getAttribute(Navbar.DATA_PROMOTION_ID));
-					var label = this.querySelector('.Navbar-promotionLabel').innerHTML;
-					try {
-						Navbar.pushGlobalNotificationAnalyticsEvent('Click - Button', id, label);
-					} catch (err) {
-						console.error(err);
-					}
-					return true;
 				},
 
 				showCookieCompliance: function (root) {
@@ -5905,31 +5778,6 @@ var VideoPane = { getVideoElements: function () {
 
 					if (localStorage) {
 						localStorage.setItem(Navbar.KEY_COOKIES_AGREED, new Date().getTime());
-					}
-				},
-
-				checkSupportNotifications: function (root) {
-					var supportEndpoint = root.getAttribute('data-support-url');
-					var callbackName = 'NavbarSupportTicketCallback' + new Date().getTime() + '_' + Math.round(Math.random() * 100000);
-					window[callbackName] = Navbar.setSupportNotificationCount.bind(Navbar, root);
-
-					var script = document.createElement('script');
-					script.src = supportEndpoint + 'window.' + callbackName;
-
-					document.getElementsByTagName('head')[0].appendChild(script);
-				},
-				setSupportNotificationCount: function (root, payload) {
-					var count = payload && payload.total ? payload.total : 0;
-					if (count && count > 0) {
-						this.forEach(root.querySelectorAll('.Navbar-supportCounter, .Navbar-accountDropdownSupport .Navbar-accountDropdownCounter'), function (counter) {
-							counter.innerHTML = '' + count;
-						});
-						root.classList.add('is-support-active');
-					} else {
-						root.classList.remove('is-support-active');
-						this.forEach(root.querySelectorAll('.Navbar-supportCounter, .Navbar-accountDropdownSupport .Navbar-accountDropdownCounter'), function (counter) {
-							counter.innerHTML = '0';
-						});
 					}
 				},
 
@@ -6156,9 +6004,6 @@ var VideoPane = { getVideoElements: function () {
 					if (this.classList.contains('is-region-limited') || this.classList.contains('is-region-hybrid')) {
 						Navbar.changeFooterRegionLimit.call(this, this.querySelector('.NavbarFooter-selectorRegion.is-active'));
 					}
-
-					var promo = document.querySelector('.Navbar-promotion.is-open');
-					if (promo) Navbar.dismissPromotion.call(promo, false);
 
 					Navbar.blockScrolling();
 				},
