@@ -81,6 +81,7 @@ $lang['games'] = 'Games';
 $lang['report_list'] = 'Report List';
 $lang['captcha_error'] = 'please check the captcha';
 $lang['ucp'] = 'User Panel';
+$lang['edit_topic'] = 'Edit Topic';
 
 
 $lang['member_sice'] = 'Member since';

@@ -1,3 +1,16 @@
+<?php if (isset($_POST['button_editTopic'])) {
+    $title = $_POST['edittopic_title'];
+    $description = $_POST['edittopic_description'];
+
+    if (isset($_POST['check_highl']) && $_POST['check_highl'] == '1')
+        $highl = '1'; else $highl = '0';
+
+    if (isset($_POST['check_lock']) && $_POST['check_lock'] == '1')
+        $lock = '1'; else $lock = '0';
+
+    $this->forum_model->updateTopic($idlink, $title, $description, $lock, $highl);
+}?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -57,11 +70,15 @@
                 <div class="Container Container--content">
                     <h1 class="Topic-heading">
                         <span class="Topic-title" data-topic-heading="true" style="color: #fff;"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
+                    <?php if($this->m_data->isLogged()) { ?>
+                        <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
                         <p uk-margin>
                             <button uk-toggle="target: #editTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
                                 <span class="Button-content"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('button_edit'); ?></span>
                             </button>
                         </p>
+                        <?php } ?>
+                    <?php } ?>
                     </h1>
                 </div>
             </header>
@@ -291,7 +308,7 @@
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
                 <h2 class="uk-modal-title">
-                    <i class="fa fa-pencil" aria-hidden="true"></i> Edit Topic
+                    <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('edit_topic'); ?>
                 </h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
@@ -300,17 +317,21 @@
                     <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
                     <div class="uk-margin uk-inline uk-width-1-1">
                         <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
-                        <input class="uk-input" name="topic_title" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?>">
+                        <input class="uk-input" name="edittopic_title" required value="<?= $this->forum_model->getTopicTitle($idlink); ?>" type="text" placeholder="<?= $this->forum_model->getTopicTitle($idlink); ?>">
                     </div>
                     <!-- text area -->
-                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+                        <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
+                    <?php } else { ?>
+                        <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+                    <?php } ?>
 
                     <br>
 
                     <div class="form-group">
                         <h2 class="uk-text-large"><?= $this->lang->line('new_desc'); ?></h2>
                         <div class="col-md-12">
-                            <textarea required="" name="topic_description" id="ckeditor_edit" rows="10" cols="80"></textarea>
+                            <textarea required="" name="edittopic_description" id="ckeditor_edit" rows="10" cols="80"><?= $this->forum_model->getTopicDescription($idlink); ?></textarea>
                             <script>
                                 CKEDITOR.replace('ckeditor_edit');
                             </script>
@@ -330,7 +351,7 @@
 
                     <div class="uk-modal-footer uk-text-right actions">
                         <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                        <button class="uk-button uk-button-primary" type="submit" name="button_createTopic"><?= $this->lang->line('button_crea'); ?></button>
+                        <button class="uk-button uk-button-primary" type="submit" name="button_editTopic"><?= $this->lang->line('button_edit'); ?></button>
                     </div>
                 </div>
             </form>

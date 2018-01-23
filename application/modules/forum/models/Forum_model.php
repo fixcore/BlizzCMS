@@ -81,12 +81,45 @@ class Forum_model extends CI_Model {
         redirect(base_url('forums/category/').$idlink,'refresh');
     }
 
+    public function updateTopic($idlink, $title, $description, $lock, $highl)
+    {
+        $date = $this->m_data->getTimestamp();
+
+        $data = array(
+            'title' => $title,
+            'content' => $description,
+            'locked' => $lock,
+            'pined' => $highl
+        );
+
+        $this->db->where('id', $idlink)
+                ->update('fx_forum_topics', $data);
+
+        redirect(base_url('forums/topic/').$idlink,'refresh');
+    }
+
     public function getType($id)
     {
         return $this->db->select('type')
                 ->where('id', $id)
                 ->get('fx_forum_forums')
                 ->row('type');
+    }
+
+    public function getTopicTitle($id)
+    {
+        return $this->db->select('title')
+                ->where('id', $id)
+                ->get('fx_forum_topics')
+                ->row_array()['title'];
+    }
+
+    public function getTopicDescription($id)
+    {
+        return $this->db->select('content')
+                ->where('id', $id)
+                ->get('fx_forum_topics')
+                ->row_array()['content'];
     }
 
     public function getCategoryForums($category)
