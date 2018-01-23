@@ -68,7 +68,7 @@
                 <?php if ($this->m_data->isLogged()) { ?>
                 <!-- message -->
                 <?php if ($this->m_modules->getMessages() == '1') { ?>
-                <?php $this->load->model('messages_model'); ?>
+                <?php $this->load->model('messages/messages_model'); ?>
                 <a href="<?= base_url('message'); ?>">
                     <i class="fa fa-commenting-o" aria-hidden="true"></i> 
                     <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
