@@ -80,6 +80,7 @@ $lang['rating'] = 'Rating';
 $lang['games'] = 'Games';
 $lang['report_list'] = 'Report List';
 $lang['captcha_error'] = 'please check the captcha';
+$lang['ucp'] = 'User Panel';
 
 
 $lang['member_sice'] = 'Member since';

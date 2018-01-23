@@ -162,15 +162,17 @@
                         <div class="Navbar-accountDropdownLoggedOut">
                             <div class="Navbar-modalSection">
                                 <div class="Navbar-accountDropdownProfileInfo uk-text-center">
-                                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
-                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="60" height="60" alt="">
-                                    <?php } else { ?>
-                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="60" height="60" alt="">
-                                    <?php } ?>
-                                    <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
+                                    <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                                        <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
+                                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="60" height="60" alt="">
+                                        <?php } else { ?>
+                                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="60" height="60" alt="">
+                                        <?php } ?>
+                                        <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
+                                    </a>
                                     <?php if($this->m_modules->getStatusUCP() == '1') { ?>
                                         <a href="<?= base_url('panel'); ?>">
-                                            <button class="Navbar-button is-full"><i class="fa fa-user-circle-o" aria-hidden="true"></i> User Panel</button>
+                                            <button class="Navbar-button is-full"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('ucp'); ?></button>
                                         </a>
                                     <?php } ?>
                                 </div>
