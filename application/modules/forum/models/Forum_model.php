@@ -67,18 +67,29 @@ class Forum_model extends CI_Model {
         $date = $this->m_data->getTimestamp();
 
         $data = array(
-        'forums' => $idlink,
-        'title' => $title,
-        'author' => $userid,
-        'date' => $date,
-        'content' => $description,
-        'locked' => $lock,
-        'pined' => $highl,
+            'forums' => $idlink,
+            'title' => $title,
+            'author' => $userid,
+            'date' => $date,
+            'content' => $description,
+            'locked' => $lock,
+            'pined' => $highl
         );
 
-        $this->db->insert('fx_forum_topics', $data);
 
-        redirect(base_url('forums/category/').$idlink,'refresh');
+        $this->db->insert('fx_forum_topics', $data);
+        
+        $getIDPost = $this->getIDPostPerDate($date);
+
+        redirect(base_url('forums/topic/').$getIDPost,'refresh');
+    }
+
+    public function getIDPostPerDate($date)
+    {
+        return $this->db->select('id')
+                ->where('date', $date)
+                ->get('fx_forum_topics')
+                ->row('id');
     }
 
     public function updateTopic($idlink, $title, $description, $lock, $highl)

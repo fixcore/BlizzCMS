@@ -1,16 +1,3 @@
-<?php if (isset($_POST['button_createTopic'])) {
-	$title = $_POST['topic_title'];
-	$description = $_POST['topic_description'];
-
-    if (isset($_POST['check_highl']) && $_POST['check_highl'] == '1')
-        $highl = '1'; else $highl = '0';
-
-    if (isset($_POST['check_lock']) && $_POST['check_lock'] == '1')
-    	$lock = '1'; else $lock = '0';
-
-	$this->forum_model->insertTopic($idlink, $title, $this->session->userdata('fx_sess_id'), $description, $lock, $highl);
-}?>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -141,7 +128,7 @@
                     <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
                 </h2>
             </div>
-            <form action="" method="post" accept-charset="utf-8" autocomplete="off">
+            <form action="<?= base_url('forum/newTopic/'.$idlink); ?>" method="post" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
                     <!-- content -->
                     <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
