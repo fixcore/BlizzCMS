@@ -141,7 +141,7 @@
                     <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
                 </h2>
             </div>
-            <form action="" method="post" accept-charset="utf-8">
+            <form action="" method="post" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
                     <!-- content -->
                     <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
