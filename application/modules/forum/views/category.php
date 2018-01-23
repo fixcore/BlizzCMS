@@ -1,25 +1,14 @@
-<?php if (isset($_POST['button_createTopic'])) {
-	$title = $_POST['topic_title'];
-	$description = $_POST['topic_description'];
-
-    if (isset($_POST['check_highl']) && $_POST['check_highl'] == '1')
-        $highl = '1'; else $highl = '0';
-
-    if (isset($_POST['check_lock']) && $_POST['check_lock'] == '1')
-    	$lock = '1'; else $lock = '0';
-
-	$this->forum_model->insertTopic($idlink, $title, $this->session->userdata('fx_sess_id'), $description, $lock, $highl);
-}?>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('forums'); ?></title>
+
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/navbar0e26.css?v=58-88" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
@@ -31,9 +20,6 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <!-- custom START -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
-    <!-- custom END -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -51,8 +37,7 @@
     </div>
     </div>
     <!-- submenu -->
-
-    <!-- main -->
+    <br><br><br>
     <div role="main">
         <section class="Forum">
             <header class="Forum-header">
@@ -143,7 +128,7 @@
                     <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
                 </h2>
             </div>
-            <form action="" method="post" accept-charset="utf-8">
+            <form action="<?= base_url('forum/newTopic/'.$idlink); ?>" method="post" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
                     <!-- content -->
                     <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>

@@ -10,31 +10,47 @@ class Changelogs_model extends CI_Model {
 
     public function getAll()
     {
-        return $this->db->query("SELECT id FROM fx_changelogs");
+        return $this->db->select('id')
+            ->get('fx_changelogs');
     }
 
     public function getChangelogs()
     {
-        return $this->db->query("SELECT title, id, date FROM fx_changelogs ORDER BY id DESC LIMIT 20");
+        return $this->db->select('title, id, date')
+                ->order_by('id', 'DESC')
+                ->limit('20')
+                ->get('fx_changelogs');
     }
 
     public function getLastID()
     {
-        return $this->db->query("SELECT id FROM fx_changelogs ORDER BY id DESC LIMIT 1")->row()->id;
+        return $this->db->select('id')
+                ->order_by('id', 'DESC')
+                ->get('fx_changelogs')
+                ->row('id');
     }
 
     public function getChanglogTitle($id)
     {
-        return $this->db->query("SELECT title FROM fx_changelogs WHERE id = '".$id."'")->row_array()['title'];
+        return $this->db->select('title')
+                ->where('id', $id)
+                ->get('fx_changelogs')
+                ->row_array()['title'];
     }
 
     public function getChanglogDate($id)
     {
-        return $this->db->query("SELECT date FROM fx_changelogs WHERE id = '".$id."'")->row()->date;
+        return $this->db->select('date')
+                ->where('id', $id)
+                ->get('fx_changelogs')
+                ->row('date');
     }
 
     public function getChanglogDesc($id)
     {
-        return $this->db->query("SELECT description FROM fx_changelogs WHERE id = '".$id."'")->row_array()['description'];
+        return $this->db->select('description')
+                ->where('id', $id)
+                ->get('fx_changelogs')
+                ->row_array()['description'];
     }
 }

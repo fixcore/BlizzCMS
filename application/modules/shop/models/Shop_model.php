@@ -10,65 +10,104 @@ class Shop_model extends CI_Model {
 
     public function getShopTop10()
     {
-        return $this->db->query("SELECT id_shop FROM fx_shop_top ORDER BY id DESC LIMIT 10");
+        return $this->db->select('id_shop')
+                ->order_by('id', "DESC")
+                ->limit('10')
+                ->get('fx_shop_top'); 
     }
 
     public function getShopTop()
     {
-        return $this->db->query("SELECT * FROM fx_shop_top ORDER BY id ASC");
+        return $this->db->select('*')
+                ->order_by('id', 'ASC')
+                ->get('fx_shop_top');
     }
 
     public function getExistItem($id)
     {
-        return $this->db->query("SELECT * FROM fx_shop WHERE id = '".$id."'")->num_rows();
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->num_rows();
     }
 
     public function getType($id)
     {
-        return $this->db->query("SELECT type FROM fx_shop WHERE id = '".$id."'")->row()->type;
+        return $this->db->select('type')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->row('type');
     }
 
     public function getItem($id)
     {
-        return $this->db->query("SELECT itemid FROM fx_shop WHERE id = '".$id."'")->row()->itemid;
+        return $this->db->select('itemid')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->row('itemid');
     }
 
     public function getQuery($id)
     {
-        return $this->db->query("SELECT qquery FROM fx_shop WHERE id = '".$id."'")->row()->qquery;
+        return $this->db->select('qquery')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->row('qquery');
     }
 
     public function getIcon($id)
     {
-        return $this->db->query("SELECT iconname FROM fx_shop WHERE id = '".$id."'")->row()->iconname;
+        return $this->db->select('iconname')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->row('iconname');
     }
 
     public function getName($id)
     {
-        return $this->db->query("SELECT name FROM fx_shop WHERE id = '".$id."'")->row_array()['name'];
+        return $this->db->select('name')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->row_array()['name'];
     }
 
     public function getImage($id)
     {
-        return $this->db->query("SELECT image FROM fx_shop WHERE id = '".$id."'")->row_array()['image'];
+        return $this->db->select('image')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->row_array()['image'];
     }
 
     public function getGroup($id)
     {
-        return $this->db->query("SELECT groups FROM fx_shop WHERE id = '".$id."'")->row()->groups;
+        return $this->db->select('groups')
+                ->where('id', $id)
+                ->get('fx_shop')
+                ->row('groups');
     }
 
     public function getPriceType($id, $type)
     {
         if ($type == "dp")
-            return $this->db->query("SELECT price_dp FROM fx_shop WHERE id = '".$id."'")->row()->price_dp;
+            return $this->db->select('price_dp')
+                    ->where('id', $id)
+                    ->get('fx_shop')
+                    ->row('price_dp');
+
         if ($type == "vp")
-            return $this->db->query("SELECT price_vp FROM fx_shop WHERE id = '".$id."'")->row()->price_vp;
+            return $this->db->select('price_vp')
+                    ->where('id', $id)
+                    ->get('fx_shop')
+                    ->row('price_vp');
     }
 
     public function getVPTrue($id)
     {
-        $qq = $this->db->query("SELECT price_vp FROM fx_shop WHERE id = '".$id."'")->row()->price_vp;
+        $qq = $this->db->select('price_vp')
+                    ->where('id', $id)
+                    ->get('fx_shop')
+                    ->row('price_vp');
 
         if (!is_null($qq) && $qq > 0)
             return true;
@@ -78,7 +117,10 @@ class Shop_model extends CI_Model {
 
     public function getDPTrue($id)
     {
-        $qq = $this->db->query("SELECT price_dp FROM fx_shop WHERE id = '".$id."'")->row()->price_dp;
+        $qq = $this->db->select('price_dp')
+                    ->where('id', $id)
+                    ->get('fx_shop')
+                    ->row('price_dp');
 
         if (!is_null($qq) && $qq > 0)
             return true;
@@ -88,22 +130,29 @@ class Shop_model extends CI_Model {
 
     public function getShopGeneral()
     {
-        return $this->db->query("SELECT * FROM fx_shop");
+        return $this->db->select('*')
+                ->get('fx_shop');
     }
 
     public function getShopGeneralGP($id)
     {
-        return $this->db->query("SELECT * FROM fx_shop WHERE groups = '".$id."'");
+        return $this->db->select('*')
+                ->where('groups', $id)
+                ->get('fx_shop');
     }
 
     public function getGroups()
     {
-        return $this->db->query("SELECT * FROM fx_shop_groups");
+        return $this->db->select('*')
+                ->get('fx_shop_groups');
     }
 
     public function getSpecifyGroup($id)
     {
-        return $this->db->query("SELECT name FROM fx_shop_groups WHERE id = '".$id."'")->row_array()['name'];
+        return $this->db->select('name')
+                ->where('id', $id)
+                ->get('fx_shop_groups')
+                ->row_array()['name'];
     }
 
     public function insertHistory($idshop, $itemid, $accountid, $charid, $method, $price)
@@ -128,9 +177,13 @@ class Shop_model extends CI_Model {
         $this->auth->insert('fx_shop_history', $data);
 
         if ($method == "dp")
-            $this->db->query("UPDATE fx_credits SET dp = (dp - '$price') WHERE accountid = '$accountid'");
+            $this->db->set('dp', '(dp - $price)')
+                ->where('accountid', $accountid)
+                ->update('fx_credits');
         else
-            $this->db->query("UPDATE fx_credits SET vp = (vp - '$price') WHERE accountid = '$accountid'");
+            $this->db->set('vp', '(vp - $price)')
+                ->where('accountid', $accountid)
+                ->update('fx_credits');
 
         redirect(base_url('store?complete'),'refresh');
     }

@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.5-10.1.29-MariaDB : Database - blizzcms
+MySQL - 5.6.38-log : Database - blizzcms
 *********************************************************************
 */
 
@@ -28,10 +28,9 @@ CREATE TABLE `fx_users` (
   `day` int(10) NOT NULL,
   `date` int(10) NOT NULL,
   `profile` varchar(100) NOT NULL DEFAULT 'default.jpg',
+  `location` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*Data for the table `fx_users` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;

@@ -1,20 +1,21 @@
     <!-- footer -->
     <div class="Pane Pane--full Pane--backgroundTop Pane--innerBorderTop" id="Page-footer">
         <div style="" class="Pane-content">
-            <div data-hash="1aa386d69ed4b4c6a6a5fdb3b0af2b627ce93558" data-region-selection="none" data-region="us" data-locale="en-gb" class="NavbarFooter is-regionless">
+            <div data-region-selection="none" data-region="eu" data-locale="en-us" class="NavbarFooter is-regionless">
+
+            <!-- button top -->
+                <a href="#" uk-totop uk-scroll class="uk-position-small uk-position-center-right uk-overlay uk-overlay-primary uk-position-absolute"></a>
+            <!-- button top -->
+
                 <div class="NavbarFooter-overlay"></div>
                 <div class="NavbarFooter-selector">
                     <div class="NavbarFooter-selectorToggle">
                         <div class="NavbarFooter-icon NavbarFooter-selectorToggleIcon">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
-                                <use xlink:href="#Navbar-icon-globe"></use>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-globe"></use></svg>
                         </div>
                         <div class="NavbarFooter-selectorToggleLabel"><?= $this->lang->line('language_location'); ?></div>
                         <div class="NavbarFooter-icon NavbarFooter-selectorToggleArrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
-                                <use xlink:href="#Navbar-icon-selector"></use>
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-selector"></use></svg>
                         </div>
                     </div>
                     <div class="NavbarFooter-selectorDropdown">
@@ -22,9 +23,7 @@
                             <div class="NavbarFooter-selectorCloser">
                                 <div class="NavbarFooter-selectorCloserAnchor">
                                     <div class="NavbarFooter-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
-                                            <use xlink:href="#Navbar-icon-close"></use>
-                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-close"></use></svg>
                                     </div>
                                 </div>
                             </div>
@@ -33,9 +32,7 @@
                                     <a href="<?= base_url(); ?>" class="NavbarFooter-selectorLocale is-active is-selected NavbarFooter-selectorOption">
                                         <div class="NavbarFooter-selectorOptionLabel"><?= $this->lang->line('language_location'); ?></div>
                                         <div class="NavbarFooter-selectorOptionCheck NavbarFooter-icon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false">
-                                                <use xlink:href="#Navbar-icon-check"></use>
-                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-check"></use></svg>
                                         </div>
                                     </a>
                                 </div>
@@ -44,19 +41,24 @@
                         </div>
                     </div>
                 </div>
-                <div class="NavbarFooter-links NavbarFooter-mainLinks"><!-- here --></div>
+                <div class="NavbarFooter-links NavbarFooter-mainLinks"></div>
                 <div class="NavbarFooter-copyright">&copy; <?= date('Y'); ?> <?= $this->config->item('ProjectName'); ?>. All rights reserved.</div>
                 <div class="NavbarFooter-trademark"><a href="https://github.com/fixcore/BlizzCMS" title="FixCore"><i class="fa fa-github" aria-hidden="true"></i> Proudly powered by BlizzCMS</a></div>
-                <div class="NavbarFooter-legal">
-                    <div class="NavbarFooter-legalRatings"></div>
+                <div class="NavbarFooter-links NavbarFooter-subLinks">
+                    <div class="NavbarFooter-link NavbarFooter-subLink">
+                        <a href="" class="NavbarFooter-anchor" data-id="privacy" data-analytics="global-nav" data-analytics-placement="Footer - Privacy">Privacy</a>
+                    </div>
+                    <div class="NavbarFooter-link NavbarFooter-subLink">
+                        <a href="" class="NavbarFooter-anchor" data-id="terms" data-analytics="global-nav" data-analytics-placement="Footer - Terms">Terms</a>
+                    </div>
                 </div>
+                <div class="space-large"></div>
             </div>
         </div>
     </div>
 
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzard-a4a1541cff453fc7fb38ab8c3c21a48d3eb9feeaab0f8da0c51a60a33485884c6ca2a5e7c78d99533fee7e806e95608e32b04d6ddc028cdd34d3c282912cb0b5.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/app-3ce504d73c6ad390e088f0378c44f77a39cee074bffeeb3da6e73c01e54a1be1702ce8262531930ec6a4619a9ee8169a51b090e9215320a053a02247bf182e7f.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/moment-d410e25d41b038388d05998a715a711bb67ef8da386035abe49d649ffd2a65f060fcd788d58ff9228c486fe0ac8854767e661bfe1e965b5df5ddd79ccf4ab6f8.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/root-ui-575b63757c6991750864ad7ee971d893edd78ea664aa05c07b59af47be16768c19c5db1928591215826a6fd4b8df10ddecdef690dc348e11c7ec0a1ea3ba66ee.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzcms-general.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/moment.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>assets/js/root-ui.js"></script>
 </body>
 </html>

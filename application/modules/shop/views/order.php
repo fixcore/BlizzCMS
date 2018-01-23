@@ -3,11 +3,12 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('shop'); ?></title>
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzard-dc9d0faea4c4a01c35477637614e4bbab87305d0b07b1dfb8e0f09a21283294707def12b40e4cb9f13b56d8cbd92e8b40a3c956f0da1b5cf1d25b558efeffc31.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app-65d540bb92d74ad1518ba050a969a68fe7cca3e0b202351c63b7742d39e87267a3bd8210f6a567b4b05819727690c48601a94036e4e498deb0519f50edb50a65.css">
+
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/shop.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/shop.css" />
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
@@ -19,9 +20,7 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <!-- custom START -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
-    <!-- custom END -->
+
     <!-- Wowhead START -->
     <script>var whTooltips = {colorLinks: true, iconizeLinks: false, renameLinks: false};</script>
     <script type="text/javascript" src="//wow.zamimg.com/widgets/power.js"></script>
@@ -71,7 +70,6 @@
     </div>
     </div>
     <!-- submenu -->
-    <!-- menu -->
     <storefront-root _nghost-c0="" ng-version="4.4.6">
         <storefront-family-page _nghost-c19="" class="">
 		    <div _ngcontent-c19="" class="family-page">
@@ -98,7 +96,7 @@
                         <div class="col-sm-3"></div>
                         <div class="col-sm-6">
                             <div class="uk-alert-success" uk-alert>
-                                <p><?=$this->lang->line('shop_success');?></p>
+                                <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> <?=$this->lang->line('shop_success');?></p>
                             </div>
                         </div>
                     </div>
@@ -117,8 +115,8 @@
                                                     <storefront-link _ngcontent-c16="" _nghost-c2="">
                                                         <a _ngcontent-c2="" title="<?= $itemsG->name ?>">
                                                             <div _ngcontent-c16="" class="background">
-                                                                <div _ngcontent-c16="" class="vertical" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>) rgb(13, 17, 39);"></div>
-                                                                <div _ngcontent-c16="" class="horizontal" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>) rgb(13, 17, 39);"></div>
+                                                                <div _ngcontent-c16="" class="vertical" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>);"></div>
+                                                                <div _ngcontent-c16="" class="horizontal" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>);"></div>
                                                             </div>
                                                             <div _ngcontent-c16="" class="content">
                                                                 <div _ngcontent-c16="" class="family-img-container">

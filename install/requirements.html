@@ -4,18 +4,21 @@
     <title>Installation - BlizzCMS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <!-- UiKit Start -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
 
-    <!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="../core/uikit/js/uikit.min.js"></script>
+    <script src="../core/uikit/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="../assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 
     <script src="js/ui.js" type="text/javascript"></script>
@@ -65,10 +68,6 @@
 
     <div id="wrap">
         <div id="fixer">
-            <!-- Top bar -->
-            <div class="ui inverted three item menu">
-                <a href="index.html" class="item active">Installation</a>
-            </div>
             <!-- Main content -->
             <section>
                 <div id="top_spacer"></div>
@@ -76,13 +75,13 @@
                     <!-- Main Left column -->
                     <aside class="left">
                         <nav>
-                            <a class="active"><i class="heartbeat icon"></i> Install</a>
+                            <a class="active"><i class="fa fa-chrome" aria-hidden="true"></i> Install</a>
                             <section class="sub">
-                                <a><i class="browser icon"></i> Introduction</a>
-                                <a class="active"><i class="alarm outline icon"></i> Requirements</a>
-                                <a><i class="lab icon"></i> General</a>
-                                <a><i class="database icon"></i> Database</a>
-                                <a><i class="connectdevelop icon"></i> Complete installation</a>
+                                <a><i class="fa fa-info-circle" aria-hidden="true"></i> Introduction</a>
+                                <a class="active"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Requirements</a>
+                                <a><i class="fa fa-wrench" aria-hidden="true"></i> General</a>
+                                <a><i class="fa fa-database" aria-hidden="true"></i> Database</a>
+                                <a><i class="fa fa-connectdevelop" aria-hidden="true"></i> Complete installation</a>
                             </section>
                         </nav>
                         <div class="spacer"></div>
@@ -90,53 +89,44 @@
                     <!-- Main right column -->
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
-                            <h2><i class="alarm outline icon"></i> Server requirements <span style="color:red;display:inline;padding:0px;">(important!)</span></h2>
+                            <h2><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Server Requirements <span style="color:red;display:inline;padding:0px;">(Important!)</span></h2>
                             <span>
                                 <div class="introduction">
-                                    <h3>What do I need to run this system?</h3>
+                                    <div class="uk-child-width-1-1 uk-text-center" uk-grid>
+                                        <div>
+                                            <h3>What do I need to run this <strong>system</strong>?</h3>
+                                        </div>
+                                    </div>
                                     <div style="font-weight:bold;margin-bottom:20px;margin-top:20px;" id="config_folder">&bull; /application/config/ needs to be writable (see <a href="http://en.wikipedia.org/wiki/Chmod" target="_blank">chmod</a>)</div>
                                     <div style="font-weight:bold;margin-bottom:20px;margin-top:20px;" id="modules_folder">&bull; /application/modules/ is writable</div>
                                     <div style="font-weight:bold;margin-bottom:20px;margin-top:20px;" id="cache_folder">&bull; /application/cache/</div>
-                                    <div class="ui icon warning message">
-                                        <i class="warning sign icon"></i>
-                                        <div class="content">
-                                            <div class="header">Configuration Warning</div>
-                                            <p>If you're on a web hosting, Apache may already be properly configured.</p>
-                                        </div>
+                                    <div class="uk-alert-danger" uk-alert>
+                                        <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Configuration Warning</p>
+                                        <p class="uk-text-center">If you're on a web hosting, Apache may already be properly configured.</p>
                                     </div>
-                                    <div class="ui icon message">
-                                            <i class="info icon"></i>
-                                            <div class="content">
-                                                <div class="header">Apache Modules Required</div>
-                                                <p>mod_rewrite, mod_headers, mod_expires, mod_deflate</p>
-                                            </div>
+                                    <div class="uk-alert-warning" uk-alert>
+                                        <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-info-circle" aria-hidden="true"></i> Apache Modules Required</p>
+                                        <p class="uk-text-center">mod_rewrite, mod_headers, mod_expires, mod_deflate</p>
                                     </div>
-                                    <div class="ui info message">
-                                        <div class="content">
-                                            <div class="header">How to Enable Apache Modules?</div>
-                                            <p>Go into your Apache directory and find the <b>httpd.conf</b> file. Mine was located in "C:\wamp\bin\apache\apache2.2.22\conf\". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the #-character in front of the line.</p>
-                                            <img src="images/apache.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" />
-                                        </div>
+                                    <div class="uk-alert-primary" uk-alert>
+                                        <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to Enable Apache Modules?</p>
+                                        <p class="uk-text-center">Go into your Apache directory and find the <b>httpd.conf</b> file. Mine was located in "C:\wamp\bin\apache\apache2.2.22\conf\". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the #-character in front of the line.</p>
+                                        <p class="uk-text-center"><img src="images/apache.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" /></p>
                                     </div>
-                                    <div class="ui icon message">
-                                        <i class="info icon"></i>
-                                        <div class="content">
-                                            <div class="header">PHP Extensions Required</div>
-                                            <p>php_curl, php_openssl, php_soap, php_gd, php_mbstring, php_json</p>
-                                        </div>
+                                    <div class="uk-alert-warning" uk-alert>
+                                        <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-info-circle" aria-hidden="true"></i> PHP Extensions Required</p>
+                                        <p class="uk-text-center">php_curl, php_openssl, php_soap, php_gd, php_mbstring, php_json</p>
                                     </div>
-                                    <div class="ui info message">
-                                        <div class="content">
-                                            <div class="header">How to Enable PHP Extensions?</div>
-                                            <p>Go into your PHP directory and find the <b>php.ini</b> file. Mine was located in "C:\wamp\bin\php\php5.3.13". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the ;-character in front of the line.</p>
-                                            <img src="images/php.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" />
-                                        </div>
+                                    <div class="uk-alert-primary" uk-alert>
+                                        <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to Enable PHP Extensions?</p>
+                                        <p class="uk-text-center">Go into your PHP directory and find the <b>php.ini</b> file. Mine was located in "C:\wamp\bin\php\php5.3.13". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the ;-character in front of the line.</p>
+                                        <p class="uk-text-center"><img src="images/php.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" /></p>
                                     </div>
                                 </div>
                             </span>
                             <div class="installer_navigation">
-                                <a href="index.html" class="ui negative basic button">Previous step</a>
-                                <a href="general.php" onClick="UI.Navigation.next()" class="ui primary basic button">Next step</a>
+                                <a href="index.html"><button class="uk-button uk-button-danger"><i class="fa fa-arrow-left" aria-hidden="true"></i> Previous step</button></a>
+                                <a href="general.php" onClick="UI.Navigation.next()"><button class="uk-button uk-button-primary">Next step <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                             </div>
                         </section>
                     </aside>

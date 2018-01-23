@@ -1,201 +1,373 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_general extends CI_Model {
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->auth = $this->load->database('auth', TRUE);
-		$this->characters = $this->load->database('characters', TRUE);
-	}
+    public function __construct()
+    {
+        parent::__construct();
+        $this->auth = $this->load->database('auth', TRUE);
+        $this->characters = $this->load->database('characters', TRUE);
+    }
 
-	public function getGmSpecify($id)
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		return $this->auth->query("SELECT id FROM account_access WHERE id = '".$id."'");
-	}
+    public function getGmSpecify($id)
+    {
+        return $this->auth->select('id')
+                ->where('id', $id)
+                ->get('account_access');
+    }
 
-	public function getGeneralCharactersSpecifyAcc($id)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT * FROM characters WHERE account = '".$id."'");
-	}
+    public function getGeneralCharactersSpecifyAcc($id)
+    {
+        return $this->characters->select('*')
+                ->where('account', $id)
+                ->get('characters');
+    }
 
-	public function getSpecifyQuestion($id)
-	{
-		return $this->db->query("SELECT question FROM fx_questions WHERE id = '".$id."'")->row()->question;
-	}
+    public function getSpecifyQuestion($id)
+    {
+        return $this->db->select('question')
+                ->where('id', $id)
+                ->get('fx_questions')
+                ->row_array()['question'];
+    }
 
-	public function getUserInfoGeneral($id)
-	{
-		return $this->db->query("SELECT * FROM fx_users WHERE id = '".$id."'");
-	}
+    public function getUserInfoGeneral($id)
+    {
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_users');
+    }
 
-	public function getAccountExist($id)
-	{
-		$this->auth = $this->load->database('auth', TRUE);
-		return $this->auth->query("SELECT * FROM account WHERE id = '".$id."'");
-	}
+    public function getAccountExist($id)
+    {
+        return $this->auth->select('*')
+                ->where('id', $id)
+                ->get('account');
+    }
 
-	public function getGeneralCharactersSpecifyGuid($id)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT * FROM characters WHERE guid = '".$id."'");
-	}
+    public function getGeneralCharactersSpecifyGuid($id)
+    {
+        return $this->characters->select('*')
+                ->where('guid', $id)
+                ->get('characters');
+    }
 
-	public function getNameCharacterSpecifyGuid($id)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row_array()['name'];
-	}
+    public function getNameCharacterSpecifyGuid($id)
+    {
+        return $this->characters->select('name')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row_array()['name'];
+    }
 
-	public function getShopID($id)
-	{
-		return $this->db->query("SELECT * FROM fx_shop WHERE id = '".$id."'");
-	}
+    public function getShopID($id)
+    {
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_shop');
+    }
 
-	public function getPermissions($id)
-	{
-		return $this->db->query("SELECT permission FROM fx_ranks WHERE id = '".$id."'")->row_array()['permission'];
-	}
+    public function getPermissions($id)
+    {
+        return $this->db->select('permission')
+                ->where('id', $id)
+                ->get('fx_ranks')
+                ->row('permission');
+    }
 
-	public function getCharNameAlreadyExist($name)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT name FROM characters WHERE name = '".$name."'");
-	}
+    public function getCharNameAlreadyExist($name)
+    {
+        return $this->characters->select('name')
+                ->where('name', $name)
+                ->get('characters');
+    }
 
-	public function getCharBanSpecifyGuid($id)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT guid FROM character_banned WHERE guid = '".$id."' AND active = 1");
-	}
+    public function getCharBanSpecifyGuid($id)
+    {
+        return $this->characters->select('guid')
+                ->where('guid', $id)
+                ->where('active', '1')
+                ->get('character_banned');
+    }
 
-	public function getCharName($id)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT name FROM characters WHERE guid = '".$id."'")->row()->name;
-	}
+    public function getCharName($id)
+    {
+        return $this->characters->select('name')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row_array()['name'];
+    }
 
-	public function getCharLevel($id)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT level FROM characters WHERE guid = '".$id."'")->row()->level;
-	}
+    public function getCharLevel($id)
+    {
+        return $this->characters->select('level')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row('level');
+    }
 
-	public function getCharActive($id)
-	{
-		$this->characters = $this->load->database('characters', TRUE);
-		return $this->characters->query("SELECT online FROM characters WHERE guid = '".$id."'")->row()->online;
-	}
+    public function getCharActive($id)
+    {
+        return $this->characters->select('online')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row('online');
+    }
 
-	public function getCharDPTotal($id)
-	{
-		$qq = $this->db->query("SELECT dp FROM fx_credits WHERE accountid = '".$id."'");
+    public function getCharDPTotal($id)
+    {
+        $qq = $this->db->select('dp')
+                ->where('accountid', $id)
+                ->get('fx_credits');
 
-		if ($qq->num_rows() > 0)
-			return $qq->row()->dp;
-		else
-			return '0';
-	}
+        if ($qq->num_rows())
+            return $qq->row('dp');
+        else
+            return '0';
+    }
 
-	public function getCharVPTotal($id)
-	{
-		$qq = $this->db->query("SELECT vp FROM fx_credits WHERE accountid = '".$id."'");
+    public function getCharVPTotal($id)
+    {
+        $qq = $this->db->select('vp')
+                ->where('accountid', $id)
+                ->get('fx_credits');
 
-		if ($qq->num_rows() > 0)
-			return $qq->row()->vp;
-		else
-			return '0';
-	}
+        if ($qq->num_rows())
+            return $qq->row('vp');
+        else
+            return '0';
+    }
 
-	public function getRealmName()
-	{
-		return $this->auth->query("SELECT name FROM realmlist ORDER BY id ASC LIMIT 1")->row_array()['name'];
-	}
+    public function getRealmName()
+    {
+        return $this->auth->select('name')
+                ->order_by('id', 'ASC')
+                ->limit('1')
+                ->get('realmlist')
+                ->row_array()['name'];
+    }
 
-	public function getMonth($id)
-	{
-		switch ($id) {
-			case 1: 	return $this->lang->line('month_January'); 		break;
-			case 2: 	return $this->lang->line('month_February'); 	break;
-			case 3: 	return $this->lang->line('month_March'); 		break;
-			case 4: 	return $this->lang->line('month_April'); 		break;
-			case 5: 	return $this->lang->line('month_May'); 			break;
-			case 6: 	return $this->lang->line('month_June'); 		break;
-			case 7: 	return $this->lang->line('month_July'); 		break;
-			case 8: 	return $this->lang->line('month_August'); 		break;
-			case 9: 	return $this->lang->line('month_September');	break;
-			case 10: 	return $this->lang->line('month_October'); 		break;
-			case 11: 	return $this->lang->line('month_November');		break;
-			case 12: 	return $this->lang->line('month_December');		break;
-		}
-	}
+    public function getMonth($id)
+    {
+        switch ($id)
+        {
+            case 1:
+                return $this->lang->line('month_January');
+                break;
+            case 2:
+                return $this->lang->line('month_February');
+                break;
+            case 3:
+                return $this->lang->line('month_March');
+                break;
+            case 4:
+                return $this->lang->line('month_April');
+                break;
+            case 5:
+                return $this->lang->line('month_May');
+                break;
+            case 6:
+                return $this->lang->line('month_June');
+                break;
+            case 7:
+                return $this->lang->line('month_July');
+                break;
+            case 8:
+                return $this->lang->line('month_August');
+                break;
+            case 9:
+                return $this->lang->line('month_September');
+                break;
+            case 10:
+                return $this->lang->line('month_October');
+                break;
+            case 11:
+                return $this->lang->line('month_November');
+                break;
+            case 12:
+                return $this->lang->line('month_December');
+                break;
+        }
+    }
 
-	public function getExpansionAction()
-	{
-		$expansion = $this->config->item('expansion_id');
-		switch ($expansion) {
-			case 1: return "1"; break;
-			case 2: return "1"; break;
-			case 3: return "1"; break;
-			case 4: return "1"; break;
-			case 5: return "1"; break;
-			case 6: return "2"; break;
-			case 7: return "2"; break;
-			case 8: return "2"; break;
-		}
-	}
+    public function getExpansionAction()
+    {
+        $expansion = $this->config->item('expansion_id');
+        switch ($expansion)
+        {
+            case 1:
+                return "1";
+                break;
+            case 2:
+                return "1";
+                break;
+            case 3:
+                return "1";
+                break;
+            case 4:
+                return "1";
+                break;
+            case 5:
+                return "1";
+                break;
+            case 6:
+                return "2";
+                break;
+            case 7:
+                return "2";
+                break;
+            case 8:
+                return "2";
+                break;
+        }
+    }
 
-	public function getMaxLevel()
-	{
-		$expansion = $this->config->item('expansion_id');
-		switch ($expansion) {
-			case 1: return "60"; break;
-			case 2: return "70"; break;
-			case 3: return "80"; break;
-			case 4: return "85"; break;
-			case 5: return "90"; break;
-			case 6: return "100"; break;
-			case 7: return "110"; break;
-			case 8: return "120"; break;
-		}
-	}
+    public function getExpansionName()
+    {
+        $expansion = $this->config->item('expansion_id');
+        switch ($expansion)
+        {
+            case 1:
+                return "Vanilla";
+                break;
+            case 2:
+                return "The Burning Crusade";
+                break;
+            case 3:
+                return "Wrath of the Lich King";
+                break;
+            case 4:
+                return "Cataclysm";
+                break;
+            case 5:
+                return "Mist of Pandaria";
+                break;
+            case 6:
+                return "Warlords of Draenor";
+                break;
+            case 7:
+                return "Legion";
+                break;
+            case 8:
+                return "Battle of Azeroth";
+                break;
+        }
+    }
 
-	public function getRealExpansionDB()
-	{
-		$expansion = $this->config->item('expansion_id');
-		switch ($expansion) {
-			case 1: return "0"; break;
-			case 2: return "1"; break;
-			case 3: return "2"; break;
-			case 4: return "3"; break;
-			case 5: return "4"; break;
-			case 6: return "5"; break;
-			case 7: return "6"; break;
-			case 8: return "7"; break;
-		}
-	}
+    public function getMaxLevel()
+    {
+        $expansion = $this->config->item('expansion_id');
+        switch ($expansion)
+        {
+            case 1:
+                return "60";
+                break;
+            case 2:
+                return "70";
+                break;
+            case 3:
+                return "80";
+                break;
+            case 4:
+                return "85";
+                break;
+            case 5:
+                return "90";
+                break;
+            case 6:
+                return "100";
+                break;
+            case 7:
+                return "110";
+                break;
+            case 8:
+                return "120";
+                break;
+        }
+    }
 
-	public function getRaceName($race)
+    public function getRealExpansionDB()
+    {
+        $expansion = $this->config->item('expansion_id');
+        switch ($expansion)
+        {
+            case 1:
+                return "0";
+                break;
+            case 2:
+                return "1";
+                break;
+            case 3:
+                return "2";
+                break;
+            case 4:
+                return "3";
+                break;
+            case 5:
+                return "4";
+                break;
+            case 6:
+                return "5";
+                break;
+            case 7:
+                return "6";
+                break;
+            case 8:
+                return "7";
+                break;
+        }
+    }
+
+    public function getRaceName($race)
     {
         switch ($race)
         {
-            case 1: 	return $this->lang->line('race_human'); 		break;
-            case 2: 	return $this->lang->line('race_orc'); 			break;
-            case 3: 	return $this->lang->line('race_dwarf'); 		break;
-            case 4: 	return $this->lang->line('race_night_elf'); 	break;
-            case 5: 	return $this->lang->line('race_undead'); 		break;
-            case 6: 	return $this->lang->line('race_tauren'); 		break;
-            case 7: 	return $this->lang->line('race_gnome'); 		break;
-            case 8: 	return $this->lang->line('race_troll'); 		break;
-            case 9: 	return $this->lang->line('race_goblin'); 		break;
-            case 10: 	return $this->lang->line('race_blood_elf'); 	break;
-            case 11: 	return $this->lang->line('race_draenei'); 		break;
-            case 22: 	return $this->lang->line('race_worgen'); 		break;
-            case 24: 	return $this->lang->line('race_panda_neutral'); break;
-            case 25: 	return $this->lang->line('race_panda_alli'); 	break;
-            case 26: 	return $this->lang->line('race_panda_horde'); 	break;
+            case 1:
+                return $this->lang->line('race_human');
+                break;
+            case 2:
+                return $this->lang->line('race_orc');
+                break;
+            case 3:
+                return $this->lang->line('race_dwarf');
+                break;
+            case 4:
+                return $this->lang->line('race_night_elf');
+                break;
+            case 5:
+                return $this->lang->line('race_undead');
+                break;
+            case 6:
+                return $this->lang->line('race_tauren');
+                break;
+            case 7:
+                return $this->lang->line('race_gnome');
+                break;
+            case 8:
+                return $this->lang->line('race_troll');
+                break;
+            case 9:
+                return $this->lang->line('race_goblin');
+                break;
+            case 10:
+                return $this->lang->line('race_blood_elf');
+                break;
+            case 11:
+                return $this->lang->line('race_draenei');
+                break;
+            case 22:
+                return $this->lang->line('race_worgen');
+                break;
+            case 24:
+                return $this->lang->line('race_panda_neutral');
+                break;
+            case 25:
+                return $this->lang->line('race_panda_alli');
+                break;
+            case 26:
+                return $this->lang->line('race_panda_horde');
+                break;
         }
     }
 
@@ -203,20 +375,48 @@ class M_general extends CI_Model {
     {
         switch ($race)
         {
-            case 1: 	return 'human.jpg'; 			break;
-            case 2: 	return 'orc.jpg'; 				break;
-            case 3: 	return 'dwarf.jpg'; 			break;
-            case 4: 	return 'night_elf.jpg'; 		break;
-            case 5: 	return 'undead.jpg'; 			break;
-            case 6: 	return 'tauren.jpg'; 			break;
-            case 7: 	return 'gnome.jpg'; 			break;
-            case 8: 	return 'troll.jpg'; 			break;
-            case 9: 	return 'goblin.jpg'; 			break;
-            case 10: 	return 'blood_elf.jpg'; 		break;
-            case 11: 	return 'draenei.jpg'; 			break;
-            case 22: 	return 'worgen.jpg'; 			break;
-            case 25: 	return 'pandaren_male.jpg'; 	break;
-            case 26: 	return 'pandaren_female.jpg';	break;
+            case 1:
+                return 'human.jpg';
+                break;
+            case 2:
+                return 'orc.jpg';
+                break;
+            case 3:
+                return 'dwarf.jpg';
+                break;
+            case 4:
+                return 'night_elf.jpg';
+                break;
+            case 5:
+                return 'undead.jpg';
+                break;
+            case 6:
+                return 'tauren.jpg';
+                break;
+            case 7:
+                return 'gnome.jpg';
+                break;
+            case 8:
+                return 'troll.jpg';
+                break;
+            case 9:
+                return 'goblin.jpg';
+                break;
+            case 10:
+                return 'blood_elf.jpg';
+                break;
+            case 11:
+                return 'draenei.jpg';
+                break;
+            case 22:
+                return 'worgen.jpg';
+                break;
+            case 25:
+                return 'pandaren_male.jpg';
+                break;
+            case 26:
+                return 'pandaren_female.jpg';
+                break;
         }
     }
 
@@ -224,103 +424,212 @@ class M_general extends CI_Model {
     {
         switch ($race)
         {
-            case 1: 	return 'warrior.png'; 		break;
-            case 2: 	return 'paladin.png'; 		break;
-            case 3: 	return 'hunter.png'; 		break;
-            case 4: 	return 'rogue.png'; 		break;
-            case 5: 	return 'priest.png'; 		break;
-            case 6: 	return 'dk.png'; 			break;
-            case 7: 	return 'shaman.png'; 		break;
-            case 8: 	return 'mage.png'; 			break;
-            case 9: 	return 'warlock.png'; 		break;
-            case 10: 	return 'monk.png'; 			break;
-            case 11: 	return 'druid.png'; 		break;
-            case 12: 	return 'demonhunter.png'; 	break;
+            case 1:
+                return 'warrior.png';
+                break;
+            case 2:
+                return 'paladin.png';
+                break;
+            case 3:
+                return 'hunter.png';
+                break;
+            case 4:
+                return 'rogue.png';
+                break;
+            case 5:
+                return 'priest.png';
+                break;
+            case 6:
+                return 'dk.png';
+                break;
+            case 7:
+                return 'shaman.png';
+                break;
+            case 8:
+                return 'mage.png';
+                break;
+            case 9:
+                return 'warlock.png';
+                break;
+            case 10:
+                return 'monk.png';
+                break;
+            case 11:
+                return 'druid.png';
+                break;
+            case 12:
+                return 'demonhunter.png';
+                break;
         }
     }
 
     public function getCharactersOnlineAlliance()
     {
-    	$this->characters = $this->load->database('characters', TRUE);
-    	return $this->characters->query("SELECT guid FROM characters WHERE race IN ('1','3','4','7','11','22','25') AND online = 1")->num_rows();
+        $races = array('1','3','4','7','11','22','25');
+
+        return $this->characters->select('guid')
+                ->where_in('race', $races)
+                ->where('online', '1')
+                ->get('characters')
+                ->num_rows();
     }
 
     public function getCharactersOnlineHorde()
     {
-    	$this->characters = $this->load->database('characters', TRUE);
-    	return $this->characters->query("SELECT guid FROM characters WHERE race IN ('2','5','6','8','10','9','26') AND online = 1")->num_rows();
+        $races = array('2','5','6','8','10','9','26');
+
+        return $this->characters->select('guid')
+                ->where_in('race', $races)
+                ->where('online', '1')
+                ->get('characters')
+                ->num_rows();
     }
 
     public function getFaction($race)
     {
-    	switch ($race) {
-    		case '1': return 'Alliance'; break;
-    		case '3': return 'Alliance'; break;
-    		case '4': return 'Alliance'; break;
-    		case '7': return 'Alliance'; break;
-    		case '11': return 'Alliance'; break;
-    		case '22': return 'Alliance'; break;
-    		case '25': return 'Alliance'; break;
-    		case '2': return 'Horde'; break;
-    		case '5': return 'Horde'; break;
-    		case '6': return 'Horde'; break;
-    		case '8': return 'Horde'; break;
-    		case '10': return 'Horde'; break;
-    		case '9': return 'Horde'; break;
-    		case '26': return 'Horde'; break;
-    	}
+        switch ($race)
+        {
+            case '1':
+                return 'Alliance';
+                break;
+            case '3':
+                return 'Alliance';
+                break;
+            case '4':
+                return 'Alliance';
+                break;
+            case '7':
+                return 'Alliance';
+                break;
+            case '11':
+                return 'Alliance';
+                break;
+            case '22':
+                return 'Alliance';
+                break;
+            case '25':
+                return 'Alliance';
+                break;
+            case '2':
+                return 'Horde';
+                break;
+            case '5':
+                return 'Horde';
+                break;
+            case '6':
+                return 'Horde';
+                break;
+            case '8':
+                return 'Horde';
+                break;
+            case '10':
+                return 'Horde';
+                break;
+            case '9':
+                return 'Horde';
+                break;
+            case '26':
+                return 'Horde';
+                break;
+        }
     }
 
     public function getNameClass($class)
     {
         switch ($class) 
         {
-            case 1: 	return $this->lang->line('class_warrior'); 		break;
-            case 2: 	return $this->lang->line('class_paladin'); 		break;
-            case 3: 	return $this->lang->line('class_hunter'); 		break;
-            case 4: 	return $this->lang->line('class_rogue'); 		break;
-            case 5: 	return $this->lang->line('class_priest'); 		break;
-            case 6: 	return $this->lang->line('class_dk'); 			break;
-            case 7: 	return $this->lang->line('class_shamman'); 		break;
-            case 8: 	return $this->lang->line('class_mage'); 		break;
-            case 9: 	return $this->lang->line('class_warlock'); 		break;
-            case 10: 	return $this->lang->line('class_monk'); 		break;
-            case 11: 	return $this->lang->line('class_druid');  		break;
-            case 12: 	return $this->lang->line('class_demonhunter'); 	break;
-        	}
+            case 1:
+                return $this->lang->line('class_warrior');
+                break;
+            case 2:
+                return $this->lang->line('class_paladin');
+                break;
+            case 3:
+                return $this->lang->line('class_hunter');
+                break;
+            case 4:
+                return $this->lang->line('class_rogue');
+                break;
+            case 5:
+                return $this->lang->line('class_priest');
+                break;
+            case 6:
+                return $this->lang->line('class_dk');
+                break;
+            case 7:
+                return $this->lang->line('class_shamman');
+                break;
+            case 8:
+                return $this->lang->line('class_mage');
+                break;
+            case 9:
+                return $this->lang->line('class_warlock');
+                break;
+            case 10:
+                return $this->lang->line('class_monk');
+                break;
+            case 11:
+                return $this->lang->line('class_druid');
+                break;
+            case 12:
+                return $this->lang->line('class_demonhunter');
+                break;
+        }
     }
 
     public function getGender($gender)
     {
         switch ($gender) 
         {
-            case 0: return $this->lang->line('gender_male'); 	break;
-            case 1: return $this->lang->line('gender_female'); 	break;
+            case 0:
+                return $this->lang->line('gender_male');
+                break;
+            case 1:
+                return $this->lang->line('gender_female');
+                break;
         }
     }
 
     public function getTheme()
     {
-    	$id = $this->config->item('themeid');
-    	switch ($id) {
-    		case 1:	return 'zwolf'; break;
-    		case 2:	return 'alterac'; break;
-    		case 3:	return 'thranrion'; break;
-    		case 4:	return 'fixcore'; break;
-    		case 5:	return 'theme2'; break;
-    		case 6:	return 'blizzcms'; break;
-    		case 7:	return 'uncrowned'; break;
-    		case 8:	return 'xavius'; break;
-    		case 9:	return 'exile'; break;
-    	}
+        $id = $this->config->item('themeid');
+        switch ($id)
+        {
+            case 1:
+                return 'zwolf';
+                break;
+            case 2:
+                return 'alterac';
+                break;
+            case 3:
+                return 'thranrion';
+                break;
+            case 4:
+                return 'fixcore';
+                break;
+            case 5:
+                return 'theme2';
+                break;
+            case 6:
+                return 'blizzcms';
+                break;
+            case 7:
+                return 'uncrowned';
+                break;
+            case 8:
+                return 'xavius';
+                break;
+            case 9:
+                return 'exile';
+                break;
+        }
     }
 
     public function getStylesPagination($perpage, $count)
     {
         $this->load->library("pagination");
 
-    	$config = array
-        (
+        $config = array(
             'base_url'          => "#",
             'total_rows'        => $count,
             'per_page'          => $perpage,

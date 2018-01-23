@@ -1,3 +1,47 @@
+<?php if (isset($_POST['button_register']))
+{
+    $country = $_POST['reg_country'];
+    $name    = strtoupper($_POST['reg_firstname']);
+    $surname = strtoupper($_POST['reg_lastname']);
+    $month   = $_POST['reg_dateMonthNace'];
+    $day     = $_POST['reg_dateDayNace'];
+    $year    = $_POST['reg_dateYearNace'];
+    $username= strtoupper($_POST['reg_username']);
+    $email   = strtoupper($_POST['reg_email']);
+    $password= strtoupper($_POST['reg_password']);
+    $pascword= strtoupper($_POST['reg_pascword']);
+    $question= $_POST['reg_question'];
+    $answer  = $_POST['reg_SecretAnswer'];
+
+    if($this->m_modules->getCaptcha() == 1)
+    {
+        $captcha_answer = $this->input->post('g-recaptcha-response');
+        $response = $this->recaptcha->verifyResponse($captcha_answer);
+
+        $rr = $response['success'];
+    }
+    else
+    {
+        $rr = TRUE;
+    }
+
+    if($rr)
+    {
+        if ($password == $pascword)
+        {
+            if ($this->m_data->getSpecifyAccount($username)->num_rows())
+            {
+                echo $this->lang->line('acc_exist');
+            }
+            else
+                $this->user_model->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day, $country);
+        }
+        else
+            echo $this->lang->line('pass_nmatch');
+    }
+    else
+        echo $this->lang->line('captcha_error');
+} ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -5,9 +49,10 @@
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('register'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzard-dc9d0faea4c4a01c35477637614e4bbab87305d0b07b1dfb8e0f09a21283294707def12b40e4cb9f13b56d8cbd92e8b40a3c956f0da1b5cf1d25b558efeffc31.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app-65d540bb92d74ad1518ba050a969a68fe7cca3e0b202351c63b7742d39e87267a3bd8210f6a567b4b05819727690c48601a94036e4e498deb0519f50edb50a65.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -33,27 +78,8 @@
     </div>
     </div>
     <!-- submenu -->
-    <div data-url="https://d9me64que7cqs.cloudfront.net/components/Icon/Icon-6e31618f7193f6dc334044c35440d52262a57acee5f4393fd60c597d1f12fb749b4e25d9e4b275a3379cbbd592aa756fcf8cab6bdbea43f95ff50e29699136d8.svg" class="SvgLoader"></div>
     <div class="Page-container">
-        <div class="Page-content en-GB">
-            <div id="home-promoted-carousel-container" class="position-relative">
-                <div class="Overlay Overlay--bottom" id="home-promoted-scroll-overlay">
-                    <div class="Overlay-content">
-                        <div class="align-center">
-                            <div data-carousel="#home-promoted-carousel" data-transition-delay="0" class="CarouselScroll is-autoscroll is-autoscroll-interrupt CarouselScroll--singleLine" id="home-promoted-scroll">
-                                <div class="CarouselScroll-template">
-                                    <div class="CarouselScroll-item">
-                                        <div class="CarouselScroll-inner"></div>
-                                    </div>
-                                </div>
-                                <div class="CarouselScroll-container">
-                                    <div class="CarouselScroll-item"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="Page-content en-US">
             <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-storiesPane">
                 <div class="Pane-content">
                     <div class="Grid row Home-storiesEventsGrid">
@@ -66,7 +92,7 @@
                                 <div class="uk-margin">
                                     <div class="uk-form-controls">
                                         <select class="uk-select" name="reg_country">
-                                            <?php foreach($this->m_data->getCountry()->result() as $countrys) { ?>
+                                            <?php foreach($this->user_model->getCountry()->result() as $countrys) { ?>
                                                 <option value="<?= $countrys->id; ?>"><?= $countrys->country_name ?></option>
                                             <?php } ?>
                                         </select>
@@ -166,7 +192,7 @@
                                     <div class="uk-inline">
                                         <div class="uk-form-controls">
                                             <select class="uk-select" name="reg_question">
-                                                <?php foreach($this->m_data->getQuestion()->result() as $question) { ?>
+                                                <?php foreach($this->user_model->getQuestion()->result() as $question) { ?>
                                                     <option value="1"><?= $question->question; ?></option>
                                                 <?php } ?>
                                             </select>
@@ -176,39 +202,16 @@
                                         <span class="uk-form-icon" uk-icon="icon: question"></span>
                                         <input class="uk-input" type="text" name="reg_SecretAnswer" pattern=".{1,}" required title="1 characters minimum" placeholder="<?= $this->lang->line('secret_answ'); ?>">
                                     </div>
+                                    <!-- catpcha -->
+                                    <?php if($this->m_modules->getCaptcha() == 1) { ?>
+                                        <?= $this->recaptcha->render(); ?>
+                                    <?php } ?>
+                                    <!-- catpcha -->
                                 </div>
                                 <button class="ui blue submit button" type="submit" name="button_register"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('button_reg'); ?></button>
                             </form>
                         </div>
                         <!-- content END -->
-
-                        <?php if (isset($_POST['button_register']))
-                        {
-                            $country = $_POST['reg_country'];
-                            $name    = strtoupper($_POST['reg_firstname']);
-                            $surname = strtoupper($_POST['reg_lastname']);
-                            $month   = $_POST['reg_dateMonthNace'];
-                            $day     = $_POST['reg_dateDayNace'];
-                            $year    = $_POST['reg_dateYearNace'];
-                            $username= strtoupper($_POST['reg_username']);
-                            $email   = strtoupper($_POST['reg_email']);
-                            $password= strtoupper($_POST['reg_password']);
-                            $pascword= strtoupper($_POST['reg_pascword']);
-                            $question= $_POST['reg_question'];
-                            $answer  = $_POST['reg_SecretAnswer'];
-
-                            if ($password == $pascword)
-                            {
-                                if ($this->m_data->getSpecifyAccount($username)->num_rows() > 0)
-                                {
-                                    echo $this->lang->line('acc_exist');
-                                }
-                                else
-                                    $this->m_data->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day);
-                            }
-                            else
-                                echo $this->lang->line('pass_nmatch');
-                        } ?>
                     </div>
                 </div>
             </div>

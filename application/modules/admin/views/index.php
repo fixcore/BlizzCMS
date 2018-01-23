@@ -1,73 +1,87 @@
 <?php if (isset($_POST['serverRestartNow'])) {
     $this->admin_model->restartNowServer();
 } ?>
-<!-- ============================================================== -->
-<!-- Page Content -->
-<!-- ============================================================== -->
-<div id="page-wrapper">
-    <div class="container-fluid">
-        <div class="row bg-title"></div>
-        <!-- /.row -->
-        <!-- ============================================================== -->
-        <!-- Different data widgets -->
-        <!-- ============================================================== -->
-        <!--/.row -->
 
-        <!-- options -->
-        <div class="row">
-            
-            <form method="post" action="">
-                <div class="col-lg-3 col-sm-6 col-xs-12">
-                    <div class="white-box analytics-info">
-                        <button type="submit" name="serverRestartNow" class="btn btn-block btn-danger btn-rounded">Restart Server</button>
-                    </div>
+    <!-- Page Content -->
+    <div id="page-wrapper">
+        <div class="container-fluid">
+            <div class="row bg-title">
+                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                    <h4 class="page-title"><i class="fa fa-tachometer fa-fw"></i><?= $this->lang->line('adm_dashboard'); ?></h4>
                 </div>
-            </form>
-            
-        </div>
-        <!-- options -->
-        <div class="row">
-                <div class="col-lg-12 col-sm-12 col-xs-12">
-                    <div class="row">
-                        <div class="col-lg-6 col-sm-6 col-xs-12">
-                            <div class="white-box">
-                                <h3 class="box-title"><?= $this->lang->line('players_on'); ?></h3>
-                                <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="fa fa-area-chart text-info"></i></li>
-                                    <li class="text-right"><span class="counter"><?= $this->admin_model->getCharOn(); ?></span></li>
+            </div>
+            <!-- /.row -->
+            <!-- statistical data -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="white-box">
+                        <div class="row row-in">
+                            <div class="col-lg-3 col-sm-6 row-in-br">
+                                <ul class="col-in">
+                                    <li>
+                                        <span class="circle circle-md bg-info"><i class="fa fa-area-chart"></i></span>
+                                    </li>
+                                    <li class="col-last">
+                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getCharOn(); ?></h3>
+                                    </li>
+                                    <li class="col-middle">
+                                        <h4><?= $this->lang->line('players_on'); ?></h4>
+                                    </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-xs-12">
-                            <div class="white-box">
-                                <h3 class="box-title"><?= $this->lang->line('account_cre'); ?></h3>
-                                <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="fa fa-globe text-success"></i></li>
-                                    <li class="text-right"><span class="counter"><?= $this->admin_model->getAccCreated(); ?></span></li>
+                            <div class="col-lg-3 col-sm-6 row-in-br b-r-none">
+                                <ul class="col-in">
+                                    <li>
+                                        <span class="circle circle-md bg-success"><i class="fa fa-globe"></i></span>
+                                    </li>
+                                    <li class="col-last">
+                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getAccCreated(); ?></h3>
+                                    </li>
+                                    <li class="col-middle">
+                                        <h4><?= $this->lang->line('account_cre'); ?></h4>
+                                    </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-xs-12">
-                            <div class="white-box">
-                                <h3 class="box-title"><?= $this->lang->line('staff_count'); ?></h3>
-                                <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="icon-people text-purple"></i></li>
-                                    <li class="text-right"><span class=""><?= $this->admin_model->getGmCount(); ?></span></li>
+                            <div class="col-lg-3 col-sm-6 row-in-br">
+                                <ul class="col-in">
+                                    <li>
+                                        <span class="circle circle-md bg-warning"><i class="fa fa-id-badge"></i></span>
+                                    </li>
+                                    <li class="col-last">
+                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getGmCount(); ?></h3>
+                                    </li>
+                                    <li class="col-middle">
+                                        <h4><?= $this->lang->line('staff_count'); ?></h4>
+                                    </li>
                                 </ul>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-6 col-xs-12">
-                            <div class="white-box">
-                                <h3 class="box-title"><?= $this->lang->line('bann_count'); ?></h3>
-                                <ul class="list-inline m-t-30 p-t-10 two-part">
-                                    <li><i class="fa fa-ban text-danger"></i></li>
-                                    <li class="text-right"><span class=""><?= $this->admin_model->getBanCount(); ?></span></li>
+                            <div class="col-lg-3 col-sm-6 row-in-br b-0">
+                                <ul class="col-in">
+                                    <li>
+                                        <span class="circle circle-md bg-danger"><i class="fa fa-ban"></i></span>
+                                    </li>
+                                    <li class="col-last">
+                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getBanCount(); ?></h3>
+                                    </li>
+                                    <li class="col-middle">
+                                        <h4><?= $this->lang->line('bann_count'); ?></h4>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <!--/.row -->
-    </div>
-    <!-- /.container-fluid -->
+            <!-- website tools -->
+            <div class="row">
+                <form method="post" action="">
+                    <div class="col-lg-3 col-sm-6 col-xs-12">
+                        <div class="white-box analytics-info">
+                            <button type="submit" name="serverRestartNow" class="btn btn-block btn-danger btn-rounded"><i class="fa fa-server"></i> Restart Server</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!--/.row -->
+        </div>
+        <!-- /.container-fluid -->

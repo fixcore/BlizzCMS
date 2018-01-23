@@ -55,8 +55,9 @@ $route['translate_uri_dashes'] = FALSE;
 //user
 $route['login'] = 'user/login';
 $route['register'] = 'user/register';
-$route['settings'] = 'user/settings';
+$route['panel'] = 'user/panel';
 $route['logout'] = 'user/logout';
+$route['profile/(:num)'] = 'user/profile/$1';
 //forums
 $route['forums/category/(:num)'] = 'forum/category/$1';
 $route['forums/topic/(:num)'] = 'forum/topic/$1';
@@ -72,3 +73,6 @@ $route['cart/(:num)'] = 'shop/cart/$1';
 $route['store/order/(:num)'] = 'shop/order/$1';
 //pages
 $route['pages/(:num)'] = 'pages/index/$1';
+//messages
+$route['pm'] = 'messages/index';
+$route['message'] = 'messages/verify';

@@ -1,15 +1,27 @@
+<?php if (isset($_POST['button_editTopic'])) {
+    $title = $_POST['edittopic_title'];
+    $description = $_POST['edittopic_description'];
+
+    if (isset($_POST['check_highl']) && $_POST['check_highl'] == '1')
+        $highl = '1'; else $highl = '0';
+
+    if (isset($_POST['check_lock']) && $_POST['check_lock'] == '1')
+        $lock = '1'; else $lock = '0';
+
+    $this->forum_model->updateTopic($idlink, $title, $description, $lock, $highl);
+}?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('forums'); ?></title>
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="index.html" />
-    <meta property="og:title" content="Blizzard Forums" />
+
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/navbar0e26.css?v=58-88" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
@@ -21,9 +33,6 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <!-- custom START -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
-    <!-- custom END -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -37,61 +46,39 @@
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
-    <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
-        <div class="Container Container--content Container--breadcrumbs">
-            <div class="GameSite-link">
-                <a class="GameSite-link--heading" href="<?= base_url('forums'); ?>">
-                    <?= $this->lang->line('forums'); ?>
-                </a>
-            </div>
-            <!-- cat -->
-            <div class="GameSite-link">
-                <a class="GameSite-link--heading" href="<?= base_url('forums/category/').$this->forum_model->getTopicForum($idlink); ?>">
-                    <?= $this->forum_model->getForumName($this->forum_model->getTopicForum($idlink)); ?>
-                </a>
-            </div>
-            <div class="Breadcrumbs">
-                <span class="Breadcrumb">
-                    <a class="Breadcrumb-content">
-                        <i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?>
-                    </a>
-                </span>
-            </div>
-            <div class="User-menu">
-                <!-- right -->
-                <span class="Breadcrumb">
-                    <a class="Breadcrumb-content">
-                        <!-- logged -->
-                        <?php if ($this->m_data->isLogged()) { ?>
-                            <!-- credits -->
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            |
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            <!-- credits -->
-                        <?php } ?>
-                        <!-- logged -->
-                    </a>
-                </span>
-                <!-- right -->
+    <div class="Navigation is-dropdown Navigation--hg">
+        <div class="Navigation-wrapper">
+            <div touch-action="none" class="Navigation-container">
+                <ul class="List List--horizontal Navigation-list">
+                    <li class="ListItem ListItem--horizontal Navigation-item">
+                        <a data-name="topic" class="is-selected Navigation-link"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></a>
+                    </li>
+                </ul>
             </div>
         </div>
+        <div class="Navigation-scroll Navigation-scrollLeft"><span>&lsaquo;</span></div>
+        <div class="Navigation-scroll Navigation-scrollRight"><span>&rsaquo;</span></div>
     </div>
     </div>
     </div>
     </div>
     <!-- submenu -->
-    <!-- main -->
+    <br><br><br>
     <div role="main">
         <section class="Topic" data-topic='{ "id":<?= $idlink ?>, "lastPosition":0,"forum":{"id":<?= $idlink ?>},"isSticky":true,"isFeatured":false,"isLocked":true,"isHidden":false,"isFrozen":false, "isSpam":false, "pollId":0 }' data-user='{}'>
             <header class="Topic-header">
                 <div class="Container Container--content">
                     <h1 class="Topic-heading">
                         <span class="Topic-title" data-topic-heading="true" style="color: #fff;"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
+                    <?php if($this->m_data->isLogged()) { ?>
+                        <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
                         <p uk-margin>
                             <button uk-toggle="target: #editTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
                                 <span class="Button-content"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('button_edit'); ?></span>
                             </button>
                         </p>
+                        <?php } ?>
+                    <?php } ?>
                     </h1>
                 </div>
             </header>
@@ -107,10 +94,10 @@
                                 <div class="Author" id="" data-topic-post-body-content="true">
                                 <?php } ?>
                                     <a href="#" class="Author-avatar hasNoProfile">
-                                        <?php if($this->m_general->getUserInfoGeneral($this->forum_model->getSpecifyPostAuthor($idlink))->num_rows() > 0) { ?>
+                                        <?php if($this->m_general->getUserInfoGeneral($this->forum_model->getSpecifyPostAuthor($idlink))->num_rows()) { ?>
                                             <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->forum_model->getSpecifyPostAuthor($idlink))); ?>" alt="" />
                                         <?php } else { ?>
-                                            <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+                                            <img src="<?= base_url('assets/images/profiles/default.png'); ?>" alt="" />
                                         <?php } ?>
                                     </a>
                                     <div class="Author-details">
@@ -151,7 +138,7 @@
                 </footer>
         </section>
 
-        <?php if($this->m_data->isLogged() == FALSE && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
+        <?php if(!$this->m_data->isLogged() && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
             <!-- isn't login -->
             <section class="Section Section--secondary">
                 <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
@@ -164,7 +151,7 @@
                                 <div class="LoginPlaceholder-details">
                                     <div class="LogIn-message"><?= $this->lang->line('text_login_forums'); ?></div>
                                     <a class="LogIn-button" href="<?= base_url('login'); ?>">
-                                        <span class="LogIn-button-content" ><?= $this->lang->line('button_log'); ?></span>
+                                        <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_log'); ?></span>
                                     </a>
                                 </div>
                             </div>
@@ -210,10 +197,10 @@
                             <div class="Author" id="" data-topic-post-body-content="true">
                             <?php } ?>
                                 <a href="" class="Author-avatar hasNoProfile">
-                                    <?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows() > 0) { ?>
+                                    <?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows()) { ?>
                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($commentss->author)); ?>" alt="" />
                                     <?php } else { ?>
-                                        <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+                                        <img src="<?= base_url('assets/images/profiles/default.png'); ?>" alt="" />
                                     <?php } ?>
                                 </a>
                                 <div class="Author-details">
@@ -245,7 +232,7 @@
                             <footer class="TopicPost-actions" data-topic-post-body-content="true">
                                 <form action="" method="post" accept-charset="utf-8">
                                     <p uk-margin>
-                                        <button name="button_removecomment" type="submit" class="uk-button uk-button-danger"><?= $this->lang->line('button_remove'); ?></button>
+                                        <button name="button_removecomment" type="submit" class="uk-button uk-button-danger"><i class="fa fa-eraser" aria-hidden="true"></i> <?= $this->lang->line('button_remove'); ?></button>
                                     </p>
                                 </form>
                             </footer>
@@ -270,10 +257,10 @@
                         <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944    }">
                             <div class="Author" id="" data-topic-post-body-content="true">
                                 <a href="" class="Author-avatar hasNoProfile">
-                                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows() > 0) { ?>
+                                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" alt="" />
                                     <?php } else { ?>
-                                        <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+                                        <img src="<?= base_url('assets/images/profiles/default.png'); ?>" alt="" />
                                     <?php } ?>
                                 </a>
                                 <div class="Author-details">
@@ -314,4 +301,59 @@
             </section>
             <!-- comment login -->
         <?php } ?>
+    </div>
+
+    <div id="editTopic" class="uk-modal-container" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('edit_topic'); ?>
+                </h2>
+            </div>
+            <form action="" method="post" accept-charset="utf-8">
+                <div class="uk-modal-body">
+                    <!-- content -->
+                    <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
+                    <div class="uk-margin uk-inline uk-width-1-1">
+                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                        <input class="uk-input" name="edittopic_title" required value="<?= $this->forum_model->getTopicTitle($idlink); ?>" type="text" placeholder="<?= $this->forum_model->getTopicTitle($idlink); ?>">
+                    </div>
+                    <!-- text area -->
+                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+                        <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
+                    <?php } else { ?>
+                        <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+                    <?php } ?>
+
+                    <br>
+
+                    <div class="form-group">
+                        <h2 class="uk-text-large"><?= $this->lang->line('new_desc'); ?></h2>
+                        <div class="col-md-12">
+                            <textarea required="" name="edittopic_description" id="ckeditor_edit" rows="10" cols="80"><?= $this->forum_model->getTopicDescription($idlink); ?></textarea>
+                            <script>
+                                CKEDITOR.replace('ckeditor_edit');
+                            </script>
+                        </div>
+                    </div>
+                    <!-- text area -->
+                    <br>
+                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+                        <div class="uk-margin">
+                            <div class="uk-inline uk-width-1-1 uk-text-center">
+                                <label><input id="hightl" class="uk-checkbox" type="checkbox" name="check_highl" value="1"> <?= $this->lang->line('expr_highl'); ?></label>
+                                <span style="display:inline-block; width: 14px;"></span>
+                                <label><input id="llock" class="uk-checkbox" type="checkbox" name="check_lock" value="1"> <?= $this->lang->line('expr_lock'); ?></label>
+                            </div>
+                        </div>
+                    <?php } ?>
+
+                    <div class="uk-modal-footer uk-text-right actions">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                        <button class="uk-button uk-button-primary" type="submit" name="button_editTopic"><?= $this->lang->line('button_edit'); ?></button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>

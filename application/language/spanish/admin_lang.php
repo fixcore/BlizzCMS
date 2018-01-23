@@ -45,3 +45,6 @@ $lang['adm_manageChangelog'] = 'Administrar registro de cambios';
 $lang['adm_createChangelog'] = 'Crear registro de cambios';
 $lang['adm_manageShop'] = 'Administrar Tienda';
 $lang['adm_createShop'] = 'Crear Tienda';
+$lang['adm_managePages'] = 'Administrar Páginas';
+$lang['adm_createPages'] = 'Crear Páginas';
+$lang['adm_pagesList'] = 'Lista de Páginas';

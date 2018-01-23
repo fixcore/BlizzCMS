@@ -2,20 +2,23 @@
 <html>
 <head>
     <title>Installation - BlizzCMS</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <!-- UiKit Start -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
 
-    <!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="../core/uikit/js/uikit.min.js"></script>
+    <script src="../core/uikit/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="../assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 
     <script src="js/ui.js" type="text/javascript"></script>
@@ -64,10 +67,6 @@
     </div>
     <div id="wrap">
         <div id="fixer">
-            <!-- Top bar -->
-            <div class="ui inverted three item menu">
-                <a href="index.html" class="item active">Installation</a>
-            </div>
             <!-- Main content -->
             <section>
                 <div id="top_spacer"></div>
@@ -75,13 +74,13 @@
                     <!-- Main Left column -->
                     <aside class="left">
                         <nav>
-                            <a class="active"><i class="heartbeat icon"></i> Install</a>
+                            <a class="active"><i class="fa fa-chrome" aria-hidden="true"></i> Install</a>
                             <section class="sub">
-                                <a><i class="browser icon"></i> Introduction</a>
-                                <a><i class="alarm outline icon"></i> Requirements</a>
-                                <a><i class="lab icon"></i> General</a>
-                                <a><i class="database icon"></i> Database</a>
-                                <a class="active"><i class="connectdevelop icon"></i> Complete installation</a>
+                                <a><i class="fa fa-info-circle" aria-hidden="true"></i> Introduction</a>
+                                <a><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Requirements</a>
+                                <a><i class="fa fa-wrench" aria-hidden="true"></i> General</a>
+                                <a><i class="fa fa-database" aria-hidden="true"></i> Database</a>
+                                <a class="active"><i class="fa fa-connectdevelop" aria-hidden="true"></i> Complete installation</a>
                             </section>
                         </nav>
                         <div class="spacer"></div>
@@ -89,13 +88,11 @@
                     <!-- Main right column -->
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
-                            <h2><i class="connectdevelop icon"></i> Last settings</h2>
+                            <h2><i class="fa fa-connectdevelop" aria-hidden="true"></i> Complete installation</h2>
                             <form action="" method="post" accept-charset="utf-8">
-                                <div class="ui info message">
-                                    <div class="content">
-                                        <div class="header">Languages</div>
-                                        <p>At this time the default language on <strong>BlizzCMS</strong> is English, if you want to collaborate with another type of language you can do it by creating a pull request in the official repository.</p>
-                                    </div>
+                                <div class="uk-alert-warning" uk-alert>
+                                    <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-globe" aria-hidden="true"></i> Languages</p>
+                                    <p class="uk-text-center">At this time the default language on <strong>BlizzCMS</strong> is English, if you want to collaborate with another type of language you can do it by creating a pull request in the official repository <strong>(Branch: devs)</strong>.</p>
                                 </div>
                                 <label for="language">Website Main Language:</label>
                                 <select id="language" name="language">
@@ -105,27 +102,22 @@
                                     <option value="russian">Russian</option>
                                     <option value="spanish">Spanish</option>
                                 </select>
-                                <div class="ui info message">
-                                    <div class="content">
-                                        <div class="header">How to set the URL correctly?</div>
-                                        <p>Maybe your domain is: <strong>http://<?= $_SERVER['SERVER_NAME']; ?></strong> at the end of URL enter <strong>/</strong> Example: <strong>http://<?= $_SERVER['SERVER_NAME']; ?>/</strong></p>
-                                        <p>Remember that if you use ssl you must use <strong>https://</strong></p>
-                                    </div>
+                                <div class="uk-alert-primary" uk-alert>
+                                    <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to set the URL correctly?</p>
+                                    <p class="uk-text-center">Maybe your domain is: <strong>http://<?= $_SERVER['SERVER_NAME']; ?></strong> at the end of URL enter <strong>/</strong> Example: <strong>http://<?= $_SERVER['SERVER_NAME']; ?>/</strong></p>
+                                    <p class="uk-text-center">Remember that if you use ssl you must use <strong>https://</strong></p>
                                 </div>
                                 <label for="urlSev">URL of Website</label>
                                 <input required type="text" id="urlSev" name="urlSev" placeholder="use http:// or https://" />
                                 <div class="installer_navigation">
-                                    <input type="submit" name="button_continue" class="ui purple button" value="Accept and continue">
+                                    <button class="uk-button uk-button-primary" type="submit" name="button_continue">Accept and finish <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
                                 </div>
                             </form>
 
                             <?php if(isset($_GET['ready'])) { ?>
-                                <div class="ui success icon message">
-                                    <i class="green check icon"></i>
-                                    <div class="content">
-                                        <div class="header">Installation Complete!</div>
-                                        <p><i class="warning circle icon"></i><strong>Attention: Please delete install folder.</strong></p>
-                                    </div>
+                                <div class="uk-alert-success" uk-alert>
+                                    <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-check-square-o" aria-hidden="true"></i> Installation Complete!</p>
+                                    <p class="uk-text-center uk-text-bold">Attention user, please delete install folder.</p>
                                 </div>
                             <?php } ?>
                         </section>

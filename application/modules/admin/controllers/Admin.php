@@ -10,7 +10,7 @@ class Admin extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
@@ -21,187 +21,97 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function users()
+    public function accounts()
     {
         $this->load->model('admin_model');
 
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('account/acclist');
+        $this->load->view('account/accounts');
         $this->load->view('general/footer');
     }
 
-    public function shop()
+    public function manageitems()
     {
         $this->load->model('admin_model');
 
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('shop/index');
+        $this->load->view('shop/manageitems');
         $this->load->view('general/footer');
     }
 
-    public function mshop()
+    public function manageapi()
     {
         $this->load->model('admin_model');
 
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('shop/mshop');
+        $this->load->view('api/manageapi');
         $this->load->view('general/footer');
     }
 
-    public function cshop()
+    public function managechangelogs()
     {
         $this->load->model('admin_model');
 
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('shop/cshop');
+        $this->load->view('changelogs/managechangelogs');
         $this->load->view('general/footer');
     }
 
-    public function apic()
+    public function managenews()
     {
         $this->load->model('admin_model');
 
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('api/create');
+        $this->load->view('news/managenews');
         $this->load->view('general/footer');
     }
 
-    public function changelogs()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('changelogs/index');
-        $this->load->view('general/footer');
-    }
-
-    public function mchangelog()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('changelogs/mchangelog');
-        $this->load->view('general/footer');
-    }
-
-    public function cchngelog()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('changelogs/cchngelog');
-        $this->load->view('general/footer');
-    }
-
-    public function capic()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('api/capic');
-        $this->load->view('general/footer');
-    }
-
-    public function listnew()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('news/listnew');
-        $this->load->view('general/footer');
-    }
-
-    public function chars()
+    public function characters()
     {
         $this->load->model('admin_model');
 
@@ -211,15 +121,15 @@ class Admin extends MX_Controller {
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('characters/charlist');
+        $this->load->view('characters/characters');
         $this->load->view('general/footer');
     }
 
-    public function forums()
+    public function managecategories()
     {
         $this->load->model('admin_model');
 
@@ -229,15 +139,15 @@ class Admin extends MX_Controller {
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('forum/index');
+        $this->load->view('forum/managecategories');
         $this->load->view('general/footer');
     }
 
-    public function mcategory()
+    public function manageforums()
     {
         $this->load->model('admin_model');
 
@@ -247,91 +157,22 @@ class Admin extends MX_Controller {
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('forum/mcategory');
+        $this->load->view('forum/manageforums');
         $this->load->view('general/footer');
     }
 
-    public function ccategory()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('forum/ccategory');
-        $this->load->view('general/footer');
-    }
-
-    public function mforum()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('forum/mforum');
-        $this->load->view('general/footer');
-    }
-
-    public function cforum()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('forum/cforum');
-        $this->load->view('general/footer');
-    }
-
-    public function addnew()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('news/addnew');
-        $this->load->view('general/footer');
-    }
-
-    public function alist($id)
+    public function manageaccount($id)
     {
         $this->load->model('admin_model');
 
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if (!$this->m_data->isLogged())
@@ -346,18 +187,18 @@ class Admin extends MX_Controller {
         $data['idlink'] = $id;
 
         $this->load->view('general/header');
-        $this->load->view('account/alist', $data);
+        $this->load->view('account/manageaccount', $data);
         $this->load->view('general/footer');
     }
 
-    public function clist($id)
+    public function managecharacter($id)
     {
         $this->load->model('admin_model');
 
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if (!$this->m_data->isLogged())
@@ -372,18 +213,18 @@ class Admin extends MX_Controller {
         $data['idlink'] = $id;
 
         $this->load->view('general/header');
-        $this->load->view('characters/clist', $data);
+        $this->load->view('characters/managecharacter', $data);
         $this->load->view('general/footer');
     }
 
-    public function nlist($id)
+    public function editnews($id)
     {
         $this->load->model('admin_model');
 
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows() > 0)
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if (!$this->m_data->isLogged())
@@ -398,11 +239,11 @@ class Admin extends MX_Controller {
         $data['idlink'] = $id;
 
         $this->load->view('general/header');
-        $this->load->view('news/nlist', $data);
+        $this->load->view('news/editnews', $data);
         $this->load->view('general/footer');
     }
 
-    public function pages()
+    public function managepages()
     {
         $this->load->model('admin_model');
 
@@ -413,37 +254,7 @@ class Admin extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
-        $this->load->view('pages/index');
-        $this->load->view('general/footer');
-    }
-
-    public function mpages()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('pages/mpages');
-        $this->load->view('general/footer');
-    }
-
-    public function cpage()
-    {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
-        $this->load->view('general/header');
-        $this->load->view('pages/cpage');
+        $this->load->view('pages/managepages');
         $this->load->view('general/footer');
     }
 }

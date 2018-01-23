@@ -2,20 +2,23 @@
 <html>
 <head>
     <title>Installation - BlizzCMS</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <!-- UiKit Start -->
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
 
-    <!-- semantic ui Start -->
-    <link rel="stylesheet" type="text/css" href="../assets/semanticui/semantic.min.css">
-    <!-- semantic ui End -->
+    <!-- UIkit JS -->
+    <script src="../core/uikit/js/uikit.min.js"></script>
+    <script src="../core/uikit/js/uikit-icons.min.js"></script>
+    <!-- UiKit end -->
+    <!-- font-awesome Start -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- font-awesome End -->
 
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
-    <!-- semantic -->
-    <script src="../assets/semanticui/semantic.min.js"></script>
-    <!-- semantic -->
     <!-- custom footer -->
 
     <script src="js/ui.js" type="text/javascript"></script>
@@ -64,10 +67,6 @@
     </div>
     <div id="wrap">
         <div id="fixer">
-            <!-- Top bar -->
-            <div class="ui inverted three item menu">
-                <a href="index.html" class="item active">Installation</a>
-            </div>
             <!-- Main content -->
             <section>
                 <div id="top_spacer"></div>
@@ -75,13 +74,13 @@
                     <!-- Main Left column -->
                     <aside class="left">
                         <nav>
-                            <a class="active"><i class="heartbeat icon"></i> Install</a>
+                            <a class="active"><i class="fa fa-chrome" aria-hidden="true"></i> Install</a>
                             <section class="sub">
-                                <a><i class="browser icon"></i> Introduction</a>
-                                <a><i class="alarm outline icon"></i> Requirements</a>
-                                <a><i class="lab icon"></i> General</a>
-                                <a class="active"><i class="database icon"></i> Database</a>
-                                <a><i class="connectdevelop icon"></i> Complete installation</a>
+                                <a><i class="fa fa-info-circle" aria-hidden="true"></i> Introduction</a>
+                                <a><i class="fa fa-exclamation-circle" aria-hidden="true"></i> Requirements</a>
+                                <a><i class="fa fa-wrench" aria-hidden="true"></i> General</a>
+                                <a class="active"><i class="fa fa-database" aria-hidden="true"></i> Database</a>
+                                <a><i class="fa fa-connectdevelop" aria-hidden="true"></i> Complete installation</a>
                             </section>
                         </nav>
                         <div class="spacer"></div>
@@ -89,36 +88,36 @@
                     <!-- Main right column -->
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
-                            <h2><i class="database icon"></i> Database settings</h2>
+                            <h2><i class="fa fa-database" aria-hidden="true"></i> Database Settings</h2>
                             <form method="post" action="">
                                 <label for="blizzcms_hostname">Website database host</label>
                                 <input required type="text" id="blizzcms_hostname" name="blizzcms_hostname" />
                                 <label for="blizzcms_username">Website database username</label>
                                 <input required type="text" id="blizzcms_username" name="blizzcms_username" />
                                 <label for="blizzcms_password">Website database password</label>
-                                <input required type="text" id="blizzcms_password" name="blizzcms_password" />
+                                <input required type="password" id="blizzcms_password" name="blizzcms_password" />
                                 <label for="blizzcms_database">Website database name</label>
                                 <input required type="text" id="blizzcms_database" name="blizzcms_database" />
-                                <hr>
-                                <label for="realmd_hostname">Realmd/logon/auth database host</label>
+                                <hr class="uk-divider-icon">
+                                <label for="realmd_hostname">Auth database host</label>
                                 <input required type="text" id="realmd_hostname" name="realmd_hostname" />
-                                <label for="realmd_username">Realmd/logon/auth database username</label>
+                                <label for="realmd_username">Auth database username</label>
                                 <input required type="text" id="realmd_username" name="realmd_username" />
-                                <label for="realmd_password">Realmd/logon/auth database password</label>
-                                <input required type="text" id="realmd_password" name="realmd_password" />
-                                <label for="realmd_database">Realmd/logon/auth database name</label>
+                                <label for="realmd_password">Auth database password</label>
+                                <input required type="password" id="realmd_password" name="realmd_password" />
+                                <label for="realmd_database">Auth database name</label>
                                 <input required type="text" id="realmd_database" name="realmd_database" />
-                                <hr>
+                                <hr class="uk-divider-icon">
                                 <label for="char_hostname">Character database host</label>
                                 <input required type="text" id="char_hostname" name="char_hostname" />
                                 <label for="char_username">Character database username</label>
                                 <input required type="text" id="char_username" name="char_username" />
                                 <label for="char_password">Character database password</label>
-                                <input required type="text" id="char_password" name="char_password" />
+                                <input required type="password" id="char_password" name="char_password" />
                                 <label for="char_database">Character database name</label>
                                 <input required type="text" id="char_database" name="char_database" />
                                 <div class="installer_navigation">
-                                    <input type="submit" name="button_database" class="ui primary basic button" value="Next Step">
+                                    <button class="uk-button uk-button-primary" type="submit" name="button_database">Next Step <i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                                 </div>
                             </form>
 

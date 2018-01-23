@@ -6,9 +6,9 @@
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzard-dc9d0faea4c4a01c35477637614e4bbab87305d0b07b1dfb8e0f09a21283294707def12b40e4cb9f13b56d8cbd92e8b40a3c956f0da1b5cf1d25b558efeffc31.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/app-65d540bb92d74ad1518ba050a969a68fe7cca3e0b202351c63b7742d39e87267a3bd8210f6a567b4b05819727690c48601a94036e4e498deb0519f50edb50a65.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/main-1f799c9e0f0e26.css?v=58-88" />
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -21,9 +21,6 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <!-- custom START -->
-    <link rel="stylesheet" type="text/css" href="<?= base_url(); ?>assets/css/scroll.css">
-    <!-- custom END -->
     <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
@@ -39,11 +36,11 @@
     </div>
     <!-- submenu -->
     <div class="Page-container">
-        <div class="Page-content en-GB">
+        <div class="Page-content en-US">
             <div id="home-promoted-carousel-container" class="position-relative">
                 <?php if ($this->m_modules->getStatusSlides() == '1') { ?>
-                    <?php if ($this->home_model->getSlides()->num_rows() > 0) { ?>
-                        <div data-in="0" data-out="0" data-scroll="#home-promoted-scroll" data-analytics="arrowClick" data-analytics-placement="Home" class="Carousel Carousel--fullHg Carousel--fill is-infinite" id="home-promoted-carousel">
+                    <?php if ($this->home_model->getSlides()->num_rows()) { ?>
+                        <div data-in="0" data-out="0" data-lockout="500" data-scroll="#home-promoted-scroll" data-analytics="arrowClick" data-analytics-placement="Home" class="Carousel Carousel--fullHg Carousel--fill is-infinite" id="home-promoted-carousel">
                             <div class="Carousel-container">
                                 <link href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet">
                                 <!-- slides start -->
@@ -52,14 +49,14 @@
                                         <div class="CarouselItem-content">
                                             <div class="Pane Pane--full Pane--adaptiveHg Home-heroPane">
                                                 <div class="Pane-backgroundContainer">
-                                                    <div style="background-color:#031424" class="Home-promotedStoriesBackgroundContainer">
+                                                    <div style="background-color:#001619" class="Home-promotedStoriesBackgroundContainer">
                                                         <div style="background-image:url(<?= base_url(); ?>assets/images/slides/<?= $slides->mobile_image; ?>)" class="Home-promotedStoriesMobileBackground Home-promotedStoriesBackground"></div>
                                                         <div style="background-image:url(<?= base_url(); ?>assets/images/slides/<?= $slides->image; ?>)" class="Home-promotedStoriesDesktopBackground Home-promotedStoriesBackground"></div>
                                                         <div class="Home-heroPaneGradients">
-                                                            <div style="background:linear-gradient(to top, rgba(3,20,36, 1.0) 0%, rgba(3,20,36, 1.0) 20%, rgba(3,20,36, 0.0) 100%)" class="Home-heroPaneMobileGradient Home-heroPaneGradient"></div>
+                                                            <div style="background:linear-gradient(to top, rgba(0,22,25, 1.0) 0%, rgba(0,22,25, 1.0) 20%, rgba(0,22,25, 0.0) 100%)" class="Home-heroPaneMobileGradient Home-heroPaneGradient"></div>
                                                             <div class="Home-heroPaneDesktopGradients Home-heroPaneGradient">
-                                                                <div style="background:linear-gradient(to right, rgba(3,20,36, 1.0) 0%, rgba(3,20,36, 1.0) 20%, rgba(3,20,36, 0.0) 100%)" class="Home-heroPaneDesktopLeftGradient"></div>
-                                                                <div style="background:linear-gradient(to left, rgba(3,20,36, 1.0) 0%, rgba(3,20,36, 1.0) 20%, rgba(3,20,36, 0.0) 100%)" class="Home-heroPaneDesktopRightGradient"></div>
+                                                                <div style="background:linear-gradient(to right, rgba(0,22,25, 1.0) 0%, rgba(0,22,25, 1.0) 20%, rgba(0,22,25, 0.0) 100%)" class="Home-heroPaneDesktopLeftGradient"></div>
+                                                                <div style="background:linear-gradient(to left, rgba(0,22,25, 1.0) 0%, rgba(0,22,25, 1.0) 20%, rgba(0,22,25, 0.0) 100%)" class="Home-heroPaneDesktopRightGradient"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -71,10 +68,20 @@
                                                     <div class="Home-heroPaneInner">
                                                         <div class="Pane Pane--flush Pane--adaptiveHg">
                                                             <div style="" class="Pane-content">
+                                                                <div data-group="homePromotedCarousel" data-viewport="0" data-anchor="0" data-anchor-target="#home-promoted-carousel-container" data-distance="0.35" data-opacity="0.005" class="Parallax Home-heroLogo">
+                                                                    <div style="background-image:undefined;background-color:undefined" class="Parallax-content">
+                                                                        <img src="" alt="" class="Home-heroLogoImage"/>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="space-adaptive-medium"></div>
                                                                 <div data-group="homePromotedCarousel" data-viewport="0" data-anchor="0" data-anchor-target="#home-promoted-carousel-container" data-distance="0.125" class="Parallax Home-heroTextParallax">
                                                                     <div style="background-image:undefined;background-color:undefined" class="Parallax-content">
-                                                                        <h3 class="text-truncate-ellipsis Home-heroTitle text-shadow-title" style="font-family: 'Noto Serif', serif; color: #fff;"><?= $slides->title ?></h3>
+                                                                        <h3 class="Home-heroTitle text-shadow-title" style="font-family: 'Noto Serif', serif; color: #fff;"><?= $slides->title ?></h3>
+                                                                        <div class="Home-heroButtonContainer">
+                                                                            <a href="" data-analytics="header-click">
+                                                                                <button class="Button Home-heroButton">Learn More</button>
+                                                                            </a>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -89,16 +96,12 @@
                                 <!-- icons slides start -->
                                 <div class="Carousel-scroll Carousel-prev">
                                     <div class="Icon Carousel-scrollIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                            <use xlink:href="#Icon_chevron_left"></use>
-                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg"><use xlink:href="#Icon_chevron_left"></use></svg>
                                     </div>
                                 </div>
                                 <div class="Carousel-scroll Carousel-next">
                                     <div class="Icon Carousel-scrollIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg">
-                                            <use xlink:href="#Icon_chevron_right"></use>
-                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" class="Icon-svg"><use xlink:href="#Icon_chevron_right"></use></svg>
                                     </div>
                                 </div>
                                 <!-- icons slides end -->
@@ -204,17 +207,19 @@
                                                                 <?php } ?>
                                                                 <?= $this->m_general->getRealmName(); ?>
                                                             </h2>
-                                                            <span class="uk-label">
+                                                            <?php if ($this->m_data->realm_status()) { ?>
+                                                                <span class="uk-label">
                                                                     <span uk-icon="icon: users"></span>
                                                                     <?= $this->m_general->getCharactersOnlineAlliance(); ?>
                                                                     <?= $this->lang->line('faction_alliance'); ?>
-                                                            </span>
-                                                            <span class="uk-label uk-label-danger">
-                                                                <span uk-icon="icon: users"></span>
-                                                                <?= $this->m_general->getCharactersOnlineHorde(); ?>
-                                                                <?= $this->lang->line('faction_horde'); ?>
-                                                            </span>
-                                                            <br></br>
+                                                                </span>
+                                                                <span class="uk-label uk-label-danger">
+                                                                    <span uk-icon="icon: users"></span>
+                                                                    <?= $this->m_general->getCharactersOnlineHorde(); ?>
+                                                                    <?= $this->lang->line('faction_horde'); ?>
+                                                                </span>
+                                                                <br>
+                                                            <?php } ?>
                                                             <div class="label">
                                                                 <h4 style="color: #fff;">
                                                                 <?php if ($this->m_general->getExpansionAction() == 1) { ?>
@@ -279,7 +284,7 @@
                             </div>
                         </div>
                         <?php if ($this->m_modules->getStatusEvents() == '1') { ?>
-                            <?php if ($this->events_model->getEventsLimitFive()->num_rows() > 0) { ?>
+                            <?php if ($this->events_model->getEventsLimitFive()->num_rows()) { ?>
                                 <div class="GridItem col-md-4">
                                     <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-bullhorn" aria-hidden="true"></i> <?= $this->lang->line('up_events'); ?></h2>
                                     <div class="Divider Divider--light"></div>
@@ -318,7 +323,7 @@
             <?php if ($this->m_modules->getStatusStore() == '1') { ?>
                 <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-gamePane">
                     <div class="Pane-content">
-                        <?php if ($this->shop_model->getShopTop10()->num_rows() > 0) { ?>
+                        <?php if ($this->shop_model->getShopTop10()->num_rows()) { ?>
                             <h2 class="Heading Home-gameHeading Home-sectionHeading flush-top">
                                 <a href="<?= base_url('store'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('store_see'); ?>" class="Home-gameHeadingLink Home-sectionHeadingLink">
                                     <span class="Home-gameHeadingText Home-sectionHeadingText"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <?= $this->lang->line('store'); ?></span>
