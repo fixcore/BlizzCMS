@@ -81,6 +81,7 @@ $lang['games'] = 'Games';
 $lang['report_list'] = 'Report List';
 $lang['captcha_error'] = 'please check the captcha';
 $lang['ucp'] = 'User Panel';
+$lang['edit_topic'] = 'Edit Topic';
 
 
 $lang['member_sice'] = 'Member since';
@@ -109,7 +110,9 @@ $lang['new_desc'] = 'Description';
 $lang['newup_fi'] = 'File upload';
 $lang['new_imgT'] = 'Your image must be in .jpg format';
 
+$lang['expr_time'] = 'Time';
 $lang['expr_author'] = 'Author';
+$lang['expr_reply'] = 'Reply';
 $lang['expr_vp'] = 'Donor Points';
 $lang['expr_dp'] = 'Vote Points';
 $lang['expr_expansion'] = 'Expansion';

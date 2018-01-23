@@ -67,18 +67,46 @@ class Forum_model extends CI_Model {
         $date = $this->m_data->getTimestamp();
 
         $data = array(
-        'forums' => $idlink,
-        'title' => $title,
-        'author' => $userid,
-        'date' => $date,
-        'content' => $description,
-        'locked' => $lock,
-        'pined' => $highl,
+            'forums' => $idlink,
+            'title' => $title,
+            'author' => $userid,
+            'date' => $date,
+            'content' => $description,
+            'locked' => $lock,
+            'pined' => $highl
         );
 
-        $this->db->insert('fx_forum_topics', $data);
 
-        redirect(base_url('forums/category/').$idlink,'refresh');
+        $this->db->insert('fx_forum_topics', $data);
+        
+        $getIDPost = $this->getIDPostPerDate($date);
+
+        redirect(base_url('forums/topic/').$getIDPost,'refresh');
+    }
+
+    public function getIDPostPerDate($date)
+    {
+        return $this->db->select('id')
+                ->where('date', $date)
+                ->get('fx_forum_topics')
+                ->row('id');
+    }
+
+    public function updateTopic($idlink, $title, $description, $lock, $highl)
+    {
+        $date = $this->m_data->getTimestamp();
+
+        $data = array(
+            'title' => $title,
+            'content' => $description,
+            'locked' => $lock,
+            'pined' => $highl
+        );
+
+        $this->db->where('id', $idlink)
+                ->update('fx_forum_topics', $data);
+
+        redirect(base_url('forums/topic/').$idlink,'refresh');
     }
 
     public function getType($id)
@@ -87,6 +115,22 @@ class Forum_model extends CI_Model {
                 ->where('id', $id)
                 ->get('fx_forum_forums')
                 ->row('type');
+    }
+
+    public function getTopicTitle($id)
+    {
+        return $this->db->select('title')
+                ->where('id', $id)
+                ->get('fx_forum_topics')
+                ->row_array()['title'];
+    }
+
+    public function getTopicDescription($id)
+    {
+        return $this->db->select('content')
+                ->where('id', $id)
+                ->get('fx_forum_topics')
+                ->row_array()['content'];
     }
 
     public function getCategoryForums($category)

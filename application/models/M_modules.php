@@ -143,4 +143,12 @@ class M_modules extends CI_Model {
                 ->get('fx_modules')
                 ->row('status');
     }
+
+    public function getMessages()
+    {
+        return $this->db->select('status')
+                ->where('id', '18')
+                ->get('fx_modules')
+                ->row('status');
+    }
 }

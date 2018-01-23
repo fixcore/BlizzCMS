@@ -66,6 +66,15 @@
             </div>
             <div class="Navbar-profileItems">
                 <?php if ($this->m_data->isLogged()) { ?>
+                <!-- message -->
+                <?php if ($this->m_modules->getMessages() == '1') { ?>
+                <?php $this->load->model('messages/messages_model'); ?>
+                <a href="<?= base_url('message'); ?>">
+                    <i class="fa fa-commenting-o" aria-hidden="true"></i> 
+                    <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
+                </a>
+                <?php } ?>
+                <!-- message -->
                     <a data-target="Navbar-accountDropdown" data-name="account" class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect">
                         <div class="Navbar-icon Navbar-employeeIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-blizz"></use></svg>

@@ -73,3 +73,6 @@ $route['cart/(:num)'] = 'shop/cart/$1';
 $route['store/order/(:num)'] = 'shop/order/$1';
 //pages
 $route['pages/(:num)'] = 'pages/index/$1';
+//messages
+$route['pm'] = 'messages/index';
+$route['message'] = 'messages/verify';
