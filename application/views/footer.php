@@ -2,6 +2,11 @@
     <div class="Pane Pane--full Pane--backgroundTop Pane--innerBorderTop" id="Page-footer">
         <div style="" class="Pane-content">
             <div data-region-selection="none" data-region="eu" data-locale="en-us" class="NavbarFooter is-regionless">
+
+            <!-- button top -->
+                <a href="#" uk-totop uk-scroll class="uk-position-small uk-position-center-right uk-overlay uk-overlay-primary uk-position-absolute"></a>
+            <!-- button top -->
+
                 <div class="NavbarFooter-overlay"></div>
                 <div class="NavbarFooter-selector">
                     <div class="NavbarFooter-selectorToggle">
