@@ -80,7 +80,7 @@
                                         <?php if($this->m_general->getUserInfoGeneral($this->forum_model->getSpecifyPostAuthor($idlink))->num_rows()) { ?>
                                             <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->forum_model->getSpecifyPostAuthor($idlink))); ?>" alt="" />
                                         <?php } else { ?>
-                                            <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+                                            <img src="<?= base_url('assets/images/profiles/default.png'); ?>" alt="" />
                                         <?php } ?>
                                     </a>
                                     <div class="Author-details">
@@ -183,7 +183,7 @@
                                     <?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows()) { ?>
                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($commentss->author)); ?>" alt="" />
                                     <?php } else { ?>
-                                        <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+                                        <img src="<?= base_url('assets/images/profiles/default.png'); ?>" alt="" />
                                     <?php } ?>
                                 </a>
                                 <div class="Author-details">
@@ -243,7 +243,7 @@
                                     <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" alt="" />
                                     <?php } else { ?>
-                                        <img src="<?= base_url('assets/images/profiles/default.jpg'); ?>" alt="" />
+                                        <img src="<?= base_url('assets/images/profiles/default.png'); ?>" alt="" />
                                     <?php } ?>
                                 </a>
                                 <div class="Author-details">
