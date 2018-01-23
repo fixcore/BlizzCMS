@@ -124,52 +124,52 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title">
-                    <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?>
-                </h2>
+                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('forum_newtopic'); ?></h2>
             </div>
             <form action="<?= base_url('forum/newTopic/'.$idlink); ?>" method="post" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
-                    <!-- content -->
-                    <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
-                    <div class="uk-margin uk-inline uk-width-1-1">
-                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
-                        <input class="uk-input" name="topic_title" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?>">
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('expr_title'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                                <input class="uk-input" name="topic_title" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?>">
+                            </div>
+                        </div>
                     </div>
-                    <!-- text area -->
+
                     <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
                         <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
                     <?php } else { ?>
                         <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
                     <?php } ?>
 
-                    <br>
-
-                    <div class="form-group">
-                        <h2 class="uk-text-large"><?= $this->lang->line('new_desc'); ?></h2>
-                        <div class="col-md-12">
-                            <textarea required="" name="topic_description" id="ckeditor" rows="10" cols="80"></textarea>
-                            <script>
-                                CKEDITOR.replace('ckeditor');
-                            </script>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('new_desc'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-width-1-1">
+                                <textarea required="" name="topic_description" id="ckeditor" rows="10" cols="80"></textarea>
+                                <script>
+                                    CKEDITOR.replace('ckeditor');
+                                </script>
+                            </div>
                         </div>
                     </div>
-                    <!-- text area -->
-                    <br>
                     <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
                         <div class="uk-margin">
-                            <div class="uk-inline uk-width-1-1 uk-text-center">
-                                <label><input id="hightl" class="uk-checkbox" type="checkbox" name="check_highl" value="1"> <?= $this->lang->line('expr_highl'); ?></label>
-                                <span style="display:inline-block; width: 14px;"></span>
-                                <label><input id="llock" class="uk-checkbox" type="checkbox" name="check_lock" value="1"> <?= $this->lang->line('expr_lock'); ?></label>
+                            <div class="uk-form-controls">
+                                <div class="uk-width-1-1 uk-text-center">
+                                    <label><input id="hightl" class="uk-checkbox" type="checkbox" name="check_highl" value="1"> <?= $this->lang->line('expr_highl'); ?></label>
+                                    <span style="display:inline-block; width: 14px;"></span>
+                                    <label><input id="llock" class="uk-checkbox" type="checkbox" name="check_lock" value="1"> <?= $this->lang->line('expr_lock'); ?></label>
+                                </div>
                             </div>
                         </div>
                     <?php } ?>
-
-                    <div class="uk-modal-footer uk-text-right actions">
-                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                        <button class="uk-button uk-button-primary" type="submit" name="button_createTopic"><?= $this->lang->line('button_crea'); ?></button>
-                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right actions">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_createTopic"><?= $this->lang->line('button_crea'); ?></button>
                 </div>
             </form>
         </div>

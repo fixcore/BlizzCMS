@@ -280,35 +280,36 @@
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
-                    <!-- old pass -->
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                            <input class="uk-input uk-form-width-large" name="oldpass" type="password" required placeholder="<?= $this->lang->line('old_password'); ?>">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: unlock"></span>
+                                <input class="uk-input" name="oldpass" type="password" required placeholder="<?= $this->lang->line('old_password'); ?>">
+                            </div>
                         </div>
                     </div>
-                    <!-- old pass -->
                     <hr>
-                    <!-- old pass -->
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                            <input class="uk-input uk-form-width-large" name="newpass" type="password" required placeholder="<?= $this->lang->line('new_password'); ?>">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                <input class="uk-input" name="newpass" type="password" required placeholder="<?= $this->lang->line('new_password'); ?>">
+                            </div>
                         </div>
                     </div>
-                    <!-- old pass -->
                     <hr>
-                    <!-- old pass -->
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                            <input class="uk-input uk-form-width-large" name="newpassr" type="password" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                <input class="uk-input" name="newpassr" type="password" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
+                            </div>
                         </div>
                     </div>
-                    <div class="uk-modal-footer uk-text-right actions">
-                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                        <button class="uk-button uk-button-primary" type="submit" name="button_changepass"><?= $this->lang->line('button_change'); ?></button>
-                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right actions">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_changepass"><?= $this->lang->line('button_change'); ?></button>
                 </div>
             </form>
         </div>
@@ -322,36 +323,36 @@
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
-                    <!-- pass -->
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                            <input class="uk-input uk-form-width-large" name="password" type="password" required placeholder="<?= $this->lang->line('password_re'); ?>">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                                <input class="uk-input" name="password" type="password" required placeholder="<?= $this->lang->line('password_re'); ?>">
+                            </div>
                         </div>
                     </div>
-                    <!-- pass -->
                     <hr>
-                    <!-- old email -->
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
-                            <input class="uk-input uk-form-width-large" name="oldemail" type="email" required placeholder="<?= $this->lang->line('old_email'); ?>">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+                                <input class="uk-input" name="oldemail" type="email" required placeholder="<?= $this->lang->line('old_email'); ?>">
+                            </div>
                         </div>
                     </div>
-                    <!-- old email -->
                     <hr>
-                    <!-- new pass -->
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
-                            <input class="uk-input uk-form-width-large" name="newemail" type="email" required placeholder="<?= $this->lang->line('new_email'); ?>">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+                                <input class="uk-input" name="newemail" type="email" required placeholder="<?= $this->lang->line('new_email'); ?>">
+                            </div>
                         </div>
                     </div>
-                    <!-- new pass -->
-                    <div class="uk-modal-footer uk-text-right actions">
-                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                        <button class="uk-button uk-button-primary" type="submit" name="button_changeemail"><?= $this->lang->line('button_change'); ?></button>
-                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right actions">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_changeemail"><?= $this->lang->line('button_change'); ?></button>
                 </div>
             </form>
         </div>
@@ -366,19 +367,21 @@
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        <div class="uk-grid uk-grid-medium uk-child-width-1-5 uk-flex-center uk-text-center">
-                            <?php foreach($this->user_model->getAllAvatars()->result() as $allAvts) { ?>
-                                <div class="col-sm-3">
-                                    <img class="uk-border-rounded" src="<?= base_url('assets/images/profiles/'.$allAvts->name); ?>" width="100" height="100">
-                                    <input type="radio" name="radioAvatars" checked value="<?= $allAvts->id ?>">
-                                </div>
-                            <?php } ?>
+                        <div class="uk-form-controls">
+                            <div class="uk-grid uk-grid-medium uk-child-width-1-5 uk-flex-center uk-text-center">
+                                <?php foreach($this->user_model->getAllAvatars()->result() as $allAvts) { ?>
+                                    <div class="col-sm-3">
+                                        <img class="uk-border-rounded" src="<?= base_url('assets/images/profiles/'.$allAvts->name); ?>" width="100" height="100">
+                                        <input type="radio" name="radioAvatars" checked value="<?= $allAvts->id ?>">
+                                    </div>
+                                <?php } ?>
+                            </div>
                         </div>
                     </div>
-                    <div class="uk-modal-footer uk-text-right actions">
-                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                        <button class="uk-button uk-button-primary" type="submit" name="button_changeavatar"><?= $this->lang->line('button_change'); ?></button>
-                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right actions">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_changeavatar"><?= $this->lang->line('button_change'); ?></button>
                 </div>
             </form>
         </div>
@@ -392,21 +395,26 @@
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
-                    <h4><?= $this->lang->line('username_re'); ?> & <?= $this->lang->line('email_re'); ?></h4>
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: hashtag"></span>
-                            <input class="uk-input uk-width-1-1" type="text" placeholder="<?= $this->session->userdata('fx_sess_username'); ?>" disabled>
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('username_re'); ?> & <?= $this->lang->line('email_re'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon" uk-icon="icon: hashtag"></span>
+                                <input class="uk-input uk-width-1-1" type="text" placeholder="<?= $this->session->userdata('fx_sess_username'); ?>" disabled>
+                            </div>
                         </div>
-                        <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: mail"></span>
-                            <input class="uk-input uk-width-1-1" type="text" placeholder="<?= $this->session->userdata('fx_sess_email'); ?>" disabled>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                <input class="uk-input" type="text" placeholder="<?= $this->session->userdata('fx_sess_email'); ?>" disabled>
+                            </div>
                         </div>
                     </div>
                     <hr class="uk-divider-icon">
-                    <h4><?= $this->lang->line('personalinfo'); ?></h4>
-                    <!-- country - location -->
                     <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('personalinfo'); ?></label>
                         <div class="uk-form-controls">
                             <select class="uk-select" name="country_us">
                                 <?php foreach($this->user_model->getCountry()->result() as $country_us) { ?>
@@ -415,21 +423,87 @@
                             </select>
                         </div>
                     </div>
-                    <!-- country - location -->
-                    <!-- name - surname -->
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: user"></span>
-                            <input class="uk-input" name="name_us" type="text" placeholder="<?= $this->lang->line('first_name'); ?>" required>
-                        </div>
-                        <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: pencil"></span>
-                            <input class="uk-input" name="surname_us" type="text" placeholder="<?= $this->lang->line('last_name'); ?>" required>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                <input class="uk-input" name="name_us" type="text" placeholder="<?= $this->lang->line('first_name'); ?>" required>
+                            </div>
                         </div>
                     </div>
-                    <!-- name - surname -->
-                    <!-- question - answer -->
                     <div class="uk-margin">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon" uk-icon="icon: user"></span>
+                                <input class="uk-input" name="surname_us" type="text" placeholder="<?= $this->lang->line('last_name'); ?>" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label">Birthdate</label>
+                        <div class="uk-grid-small" uk-grid>
+                            <div class="uk-inline uk-width-1-4@s">
+                                <div class="uk-form-controls">
+                                    <select class="uk-select" name="day_us">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <div class="uk-form-controls">
+                                    <select class="uk-select" name="month_us">
+                                        <option value="1"><?= $this->lang->line('month_January'); ?></option>
+                                        <option value="2"><?= $this->lang->line('month_February'); ?></option>
+                                        <option value="3"><?= $this->lang->line('month_March'); ?></option>
+                                        <option value="4"><?= $this->lang->line('month_April'); ?></option>
+                                        <option value="5"><?= $this->lang->line('month_May'); ?></option>
+                                        <option value="6"><?= $this->lang->line('month_June'); ?></option>
+                                        <option value="7"><?= $this->lang->line('month_July'); ?></option>
+                                        <option value="8"><?= $this->lang->line('month_August'); ?></option>
+                                        <option value="9"><?= $this->lang->line('month_September'); ?></option>
+                                        <option value="10"><?= $this->lang->line('month_October'); ?></option>
+                                        <option value="11"><?= $this->lang->line('month_November'); ?></option>
+                                        <option value="12"><?= $this->lang->line('month_December'); ?></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="uk-inline uk-width-1-4@s">
+                                <input class="uk-input" type="number" name="year_us" pattern=".{4,4}" min="1936" max="2010" required title="4 characters" placeholder="<?= $this->lang->line('year'); ?>">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label">Security Question</label>
                         <div class="uk-form-controls">
                             <select class="uk-select" id="form-stacked-select" name="question_us">
                                 <?php foreach ($this->user_model->getQuestion()->result() as $question_us) { ?>
@@ -439,84 +513,17 @@
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <div class="uk-inline">
-                            <span class="uk-form-icon" uk-icon="icon: question"></span>
-                            <input class="uk-input" name="answer_us" type="password" placeholder="<?= $this->lang->line('secret_answ'); ?>" required>
-                        </div>
-                    </div>
-                    <!-- question - answer -->
-                    <!-- day - month -year -->
-                    <div class="uk-margin">
-                        <!-- day -->
-                        <div class="uk-inline">
-                            <div class="uk-form-controls">
-                                <select class="uk-select" name="day_us">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                    <option value="6">6</option>
-                                    <option value="7">7</option>
-                                    <option value="8">8</option>
-                                    <option value="9">9</option>
-                                    <option value="10">10</option>
-                                    <option value="11">11</option>
-                                    <option value="12">12</option>
-                                    <option value="13">13</option>
-                                    <option value="14">14</option>
-                                    <option value="15">15</option>
-                                    <option value="16">16</option>
-                                    <option value="17">17</option>
-                                    <option value="18">18</option>
-                                    <option value="19">19</option>
-                                    <option value="20">20</option>
-                                    <option value="21">21</option>
-                                    <option value="22">22</option>
-                                    <option value="23">23</option>
-                                    <option value="24">24</option>
-                                    <option value="25">25</option>
-                                    <option value="26">26</option>
-                                    <option value="27">27</option>
-                                    <option value="28">28</option>
-                                    <option value="29">29</option>
-                                    <option value="30">30</option>
-                                    <option value="31">31</option>
-                                </select>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon" uk-icon="icon: question"></span>
+                                <input class="uk-input" name="answer_us" type="password" placeholder="<?= $this->lang->line('secret_answ'); ?>" required>
                             </div>
                         </div>
-                        <!-- day -->
-                        <!-- month -->
-                        <div class="uk-inline">
-                            <div class="uk-form-controls">
-                                <select class="uk-select" name="month_us">
-                                    <option value="1"><?= $this->lang->line('month_January'); ?></option>
-                                    <option value="2"><?= $this->lang->line('month_February'); ?></option>
-                                    <option value="3"><?= $this->lang->line('month_March'); ?></option>
-                                    <option value="4"><?= $this->lang->line('month_April'); ?></option>
-                                    <option value="5"><?= $this->lang->line('month_May'); ?></option>
-                                    <option value="6"><?= $this->lang->line('month_June'); ?></option>
-                                    <option value="7"><?= $this->lang->line('month_July'); ?></option>
-                                    <option value="8"><?= $this->lang->line('month_August'); ?></option>
-                                    <option value="9"><?= $this->lang->line('month_September'); ?></option>
-                                    <option value="10"><?= $this->lang->line('month_October'); ?></option>
-                                    <option value="11"><?= $this->lang->line('month_November'); ?></option>
-                                    <option value="12"><?= $this->lang->line('month_December'); ?></option>
-                                </select>
-                            </div>
-                        </div>
-                        <!-- month -->
-                        <!-- year -->
-                        <div class="uk-inline">
-                            <input class="uk-input" type="number" name="year_us" pattern=".{4,4}" min="1936" max="2010" required title="4 characters" placeholder="<?= $this->lang->line('year'); ?>">
-                        </div>
-                        <!-- year -->
                     </div>
-                    <!-- day - month -year -->
-                    <div class="uk-modal-footer uk-text-right actions">
-                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                        <button class="uk-button uk-button-primary" type="submit" name="button_uppdateinfo"><?= $this->lang->line('button_change'); ?></button>
-                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right actions">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_uppdateinfo"><?= $this->lang->line('button_change'); ?></button>
                 </div>
             </form>
         </div>

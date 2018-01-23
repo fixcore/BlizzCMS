@@ -108,29 +108,25 @@
         </section>
     </div>
 
-
-<!-- create report -->
-<div id="createReport" class="uk-modal-container" uk-modal>
-    <div class="uk-modal-dialog">
-        <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-modal-header">
-            <h2 class="uk-modal-title">
-                <i class="fa fa-bug" aria-hidden="true"></i>
-                Create Bug Report
-            </h2>
-        </div>
-        <form action="" method="post" accept-charset="utf-8">
-            <div class="uk-modal-body">
-                <!-- content -->
-                    <!-- title -->
-                    <h2 class="uk-text-large"><?= $this->lang->line('expr_title'); ?></h2>
-                    <div class="uk-margin uk-inline uk-width-1-1">
-                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
-                        <input name="bug_title" class="uk-input" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?> *">
-                    </div>
-
+    <div id="createReport" class="uk-modal-container" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title"><i class="fa fa-bug" aria-hidden="true"></i> Create Bug Report</h2>
+            </div>
+            <form action="" method="post" accept-charset="utf-8">
+                <div class="uk-modal-body">
                     <div class="uk-margin">
-                        <h2 class="uk-text-large"><?= $this->lang->line('type'); ?></h2>
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('expr_title'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                                <input name="bug_title" class="uk-input" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?> *">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('type'); ?></label>
                         <div class="uk-form-controls">
                             <select class="uk-select" name="type_Bug" id="form-stacked-select">
                                 <?php foreach($this->bugtracker_model->getTypes()->result() as $rowTypes) { ?>
@@ -139,48 +135,39 @@
                             </select>
                         </div>
                     </div>
-                    <!-- title -->
-                    <!-- text area -->
+
                     <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
 
-                    <br>
-
-                    <div class="form-group">
-                        <h2 class="uk-text-large"><?= $this->lang->line('new_desc'); ?></h2>
-                        <div class="col-md-12">
-                            <textarea required="" name="bug_description" id="ckeditor" rows="10" cols="80">
-                                <!-- text -->
-                                <p>Realm:</p> 
-
-                                <p>Character (name, faction, level...): </p>
-
-                                <p>Difficult mode of the instance in which you found this issue: </p>
-
-                                <p>Complete description of your issue (do not forget to specify the issue, all conditions for making the issue to happen, and if the issue is related to a phase, specify the phase in which you found this issue): </p>
-
-                                <p>Steps for reproducing the issue: </p>
-                                <!-- text -->
-                            </textarea>
-                            <script>
-                                CKEDITOR.replace('ckeditor');
-                            </script>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('new_desc'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-width-1-1">
+                                <textarea required="" name="bug_description" id="ckeditor" rows="10" cols="80">
+                                    <p>Realm:</p>
+                                    <p>Character (name, faction, level...): </p>
+                                    <p>Difficult mode of the instance in which you found this issue: </p>
+                                    <p>Complete description of your issue (do not forget to specify the issue, all conditions for making the issue to happen, and if the issue is related to a phase, specify the phase in which you found this issue): </p>
+                                    <p>Steps for reproducing the issue: </p>
+                                </textarea>
+                                <script>
+                                    CKEDITOR.replace('ckeditor');
+                                </script>
+                            </div>
                         </div>
                     </div>
-                    <!-- text area -->
-
-                    <div class="uk-margin uk-inline uk-width-1-1">
-                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: link"></span>
-                        <input name="bug_url" class="uk-input" type="text" placeholder="URL">
+                    <div class="uk-margin">
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: link"></span>
+                                <input name="bug_url" class="uk-input" type="text" placeholder="URL">
+                            </div>
+                        </div>
                     </div>
-                <!-- content -->
+                </div>
                 <div class="uk-modal-footer uk-text-right actions">
                     <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
                     <button class="uk-button uk-button-primary" type="submit" name="button_createIssue"><?= $this->lang->line('button_crea'); ?></button>
                 </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
-<!-- php -->
-<!-- php -->
-<!-- create report end -->
