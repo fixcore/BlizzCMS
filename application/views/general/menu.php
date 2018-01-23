@@ -178,7 +178,7 @@
                                         <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
                                             <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="60" height="60" alt="">
                                         <?php } else { ?>
-                                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="60" height="60" alt="">
+                                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="60" height="60" alt="">
                                         <?php } ?>
                                         <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
                                     </a>
@@ -248,7 +248,7 @@
                                 <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
                                     <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="40" height="40" alt="">
                                 <?php } else { ?>
-                                    <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.jpg'); ?>" width="40" height="40" alt="">
+                                    <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="40" height="40" alt="">
                                 <?php } ?>
                                 <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
                                 <?php if($this->m_modules->getStatusUCP() == '1') { ?>
