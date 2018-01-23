@@ -57,7 +57,7 @@
                             <div class="uk-column-1-1">
                                 <div>
                                     <div class="uk-margin">
-                                        <a href="">
+                                        <a href="#" uk-toggle="target: #privateMsg">
                                             <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope" aria-hidden="true"></i> Send Private Message</button>
                                         </a>
                                     </div>
@@ -83,5 +83,54 @@
                 </div>
             </div>
             <div class="space-huge"></div>
+        </div>
+    </div>
+
+    <div id="privateMsg" class="uk-modal-container" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> New Message</h2>
+            </div>
+            <form action="" method="post" accept-charset="utf-8">
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large" for="form-stacked-text">User</label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: user"></span>
+                                <input class="uk-input" name="topic_title" required type="text" placeholder="User">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large" for="form-stacked-text">Subject</label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                                <input class="uk-input" name="topic_title" required type="text" placeholder="Subject">
+                            </div>
+                        </div>
+                    </div>
+
+                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large" for="form-stacked-text">Message</label>
+                        <div class="uk-form-controls">
+                            <div class="uk-width-1-1">
+                                <textarea required="" name="topic_description" id="ckeditor" rows="10" cols="80"></textarea>
+                                <script>
+                                    CKEDITOR.replace('ckeditor');
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-modal-footer uk-text-right actions">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                        <button class="uk-button uk-button-primary" type="submit" name="button_createTopic">Send</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
