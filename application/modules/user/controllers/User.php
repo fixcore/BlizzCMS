@@ -14,7 +14,7 @@ class User extends MX_Controller {
         if ($this->m_general->getExpansionAction() == 1)
         {
             $data = array(
-                "email_form" => array(
+                "username_form" => array(
                     'id' => 'login_username',
                     'name' => 'login_username',
                     'class' => 'uk-input',
@@ -34,7 +34,7 @@ class User extends MX_Controller {
                     'id' => 'button_log',
                     'name' => 'button_log',
                     'value' => $this->lang->line('button_log'),
-                    'class' => 'uk-button uk-button-primary')
+                    'class' => 'uk-button uk-button-primary uk-width-1-1')
             );
 
             $this->load->view('login1', $data);
@@ -62,7 +62,7 @@ class User extends MX_Controller {
                     'id' => 'button_log',
                     'name' => 'button_log',
                     'value' => $this->lang->line('button_log'),
-                    'class' => 'uk-button uk-button-primary')
+                    'class' => 'uk-button uk-button-primary uk-width-1-1')
             );
 
             $this->load->view('login2', $data);
