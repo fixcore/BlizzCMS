@@ -39,11 +39,10 @@
             <div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-storiesPane">
                 <div class="Pane-content">
                     <div class="Grid row Home-storiesEventsGrid">
-                        <div class="GridItem col-md-2"></div>
-                        <div class="GridItem col-md-8">
-                            <!-- content START -->
-                            <h2 class="uk-text-primary"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('account_log'); ?></h2>
-                            <p style="color: #fff;"><?= $this->lang->line('log_acc_des'); ?></p>
+                        <div class="GridItem col-md-3"></div>
+                        <div class="GridItem col-md-6">
+                            <h2 class="uk-text-primary uk-text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('account_log'); ?></h2>
+                            <p class="uk-text-center" style="color: #fff;"><?= $this->lang->line('log_acc_des'); ?></p>
                             <?= form_open(base_url('user/verify2')); ?>
                                 <div uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-inline; delay: 500; repeat: true">
                                     <div class="uk-margin">
@@ -53,7 +52,7 @@
                                         </div>
                                         <div class="uk-inline">
                                             <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                            <?= form_password($password_form); ?>
+                                            <?= form_input($password_form); ?>
                                         </div>
                                     </div>
                                 </div>
@@ -68,13 +67,13 @@
                                 echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
                             } ?>
 
-                            <h4>
-                                <a class="uk-button uk-button-text" href="<?= base_url('register'); ?>" title="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('no_account'); ?></a>
-                            </h4>
-                            <!-- content END -->
+                            <br>
+                            <a href="<?= base_url('register'); ?>">
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" name="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('no_account'); ?></button>
+                            </a>
                         </div>
+                        <div class="GridItem col-md-3"></div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
