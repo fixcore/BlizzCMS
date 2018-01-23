@@ -299,3 +299,8 @@ $lang['month_November'] = 'Noviembre';
 $lang['month_December'] = 'Diciembre';
 
 $lang['forum_welcometext'] = 'Bienvenido a los foros oficiales';
+
+$lang['rights'] = 'TODOS LOS DERECHOS RESERVADOS.';
+$lang['powered'] = ' Respaldado por BlizzCMS';
+$lang['privacy'] = 'Privacidad';
+$lang['terms'] = 'Términos';

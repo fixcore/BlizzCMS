@@ -79,7 +79,7 @@
                                                                         <h3 class="Home-heroTitle text-shadow-title" style="font-family: 'Noto Serif', serif; color: #fff;"><?= $slides->title ?></h3>
                                                                         <div class="Home-heroButtonContainer">
                                                                             <a href="" data-analytics="header-click">
-                                                                                <button class="Button Home-heroButton">Learn More</button>
+                                                                                <button class="Button Home-heroButton"><?= $this->lang->line('button_learnmore'); ?></button>
                                                                             </a>
                                                                         </div>
                                                                     </div>
