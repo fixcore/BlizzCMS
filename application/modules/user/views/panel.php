@@ -198,14 +198,14 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> Vote Panel</button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('vote_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> Donate Panel</button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('don_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -214,7 +214,7 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> Support</button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('support'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -440,7 +440,7 @@
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label">Birthdate</label>
+                        <label class="uk-form-label"><?= $this->lang->line('birth_date'); ?></label>
                         <div class="uk-grid-small" uk-grid>
                             <div class="uk-inline uk-width-1-4@s">
                                 <div class="uk-form-controls">
@@ -503,7 +503,7 @@
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label">Security Question</label>
+                        <label class="uk-form-label"><?= $this->lang->line('security_quest'); ?></label>
                         <div class="uk-form-controls">
                             <select class="uk-select" id="form-stacked-select" name="question_us">
                                 <?php foreach ($this->user_model->getQuestion()->result() as $question_us) { ?>
