@@ -114,6 +114,18 @@
                                 <?php } ?>
                             </div>
                         </nav>
+                        <nav class="Navbar-posters Navbar-imagePanel">
+                            <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
+                                <a href="<?= base_url('bugtracker'); ?>" class="Navbar-poster animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('bugtracker'); ?>">
+                                    <img src="<?= base_url(); ?>assets/images/menu/logo-wow-max.png" class="Navbar-posterImage"/>
+                                </a>
+                            <?php } ?>
+                            <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
+                                <a href="<?= base_url('changelogs'); ?>" class="Navbar-poster animation-delay-2" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('changelogs'); ?>">
+                                    <img src="<?= base_url(); ?>assets/images/menu/logo-wow-max.png" class="Navbar-posterImage"/>
+                                </a>
+                            <?php } ?>
+                        </nav>
                     </div>
                 </div>
                 <link rel="stylesheet" type="text/css" href="<?=base_url('core/rpg_awesome/css/rpg-awesome.css')?>">
