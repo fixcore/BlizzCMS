@@ -42,14 +42,14 @@
                     </div>
                 </div>
                 <div class="NavbarFooter-links NavbarFooter-mainLinks"></div>
-                <div class="NavbarFooter-copyright">&copy; <?= date('Y'); ?> <?= $this->config->item('ProjectName'); ?>. All rights reserved.</div>
-                <div class="NavbarFooter-trademark"><a href="https://github.com/fixcore/BlizzCMS" title="FixCore"><i class="fa fa-github" aria-hidden="true"></i> Proudly powered by BlizzCMS</a></div>
+                <div class="NavbarFooter-copyright">&copy; <?= date('Y'); ?> <?= $this->config->item('ProjectName'); ?>. <?= $this->lang->line('rights'); ?></div>
+                <div class="NavbarFooter-trademark"><a href="https://github.com/fixcore/BlizzCMS" title="FixCore"><i class="fa fa-github" aria-hidden="true"></i> <?= $this->lang->line('powered'); ?></a></div>
                 <div class="NavbarFooter-links NavbarFooter-subLinks">
                     <div class="NavbarFooter-link NavbarFooter-subLink">
-                        <a href="" class="NavbarFooter-anchor" data-id="privacy" data-analytics="global-nav" data-analytics-placement="Footer - Privacy">Privacy</a>
+                        <a href="" class="NavbarFooter-anchor" data-id="privacy" data-analytics="global-nav" data-analytics-placement="Footer - Privacy"><?= $this->lang->line('privacy'); ?></a>
                     </div>
                     <div class="NavbarFooter-link NavbarFooter-subLink">
-                        <a href="" class="NavbarFooter-anchor" data-id="terms" data-analytics="global-nav" data-analytics-placement="Footer - Terms">Terms</a>
+                        <a href="" class="NavbarFooter-anchor" data-id="terms" data-analytics="global-nav" data-analytics-placement="Footer - Terms"><?= $this->lang->line('terms'); ?></a>
                     </div>
                 </div>
                 <div class="space-large"></div>

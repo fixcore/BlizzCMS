@@ -14,7 +14,7 @@
                             <table id="myTable" class="table color-table info-table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Username</th>
+                                        <th><?= $this->lang->line('username_re'); ?></th>
                                         <th class="text-center">Email</th>
                                     </tr>
                                 </thead>
