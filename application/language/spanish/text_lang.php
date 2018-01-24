@@ -312,3 +312,6 @@ $lang['terms'] = 'Términos';
 $lang['vote_panel'] = 'Panel de Votos';
 $lang['don_panel'] = 'Panel de Donaciones';
 $lang['support'] = 'Soporte';
+
+$lang['user_inf'] = 'Información personal';
+$lang['login_inf'] = 'Información de Usuario';
