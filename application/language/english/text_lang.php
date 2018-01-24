@@ -41,15 +41,19 @@ $lang['log_acc_des'] = 'Enjoy all the options we have for you';
 $lang['username_re'] = 'Username';
 $lang['password_re'] = 'Password';
 $lang['pascword_re'] = 'Repeat Password';
-$lang['pages'] = 'Pages';
 $lang['email_re'] = 'Email';
+$lang['button_log'] = 'Login';
+$lang['button_reg'] = 'Register';
+$lang['pages'] = 'Pages';
 $lang['no_account'] = 'Create a free account';
 $lang['reg_country'] = 'Country';
 $lang['first_name'] = 'First Name';
 $lang['last_name'] = 'Last Name';
+$lang['birth_date'] = 'Birth Date';
 $lang['birth_month'] = 'Birth Month';
 $lang['day'] = 'Day';
 $lang['year'] = 'Year';
+$lang['security_quest'] = 'Security Question';
 $lang['secret_answ'] = 'Secret Answer';
 $lang['acc_setting'] = 'Account Settings';
 $lang['acc_gifs'] = 'My Gifts';
@@ -299,3 +303,15 @@ $lang['month_November'] = 'November';
 $lang['month_December'] = 'December';
 
 $lang['forum_welcometext'] = 'Welcome to the official forums';
+
+$lang['rights'] = 'ALL RIGHTS RESERVED.';
+$lang['powered'] = ' Proudly powered by BlizzCMS';
+$lang['privacy'] = 'Privacy';
+$lang['terms'] = 'Terms';
+
+$lang['vote_panel'] = 'Vote Panel';
+$lang['don_panel'] = 'Donate Panel';
+$lang['support'] = 'Support';
+
+$lang['user_inf'] = 'User Information';
+$lang['login_inf'] = 'Login Information';

@@ -89,7 +89,7 @@
                             <p class="uk-text-center" style="color: #fff;"><?= $this->lang->line('cr_acc_des'); ?></p>
                             <form action="" method="post" accept-charset="utf-8">
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" style="color: #fff">User Information</label>
+                                    <label class="uk-form-label" style="color: #fff"><?= $this->lang->line('user_inf'); ?></label>
                                     <div class="uk-form-controls">
                                         <select class="uk-select" name="reg_country">
                                             <?php foreach($this->user_model->getCountry()->result() as $countrys) { ?>
@@ -115,7 +115,7 @@
                                     </div>
                                 </div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" style="color: #fff;">Birthdate</label>
+                                    <label class="uk-form-label" style="color: #fff;"><?= $this->lang->line('birth_date'); ?></label>
                                     <div class="uk-grid-small" uk-grid>
                                         <div class="uk-inline uk-width-1-4@s">
                                             <div class="uk-form-controls">
@@ -178,7 +178,7 @@
                                     </div>
                                 </div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" style="color: #fff">Login Information</label>
+                                    <label class="uk-form-label" style="color: #fff"><?= $this->lang->line('login_inf'); ?></label>
                                     <div class="uk-form-controls">
                                         <div class="uk-inline uk-width-1-1">
                                             <span class="uk-form-icon" uk-icon="icon: hashtag"></span>
@@ -211,7 +211,7 @@
                                     </div>
                                 </div>
                                 <div class="uk-margin">
-                                    <label class="uk-form-label" style="color: #fff">Security Question</label>
+                                    <label class="uk-form-label" style="color: #fff"><?= $this->lang->line('security_quest'); ?></label>
                                     <div class="uk-form-controls">
                                         <select class="uk-select" name="reg_question">
                                             <?php foreach($this->user_model->getQuestion()->result() as $question) { ?>
