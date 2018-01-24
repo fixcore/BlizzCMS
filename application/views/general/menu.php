@@ -66,20 +66,33 @@
             </div>
             <div class="Navbar-profileItems">
                 <?php if ($this->m_data->isLogged()) { ?>
-                <!-- message -->
-                <?php if ($this->m_modules->getMessages() == '1') { ?>
-                <?php $this->load->model('messages/messages_model'); ?>
-                <a href="<?= base_url('message'); ?>">
-                    <i class="fa fa-commenting-o" aria-hidden="true"></i> 
-                    <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
-                </a>
-                <?php } ?>
-                <!-- message -->
+                    <!-- message -->
+                    <?php if ($this->m_modules->getMessages() == '1') { ?>
+                        <?php $this->load->model('messages/messages_model'); ?>
+                        <a href="<?= base_url('message'); ?>">
+                            <i class="fa fa-commenting-o" aria-hidden="true"></i> 
+                            <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
+                        </a>
+                        <span style="display:inline-block; width: 4px;"></span>
+                    <?php } ?>
+                    <!-- message -->
+                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
+                        <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="30" height="30" style="position: absolute; top: 16px;" alt="">
+                        </a>
+                    <?php } else { ?>
+                        <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="30" height="30" style="position: absolute; top: 16px;" alt="">
+                        </a>
+                    <?php } ?>
+                    <span style="display:inline-block; width: 4px;"></span>
                     <a data-target="Navbar-accountDropdown" data-name="account" class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect">
                         <div class="Navbar-icon Navbar-employeeIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-blizz"></use></svg>
                         </div>
-                        <div class="Navbar-label Navbar-accountUnauthenticated"><i class="fa fa-user" aria-hidden="true"></i> <?= $this->session->userdata('fx_sess_username'); ?></div>
+                        <div class="Navbar-label Navbar-accountUnauthenticated">
+                            <?= $this->session->userdata('fx_sess_username'); ?>
+                        </div>
                         <div class="Navbar-icon Navbar-dropdownIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-dropdown"></use></svg>
                         </div>
@@ -89,7 +102,9 @@
                         <div class="Navbar-icon Navbar-employeeIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-blizz"></use></svg>
                         </div>
-                        <div class="Navbar-label"><i class="fa fa-user" aria-hidden="true"></i> <?= $this->lang->line('my_account'); ?></div>
+                        <div class="Navbar-label">
+                            <i class="fa fa-user" aria-hidden="true"></i> <?= $this->lang->line('my_account'); ?>
+                        </div>
                         <div class="Navbar-icon Navbar-dropdownIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-dropdown"></use></svg>
                         </div>
@@ -189,8 +204,8 @@
                                         <?php } else { ?>
                                             <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="60" height="60" alt="">
                                         <?php } ?>
-                                        <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
                                     </a>
+                                    <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
                                     <?php if($this->m_modules->getStatusUCP() == '1') { ?>
                                         <a href="<?= base_url('panel'); ?>">
                                             <button class="Navbar-button is-full"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('ucp'); ?></button>
@@ -254,11 +269,13 @@
                     <div class="Navbar-accountDropdownLoggedOut">
                         <div class="Navbar-modalSection">
                             <div class="Navbar-accountDropdownProfileInfo uk-text-center">
-                                <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
-                                    <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="40" height="40" alt="">
-                                <?php } else { ?>
-                                    <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="40" height="40" alt="">
-                                <?php } ?>
+                                <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
+                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="40" height="40" alt="">
+                                    <?php } else { ?>
+                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="40" height="40" alt="">
+                                    <?php } ?>
+                                </a>
                                 <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
                                 <?php if($this->m_modules->getStatusUCP() == '1') { ?>
                                     <a href="<?= base_url('panel'); ?>">

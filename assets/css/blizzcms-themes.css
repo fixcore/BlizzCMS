@@ -633,6 +633,7 @@ body.Theme--exile{background:url(../themes/theme8/background-fx-top.jpg) center 
 .Author-avatar:hover:after{background-color:rgba(255,255,255,.05)}
 .Author-avatar.Author-avatar--default:after{display:none}
 .Author-avatar.hasNoProfile img{image-rendering:auto}
+.Author-avatar.hasProfile img{image-rendering:auto}
 .Author-details{display:-ms-flexbox;display:flex;-ms-flex:1 1 auto;flex:1 1 auto;-ms-flex-direction:column;flex-direction:column;margin-left:1rem}
 .Author-name{color:#fff;font-weight:400;word-break:break-word}
 .Author-name--profileLink:hover,.TopicPost-body .underline,.TopicPost-moderateBody .underline{text-decoration:underline}
