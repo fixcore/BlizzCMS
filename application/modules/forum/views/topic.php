@@ -70,15 +70,15 @@
                 <div class="Container Container--content">
                     <h1 class="Topic-heading">
                         <span class="Topic-title" data-topic-heading="true" style="color: #fff;"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
-                    <?php if($this->m_data->isLogged()) { ?>
-                        <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
-                        <p uk-margin>
-                            <button uk-toggle="target: #editTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
-                                <span class="Button-content"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('button_edit'); ?></span>
-                            </button>
-                        </p>
+                        <?php if($this->m_data->isLogged()) { ?>
+                            <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
+                                <p uk-margin>
+                                    <button uk-toggle="target: #editTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
+                                        <span class="Button-content"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('button_edit'); ?></span>
+                                    </button>
+                                </p>
+                            <?php } ?>
                         <?php } ?>
-                    <?php } ?>
                     </h1>
                 </div>
             </header>
@@ -93,7 +93,7 @@
                                 <?php } else { ?>
                                 <div class="Author" id="" data-topic-post-body-content="true">
                                 <?php } ?>
-                                    <a href="#" class="Author-avatar hasNoProfile">
+                                    <a href="<?= base_url('profile/'.$this->m_data->getIDAccount($this->m_data->getUsernameID($this->forum_model->getSpecifyPostAuthor($idlink)))); ?>" class="Author-avatar hasProfile">
                                         <?php if($this->m_general->getUserInfoGeneral($this->forum_model->getSpecifyPostAuthor($idlink))->num_rows()) { ?>
                                             <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->forum_model->getSpecifyPostAuthor($idlink))); ?>" alt="" />
                                         <?php } else { ?>
@@ -112,7 +112,7 @@
                         <div class="TopicPost-body"  data-topic-post-body="true">
                             <div class="TopicPost-details">
                                 <div class="Timestamp-details">
-                                    <a class="TopicPost-timestamp" data-toggle="tooltip" data-tooltip-content="<?= date('d-m-Y', $this->forum_model->getSpecifyPostDate($idlink)); ?>"><?= date('d-m-Y', $this->forum_model->getSpecifyPostDate($idlink)); ?></a>
+                                    <a class="TopicPost-timestamp" data-toggle="tooltip" data-tooltip-content="<?= date('F/d/Y - l H:i A', $this->forum_model->getSpecifyPostDate($idlink)); ?>"><?= date('F/d/Y - l H:i A', $this->forum_model->getSpecifyPostDate($idlink)); ?></a>
                                     <span class="TopicPost-rank TopicPost-rank--none" data-topic-post-rank="true"></span>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@
                             <?php } else { ?>
                             <div class="Author" id="" data-topic-post-body-content="true">
                             <?php } ?>
-                                <a href="" class="Author-avatar hasNoProfile">
+                                <a href="<?= base_url('profile/'.$commentss->author); ?>" class="Author-avatar hasProfile">
                                     <?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows()) { ?>
                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($commentss->author)); ?>" alt="" />
                                     <?php } else { ?>
@@ -218,7 +218,7 @@
                     <div class="TopicPost-body" data-topic-post-body="true">
                         <div class="TopicPost-details">
                             <div class="Timestamp-details">
-                                <a class="TopicPost-timestamp" href="#" data-toggle="tooltip" data-tooltip-content="<?= date('d-m-Y', $commentss->date); ?>"><?= date('d-m-Y', $commentss->date); ?></a>
+                                <a class="TopicPost-timestamp" href="#" data-toggle="tooltip" data-tooltip-content="<?= date('F/d/Y - l H:i A', $commentss->date); ?>"><?= date('F/d/Y - l H:i A', $commentss->date); ?></a>
                             </div>
                         </div>
                         <?php if($this->m_data->getRank($commentss->author) > 0) { ?>

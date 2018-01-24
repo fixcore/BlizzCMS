@@ -63,7 +63,7 @@
                             <tr>
                                 <td style="color: #fff;"><img class="uk-border-circle" src="<?= base_url('assets/images/races/').$this->m_general->getRaceIcon($tops->race) ?>" title="<?= $tops->name ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                      <?= $tops->name ?></td>
-                                <td style="text-align: center;"><img class="uk-border-circle" src="<?= base_url(); ?>assets/images/<?= $this->m_general->getFaction($tops->race) ?>.png"></td>
+                                <td style="text-align: center;"><img class="uk-border-circle" src="<?= base_url(); ?>assets/images/factions/<?= $this->m_general->getFaction($tops->race) ?>.png"></td>
                                 <td style="color: #fff;text-align: center;"><?= $tops->totalKills ?></td>
                                 <td style="color: #fff;text-align: center;"><?= $tops->todayKills ?></td>
                                 <td style="color: #fff;text-align: center;"><?= $tops->yesterdayKills ?></td>
