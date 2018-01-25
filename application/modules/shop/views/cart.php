@@ -89,6 +89,7 @@
     <br><br><br>
     <div role="main">
         <section class="Scm-content">
+        <form action="" method="post" accept-charset="utf-8">
             <div class="section">
                 <h2 style="color: #fff;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy Item: <a rel="item=<?= $this->shop_model->getItem($idlink); ?>"><?= $this->shop_model->getName($idlink); ?></a></h2>
                 <p></p>
@@ -132,12 +133,13 @@
                         $qqs = $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id'));
                     ?>
                     <?php if ($qqs >= $this->shop_model->getPriceType($idlink, $_GET['tp'])) { ?>
-                        <button type="submit" name="buyNowGetItem" class="button" title="<?= $this->lang->line('button_buy'); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('button_buy'); ?></button>
+                            <button type="submit" name="buyNowGetItem" class="button" title="<?= $this->lang->line('button_buy'); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('button_buy'); ?></button>
                     <?php } else { ?>
                         <div class="uk-alert-warning" uk-alert><p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?=$this->lang->line('points_insuff');?></p></div>
                     <?php } ?>
                     <!--<button class="button" title=""><i class="fa fa-gift" aria-hidden="true"></i> Gift</button>-->
                 </div>
             </div>
+           </form>
         </section>
     </div>

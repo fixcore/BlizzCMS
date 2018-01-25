@@ -174,7 +174,7 @@ class Shop_model extends CI_Model {
             'method' => $method,
             );
 
-        $this->auth->insert('fx_shop_history', $data);
+        $this->db->insert('fx_shop_history', $data);
 
         if ($method == "dp")
             $this->db->set('dp', '(dp - $price)')
