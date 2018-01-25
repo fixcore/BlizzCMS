@@ -112,4 +112,9 @@ class Shop extends MX_Controller {
 
         $this->load->view('footer');
     }
+
+    public function checkSoap()
+    {
+        echo $this->m_soap->commandSoap('.server info');
+    }
 }
