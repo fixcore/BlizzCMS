@@ -41,15 +41,17 @@ $lang['log_acc_des'] = 'Genießen Sie unser Angebot.';
 $lang['username_re'] = 'Nutzername';
 $lang['password_re'] = 'Passwort';
 $lang['pascword_re'] = 'Passwort wiederholen';
-$lang['pages'] = 'Seiten';
 $lang['email_re'] = 'E-Mail';
+$lang['pages'] = 'Seiten';
 $lang['no_account'] = 'Kostenlosen Account erstellen';
 $lang['reg_country'] = 'Land';
 $lang['first_name'] = 'Vorname';
 $lang['last_name'] = 'Nachname';
+$lang['birth_date'] = 'Geburtsdatum';
 $lang['birth_month'] = 'Geburtsmonat';
 $lang['day'] = '-Tag';
 $lang['year'] = '-Jahr';
+$lang['security_quest'] = 'Sicherheitsfrage';
 $lang['secret_answ'] = 'Geheime Antwort';
 $lang['acc_setting'] = 'Accounteinstellungen';
 $lang['acc_gifs'] = 'Meine Geschenke';
@@ -79,6 +81,11 @@ $lang['members'] = 'Mitglieder';
 $lang['rating'] = 'Wertung';
 $lang['games'] = 'Spiele';
 $lang['report_list'] = 'Meldeliste';
+$lang['captcha_error'] = 'Bitte überprüfe deine Captcha eingabe';
+$lang['ucp'] = 'Benutzerkontrollzentrum';
+$lang['edit_topic'] = 'Thema bearbeiten';
+
+$lang['member_sice'] = 'Mitglied seit';
 
 
 $lang['bugtracker'] = 'Bugtracker';
@@ -104,6 +111,13 @@ $lang['new_desc'] = 'Beschreibung';
 $lang['newup_fi'] = 'Datei hochladen';
 $lang['new_imgT'] = 'Dein Bild muss im .jpg-Format sein';
 
+$lang['expr_time'] = 'Zeit';
+$lang['expr_author'] = 'Autor';
+$lang['expr_reply'] = 'Antwort';
+$lang['expr_vp'] = 'Spendenpunkte';
+$lang['expr_dp'] = 'Votepunkte';
+$lang['expr_expansion'] = 'Erweiterung';
+$lang['expr_location'] = 'Ort';
 $lang['expr_avatar'] = 'Avatar';
 $lang['expr_yes'] = 'Ja';
 $lang['expr_no'] = 'Nein';
@@ -115,6 +129,9 @@ $lang['expr_lock'] = 'Sperren';
 $lang['expr_category'] = 'Kategorie';
 $lang['expr_status'] = 'Status';
 $lang['expr_priority'] = 'Priorität';
+$lang['expr_open'] = 'Offen';
+$lang['expr_closed'] = 'Geschlossen';
+$lang['expr_date'] = 'Datum';
 
 $lang['news_manage'] = 'Neuigkeiten verwalten';
 $lang['user_manage'] = 'Nutzer verwalten';
@@ -138,6 +155,7 @@ $lang['unban_char'] = 'Ckarakter sperren';
 $lang['unbanned'] = 'entsperrt';
 $lang['ban_acc'] = 'Account sperren';
 $lang['rank_acc'] = 'GM-Level';
+$lang['acc_rank'] = 'Account-Level';
 $lang['grant_acc'] = 'GM-Level zuweisen';
 $lang['re_gran_acc'] = 'GM-Level entfernen';
 $lang['grantW_acc'] = 'ADM-Level zuweisen';
@@ -246,6 +264,10 @@ $lang['shopping_cart'] = 'Einkaufswagen';
 $lang['store'] = 'Shop';
 $lang['store_see'] = 'Shop besuchen';
 $lang['store_productName'] = 'Produktname';
+$lang['store_cart_header'] = 'Erwerben:';
+$lang['store_price'] = 'Preis:';
+$lang['store_select_char'] = 'Wähle deinen Charakter:';
+$lang['store_item_name'] = 'Gegenstandsname:';
 
 $lang['changelog_titlec'] = 'Titel des Changelogs';
 
@@ -276,3 +298,15 @@ $lang['month_November'] = 'November';
 $lang['month_December'] = 'Dezember';
 
 $lang['forum_welcometext'] = 'Willkommen in den offiziellen Foren';
+
+$lang['rights'] = 'ALLE RECHTE VORBEHALTEN.';
+$lang['powered'] = 'Powered by BlizzCMS';
+$lang['privacy'] = 'Datenschutz';
+$lang['terms'] = 'Bestimmungen';
+
+$lang['vote_panel'] = 'Vote-Kontrollzentrum';
+$lang['don_panel'] = 'Spenden-Kontrollzentrum';
+$lang['support'] = 'Support';
+
+$lang['user_inf'] = 'Nutzerinformationen';
+$lang['login_inf'] = 'Logininformationen';
