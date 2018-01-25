@@ -20,7 +20,8 @@
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
+<link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-themes.css') ?>"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -42,7 +43,7 @@
     <![endif]-->
 </head>
 
-<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
