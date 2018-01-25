@@ -590,41 +590,6 @@ class M_general extends CI_Model {
         }
     }
 
-    public function getTheme()
-    {
-        $id = $this->config->item('themeid');
-        switch ($id)
-        {
-            case 1:
-                return 'zwolf';
-                break;
-            case 2:
-                return 'alterac';
-                break;
-            case 3:
-                return 'thranrion';
-                break;
-            case 4:
-                return 'fixcore';
-                break;
-            case 5:
-                return 'theme2';
-                break;
-            case 6:
-                return 'blizzcms';
-                break;
-            case 7:
-                return 'uncrowned';
-                break;
-            case 8:
-                return 'xavius';
-                break;
-            case 9:
-                return 'exile';
-                break;
-        }
-    }
-
     public function getStylesPagination($perpage, $count)
     {
         $this->load->library("pagination");
