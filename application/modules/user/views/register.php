@@ -12,32 +12,29 @@
     $pascword= strtoupper($_POST['reg_pascword']);
     $question= $_POST['reg_question'];
     $answer  = $_POST['reg_SecretAnswer'];
-
     if($this->m_modules->getCaptcha() == 1)
     {
         $captcha_answer = $this->input->post('g-recaptcha-response');
         $response = $this->recaptcha->verifyResponse($captcha_answer);
-
         $rr = $response['success'];
     }
     else
     {
         $rr = TRUE;
     }
-
     if($rr)
     {
         if ($password == $pascword)
         {
             if ($this->m_data->getSpecifyAccount($username)->num_rows())
-                echo $this->lang->line('acc_exist');
+                echo $this->lang->line('account_already_exist');
             elseif($this->m_data->getSpecifyEmail($email)->num_rows())
             {
-                echo $this->lang->line('email_use');
+                echo $this->lang->line('email_used');
                 if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) == 2)
                 {
                     if ($this->m_data->getSpecifyEmailBnet($email)->num_rows())
-                    echo $this->lang->line('email_use');
+                    echo $this->lang->line('email_used');
                 }
             }
             else
