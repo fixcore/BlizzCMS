@@ -35,22 +35,22 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('char_manage'); ?> - <?= $this->m_general->getNameCharacterSpecifyGuid($idlink); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('panel_admin_char_manage'); ?> - <?= $this->m_general->getNameCharacterSpecifyGuid($idlink); ?></h4>
                 </div>
             </div>
             <?php if(isset($_GET['char'])) { ?>
-                <div class="alert alert-danger"><?= $this->lang->line('char_isonline'); ?></div>
+                <div class="alert alert-danger"><?= $this->lang->line('status_is_online'); ?></div>
             <?php } ?>
 
             <?php if(isset($_GET['name'])) { ?>
-                <div class="alert alert-danger"><?= $this->lang->line('char_namexist'); ?></div>
+                <div class="alert alert-danger"><?= $this->lang->line('status_name_exist'); ?></div>
             <?php } ?>
             <!-- .row -->
             <div class="row">
                 <div class="col-lg-4 col-sm-4">
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            <?= $this->lang->line('char_change_level'); ?>
+                            <?= $this->lang->line('panel_admin_change_level'); ?>
                             <div class="pull-right">
                                 <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                             </div>
@@ -59,10 +59,10 @@
                             <div class="panel-body has-success">
                                 <form action="" method="post" accept-charset="utf-8">
                                     <div class="form-group">
-                                        <input required name="newLevel" type="number" min="1" max="<?= $this->m_general->getMaxLevel(); ?>" class="form-control" placeholder="<?= $this->lang->line('expr_level'); ?>">
+                                        <input required name="newLevel" type="number" min="1" max="<?= $this->m_general->getMaxLevel(); ?>" class="form-control" placeholder="<?= $this->lang->line('column_level'); ?>">
                                     </div>
                                     <div class="col-md-12">
-                                        <button name="button_changeLevel" class="btn btn-block btn-outline btn-success"><i class="fa fa-refresh fa-fw"></i><?= $this->lang->line('char_change_level'); ?></button>
+                                        <button name="button_changeLevel" class="btn btn-block btn-outline btn-success"><i class="fa fa-refresh fa-fw"></i><?= $this->lang->line('button_change_level'); ?></button>
                                     </div>
                                 </form>
                             </div>
@@ -73,7 +73,7 @@
                 <div class="col-lg-4 col-sm-4">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
-                            <?= $this->lang->line('expr_rename'); ?>
+                            <?= $this->lang->line('panel_admin_rename'); ?>
                             <div class="pull-right">
                                 <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                             </div>
@@ -82,10 +82,10 @@
                             <div class="panel-body">
                                 <form action="" method="post" accept-charset="utf-8">
                                     <div class="form-group has-warning">
-                                        <input required name="newName" type="text" class="form-control" placeholder="<?= $this->lang->line('expr_rename'); ?>">
+                                        <input required name="newName" type="text" class="form-control" placeholder="<?= $this->lang->line('panel_admin_rename'); ?>">
                                     </div>
                                     <div class="col-md-12">
-                                        <button name="button_renamechar" class="btn btn-block btn-outline btn-warning"><i class="fa fa-pencil-square-o fa-fw"></i><?= $this->lang->line('expr_rename'); ?></button>
+                                        <button name="button_renamechar" class="btn btn-block btn-outline btn-warning"><i class="fa fa-pencil-square-o fa-fw"></i><?= $this->lang->line('panel_admin_rename'); ?></button>
                                     </div>
                                 </form>
                             </div>
@@ -97,7 +97,7 @@
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-success">
                             <div class="panel-heading">
-                                <?= $this->lang->line('unban_char'); ?>
+                                <?= $this->lang->line('panel_admin_unban_char'); ?>
                                 <div class="pull-right">
                                     <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                                 </div>
@@ -105,7 +105,7 @@
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
                                     <form action="" method="post" accept-charset="utf-8">
-                                        <button name="button_unban" class="btn btn-block btn-outline btn-success"><i class="fa fa-check-circle fa-fw"></i><?= $this->lang->line('unban_char'); ?></button>
+                                        <button name="button_unban" class="btn btn-block btn-outline btn-success"><i class="fa fa-check-circle fa-fw"></i><?= $this->lang->line('button_unban'); ?></button>
                                     </form>
                                 </div>
                             </div>
@@ -117,7 +117,7 @@
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-danger">
                             <div class="panel-heading">
-                                <?= $this->lang->line('ban_char'); ?>
+                                <?= $this->lang->line('panel_admin_ban_char'); ?>
                                 <div class="pull-right">
                                     <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                                 </div>
@@ -129,7 +129,7 @@
                                             <input type="text" id="state-danger" required="" name="banchar_reason" class="form-control" placeholder="<?= $this->lang->line('reason'); ?>">
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" name="button_banchar" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('ban_char'); ?></button>
+                                            <button type="submit" name="button_banchar" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('button_ban'); ?></button>
                                         </div>
                                     </form>
                                 </div>
@@ -144,7 +144,7 @@
                 <div class="col-lg-4 col-sm-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <?= $this->lang->line('char_customize'); ?>
+                            <?= $this->lang->line('panel_admin_customize'); ?>
                             <div class="pull-right">
                                 <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                             </div>
@@ -152,7 +152,7 @@
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
                                 <form action="" method="post" accept-charset="utf-8">
-                                    <button name="button_customize" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('char_customize'); ?></button>
+                                    <button name="button_customize" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('panel_admin_customize'); ?></button>
                                 </form>
                             </div>
                         </div>
@@ -163,7 +163,7 @@
                 <div class="col-lg-4 col-sm-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <?= $this->lang->line('char_changerace'); ?>
+                            <?= $this->lang->line('panel_admin_change_race'); ?>
                             <div class="pull-right">
                                 <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                             </div>
@@ -171,7 +171,7 @@
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
                                 <form action="" method="post" accept-charset="utf-8">
-                                    <button name="button_changerace" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('char_changerace'); ?></button>
+                                    <button name="button_changerace" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('panel_admin_change_race'); ?></button>
                                 </form>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                 <div class="col-lg-4 col-sm-4">
                     <div class="panel panel-info">
                         <div class="panel-heading">
-                            <?= $this->lang->line('char_changefaction'); ?>
+                            <?= $this->lang->line('panel_admin_change_faction'); ?>
                             <div class="pull-right">
                                 <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                             </div>
@@ -190,7 +190,7 @@
                         <div class="panel-wrapper collapse in" aria-expanded="true">
                             <div class="panel-body">
                                 <form action="" method="post" accept-charset="utf-8">
-                                    <button name="button_changefaction" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('char_changefaction'); ?></button>
+                                    <button name="button_changefaction" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('panel_admin_change_faction'); ?></button>
                                 </form>
                             </div>
                         </div>
@@ -203,7 +203,7 @@
             <div class="row">
                 <div class="col-lg-4">
                     <div class="well">
-                        <h4><i class="fa fa-list fa-fw"></i><?= $this->lang->line('annotations'); ?></h4>
+                        <h4><i class="fa fa-list fa-fw"></i><?= $this->lang->line('panel_admin_annotations'); ?></h4>
                         <ul class="list-icons">
                             <?php foreach($this->admin_model->getAnnotationsSpecifyChar($idlink)->result() as $charlistannotation) { ?>
                                 <li><i class="fa fa-caret-right text-primary"></i><?= $charlistannotation->annotation ?></li>

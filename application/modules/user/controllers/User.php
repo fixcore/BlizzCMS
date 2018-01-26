@@ -26,7 +26,7 @@ class User extends MX_Controller {
                     'name' => 'login_username',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('username_re'),
+                    'placeholder' => $this->lang->line('form_username'),
                     'type' => 'text'),
 
                 "password_form" => array(
@@ -34,13 +34,13 @@ class User extends MX_Controller {
                     'name' => 'login_password',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('password_re'),
+                    'placeholder' => $this->lang->line('form_password'),
                     'type' => 'password'),
 
                 "submit_form" => array(
                     'id' => 'button_log',
                     'name' => 'button_log',
-                    'value' => $this->lang->line('button_log'),
+                    'value' => $this->lang->line('button_login'),
                     'class' => 'uk-button uk-button-primary uk-width-1-1')
             );
 
@@ -54,7 +54,7 @@ class User extends MX_Controller {
                     'name' => 'login_email',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('email_re'),
+                    'placeholder' => $this->lang->line('form_email'),
                     'type' => 'email'),
 
                 "password_form" => array(
@@ -62,13 +62,13 @@ class User extends MX_Controller {
                     'name' => 'login_password',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('password_re'),
+                    'placeholder' => $this->lang->line('form_password'),
                     'type' => 'password'),
 
                 "submit_form" => array(
                     'id' => 'button_log',
                     'name' => 'button_log',
-                    'value' => $this->lang->line('button_log'),
+                    'value' => $this->lang->line('button_login'),
                     'class' => 'uk-button uk-button-primary uk-width-1-1')
             );
 

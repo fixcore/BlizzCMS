@@ -55,9 +55,9 @@
                         <!-- logged -->
                         <?php if ($this->m_data->isLogged()) { ?>
                             <!-- credits -->
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="<?=$this->lang->line('panel_dp');?>" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
                             | 
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="<?=$this->lang->line('panel_vp');?>" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
                             <!-- credits -->
                         <?php } ?>
                         <!-- logged -->
@@ -97,7 +97,7 @@
                         <div class="col-sm-3"></div>
                         <div class="col-sm-6">
                             <div class="uk-alert-success" uk-alert>
-                                <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> <?=$this->lang->line('shop_success');?></p>
+                                <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> <?=$this->lang->line('store_success');?></p>
                             </div>
                         </div>
                     </div>

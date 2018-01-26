@@ -20,11 +20,11 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-shopping-cart fa-fw"></i><?= $this->lang->line('shop'); ?> - <?= $this->lang->line('shop_list'); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-shopping-cart fa-fw"></i><?= $this->lang->line('admin_store'); ?> - <?= $this->lang->line('panel_admin_item_list'); ?></h4>
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <a href="#" data-toggle="modal" data-target="#createite-modal">
-                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                     </a>
                 </div>
             </div>
@@ -36,11 +36,11 @@
                             <table id="myTable" class="table color-table info-table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Itemid</th>
-                                        <th>Name</th>
-                                        <th>Price DP</th>
-                                        <th>Price VP</th>
-                                        <th class="text-center">Action</th>
+                                        <th><?= $this->lang->line('column_id'); ?></th>
+                                        <th><?= $this->lang->line('column_name'); ?></th>
+                                        <th><?= $this->lang->line('store_item_price'); ?> DP</th>
+                                        <th><?= $this->lang->line('store_item_price'); ?> VP</th>
+                                        <th class="text-center"><?= $this->lang->line('column_action'); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -75,16 +75,16 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title"><i class="fa fa-cube fa-fw"></i> <?= $this->lang->line('shop_create'); ?></h4>
+                        <h4 class="modal-title"><i class="fa fa-cube fa-fw"></i> <?= $this->lang->line('form_create_item'); ?></h4>
                     </div>
                     <div class="modal-body">
                         <form method="post" action="" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('store_productName'); ?></label>
-                                <input name="itemname" type="text" class="form-control" placeholder="<?= $this->lang->line('store_productName'); ?>" required>
+                                <label class="control-label"><?= $this->lang->line('form_store_item_name'); ?></label>
+                                <input name="itemname" type="text" class="form-control" placeholder="<?= $this->lang->line('form_store_item_name'); ?>" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label"><?= $this->lang->line('expr_category');?></label>
+                                <label class="control-label"><?= $this->lang->line('form_category'); ?></label>
                                 <select class="form-control" name="categorySelect">
                                     <?php foreach ($this->admin_model->getCategoryStore()->result() as $groupsStore) { ?>
                                         <option value="<?= $groupsStore->id ?>"><?= $groupsStore->name ?></option>
@@ -92,39 +92,39 @@
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label"><?=$this->lang->line('type');?></label>
+                                <label class="control-label"><?=$this->lang->line('form_type');?></label>
                                 <div class="radio-list">
                                     <label class="radio-inline p-0">
                                         <div class="radio radio-info">
                                             <input required="" type="radio" checked="yes" name="type_shop" id="item1" value="1">
-                                            <label for="radio1"><?=$this->lang->line('item');?></label>
+                                            <label for="radio1"><?=$this->lang->line('option_item');?></label>
                                         </div>
                                     </label>
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label"><?=$this->lang->line('price');?> DP</label>
+                                <label class="control-label"><?=$this->lang->line('store_item_price');?> DP</label>
                                 <input name="priceDP" type="text" class="form-control" placeholder="0" value="0" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label"><?=$this->lang->line('price');?> VP</label>
+                                <label class="control-label"><?=$this->lang->line('store_item_price');?> VP</label>
                                 <input name="priceVP" type="text" class="form-control" placeholder="0" value="0" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label">Item ID</label>
+                                <label class="control-label"><?=$this->lang->line('form_store_item_id');?></label>
                                 <input name="itemID" type="text" class="form-control" placeholder="Item Id" required>
                             </div>
                             <div class="form-group col-md-6">
-                                <label class="control-label">Icon Name</label>
+                                <label class="control-label"><?=$this->lang->line('form_forum_icon_name');?></label>
                                 <input name="iconName" type="text" class="form-control" placeholder="inv_belt_45" value="inv_belt_45" required>
                             </div>
                             <div class="form-group">
-                                <label class="control-label">Image File Name</label>
+                                <label class="control-label"><?=$this->lang->line('form_store_image_name');?></label>
                                 <input name="imageName" type="text" class="form-control" placeholder="image.jpg" value="image.jpg" required>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="submit" name="button_createItem" class="btn btn-success waves-effect waves-light"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><?=$this->lang->line('button_close');?></button>
+                                <button type="submit" name="button_createItem" class="btn btn-success waves-effect waves-light"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                             </div>
                         </form>
                     </div>

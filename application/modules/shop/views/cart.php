@@ -71,9 +71,9 @@
                         <!-- logged -->
                         <?php if ($this->m_data->isLogged()) { ?>
                             <!-- credits -->
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="<?=$this->lang->line('panel_dp');?>" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
                             |
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="<?=$this->lang->line('panel_vp');?>" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
                             <!-- credits -->
                         <?php } ?>
                         <!-- logged -->
@@ -92,7 +92,7 @@
         <section class="Scm-content">
         <form action="" method="post" accept-charset="utf-8">
             <div class="section">
-                <h2 style="color: #fff;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Buy Item: <a rel="item=<?= $this->shop_model->getItem($idlink); ?>"><?= $this->shop_model->getName($idlink); ?></a></h2>
+                <h2 style="color: #fff;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?=$this->lang->line('store_cart_description');?>: <a rel="item=<?= $this->shop_model->getItem($idlink); ?>"><?= $this->shop_model->getName($idlink); ?></a></h2>
                 <p></p>
                 <div class="uk-margin uk-text-center">
                     <div class="uk-inline">
@@ -100,10 +100,10 @@
                             <img class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/<?= $this->shop_model->getIcon($idlink) ?>.jpg" />
                         </a>
                     </div>
-                    <p><i class="fa fa-info-circle" aria-hidden="true"></i> Item Name: <?= $this->shop_model->getName($idlink); ?></p>
+                    <p><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('store_item_name');?>: <?= $this->shop_model->getName($idlink); ?></p>
                 </div>
                 <div class="uk-margin uk-text-center">
-                    <p><i class="fa fa-list-ul" aria-hidden="true"></i> Select Character:</p>
+                    <p><i class="fa fa-list-ul" aria-hidden="true"></i> <?=$this->lang->line('store_select_character');?>:</p>
                     <div class="uk-inline">
                         <div class="uk-form-controls">
                             <select class="uk-select uk-form-width-medium uk-form-small" name="charSelects">
@@ -115,13 +115,13 @@
                     </div>
                 </div>
                 <div class="uk-margin uk-text-center">
-                    <p><i class="fa fa-money" aria-hidden="true"></i> Price:</p>
+                    <p><i class="fa fa-money" aria-hidden="true"></i> <?=$this->lang->line('store_item_price');?>:</p>
                     <div class="uk-inline">
                         <h4>
                             <?php if($_GET['tp'] == "dp"): ?>
-                                <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="30px" height="30px" uk-tooltip="pos: bottom">
+                                <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="<?=$this->lang->line('panel_dp');?>" width="30px" height="30px" uk-tooltip="pos: bottom">
                             <?php else: ?>
-                                <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="30px" height="30px" uk-tooltip="pos: bottom">
+                                <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="<?=$this->lang->line('panel_vp');?>" width="30px" height="30px" uk-tooltip="pos: bottom">
                             <?php endif; ?>
                             <span class="uk-badge"><?= $this->shop_model->getPriceType($idlink, $_GET['tp']); ?></span>
                         </h4>

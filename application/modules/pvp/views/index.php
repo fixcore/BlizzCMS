@@ -2,7 +2,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('lad_pvp'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_pvp_statistics'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -44,19 +44,19 @@
                 <!-- -->
                 <div class="space-adaptive-small"></div>
                 <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="ra ra-axe"></i> <?= $this->m_general->getRealmName(); ?></h2>
-                <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('lad_pvp');?></h4>
+                <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('nav_pvp_statistics');?></h4>
                 <div class="space-adaptive-small"></div>
                 <!-- -->
                 <table class="uk-table uk-table-responsive uk-table-divider">
                     <thead>
-                        <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-danger">TOP 20</span></h4>
+                        <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-danger"><?=$this->lang->line('pvp_top');?></span></h4>
                         <tr>
                             <th class="uk-width-small" style="color: #fff;"><i class="fa fa-user" aria-hidden="true"></i> 
-                                <?=$this->lang->line('name');?></th>
-                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-flag" aria-hidden="true"></i> <?=$this->lang->line('faction');?></th>
-                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('total_kills');?></th>
-                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('today_kills');?></th>
-                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('yersterday_kills');?></th>
+                                <?=$this->lang->line('column_name');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-flag" aria-hidden="true"></i> <?=$this->lang->line('column_faction');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('column_total_kills');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('column_today_kills');?></th>
+                            <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('column_yersterday_kills');?></th>
                         </tr>
                     </thead>
                     <tbody>

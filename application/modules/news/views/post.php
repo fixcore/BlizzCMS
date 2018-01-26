@@ -12,7 +12,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('news'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_news'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -70,13 +70,13 @@
                             <article data-id='' data-title="" class="ArticleDetail">
                                 <div class="ArticleDetail-heading">
                                     <div class="ArticleDetail-headingBlock">
-                                        <div class="Heading Heading--articleSubheading ArticleDetail-community flush-top"><i class="fa fa-list-alt" aria-hidden="true"></i> Latest News</div>
+                                        <div class="Heading Heading--articleSubheading ArticleDetail-community flush-top"><i class="fa fa-list-alt" aria-hidden="true"></i> <?= $this->lang->line('news_article_subheading'); ?></div>
                                         <h1 class="Heading Heading--articleHeadline ArticleDetail-title" style="color: #fff;"><?= $this->news_model->getNewTitle($idlink); ?></h1>
                                         <div class="Heading Heading--articleByline flush-bottom">
                                             <div class="ArticleDetail-subHeadingContainer">
                                                 <div class="ArticleDetail-subHeadingLeft">
                                                     <span class="ArticleDetail-bylineBy">
-                                                        <span itemprop="author" class="ArticleDetail-bylineAuthor text-identity">Published by STAFF</span>
+                                                        <span itemprop="author" class="ArticleDetail-bylineAuthor text-identity"><?= $this->lang->line('news_article_published'); ?></span>
                                                     </span>
                                                 </div>
                                                 <div class="ArticleDetail-subHeadingRight">
@@ -110,13 +110,13 @@
                                                     <div class="Author-data" data-topic-form=''>
                                                         <div class="LoginPlaceholder" id="create-topic">
                                                             <header class="LoginPlaceholder-header">
-                                                                <h1 class="LoginPlaceholder-heading" style="color: #fff;"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('text_login_forumstxt'); ?></h1>
+                                                                <h1 class="LoginPlaceholder-heading" style="color: #fff;"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
                                                             </header>
                                                             <div class="LoginPlaceholder-content">
                                                                 <div class="LoginPlaceholder-details">
-                                                                    <div class="LogIn-message"><?= $this->lang->line('text_login_forums'); ?></div>
+                                                                    <div class="LogIn-message"><?= $this->lang->line('forum_comment_locked'); ?></div>
                                                                     <a class="LogIn-button" href="<?= base_url('login'); ?>">
-                                                                        <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_log'); ?></span>
+                                                                        <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></span>
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -134,7 +134,7 @@
                                     <section xmlns="http://www.w3.org/1999/xhtml" class="Section Section--secondary">
                                         <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
                                             <header class="TopicForm-header">
-                                                <h1 class="TopicForm-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('text_login_forumstxt'); ?></h1>
+                                                <h1 class="TopicForm-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
                                             </header>
                                             <div class="TopicForm-content">
                                                 <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944}">
@@ -148,7 +148,7 @@
                                                         </a>
                                                         <div class="Author-details">
                                                             <span class="Author-name"><?= $this->session->userdata('fx_sess_username'); ?></span>
-                                                            <span class="Author-posts"><?= $this->forum_model->getCountPostAuthor($this->session->userdata('fx_sess_id')); ?> <?= $this->lang->line('forum_postCount'); ?></span>
+                                                            <span class="Author-posts"><?= $this->forum_model->getCountPostAuthor($this->session->userdata('fx_sess_id')); ?> <?= $this->lang->line('forum_post_count'); ?></span>
                                                         </div>
                                                     </div>
                                                 </aside>
@@ -163,11 +163,11 @@
                                                         </script>
                                                     </div>
                                                     <span class="TopicForm-link">
-                                                        <a href="#" class="TopicForm-link--conduct"><?= $this->lang->line('text_codeConduct'); ?></a>
+                                                        <a href="#" class="TopicForm-link--conduct"><?= $this->lang->line('forum_code_conduct'); ?></a>
                                                     </span>
                                                     <div class="TopicForm-action--buttons">
                                                         <button type="submit" name="button_addcommentary" class="TopicForm-button TopicForm-button--reply" id="submit-button">
-                                                            <span class="Button-content"><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->lang->line('button_addreply'); ?></span>
+                                                            <span class="Button-content"><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->lang->line('button_add_reply'); ?></span>
                                                         </button>
                                                     </div>
                                                 </form>
@@ -199,7 +199,7 @@
                                                                 <div class="Author-details">
                                                                     <span class="Author-name"><?= $this->m_data->getUsernameID($commentss->author); ?></span>
                                                                     <span class="Author-posts">
-                                                                        <a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="View Post History" data-original-title="" title=""><?= $this->forum_model->getCountPostAuthor($commentss->author); ?> <?= $this->lang->line('forum_postCount'); ?></a>
+                                                                        <a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="View Post History" data-original-title="" title=""><?= $this->forum_model->getCountPostAuthor($commentss->author); ?> <?= $this->lang->line('forum_post_count'); ?></a>
                                                                     </span>
                                                                     <?php if($this->m_data->getRank($commentss->author) > 0) { ?>
                                                                         <span class="Author-job">STAFF</span>
@@ -254,7 +254,7 @@
                                                                     <div class="ArticleSidebarItem-text">
                                                                         <div class="ArticleSidebarItem-subtitle">
                                                                             <div class="ArticleSidebarItem-subtitleLeft">
-                                                                                <div class="ArticleSidebarItem-community"><i class="fa fa-list-alt" aria-hidden="true"></i> Latest News</div>
+                                                                                <div class="ArticleSidebarItem-community"><i class="fa fa-list-alt" aria-hidden="true"></i> <?= $this->lang->line('news_article_subheading'); ?></div>
                                                                             </div>
                                                                             <div class="ArticleSidebarItem-timestamp"><?= date('Y-m-d', $list->date); ?></div>
                                                                         </div>

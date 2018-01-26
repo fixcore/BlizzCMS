@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('forums'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_forums'); ?></title>
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
@@ -44,7 +44,7 @@
                 <div class="Community-wrapper">
                     <div class="Welcome">
                         <div class="Welcome-logo--container">	
-                            <p class="Welcome-text"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->lang->line('forum_welcometext'); ?></p>
+                            <p class="Welcome-text"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->lang->line('forum_welcome'); ?></p>
                         </div>
                     </div>
                 </div>

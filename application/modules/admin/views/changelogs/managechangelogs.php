@@ -15,11 +15,11 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-mouse-pointer fa-fw"></i>Website - <?= $this->lang->line('chang_list'); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-mouse-pointer fa-fw"></i><?= $this->lang->line('admin_website'); ?> - <?= $this->lang->line('panel_admin_changelogs_list'); ?></h4>
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <a href="#" data-toggle="modal" data-target="#createlog-modal">
-                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                     </a>
                 </div>
             </div>
@@ -31,9 +31,9 @@
                             <table id="myTable" class="table color-table info-table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Date</th>
-                                        <th class="text-center">Action</th>
+                                        <th><?= $this->lang->line('form_title'); ?></th>
+                                        <th><?= $this->lang->line('column_date'); ?></th>
+                                        <th class="text-center"><?= $this->lang->line('column_action'); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,21 +66,21 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title"><i class="fa fa-list-alt fa-fw"></i> <?= $this->lang->line('adm_createChangelog'); ?></h4>
+                        <h4 class="modal-title"><i class="fa fa-list-alt fa-fw"></i> <?= $this->lang->line('form_create_changelog'); ?></h4>
                     </div>
                     <div class="modal-body">
                         <form method="post" action="" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('changelog_titlec'); ?></label>
-                                <input name="chang_title" type="text" class="form-control" placeholder="<?= $this->lang->line('changelog_titlec'); ?>" required>
+                                <label class="control-label"><?= $this->lang->line('form_changelog_title'); ?></label>
+                                <input name="chang_title" type="text" class="form-control" placeholder="<?= $this->lang->line('form_changelog_title'); ?>" required>
                             </div>
                             <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('new_desc'); ?></label>
+                                <label class="control-label"><?= $this->lang->line('form_description'); ?></label>
                                 <textarea required="" name="chang_description" id="adminPanelCK" rows="10" cols="80"></textarea>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="submit" name="button_createNew" class="btn btn-success waves-effect waves-light"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><?= $this->lang->line('button_close'); ?></button>
+                                <button type="submit" name="button_createNew" class="btn btn-success waves-effect waves-light"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                             </div>
                         </form>
                     </div>

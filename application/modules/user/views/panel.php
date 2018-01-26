@@ -22,7 +22,7 @@
                 }
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
         }
         else if ($this->m_general->getExpansionAction() == 2)
         {
@@ -42,13 +42,13 @@
                 }
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
         }
         else
-            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_notfound').'</p></div>';
+            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_not_found').'</p></div>';
     }
     else
-        echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_nmatch').'</p></div>';
+        echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_not_match').'</p></div>';
 } ?>
 
 <?php if(isset($_POST['button_changeemail']))
@@ -68,10 +68,10 @@
                 $this->user_model->changeEmailI($this->session->userdata('fx_sess_id'), $newemail);
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
         }
         else
-            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_omatch').'</p></div>';
+            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('oemail_not_match').'</p></div>';
     }
     else if ($this->m_general->getExpansionAction() == 2)
     {
@@ -80,7 +80,7 @@
         $newpasscompare = $this->m_data->encryptBattlenet($newemail, $password);
 
         if ($this->user_model->getExistEmail(strtoupper($newemail)) > 0)
-            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_use').'</p></div>';
+            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_used').'</p></div>';
         else
         {
             if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
@@ -90,10 +90,10 @@
                     $this->user_model->changeEmailII($this->session->userdata('fx_sess_id'), $newemail, $newpasscompare);
                 }
                 else
-                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('pass_omatch').'</p></div>';
+                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
             }
             else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_omatch').'</p></div>';
+                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('oemail_not_match').'</p></div>';
         }
     }
     else
@@ -125,7 +125,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('settings'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -179,19 +179,19 @@
                     <section class="Scm-content">
                         <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
                             <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('acc_rank'); ?>: <span class="uk-badge">
+                                <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-badge">
                                     <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?>
                                 </span></p>
-                                <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('expr_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                                <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('panel_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
                             </div>
                             <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('expr_location'); ?>: <span class="uk-badge"><?= $this->user_model->getLocation($this->session->userdata('fx_sess_id')); ?></span></p>
-                                <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('expr_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                                <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('panel_location'); ?>: <span class="uk-badge"><?= $this->user_model->getLocation($this->session->userdata('fx_sess_id')); ?></span></p>
+                                <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('panel_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
                             </div>
                             <div class="uk-column-1-2 uk-column-divider">
-                                <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('expr_expansion'); ?>: <span class="uk-badge"><?= $this->m_general->getExpansionName(); ?></span></p>
+                                <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('panel_expansion'); ?>: <span class="uk-badge"><?= $this->m_general->getExpansionName(); ?></span></p>
                                 <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
-                                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('member_sice'); ?>: <span class="uk-badge"><?= date('Y/m/d',$this->user_model->getDateMember($this->session->userdata('fx_sess_id'))); ?></span></p>
+                                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('panel_member'); ?>: <span class="uk-badge"><?= date('Y/m/d',$this->user_model->getDateMember($this->session->userdata('fx_sess_id'))); ?></span></p>
                                 <?php } ?>
                             </div>
                             <hr class="uk-divider-icon">
@@ -199,14 +199,14 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('vote_panel'); ?></button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('don_panel'); ?></button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -215,7 +215,7 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('support'); ?></button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('button_support'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -223,12 +223,12 @@
                                     <div class="uk-margin">
                                         <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
                                             <a href="#" uk-toggle="target: #avatars">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('chang_avatar'); ?></button>
+                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
                                             </a>
                                         <?php } ?>
                                         <?php if(!$this->user_model->getExistInfo()->num_rows()) { ?>
                                             <a href="#" uk-toggle="target: #personalinfo">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('add_personal_info'); ?></button>
+                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
                                             </a>
                                         <?php } ?>
                                     </div>
@@ -238,14 +238,14 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="#" uk-toggle="target: #changePassword">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('chang_pass'); ?></button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="uk-margin">
                                         <a href="#" uk-toggle="target: #changeEmail">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('chang_email'); ?></button>
+                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -253,7 +253,7 @@
                             <hr class="uk-divider-icon">
                             <ul uk-accordion>
                                 <li class="uk-open">
-                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - Characters List</h3>
+                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
                                     <div class="uk-accordion-content">
                                         <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
                                             <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($this->session->userdata('fx_sess_id'))->result() as $chars) { ?>
@@ -277,7 +277,7 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('chang_pass'); ?></h2>
+                <h2 class="uk-modal-title"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
@@ -285,7 +285,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: unlock"></span>
-                                <input class="uk-input" name="oldpass" type="password" required placeholder="<?= $this->lang->line('old_password'); ?>">
+                                <input class="uk-input" name="oldpass" type="password" required placeholder="<?= $this->lang->line('form_old_password'); ?>">
                             </div>
                         </div>
                     </div>
@@ -294,7 +294,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                <input class="uk-input" name="newpass" type="password" required placeholder="<?= $this->lang->line('new_password'); ?>">
+                                <input class="uk-input" name="newpass" type="password" required placeholder="<?= $this->lang->line('form_new_password'); ?>">
                             </div>
                         </div>
                     </div>
@@ -303,7 +303,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                <input class="uk-input" name="newpassr" type="password" required placeholder="<?= $this->lang->line('pascword_re'); ?>">
+                                <input class="uk-input" name="newpassr" type="password" required placeholder="<?= $this->lang->line('form_re_password'); ?>">
                             </div>
                         </div>
                     </div>
@@ -320,7 +320,7 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('chang_email'); ?></h2>
+                <h2 class="uk-modal-title"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
@@ -328,7 +328,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
-                                <input class="uk-input" name="password" type="password" required placeholder="<?= $this->lang->line('password_re'); ?>">
+                                <input class="uk-input" name="password" type="password" required placeholder="<?= $this->lang->line('form_password'); ?>">
                             </div>
                         </div>
                     </div>
@@ -337,7 +337,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
-                                <input class="uk-input" name="oldemail" type="email" required placeholder="<?= $this->lang->line('old_email'); ?>">
+                                <input class="uk-input" name="oldemail" type="email" required placeholder="<?= $this->lang->line('form_old_email'); ?>">
                             </div>
                         </div>
                     </div>
@@ -346,7 +346,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
-                                <input class="uk-input" name="newemail" type="email" required placeholder="<?= $this->lang->line('new_email'); ?>">
+                                <input class="uk-input" name="newemail" type="email" required placeholder="<?= $this->lang->line('form_new_email'); ?>">
                             </div>
                         </div>
                     </div>
@@ -363,7 +363,7 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('chang_avatar'); ?></h2>
+                <h2 class="uk-modal-title"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
@@ -392,12 +392,12 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('add_personal_info'); ?></h2>
+                <h2 class="uk-modal-title"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('username_re'); ?> & <?= $this->lang->line('email_re'); ?></label>
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_username'); ?> & <?= $this->lang->line('form_email'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: hashtag"></span>
@@ -415,7 +415,7 @@
                     </div>
                     <hr class="uk-divider-icon">
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('personalinfo'); ?></label>
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_user_info'); ?></label>
                         <div class="uk-form-controls">
                             <select class="uk-select" name="country_us">
                                 <?php foreach($this->user_model->getCountry()->result() as $country_us) { ?>
@@ -428,7 +428,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                <input class="uk-input" name="name_us" type="text" placeholder="<?= $this->lang->line('first_name'); ?>" required>
+                                <input class="uk-input" name="name_us" type="text" placeholder="<?= $this->lang->line('form_first_name'); ?>" required>
                             </div>
                         </div>
                     </div>
@@ -436,12 +436,12 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: user"></span>
-                                <input class="uk-input" name="surname_us" type="text" placeholder="<?= $this->lang->line('last_name'); ?>" required>
+                                <input class="uk-input" name="surname_us" type="text" placeholder="<?= $this->lang->line('form_last_name'); ?>" required>
                             </div>
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label"><?= $this->lang->line('birth_date'); ?></label>
+                        <label class="uk-form-label"><?= $this->lang->line('form_birth_date'); ?></label>
                         <div class="uk-grid-small" uk-grid>
                             <div class="uk-inline uk-width-1-4@s">
                                 <div class="uk-form-controls">
@@ -483,28 +483,28 @@
                             <div class="uk-inline uk-width-1-2@s">
                                 <div class="uk-form-controls">
                                     <select class="uk-select" name="month_us">
-                                        <option value="1"><?= $this->lang->line('month_January'); ?></option>
-                                        <option value="2"><?= $this->lang->line('month_February'); ?></option>
-                                        <option value="3"><?= $this->lang->line('month_March'); ?></option>
-                                        <option value="4"><?= $this->lang->line('month_April'); ?></option>
-                                        <option value="5"><?= $this->lang->line('month_May'); ?></option>
-                                        <option value="6"><?= $this->lang->line('month_June'); ?></option>
-                                        <option value="7"><?= $this->lang->line('month_July'); ?></option>
-                                        <option value="8"><?= $this->lang->line('month_August'); ?></option>
-                                        <option value="9"><?= $this->lang->line('month_September'); ?></option>
-                                        <option value="10"><?= $this->lang->line('month_October'); ?></option>
-                                        <option value="11"><?= $this->lang->line('month_November'); ?></option>
-                                        <option value="12"><?= $this->lang->line('month_December'); ?></option>
+                                        <option value="1"><?= $this->lang->line('month_january'); ?></option>
+                                        <option value="2"><?= $this->lang->line('month_february'); ?></option>
+                                        <option value="3"><?= $this->lang->line('month_march'); ?></option>
+                                        <option value="4"><?= $this->lang->line('month_april'); ?></option>
+                                        <option value="5"><?= $this->lang->line('month_may'); ?></option>
+                                        <option value="6"><?= $this->lang->line('month_june'); ?></option>
+                                        <option value="7"><?= $this->lang->line('month_july'); ?></option>
+                                        <option value="8"><?= $this->lang->line('month_august'); ?></option>
+                                        <option value="9"><?= $this->lang->line('month_september'); ?></option>
+                                        <option value="10"><?= $this->lang->line('month_october'); ?></option>
+                                        <option value="11"><?= $this->lang->line('month_november'); ?></option>
+                                        <option value="12"><?= $this->lang->line('month_december'); ?></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="uk-inline uk-width-1-4@s">
-                                <input class="uk-input" type="number" name="year_us" pattern=".{4,4}" min="1936" max="2010" required title="4 characters" placeholder="<?= $this->lang->line('year'); ?>">
+                                <input class="uk-input" type="number" name="year_us" pattern=".{4,4}" min="1936" max="2010" required title="4 characters" placeholder="<?= $this->lang->line('form_year'); ?>">
                             </div>
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label"><?= $this->lang->line('security_quest'); ?></label>
+                        <label class="uk-form-label"><?= $this->lang->line('form_security_question'); ?></label>
                         <div class="uk-form-controls">
                             <select class="uk-select" id="form-stacked-select" name="question_us">
                                 <?php foreach ($this->user_model->getQuestion()->result() as $question_us) { ?>
@@ -517,7 +517,7 @@
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: question"></span>
-                                <input class="uk-input" name="answer_us" type="password" placeholder="<?= $this->lang->line('secret_answ'); ?>" required>
+                                <input class="uk-input" name="answer_us" type="password" placeholder="<?= $this->lang->line('form_secret_answer'); ?>" required>
                             </div>
                         </div>
                     </div>
