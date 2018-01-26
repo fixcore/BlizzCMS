@@ -111,6 +111,13 @@ class M_data extends CI_Model {
                 ->get('account');
     }
 
+    public function getSpecifyEmailBnet($email)
+    {
+        return $this->auth->select('id')
+                ->where('email', $email)
+                ->get('battlenet_accounts');
+    }
+
     public function getIDAccount($account)
     {
         $account = strtoupper($account);

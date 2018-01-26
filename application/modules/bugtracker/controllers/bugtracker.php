@@ -3,25 +3,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Bugtracker extends MX_Controller {
 
-    public function index()
+    public function __construct()
     {
+        parent::__construct();
+
         if ($this->m_modules->getStatusLadBugtracker() != '1')
             redirect(base_url(),'refresh');
 
-        $this->load->model('bugtracker_model');
-
-        if ($this->config->item('maintenance_mode') == '1')
+        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
         {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
-            {
-                $this->load->view('index');
-            }
-            else
-                $this->load->view('maintenance');
+            redirect(base_url('maintenance'),'refresh');
         }
-        else
-            $this->load->view('index');
 
+        $this->load->config('bugtracker');
+        $this->load->model('bugtracker_model');
+    }
+
+    public function index()
+    {
+        $data = array(
+                "classDrop" => array(
+                    'class' => 'uk-select',
+                    'id' => 'form-stacked-select'),
+
+                "title_from" => array(
+                    'id' => 'bug_title',
+                    'name' => 'bug_title',
+                    'class' => 'uk-input',
+                    'required' => 'required',
+                    'placeholder' => $this->lang->line('expr_title'),
+                    'type' => 'text'),
+
+                "url_form" => array(
+                    'id' => 'bug_url',
+                    'name' => 'bug_url',
+                    'class' => 'uk-input',
+                    'placeholder' => 'URL',
+                    'type' => 'url'),
+
+                "close_form" => array(
+                    'class' => 'uk-button uk-button-default uk-modal-close'),
+
+                "submit_form" => array(
+                    'id' => 'button_createIssue',
+                    'name' => 'button_createIssue',
+                    'value' => $this->lang->line('button_crea'),
+                    'class' => 'uk-button uk-button-primary')
+            );
+
+        $this->load->view('index', $data);
         $this->load->view('footer');
     }
 
@@ -33,22 +63,9 @@ class Bugtracker extends MX_Controller {
         if ($this->m_modules->getStatusLadBugtracker() != '1')
             redirect(base_url(),'refresh');
 
-        $this->load->model('bugtracker_model');
-
         $data['idlink'] = $id;
 
-        if ($this->config->item('maintenance_mode') == '1')
-        {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
-            {
-                $this->load->view('post', $data);
-            }
-            else
-                $this->load->view('maintenance');
-        }
-        else
-            $this->load->view('post', $data);
-
+        $this->load->view('post', $data);
         $this->load->view('footer');
     }
 
@@ -68,4 +85,15 @@ class Bugtracker extends MX_Controller {
 
         echo json_encode($output);
     }
+
+    public function create()
+    {
+        $title = $this->input->post('bug_title');
+        $type = $this->input->post('type_Bug');
+        $desc = $this->input->post('bug_description');
+        $url = $this->input->post('bug_url');
+
+        $this->bugtracker_model->insertIssue($title, $type, $desc, $url);
+    }
+
 }
