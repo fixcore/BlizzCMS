@@ -2,7 +2,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('login'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -42,8 +42,8 @@
                     <div class="Grid row Home-storiesEventsGrid">
                         <div class="GridItem col-md-3"></div>
                         <div class="GridItem col-md-6">
-                            <h2 class="uk-text-primary uk-text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('account_log'); ?></h2>
-                            <p class="uk-text-center" style="color: #fff;"><?= $this->lang->line('log_acc_des'); ?></p>
+                            <h2 class="uk-text-primary uk-text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></h2>
+                            <p class="uk-text-center" style="color: #fff;"><?= $this->lang->line('login_description'); ?></p>
                             <?= form_open(base_url('user/verify2')); ?>
                                 <div uk-grid uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-inline; delay: 500; repeat: true">
                                     <div class="uk-margin">
@@ -70,7 +70,7 @@
 
                             <br>
                             <a href="<?= base_url('register'); ?>">
-                                    <button class="uk-button uk-button-secondary uk-width-1-1" name="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('no_account'); ?></button>
+                                    <button class="uk-button uk-button-secondary uk-width-1-1" name="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('button_account_create'); ?></button>
                             </a>
                         </div>
                         <div class="GridItem col-md-3"></div>

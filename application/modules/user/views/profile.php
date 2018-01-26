@@ -8,7 +8,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('settings'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -67,7 +67,7 @@
                                     <div>
                                         <div class="uk-margin">
                                             <a href="#" uk-toggle="target: #privateMsg">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope" aria-hidden="true"></i> Send Private Message</button>
+                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope" aria-hidden="true"></i> <?= $this->lang->line('button_private_message'); ?></button>
                                             </a>
                                         </div>
                                     </div>
@@ -77,7 +77,7 @@
                             <hr class="uk-divider-icon">
                             <ul uk-accordion>
                                 <li class="uk-open">
-                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - Characters List</h3>
+                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
                                     <div class="uk-accordion-content">
                                         <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
                                             <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($idlink)->result() as $chars) { ?>
@@ -102,7 +102,7 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> New Message</h2>
+                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('form_new_message'); ?></h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
@@ -110,7 +110,7 @@
                     <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
 
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large" for="form-stacked-text">Message</label>
+                        <label class="uk-form-label uk-text-large" for="form-stacked-text"><?= $this->lang->line('form_message'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
                                 <textarea required name="replyText" id="ckeditor" rows="10" cols="80"></textarea>
@@ -123,7 +123,7 @@
 
                     <div class="uk-modal-footer uk-text-right actions">
                         <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                        <button class="uk-button uk-button-primary" type="submit" name="createPM">Send</button>
+                        <button class="uk-button uk-button-primary" type="submit" name="createPM"><?= $this->lang->line('button_send'); ?></button>
                     </div>
                 </div>
             </form>

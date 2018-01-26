@@ -7,7 +7,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('news'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -90,8 +90,8 @@
                                                             </div>
 
                                                             <div style="text-align: right;">
-                                                                <i class="fa fa-calendar" aria-hidden="true"></i> <?= $this->lang->line('expr_date'); ?>: <?= date('F/d/Y', $messages->date); ?> 
-                                                            // <i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('expr_time'); ?>: <?= date('l H:i A', $messages->date); ?> 
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i> <?= $this->lang->line('column_date'); ?>: <?= date('F/d/Y', $messages->date); ?> 
+                                                            // <i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('column_time'); ?>: <?= date('l H:i A', $messages->date); ?> 
                                                             </div>
                                                         </h6>
                                                     </footer><hr>
@@ -102,9 +102,9 @@
                                             <div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
                                                 <div>
                                                     <div class="uk-margin">
-                                                        <textarea name="replyText" required class="uk-textarea" rows="5" placeholder="<?= $this->lang->line('button_addreply'); ?>"></textarea>
+                                                        <textarea name="replyText" required class="uk-textarea" rows="5" placeholder="<?= $this->lang->line('button_add_reply'); ?>"></textarea>
                                                     </div>
-                                                    <button type="submit" name="addReplyComment" class="uk-button uk-button-primary" value="<?= $messages->author ?>"><?= $this->lang->line('expr_reply'); ?></button>
+                                                    <button type="submit" name="addReplyComment" class="uk-button uk-button-primary" value="<?= $messages->author ?>"><?= $this->lang->line('button_reply'); ?></button>
                                                 </div>
                                             </div>
                                         </form>

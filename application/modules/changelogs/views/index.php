@@ -2,7 +2,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('changelogs'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_changelogs'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -49,13 +49,13 @@
                                 <article data-id='' data-title="" class="ArticleDetail">
                                     <div class="ArticleDetail-heading">
                                         <div class="ArticleDetail-headingBlock">
-                                            <div class="Heading Heading--articleSubheading ArticleDetail-community flush-top"><i class="fa fa-spinner fa-pulse fa-fw"></i> Recent Changes</div>
+                                            <div class="Heading Heading--articleSubheading ArticleDetail-community flush-top"><i class="fa fa-spinner fa-pulse fa-fw"></i> <?= $this->lang->line('changelogs_recent_article'); ?></div>
                                             <h1 class="Heading Heading--articleHeadline ArticleDetail-title" style="color: #fff;"><i class="fa fa-wrench" aria-hidden="true"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></h1>
                                             <div class="Heading Heading--articleByline flush-bottom">
                                                 <div class="ArticleDetail-subHeadingContainer">
                                                     <div class="ArticleDetail-subHeadingLeft">
                                                         <span class="ArticleDetail-bylineBy">
-                                                            <span itemprop="author" class="ArticleDetail-bylineAuthor text-identity">Published by STAFF</span>
+                                                            <span itemprop="author" class="ArticleDetail-bylineAuthor text-identity"><?= $this->lang->line('news_article_published'); ?></span>
                                                         </span>
                                                     </div>
                                                     <div class="ArticleDetail-subHeadingRight">
@@ -100,7 +100,7 @@
                                                                     <div class="ArticleSidebarItem-text">
                                                                         <div class="ArticleSidebarItem-subtitle">
                                                                             <div class="ArticleSidebarItem-subtitleLeft">
-                                                                                <div class="ArticleSidebarItem-community"><i class="fa fa-spinner fa-pulse fa-fw"></i> Changelogs</div>
+                                                                                <div class="ArticleSidebarItem-community"><i class="fa fa-spinner fa-pulse fa-fw"></i>  <?= $this->lang->line('changelogs_list'); ?></div>
                                                                             </div>
                                                                             <div class="ArticleSidebarItem-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $changelogsList->date); ?></div>
                                                                         </div>

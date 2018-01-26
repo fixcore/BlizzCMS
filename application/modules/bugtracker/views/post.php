@@ -20,7 +20,7 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('bugtracker'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_bugtracker'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
@@ -65,20 +65,20 @@
                     <div class="uk-placeholder uk-text-center"><?= $this->bugtracker_model->getUrlIssue($idlink); ?></div>
                 </div>
                 <div class="uk-column-1-3 uk-column-divider">
-                    <p><i class="fa fa-list" aria-hidden="true"></i> <?= $this->lang->line('type'); ?>: <span class="uk-label"><?= $this->bugtracker_model->getType($this->bugtracker_model->getTypeID($idlink)); ?></span></p>
-                    <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <?= $this->lang->line('expr_priority'); ?>: <span class="uk-label uk-label-danger"><?= $this->bugtracker_model->getPriority($this->bugtracker_model->getPriorityID($idlink)); ?></span></p>
-                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('expr_date'); ?>: <span class="uk-badge"><?= date('Y-m-d', $this->bugtracker_model->getDate($idlink)) ?></span></p>
+                    <p><i class="fa fa-list" aria-hidden="true"></i> <?= $this->lang->line('form_type'); ?>: <span class="uk-label"><?= $this->bugtracker_model->getType($this->bugtracker_model->getTypeID($idlink)); ?></span></p>
+                    <p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> <?= $this->lang->line('column_priority'); ?>: <span class="uk-label uk-label-danger"><?= $this->bugtracker_model->getPriority($this->bugtracker_model->getPriorityID($idlink)); ?></span></p>
+                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('column_date'); ?>: <span class="uk-badge"><?= date('Y-m-d', $this->bugtracker_model->getDate($idlink)) ?></span></p>
                 </div>
                 <div class="uk-column-1-3 uk-column-divider">
-                    <p><i class="fa fa-tags" aria-hidden="true"></i> <?= $this->lang->line('expr_status'); ?>: <span class="uk-label uk-label-success"><?= $this->bugtracker_model->getStatus($this->bugtracker_model->getStatusID($idlink)); ?></span></p>
-                    <p><i class="fa fa-info-circle" aria-hidden="true"></i> <?= $this->lang->line('expr_status'); ?>:
+                    <p><i class="fa fa-tags" aria-hidden="true"></i> <?= $this->lang->line('column_status'); ?>: <span class="uk-label uk-label-success"><?= $this->bugtracker_model->getStatus($this->bugtracker_model->getStatusID($idlink)); ?></span></p>
+                    <p><i class="fa fa-info-circle" aria-hidden="true"></i> <?= $this->lang->line('column_status'); ?>:
                         <?php if ($this->bugtracker_model->closeStatus($idlink) == '0') { ?>
-                            <span class="uk-label uk-label-success"><?= $this->lang->line('expr_open'); ?></span>
+                            <span class="uk-label uk-label-success"><?= $this->lang->line('option_open'); ?></span>
                         <?php } else { ?>
-                            <span class="uk-label uk-label-danger"><?= $this->lang->line('expr_closed'); ?></span>
+                            <span class="uk-label uk-label-danger"><?= $this->lang->line('option_closed'); ?></span>
                         <?php } ?>
                     </p>
-                    <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('expr_author'); ?>: <?= $this->m_data->getUsernameID($this->bugtracker_model->getAuthor($idlink)); ?></p>
+                    <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('column_author'); ?>: <?= $this->m_data->getUsernameID($this->bugtracker_model->getAuthor($idlink)); ?></p>
                 </div>
             </div>
         </section>

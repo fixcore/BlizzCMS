@@ -16,7 +16,7 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('forums'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_forums'); ?></title>
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
@@ -75,7 +75,7 @@
                             <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
                                 <p uk-margin>
                                     <button uk-toggle="target: #editTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
-                                        <span class="Button-content"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('button_edit'); ?></span>
+                                        <span class="Button-content"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('button_edit_topic'); ?></span>
                                     </button>
                                 </p>
                             <?php } ?>
@@ -104,7 +104,7 @@
                                     <div class="Author-details">
                                         <span class="Author-name"><?= $this->m_data->getUsernameID($this->forum_model->getSpecifyPostAuthor($idlink)); ?></span>
                                         <span class="Author-posts">
-                                            <a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="View Post History"><?= $this->forum_model->getCountPostAuthor($this->forum_model->getSpecifyPostAuthor($idlink)); ?> <?= $this->lang->line('forum_postCount'); ?></a>
+                                            <a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="View Post History"><?= $this->forum_model->getCountPostAuthor($this->forum_model->getSpecifyPostAuthor($idlink)); ?> <?= $this->lang->line('forum_post_count'); ?></a>
                                         </span>
                                     </div>
                                 </div>
@@ -146,13 +146,13 @@
                     <div class="Author-data" data-topic-form=''>
                         <div class="LoginPlaceholder" id="create-topic">
                             <header class="LoginPlaceholder-header">
-                                <h1 class="LoginPlaceholder-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('text_login_forumstxt'); ?></h1>
+                                <h1 class="LoginPlaceholder-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
                             </header>
                             <div class="LoginPlaceholder-content">
                                 <div class="LoginPlaceholder-details">
-                                    <div class="LogIn-message"><?= $this->lang->line('text_login_forums'); ?></div>
+                                    <div class="LogIn-message"><?= $this->lang->line('forum_comment_locked'); ?></div>
                                     <a class="LogIn-button" href="<?= base_url('login'); ?>">
-                                        <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_log'); ?></span>
+                                        <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></span>
                                     </a>
                                 </div>
                             </div>
@@ -170,7 +170,7 @@
                     <div class="Author-data" data-topic-form="{&quot;userId&quot;: 207424185944}">
                         <div class="LoginPlaceholder" id="create-topic">
                             <header class="LoginPlaceholder-header">
-                                <h1 class="LoginPlaceholder-heading"><?= $this->lang->line('not_authorized'); ?></h1>
+                                <h1 class="LoginPlaceholder-heading"><?= $this->lang->line('forum_not_authorized'); ?></h1>
                                 <a class="LoginPlaceholder-button--close" data-trigger="create.topicpost.forum" data-forum-button="true"></a>
                             </header>
                             <div class="LoginPlaceholder-content">
@@ -207,7 +207,7 @@
                                 <div class="Author-details">
                                     <span class="Author-name"><?= $this->m_data->getUsernameID($commentss->author); ?></span>
                                     <span class="Author-posts">
-                                        <a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="<?= $this->lang->line('text_postHistory'); ?>" data-original-title="" title=""><?= $this->forum_model->getCountPostAuthor($commentss->author); ?> <?= $this->lang->line('forum_postCount'); ?></a>
+                                        <a class="Author-posts" href="#" data-toggle="tooltip" data-tooltip-content="<?= $this->lang->line('forum_post_history'); ?>" data-original-title="" title=""><?= $this->forum_model->getCountPostAuthor($commentss->author); ?> <?= $this->lang->line('forum_post_count'); ?></a>
                                     </span>
                                     <?php if($this->m_data->getRank($commentss->author) > 0) { ?>
                                         <span class="Author-job">STAFF</span>
@@ -252,7 +252,7 @@
             <section xmlns="http://www.w3.org/1999/xhtml" class="Section Section--secondary">
                 <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
                     <header class="TopicForm-header">
-                        <h1 class="TopicForm-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('text_login_forumstxt'); ?></h1>
+                        <h1 class="TopicForm-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
                     </header>
                     <div class="TopicForm-content">
                         <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944    }">
@@ -267,7 +267,7 @@
                                 <div class="Author-details">
                                     <span class="Author-name"><?= $this->session->userdata('fx_sess_username'); ?></span>
                                     <span class="Author-posts">
-                                        <?= $this->forum_model->getCountPostAuthor($this->session->userdata('fx_sess_id')); ?> <?= $this->lang->line('forum_postCount'); ?>
+                                        <?= $this->forum_model->getCountPostAuthor($this->session->userdata('fx_sess_id')); ?> <?= $this->lang->line('forum_post_count'); ?>
                                     </span>
                                 </div>
                             </div>
@@ -283,11 +283,11 @@
                                 </script>
                             </div>
                             <span class="TopicForm-link">
-                                <a href="#" class="TopicForm-link--conduct"><?= $this->lang->line('text_codeConduct'); ?></a>
+                                <a href="#" class="TopicForm-link--conduct"><?= $this->lang->line('forum_code_conduct'); ?></a>
                             </span>
                             <div class="TopicForm-action--buttons">
                                 <button type="submit" name="button_addcommentary" class="TopicForm-button TopicForm-button--reply" id="submit-button">
-                                    <span class="Button-content"><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->lang->line('button_addreply'); ?></span>
+                                    <span class="Button-content"><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->lang->line('button_add_reply'); ?></span>
                                 </button>
                             </div>
                         </form>
@@ -308,12 +308,12 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('edit_topic'); ?></h2>
+                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_edit_topic'); ?></h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('expr_title'); ?></label>
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_title'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
@@ -329,7 +329,7 @@
                     <?php } ?>
 
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('new_desc'); ?></label>
+                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_description'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
                                 <textarea required="" name="edittopic_description" id="ckeditor_edit" rows="10" cols="80"><?= $this->forum_model->getTopicDescription($idlink); ?></textarea>
@@ -343,9 +343,9 @@
                         <div class="uk-margin">
                             <div class="uk-form-controls">
                                 <div class="uk-width-1-1 uk-text-center">
-                                    <label><input id="hightl" class="uk-checkbox" type="checkbox" name="check_highl" value="1"> <?= $this->lang->line('expr_highl'); ?></label>
+                                    <label><input id="hightl" class="uk-checkbox" type="checkbox" name="check_highl" value="1"> <?= $this->lang->line('form_highl'); ?></label>
                                     <span style="display:inline-block; width: 14px;"></span>
-                                    <label><input id="llock" class="uk-checkbox" type="checkbox" name="check_lock" value="1"> <?= $this->lang->line('expr_lock'); ?></label>
+                                    <label><input id="llock" class="uk-checkbox" type="checkbox" name="check_lock" value="1"> <?= $this->lang->line('form_lock'); ?></label>
                                 </div>
                             </div>
                         </div>
@@ -353,7 +353,7 @@
                 </div>
                 <div class="uk-modal-footer uk-text-right actions">
                     <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                    <button class="uk-button uk-button-primary" type="submit" name="button_editTopic"><?= $this->lang->line('button_edit'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_editTopic"><?= $this->lang->line('button_save'); ?></button>
                 </div>
             </form>
         </div>
