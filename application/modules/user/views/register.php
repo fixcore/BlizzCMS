@@ -30,8 +30,16 @@
         if ($password == $pascword)
         {
             if ($this->m_data->getSpecifyAccount($username)->num_rows())
-            {
                 echo $this->lang->line('acc_exist');
+            elseif($this->m_data->getSpecifyEmail($email)->num_rows())
+            {
+                echo $this->lang->line('email_use');
+
+                if ($this->m_general->getExpansionAction($this->config->item('expansion_id')) == 2)
+                {
+                    if ($this->m_data->getSpecifyEmailBnet($email)->num_rows())
+                    echo $this->lang->line('email_use');
+                }
             }
             else
                 $this->user_model->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day, $country);
