@@ -15,12 +15,43 @@ class Bugtracker extends MX_Controller {
             redirect(base_url('maintenance'),'refresh');
         }
 
+        $this->load->config('bugtracker');
         $this->load->model('bugtracker_model');
     }
 
     public function index()
     {
-        $this->load->view('index');
+        $data = array(
+                "classDrop" => array(
+                    'class' => 'uk-select',
+                    'id' => 'form-stacked-select'),
+
+                "title_from" => array(
+                    'id' => 'bug_title',
+                    'name' => 'bug_title',
+                    'class' => 'uk-input',
+                    'required' => 'required',
+                    'placeholder' => $this->lang->line('expr_title'),
+                    'type' => 'text'),
+
+                "url_form" => array(
+                    'id' => 'bug_url',
+                    'name' => 'bug_url',
+                    'class' => 'uk-input',
+                    'placeholder' => 'URL',
+                    'type' => 'url'),
+
+                "close_form" => array(
+                    'class' => 'uk-button uk-button-default uk-modal-close'),
+
+                "submit_form" => array(
+                    'id' => 'button_createIssue',
+                    'name' => 'button_createIssue',
+                    'value' => $this->lang->line('button_crea'),
+                    'class' => 'uk-button uk-button-primary')
+            );
+
+        $this->load->view('index', $data);
         $this->load->view('footer');
     }
 
@@ -54,4 +85,15 @@ class Bugtracker extends MX_Controller {
 
         echo json_encode($output);
     }
+
+    public function create()
+    {
+        $title = $this->input->post('bug_title');
+        $type = $this->input->post('type_Bug');
+        $desc = $this->input->post('bug_description');
+        $url = $this->input->post('bug_url');
+
+        $this->bugtracker_model->insertIssue($title, $type, $desc, $url);
+    }
+
 }

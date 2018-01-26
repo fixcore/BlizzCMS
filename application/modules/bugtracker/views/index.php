@@ -1,12 +1,3 @@
-<?php if (isset($_POST['button_createIssue'])) {
-    $title = $_POST['bug_title'];
-    $type = $_POST['type_Bug'];
-    $desc = $_POST['bug_description'];
-    $url = $_POST['bug_url'];
-
-    $this->bugtracker_model->insertIssue($title, $type, $desc, $url);
-} ?>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
@@ -106,66 +97,64 @@
         </section>
     </div>
 
-    <div id="createReport" class="uk-modal-container" uk-modal>
-        <div class="uk-modal-dialog">
-            <button class="uk-modal-close-default" type="button" uk-close></button>
-            <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-bug" aria-hidden="true"></i> Create Bug Report</h2>
-            </div>
-            <form action="" method="post" accept-charset="utf-8">
-                <div class="uk-modal-body">
-                    <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('expr_title'); ?></label>
-                        <div class="uk-form-controls">
-                            <div class="uk-inline uk-width-1-1">
-                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
-                                <input name="bug_title" class="uk-input" required type="text" placeholder="<?= $this->lang->line('expr_title'); ?> *">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('type'); ?></label>
-                        <div class="uk-form-controls">
-                            <select class="uk-select" name="type_Bug" id="form-stacked-select">
-                                <?php foreach($this->bugtracker_model->getTypes()->result() as $rowTypes) { ?>
-                                    <option value="<?= $rowTypes->id ?>"><?= $rowTypes->title ?></option>
-                                <?php } ?>
-                            </select>
-                        </div>
-                    </div>
-
-                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-
-                    <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('new_desc'); ?></label>
-                        <div class="uk-form-controls">
-                            <div class="uk-width-1-1">
-                                <textarea required="" name="bug_description" id="ckeditor" rows="10" cols="80">
-                                    <p>Realm:</p>
-                                    <p>Character (name, faction, level...): </p>
-                                    <p>Difficult mode of the instance in which you found this issue: </p>
-                                    <p>Complete description of your issue (do not forget to specify the issue, all conditions for making the issue to happen, and if the issue is related to a phase, specify the phase in which you found this issue): </p>
-                                    <p>Steps for reproducing the issue: </p>
-                                </textarea>
-                                <script>
-                                    CKEDITOR.replace('ckeditor');
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="uk-margin">
-                        <div class="uk-form-controls">
-                            <div class="uk-inline uk-width-1-1">
-                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: link"></span>
-                                <input name="bug_url" class="uk-input" type="text" placeholder="URL">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="uk-modal-footer uk-text-right actions">
-                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                    <button class="uk-button uk-button-primary" type="submit" name="button_createIssue"><?= $this->lang->line('button_crea'); ?></button>
-                </div>
-            </form>
+<div id="createReport" class="uk-modal-container" uk-modal>
+    <div class="uk-modal-dialog">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-modal-header">
+            <h2 class="uk-modal-title"><i class="fa fa-bug" aria-hidden="true"></i> Create Bug Report</h2>
         </div>
+        <?= form_open(base_url('bugtracker/create')); ?>
+            <div class="uk-modal-body">
+                <div class="uk-margin">
+                    <label class="uk-form-label uk-text-large"><?= $this->lang->line('expr_title'); ?></label>
+                    <div class="uk-form-controls">
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                            <?= form_input($title_from); ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <label class="uk-form-label uk-text-large"><?= $this->lang->line('type'); ?></label>
+                    <div class="uk-form-controls">
+                        <!-- dropdown -->
+                        <?php 
+                            $array = array();
+                            foreach($this->bugtracker_model->getTypes() as $row ){
+                                $array[] = $row->title;
+                            }
+                            echo form_dropdown('type_Bug',  $array , '', $classDrop);
+                        ?>
+                        <!-- dropdown -->
+                    </div>
+                </div>
+
+                <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+
+                <div class="uk-margin">
+                    <label class="uk-form-label uk-text-large"><?= $this->lang->line('new_desc'); ?></label>
+                    <div class="uk-form-controls">
+                        <div class="uk-width-1-1">
+                            <?= form_textarea('bug_description', $this->config->item('textarea'), 'id="ckeditor"'); ?>
+                            <script>
+                                CKEDITOR.replace('ckeditor');
+                            </script>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-margin">
+                    <div class="uk-form-controls">
+                        <div class="uk-inline uk-width-1-1">
+                            <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: link"></span>
+                            <?= form_input($url_form); ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="uk-modal-footer uk-text-right actions">
+                <?= form_button('button_cancel', $this->lang->line('button_cancel'), $close_form); ?>
+                <?= form_submit($submit_form); ?>
+            </div>
+        <?php form_close(); ?>
     </div>
+</div>

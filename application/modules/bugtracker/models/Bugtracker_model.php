@@ -140,7 +140,8 @@ class Bugtracker_model extends CI_Model {
     {
         return $this->db->select('id, title')
                 ->order_by('id', 'ASC')
-                ->get('fx_bugtracker_type');
+                ->get('fx_bugtracker_type')
+                ->result();
     }
 
     public function getType($id)
