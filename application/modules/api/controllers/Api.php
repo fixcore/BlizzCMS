@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Api extends MX_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->load->model('m_api_char');
+    }
+
     public function getchar()
     {
         if (empty($_GET['id']) || is_null($_GET['id']))
@@ -17,8 +23,6 @@ class Api extends MX_Controller {
 
         if ($guid == '0' || $id == '0')
             die();
-
-        $this->load->model('m_api_char');
 
         if ($this->m_api_char->getApiGenerateCount($id) > 0)
             var_dump($this->m_api_char->getCharInfo($guid, $id));
