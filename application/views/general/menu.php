@@ -11,7 +11,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" focusable="false"><use xlink:href="#Navbar-icon-menu"></use></svg>
                 </div>
             </a>
-            <a href="http://blizzard.com/" class="Navbar-logo" data-analytics="global-nav" data-analytics-placement="Nav - Blizzard.com Icon">
+            <a href="<?= base_url(); ?>" class="Navbar-logo" data-analytics="global-nav" data-analytics-placement="Nav - Blizzard.com Icon">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 151.15 68.46" focusable="false"><use xlink:href="#Navbar-logo-blizzard"></use></svg>
             </a>
             <a href="#" class="Navbar-customLogo"><img src="#"/></a>
