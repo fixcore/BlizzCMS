@@ -28,9 +28,44 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['account_error'] = 'Falscher Accountname';
-$lang['account_error_info'] = 'Der angegebene Accountname wurde nicht gefunden. Bitte gebe einen gültigen Accountnamen an.';
-$lang['password_error'] = 'Falsches Passwort';
-$lang['password_error_info'] = 'Das angegebene Passwort stimmt nicht überein. Bitte gebe das richtige Passwort ein.';
-$lang['select_char_shop'] = 'Bitte wähle einen Charakter für den Erhalt aus.';
-$lang['shop_success'] = 'Gegenstand erfolgreich erworben.';
+/*Soap Lang*/
+$lang['store_senditem_subject'] = 'Purchase online';
+$lang['store_senditem_text'] = 'Thank you for making your purchase, here is your purchase';
+
+/*Error Lang*/
+$lang['account_error'] = 'Incorrect Account';
+$lang['account_error_info'] = 'The account provided was not possible to find, please write a valid account';
+$lang['password_error'] = 'Incorrect Password';
+$lang['password_error_info'] = 'The password provided is incorrect, please write it again';
+$lang['captcha_error'] = 'Please check the captcha';
+
+/*Message Lang*/
+$lang['store_success'] = 'Item purchased successfully.';
+$lang['account_already_exist'] = 'This account already exists';
+$lang['password_not_match'] = 'Passwords do not match';
+$lang['password_same'] = 'The password is the same.';
+$lang['opassword_not_match'] = 'Old Password do not match';
+$lang['oemail_not_match'] = 'The current email is not correct';
+$lang['email_used'] = 'Email in use';
+$lang['expansion_not_found'] = 'Expansion not found.';
+$lang['image_upload_error'] = 'Your image must be in .jpg format';
+
+$lang['char_newlevel'] = 'Receive a new level';
+$lang['char_oldlevel'] = 'Before it was';
+$lang['char_newname'] = 'It has a new name';
+$lang['char_oldname'] = 'Before it was';
+$lang['unbanned'] = 'Unbanned';
+$lang['char_customAction'] = 'Get a customization';
+$lang['char_chanraceAction'] = 'Get a Race Change';
+$lang['char_chanfactAction'] = 'Get a Faction Change';
+$lang['was_ban'] = 'Was banned';
+$lang['receive_gmAnno'] = 'Received GM rank';
+$lang['remove_gmAnnotation'] = 'The GM rank was removed';
+$lang['receive_addmAnnoW'] = 'Received ADM Web rank';
+$lang['remove_addmAnnoW'] = 'The ADM Web rank was removed';
+$lang['buy_frist'] = 'You must first add items to your car.';
+$lang['points_insuff'] = 'Insufficient points';
+$lang['shopping_cart'] = 'Shopping Cart';
+$lang['store_see'] = 'See the Store';
+$lang['no_players'] = 'No players Online';
+$lang['users_on'] = 'Users Online';
