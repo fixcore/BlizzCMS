@@ -27,3 +27,7 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+//Store
+$lang['store_senditem_subject'] = 'Compra en línea';
+$lang['store_senditem_text'] = 'Gracias por hacer su compra, aquí está es su compra';

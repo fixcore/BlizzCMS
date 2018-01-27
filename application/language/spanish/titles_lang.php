@@ -27,3 +27,12 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['home'] = 'Inicio';
+$lang['login'] = 'Iniciar sesión';
+$lang['forums'] = 'Foros';
+$lang['register'] = 'Registrarse';
+$lang['news'] = 'Noticias';
+$lang['settings'] = 'Configuración';
+$lang['changelogs'] = 'Changelogs';
+$lang['cart'] = 'Carro';

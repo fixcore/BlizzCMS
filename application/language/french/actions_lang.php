@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * BlizzCMS
  *
@@ -27,3 +27,10 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['account_error'] = 'Nom de compte incorrect'; // if you wanted to mean, by account_error, and incorrect account, that is the name who is incorrect
+$lang['account_error_info'] = 'Le compte renseigné est impossible à trouver, veuillez écrire un nom compte valide';
+$lang['password_error'] = 'Mot de passe incorrect';
+$lang['password_error_info'] = 'Le mot de passe fournis est incorrect, veuillez l\'écrire de nouveau';
+$lang['select_char_shop'] = 'Veuillez choisir un personnage qui recevra ceci';
+$lang['shop_success'] = 'Objet acquis avec succès';

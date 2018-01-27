@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * BlizzCMS
  *
@@ -27,3 +27,12 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['home'] = 'Главная';
+$lang['login'] = 'Войти';
+$lang['forums'] = 'Форум';
+$lang['register'] = 'Регистрация';
+$lang['news'] = 'Новости';
+$lang['settings'] = 'Настройки';
+$lang['changelogs'] = 'Изменения';
+$lang['cart'] = 'Корзина';

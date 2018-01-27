@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /**
  * BlizzCMS
  *
@@ -28,101 +28,23 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
-/*Navigation Menu Lang*/
-$lang['admin_dashboard'] = 'Dashboard';
-$lang['admin_users'] = 'Users';
-$lang['admin_users_list'] = 'Users List';
-$lang['admin_chars_list'] = 'Characters List';
-$lang['admin_website'] = 'Website';
-$lang['admin_news'] = 'News';
-$lang['admin_changelogs'] = 'Changelogs';
-$lang['admin_pages'] = 'Pages';
-$lang['admin_store'] = 'Store';
-$lang['admin_items'] = 'Manage Items';
-$lang['admin_forums'] = 'Forums';
-$lang['admin_manage_categories'] = 'Manage Categories';
-$lang['admin_manege_forums'] = 'Manage Forums';
-
-/*Count Lang*/
-$lang['players_count'] = 'Players Online';
-$lang['account_count'] = 'Accounts created';
-$lang['staff_count'] = 'STAFF accounts';
-$lang['ban_count'] = 'Banned accounts';
-
-/*Button Lang*/
-$lang['button_server_restart'] = 'Restart Server';
-$lang['button_unban'] = 'Unban';
-$lang['button_ban'] = 'Ban';
-$lang['button_re_grant_account'] = 'Remove GM';
-$lang['button_grant_account'] = 'Grant GM';
-$lang['button_grant_web_acc'] = 'Grant ADM';
-$lang['button_re_grant_web_acc'] = 'Remove ADM';
-$lang['button_change_level'] = 'Change Level';
-
-/*Panel Lang*/
-$lang['panel_admin_user_manage'] = 'Manage user';
-$lang['panel_admin_unban_account'] = 'Unban Account';
-$lang['panel_admin_ban_account'] = 'Ban Account';
-$lang['panel_admin_rank_account'] = 'GM Rank';
-$lang['panel_admin_web_rank'] = 'Web Rank';
-$lang['panel_admin_general_info'] = 'General information';
-$lang['panel_admin_annotations'] = 'Annotations';
-$lang['panel_admin_mov_forum'] = 'Movements in the forum';
-$lang['panel_admin_last_comments'] = 'Last comments';
-$lang['panel_admin_char_manage'] = 'Manage character';
-$lang['panel_admin_change_level'] = 'Change Level';
-$lang['panel_admin_rename'] = 'Rename';
-$lang['panel_admin_unban_char'] = 'Unban Character';
-$lang['panel_admin_ban_char'] = 'Ban Character';
-$lang['panel_admin_customize'] = 'Customize Character';
-$lang['panel_admin_change_race'] = 'Change Race';
-$lang['panel_admin_change_faction'] = 'Change Faction';
-$lang['panel_admin_changelogs_list'] = 'List of Changelogs';
-$lang['panel_admin_pages_list'] = 'List of Pages';
-$lang['panel_admin_news_list'] = 'News List';
-$lang['panel_admin_item_list'] = 'List of Items';
-
-/*Column Lang*/
-$lang['column_race'] = 'Race';
-$lang['column_class'] = 'Class';
-$lang['column_level'] = 'Level';
-$lang['column_money'] = 'Money';
-$lang['column_own'] = 'Own';
-$lang['column_action'] = 'Action';
-
-/*Form Lang*/
-$lang['form_create_changelog'] = 'Create a new Changelog';
-$lang['form_changelog_title'] = 'Title of the Changelog';
-$lang['form_create_pages'] = 'Create a new Page';
-$lang['form_create_news'] = 'Create a new News';
-$lang['form_news_title'] = 'Title of the news';
-$lang['form_upload_file'] = 'File upload';
-$lang['form_create_category'] = 'Create Category';
-$lang['form_create_forums'] = 'Create Forums';
-$lang['form_category_title'] = 'Title of the Category';
-$lang['form_forum_title'] = 'Title of the Forum';
-$lang['form_forum_description'] = 'Enter a brief description of the forum';
-$lang['form_forum_icon_name'] = 'Icon Name';
-$lang['form_category'] = 'Category';
-$lang['form_create_item'] = 'Create a item';
-$lang['form_store_item_name'] = 'Product Name';
-$lang['form_store_item_id'] = 'Item Id';
-$lang['form_store_image_name'] = 'Image File Name';
-
-/*Placeholder Lang*/
-$lang['panel_admin_reason'] = 'Reason';
-$lang['panel_admin_gmlevel'] = 'Gm Level';
-$lang['panel_admin_new_page_url'] = 'Your new Page URL is';
-
-/*Status Lang*/
-$lang['status_is_online'] = 'Player is Online, please disconnect';
-$lang['status_name_exist'] = 'This name already exist';
-
-/*Options Lang*/
-$lang['option_yes'] = 'Yes';
-$lang['option_no'] = 'No';
-$lang['option_everyone'] = 'Everyone';
-$lang['option_staff'] = 'STAFF';
-$lang['option_all'] = 'STAFF - Everyone';
-$lang['option_item'] = 'Item';
+$lang['adm_home'] = 'Inicio';
+$lang['adm_panel'] = 'Panel de administración';
+$lang['adm_admin'] = 'Administrador';
+$lang['adm_nav'] = 'Navegación';
+$lang['adm_dashboard'] = 'Tablero';
+$lang['adm_users'] = 'Usuarios';
+$lang['adm_users_list'] = 'Lista de usuarios';
+$lang['adm_chars_list'] = 'Lista de personajes';
+$lang['adm_news'] = 'Noticias';
+$lang['adm_add_news'] = 'Crear noticias';
+$lang['adm_news_list'] = 'Lista de noticias';
+$lang['adm_forums'] = 'Foros';
+$lang['adm_account_settings'] = 'Configuración de la cuenta';
+$lang['adm_manageChangelog'] = 'Administrar registro de cambios';
+$lang['adm_createChangelog'] = 'Crear registro de cambios';
+$lang['adm_manageShop'] = 'Administrar Tienda';
+$lang['adm_createShop'] = 'Crear Tienda';
+$lang['adm_managePages'] = 'Administrar Páginas';
+$lang['adm_createPages'] = 'Crear Páginas';
+$lang['adm_pagesList'] = 'Lista de Páginas';

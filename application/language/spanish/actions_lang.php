@@ -27,3 +27,10 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['account_error'] = 'Cuenta incorrecta';
+$lang['account_error_info'] = 'La cuenta provista no fue posible de encontrar, por favor escriba una cuenta válida';
+$lang['password_error'] = 'Contraseña incorrecta';
+$lang['password_error_info'] = 'La contraseña proporcionada es incorrecta, por favor, vuelva a escribirla';
+$lang['select_char_shop'] = 'Seleccione el personaje que recibirá esto.';
+$lang['shop_success'] = 'Artículo comprado con éxito.';

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * BlizzCMS
  *
@@ -27,3 +27,7 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+//Store
+$lang['store_senditem_subject'] = 'Achat en ligne';
+$lang['store_senditem_text'] = 'Merci d\'avoir choisis cet commande, voici votre commande';

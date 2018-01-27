@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * BlizzCMS
  *
@@ -27,3 +27,10 @@
  * THE SOFTWARE.
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+$lang['account_error'] = 'Неизвестный аккаунт';
+$lang['account_error_info'] = 'Аккаунт не найден, пожалуйста введите существующий аккаунт';
+$lang['password_error'] = 'Неправильный пароль';
+$lang['password_error_info'] = 'Не правильный пароль, пожалуйста вводите пароль правильно';
+$lang['select_char_shop'] = 'Выберите персонаж который получит это.';
+$lang['shop_success'] = 'Итем успешно получен.';
