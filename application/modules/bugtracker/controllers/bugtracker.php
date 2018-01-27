@@ -47,7 +47,7 @@ class Bugtracker extends MX_Controller {
                 "submit_form" => array(
                     'id' => 'button_createIssue',
                     'name' => 'button_createIssue',
-                    'value' => $this->lang->line('button_crea'),
+                    'value' => $this->lang->line('button_create'),
                     'class' => 'uk-button uk-button-primary')
             );
 
