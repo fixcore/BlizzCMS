@@ -101,6 +101,7 @@
                                     <option value="german">German</option>
                                     <option value="russian">Russian</option>
                                     <option value="spanish">Spanish</option>
+                                    <option value="hungarian">Hungarian</option>
                                 </select>
                                 <div class="uk-alert-primary" uk-alert>
                                     <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to set the URL correctly?</p>
