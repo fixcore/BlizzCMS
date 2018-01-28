@@ -229,7 +229,26 @@
                                     <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_gifts'); ?></div>
                                 </a>
                             <?php } ?>
-                            <a href="<?= base_url('logout'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account_out'); ?>">
+
+                            <script>
+                                $(document).ready(function()
+                                {
+                                    $("#fx_logout").click(function(e)
+                                    {
+                                        e.preventDefault();
+                                        $.ajax({
+                                            url: '<?= base_url('user/logout') ?>',
+                                            cache: false,
+                                            success:function(data)
+                                            {
+                                                location.reload();
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
+
+                            <a href="#" id="fx_logout" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account_out'); ?>">
                                 <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-logout"></use></svg>
                                 </div>
