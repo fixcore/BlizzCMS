@@ -115,6 +115,7 @@ $lang['column_priority'] = 'Prioritás';
 $lang['column_date'] = 'Dátum';
 $lang['column_author'] = 'Szerző';
 $lang['column_time'] = 'Idő';
+$lang['column_icon'] = 'Icon';
 
 /*Options Lang*/
 $lang['option_open'] = 'Nyitva';

@@ -115,6 +115,7 @@ $lang['column_priority'] = 'Prioridad';
 $lang['column_date'] = 'Fecha';
 $lang['column_author'] = 'Autor';
 $lang['column_time'] = 'Hora';
+$lang['column_icon'] = 'Icono';
 
 /*Options Lang*/
 $lang['option_open'] = 'Abierto';
