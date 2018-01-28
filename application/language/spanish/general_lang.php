@@ -29,11 +29,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Button Lang*/
-$lang['button_login'] = 'Entrar';
+$lang['button_login'] = 'Iniciar sesión';
 $lang['button_account_create'] = 'Crear una cuenta';
 $lang['button_user_panel'] = 'Panel de Usuario';
 $lang['button_admin_panel'] = 'Panel de Administración';
-$lang['button_logout'] = 'Desconectar';
+$lang['button_logout'] = 'Cerrar sesión';
 $lang['button_gifts'] = 'Mis regalos';
 $lang['button_register'] = 'Registrar';
 $lang['button_vote_panel'] = 'Panel de Votos';
@@ -127,7 +127,7 @@ $lang['panel_vp'] = 'Puntos de Votos';
 $lang['panel_location'] = 'Ubicación';
 $lang['panel_expansion'] = 'Expansión';
 $lang['panel_member'] = 'Miembro desde';
-$lang['panel_chars_list'] = 'Lista de Characters';
+$lang['panel_chars_list'] = 'Lista de Personajes';
 
 /*Home Lang*/
 $lang['home_server_status'] = 'Estado del Servidor';
@@ -140,7 +140,7 @@ $lang['home_store_top'] = 'Mejores artículos de la tienda';
 /*Store Lang*/
 $lang['store_cart_description'] = 'Comprar artículo';
 $lang['store_item_name'] = 'Nombre del Artículo';
-$lang['store_select_character'] = 'Seleccionar Character';
+$lang['store_select_character'] = 'Seleccionar Personaje';
 $lang['store_item_price'] = 'Precio';
 
 /*PvP-Arena Lang*/
