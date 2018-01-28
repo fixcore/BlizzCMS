@@ -266,4 +266,12 @@ class User_model extends CI_Model {
     {
         return $this->db->select('*')->get('fx_questions');
     }
+
+    public function getLastIp($id)
+    {
+        return $this->auth->select('last_ip')
+                ->where('id', $id)
+                ->get('account')
+                ->row_array()['last_ip'];
+    }
 }
