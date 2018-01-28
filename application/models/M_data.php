@@ -111,11 +111,11 @@ class M_data extends CI_Model {
                 ->get('account');
     }
 
-    public function getSpecifyEmailBnet($email)
+    public function getSpecifyEmail($email)
     {
         return $this->auth->select('id')
                 ->where('email', $email)
-                ->get('battlenet_accounts');
+                ->get('account');
     }
 
     public function getIDAccount($account)
