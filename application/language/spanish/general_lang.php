@@ -121,6 +121,7 @@ $lang['option_open'] = 'Abierto';
 $lang['option_closed'] = 'Cerrado';
 
 /*User Panel Lang*/
+$lang['panel_last_login'] = 'Último login in-game';
 $lang['panel_acc_rank'] = 'Rango de cuenta';
 $lang['panel_dp'] = 'Puntos de Donación';
 $lang['panel_vp'] = 'Puntos de Votos';
