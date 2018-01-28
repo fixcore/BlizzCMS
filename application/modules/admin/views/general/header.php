@@ -47,12 +47,10 @@
                     <!-- Logo -->
                     <a class="logo" href="">
                         <b>
-                            <img src="<?= base_url('assets/images/logo/blizzcms-icon-light.png'); ?>" alt="home" class="dark-logo"/>
-                            <img src="<?= base_url('assets/images/logo/blizzcms-icon-dark.png'); ?>" alt="home" class="light-logo"/>
+                            <img src="<?= base_url('assets/images/logo/blizzcms-icon.png'); ?>" alt="home" class="light-logo"/>
                         </b>
                         <span class="hidden-xs">
-                            <img src="<?= base_url('assets/images/logo/blizzcms-light.png'); ?>" alt="home" class="dark-logo"/>
-                            <img src="<?= base_url('assets/images/logo/blizzcms-dark.png'); ?>" alt="home" class="light-logo"/>
+                            <img src="<?= base_url('assets/images/logo/blizzcms.png'); ?>" alt="home" class="light-logo"/>
                         </span>
                     </a>
                     <!-- /Logo -->
@@ -149,13 +147,13 @@
                             <li role="separator" class="divider"></li>
                             <li>
                                 <a href="<?= base_url('panel'); ?>">
-                                    <i class="fa fa-user-circle-o text-info"></i> <?= $this->lang->line('adm_account_settings'); ?>
+                                    <i class="fa fa-user-circle-o text-info"></i> <?= $this->lang->line('button_user_panel'); ?>
                                 </a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
                                 <a href="<?= base_url('logout'); ?>">
-                                    <i class="fa fa-power-off text-danger"></i> <?= $this->lang->line('account_out'); ?>
+                                    <i class="fa fa-power-off text-danger"></i> <?= $this->lang->line('button_logout'); ?>
                                 </a>
                             </li>
                         </ul>
@@ -177,32 +175,32 @@
                             <i class="ti-menu hidden-xs"></i>
                             <i class="ti-close visible-xs"></i>
                         </span>
-                        <span class="hide-menu">Navigation</span>
+                        <span class="hide-menu"><?= $this->lang->line('admin_dashboard'); ?></span>
                     </h3>
                 </div>
                 <ul class="nav" id="side-menu">
                     <li>
                         <a href="<?= base_url('admin'); ?>" class="waves-effect active">
                             <i class="fa fa-tachometer fa-fw"></i>
-                            <span class="hide-menu"><?= $this->lang->line('adm_dashboard'); ?></span>
+                            <span class="hide-menu"><?= $this->lang->line('admin_dashboard'); ?></span>
                         </a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" class="waves-effect">
                             <i class="fa fa-users fa-fw text-danger"></i>
-                            <span class="hide-menu"><?= $this->lang->line('adm_users'); ?></span>
+                            <span class="hide-menu"><?= $this->lang->line('admin_users'); ?></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= base_url('admin/accounts'); ?>">
                                     <i class="fa fa-list fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('adm_users_list'); ?></span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_users_list'); ?></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/characters'); ?>">
                                     <i class="fa fa-list fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('adm_chars_list'); ?></span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_chars_list'); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -210,25 +208,25 @@
                     <li>
                         <a href="javascript:void(0)" class="waves-effect">
                             <i class="fa fa-mouse-pointer fa-fw text-info"></i>
-                            <span class="hide-menu">Website</span>
+                            <span class="hide-menu"><?= $this->lang->line('admin_website'); ?></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= base_url('admin/managenews'); ?>" class="waves-effect">
                                     <i class="fa fa-newspaper-o fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('adm_news'); ?></span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_news'); ?></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/managechangelogs'); ?>" class="waves-effect">
                                     <i class="fa fa-history fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('changelogs'); ?></span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_changelogs'); ?></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/managepages'); ?>" class="waves-effect">
                                     <i class="fa fa-file-text-o fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('pages'); ?></span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_pages'); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -236,13 +234,13 @@
                     <li>
                         <a href="javascript:void(0)" class="waves-effect">
                             <i class="fa fa-shopping-cart fa-fw text-success"></i>
-                            <span class="hide-menu"><?= $this->lang->line('shop'); ?></span>
+                            <span class="hide-menu"><?= $this->lang->line('admin_store'); ?></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= base_url('admin/manageitems'); ?>" class="waves-effect">
                                     <i class="fa fa-cube fa-fw"></i>
-                                    <span class="hide-menu">Items</span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_items'); ?></span>
                                 </a>
                             </li>
                         </ul>
@@ -250,19 +248,19 @@
                     <li>
                         <a href="javascript:void(0)" class="waves-effect">
                             <i class="fa fa-commenting fa-fw text-purple"></i>
-                            <span class="hide-menu"><?= $this->lang->line('adm_forums'); ?></span>
+                            <span class="hide-menu"><?= $this->lang->line('admin_forums'); ?></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="<?= base_url('admin/managecategories'); ?>" class="waves-effect">
                                     <i class="fa fa-bookmark-o fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('forum_categoryMan'); ?></span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_manage_categories'); ?></span>
                                 </a>
                             </li>
                             <li>
                                 <a href="<?= base_url('admin/manageforums'); ?>" class="waves-effect">
                                     <i class="fa fa-comments-o fa-fw"></i>
-                                    <span class="hide-menu"><?= $this->lang->line('forum_forumMan'); ?></span>
+                                    <span class="hide-menu"><?= $this->lang->line('admin_manege_forums'); ?></span>
                                 </a>
                             </li>
                         </ul>

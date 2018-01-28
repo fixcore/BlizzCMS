@@ -14,7 +14,7 @@
         $this->admin_model->updateNewADM($idlink, $title, $name_new, $desc, $type);
     }
     else
-        echo '<div class="alert alert-danger">'.$this->lang->line('new_imgT').'. </div>';
+        echo '<div class="alert alert-danger">'.$this->lang->line('image_upload_error').'. </div>';
 } ?>
 
     <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
@@ -30,28 +30,28 @@
                         <p class="text-muted m-b-30 font-13"></p>
                         <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="col-md-12"><?= $this->lang->line('new_title'); ?></label>
+                                <label class="col-md-12"><?= $this->lang->line('form_news_title'); ?></label>
                                 <div class="col-md-12">
-                                    <input name="new_title" type="text" value="<?= $this->admin_model->getGeneralNewsSpecifyName($idlink); ?>" class="form-control" placeholder="<?= $this->lang->line('new_title'); ?>" required>
+                                    <input name="new_title" type="text" value="<?= $this->admin_model->getGeneralNewsSpecifyName($idlink); ?>" class="form-control" placeholder="<?= $this->lang->line('form_news_title'); ?>" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-md-12"><?= $this->lang->line('new_desc'); ?></label>
+                                <label class="col-md-12"><?= $this->lang->line('form_description'); ?></label>
                                 <div class="col-md-12">
                                     <textarea required="" name="new_description" id="adminPanelCK" rows="10" cols="80"><?= $this->admin_model->getGeneralNewsSpecifyDesc($idlink); ?></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-12"><?= $this->lang->line('expr_highl'); ?></label>
+                                <label class="col-sm-12"><?= $this->lang->line('form_highl'); ?></label>
                                 <div class="col-sm-2">
                                     <select class="form-control" name="new_destac">
-                                        <option value="1"><?= $this->lang->line('expr_no'); ?></option>
-                                        <option value="2"><?= $this->lang->line('expr_yes'); ?></option>
+                                        <option value="1"><?= $this->lang->line('option_no'); ?></option>
+                                        <option value="2"><?= $this->lang->line('option_yes'); ?></option>
                                     </select>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-12"><?= $this->lang->line('newup_fi'); ?></label>
+                                <label class="col-sm-12"><?= $this->lang->line('form_upload_file'); ?></label>
                                 <div class="col-sm-12">
                                     <div class="fileinput fileinput-new input-group" data-provides="fileinput">
                                         <div class="form-control" data-trigger="fileinput">
@@ -62,7 +62,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" name="button_updateNew" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-refresh fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                            <button type="submit" name="button_updateNew" class="btn btn-success waves-effect waves-light m-r-10"><i class="fa fa-refresh fa-fw"></i><?= $this->lang->line('button_save'); ?></button>
                         </form>
                     </div>
                 </div>

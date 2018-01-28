@@ -107,18 +107,9 @@ $config['expansion_id'] = "ProjectExpansion_fixcore";
 | Theme Name
 |--------------------------------------------------------------------------
 |
-| Select the expansion that your website will use among these options:
-|
-| 1 = zwolf
-| 2 = alterac
-| 3 = thranrion
-| 4 = fixcore
-| 5 = theme2
-| 6 = blizzcms
-| 7 = uncrowned
-| 8 = xavius
-| 9 = exile
-| 
-| Default: 4
+| Write the name of your theme
+| The name is the same as the main folder
+| The css must also have the same name
+| Default: default
 */
-$config['themeid'] = "4";
+$config['theme_name'] = "default";

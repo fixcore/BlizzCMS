@@ -7,13 +7,14 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('news'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-article.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app-article.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -32,7 +33,7 @@
     <!-- custom footer -->
 </head>
 
-<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
@@ -89,8 +90,8 @@
                                                             </div>
 
                                                             <div style="text-align: right;">
-                                                                <i class="fa fa-calendar" aria-hidden="true"></i> <?= $this->lang->line('expr_date'); ?>: <?= date('F/d/Y', $messages->date); ?> 
-                                                            // <i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('expr_time'); ?>: <?= date('l H:i A', $messages->date); ?> 
+                                                                <i class="fa fa-calendar" aria-hidden="true"></i> <?= $this->lang->line('column_date'); ?>: <?= date('F/d/Y', $messages->date); ?> 
+                                                            // <i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('column_time'); ?>: <?= date('l H:i A', $messages->date); ?> 
                                                             </div>
                                                         </h6>
                                                     </footer><hr>
@@ -101,9 +102,9 @@
                                             <div class="uk-grid-match uk-child-width-expand@s uk-text-center" uk-grid>
                                                 <div>
                                                     <div class="uk-margin">
-                                                        <textarea name="replyText" required class="uk-textarea" rows="5" placeholder="<?= $this->lang->line('button_addreply'); ?>"></textarea>
+                                                        <textarea name="replyText" required class="uk-textarea" rows="5" placeholder="<?= $this->lang->line('button_add_reply'); ?>"></textarea>
                                                     </div>
-                                                    <button type="submit" name="addReplyComment" class="uk-button uk-button-primary" value="<?= $messages->author ?>"><?= $this->lang->line('expr_reply'); ?></button>
+                                                    <button type="submit" name="addReplyComment" class="uk-button uk-button-primary" value="<?= $messages->author ?>"><?= $this->lang->line('button_reply'); ?></button>
                                                 </div>
                                             </div>
                                         </form>

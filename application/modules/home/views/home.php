@@ -2,13 +2,14 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('home'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -27,7 +28,7 @@
     <!-- custom footer -->
 </head>
 
-<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
@@ -77,11 +78,7 @@
                                                                 <div data-group="homePromotedCarousel" data-viewport="0" data-anchor="0" data-anchor-target="#home-promoted-carousel-container" data-distance="0.125" class="Parallax Home-heroTextParallax">
                                                                     <div style="background-image:undefined;background-color:undefined" class="Parallax-content">
                                                                         <h3 class="Home-heroTitle text-shadow-title" style="font-family: 'Noto Serif', serif; color: #fff;"><?= $slides->title ?></h3>
-                                                                        <div class="Home-heroButtonContainer">
-                                                                            <a href="" data-analytics="header-click">
-                                                                                <button class="Button Home-heroButton">Learn More</button>
-                                                                            </a>
-                                                                        </div>
+                                                                        <div class="Home-heroButtonContainer"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -133,8 +130,8 @@
                             <div class="GridItem col-md-8">
                                 <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top">
                                     <a href="<?= base_url('news'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('all_news'); ?>" class="Home-topStoriesHeadingLink Home-sectionHeadingLink">
-                                        <span class="Home-topStoriesHeadingText Home-sectionHeadingText"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('last_news'); ?></span>
-                                        <span class="Home-topStoriesHeadingLinkText Home-sectionHeadingLinkText"><?= $this->lang->line('all_news'); ?></span>
+                                        <span class="Home-topStoriesHeadingText Home-sectionHeadingText"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('home_latest_news'); ?></span>
+                                        <span class="Home-topStoriesHeadingLinkText Home-sectionHeadingLinkText"><?= $this->lang->line('home_all_news'); ?></span>
                                     </a>
                                 </h2>
                                 <div class="Divider Divider--light"></div>
@@ -151,7 +148,7 @@
                                                             <div class="Heading Heading--gridSubtitle Home-topStoriesFeaturedSubtitle">News</div>
                                                             <div class="Heading Heading--gridTitle Home-topStoriesFeaturedTitle"><?= $principalNew->title; ?></div>
                                                             <div class="space-medium"></div>
-                                                            <button class="Button Button--small Home-topStoriesFeaturedButton"><?= $this->lang->line('button_learnmore'); ?></button>
+                                                            <button class="Button Button--small Home-topStoriesFeaturedButton"><?= $this->lang->line('button_learn_more'); ?></button>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,12 +185,12 @@
                             </div>
                         <?php } ?>
                         <div class="GridItem col-md-4">
-                            <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('serv_status');?></h2>
+                            <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('home_server_status');?></h2>
                             <div class="Divider Divider--light"></div>
                             <div class="Home-topStories">
                                 <div class="Home-topStoriesFeatured">
                                     <?php if ($this->m_modules->getStatusNews() == '1') { ?>
-                                        <a data-analytics="panel-<?=$this->lang->line('serv_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
+                                        <a data-analytics="panel-<?=$this->lang->line('home_server_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
                                             <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
                                                 <div class="Home-additionalLinks clearfix">
                                                     <!--<h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3> online -->
@@ -237,10 +234,10 @@
                                     <?php } ?>
                                     <?php if ($this->m_modules->getStatusDiscordExperimental() == '1') { ?>
                                         <!-- discord -->
-                                        <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" data-analytics="panel-<?=$this->lang->line('serv_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
+                                        <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" data-analytics="panel-<?=$this->lang->line('home_server_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
                                             <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
                                                 <div class="Home-additionalLinks clearfix">
-                                                    <!--<h3 style="color: #fff;"><?=$this->lang->line('discord');?></h3> online -->
+                                                    <!--<h3 style="color: #fff;"><?=$this->lang->line('home_discord');?></h3> online -->
                                                     <div class="">
                                                         <div class="GridItem col-md-12">
                                                             <!-- image -->
@@ -269,7 +266,7 @@
                                     <?php } ?>
                                     <?php if ($this->m_modules->getStatusDiscordClassic() == '1') { ?>
                                         <!-- discord classic -->
-                                        <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" data-analytics="panel-<?=$this->lang->line('serv_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
+                                        <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" data-analytics="panel-<?=$this->lang->line('home_server_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
                                             <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
                                                 <div class="Home-additionalLinks clearfix">
                                                     <div class="GridItem col-md-12">
@@ -286,7 +283,7 @@
                         <?php if ($this->m_modules->getStatusEvents() == '1') { ?>
                             <?php if ($this->events_model->getEventsLimitFive()->num_rows()) { ?>
                                 <div class="GridItem col-md-4">
-                                    <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-bullhorn" aria-hidden="true"></i> <?= $this->lang->line('up_events'); ?></h2>
+                                    <h2 class="Heading Home-eventsHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-bullhorn" aria-hidden="true"></i> <?= $this->lang->line('home_up_events'); ?></h2>
                                     <div class="Divider Divider--light"></div>
                                     <div class="Home-eventsTableWrapper">
                                         <div class="Home-eventsTable">
@@ -326,7 +323,7 @@
                         <?php if ($this->shop_model->getShopTop10()->num_rows()) { ?>
                             <h2 class="Heading Home-gameHeading Home-sectionHeading flush-top">
                                 <a href="<?= base_url('store'); ?>" data-analytics="action-link" data-analytics-placement="<?= $this->lang->line('store_see'); ?>" class="Home-gameHeadingLink Home-sectionHeadingLink">
-                                    <span class="Home-gameHeadingText Home-sectionHeadingText"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <?= $this->lang->line('store'); ?></span>
+                                    <span class="Home-gameHeadingText Home-sectionHeadingText"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <?= $this->lang->line('home_store_top'); ?></span>
                                 </a>
                             </h2>
                             <div class="Divider Divider--light"></div>

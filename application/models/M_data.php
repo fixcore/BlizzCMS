@@ -111,6 +111,13 @@ class M_data extends CI_Model {
                 ->get('account');
     }
 
+    public function getSpecifyEmail($email)
+    {
+        return $this->auth->select('id')
+                ->where('email', $email)
+                ->get('account');
+    }
+
     public function getIDAccount($account)
     {
         $account = strtoupper($account);

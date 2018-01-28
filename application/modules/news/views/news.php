@@ -2,13 +2,14 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('news'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_news'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-article.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app-article.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -27,7 +28,7 @@
     <!-- custom footer -->
 </head>
 
-<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
@@ -94,13 +95,13 @@
                         <div style="" class="Pane-content">
                             <div class="space-adaptive-medium"></div>
                             <div id="recent-articles-container">
-                                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('recent_news'); ?></h2>
+                                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('news_recent_list'); ?></h2>
                                 <div class="space-adaptive-card"></div>
                                 <div class="ArticleList" id="recent-articles">
                                     <?php if ($this->news_model->getNewsList()->num_rows()) { ?>
                                         <?php foreach($this->news_model->getNewsList()->result() as $list) { ?>
                                             <div class="ArticleListItem">
-                                                <a href="<?= base_url(); ?>news/<?= $list->id ?>" data-external="false" data-article-id="<?= $list->id ?>" data-analytics="<?= $this->lang->line('news'); ?>" data-analytics-placement="blog:<?= $list->id ?> - <?= $list->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
+                                                <a href="<?= base_url(); ?>news/<?= $list->id ?>" data-external="false" data-article-id="<?= $list->id ?>" data-analytics="<?= $this->lang->line('nav_news'); ?>" data-analytics-placement="blog:<?= $list->id ?> - <?= $list->title ?>" class="ArticleLink ArticleListItem-linkOverlay"></a>
                                                 <div class="Grid row ArticleListItem-content">
                                                     <div class="GridItem col-xs-4 col-md-3 ArticleListItem-imageGrid">
                                                         <div style="background-image: url(<?= base_url(); ?>assets/images/news/<?= $list->image ?>); height: 122.5px;" class="ArticleListItem-image"></div>
@@ -113,7 +114,7 @@
                                                             <div class="space-tiny"></div>
                                                         </div>
                                                         <div class="ArticleListItem-footer h6">
-                                                            <a href="<?= base_url(); ?>news/<?= $list->id ?>" data-analytics="<?= $this->lang->line('new_comment'); ?>" data-analytics-placement="<?= $list->id ?>" data-community="<?= $list->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank">
+                                                            <a href="<?= base_url(); ?>news/<?= $list->id ?>" data-analytics="<?= $this->lang->line('news_comment'); ?>" data-analytics-placement="<?= $list->id ?>" data-community="<?= $list->title ?>" class="ArticleCommentLink ArticleCommentCount ArticleListItem-comments" target="_blank">
                                                                 <span class="ArticleCommentCount-count"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->news_model->getCommentCount($list->id)->num_rows(); ?></span>
                                                             </a>
                                                             <span class="ArticleListItem-footerTimestamp"><?= date('Y-m-d', $list->date); ?></span>

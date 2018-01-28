@@ -3,10 +3,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Admin extends MX_Controller {
 
-    public function index()
+    public function __construct()
     {
+        parent::__construct();
         $this->load->model('admin_model');
 
+        if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+            redirect(base_url(),'refresh');
+    }
+
+    public function index()
+    {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -23,8 +33,7 @@ class Admin extends MX_Controller {
 
     public function accounts()
     {
-        $this->load->model('admin_model');
-
+        
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -41,8 +50,6 @@ class Admin extends MX_Controller {
 
     public function manageitems()
     {
-        $this->load->model('admin_model');
-
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -59,8 +66,6 @@ class Admin extends MX_Controller {
 
     public function manageapi()
     {
-        $this->load->model('admin_model');
-
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -77,8 +82,6 @@ class Admin extends MX_Controller {
 
     public function managechangelogs()
     {
-        $this->load->model('admin_model');
-
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -95,8 +98,6 @@ class Admin extends MX_Controller {
 
     public function managenews()
     {
-        $this->load->model('admin_model');
-
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
@@ -113,13 +114,7 @@ class Admin extends MX_Controller {
 
     public function characters()
     {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
+        
 
         if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
@@ -131,14 +126,6 @@ class Admin extends MX_Controller {
 
     public function managecategories()
     {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
@@ -149,14 +136,6 @@ class Admin extends MX_Controller {
 
     public function manageforums()
     {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
@@ -167,18 +146,10 @@ class Admin extends MX_Controller {
 
     public function manageaccount($id)
     {
-        $this->load->model('admin_model');
-
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
         if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getAccountExist($id)->num_rows() < 1)
@@ -193,18 +164,10 @@ class Admin extends MX_Controller {
 
     public function managecharacter($id)
     {
-        $this->load->model('admin_model');
-
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
         if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getGeneralCharactersSpecifyGuid($id)->num_rows() < 1)
@@ -219,18 +182,10 @@ class Admin extends MX_Controller {
 
     public function editnews($id)
     {
-        $this->load->model('admin_model');
-
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
         if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
 
         if ($this->admin_model->getGeneralNewsSpecifyRows($id) < 1)
@@ -245,16 +200,13 @@ class Admin extends MX_Controller {
 
     public function managepages()
     {
-        $this->load->model('admin_model');
-
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('pages/managepages');
         $this->load->view('general/footer');
+    }
+
+    public function checkSoap()
+    {
+        echo $this->m_soap->commandSoap('.server info');
     }
 }

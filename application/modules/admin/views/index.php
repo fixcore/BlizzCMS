@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-tachometer fa-fw"></i><?= $this->lang->line('adm_dashboard'); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-tachometer fa-fw"></i><?= $this->lang->line('admin_dashboard'); ?></h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -25,7 +25,7 @@
                                         <h3 class="counter text-right m-t-15"><?= $this->admin_model->getCharOn(); ?></h3>
                                     </li>
                                     <li class="col-middle">
-                                        <h4><?= $this->lang->line('players_on'); ?></h4>
+                                        <h4><?= $this->lang->line('players_count'); ?></h4>
                                     </li>
                                 </ul>
                             </div>
@@ -38,7 +38,7 @@
                                         <h3 class="counter text-right m-t-15"><?= $this->admin_model->getAccCreated(); ?></h3>
                                     </li>
                                     <li class="col-middle">
-                                        <h4><?= $this->lang->line('account_cre'); ?></h4>
+                                        <h4><?= $this->lang->line('account_count'); ?></h4>
                                     </li>
                                 </ul>
                             </div>
@@ -64,7 +64,7 @@
                                         <h3 class="counter text-right m-t-15"><?= $this->admin_model->getBanCount(); ?></h3>
                                     </li>
                                     <li class="col-middle">
-                                        <h4><?= $this->lang->line('bann_count'); ?></h4>
+                                        <h4><?= $this->lang->line('ban_count'); ?></h4>
                                     </li>
                                 </ul>
                             </div>
@@ -77,7 +77,7 @@
                 <form method="post" action="">
                     <div class="col-lg-3 col-sm-6 col-xs-12">
                         <div class="white-box analytics-info">
-                            <button type="submit" name="serverRestartNow" class="btn btn-block btn-danger btn-rounded"><i class="fa fa-server"></i> Restart Server</button>
+                            <button type="submit" name="serverRestartNow" class="btn btn-block btn-danger btn-rounded"><i class="fa fa-server"></i> <?= $this->lang->line('button_server_restart'); ?></button>
                         </div>
                     </div>
                 </form>

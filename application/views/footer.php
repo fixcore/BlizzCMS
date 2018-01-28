@@ -13,7 +13,7 @@
                         <div class="NavbarFooter-icon NavbarFooter-selectorToggleIcon">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-globe"></use></svg>
                         </div>
-                        <div class="NavbarFooter-selectorToggleLabel"><?= $this->lang->line('language_location'); ?></div>
+                        <div class="NavbarFooter-selectorToggleLabel"><?= $this->lang->line('footer_language'); ?></div>
                         <div class="NavbarFooter-icon NavbarFooter-selectorToggleArrow">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-selector"></use></svg>
                         </div>
@@ -30,7 +30,7 @@
                             <div class="NavbarFooter-selectorLocales NavbarFooter-selectorSection">
                                 <div class="NavbarFooter-selectorSectionBlock">
                                     <a href="<?= base_url(); ?>" class="NavbarFooter-selectorLocale is-active is-selected NavbarFooter-selectorOption">
-                                        <div class="NavbarFooter-selectorOptionLabel"><?= $this->lang->line('language_location'); ?></div>
+                                        <div class="NavbarFooter-selectorOptionLabel"><?= $this->lang->line('footer_language'); ?></div>
                                         <div class="NavbarFooter-selectorOptionCheck NavbarFooter-icon">
                                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-check"></use></svg>
                                         </div>
@@ -42,14 +42,14 @@
                     </div>
                 </div>
                 <div class="NavbarFooter-links NavbarFooter-mainLinks"></div>
-                <div class="NavbarFooter-copyright">&copy; <?= date('Y'); ?> <?= $this->config->item('ProjectName'); ?>. All rights reserved.</div>
-                <div class="NavbarFooter-trademark"><a href="https://github.com/fixcore/BlizzCMS" title="FixCore"><i class="fa fa-github" aria-hidden="true"></i> Proudly powered by BlizzCMS</a></div>
+                <div class="NavbarFooter-copyright">&copy; <?= date('Y'); ?> <?= $this->config->item('ProjectName'); ?>. <?= $this->lang->line('footer_rights'); ?></div>
+                <div class="NavbarFooter-trademark"><a href="https://github.com/fixcore/BlizzCMS"><i class="fa fa-github" aria-hidden="true"></i> <?= $this->lang->line('footer_powered'); ?></a></div>
                 <div class="NavbarFooter-links NavbarFooter-subLinks">
                     <div class="NavbarFooter-link NavbarFooter-subLink">
-                        <a href="" class="NavbarFooter-anchor" data-id="privacy" data-analytics="global-nav" data-analytics-placement="Footer - Privacy">Privacy</a>
+                        <a href="" class="NavbarFooter-anchor" data-id="privacy" data-analytics="global-nav" data-analytics-placement="Footer - Privacy"><?= $this->lang->line('footer_privacy'); ?></a>
                     </div>
                     <div class="NavbarFooter-link NavbarFooter-subLink">
-                        <a href="" class="NavbarFooter-anchor" data-id="terms" data-analytics="global-nav" data-analytics-placement="Footer - Terms">Terms</a>
+                        <a href="" class="NavbarFooter-anchor" data-id="terms" data-analytics="global-nav" data-analytics-placement="Footer - Terms"><?= $this->lang->line('footer_terms'); ?></a>
                     </div>
                 </div>
                 <div class="space-large"></div>

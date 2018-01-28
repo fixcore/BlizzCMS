@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class User extends MX_Controller {
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->load->model('user_model');
+    }
+
     public function login()
     {
         if ($this->m_modules->getStatusLogin() != '1')
@@ -14,12 +21,12 @@ class User extends MX_Controller {
         if ($this->m_general->getExpansionAction() == 1)
         {
             $data = array(
-                "email_form" => array(
+                "username_form" => array(
                     'id' => 'login_username',
                     'name' => 'login_username',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('username_re'),
+                    'placeholder' => $this->lang->line('form_username'),
                     'type' => 'text'),
 
                 "password_form" => array(
@@ -27,14 +34,14 @@ class User extends MX_Controller {
                     'name' => 'login_password',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('password_re'),
+                    'placeholder' => $this->lang->line('form_password'),
                     'type' => 'password'),
 
                 "submit_form" => array(
                     'id' => 'button_log',
                     'name' => 'button_log',
-                    'value' => $this->lang->line('button_log'),
-                    'class' => 'uk-button uk-button-primary')
+                    'value' => $this->lang->line('button_login'),
+                    'class' => 'uk-button uk-button-primary uk-width-1-1')
             );
 
             $this->load->view('login1', $data);
@@ -47,7 +54,7 @@ class User extends MX_Controller {
                     'name' => 'login_email',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('email_re'),
+                    'placeholder' => $this->lang->line('form_email'),
                     'type' => 'email'),
 
                 "password_form" => array(
@@ -55,14 +62,14 @@ class User extends MX_Controller {
                     'name' => 'login_password',
                     'class' => 'uk-input',
                     'required' => 'required',
-                    'placeholder' => $this->lang->line('password_re'),
+                    'placeholder' => $this->lang->line('form_password'),
                     'type' => 'password'),
 
                 "submit_form" => array(
                     'id' => 'button_log',
                     'name' => 'button_log',
-                    'value' => $this->lang->line('button_log'),
-                    'class' => 'uk-button uk-button-primary')
+                    'value' => $this->lang->line('button_login'),
+                    'class' => 'uk-button uk-button-primary uk-width-1-1')
             );
 
             $this->load->view('login2', $data);
@@ -73,6 +80,9 @@ class User extends MX_Controller {
 
     public function verify1()
     {
+        if ($this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
         $username = $this->input->post('login_username');
         $password = $this->input->post('login_password');
 
@@ -95,6 +105,9 @@ class User extends MX_Controller {
 
     public function verify2()
     {
+        if ($this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
         $email    = $this->input->post('login_email');
         $password = $this->input->post('login_password');
 
@@ -121,22 +134,14 @@ class User extends MX_Controller {
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
+        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+        {
+            redirect(base_url('maintenance'),'refresh');
+        }
+
         $this->load->library('recaptcha');
 
-        $this->load->model('user_model');
-
-        if ($this->config->item('maintenance_mode') == '1')
-        {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
-            {
-                $this->load->view('register');
-            }
-            else
-                $this->load->view('maintenance');
-        }
-        else
-            $this->load->view('register');
-
+        $this->load->view('register');
         $this->load->view('footer');
     }
 
@@ -150,23 +155,15 @@ class User extends MX_Controller {
         if ($this->m_modules->getStatusUCP() != '1')
             redirect(base_url(),'refresh');
 
-        $this->load->model('user_model');
+        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+        {
+            redirect(base_url('maintenance'),'refresh');
+        }
 
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->config->item('maintenance_mode') == '1')
-        {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
-            {
-                $this->load->view('panel');
-            }
-            else
-                $this->load->view('maintenance');
-        }
-        else
-            $this->load->view('panel');
-
+        $this->load->view('panel');
         $this->load->view('footer');
     }
 
@@ -178,22 +175,14 @@ class User extends MX_Controller {
         if (empty($id) || is_null($id) || $id == '0')
             redirect(base_url(),'refresh');
 
-        $this->load->model('user_model');
+        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+        {
+            redirect(base_url('maintenance'),'refresh');
+        }
 
         $data['idlink'] = $id;
 
-        if ($this->config->item('maintenance_mode') == '1')
-        {
-            if ($this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1)
-            {
-                $this->load->view('profile', $data);
-            }
-            else
-                $this->load->view('maintenance');
-        }
-        else
-            $this->load->view('profile', $data);
-
+        $this->load->view('profile', $data);
         $this->load->view('footer');
     }
 }

@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html>
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<html xmlns="http://www.w3.org/1999/xhtml">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('shop'); ?></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_store'); ?></title>
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/shop.css"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -28,137 +29,102 @@
     <!-- custom footer -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <!-- custom footer -->
-    <!-- custom -->
+    <!--[if lte IE 8]>
+        <script type="text/javascript" src="/<?= base_url(); ?>assets/js/jquery.min.js?v=88"></script>
+    <![endif]-->
 </head>
 
-<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
-    <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
-        <div class="Container Container--content Container--breadcrumbs">
-            <?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
-                <div class="GameSite-link"> 
-                    <a class="GameSite-link--heading" href="<?= base_url('store/order/').$ggroups->id; ?>"><?= $ggroups->name ?></a>
-                </div>
-            <?php } ?>
-            <!-- cat -->
-            <div class="Breadcrumbs"></div>
-            <div class="User-menu"> 
-                <!-- right -->
-                <span class="Breadcrumb"> 
-                    <a class="Breadcrumb-content"> 
-                        <!-- logged -->
-                        <?php if ($this->m_data->isLogged()) { ?>
-                            <!-- credits -->
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            | 
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            <!-- credits -->
-                        <?php } ?>
-                        <!-- logged -->
-                    </a> 
-                </span>
-                <!-- right -->
-            </div>
-        </div>
-    </div>
     </div>
     </div>
     </div>
     <!-- submenu -->
-    <storefront-root _nghost-c0="" ng-version="4.4.6">
-        <storefront-family-page _nghost-c19="" class="">
-            <div _ngcontent-c19="" class="family-page">
-                <!-- header -->
-                <header _ngcontent-c19="">
-                    <storefront-featured-content _ngcontent-c19="" _nghost-c11="" class="ng-tns-c11-8">
-                        <div _ngcontent-c11="" class="featured-content">
-                            <div _ngcontent-c11="" class="background ng-tns-c11-8 ng-trigger ng-trigger-fadeInOut">
-                                <div _ngcontent-c11="" class="blur">
-                                    <div _ngcontent-c11="" class="mobile" style="background: url(<?= base_url('assets/images/backgrounds/store-mobile.jpg'); ?>) rgb(16, 20, 14);"></div>
-                                    <div _ngcontent-c11="" class="desktop" style="background: url(<?= base_url('assets/images/backgrounds/store-full.jpg'); ?>) rgb(16, 20, 14);"></div>
-                                </div>
-                                <div _ngcontent-c11="" class="mobile" style="background: url(<?= base_url('assets/images/backgrounds/store-prod-mobile.jpg'); ?>) rgb(16, 20, 14);"></div>
-                                <div _ngcontent-c11="" class="desktop" style="background: url(<?= base_url('assets/images/backgrounds/store-fullbg.jpg'); ?>) rgb(16, 20, 14);"></div>
-                            </div>
-                        </div>
-                    </storefront-featured-content>
-                </header>
-                <!-- header -->
-
-                <!-- message -->
-                <?php if(isset($_GET['complete'])): ?>
-                    <div class="row">
-                        <div class="col-sm-3"></div>
-                        <div class="col-sm-6">
-                            <div class="uk-alert-success" uk-alert>
-                                <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> <?=$this->lang->line('shop_success');?></p>
-                            </div>
+    <div class="Page-container">
+        <div class="Page-content en-US">
+            <header class="Community-header">
+                <div class="Community-wrapper">
+                    <div class="Welcome">
+                        <div class="Welcome-logo--container">   
+                            <p class="Welcome-text uk-text-uppercase"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('store_welcome'); ?></p>
                         </div>
                     </div>
-                <?php endif; ?>
-                <!-- message -->
-
-                <main _ngcontent-c19="">
-                    <storefront-browsing-module _ngcontent-c19="" class="app-container" _nghost-c9="">
-                        <div _ngcontent-c9="" class="main">
-                            <div class="uk-grid uk-grid-small uk-child-width-1-1 uk-flex-center uk-text-center">
-                                <div class="uk-grid uk-grid-medium uk-child-width-1-4 uk-flex-center uk-text-center">
-                                    <?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
-                                        <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack">
-                                            <storefront-browsing-card _ngcontent-c9="" _nghost-c16="">
-                                                <div _ngcontent-c16="" class="browsing-card">
-                                                    <storefront-link _ngcontent-c16="" _nghost-c2="">
-                                                        <a _ngcontent-c2="" title="<?= $itemsG->name ?>">
-                                                            <div _ngcontent-c16="" class="background">
-                                                                <div _ngcontent-c16="" class="vertical" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>);"></div>
-                                                                <div _ngcontent-c16="" class="horizontal" style="background: url(<?= base_url('assets/images/store/').$itemsG->image; ?>);"></div>
-                                                            </div>
-                                                            <div _ngcontent-c16="" class="content">
-                                                                <div _ngcontent-c16="" class="family-img-container">
-                                                                    <div _ngcontent-c16="" class="family-icon-container"></div>
-                                                                </div>
-                                                                <div _ngcontent-c16="" class="name uk-text-break"><a rel="item=<?= $itemsG->itemid ?>"><?= $itemsG->name ?></a></div>
-                                                                <div _ngcontent-c16="" class="category"><span class="uk-label uk-label-success uk-text-capitalize"><?= $this->shop_model->getSpecifyGroup($itemsG->groups) ?></span></div>
-                                                                <div _ngcontent-c16="" class="price">
-                                                                    <storefront-price _ngcontent-c16="" _nghost-c18="">
-                                                                        <span _ngcontent-c18="" class="price">
-                                                                            <span class="full">
-                                                                                <!-- price -->
-                                                                                <?php if(!is_null($itemsG->price_vp) && !empty($itemsG->price_vp) && $itemsG->price_vp != '0') { ?>
-                                                                                    <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=vp">
-                                                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="Voter Points" width="30px" height="30px" uk-tooltip="pos: bottom">
-                                                                                        <span class="uk-badge"><?= $itemsG->price_vp ?></span>
-                                                                                    </a>
-                                                                                    <span style="display:inline-block; width: 10px;"></span>
-                                                                                <?php } ?>
-                                                                                <?php if(!is_null($itemsG->price_dp) && !empty($itemsG->price_dp) && $itemsG->price_dp != '0') { ?>
-                                                                                    <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=dp">
-                                                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="Donor Points" width="30px" height="30px" uk-tooltip="pos: bottom">
-                                                                                        <span class="uk-badge"><?= $itemsG->price_dp ?></span>
-                                                                                    </a>
-                                                                                <?php } ?>
-                                                                                <!-- price -->
-                                                                            </span>
-                                                                        </span>
-                                                                    </storefront-price>
-                                                                </div>
-                                                            </div>
-                                                        </a>
-                                                    </storefront-link>
+                </div>
+            </header>
+            <div class="Forum-content">
+                <div uk-grid>
+                    <div class="uk-width-1-1">
+                        <div class="section">
+                            <div uk-grid>
+                                <div class="uk-width-3-4">
+                                    <form method="post" action="">
+                                        <div class="uk-grid-small" uk-grid>
+                                            <div class="uk-inline uk-width-1-3@s">
+                                                <div class="uk-form-controls">
+                                                    <select class="uk-select" name="prioryValue">
+                                                        <option value="0">All Categories</option>
+                                                        <?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
+                                                            <option value="<?= $ggroups->id ?>"><?= $ggroups->name ?></option>
+                                                        <?php } ?>
+                                                    </select>
                                                 </div>
-                                                <span style="display:block; height: 15px;"></span>
-                                            </storefront-browsing-card>
+                                            </div>
+                                            <div class="uk-inline uk-width-1-3@s">
+                                                <button class="uk-button uk-button-secondary" type="submit" name="changePriory"><?= $this->lang->line('button_change'); ?></button>
+                                            </div>
                                         </div>
+                                    </form>
+                                </div>
+                                <div class="uk-width-1-4">
+                                    <?php if ($this->m_data->isLogged()) { ?>
+                                        <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="<?=$this->lang->line('panel_dp');?>" width="30px" height="30px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
+                                        <span style="display:inline-block; width: 5px;"></span>
+                                        <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="<?=$this->lang->line('panel_vp');?>" width="30px" height="30px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
                                     <?php } ?>
                                 </div>
                             </div>
                         </div>
-                    </storefront-browsing-module>
-                </main>
+                    </div>
+                    <?php if(isset($_GET['complete'])): ?>
+                        <div class="uk-width-1-1">
+                            <div class="uk-alert-success" uk-alert>
+                                <a class="uk-alert-close" uk-close></a>
+                                <p><i class="fa fa-check-circle-o" aria-hidden="true"></i> <?=$this->lang->line('store_success');?></p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <div class="uk-width-1-1">
+                        <div class="uk-grid uk-grid-small uk-child-width-1-4 uk-flex-center uk-text-center">
+                            <?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
+                                <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack">
+                                    <div class="uk-inline-clip uk-transition-toggle uk-light"  tabindex="0">
+                                        <img src="<?= base_url('assets/images/store/'); ?><?= $itemsG->image ?>" class="uk-border-rounded uk-transition-scale-up uk-transition-opaque" width="250" height="250" alt="">
+                                        <div class="uk-overlay uk-light uk-position-bottom">
+                                            <p class="uk-text-center uk-text-break"><a rel="item=<?= $itemsG->itemid ?>"><?= $itemsG->name ?></a></p>
+                                            <p class="uk-text-center">
+                                                <?php if(!is_null($itemsG->price_vp) && !empty($itemsG->price_vp) && $itemsG->price_vp != '0') { ?>
+                                                    <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=vp">
+                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="<?=$this->lang->line('panel_vp');?>" width="30px" height="30px" uk-tooltip="pos: bottom">
+                                                        <span class="uk-badge"><?= $itemsG->price_vp ?></span>
+                                                    </a>
+                                                    <span style="display:inline-block; width: 10px;"></span>
+                                                <?php } ?>
+                                                    <?php if(!is_null($itemsG->price_dp) && !empty($itemsG->price_dp) && $itemsG->price_dp != '0') { ?>
+                                                    <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=dp">
+                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="<?=$this->lang->line('panel_dp');?>" width="30px" height="30px" uk-tooltip="pos: bottom">
+                                                        <span class="uk-badge"><?= $itemsG->price_dp ?></span>
+                                                    </a>
+                                                <?php } ?>
+                                            </p>
+                                        </div>
+                                        <span style="display:block; height: 10px;"></span>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </storefront-family-page>
-    </storefront-root>
-</body>
-</html>
+        </div>

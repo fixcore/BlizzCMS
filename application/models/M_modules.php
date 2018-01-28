@@ -151,4 +151,12 @@ class M_modules extends CI_Model {
                 ->get('fx_modules')
                 ->row('status');
     }
+
+    public function getDonation()
+    {
+        return $this->db->select('status')
+                ->where('id', '19')
+                ->get('fx_modules')
+                ->row('status');
+    }
 }

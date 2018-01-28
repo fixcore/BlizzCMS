@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /**
  * BlizzCMS
  *
@@ -28,10 +28,15 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$lang['menu_menu'] = 'Menú';
-$lang['menu_more'] = 'Más';
-$lang['menu_news'] = 'Noticias';
-$lang['menu_home'] = 'Inicio';
-$lang['menu_support'] = 'Soporte';
-$lang['menu_login'] = 'Iniciar sesión';
-$lang['my_account'] = 'Mi cuenta';
+/*Navigation Menu*/
+$lang['nav_menu'] = 'Menú';
+$lang['nav_more'] = 'Más';
+$lang['nav_news'] = 'Noticias';
+$lang['nav_forums'] = 'Foros';
+$lang['nav_store'] = 'Tienda';
+$lang['nav_bugtracker'] = 'Bugtracker';
+$lang['nav_changelogs'] = 'Changelogs';
+$lang['nav_pvp_statistics'] = 'Estadísticas PvP';
+$lang['nav_arena_statistics'] = 'Estadísticas de Arena';
+
+$lang['nav_account'] = 'Mi Cuenta';

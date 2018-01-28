@@ -70,11 +70,11 @@ class Bugtracker_model extends CI_Model {
             <table class="uk-table uk-table-divider">
                 <thead>
                     <tr>
-                        <th style="color: #fff;"><i class="fa fa-book" aria-hidden="true"></i> '.$this->lang->line("id").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-bookmark" aria-hidden="true"></i> '.$this->lang->line("expr_title").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-list" aria-hidden="true"></i> '.$this->lang->line("type").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("expr_status").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("expr_priority").'</th>
+                        <th style="color: #fff;"><i class="fa fa-book" aria-hidden="true"></i> '.$this->lang->line("column_id").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-bookmark" aria-hidden="true"></i> '.$this->lang->line("form_title").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-list" aria-hidden="true"></i> '.$this->lang->line("form_type").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("column_status").'</th>
+                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("column_priority").'</th>
                     </tr>
                 <tbody>
         ';
@@ -140,7 +140,8 @@ class Bugtracker_model extends CI_Model {
     {
         return $this->db->select('id, title')
                 ->order_by('id', 'ASC')
-                ->get('fx_bugtracker_type');
+                ->get('fx_bugtracker_type')
+                ->result();
     }
 
     public function getType($id)

@@ -13,11 +13,11 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-commenting fa-fw"></i><?= $this->lang->line('adm_forums'); ?> - <?= $this->lang->line('forum_categoryMan'); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-commenting fa-fw"></i><?= $this->lang->line('admin_forums'); ?> - <?= $this->lang->line('admin_manage_categories'); ?></h4>
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <a href="#" data-toggle="modal" data-target="#createcat-modal">
-                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                     </a>
                 </div>
             </div>
@@ -29,8 +29,8 @@
                             <table id="myTable" class="table color-table info-table table-striped">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th class="text-center">Action</th>
+                                        <th><?= $this->lang->line('form_title'); ?></th>
+                                        <th class="text-center"><?= $this->lang->line('column_action'); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,17 +66,17 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title"><i class="fa fa-bookmark-o fa-fw"></i> <?= $this->lang->line('forum_categoryCrea'); ?></h4>
+                        <h4 class="modal-title"><i class="fa fa-bookmark-o fa-fw"></i> <?= $this->lang->line('form_create_category'); ?></h4>
                     </div>
                     <div class="modal-body">
                         <form method="post" action="" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label class="control-label">Title of the Category</label>
-                                <input name="cate_name" type="text" class="form-control" placeholder="Title of the Category" required>
+                                <label class="control-label"><?= $this->lang->line('form_category_title'); ?></label>
+                                <input name="cate_name" type="text" class="form-control" placeholder="<?= $this->lang->line('form_category_title'); ?>" required>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="submit" name="button_createCategory" class="btn btn-success waves-effect waves-light"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><?= $this->lang->line('button_close'); ?></button>
+                                <button type="submit" name="button_createCategory" class="btn btn-success waves-effect waves-light"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                             </div>
                         </form>
                     </div>

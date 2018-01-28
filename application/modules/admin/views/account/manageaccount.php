@@ -30,7 +30,7 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('user_manage'); ?> - <?= $this->m_data->getUsernameID($idlink) ?></h4>
+                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('panel_admin_user_manage'); ?> - <?= $this->m_data->getUsernameID($idlink) ?></h4>
                 </div>
             </div>
             <!-- /.row -->
@@ -38,7 +38,7 @@
                 <?php if($this->admin_model->getBanSpecify($idlink)->num_rows()) { ?>
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-success">
-                            <div class="panel-heading"> <?= $this->lang->line('unban_acc'); ?>
+                            <div class="panel-heading"> <?= $this->lang->line('panel_admin_unban_account'); ?>
                                 <div class="pull-right">
                                     <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                                 </div>
@@ -46,7 +46,7 @@
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
                                     <form action="" method="post">
-                                        <button name="button_unban" class="btn btn-block btn-outline btn-success"><i class="fa fa-check-circle fa-fw"></i><?= $this->lang->line('unban'); ?></button>
+                                        <button name="button_unban" class="btn btn-block btn-outline btn-success"><i class="fa fa-check-circle fa-fw"></i><?= $this->lang->line('button_unban'); ?></button>
                                     </form>
                                 </div>
                             </div>
@@ -57,7 +57,7 @@
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-danger">
                             <div class="panel-heading">
-                                <?= $this->lang->line('ban_acc'); ?>
+                                <?= $this->lang->line('panel_admin_ban_account'); ?>
                                 <div class="pull-right">
                                     <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                                 </div>
@@ -66,10 +66,10 @@
                                 <div class="panel-body">
                                     <form method="post" action="">
                                         <div class="form-group has-error">
-                                            <input type="text" id="state-danger" required name="action_reason" class="form-control" placeholder="<?= $this->lang->line('reason'); ?>">
+                                            <input type="text" id="state-danger" required name="action_reason" class="form-control" placeholder="<?= $this->lang->line('panel_admin_reason'); ?>">
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" name="action_ban" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('ban'); ?></button>
+                                            <button type="submit" name="action_ban" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('button_ban'); ?></button>
                                         </div>
                                     </form>
                                 </div>
@@ -82,7 +82,7 @@
                 <div class="col-lg-4 col-sm-4">
                     <div class="panel panel-success">
                         <div class="panel-heading">
-                            <?= $this->lang->line('rank_acc'); ?>
+                            <?= $this->lang->line('panel_admin_rank_account'); ?>
                             <div class="pull-right">
                                 <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                             </div>
@@ -92,14 +92,14 @@
                                 <form action="" method="post" accept-charset="utf-8">
                                     <?php if($this->m_general->getGmSpecify($idlink)->num_rows()) { ?>
                                         <div class="col-md-12">
-                                            <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('re_gran_acc'); ?></button>
+                                            <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('button_re_grant_account'); ?></button>
                                         </div>
                                     <?php } else { ?>
                                         <div class="form-group has-success">
-                                            <input type="number" min="1" required name="gmlevel" class="form-control" placeholder="<?= $this->lang->line('gmlevel'); ?>">
+                                            <input type="number" min="1" required name="gmlevel" class="form-control" placeholder="<?= $this->lang->line('panel_admin_gmlevel'); ?>">
                                         </div>
                                         <div class="col-md-12">
-                                            <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('grant_acc'); ?></button>
+                                            <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('button_grant_account'); ?></button>
                                         </div>
                                     <?php } ?>
                                 </form>
@@ -112,7 +112,7 @@
                 <div class="col-lg-4 col-sm-4">
                     <div class="panel panel-warning">
                         <div class="panel-heading">
-                            <?= $this->lang->line('web_rank'); ?>
+                            <?= $this->lang->line('panel_admin_web_rank'); ?>
                             <div class="pull-right">
                                 <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
                             </div>
@@ -122,11 +122,11 @@
                                 <form action="" method="post" accept-charset="utf-8">
                                     <?php if($this->m_general->getPermissions($idlink) == 1) { ?>
                                         <div class="col-md-12">
-                                            <button name="button_removeADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('reW_gran_acc'); ?></button>
+                                            <button name="button_removeADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('button_re_grant_web_acc'); ?></button>
                                         </div>
                                     <?php } else { ?>
                                         <div class="col-md-12">
-                                            <button name="button_addADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('grantW_acc'); ?></button>
+                                            <button name="button_addADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('button_grant_web_acc'); ?></button>
                                         </div>
                                     <?php } ?>
                                 </form>
@@ -140,19 +140,19 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-user-circle-o fa-fw"></i><?= $this->lang->line('general_info'); ?></div>
+                        <div class="panel-heading"><i class="fa fa-user-circle-o fa-fw"></i><?= $this->lang->line('panel_admin_general_info'); ?></div>
                         <div class="panel-wrapper collapse in">
                             <table class="table color-table info-table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Last name</th>
-                                        <th>Username</th>
-                                        <th>Email</th>
-                                        <th>Question</th>
-                                        <th>Answer</th>
-                                        <th>Birth (Y-m-d)</th>
-                                        <th>Registrarion Date</th>
+                                        <th><?= $this->lang->line('form_first_name'); ?></th>
+                                        <th><?= $this->lang->line('form_last_name'); ?></th>
+                                        <th><?= $this->lang->line('form_username'); ?></th>
+                                        <th><?= $this->lang->line('form_email'); ?></th>
+                                        <th><?= $this->lang->line('form_security_question'); ?></th>
+                                        <th><?= $this->lang->line('form_secret_answer'); ?></th>
+                                        <th><?= $this->lang->line('form_birth_date'); ?></th>
+                                        <th><?= $this->lang->line('panel_member'); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -179,18 +179,18 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <div class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-users fa-fw"></i><?= $this->lang->line('char_list'); ?></div>
+                        <div class="panel-heading"><i class="fa fa-users fa-fw"></i><?= $this->lang->line('panel_chars_list'); ?></div>
                         <div class="panel-wrapper collapse in">
                             <table class="table color-table info-table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Guid</th>
-                                        <th>Name</th>
-                                        <th>Race</th>
-                                        <th>Class</th>
-                                        <th>Level</th>
-                                        <th>Money</th>
-                                        <th>TotalKills</th>
+                                        <th><?= $this->lang->line('column_name'); ?></th>
+                                        <th><?= $this->lang->line('column_race'); ?></th>
+                                        <th><?= $this->lang->line('column_class'); ?></th>
+                                        <th><?= $this->lang->line('column_level'); ?></th>
+                                        <th><?= $this->lang->line('column_money'); ?></th>
+                                        <th><?= $this->lang->line('column_total_kills'); ?></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -232,7 +232,7 @@
                     <div class="panel panel-default">
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
-                                <h3><i class="fa fa-list fa-fw"></i><?= $this->lang->line('annotations'); ?></h3>
+                                <h3><i class="fa fa-list fa-fw"></i><?= $this->lang->line('panel_admin_annotations'); ?></h3>
                                 <ul class="list-icons">
                                     <?php foreach($this->admin_model->getAnnotationsSpecify($idlink)->result() as $annotations) { ?>
                                         <li><i class="fa fa-caret-right text-text-primary"></i><?= $annotations->annotation ?></li>
@@ -246,7 +246,7 @@
                     <div class="panel panel-default">
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
-                                <h3><i class="fa fa-list-alt fa-fw"></i><?= $this->lang->line('mov_forum'); ?></h3>
+                                <h3><i class="fa fa-list-alt fa-fw"></i><?= $this->lang->line('panel_admin_mov_forum'); ?></h3>
                                 <ul class="list-icons">
                                     <li><i class="fa fa-caret-right text-primary"></i>forum actions</li>
                                     <li><i class="fa fa-caret-right text-primary"></i>forum actions</li>
@@ -260,7 +260,7 @@
                     <div class="panel panel-default">
                         <div class="panel-wrapper collapse in">
                             <div class="panel-body">
-                                <h3><i class="fa fa-commenting-o fa-fw"></i><?= $this->lang->line('last_comments'); ?></h3>
+                                <h3><i class="fa fa-commenting-o fa-fw"></i><?= $this->lang->line('panel_admin_last_comments'); ?></h3>
                                 <ul class="list-icons">
                                     <li><i class="fa fa-caret-right text-primary"></i>comments actions</li>
                                     <li><i class="fa fa-caret-right text-primary"></i>comments actions</li>

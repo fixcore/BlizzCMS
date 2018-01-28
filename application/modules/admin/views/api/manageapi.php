@@ -38,7 +38,7 @@
                 </div>
                 <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                     <a href="#" data-toggle="modal" data-target="#createapi-modal">
-                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-wrench fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-wrench fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                     </a>
                 </div>
             </div>
@@ -433,8 +433,8 @@
                                 <label class="control-label text-danger"><i class="fa fa-exclamation-triangle fa-fw"></i> Remember that all API features are still under development</label>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="submit" name="button_createApi" class="btn btn-success waves-effect waves-light"><i class="fa fa-wrench fa-fw"></i><?= $this->lang->line('button_crea'); ?></button>
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><?= $this->lang->line('button_close'); ?></button>
+                                <button type="submit" name="button_createApi" class="btn btn-success waves-effect waves-light"><i class="fa fa-wrench fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
                             </div>
                         </form>
                     </div>

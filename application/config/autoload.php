@@ -117,7 +117,7 @@ $autoload['config'] = array('fixcore');
 | "codeigniter_lang.php" would be referenced as array('codeigniter');
 |
 */
-$autoload['language'] = array('titles', 'text', 'menu', 'actions', 'admin', 'soap');
+$autoload['language'] = array('general', 'menu', 'notification', 'admin');
 /*
 | -------------------------------------------------------------------
 |  Auto-load Models

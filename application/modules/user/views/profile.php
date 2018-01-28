@@ -1,14 +1,21 @@
+<?php if(isset($_POST['createPM'])) {
+    $this->load->model('messages/messages_model');
+    $reply = $_POST['replyText'];
+    $this->messages_model->insertReply($this->session->userdata('fx_sess_id'), $idlink, $reply);
+} ?>
+
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('settings'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url(); ?>assets/css/blizzcms-themes.css?v=58-88"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -27,7 +34,7 @@
     <!-- custom footer -->
 </head>
 
-<body class="en-us Theme--<?= $this->m_general->getTheme(); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
@@ -54,19 +61,23 @@
                     </div>
                     <section class="Scm-content">
                         <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
-                            <div class="uk-column-1-1">
-                                <div>
-                                    <div class="uk-margin">
-                                        <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope" aria-hidden="true"></i> Send Private Message</button>
-                                        </a>
+                        <?php if ($this->m_modules->getMessages() == '1') { ?>
+                            <?php if($this->m_data->isLogged() && $idlink != $this->session->userdata('fx_sess_id')) { ?>
+                                <div class="uk-column-1-1">
+                                    <div>
+                                        <div class="uk-margin">
+                                            <a href="#" uk-toggle="target: #privateMsg">
+                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope" aria-hidden="true"></i> <?= $this->lang->line('button_private_message'); ?></button>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
+                        <?php } ?>
                             <hr class="uk-divider-icon">
                             <ul uk-accordion>
                                 <li class="uk-open">
-                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - Characters List</h3>
+                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
                                     <div class="uk-accordion-content">
                                         <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
                                             <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($idlink)->result() as $chars) { ?>
@@ -85,3 +96,37 @@
             <div class="space-huge"></div>
         </div>
     </div>
+
+<?php if ($this->m_modules->getMessages() == '1') { ?>
+    <div id="privateMsg" class="uk-modal-container" uk-modal>
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('form_new_message'); ?></h2>
+            </div>
+            <form action="" method="post" accept-charset="utf-8">
+                <div class="uk-modal-body">
+
+                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-large" for="form-stacked-text"><?= $this->lang->line('form_message'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-width-1-1">
+                                <textarea required name="replyText" id="ckeditor" rows="10" cols="80"></textarea>
+                                <script>
+                                    CKEDITOR.replace('ckeditor');
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="uk-modal-footer uk-text-right actions">
+                        <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                        <button class="uk-button uk-button-primary" type="submit" name="createPM"><?= $this->lang->line('button_send'); ?></button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<?php } ?>

@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.6.38-log : Database - blizzcms
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -27,7 +28,7 @@ CREATE TABLE `fx_users` (
   `month` int(10) NOT NULL,
   `day` int(10) NOT NULL,
   `date` int(10) NOT NULL,
-  `profile` varchar(100) NOT NULL DEFAULT 'default.jpg',
+  `profile` int(10) NOT NULL DEFAULT '1',
   `location` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
