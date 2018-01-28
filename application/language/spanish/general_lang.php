@@ -138,6 +138,7 @@ $lang['home_discord'] = 'Discord';
 $lang['home_store_top'] = 'Mejores artículos de la tienda';
 
 /*Store Lang*/
+$lang['store_welcome'] = 'Bienvenido a la tienda';
 $lang['store_cart_description'] = 'Comprar artículo';
 $lang['store_item_name'] = 'Nombre del Artículo';
 $lang['store_select_character'] = 'Seleccionar Personaje';
