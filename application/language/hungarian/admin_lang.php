@@ -28,7 +28,6 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Kezdőoldal';
 $lang['admin_users'] = 'Felhasználók';
