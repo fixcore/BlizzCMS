@@ -29,14 +29,14 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Navigation Menu*/
-$lang['nav_menu'] = 'Menu';
-$lang['nav_more'] = 'More';
-$lang['nav_news'] = 'News';
-$lang['nav_forums'] = 'Forums';
-$lang['nav_store'] = 'Store';
+$lang['nav_menu'] = 'Menú';
+$lang['nav_more'] = 'Más';
+$lang['nav_news'] = 'Noticias';
+$lang['nav_forums'] = 'Foros';
+$lang['nav_store'] = 'Tienda';
 $lang['nav_bugtracker'] = 'Bugtracker';
 $lang['nav_changelogs'] = 'Changelogs';
-$lang['nav_pvp_statistics'] = 'PvP Statistics';
-$lang['nav_arena_statistics'] = 'Arena Statistics';
+$lang['nav_pvp_statistics'] = 'Estadísticas PvP';
+$lang['nav_arena_statistics'] = 'Estadísticas de Arena';
 
-$lang['nav_account'] = 'My Account';
+$lang['nav_account'] = 'Mi Cuenta';
