@@ -48,7 +48,7 @@
                 <div class="Community-wrapper">
                     <div class="Welcome">
                         <div class="Welcome-logo--container">   
-                            <p class="Welcome-text"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('store_welcome'); ?></p>
+                            <p class="Welcome-text uk-text-uppercase"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('store_welcome'); ?></p>
                         </div>
                     </div>
                 </div>

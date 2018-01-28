@@ -44,7 +44,7 @@
                 <div class="Community-wrapper">
                     <div class="Welcome">
                         <div class="Welcome-logo--container">	
-                            <p class="Welcome-text"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->lang->line('forum_welcome'); ?></p>
+                            <p class="Welcome-text uk-text-uppercase"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->lang->line('forum_welcome'); ?></p>
                         </div>
                     </div>
                 </div>

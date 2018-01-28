@@ -47,12 +47,10 @@
                     <!-- Logo -->
                     <a class="logo" href="">
                         <b>
-                            <img src="<?= base_url('assets/images/logo/blizzcms-icon-light.png'); ?>" alt="home" class="dark-logo"/>
-                            <img src="<?= base_url('assets/images/logo/blizzcms-icon-dark.png'); ?>" alt="home" class="light-logo"/>
+                            <img src="<?= base_url('assets/images/logo/blizzcms-icon.png'); ?>" alt="home" class="light-logo"/>
                         </b>
                         <span class="hidden-xs">
-                            <img src="<?= base_url('assets/images/logo/blizzcms-light.png'); ?>" alt="home" class="dark-logo"/>
-                            <img src="<?= base_url('assets/images/logo/blizzcms-dark.png'); ?>" alt="home" class="light-logo"/>
+                            <img src="<?= base_url('assets/images/logo/blizzcms.png'); ?>" alt="home" class="light-logo"/>
                         </span>
                     </a>
                     <!-- /Logo -->
