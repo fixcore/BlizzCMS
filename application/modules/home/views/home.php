@@ -78,11 +78,7 @@
                                                                 <div data-group="homePromotedCarousel" data-viewport="0" data-anchor="0" data-anchor-target="#home-promoted-carousel-container" data-distance="0.125" class="Parallax Home-heroTextParallax">
                                                                     <div style="background-image:undefined;background-color:undefined" class="Parallax-content">
                                                                         <h3 class="Home-heroTitle text-shadow-title" style="font-family: 'Noto Serif', serif; color: #fff;"><?= $slides->title ?></h3>
-                                                                        <div class="Home-heroButtonContainer">
-                                                                            <a href="" data-analytics="header-click">
-                                                                                <button class="Button Home-heroButton"><?= $this->lang->line('button_learn_more'); ?></button>
-                                                                            </a>
-                                                                        </div>
+                                                                        <div class="Home-heroButtonContainer"></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
