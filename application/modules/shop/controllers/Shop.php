@@ -22,6 +22,8 @@ class Shop extends MX_Controller {
     {
         $data['idlink'] = $id;
 
+        $this->load->config('store');
+
         if($this->config->item('shopStyle') == 1)
             $this->load->view('index1', $data);
         else
