@@ -120,7 +120,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label"><?=$this->lang->line('form_store_image_name');?></label>
-                                <input name="imageName" type="text" class="form-control" placeholder="image.jpg" value="image.jpg" required>
+                                <input name="imageName" type="text" class="form-control" placeholder="image.jpg" value="image.jpg">
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><?=$this->lang->line('button_close');?></button>

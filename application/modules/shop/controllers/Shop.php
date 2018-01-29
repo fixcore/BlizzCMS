@@ -32,17 +32,6 @@ class Shop extends MX_Controller {
         $this->load->view('footer');
     }
 
-    public function order($id)
-    {
-        if (!$this->m_data->isLogged())
-            redirect(base_url('login'),'refresh');
-
-        $data['idlink'] = $id;
-
-        $this->load->view('index', $data);
-        $this->load->view('footer');
-    }
-
     public function cart($id)
     {
         if (!$this->m_data->isLogged())
