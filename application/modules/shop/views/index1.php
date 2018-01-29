@@ -63,8 +63,9 @@
                                         <div class="uk-grid-small" uk-grid>
                                             <div class="uk-inline uk-width-1-3@s">
                                                 <div class="uk-form-controls">
-                                                    <select class="uk-select" name="prioryValue">
-                                                        <option value="0">All Categories</option>
+                                                    <select class="uk-select" name="prioryValue" ONCHANGE="location = this.options[this.selectedIndex].value;">
+                                                        <option value="0"><?= $this->lang->line('store_select_categories'); ?></option>}
+                                                        <option value="0"><?= $this->lang->line('store_all_categories'); ?></option>}
                                                         <?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
                                                             <option value="<?= $ggroups->id ?>"><?= $ggroups->name ?></option>
                                                         <?php } ?>
@@ -97,7 +98,7 @@
                     <?php endif; ?>
                     <div class="uk-width-1-1">
                         <div class="uk-grid uk-grid-small uk-child-width-1-4 uk-flex-center uk-text-center">
-                            <?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
+                            <?php foreach($this->shop_model->getShopGeneral($idlink)->result() as $itemsG) { ?>
                                 <div class="uk-child-width-expand uk-grid-collapse uk-grid uk-grid-match uk-grid-stack">
                                     <div class="uk-inline-clip uk-transition-toggle uk-light"  tabindex="0">
                                         <img src="<?= base_url('assets/images/store/'); ?><?= $itemsG->image ?>" class="uk-border-rounded uk-transition-scale-up uk-transition-opaque" width="250" height="250" alt="">

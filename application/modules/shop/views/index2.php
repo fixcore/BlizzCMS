@@ -63,8 +63,9 @@
                                         <div class="uk-grid-small" uk-grid>
                                             <div class="uk-inline uk-width-1-3@s">
                                                 <div class="uk-form-controls">
-                                                    <select class="uk-select" name="prioryValue">
-                                                        <option value="0">All Categories</option>
+                                                    <select class="uk-select" name="prioryValue" ONCHANGE="location = this.options[this.selectedIndex].value;">
+                                                        <option value="0"><?= $this->lang->line('store_select_categories'); ?></option>}
+                                                        <option value="0"><?= $this->lang->line('store_all_categories'); ?></option>}
                                                         <?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
                                                             <option value="<?= $ggroups->id ?>"><?= $ggroups->name ?></option>
                                                         <?php } ?>
@@ -107,9 +108,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($this->shop_model->getShopGeneral()->result() as $itemsG) { ?>
+                                    <?php foreach($this->shop_model->getShopGeneral($idlink)->result() as $itemsG) { ?>
                                         <tr>
-                                            <td style="color: #fff;"><img src="<?= base_url('assets/images/store/'); ?><?= $itemsG->image ?>" class="uk-border-rounded" width="50" height="50" alt=""></td>
+                                            <td colspan="" rowspan="" headers="">
+                                                <a rel="item=<?= $itemsG->itemid ?>">
+                                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/<?= $itemsG->iconname ?>.jpg" />
+                                                </a>
+                                            </td>
                                             <td class="uk-text-center"><a rel="item=<?= $itemsG->itemid ?>"><?= $itemsG->name ?></a></td>
                                             <td class="uk-text-center" style="color: #fff;">
                                                 <?php if(!is_null($itemsG->price_vp) && !empty($itemsG->price_vp) && $itemsG->price_vp != '0') { ?>
