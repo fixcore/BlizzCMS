@@ -61,7 +61,7 @@
                                 <div class="uk-width-3-4">
                                     <form method="post" action="">
                                         <div class="uk-grid-small" uk-grid>
-                                            <div class="uk-inline uk-width-1-3@s">
+                                            <div class="uk-inline uk-width-1-2@s">
                                                 <div class="uk-form-controls">
                                                     <select class="uk-select" id="selectCategory">
                                                         <option value="0"><?= $this->lang->line('store_select_categories'); ?></option>
