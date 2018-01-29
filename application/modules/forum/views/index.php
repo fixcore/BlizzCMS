@@ -55,7 +55,6 @@
                         <header class="ForumCategory-header">
                             <br>
                             <h1 class="ForumCategory-heading"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $categorys->categoryName ?></h1>
-                            <button class="Community-button--search" id="toggle-search-field" data-trigger="toggle.search.field" type="button"><span class="Button-content"><i class="Icon"></i></span></button>
                         </header>
                     <?php } ?>
                     <div class="ForumCards ">
