@@ -145,6 +145,8 @@ $lang['store_cart_description'] = 'Buy Item';
 $lang['store_item_name'] = 'Item Name';
 $lang['store_select_character'] = 'Select Character';
 $lang['store_item_price'] = 'Price';
+$lang['store_all_categories'] = 'All Categories';
+$lang['store_select_categories'] = 'Select an Category';
 
 /*PvP-Arena Lang*/
 $lang['pvp_top'] = 'TOP 20';
