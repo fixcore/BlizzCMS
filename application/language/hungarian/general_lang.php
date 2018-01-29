@@ -144,6 +144,8 @@ $lang['store_cart_description'] = 'Item vásárlása';
 $lang['store_item_name'] = 'Item Neve';
 $lang['store_select_character'] = 'Válaszd ki a karaktered';
 $lang['store_item_price'] = 'Ár';
+$lang['store_all_categories'] = 'All Categories';
+$lang['store_select_categories'] = 'Select an Category';
 
 /*PvP-Arena Lang*/
 $lang['pvp_top'] = 'TOP 20';
