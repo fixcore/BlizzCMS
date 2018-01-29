@@ -74,9 +74,9 @@
                         <?php if($this->m_data->isLogged()) { ?>
                             <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
                                 <p uk-margin>
-                                    <button uk-toggle="target: #editTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
+                                    <a uk-toggle="target: #editTopic" class="Forum-button Forum-button--new" id="toggle-create-topic" data-forum-button="true" data-trigger="create.topicpost.forum">
                                         <span class="Button-content"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('button_edit_topic'); ?></span>
-                                    </button>
+                                    </a>
                                 </p>
                             <?php } ?>
                         <?php } ?>

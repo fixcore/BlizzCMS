@@ -44,6 +44,7 @@
                 <div class="Community-wrapper">
                     <div class="Welcome">
                         <div class="Welcome-logo--container">
+                            <img class="Welcome-logo" src="<?= base_url('assets/images/logo/game-logo.png'); ?>"/>
                             <p class="Welcome-text uk-text-uppercase"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->lang->line('forum_welcome'); ?></p>
                         </div>
                     </div>
