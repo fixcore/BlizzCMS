@@ -63,17 +63,26 @@
                                         <div class="uk-grid-small" uk-grid>
                                             <div class="uk-inline uk-width-1-3@s">
                                                 <div class="uk-form-controls">
-                                                    <select class="uk-select" name="prioryValue" ONCHANGE="location = this.options[this.selectedIndex].value;">
-                                                        <option value="0"><?= $this->lang->line('store_select_categories'); ?></option>}
-                                                        <option value="0"><?= $this->lang->line('store_all_categories'); ?></option>}
+                                                    <select class="uk-select" id="selectCategory">
+                                                        <option value="0"><?= $this->lang->line('store_select_categories'); ?></option>
+                                                        <option value="0"><?= $this->lang->line('store_all_categories'); ?></option>
                                                         <?php foreach($this->shop_model->getGroups()->result() as $ggroups) { ?>
                                                             <option value="<?= $ggroups->id ?>"><?= $ggroups->name ?></option>
                                                         <?php } ?>
                                                     </select>
+                                                    <script>
+                                                        $(function(){
+                                                          // bind change event to select
+                                                          $('#selectCategory').on('change', function () {
+                                                              var url = $(this).val(); // get selected value
+                                                              if (url) { // require a URL
+                                                                  window.location = "<?= base_url('store/'); ?>"+url; // redirect
+                                                              }
+                                                              return false;
+                                                          });
+                                                        });
+                                                    </script>
                                                 </div>
-                                            </div>
-                                            <div class="uk-inline uk-width-1-3@s">
-                                                <button class="uk-button uk-button-secondary" type="submit" name="changePriory"><?= $this->lang->line('button_change'); ?></button>
                                             </div>
                                         </div>
                                     </form>
