@@ -46,12 +46,12 @@
                     <h1 class="Forum-heading"><span class="Forum-title" style="color: #fff;"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $this->forum_model->getCategoryName($idlink); ?></span></h1>
                     <div class="Forum-controls">
                         <?php if($this->m_data->isLogged()) { ?>
-                            <button uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
+                            <a uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic" data-forum-button="true" data-trigger="create.topicpost.forum">
                                 <span class="Overlay-element" ></span>
                                 <span class="Button-content">
                                     <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_new_topic'); ?>
                                 </span>
-                            </button>
+                            </a>
                         <?php } ?>
                     </div>
                 </div>

@@ -1,8 +1,5 @@
 .DS_Store
 
-# Themes
-theme/*
-
 application/cache/*
 !application/cache/index.html
 
