@@ -18,9 +18,17 @@ class Shop extends MX_Controller {
         $this->load->model('shop_model');
     }
 
-    public function index()
+    public function index($id = '')
     {
-        $this->load->view('index');
+        $data['idlink'] = $id;
+
+        $this->load->config('store');
+
+        if($this->config->item('shopStyle') == 1)
+            $this->load->view('index1', $data);
+        else
+            $this->load->view('index2', $data);
+
         $this->load->view('footer');
     }
 
@@ -31,7 +39,7 @@ class Shop extends MX_Controller {
 
         $data['idlink'] = $id;
 
-        $this->load->view('order', $data);
+        $this->load->view('index', $data);
         $this->load->view('footer');
     }
 

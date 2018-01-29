@@ -174,7 +174,7 @@
                             <?php } ?>
                         </a>
                         <div class="Heading Heading--siteTitle" id="locations-title" style="color: #fff;"><?= $this->m_data->getUsernameID($this->session->userdata('fx_sess_id')); ?></div>
-                        <span class="uk-label"><?= $this->lang->line('panel_last_login'); ?>: ---------</span>
+                        <span class="uk-label"><?= $this->lang->line('panel_last_login'); ?>: <?= $this->user_model->getLastIp($this->session->userdata('fx_sess_id')); ?></span>
                         <div class="space-small"></div>
                     </div>
                     <section class="Scm-content">

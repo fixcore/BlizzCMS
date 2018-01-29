@@ -128,10 +128,16 @@ class Shop_model extends CI_Model {
             redirect(base_url('store'),'refresh');
     }
 
-    public function getShopGeneral()
+    public function getShopGeneral($id)
     {
-        return $this->db->select('*')
+        if($id != '' && $id != '0') {
+            return $this->db->select('*')
+                ->where('groups', $id)
                 ->get('fx_shop');
+        } else {
+            return $this->db->select('*')
+                ->get('fx_shop');
+        }
     }
 
     public function getShopGeneralGP($id)

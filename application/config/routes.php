@@ -69,8 +69,8 @@ $route['news/(:num)'] = 'news/post/$1';
 $route['news'] = 'news';
 //shop
 $route['store'] = 'shop';
+$route['store/(:num)'] = 'shop/index/$1';
 $route['cart/(:num)'] = 'shop/cart/$1';
-$route['store/order/(:num)'] = 'shop/order/$1';
 //pages
 $route['pages/(:num)'] = 'pages/index/$1';
 //messages
