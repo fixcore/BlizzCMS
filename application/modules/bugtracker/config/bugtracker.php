@@ -1,5 +1,14 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
 
+/*
+|--------------------------------------------------------------------------
+| Bugtracker (Description Text)
+|--------------------------------------------------------------------------
+|
+| Write the description that appears as default when creating a new report.
+|
+*/
 $config['textarea'] = "
 <p>Realm:</p>
 <p>Character (name, faction, level...): </p>
