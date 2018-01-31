@@ -43,7 +43,7 @@
     <script type="text/javascript" src="//wow.zamimg.com/widgets/power.js"></script>
     <!-- Wowhead START -->
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- custom footer -->
 </head>
 
