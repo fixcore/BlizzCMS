@@ -89,37 +89,37 @@
                     <aside class="right">
                         <section class="box big" id="installer_step_1">
                             <h2><i class="fa fa-connectdevelop" aria-hidden="true"></i> Complete installation</h2>
-                            <form action="" method="post" accept-charset="utf-8">
-                                <div class="uk-alert-warning" uk-alert>
-                                    <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-globe" aria-hidden="true"></i> Languages</p>
-                                    <p class="uk-text-center">At this time the default language on <strong>BlizzCMS</strong> is English, if you want to collaborate with another type of language you can do it by creating a pull request in the official repository <strong>(Branch: devs)</strong>.</p>
-                                </div>
-                                <label for="language">Website Main Language:</label>
-                                <select id="language" name="language">
-                                    <option value="english">English</option>
-                                    <option value="french">French</option>
-                                    <option value="german">German</option>
-                                    <option value="russian">Russian</option>
-                                    <option value="spanish">Spanish</option>
-                                    <option value="hungarian">Hungarian</option>
-                                </select>
-                                <div class="uk-alert-primary" uk-alert>
-                                    <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to set the URL correctly?</p>
-                                    <p class="uk-text-center">Maybe your domain is: <strong>http://<?= $_SERVER['SERVER_NAME']; ?></strong> at the end of URL enter <strong>/</strong> Example: <strong>http://<?= $_SERVER['SERVER_NAME']; ?>/</strong></p>
-                                    <p class="uk-text-center">Remember that if you use ssl you must use <strong>https://</strong></p>
-                                </div>
-                                <label for="urlSev">URL of Website</label>
-                                <input required type="text" id="urlSev" name="urlSev" placeholder="use http:// or https://" />
-                                <div class="installer_navigation">
-                                    <button class="uk-button uk-button-primary" type="submit" name="button_continue">Accept and finish <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
-                                </div>
-                            </form>
-
                             <?php if(isset($_GET['ready'])) { ?>
                                 <div class="uk-alert-success" uk-alert>
                                     <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-check-square-o" aria-hidden="true"></i> Installation Complete!</p>
                                     <p class="uk-text-center uk-text-bold">Attention user, please delete install folder.</p>
                                 </div>
+                            <?php } else { ?>
+                                <form action="" method="post" accept-charset="utf-8">
+                                    <div class="uk-alert-warning" uk-alert>
+                                        <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-globe" aria-hidden="true"></i> Languages</p>
+                                        <p class="uk-text-center">At this time the default language on <strong>BlizzCMS</strong> is English, if you want to collaborate with another type of language you can do it by creating a pull request in the official repository <strong>(Branch: devs)</strong>.</p>
+                                    </div>
+                                    <label for="language">Website Main Language:</label>
+                                    <select id="language" name="language">
+                                        <option value="english">English</option>
+                                        <option value="french">French</option>
+                                        <option value="german">German</option>
+                                        <option value="russian">Russian</option>
+                                        <option value="spanish">Spanish</option>
+                                        <option value="hungarian">Hungarian</option>
+                                    </select>
+                                    <div class="uk-alert-primary" uk-alert>
+                                        <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to set the URL correctly?</p>
+                                        <p class="uk-text-center">Maybe your domain is: <strong>http://<?= $_SERVER['SERVER_NAME']; ?></strong> at the end of URL enter <strong>/</strong> Example: <strong>http://<?= $_SERVER['SERVER_NAME']; ?>/</strong></p>
+                                        <p class="uk-text-center">Remember that if you use ssl you must use <strong>https://</strong></p>
+                                    </div>
+                                    <label for="urlSev">URL of Website</label>
+                                    <input required type="text" id="urlSev" name="urlSev" placeholder="use http:// or https://" />
+                                    <div class="installer_navigation">
+                                        <button class="uk-button uk-button-primary" type="submit" name="button_continue">Accept and finish <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></button>
+                                    </div>
+                                </form>
                             <?php } ?>
                         </section>
                     </aside>
@@ -149,6 +149,10 @@
                         fclose($handle);
 
                         rename("config.php.dist", "../application/config/config.php");
+
+                        $lock = fopen('.lock', 'w');
+                        fclose($lock);
+
                         echo '<script>window.location.href = "finish.php?ready";</script>';
                     }?>
                     <div class="clear"></div>
