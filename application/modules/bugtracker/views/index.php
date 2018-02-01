@@ -45,7 +45,7 @@
                     <div class="space-adaptive-medium"></div>
                     <div class="Container Container--content">
                         <div class="space-adaptive-medium"></div>
-                        <h1 class="Forum-heading" style="color: #fff;"><i class="fa fa-question-circle" aria-hidden="true"></i> Store Support</h1>
+                        <h1 class="Forum-heading" style="color: #fff;"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('nav_bugtracker'); ?></h1>
                         <div class="Forum-controls">
                             <?php if ($this->m_data->isLogged()) { ?>
                                 <a href="#" uk-toggle="target: #createReport">
