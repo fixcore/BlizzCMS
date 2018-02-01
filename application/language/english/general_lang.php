@@ -47,6 +47,7 @@ $lang['button_private_message'] = 'Send Private Message';
 $lang['button_create_report'] = 'Create Report';
 $lang['button_new_topic'] = 'New Topic';
 $lang['button_edit_topic'] = 'Edit Topic';
+$lang['button_create_ticket'] = 'Create Ticket';
 $lang['button_change'] = 'Change';
 $lang['button_cancel'] = 'Cancel';
 $lang['button_send'] = 'Send';
@@ -98,6 +99,7 @@ $lang['form_description'] = 'Description';
 $lang['form_url'] = 'URL';
 $lang['form_highl'] = 'Highlight';
 $lang['form_lock'] = 'Lock';
+$lang['form_subject'] = 'Subject';
 
 /*Column Lang*/
 $lang['column_name'] = 'Name';
@@ -147,6 +149,8 @@ $lang['store_select_character'] = 'Select Character';
 $lang['store_item_price'] = 'Price';
 $lang['store_all_categories'] = 'All Categories';
 $lang['store_select_categories'] = 'Select an Category';
+$lang['store_support'] = 'Store Support';
+$lang['store_support_description'] = 'Have you had a problem with the store? you are in the right place!';
 
 /*PvP-Arena Lang*/
 $lang['pvp_top'] = 'TOP 20';
