@@ -71,6 +71,7 @@ $route['news'] = 'news';
 $route['store'] = 'shop';
 $route['store/(:num)'] = 'shop/index/$1';
 $route['cart/(:num)'] = 'shop/cart/$1';
+$route['store/ticket'] = 'shop/ticket';
 //pages
 $route['pages/(:num)'] = 'pages/index/$1';
 //messages
