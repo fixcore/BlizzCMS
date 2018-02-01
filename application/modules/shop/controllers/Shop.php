@@ -62,4 +62,13 @@ class Shop extends MX_Controller {
 
         $this->load->view('footer');
     }
+
+    public function ticket()
+    {
+        if (!$this->m_data->isLogged())
+            redirect(base_url('login'),'refresh');
+
+        $this->load->view('ticket');
+        $this->load->view('footer');
+    }
 }
