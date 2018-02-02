@@ -177,12 +177,13 @@
                         <span class="uk-label"><?= $this->lang->line('panel_last_login'); ?>: <?= $this->user_model->getLastIp($this->session->userdata('fx_sess_id')); ?></span>
                         <div class="space-small"></div>
                     </div>
-                    <section class="Scm-content">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="color: rgba(255,255,255,.7);">
                         <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
                             <div class="uk-column-1-2 uk-column-divider">
                                 <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-badge">
-                                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?>
-                                </span></p>
+                                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?></span>
+                                </p>
                                 <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('panel_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
                             </div>
                             <div class="uk-column-1-2 uk-column-divider">
@@ -253,27 +254,28 @@
                             </div>
                             <hr class="uk-divider-icon">
                             <ul uk-accordion>
-                            <!-- characters -->
-                            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
-                                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
-                            ?>
-                                <li class="uk-open">
-                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
-                                    <div class="uk-accordion-content">
-                                        <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
-                                            <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm , $this->session->userdata('fx_sess_id'))->result() as $chars) { ?>
-                                                <div class="uk-text-center">
-                                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/'.$this->m_general->getClassIcon($chars->class)); ?>" title="<?= $chars->name ?> (Lvl <?= $chars->level ?>)" width="50" height="50" uk-tooltip>
-                                                </div>
-                                            <?php } ?>
+                                <!-- characters -->
+                                <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                    $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                                ?>
+                                    <li class="uk-open">
+                                        <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
+                                        <div class="uk-accordion-content">
+                                            <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
+                                                <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm , $this->session->userdata('fx_sess_id'))->result() as $chars) { ?>
+                                                    <div class="uk-text-center">
+                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/class/'.$this->m_general->getClassIcon($chars->class)); ?>" title="<?= $chars->name ?> (Lvl <?= $chars->level ?>)" width="50" height="50" uk-tooltip>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
-                            <?php } ?>
-                            <!-- characters -->
+                                    </li>
+                                <?php } ?>
+                                <!-- characters -->
                             </ul>
                         </div>
-                    </section>
+                    </div>
+                    <div class="col-md-2"></div>
                 </div>
             </div>
             <div class="space-huge"></div>
