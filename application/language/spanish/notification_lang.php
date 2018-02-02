@@ -33,10 +33,8 @@ $lang['store_senditem_subject'] = 'Compra online';
 $lang['store_senditem_text'] = 'Gracias por hacer la transacción, aquí está tu compra';
 
 /*Error Lang*/
-$lang['account_error'] = 'Cuenta Incorrecta';
-$lang['account_error_info'] = 'La cuenta proporcionada no se encuentra, por favor escriba una cuenta válida';
-$lang['password_error'] = 'Cintraseña Incorrecta';
-$lang['password_error_info'] = 'La contraseña proporcionada no es correcta, escríbela de nuevo';
+$lang['account_error'] = 'Cuenta o contraseña inválida';
+$lang['password_error'] = 'Contraseña invalida';
 $lang['captcha_error'] = 'Revisa el captcha';
 
 /*Message Lang*/
