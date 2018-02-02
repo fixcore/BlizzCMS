@@ -139,20 +139,29 @@
         <?php if(!$this->m_data->isLogged() && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
             <!-- isn't login -->
             <section class="Section Section--secondary">
-                <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
-                    <div class="Author-data" data-topic-form=''>
-                        <div class="LoginPlaceholder" id="create-topic">
-                            <header class="LoginPlaceholder-header">
-                                <h1 class="LoginPlaceholder-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
-                            </header>
-                            <div class="LoginPlaceholder-content">
-                                <div class="LoginPlaceholder-details">
-                                    <div class="LogIn-message"><?= $this->lang->line('forum_comment_locked'); ?></div>
-                                    <a class="LogIn-button" href="<?= base_url('login'); ?>">
-                                        <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></span>
-                                    </a>
+                <div class="LoginPlaceholder" id="topic-reply">
+                    <header class="LoginPlaceholder-header">
+                        <h1 class="LoginPlaceholder-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
+                    </header>
+                    <div class="LoginPlaceholder-content">
+                        <aside class="LoginPlaceholder-author">
+                            <div class="Author" id="" data-topic-post-body-content="true">
+                                <div class="Author-avatar Author-avatar--default"></div>
+                                <div class="Author-details">
+                                    <span class="Author-name is-blank"></span>
+                                    <span class="Author-posts is-blank"></span>
                                 </div>
                             </div>
+                            <div class="Author-ignored is-hidden" data-topic-post-ignored-author="true">
+                                <span class="Author-name"></span>
+                                <div class="Author-posts Author-posts--ignored"></div>
+                            </div>
+                        </aside>
+                        <div class="LoginPlaceholder-details">
+                            <div class="LogIn-message"><?= $this->lang->line('forum_comment_locked'); ?></div>
+                            <a class="LogIn-button" href="<?= base_url('login'); ?>">
+                                <span class="LogIn-button-content" ><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -162,19 +171,27 @@
 
         <?php if($this->forum_model->getTopicLocked($idlink) == 1) { ?>
             <!-- locked -->
-            <section xmlns="http://www.w3.org/1999/xhtml" class="Section Section--secondary">
-                <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
-                    <div class="Author-data" data-topic-form="{&quot;userId&quot;: 207424185944}">
-                        <div class="LoginPlaceholder" id="create-topic">
-                            <header class="LoginPlaceholder-header">
-                                <h1 class="LoginPlaceholder-heading"><?= $this->lang->line('forum_not_authorized'); ?></h1>
-                                <a class="LoginPlaceholder-button--close" data-trigger="create.topicpost.forum" data-forum-button="true"></a>
-                            </header>
-                            <div class="LoginPlaceholder-content">
-                                <div class="LoginPlaceholder-details">
-                                    <div class="LogIn-message LogIn-message--center"><?= $this->lang->line('forum_topic_locked'); ?></div>
+            <section class="Section Section--secondary">
+                <div class="LoginPlaceholder" id="topic-reply">
+                    <header class="LoginPlaceholder-header">
+                        <h1 class="LoginPlaceholder-heading"><i class="fa fa-lock" aria-hidden="true"></i> <?= $this->lang->line('forum_not_authorized'); ?></h1>
+                    </header>
+                    <div class="LoginPlaceholder-content">
+                        <aside class="LoginPlaceholder-author">
+                            <div class="Author" id="" data-topic-post-body-content="true">
+                                <div class="Author-avatar Author-avatar--default"></div>
+                                <div class="Author-details">
+                                    <span class="Author-name is-blank"></span>
+                                    <span class="Author-posts is-blank"></span>
                                 </div>
                             </div>
+                            <div class="Author-ignored is-hidden" data-topic-post-ignored-author="true">
+                                <span class="Author-name"></span>
+                                <div class="Author-posts Author-posts--ignored"></div>
+                            </div>
+                        </aside>
+                        <div class="LoginPlaceholder-details">
+                            <div class="LogIn-message"><?= $this->lang->line('forum_topic_locked'); ?></div>
                         </div>
                     </div>
                 </div>
