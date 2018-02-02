@@ -16,20 +16,23 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/`blizzcms` /*!40100 DEFAULT CHARACTER SE
 
 USE `blizzcms`;
 
-/*Table structure for table `fx_modules` */
+/*Table structure for table `fx_realms` */
 
-DROP TABLE IF EXISTS `fx_modules`;
+DROP TABLE IF EXISTS `fx_realms`;
 
-CREATE TABLE `fx_modules` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '1',
+CREATE TABLE `fx_realms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `hostname` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `char_database` varchar(255) DEFAULT NULL,
+  `realmID` int(1) NOT NULL,
+  `console_username` varchar(255) DEFAULT NULL,
+  `console_password` varchar(255) DEFAULT NULL,
+  `console_port` int(6) DEFAULT NULL,
+  `emulator` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
-
-/*Data for the table `fx_modules` */
-
-insert  into `fx_modules`(`id`,`name`,`status`) values (1,'Discord Experimental',1),(2,'Discord Classic',0),(3,'Register',1),(4,'Login',1),(5,'Realm Status',1),(6,'News',1),(7,'Changelogs',1),(8,'Forums',1),(9,'Store',1),(10,'Slides',1),(11,'Events',1),(12,'Ladder PVP',1),(13,'User Panel',1),(14,'Gifts',0),(15,'Ladder Arena',1),(16,'Bugtracker',1),(17,'Captcha',1),(18,'Messages',1),(19,'Donation',1),(20,'Installation',1);
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
