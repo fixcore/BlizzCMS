@@ -76,6 +76,7 @@ class Bugtracker_model extends CI_Model {
                         <th class="uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("column_status").'</th>
                         <th class="uk-text-center" style="color: #fff;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("column_priority").'</th>
                     </tr>
+                </thead>
                 <tbody>
         ';
 
