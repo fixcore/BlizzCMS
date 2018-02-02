@@ -308,8 +308,15 @@
 
                         <?php if(isset($_POST['button_addcommentary'])){
                             $commentary = $_POST['reply_comment'];
-                            $idsession = $this->session->userdata('fx_sess_id');
-                            $this->forum_model->insertComment($commentary, $idlink, $idsession);
+
+                            if (!is_null($commentary) && 
+                                !empty($commentary) && 
+                                $commentary != '' && 
+                                $commentary != ' ') {
+                                $idsession = $this->session->userdata('fx_sess_id');
+                                $this->forum_model->insertComment($commentary, $idlink, $idsession);
+                            }
+
                         }?>
                     </div>
                 </div>

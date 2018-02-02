@@ -128,6 +128,7 @@
                     {
                         $urlSev   = $_POST['urlSev'];
                         $language = $_POST['language'];
+                        $urlSev = preg_replace('/\s+/', '', $urlSev);
 
                         $fileContents = file_get_contents("config.php.dist");
 
