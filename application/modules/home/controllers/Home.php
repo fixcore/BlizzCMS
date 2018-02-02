@@ -20,7 +20,16 @@ class Home extends MX_Controller {
 
     public function index()
     {
-        $this->load->view('home');
-        $this->load->view('footer');
+        if ($this->m_modules->getInstallation() != '0')
+        {
+            $this->load->model('admin/admin_model');
+            $this->load->view('installation');
+        }
+        else
+        {
+            $this->load->view('home');
+            $this->load->view('footer');
+        }
+
     }
 }

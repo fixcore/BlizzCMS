@@ -5,55 +5,60 @@ class Arena_model extends CI_Model {
 
     public function __construct()
     {
-        $this->characters = $this->load->database('characters', TRUE);
         parent::__construct();
     }
 
-    public function getTopArena2v2()
+    public function getTopArena2v2($multirealm)
     {
-        return $this->characters->select('rating, seasonWins, arenaTeamId, name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('rating, seasonWins, arenaTeamId, name')
                 ->where('type', '2')
                 ->order_by('rating', 'DESC')
                 ->limit('10')
                 ->get('arena_team');
     }
 
-    public function getTopArena3v3()
+    public function getTopArena3v3($multirealm)
     {
-        return $this->characters->select('rating, seasonWins, arenaTeamId, name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('rating, seasonWins, arenaTeamId, name')
                 ->where('type', '3')
                 ->order_by('rating', 'DESC')
                 ->limit('10')
                 ->get('arena_team');
     }
 
-    public function getTopArena5v5()
+    public function getTopArena5v5($multirealm)
     {
-        return $this->characters->select('rating, seasonWins, arenaTeamId, name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('rating, seasonWins, arenaTeamId, name')
                 ->where('type', '5')
                 ->order_by('rating', 'DESC')
                 ->limit('10')
                 ->get('arena_team');
     }
 
-    public function getMemberTeam($id)
+    public function getMemberTeam($id, $multirealm)
     {
-        return $this->characters->select('*')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('*')
                 ->where('arenaTeamId', $id)
                 ->get('arena_team_member');
     }
 
-    public function getRaceGuid($id)
+    public function getRaceGuid($id, $multirealm)
     {
-        return $this->characters->select('race')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('race')
                 ->where('guid', $id)
                 ->get('characters')
                 ->row_array()['race'];
     }
 
-    public function getNameGuid($id)
+    public function getNameGuid($id, $multirealm)
     {
-        return $this->characters->select('name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('name')
                 ->where('guid', $id)
                 ->get('characters')
                 ->row_array()['name'];

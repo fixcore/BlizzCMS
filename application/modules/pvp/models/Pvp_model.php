@@ -5,13 +5,14 @@ class Pvp_model extends CI_Model {
 
     public function __construct()
     {
-        $this->characters = $this->load->database('characters', TRUE);
         parent::__construct();
     }
 
-    public function getTop20PVP()
+    public function getTop20PVP($MultiRealm)
     {
-        return $this->characters->select('name, race, totalKills, todayKills, yesterdayKills')
+        $this->multirealm = $MultiRealm;
+        
+        return $this->multirealm->select('name, race, totalKills, todayKills, yesterdayKills')
         		->order_by('totalKills', 'DESC')
         		->limit('20')
         		->get('characters');

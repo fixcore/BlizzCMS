@@ -133,11 +133,6 @@
                                 $auth_pass 	= $_POST['realmd_password'];
                                 $auth_dbweb = $_POST['realmd_database'];
 
-                                $char_host 	= $_POST['char_hostname'];
-                                $char_user 	= $_POST['char_username'];
-                                $char_pass 	= $_POST['char_password'];
-                                $char_dbweb = $_POST['char_database'];
-
                                 $fileContents = file_get_contents("database.php.dist");
 
                                 $search = array
@@ -150,10 +145,6 @@
                                     'realmd_username',
                                     'realmd_password',
                                     'realmd_database',
-                                    'char_hostname', 
-                                    'char_username',
-                                    'char_password',
-                                    'char_database'
                                 );
 
                                 $replace = array
@@ -166,10 +157,6 @@
                                     $auth_user, 
                                     $auth_pass, 
                                     $auth_dbweb, 
-                                    $char_host, 
-                                    $char_user, 
-                                    $char_pass, 
-                                    $char_dbweb
                                 );
 
                                 /* -- connect */
