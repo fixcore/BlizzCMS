@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.7.21-0ubuntu0.16.04.1 : Database - blizzcms
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -20,21 +21,19 @@ DROP TABLE IF EXISTS `fx_realms`;
 
 CREATE TABLE `fx_realms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `hostname` varchar(255) DEFAULT NULL,
+  `hostname` varchar(255) DEFAULT '127.0.0.1',
   `username` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
   `char_database` varchar(255) DEFAULT NULL,
   `realmID` int(1) NOT NULL,
   `console_username` varchar(255) DEFAULT NULL,
   `console_password` varchar(255) DEFAULT NULL,
-  `console_port` int(6) DEFAULT NULL,
-  `emulator` varchar(255) DEFAULT NULL,
+  `console_port` int(6) DEFAULT '7878',
+  `emulator` varchar(255) DEFAULT 'TC',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_realms` */
-
-insert  into `fx_realms`(`id`,`hostname`,`username`,`password`,`char_database`,`realmID`,`console_username`,`console_password`,`console_port`,`emulator`) values (1,'127.0.0.1','root','j2d4l0p3ap','characterslegion',1,'KMTEST@GMAIL.COM','KMTEST',7878,'TC'),(3,'127.0.0.1','root','j2d4l0p3ap','characters',2,'KMTEST@GMAIL.COM','KMTEST',7878,'TC');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
