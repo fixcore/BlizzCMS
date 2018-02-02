@@ -33,10 +33,8 @@ $lang['store_senditem_subject'] = 'Vásárolj online';
 $lang['store_senditem_text'] = 'Köszönjük a vásárlásod, itt az eredménye';
 
 /*Error Lang*/
-$lang['account_error'] = 'Hibás Felhasználó';
-$lang['account_error_info'] = 'A megadott felhasználó nem létezik, kérlek valósat adj meg!';
+$lang['account_error'] = 'Hibás Felhasználó vagy jelszó';
 $lang['password_error'] = 'Hibás jelszó';
-$lang['password_error_info'] = 'A megadott jelszó helytelen!';
 $lang['captcha_error'] = 'Ellenőrizd a Captcha-t!';
 
 /*Message Lang*/

@@ -44,6 +44,15 @@
                         <div class="GridItem col-md-6">
                             <h2 class="uk-text-primary uk-text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></h2>
                             <p class="uk-text-center" style="color: #fff;"><?= $this->lang->line('login_description'); ?></p>
+
+                            <?php if(isset($_GET['password'])) {
+                                echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_error').'</p></div>';
+                            } ?>
+
+                            <?php if(isset($_GET['account'])) {
+                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('account_error').'</p></div>';
+                            } ?>
+
                             <?= form_open(base_url('user/verify1')); ?>
                                 <div class="uk-margin" uk-scrollspy="cls: uk-animation-fade; target: > div > .uk-inline; delay: 300; repeat: true">
                                     <div class="uk-form-controls">
@@ -63,15 +72,6 @@
                                 </div>
                                 <?= form_submit($submit_form); ?>
                             <?= form_close(); ?>
-
-                            <?php if(isset($_GET['password'])) {
-                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_error').': '.$this->lang->line('password_error_info').'</p></div>';
-                            } ?>
-
-                            <?php if(isset($_GET['account'])) {
-                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('account_error').': '.$this->lang->line('account_error_info').'</p></div>';
-                            } ?>
-
                             <br>
                             <a href="<?= base_url('register'); ?>">
                                     <button class="uk-button uk-button-secondary uk-width-1-1" name="<?= $this->lang->line('no_account'); ?>"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('button_account_create'); ?></button>
