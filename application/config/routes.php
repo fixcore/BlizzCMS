@@ -77,3 +77,5 @@ $route['pages/(:num)'] = 'pages/index/$1';
 //messages
 $route['pm'] = 'messages/index';
 $route['message'] = 'messages/verify';
+//admin - managecharacter
+$route['admin/managecharacter/(:num)/(:num)'] = 'admin/managecharacter/$1/$2';

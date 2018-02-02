@@ -1,7 +1,3 @@
-<?php if (isset($_POST['serverRestartNow'])) {
-    $this->admin_model->restartNowServer();
-} ?>
-
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
@@ -17,17 +13,21 @@
                     <div class="white-box">
                         <div class="row row-in">
                             <div class="col-lg-3 col-sm-6 row-in-br">
+                            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                            ?>
                                 <ul class="col-in">
                                     <li>
                                         <span class="circle circle-md bg-info"><i class="fa fa-area-chart"></i></span>
                                     </li>
                                     <li class="col-last">
-                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getCharOn(); ?></h3>
+                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getCharOn($multiRealm); ?></h3>
                                     </li>
                                     <li class="col-middle">
-                                        <h4><?= $this->lang->line('players_count'); ?></h4>
+                                        <h4><?= $this->lang->line('players_count'); ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h4>
                                     </li>
                                 </ul>
+                            <?php } ?>
                             </div>
                             <div class="col-lg-3 col-sm-6 row-in-br b-r-none">
                                 <ul class="col-in">
@@ -43,17 +43,21 @@
                                 </ul>
                             </div>
                             <div class="col-lg-3 col-sm-6 row-in-br">
+                            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                            ?>
                                 <ul class="col-in">
                                     <li>
                                         <span class="circle circle-md bg-warning"><i class="fa fa-id-badge"></i></span>
                                     </li>
                                     <li class="col-last">
-                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getGmCount(); ?></h3>
+                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getGmCount($charsMultiRealm->realmID); ?></h3>
                                     </li>
                                     <li class="col-middle">
-                                        <h4><?= $this->lang->line('staff_count'); ?></h4>
+                                        <h4><?= $this->lang->line('staff_count'); ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h4>
                                     </li>
                                 </ul>
+                            <?php } ?>
                             </div>
                             <div class="col-lg-3 col-sm-6 row-in-br b-0">
                                 <ul class="col-in">
@@ -73,15 +77,5 @@
                 </div>
             </div>
             <!-- website tools -->
-            <div class="row">
-                <form method="post" action="">
-                    <div class="col-lg-3 col-sm-6 col-xs-12">
-                        <div class="white-box analytics-info">
-                            <button type="submit" name="serverRestartNow" class="btn btn-block btn-danger btn-rounded"><i class="fa fa-server"></i> <?= $this->lang->line('button_server_restart'); ?></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!--/.row -->
         </div>
         <!-- /.container-fluid -->

@@ -22,4 +22,11 @@ class Home_model extends CI_Model {
     	$vars = json_decode($discord, true);
     	return $vars;
     }
+
+    public function updateInstallation()
+    {
+        $this->db->set('status', '0')
+                ->where('id', '20')
+                ->update('fx_modules');
+    }
 }

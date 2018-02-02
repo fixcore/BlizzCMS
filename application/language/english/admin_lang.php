@@ -125,3 +125,6 @@ $lang['option_everyone'] = 'Everyone';
 $lang['option_staff'] = 'STAFF';
 $lang['option_all'] = 'STAFF - Everyone';
 $lang['option_item'] = 'Item';
+
+/*Options Lang*/
+$lang['is_banned_reason'] = 'Is banned, reason:';

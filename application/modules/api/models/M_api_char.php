@@ -6,7 +6,6 @@ class M_api_char extends CI_Model {
     public function __construct()
     {
         parent::__construct();
-        $this->characters = $this->load->database('characters', TRUE);
     }
 
     public function getCharInfo($guid, $selections)

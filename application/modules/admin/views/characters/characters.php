@@ -7,10 +7,14 @@
                 </div>
             </div>
             <!-- /row -->
+                <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                    $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                ?>
             <div class="row">
                 <div class="col-sm-12">
                     <div class="white-box">
                         <div class="table-responsive">
+                            <h3 class="uk-accordion-title"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h3>
                             <table id="myTable" class="table color-table info-table table-striped">
                                 <thead>
                                     <tr>
@@ -19,13 +23,13 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($this->admin_model->getAdminCharactersList()->result() as $chars) { ?>
+                                    <?php foreach($this->admin_model->getAdminCharactersList($multiRealm)->result() as $chars) { ?>
                                         <tr>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>" title="<?= $chars->account ?>"><?= $this->m_data->getUsernameID($chars->account); ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>/<?= $charsMultiRealm->id ?>" title="<?= $chars->account ?>"><?= $this->m_data->getUsernameID($chars->account); ?></a>
                                             </td>
                                             <td class="text-center">
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>" title="<?= $chars->name ?>"><?= $chars->name ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>/<?= $charsMultiRealm->id ?>" title="<?= $chars->name ?>"><?= $chars->name ?></a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -35,6 +39,7 @@
                     </div>
                 </div>
             </div>
+                <?php } ?>
             <!-- /.row -->
         </div>
         <!-- /.container-fluid -->

@@ -3,26 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_soap extends CI_Model {
 
-    public function getRealmStatus()
+    public function connect($soapUser, $soapPass, $soapHost, $soapPort, $soap_uri)
     {
-        $this->characters = $this->load->database('characters', TRUE);
-
-        $qq = $this->characters->query("SELECT * FROM characters WHERE online = 1");
-
-        if ($qq->num_rows())
-            return $this->lang->line('players_on').': '.$qq->num_rows();
-        else
-            return $this->lang->line('no_players');
-    }
-
-    public function connect()
-    {
-        $soapUser = $this->config->item('soap_user');
-        $soapPass = $this->config->item('soap_pass');
-        $soapHost = $this->config->item('soap_ip');
-        $soapPort = $this->config->item('soap_port');
-        $soap_uri = $this->config->item('soap_type');
-
         $this->client = new SoapClient(NULL, array(
             "location"      => "http://".$soapHost.":".$soapPort."/",
             "uri"           => "urn:". $soap_uri ."",
@@ -41,9 +23,9 @@ class M_soap extends CI_Model {
         return $this->client;
     }
 
-    public function commandSoap($command)
+    public function commandSoap($command, $soapUser, $soapPass, $soapHost, $soapPort, $soap_uri)
     {
-        $client = $this->connect();
+        $client = $this->connect($soapUser, $soapPass, $soapHost, $soapPort, $soap_uri);
         return $client->executeCommand(new SoapParam($command, "command"));
     }
 }

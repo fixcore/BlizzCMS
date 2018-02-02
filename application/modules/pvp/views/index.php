@@ -39,11 +39,14 @@
     <div class="Page-container">
         <div class="Page-content en-US">
             <div class="space-adaptive-medium"></div>
+            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+            ?>
             <!-- -->
             <div class="container">
                 <!-- -->
                 <div class="space-adaptive-small"></div>
-                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="ra ra-axe"></i> <?= $this->m_general->getRealmName(); ?></h2>
+                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="ra ra-axe"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h2>
                 <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('nav_pvp_statistics');?></h4>
                 <div class="space-adaptive-small"></div>
                 <!-- -->
@@ -60,7 +63,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->pvp_model->getTop20PVP()->result() as $tops) { ?>
+                        <?php foreach ($this->pvp_model->getTop20PVP($multiRealm)->result() as $tops) { ?>
                             <tr>
                                 <td style="color: #fff;"><img class="uk-border-circle" src="<?= base_url('assets/images/races/').$this->m_general->getRaceIcon($tops->race) ?>" title="<?= $tops->name ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                      <?= $tops->name ?></td>
@@ -74,5 +77,6 @@
                 </table>
             </div>
         </div>
+        <?php } ?>
         <!-- -->
     </div>

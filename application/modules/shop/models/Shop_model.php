@@ -161,7 +161,7 @@ class Shop_model extends CI_Model {
                 ->row_array()['name'];
     }
 
-    public function insertHistory($idshop, $itemid, $accountid, $charid, $method, $price)
+    public function insertHistory($idshop, $itemid, $accountid, $charid, $method, $price, $soapUser, $soapPass, $soapHost, $soapPort, $soap_uri)
     {
         $date = $this->m_data->getTimestamp();
 
@@ -169,7 +169,7 @@ class Shop_model extends CI_Model {
         $subject = $this->lang->line('store_senditem_subject');
         $message = $this->lang->line('store_senditem_text');
 
-        $this->m_soap->commandSoap('.send items '.$getCharName.' "'.$subject.'" "'.$message.'" '.$itemid);
+        $this->m_soap->commandSoap('.send items '.$getCharName.' "'.$subject.'" "'.$message.'" '.$itemid, $soapUser, $soapPass, $soapHost, $soapPort, $soap_uri);
 
         $data = array(
             'idshop' => $idshop,

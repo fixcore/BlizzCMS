@@ -13,19 +13,13 @@ class Admin extends MX_Controller {
 
         if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
             redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
+            redirect(base_url(),'refresh');
     }
 
     public function index()
     {
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('index');
         $this->load->view('general/footer');
@@ -33,16 +27,6 @@ class Admin extends MX_Controller {
 
     public function accounts()
     {
-        
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('account/accounts');
         $this->load->view('general/footer');
@@ -50,15 +34,6 @@ class Admin extends MX_Controller {
 
     public function manageitems()
     {
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('shop/manageitems');
         $this->load->view('general/footer');
@@ -66,15 +41,6 @@ class Admin extends MX_Controller {
 
     public function manageapi()
     {
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('api/manageapi');
         $this->load->view('general/footer');
@@ -82,15 +48,6 @@ class Admin extends MX_Controller {
 
     public function managechangelogs()
     {
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('changelogs/managechangelogs');
         $this->load->view('general/footer');
@@ -98,15 +55,6 @@ class Admin extends MX_Controller {
 
     public function managenews()
     {
-        if (!$this->m_data->isLogged())
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('news/managenews');
         $this->load->view('general/footer');
@@ -114,11 +62,6 @@ class Admin extends MX_Controller {
 
     public function characters()
     {
-        
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('characters/characters');
         $this->load->view('general/footer');
@@ -126,9 +69,6 @@ class Admin extends MX_Controller {
 
     public function managecategories()
     {
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
-
         $this->load->view('general/header');
         $this->load->view('forum/managecategories');
         $this->load->view('general/footer');
@@ -136,8 +76,6 @@ class Admin extends MX_Controller {
 
     public function manageforums()
     {
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
-            redirect(base_url(),'refresh');
 
         $this->load->view('general/header');
         $this->load->view('forum/manageforums');
@@ -147,9 +85,6 @@ class Admin extends MX_Controller {
     public function manageaccount($id)
     {
         if (is_null($id) || empty($id))
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->m_general->getAccountExist($id)->num_rows() < 1)
@@ -162,18 +97,24 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
-    public function managecharacter($id)
+    public function managecharacter($id = '', $realm = '')
     {
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
+        if (is_null($realm) || empty($realm))
             redirect(base_url(),'refresh');
 
-        if ($this->m_general->getGeneralCharactersSpecifyGuid($id)->num_rows() < 1)
+        foreach ($this->m_data->getRealm($realm)->result() as $charsMultiRealm) { 
+            $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+        }
+
+        if (!$this->m_general->getGeneralCharactersSpecifyGuid($id, $multiRealm)->num_rows())
             redirect(base_url(),'refresh');
 
         $data['idlink'] = $id;
+        $data['idrealm'] = $realm;
+        $data['multiRealm'] = $multiRealm;
 
         $this->load->view('general/header');
         $this->load->view('characters/managecharacter', $data);
@@ -183,9 +124,6 @@ class Admin extends MX_Controller {
     public function editnews($id)
     {
         if (is_null($id) || empty($id))
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
 
         if ($this->admin_model->getGeneralNewsSpecifyRows($id) < 1)
@@ -207,6 +145,9 @@ class Admin extends MX_Controller {
 
     public function checkSoap()
     {
-        echo $this->m_soap->commandSoap('.server info');
+        foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+
+            echo $this->m_soap->commandSoap('.server info', $charsMultiRealm->console_username, $charsMultiRealm->console_password, $charsMultiRealm->hostname, $charsMultiRealm->console_port, $charsMultiRealm->emulator).'<br>';
+        }
     }
 }
