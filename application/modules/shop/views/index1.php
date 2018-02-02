@@ -58,7 +58,7 @@
                                 <div class="uk-width-3-4">
                                     <form method="post" action="">
                                         <div class="uk-grid-small" uk-grid>
-                                            <div class="uk-inline uk-width-1-2@s">
+                                            <div class="uk-inline uk-width-1-3@s">
                                                 <div class="uk-form-controls">
                                                     <select class="uk-select" id="selectCategory">
                                                         <option value="0"><?= $this->lang->line('store_select_categories'); ?></option>
@@ -80,6 +80,11 @@
                                                         });
                                                     </script>
                                                 </div>
+                                            </div>
+                                            <div class="uk-inline uk-width-1-3@s">
+                                                <a href="">
+                                                    <button class="uk-button uk-button-primary"><i class="fa fa-question-circle" aria-hidden="true"></i> <?=$this->lang->line('store_support');?></button>
+                                                </a>
                                             </div>
                                         </div>
                                     </form>
