@@ -814,7 +814,6 @@ body[data-device=desktop] .link:hover .sublink,body[data-device=desktop] a:hover
 button{display:inline-block;position:relative;background-color:#0e86ca;border:solid 1px #00aeff;font-family:"Open Sans",Helvetica,Arial,sans-serif;font-size:16px;font-weight:400;color:#fff;padding:10px 50px;text-decoration:none;text-align:center;cursor:pointer;outline:0;overflow:visible;transition:color .2s,background-color .2s,border-color .2s}
 button:active{background-color:#095386;border:solid 1px #095386;color:rgba(255,255,255,.8)}
 button.is-disabled,button:disabled{background-color:rgba(14,134,202,.2)!important;border:solid 1px rgba(0,174,255,.2)!important;color:rgba(255,255,255,.15)!important}
-body[data-device=desktop] button:not(:active):not(:disabled):not(.is-disabled):hover{background-color:#00aeff;border:solid 1px #00aeff;color:#fff}
 .Page-container{min-height:50vh}
 .clearfix:after,.clearfix:before{content:'';display:block;clear:both;height:0}
 .clear-whitespace{font-size:0}
