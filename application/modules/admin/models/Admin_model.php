@@ -412,9 +412,7 @@ class Admin_model extends CI_Model {
 
         if ($type == 2)
         {
-            $data = array(
-                'id_new' => $id,
-            );
+            $data['id_new'] = $id;
 
             $this->db->insert('fx_news_top', $data);
         }
