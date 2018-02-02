@@ -74,7 +74,7 @@
                             <div class="space-adaptive-small"></div>
                             <div class="uk-margin uk-text-center">
                                 <a uk-toggle="target: #newTicket">
-                                    <button class="uk-button uk-button-secondary"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_create_ticket'); ?></button>
+                                    <button class="uk-button uk-button-primary"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_create_ticket'); ?></button>
                                 </a>
                             </div>
                         <?php } ?>

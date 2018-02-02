@@ -201,14 +201,14 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('button_support'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('button_support'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -225,12 +225,12 @@
                                     <div class="uk-margin">
                                         <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
                                             <a href="#" uk-toggle="target: #avatars">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
+                                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
                                             </a>
                                         <?php } ?>
                                         <?php if(!$this->user_model->getExistInfo()->num_rows()) { ?>
                                             <a href="#" uk-toggle="target: #personalinfo">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
+                                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
                                             </a>
                                         <?php } ?>
                                     </div>
@@ -240,14 +240,14 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="#" uk-toggle="target: #changePassword">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="uk-margin">
                                         <a href="#" uk-toggle="target: #changeEmail">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></button>
                                         </a>
                                     </div>
                                 </div>
