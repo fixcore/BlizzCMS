@@ -161,11 +161,11 @@ class Shop_model extends CI_Model {
                 ->row_array()['name'];
     }
 
-    public function insertHistory($idshop, $itemid, $accountid, $charid, $method, $price, $soapUser, $soapPass, $soapHost, $soapPort, $soap_uri)
+    public function insertHistory($idshop, $itemid, $accountid, $charid, $method, $price, $soapUser, $soapPass, $soapHost, $soapPort, $soap_uri, $multirealm)
     {
         $date = $this->m_data->getTimestamp();
 
-        $getCharName = $this->m_general->getNameCharacterSpecifyGuid($charid);
+        $getCharName = $this->m_general->getNameCharacterSpecifyGuid($multirealm, $charid);
         $subject = $this->lang->line('store_senditem_subject');
         $message = $this->lang->line('store_senditem_text');
 

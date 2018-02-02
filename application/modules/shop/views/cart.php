@@ -22,7 +22,8 @@
         $soapPass, 
         $soapHost, 
         $soapPort, 
-        $soap_uri);
+        $soap_uri,
+        $multiRealm);
 } ?>
 
 <!DOCTYPE html>
