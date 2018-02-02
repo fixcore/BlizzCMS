@@ -84,7 +84,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label"><?= $this->lang->line('form_forum_icon_name'); ?></label>
-                                <input name="forum_icon" type="text" class="form-control" placeholder="IconName.jpg or IconName.png" required>
+                                <input name="forum_icon" type="text" class="form-control" placeholder="<?= $this->lang->line('placeholder_forum_icon'); ?>" required>
                             </div>
                             <div class="form-group">
                                 <label class="control-label"><?= $this->lang->line('form_type'); ?></label>
