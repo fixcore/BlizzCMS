@@ -18,7 +18,7 @@
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <!-- custom footer -->
 
     <script src="js/ui.js" type="text/javascript"></script>
@@ -91,7 +91,7 @@
                             <h2><i class="fa fa-wrench" aria-hidden="true"></i> General Settings</h2>
                             <form method="post" action="">
                                 <label for="server_name">Server name</label>
-                                <input required type="text" id="server_name" name="server_name" pattern=".{2,9}" required title="2 characters minimum and 9 maximum" placeholder="MyServer" />
+                                <input required type="text" id="server_name" name="server_name" pattern=".{2,}" required title="2 characters minimum" placeholder="MyServer" />
                                 <label for="realmlist">Realmlist</label>
                                 <input required type="text" id="realmlist" name="realmlist" placeholder="logon.domain.com" />
                                 <label for="expansion">Expansion:</label>
