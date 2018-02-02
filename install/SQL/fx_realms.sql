@@ -14,8 +14,6 @@ MySQL - 5.7.21-0ubuntu0.16.04.1 : Database - blizzcms
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`blizzcms` /*!40100 DEFAULT CHARACTER SET utf8 */;
 
-USE `blizzcms`;
-
 /*Table structure for table `fx_realms` */
 
 DROP TABLE IF EXISTS `fx_realms`;
@@ -32,7 +30,11 @@ CREATE TABLE `fx_realms` (
   `console_port` int(6) DEFAULT NULL,
   `emulator` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+/*Data for the table `fx_realms` */
+
+insert  into `fx_realms`(`id`,`hostname`,`username`,`password`,`char_database`,`realmID`,`console_username`,`console_password`,`console_port`,`emulator`) values (1,'127.0.0.1','root','j2d4l0p3ap','characterslegion',1,'KMTEST@GMAIL.COM','KMTEST',7878,'TC'),(3,'127.0.0.1','root','j2d4l0p3ap','characters',2,'KMTEST@GMAIL.COM','KMTEST',7878,'TC');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
