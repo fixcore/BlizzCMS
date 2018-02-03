@@ -4,7 +4,7 @@
     <title>Installation - BlizzCMS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <script src="js/html5shiv.js"></script>
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
