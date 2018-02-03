@@ -88,7 +88,7 @@
         </div>
     </div>
 
-    <div id="createReport" class="uk-modal-container" uk-modal>
+    <div id="createReport" class="uk-modal-container" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">

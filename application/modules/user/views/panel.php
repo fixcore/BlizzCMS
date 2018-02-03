@@ -282,7 +282,7 @@
         </div>
     </div>
 
-    <div id="changePassword" uk-modal>
+    <div id="changePassword" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
@@ -325,7 +325,7 @@
         </div>
     </div>
 
-    <div id="changeEmail" uk-modal>
+    <div id="changeEmail" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
@@ -368,7 +368,7 @@
         </div>
     </div>
 
-    <div id="avatars" uk-modal>
+    <div id="avatars" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
@@ -397,7 +397,7 @@
         </div>
     </div>
 
-    <div id="personalinfo" uk-modal>
+    <div id="personalinfo" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
