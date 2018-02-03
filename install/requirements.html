@@ -14,7 +14,7 @@
     <script src="../core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
