@@ -59,7 +59,7 @@
                         <?php foreach($this->forum_model->getCategoryForums($categorys->id) as $sections) { ?>
                             <?php if ($sections->type == 1 || $sections->type == 3) { ?>
                                 <a href="<?= base_url('forums'); ?>/category/<?= $sections->id ?>" class="ForumCard ForumCard--content">
-                                    <i class="ForumCard-icon" style="background-image: url('<?= base_url();?>assets/images/forums/icons/<?= $sections->icon ?>')"></i>
+                                    <i class="ForumCard-icon" style="background-image: url('<?= base_url();?>assets/images/forums/<?= $sections->icon ?>')"></i>
                                     <div class="ForumCard-details">
                                         <h1 class="ForumCard-heading"><?= $sections->name ?></h1>
                                         <span class="ForumCard-description"><?= $sections->description ?></span>
