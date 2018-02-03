@@ -102,7 +102,7 @@
     </div>
 
 <?php if ($this->m_modules->getMessages() == '1') { ?>
-    <div id="privateMsg" class="uk-modal-container" uk-modal>
+    <div id="privateMsg" class="uk-modal-container" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
