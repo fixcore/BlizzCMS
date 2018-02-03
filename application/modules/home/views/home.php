@@ -24,7 +24,7 @@
     <!-- font-awesome End -->
     <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 </head>
 
