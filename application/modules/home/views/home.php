@@ -20,7 +20,7 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
     <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
     <!-- custom footer -->
