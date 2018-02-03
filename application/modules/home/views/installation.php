@@ -45,7 +45,6 @@
     <!-- font-awesome Start -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
     <!-- custom footer -->
     <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
