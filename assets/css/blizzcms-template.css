@@ -1272,3 +1272,4 @@ fieldset{margin:0;min-width:0}input[type=search]::-ms-clear,input[type=search]::
 .TopicReply-content{-ms-flex-direction:row;flex-direction:row}
 .TopicReply-author{-ms-flex:0 1 auto;flex:0 1 auto;max-width:16rem}
 .TopicReply-details{-ms-flex:1 1 48rem;flex:1 1 48rem;margin-left:2rem;margin-top:0;max-width:48rem}}
+.Project-logo{font-family:Blizzard,sans-serif;font-size:30px;color:#fff;}

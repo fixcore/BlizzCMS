@@ -35,11 +35,8 @@
             </div>
             <div class="Navbar-items">
                 <!-- logo START -->
-                <style>
-                    @import url('https://fonts.googleapis.com/css?family=Lobster');
-                </style>
                 <a href="<?= base_url(); ?>" class="Navbar-item Navbar-link is-noSelect" data-index='2' data-name="<?= $this->config->item('ProjectName'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->config->item('ProjectName'); ?>">
-                    <h3 style="font-family: 'Lobster', cursive; font-size: 30px; color: #fff;"><?= $this->config->item('ProjectName'); ?></h3>
+                    <h3 class="Project-logo"><?= $this->config->item('ProjectName'); ?></h3>
                 </a>
                 <!-- logo END -->
                 <a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-games" data-index='0' data-name="<?= $this->lang->line('nav_menu'); ?>" data-target="Navbar-gamesDropdown">
