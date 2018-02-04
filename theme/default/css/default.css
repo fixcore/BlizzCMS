@@ -111,3 +111,5 @@ body.default{background:url(../images/background-fx-top.jpg) center -200px no-re
 .default .Topic-button--solutionPost .Icon-next{background-image:url(../images/icons/icon-sprites-16-wow-gold.png);height:16px;width:16px}
 .default .Topic-button--solutionPost:hover .Icon-next{background-image:url(../images/icons/icon-sprites-16-white.png);height:16px;width:16px}
 .default .Post-actions .Post-button{border-radius:0}
+@font-face{font-family:'Lobster';font-style:normal;font-weight:400;src:local("Lobster Regular"),local("Lobster-Regular"),url("../fonts/Lobster-Regular.ttf") format("truetype")}
+.default .Project-logo{font-family:'Lobster';font-size:30px;color:#fff;}
