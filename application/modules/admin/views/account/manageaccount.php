@@ -178,8 +178,11 @@
             <!-- .row -->
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                    $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                ?>
                     <div class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-users fa-fw"></i><?= $this->lang->line('panel_chars_list'); ?></div>
+                        <div class="panel-heading"><i class="fa fa-users fa-fw"></i><?= $this->lang->line('panel_chars_list'); ?> - <?= $this->m_general->getRealmName($charsMultiRealm->id); ?></div>
                         <div class="panel-wrapper collapse in">
                             <table class="table color-table info-table table-hover">
                                 <thead>
@@ -194,28 +197,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($idlink)->result() as $chars) { ?>
+                                    <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm, $idlink)->result() as $chars) { ?>
                                         <tr>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>"><?= $chars->guid ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>/<?= $charsMultiRealm->id ?>"><?= $chars->guid ?></a>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>"><?= $chars->name ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->name ?></a>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>"><?= $this->m_general->getRaceName($chars->race); ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $this->m_general->getRaceName($chars->race); ?></a>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>"><?= $this->m_general->getNameClass($chars->class); ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $this->m_general->getNameClass($chars->class); ?></a>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>"><?= $chars->level ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->level ?></a>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>"><?= $chars->money ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->money ?></a>
                                             </td>
                                             <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>"><?= $chars->totalKills ?></a>
+                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->totalKills ?></a>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -223,6 +226,7 @@
                             </table>
                         </div>
                     </div>
+                <?php } ?>
                 </div>
             </div>
             <!-- /.row -->

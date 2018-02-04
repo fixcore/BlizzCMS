@@ -4,7 +4,7 @@
     <title>Installation - BlizzCMS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="css/main.css" type="text/css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+    <script src="js/html5shiv.js"></script>
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
     <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
@@ -14,11 +14,11 @@
     <script src="../core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="../core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 
     <script src="js/ui.js" type="text/javascript"></script>
@@ -133,11 +133,6 @@
                                 $auth_pass 	= $_POST['realmd_password'];
                                 $auth_dbweb = $_POST['realmd_database'];
 
-                                $char_host 	= $_POST['char_hostname'];
-                                $char_user 	= $_POST['char_username'];
-                                $char_pass 	= $_POST['char_password'];
-                                $char_dbweb = $_POST['char_database'];
-
                                 $fileContents = file_get_contents("database.php.dist");
 
                                 $search = array
@@ -150,10 +145,6 @@
                                     'realmd_username',
                                     'realmd_password',
                                     'realmd_database',
-                                    'char_hostname', 
-                                    'char_username',
-                                    'char_password',
-                                    'char_database'
                                 );
 
                                 $replace = array
@@ -166,10 +157,6 @@
                                     $auth_user, 
                                     $auth_pass, 
                                     $auth_dbweb, 
-                                    $char_host, 
-                                    $char_user, 
-                                    $char_pass, 
-                                    $char_dbweb
                                 );
 
                                 /* -- connect */

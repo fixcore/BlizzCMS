@@ -237,10 +237,17 @@ class M_data extends CI_Model {
         redirect(base_url(),'refresh');
     }
 
-    public function realm_status()
+    public function getRealmPort($id)
     {
-        $host = $this->config->item('soap_ip');
-        $port = $this->config->item('realmlistPort');
+        return $this->auth->select('port')
+                ->where('id', $id)
+                ->get('realmlist')
+                ->row('port');
+    }
+
+    public function realm_status($MultiRealm, $host)
+    {
+        $port = $this->getRealmPort($MultiRealm);
 
         error_reporting(0);
         $etat = fsockopen($host,$port,$errno,$errstr,3);
@@ -249,5 +256,29 @@ class M_data extends CI_Model {
             return false;
         else
             return true;
+    }
+
+    public function getRealms()
+    {
+        return $this->db->select('*')
+            ->get('fx_realms');
+    }
+
+    public function getRealm($id)
+    {
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_realms');
+    }
+
+    public function realmConnection($username, $password, $hostname, $database)
+    {
+        $dsn = 'mysqli://'.
+            $username.':'.
+            $password.'@'.
+            $hostname.'/'.
+            $database.'?char_set=utf8&dbcollat=utf8_general_ci&cache_on=true&cachedir=/path/to/cache';
+
+        return $this->load->database($dsn, TRUE);
     }
 }

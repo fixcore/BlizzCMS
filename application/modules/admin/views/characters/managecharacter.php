@@ -1,32 +1,32 @@
 <?php if (isset($_POST['button_changeLevel'])) {
     $level = $_POST['newLevel'];
-    $this->admin_model->insertChangeLevelChar($idlink, $level);
+    $this->admin_model->insertChangeLevelChar($idlink, $level, $multiRealm, $idrealm);
 } ?>
 
 <?php if(isset($_POST['button_renamechar'])) {
     $newname = $_POST['newName'];
-    $this->admin_model->insertCharRename($idlink, $newname);
+    $this->admin_model->insertCharRename($idlink, $newname, $multiRealm, $idrealm);
 } ?>
 
 <?php if(isset($_POST['button_unban'])) {
-    $this->admin_model->insertUnbanChar($idlink);
+    $this->admin_model->insertUnbanChar($idlink, $multiRealm, $idrealm);
 }?>
 
 <?php if(isset($_POST['button_banchar'])) {
     $reason = $_POST['banchar_reason'];
-    $this->admin_model->insertBanChar($idlink, $reason);
+    $this->admin_model->insertBanChar($idlink, $reason, $multiRealm, $idrealm);
 }?>
 
 <?php if(isset($_POST['button_customize'])) {
-    $this->admin_model->insertCustomizeChar($idlink);
+    $this->admin_model->insertCustomizeChar($idlink, $multiRealm, $idrealm);
 } ?>
 
 <?php if(isset($_POST['button_changerace'])) {
-    $this->admin_model->insertChangeRaceChar($idlink);
+    $this->admin_model->insertChangeRaceChar($idlink, $multiRealm, $idrealm);
 } ?>
 
 <?php if(isset($_POST['button_changefaction'])) {
-    $this->admin_model->insertChangeFactionChar($idlink);
+    $this->admin_model->insertChangeFactionChar($idlink, $multiRealm, $idrealm);
 } ?>
 
     <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
@@ -35,7 +35,8 @@
         <div class="container-fluid">
             <div class="row bg-title">
                 <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('panel_admin_char_manage'); ?> - <?= $this->m_general->getNameCharacterSpecifyGuid($idlink); ?></h4>
+                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('panel_admin_char_manage'); ?> - 
+                        <?= $this->m_general->getNameCharacterSpecifyGuid($multiRealm, $idlink); ?></h4>
                 </div>
             </div>
             <?php if(isset($_GET['char'])) { ?>
@@ -93,7 +94,7 @@
                     </div>
                 </div>
                 <!-- /.col-lg-4 -->
-                <?php if($this->m_general->getCharBanSpecifyGuid($idlink)->num_rows()) { ?>
+                <?php if($this->m_general->getCharBanSpecifyGuid($idlink, $multiRealm)->num_rows()) { ?>
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-success">
                             <div class="panel-heading">
@@ -112,7 +113,7 @@
                         </div>
                     </div>
                     <!-- /.col-lg-4 -->
-                <?php } else { ?>
+                <?php } else {?>
                     <!-- /.col-lg-4 -->
                     <div class="col-lg-4 col-sm-4">
                         <div class="panel panel-danger">
@@ -124,9 +125,9 @@
                             </div>
                             <div class="panel-wrapper collapse in" aria-expanded="true">
                                 <div class="panel-body">
-                                    <form method="post" action="">
+                                    <form action="" method="post" accept-charset="utf-8">
                                         <div class="form-group has-error">
-                                            <input type="text" id="state-danger" required="" name="banchar_reason" class="form-control" placeholder="<?= $this->lang->line('reason'); ?>">
+                                            <input type="text" id="state-danger" required="" name="banchar_reason" class="form-control" placeholder="<?= $this->lang->line('panel_admin_reason'); ?>">
                                         </div>
                                         <div class="col-md-12">
                                             <button type="submit" name="button_banchar" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('button_ban'); ?></button>
@@ -205,7 +206,7 @@
                     <div class="well">
                         <h4><i class="fa fa-list fa-fw"></i><?= $this->lang->line('panel_admin_annotations'); ?></h4>
                         <ul class="list-icons">
-                            <?php foreach($this->admin_model->getAnnotationsSpecifyChar($idlink)->result() as $charlistannotation) { ?>
+                            <?php foreach($this->admin_model->getAnnotationsSpecifyChar($idlink, $idrealm)->result() as $charlistannotation) { ?>
                                 <li><i class="fa fa-caret-right text-primary"></i><?= $charlistannotation->annotation ?></li>
                             <?php } ?>
                         </ul>

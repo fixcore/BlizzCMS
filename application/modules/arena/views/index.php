@@ -20,11 +20,11 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 </head>
 
@@ -36,6 +36,9 @@
     </div>
     </div>
     <!-- submenu -->
+<?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+    $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+?>
     <div class="Page-container">
         <div class="Page-content en-US">
             <div class="space-adaptive-medium"></div>
@@ -43,7 +46,7 @@
             <div class="container">
                 <!-- -->
                 <div class="space-adaptive-small"></div>
-                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="ra ra-arena"></i> <?= $this->m_general->getRealmName(); ?></h2>
+                <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="ra ra-arena"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h2>
                 <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('nav_arena_statistics');?></h4>
                 <div class="space-adaptive-small"></div>
                 <!-- -->
@@ -59,12 +62,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->arena_model->getTopArena2v2()->result() as $tops2v2) { ?>
+                        <?php foreach ($this->arena_model->getTopArena2v2($multiRealm)->result() as $tops2v2) { ?>
                             <tr>
                                 <td style="color: #fff;"><?=$tops2v2->name?></td>
                                 <td style="text-align: center;">
-                                    <?php foreach ($this->arena_model->getMemberTeam($tops2v2->arenaTeamId)->result() as $mmberteam) { ?>
-                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                    <?php foreach ($this->arena_model->getMemberTeam($tops2v2->arenaTeamId, $multiRealm)->result() as $mmberteam) { ?>
+                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid, $multiRealm)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid, $multiRealm) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                     <?php } ?>
                                 </td>
                                 <td style="color: #fff;text-align: center;"><?=$tops2v2->rating?></td>
@@ -87,12 +90,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->arena_model->getTopArena3v3()->result() as $tops3v3) { ?>
+                        <?php foreach ($this->arena_model->getTopArena3v3($multiRealm)->result() as $tops3v3) { ?>
                             <tr>
                                 <td style="color: #fff;"><?=$tops3v3->name?></td>
                                 <td style="color: #fff;text-align: center;">
-                                    <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId)->result() as $mmberteam) { ?>
-                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                    <?php foreach ($this->arena_model->getMemberTeam($tops3v3->arenaTeamId, $multiRealm)->result() as $mmberteam) { ?>
+                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid, $multiRealm)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid, $multiRealm) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                     <?php } ?>
                                 </td>
                                 <td style="color: #fff;text-align: center;"><?=$tops3v3->rating?></td>
@@ -115,12 +118,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($this->arena_model->getTopArena5v5()->result() as $tops5v5) { ?>
+                        <?php foreach ($this->arena_model->getTopArena5v5($multiRealm)->result() as $tops5v5) { ?>
                             <tr>
                                 <td style="color: #fff;"><?=$tops5v5->name?></td>
                                 <td style="text-align: center;">
-                                    <?php foreach ($this->arena_model->getMemberTeam($tops5v5->arenaTeamId)->result() as $mmberteam) { ?>
-                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
+                                    <?php foreach ($this->arena_model->getMemberTeam($tops5v5->arenaTeamId, $multiRealm)->result() as $mmberteam) { ?>
+                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/').$this->m_general->getClassIcon($this->arena_model->getRaceGuid($mmberteam->guid, $multiRealm)) ?>" title="<?= $this->arena_model->getNameGuid($mmberteam->guid) ?>"  width="30px" height="30px" uk-tooltip="pos: bottom">
                                     <?php } ?>
                                 </td>
                                 <td style="color: #fff;text-align: center;"><?=$tops5v5->rating?></td>
@@ -134,3 +137,4 @@
         </div>
         <!-- -->
     </div>
+<?php } ?>

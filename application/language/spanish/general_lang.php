@@ -47,6 +47,7 @@ $lang['button_private_message'] = 'Enviar un mensaje privado';
 $lang['button_create_report'] = 'Crear informe';
 $lang['button_new_topic'] = 'Nuevo tema';
 $lang['button_edit_topic'] = 'Editar tema';
+$lang['button_create_ticket'] = 'Crear Ticket';
 $lang['button_change'] = 'Cambiar';
 $lang['button_cancel'] = 'Cancelar';
 $lang['button_send'] = 'Enviar';
@@ -98,6 +99,7 @@ $lang['form_description'] = 'Descripción';
 $lang['form_url'] = 'URL';
 $lang['form_highl'] = 'Destacado';
 $lang['form_lock'] = 'Bloquear';
+$lang['form_subject'] = 'Asunto';
 
 /*Column Lang*/
 $lang['column_name'] = 'Nombre';
@@ -115,6 +117,7 @@ $lang['column_priority'] = 'Prioridad';
 $lang['column_date'] = 'Fecha';
 $lang['column_author'] = 'Autor';
 $lang['column_time'] = 'Hora';
+$lang['column_icon'] = 'Icono';
 
 /*Options Lang*/
 $lang['option_open'] = 'Abierto';
@@ -144,6 +147,10 @@ $lang['store_cart_description'] = 'Comprar artículo';
 $lang['store_item_name'] = 'Nombre del Artículo';
 $lang['store_select_character'] = 'Seleccionar Personaje';
 $lang['store_item_price'] = 'Precio';
+$lang['store_all_categories'] = 'Todas las Categorías';
+$lang['store_select_categories'] = 'Selecciona una Categoría';
+$lang['store_support'] = 'Soporte de la Tienda';
+$lang['store_support_description'] = '¿Has tenido un problema con la tienda? ¡Estás en el lugar correcto!';
 
 /*PvP-Arena Lang*/
 $lang['pvp_top'] = 'TOP 20';

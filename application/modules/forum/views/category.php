@@ -19,15 +19,12 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
-    <!--[if lte IE 8]>
-        <script type="text/javascript" src="/<?= base_url(); ?>assets/js/jquery.min.js?v=88"></script>
-    <![endif]-->
 </head>
 
 <body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
@@ -46,12 +43,12 @@
                     <h1 class="Forum-heading"><span class="Forum-title" style="color: #fff;"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $this->forum_model->getCategoryName($idlink); ?></span></h1>
                     <div class="Forum-controls">
                         <?php if($this->m_data->isLogged()) { ?>
-                            <button uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic"  data-forum-button="true" data-trigger="create.topicpost.forum" type="button">
+                            <a uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic" data-forum-button="true" data-trigger="create.topicpost.forum">
                                 <span class="Overlay-element" ></span>
                                 <span class="Button-content">
                                     <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_new_topic'); ?>
                                 </span>
-                            </button>
+                            </a>
                         <?php } ?>
                     </div>
                 </div>
@@ -121,7 +118,7 @@
         </section>
     </div>
 
-    <div id="newTopic" class="uk-modal-container" uk-modal>
+    <div id="newTopic" class="uk-modal-container" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">

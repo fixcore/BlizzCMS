@@ -19,15 +19,12 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
-    <!--[if lte IE 8]>
-        <script type="text/javascript" src="/<?= base_url(); ?>assets/js/jquery.min.js?v=88"></script>
-    <![endif]-->
 </head>
 
 <body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
@@ -43,7 +40,8 @@
             <header class="Community-header">
                 <div class="Community-wrapper">
                     <div class="Welcome">
-                        <div class="Welcome-logo--container">	
+                        <div class="Welcome-logo--container">
+                            <img class="Welcome-logo" src="<?= base_url('assets/images/logo/game-logo.png'); ?>"/>
                             <p class="Welcome-text uk-text-uppercase"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->lang->line('forum_welcome'); ?></p>
                         </div>
                     </div>
@@ -55,14 +53,13 @@
                         <header class="ForumCategory-header">
                             <br>
                             <h1 class="ForumCategory-heading"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $categorys->categoryName ?></h1>
-                            <button class="Community-button--search" id="toggle-search-field" data-trigger="toggle.search.field" type="button"><span class="Button-content"><i class="Icon"></i></span></button>
                         </header>
                     <?php } ?>
                     <div class="ForumCards ">
                         <?php foreach($this->forum_model->getCategoryForums($categorys->id) as $sections) { ?>
                             <?php if ($sections->type == 1 || $sections->type == 3) { ?>
                                 <a href="<?= base_url('forums'); ?>/category/<?= $sections->id ?>" class="ForumCard ForumCard--content">
-                                    <i class="ForumCard-icon" style="background-image: url('<?= base_url();?>assets/images/forums/icons/<?= $sections->icon ?>')"></i>
+                                    <i class="ForumCard-icon" style="background-image: url('<?= base_url();?>assets/images/forums/<?= $sections->icon ?>')"></i>
                                     <div class="ForumCard-details">
                                         <h1 class="ForumCard-heading"><?= $sections->name ?></h1>
                                         <span class="ForumCard-description"><?= $sections->description ?></span>

@@ -89,6 +89,15 @@ switch (ENVIRONMENT)
 		exit(1); // EXIT_ERROR
 }
 
+/**
+ * Automatic Redirection
+ */
+if (file_exists("install") && !file_exists("install/.lock"))
+{
+    header("Location: install");
+    die();
+}
+
 /*
  *---------------------------------------------------------------
  * SYSTEM DIRECTORY NAME

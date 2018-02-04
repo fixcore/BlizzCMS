@@ -143,11 +143,11 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 </head>
 
@@ -174,15 +174,16 @@
                             <?php } ?>
                         </a>
                         <div class="Heading Heading--siteTitle" id="locations-title" style="color: #fff;"><?= $this->m_data->getUsernameID($this->session->userdata('fx_sess_id')); ?></div>
-                        <span class="uk-label"><?= $this->lang->line('panel_last_login'); ?>: ---------</span>
+                        <span class="uk-label"><?= $this->lang->line('panel_last_login'); ?>: <?= $this->user_model->getLastIp($this->session->userdata('fx_sess_id')); ?></span>
                         <div class="space-small"></div>
                     </div>
-                    <section class="Scm-content">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8" style="color: rgba(255,255,255,.7);">
                         <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
                             <div class="uk-column-1-2 uk-column-divider">
                                 <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-badge">
-                                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?>
-                                </span></p>
+                                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?></span>
+                                </p>
                                 <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('panel_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
                             </div>
                             <div class="uk-column-1-2 uk-column-divider">
@@ -200,14 +201,14 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -216,7 +217,7 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('button_support'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('button_support'); ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -224,12 +225,12 @@
                                     <div class="uk-margin">
                                         <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
                                             <a href="#" uk-toggle="target: #avatars">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
+                                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
                                             </a>
                                         <?php } ?>
                                         <?php if(!$this->user_model->getExistInfo()->num_rows()) { ?>
                                             <a href="#" uk-toggle="target: #personalinfo">
-                                                <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
+                                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
                                             </a>
                                         <?php } ?>
                                     </div>
@@ -239,42 +240,49 @@
                                 <div>
                                     <div class="uk-margin">
                                         <a href="#" uk-toggle="target: #changePassword">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                                 <div>
                                     <div class="uk-margin">
                                         <a href="#" uk-toggle="target: #changeEmail">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></button>
+                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></button>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <hr class="uk-divider-icon">
                             <ul uk-accordion>
-                                <li class="uk-open">
-                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
-                                    <div class="uk-accordion-content">
-                                        <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
-                                            <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($this->session->userdata('fx_sess_id'))->result() as $chars) { ?>
-                                                <div class="uk-text-center">
-                                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/'.$this->m_general->getClassIcon($chars->class)); ?>" title="<?= $chars->name ?> (Lvl <?= $chars->level ?>)" width="50" height="50" uk-tooltip>
-                                                </div>
-                                            <?php } ?>
+                                <!-- characters -->
+                                <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                    $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                                ?>
+                                    <li class="uk-open">
+                                        <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
+                                        <div class="uk-accordion-content">
+                                            <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
+                                                <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm , $this->session->userdata('fx_sess_id'))->result() as $chars) { ?>
+                                                    <div class="uk-text-center">
+                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/class/'.$this->m_general->getClassIcon($chars->class)); ?>" title="<?= $chars->name ?> (Lvl <?= $chars->level ?>)" width="50" height="50" uk-tooltip>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                <?php } ?>
+                                <!-- characters -->
                             </ul>
                         </div>
-                    </section>
+                    </div>
+                    <div class="col-md-2"></div>
                 </div>
             </div>
             <div class="space-huge"></div>
         </div>
     </div>
 
-    <div id="changePassword" uk-modal>
+    <div id="changePassword" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
@@ -317,7 +325,7 @@
         </div>
     </div>
 
-    <div id="changeEmail" uk-modal>
+    <div id="changeEmail" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
@@ -360,7 +368,7 @@
         </div>
     </div>
 
-    <div id="avatars" uk-modal>
+    <div id="avatars" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
@@ -389,7 +397,7 @@
         </div>
     </div>
 
-    <div id="personalinfo" uk-modal>
+    <div id="personalinfo" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">

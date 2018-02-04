@@ -48,6 +48,7 @@ $lang['button_create_report'] = 'Bejelentés Készítése';
 $lang['button_new_topic'] = 'Új Téma';
 $lang['button_change'] = 'Megváltoztat';
 $lang['button_edit_topic'] = 'Téma szerkesztése';
+$lang['button_create_ticket'] = 'Create Ticket';
 $lang['button_cancel'] = 'Mégse';
 $lang['button_send'] = 'Küldés';
 $lang['button_buy'] = 'Vásárlás';
@@ -98,6 +99,7 @@ $lang['form_description'] = 'Leírás';
 $lang['form_url'] = 'URL';
 $lang['form_highl'] = 'Kiemelés';
 $lang['form_lock'] = 'Lezárás';
+$lang['form_subject'] = 'Subject';
 
 /*Column Lang*/
 $lang['column_name'] = 'Név';
@@ -115,6 +117,7 @@ $lang['column_priority'] = 'Prioritás';
 $lang['column_date'] = 'Dátum';
 $lang['column_author'] = 'Szerző';
 $lang['column_time'] = 'Idő';
+$lang['column_icon'] = 'Icon';
 
 /*Options Lang*/
 $lang['option_open'] = 'Nyitva';
@@ -143,6 +146,10 @@ $lang['store_cart_description'] = 'Item vásárlása';
 $lang['store_item_name'] = 'Item Neve';
 $lang['store_select_character'] = 'Válaszd ki a karaktered';
 $lang['store_item_price'] = 'Ár';
+$lang['store_all_categories'] = 'All Categories';
+$lang['store_select_categories'] = 'Select an Category';
+$lang['store_support'] = 'Store Support';
+$lang['store_support_description'] = 'Have you had a problem with the store? you are in the right place!';
 
 /*PvP-Arena Lang*/
 $lang['pvp_top'] = 'TOP 20';

@@ -20,11 +20,11 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
-    <link href="https://api.dkamps18.net/css/font/discord/discord.css" rel="stylesheet"  type="text/css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/discord/discord.css">
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 </head>
 
@@ -186,6 +186,16 @@
                         <?php } ?>
                         <div class="GridItem col-md-4">
                             <h2 class="Heading Home-topStoriesHeading Home-sectionHeading flush-top" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('home_server_status');?></h2>
+                            <!-- realmlist -->
+                            <div class="label">
+                                <h4 style="color: #fff;">
+                                    <?php if ($this->m_general->getExpansionAction() == 1) { ?>
+                                        <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?></h4>
+                                    <?php } else { ?>
+                                        <i class="fa fa-gamepad" aria-hidden="true"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"</h4>
+                                    <?php } ?>
+                            </div>
+                            <!-- realmlist -->
                             <div class="Divider Divider--light"></div>
                             <div class="Home-topStories">
                                 <div class="Home-topStoriesFeatured">
@@ -193,40 +203,35 @@
                                         <a data-analytics="panel-<?=$this->lang->line('home_server_status');?>" data-analytics-panel="slot:1 - size:lg" class="Home-topStoriesFeaturedLink">
                                             <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
                                                 <div class="Home-additionalLinks clearfix">
-                                                    <!--<h3 style="color: #fff;"><?= $this->m_soap->getRealmStatus(); ?></h3> online -->
                                                     <div class="">
+                                                    <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                                        $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database); 
+                                                    ?>
                                                         <div class="GridItem col-md-12">
                                                             <h2 style="color: #fff;">
-                                                                <?php if ($this->m_data->realm_status()) { ?>
+                                                                <?php if ($this->m_data->realm_status($charsMultiRealm->realmID, $charsMultiRealm->hostname)) { ?>
                                                                     <i class="fa fa-circle-o-notch fa-spin fa-fw uk-text-success" aria-hidden="true"></i>
                                                                 <?php } else { ?>
                                                                     <i class="fa fa-circle-o-notch fa-spin fa-fw uk-text-danger" aria-hidden="true"></i>
                                                                 <?php } ?>
-                                                                <?= $this->m_general->getRealmName(); ?>
+                                                                <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?>
                                                             </h2>
-                                                            <?php if ($this->m_data->realm_status()) { ?>
+                                                            <?php if ($this->m_data->realm_status($charsMultiRealm->realmID, $charsMultiRealm->hostname)) { ?>
                                                                 <span class="uk-label">
                                                                     <span uk-icon="icon: users"></span>
-                                                                    <?= $this->m_general->getCharactersOnlineAlliance(); ?>
+                                                                    <?= $this->m_general->getCharactersOnlineAlliance($multiRealm); ?>
                                                                     <?= $this->lang->line('faction_alliance'); ?>
                                                                 </span>
                                                                 <span class="uk-label uk-label-danger">
                                                                     <span uk-icon="icon: users"></span>
-                                                                    <?= $this->m_general->getCharactersOnlineHorde(); ?>
+                                                                    <?= $this->m_general->getCharactersOnlineHorde($multiRealm); ?>
                                                                     <?= $this->lang->line('faction_horde'); ?>
                                                                 </span>
                                                                 <br>
                                                             <?php } ?>
-                                                            <div class="label">
-                                                                <h4 style="color: #fff;">
-                                                                <?php if ($this->m_general->getExpansionAction() == 1) { ?>
-                                                                    <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?></h4>
-                                                                <?php } else { ?>
-                                                                    <i class="fa fa-gamepad" aria-hidden="true"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"</h4>
-                                                                <?php } ?>
-                                                            </div>
                                                         </div>
                                                     </div>
+                                                <?php } ?>
                                                     <!-- online -->
                                                 </div>
                                             </div>

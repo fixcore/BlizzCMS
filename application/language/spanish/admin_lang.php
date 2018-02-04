@@ -28,7 +28,6 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Panel';
 $lang['admin_users'] = 'Usuarios';
@@ -114,6 +113,7 @@ $lang['form_store_image_name'] = 'Nombre del archivo de Imagen';
 $lang['panel_admin_reason'] = 'Motivo';
 $lang['panel_admin_gmlevel'] = 'Nivel de GM';
 $lang['panel_admin_new_page_url'] = 'La URL de la nueva página es';
+$lang['placeholder_forum_icon'] = 'foldername/image.jpg o foldername/image.png';
 
 /*Status Lang*/
 $lang['status_is_online'] = 'EL jugador está online, por favor desconéctate';
@@ -126,3 +126,6 @@ $lang['option_everyone'] = 'Todos';
 $lang['option_staff'] = 'STAFF';
 $lang['option_all'] = 'STAFF - Todos';
 $lang['option_item'] = 'Artículo';
+
+/*Info Lang*/
+$lang['is_banned_reason'] = 'Está baneado, razón:';

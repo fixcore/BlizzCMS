@@ -159,4 +159,29 @@ class M_modules extends CI_Model {
                 ->get('fx_modules')
                 ->row('status');
     }
+
+    public function getInstallation()
+    {
+        return $this->db->select('status')
+                ->where('id', '20')
+                ->get('fx_modules')
+                ->row('status');
+    }
+
+    public function insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport)
+    {
+        $data = array(
+            'hostname' => $hostname,
+            'username' => $username,
+            'password' => $password,
+            'char_database' => $database,
+            'realmID' => $realm_id,
+            'console_username' => $soapuser,
+            'console_password' => $soappass,
+            'console_port' => $soapport,
+            'emulator' => 'TC'
+        );
+
+        $this->db->insert('fx_realms', $data);
+    }
 }

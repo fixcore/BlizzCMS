@@ -6,14 +6,7 @@ class Admin_model extends CI_Model {
     public function __construct()
     {
         $this->auth = $this->load->database('auth', TRUE);
-        $this->characters = $this->load->database('characters', TRUE);
         parent::__construct();
-    }
-
-    public function restartNowServer()
-    {
-        $this->m_soap->commandSoap('.server restart');
-        echo 'Restarting...';
     }
 
     public function insertShop($itemid, $type, $name, $pricedp, $pricevp, $iconname, $groups, $image)
@@ -217,7 +210,7 @@ class Admin_model extends CI_Model {
         redirect(base_url().'admin/manageaccount/'.$id,'refresh');
     }
 
-    public function getADDADMRank($id)
+    public function getADDADMRank($id, $type = '')
     {
         $data1 = array(
             'id' => $id,
@@ -237,7 +230,9 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_users_annotations', $data2);
 
-        redirect(base_url().'admin/manageaccount/'.$id,'refresh');
+        if ($type == '') {
+            redirect(base_url().'admin/manageaccount/'.$id,'refresh');
+        }
     }
 
     public function deleteCategory($id)
@@ -296,14 +291,15 @@ class Admin_model extends CI_Model {
             ->get('fx_forum_forums');
     }
 
-    public function getAdminCharactersList()
+    public function getAdminCharactersList($multirealm)
     {
-        return $this->characters->select('guid, account, name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('guid, account, name')
             ->order_by('name', 'ASC')
             ->get('characters');
     }
 
-    public function insertBanChar($id, $reason)
+    public function insertBanChar($id, $reason, $multirealm, $idrealm)
     {
         $date 		= $this->m_data->getTimestamp();
         $idsession	= $this->session->userdata('fx_sess_id');
@@ -311,50 +307,53 @@ class Admin_model extends CI_Model {
         if (empty($reason))
             $reason = $this->lang->line('was_ban');
 
-        $data1 = array(
-            'idchar' => $id,
-            'annotation,' => $reason,
-            'date' => $date,
-        );
-
-        $this->db->insert('fx_chars_annotations', $data1);
-
         $data2 = array(
             'guid' => $id,
             'bandate,' => $date,
             'unbandate' => $date,
             'bannedby' => $idsession,
             'banreason' => $reason,
+            'active' => '1'
         );
 
-        $this->characters->insert('character_banned', $data2);
+        $this->multirealm = $multirealm;
+        $this->multirealm->insert('character_banned', $data2);
 
-        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
+        $data1 = array(
+            'idchar' => $id,
+            'annotation' => $this->lang->line('is_banned_reason').' '.$reason,
+            'date' => $date,
+            'realmid' => $idrealm
+        );
+
+        $this->db->insert('fx_chars_annotations', $data1);
+
+        redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm,'refresh');
     }
 
-    public function insertCustomizeChar($id)
+    public function insertCustomizeChar($id, $multirealm, $idrealm)
     {
-        if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
+        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+            redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_customAction');
 
         $data = array(
             'idchar' => $id,
-            'annotation,' => $annotation,
+            'annotation' => $annotation,
             'date' => $date,
+            'realmid' => $idrealm
         );
 
         $this->db->insert('fx_chars_annotations', $data);
 
-        $this->characters = $this->load->database('characters', TRUE);
-
-        $this->db->set('at_login', '8')
+        $this->multirealm = $multirealm;
+        $this->multirealm->set('at_login', '8')
                 ->where('guid', $id)
                 ->update('characters');
 
-        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm,'refresh');
     }
 
     public function getAdminNewsList()
@@ -413,9 +412,7 @@ class Admin_model extends CI_Model {
 
         if ($type == 2)
         {
-            $data = array(
-                'id_new' => $id,
-            );
+            $data['id_new'] = $id;
 
             $this->db->insert('fx_news_top', $data);
         }
@@ -439,10 +436,10 @@ class Admin_model extends CI_Model {
             ->row_array()['image'];
     }
 
-    public function insertChangeFactionChar($id)
+    public function insertChangeFactionChar($id, $multirealm, $idrealm)
     {
-        if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
+        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+            redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_chanfactAction');
@@ -451,21 +448,23 @@ class Admin_model extends CI_Model {
                 'idchar' => $id,
                 'annotation' => $annotation,
                 'date' => $date,
+                'realmid' => $idrealm
             );
 
         $this->db->insert('fx_chars_annotations', $data);
 
-        $this->db->set('at_login', '64')
+        $this->multirealm = $multirealm;
+        $this->multirealm->set('at_login', '64')
                 ->where('guid', $id)
                 ->update('characters');
 
-        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm,'refresh');
     }
 
-    public function insertChangeRaceChar($id)
+    public function insertChangeRaceChar($id, $multirealm, $idrealm)
     {
-        if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
+        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+            redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
         $annotation = $this->lang->line('char_chanraceAction');
@@ -474,20 +473,23 @@ class Admin_model extends CI_Model {
                'idchar' => $id,
                'annotation' => $annotation,
                'date' => $date,
+               'realmid' => $idrealm
             );
 
         $this->db->insert('fx_chars_annotations', $data);
 
-        $this->db->set('at_login', '128')
+        $this->multirealm = $multirealm;
+        $this->multirealm->set('at_login', '128')
                 ->where('guid', $id)
                 ->update('characters');
 
-        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm,'refresh');
     }
 
-    public function insertUnbanChar($id)
+    public function insertUnbanChar($id, $multirealm, $idrealm)
     {
-        $this->characters->where('guid', $id)
+        $this->multirealm = $multirealm;
+        $this->multirealm->where('guid', $id)
                 ->delete('character_banned');
 
         $date 		= $this->m_data->getTimestamp();
@@ -497,68 +499,73 @@ class Admin_model extends CI_Model {
                 'idchar' => $id,
                 'annotation' => $annotation,
                 'date' => $date,
+                'realmid' => $idrealm
             );
 
         $this->db->insert('fx_chars_annotations', $data);
 
-        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm,'refresh');
     }
 
-    public function insertCharRename($id, $name)
+    public function insertCharRename($id, $name, $multirealm, $realm)
     {
-        if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
+        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+            redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm.'?char','refresh');
 
-        if ($this->m_general->getCharNameAlreadyExist($name)->num_rows())
-            redirect(base_url().'admin/managecharacter/'.$id.'?name','refresh');
+        if ($this->m_general->getCharNameAlreadyExist($name, $multirealm)->num_rows())
+            redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm.'?name','refresh');
 
         $date 		= $this->m_data->getTimestamp();
-        $annotation = $this->lang->line('char_newname').' -> '.$name.' | '.$this->lang->line('char_oldname').' -> '.$this->m_general->getCharName($id);
+        $annotation = $this->lang->line('char_newname').' -> '.$name.' | '.$this->lang->line('char_oldname').' -> '.$this->m_general->getCharName($id, $multirealm);
 
         $data = array(
                 'idchar' => $id,
                 'annotation' => $annotation,
                 'date' => $date,
+                'realmid' => $realm
             );
 
         $this->db->insert('fx_chars_annotations', $data);
 
-        $this->characters->set('name', $name)
+        $this->multirealm = $multirealm;
+        $this->multirealm->set('name', $name)
                 ->where('guid', $id)
                 ->update('characters');
 
-        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm,'refresh');
     }
 
-    public function insertChangeLevelChar($id, $level)
+    public function insertChangeLevelChar($id, $level, $multirealm, $realm)
     {
-        if ($this->m_general->getCharActive($id) == 1)
-            redirect(base_url().'admin/managecharacter/'.$id.'?char','refresh');
+        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+            redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
-        $annotation = $this->lang->line('char_newlevel').' -> '.$level.' | '.$this->lang->line('char_oldlevel').' -> '.$this->m_general->getCharLevel($id);
+        $annotation = $this->lang->line('char_newlevel').' -> '.$level.' | '.$this->lang->line('char_oldlevel').' -> '.$this->m_general->getCharLevel($id, $multirealm);
 
         $data = array(
                 'idchar' => $id,
                 'annotation' => $annotation,
                 'date' => $date,
+                'realmid' => $realm
             );
 
         $this->db->insert('fx_chars_annotations', $data);
 
-        $this->characters = $this->load->database('characters', TRUE);
-
-        $this->characters->set('level', $level)
-                ->where('guid', $guid)
+        $this->multirealm = $multirealm;
+        $this->multirealm->set('level', $level)
+                ->where('guid', $id)
                 ->update('characters');
 
-        redirect(base_url().'admin/managecharacter/'.$id,'refresh');
+        redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm,'refresh');
     }
 
-    public function getAnnotationsSpecifyChar($id)
+    public function getAnnotationsSpecifyChar($id, $realm)
     {
         return $this->db->select('*')
             ->where('idchar', $id)
+            ->where('realmid', $realm)
+            ->order_by('id', 'DESC')
             ->get('fx_chars_annotations');
     }
 
@@ -683,9 +690,11 @@ class Admin_model extends CI_Model {
             ->get('account_banned');
     }
 
-    public function getGmCount()
+    public function getGmCount($idrealm)
     {
         return $this->auth->select('id')
+            ->where('RealmID', $idrealm)
+            ->or_where('RealmID', '-1')
             ->get('account_access')
             ->num_rows();
     }
@@ -697,9 +706,11 @@ class Admin_model extends CI_Model {
             ->num_rows();
     }
 
-    public function getCharOn()
+    public function getCharOn($multirealm)
     {
-        return $this->characters->select('*')
+        $this->multirealm = $multirealm;
+        
+        return $this->multirealm->select('*')
             ->where('online', '1')
             ->get('characters')
             ->num_rows();

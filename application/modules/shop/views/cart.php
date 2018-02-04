@@ -1,18 +1,3 @@
-<?php if (isset($_POST['buyNowGetItem'])) {
-    $charselect = $_POST['charSelects'];
-
-    $method = $_GET['tp'];
-    $price = $this->shop_model->getPriceType($idlink, $_GET['tp']);
-
-    $this->shop_model->insertHistory(
-        $idlink, 
-        $this->shop_model->getItem($idlink), 
-        $this->session->userdata('fx_sess_id'), 
-        $charselect, 
-        $method,
-        $price);
-} ?>
-
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
@@ -35,7 +20,7 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- Wowhead START -->
@@ -43,7 +28,7 @@
     <script type="text/javascript" src="//wow.zamimg.com/widgets/power.js"></script>
     <!-- Wowhead START -->
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 </head>
 
@@ -107,9 +92,13 @@
                     <div class="uk-inline">
                         <div class="uk-form-controls">
                             <select class="uk-select uk-form-width-medium uk-form-small" name="charSelects">
-                                <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($this->session->userdata('fx_sess_id'))->result() as $listchar) { ?>
-                                    <option value="<?= $listchar->guid ?>"><?= $listchar->name ?> - <?= $listchar->level ?></option>
+                            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                            ?>
+                                <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm ,$this->session->userdata('fx_sess_id'))->result() as $listchar) { ?>
+                                    <option value="<?= $charsMultiRealm->realmID ?>|<?= $listchar->guid ?>"><?= $listchar->name ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></option>
                                 <?php } ?>
+                            <?php } ?>
                             </select>
                         </div>
                     </div>
@@ -144,3 +133,33 @@
            </form>
         </section>
     </div>
+
+
+
+<?php if (isset($_POST['buyNowGetItem'])) {
+    $charselect = $_POST['charSelects'];
+
+    $method = $_GET['tp'];
+    $price = $this->shop_model->getPriceType($idlink, $_GET['tp']);
+    $result_explode = explode('|', $charselect);
+
+    $soapUser = $this->m_data->getRealm($result_explode[0])->row_array()['console_username'];
+    $soapPass = $this->m_data->getRealm($result_explode[0])->row_array()['console_password'];
+    $soapHost = $this->m_data->getRealm($result_explode[0])->row_array()['hostname'];
+    $soapPort = $this->m_data->getRealm($result_explode[0])->row_array()['console_port'];
+    $soap_uri = $this->m_data->getRealm($result_explode[0])->row_array()['emulator'];
+
+    $this->shop_model->insertHistory(
+        $idlink, 
+        $this->shop_model->getItem($idlink), 
+        $this->session->userdata('fx_sess_id'), 
+        $result_explode[1], 
+        $method,
+        $price,
+        $soapUser, 
+        $soapPass, 
+        $soapHost, 
+        $soapPort, 
+        $soap_uri,
+        $multiRealm);
+} ?>

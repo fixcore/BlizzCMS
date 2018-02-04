@@ -26,11 +26,11 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 </head>
 
@@ -76,18 +76,22 @@
                         <?php } ?>
                             <hr class="uk-divider-icon">
                             <ul uk-accordion>
-                                <li class="uk-open">
-                                    <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName(); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
-                                    <div class="uk-accordion-content">
-                                        <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
-                                            <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($idlink)->result() as $chars) { ?>
-                                                <div class="uk-text-center">
-                                                    <img class="uk-border-circle" src="<?= base_url('assets/images/class/'.$this->m_general->getClassIcon($chars->class)); ?>" title="<?= $chars->name ?> (Lvl <?= $chars->level ?>)" width="50" height="50" uk-tooltip>
-                                                </div>
-                                            <?php } ?>
+                                <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                        $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                                ?>
+                                    <li class="uk-open">
+                                        <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
+                                        <div class="uk-accordion-content">
+                                            <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
+                                                <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm, $idlink)->result() as $chars) { ?>
+                                                    <div class="uk-text-center">
+                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/class/'.$this->m_general->getClassIcon($chars->class)); ?>" title="<?= $chars->name ?> (Lvl <?= $chars->level ?>)" width="50" height="50" uk-tooltip>
+                                                    </div>
+                                                <?php } ?>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                <?php } ?>
                             </ul>
                         </div>
                     </section>
@@ -98,7 +102,7 @@
     </div>
 
 <?php if ($this->m_modules->getMessages() == '1') { ?>
-    <div id="privateMsg" class="uk-modal-container" uk-modal>
+    <div id="privateMsg" class="uk-modal-container" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">

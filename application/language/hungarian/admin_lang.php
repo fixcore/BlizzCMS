@@ -28,7 +28,6 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Kezdőoldal';
 $lang['admin_users'] = 'Felhasználók';
@@ -114,6 +113,7 @@ $lang['form_store_image_name'] = 'Image File Name';
 $lang['panel_admin_reason'] = 'Reason';
 $lang['panel_admin_gmlevel'] = 'Gm Level';
 $lang['panel_admin_new_page_url'] = 'Your new Page URL is';
+$lang['placeholder_forum_icon'] = 'foldername/image.jpg or foldername/image.png';
 
 /*Status Lang*/
 $lang['status_is_online'] = 'Player is Online, please disconnect';
@@ -126,3 +126,6 @@ $lang['option_everyone'] = 'Everyone';
 $lang['option_staff'] = 'STAFF';
 $lang['option_all'] = 'STAFF - Everyone';
 $lang['option_item'] = 'Item';
+
+/*Info Lang*/
+$lang['is_banned_reason'] = 'Is banned, reason:';

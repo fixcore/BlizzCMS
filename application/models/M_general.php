@@ -7,7 +7,6 @@ class M_general extends CI_Model {
     {
         parent::__construct();
         $this->auth = $this->load->database('auth', TRUE);
-        $this->characters = $this->load->database('characters', TRUE);
     }
 
     public function getGmSpecify($id)
@@ -17,9 +16,10 @@ class M_general extends CI_Model {
                 ->get('account_access');
     }
 
-    public function getGeneralCharactersSpecifyAcc($id)
+    public function getGeneralCharactersSpecifyAcc($multiRealm, $id)
     {
-        return $this->characters->select('*')
+        $this->multiRealm = $multiRealm;
+        return $this->multiRealm->select('*')
                 ->where('account', $id)
                 ->get('characters');
     }
@@ -46,16 +46,18 @@ class M_general extends CI_Model {
                 ->get('account');
     }
 
-    public function getGeneralCharactersSpecifyGuid($id)
+    public function getGeneralCharactersSpecifyGuid($id, $multirealm)
     {
-        return $this->characters->select('*')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('*')
                 ->where('guid', $id)
                 ->get('characters');
     }
 
-    public function getNameCharacterSpecifyGuid($id)
+    public function getNameCharacterSpecifyGuid($multirealm, $id)
     {
-        return $this->characters->select('name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('name')
                 ->where('guid', $id)
                 ->get('characters')
                 ->row_array()['name'];
@@ -76,40 +78,45 @@ class M_general extends CI_Model {
                 ->row('permission');
     }
 
-    public function getCharNameAlreadyExist($name)
+    public function getCharNameAlreadyExist($name, $multirealm)
     {
-        return $this->characters->select('name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('name')
                 ->where('name', $name)
                 ->get('characters');
     }
 
-    public function getCharBanSpecifyGuid($id)
+    public function getCharBanSpecifyGuid($id, $multirealm)
     {
-        return $this->characters->select('guid')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('guid')
                 ->where('guid', $id)
                 ->where('active', '1')
                 ->get('character_banned');
     }
 
-    public function getCharName($id)
+    public function getCharName($id, $multirealm)
     {
-        return $this->characters->select('name')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('name')
                 ->where('guid', $id)
                 ->get('characters')
                 ->row_array()['name'];
     }
 
-    public function getCharLevel($id)
+    public function getCharLevel($id, $multirealm)
     {
-        return $this->characters->select('level')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('level')
                 ->where('guid', $id)
                 ->get('characters')
                 ->row('level');
     }
 
-    public function getCharActive($id)
+    public function getCharActive($id, $multirealm)
     {
-        return $this->characters->select('online')
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('online')
                 ->where('guid', $id)
                 ->get('characters')
                 ->row('online');
@@ -139,11 +146,10 @@ class M_general extends CI_Model {
             return '0';
     }
 
-    public function getRealmName()
+    public function getRealmName($id)
     {
         return $this->auth->select('name')
-                ->order_by('id', 'ASC')
-                ->limit('1')
+                ->where('id', $id)
                 ->get('realmlist')
                 ->row_array()['name'];
     }
@@ -463,22 +469,24 @@ class M_general extends CI_Model {
         }
     }
 
-    public function getCharactersOnlineAlliance()
+    public function getCharactersOnlineAlliance($multiRealm)
     {
+        $this->multiRealm = $multiRealm;
         $races = array('1','3','4','7','11','22','25');
 
-        return $this->characters->select('guid')
+        return $this->multiRealm->select('guid')
                 ->where_in('race', $races)
                 ->where('online', '1')
                 ->get('characters')
                 ->num_rows();
     }
 
-    public function getCharactersOnlineHorde()
+    public function getCharactersOnlineHorde($multiRealm)
     {
+        $this->multiRealm = $multiRealm;
         $races = array('2','5','6','8','10','9','26');
 
-        return $this->characters->select('guid')
+        return $this->multiRealm->select('guid')
                 ->where_in('race', $races)
                 ->where('online', '1')
                 ->get('characters')

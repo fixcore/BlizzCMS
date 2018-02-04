@@ -1,22 +1,3 @@
-<?php if(isset($_POST['button_updateNew'])) {
-    $title = $_POST['new_title'];
-    $desc  = $_POST['new_description'];
-    $type  = $_POST['new_destac'];
-    $image = $_FILES["new_imageup"];
-
-    if ($image['type'] == 'image/jpeg')
-    {
-        $random = $this->m_data->randomUTF();
-        $name_new = sha1($image['name'].$random).'.jpg';
-
-        move_uploaded_file($image["tmp_name"], "./assets/images/news/" . $name_new);
-
-        $this->admin_model->updateNewADM($idlink, $title, $name_new, $desc, $type);
-    }
-    else
-        echo '<div class="alert alert-danger">'.$this->lang->line('image_upload_error').'. </div>';
-} ?>
-
     <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
     <!-- Page Content -->
     <div id="page-wrapper">
@@ -74,3 +55,23 @@
         <script>
             CKEDITOR.replace('adminPanelCK');
         </script>
+
+
+<?php if(isset($_POST['button_updateNew'])) {
+    $title = $_POST['new_title'];
+    $desc  = $_POST['new_description'];
+    $type  = $_POST['new_destac'];
+    $image = $_FILES["new_imageup"];
+
+    if ($image['type'] == 'image/jpeg')
+    {
+        $random = $this->m_data->randomUTF();
+        $name_new = sha1($image['name'].$random).'.jpg';
+
+        move_uploaded_file($image["tmp_name"], "./assets/images/news/" . $name_new);
+
+        $this->admin_model->updateNewADM($idlink, $title, $name_new, $desc, $type);
+    }
+    else
+        echo '<div class="alert alert-danger">'.$this->lang->line('image_upload_error').'. </div>';
+} ?>

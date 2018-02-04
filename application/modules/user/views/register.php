@@ -1,44 +1,3 @@
-<?php if (isset($_POST['button_register']))
-{
-    $country = $_POST['reg_country'];
-    $name    = strtoupper($_POST['reg_firstname']);
-    $surname = strtoupper($_POST['reg_lastname']);
-    $month   = $_POST['reg_dateMonthNace'];
-    $day     = $_POST['reg_dateDayNace'];
-    $year    = $_POST['reg_dateYearNace'];
-    $username= strtoupper($_POST['reg_username']);
-    $email   = strtoupper($_POST['reg_email']);
-    $password= strtoupper($_POST['reg_password']);
-    $pascword= strtoupper($_POST['reg_pascword']);
-    $question= $_POST['reg_question'];
-    $answer  = $_POST['reg_SecretAnswer'];
-    if($this->m_modules->getCaptcha() == 1)
-    {
-        $captcha_answer = $this->input->post('g-recaptcha-response');
-        $response = $this->recaptcha->verifyResponse($captcha_answer);
-        $rr = $response['success'];
-    }
-    else
-    {
-        $rr = TRUE;
-    }
-    if($rr)
-    {
-        if ($password == $pascword)
-        {
-            if ($this->m_data->getSpecifyAccount($username)->num_rows())
-                echo $this->lang->line('account_already_exist');
-            elseif($this->m_data->getSpecifyEmail($email)->num_rows())
-                echo $this->lang->line('email_used');
-            else
-                $this->user_model->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day, $country);
-        }
-        else
-            echo $this->lang->line('password_not_match');
-    }
-    else
-        echo $this->lang->line('captcha_error');
-} ?>
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
@@ -61,11 +20,11 @@
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
     <!-- UiKit end -->
     <!-- font-awesome Start -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
     <!-- font-awesome End -->
 
     <!-- custom footer -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
     <!-- custom footer -->
 </head>
 
@@ -85,6 +44,49 @@
                         <div class="GridItem col-md-6">
                             <h2 class="uk-text-primary uk-text-center"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('button_account_create'); ?></h2>
                             <p class="uk-text-center" style="color: #fff;"><?= $this->lang->line('register_description'); ?></p>
+
+                            <?php if (isset($_POST['button_register']))
+                            {
+                                $country = $_POST['reg_country'];
+                                $name    = strtoupper($_POST['reg_firstname']);
+                                $surname = strtoupper($_POST['reg_lastname']);
+                                $month   = $_POST['reg_dateMonthNace'];
+                                $day     = $_POST['reg_dateDayNace'];
+                                $year    = $_POST['reg_dateYearNace'];
+                                $username= strtoupper($_POST['reg_username']);
+                                $email   = strtoupper($_POST['reg_email']);
+                                $password= strtoupper($_POST['reg_password']);
+                                $pascword= strtoupper($_POST['reg_pascword']);
+                                $question= $_POST['reg_question'];
+                                $answer  = $_POST['reg_SecretAnswer'];
+                                if ($this->m_modules->getCaptcha() == 1)
+                                {
+                                    $captcha_answer = $this->input->post('g-recaptcha-response');
+                                    $response = $this->recaptcha->verifyResponse($captcha_answer);
+                                    $rr = $response['success'];
+                                }
+                                else
+                                {
+                                    $rr = TRUE;
+                                }
+                                if ($rr)
+                                {
+                                    if ($password == $pascword)
+                                    {
+                                        if ($this->m_data->getSpecifyAccount($username)->num_rows())
+                                            echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('account_already_exist').'</p></div>';
+                                        else if ($this->m_data->getSpecifyEmail($email)->num_rows())
+                                            echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_used').'</p></div>';
+                                        else
+                                            $this->user_model->insertRegister($name, $surname, $username, $email, $question, $password, $answer, $year, $month, $day, $country);
+                                    }
+                                    else
+                                        echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_not_match').'</p></div>';
+                                }
+                                else
+                                    echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('captcha_error').'</p></div>';
+                            } ?>
+
                             <form action="" method="post" accept-charset="utf-8">
                                 <div class="uk-margin">
                                     <label class="uk-form-label" style="color: #fff"><?= $this->lang->line('form_user_info'); ?></label>
@@ -222,7 +224,7 @@
                                     <div class="uk-form-controls">
                                         <div class="uk-inline uk-width-1-1">
                                             <span class="uk-form-icon" uk-icon="icon: question"></span>
-                                            <input class="uk-input" type="text" name="reg_SecretAnswer" pattern=".{1,}" required title="1 characters minimum" placeholder="<?= $this->lang->line('form_secret_answer'); ?>">
+                                            <input class="uk-input" type="password" name="reg_SecretAnswer" pattern=".{1,}" required title="1 characters minimum" placeholder="<?= $this->lang->line('form_secret_answer'); ?>">
                                         </div>
                                     </div>
                                 </div>
