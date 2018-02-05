@@ -1,105 +1,3 @@
-<?php if(isset($_POST['button_changepass']))
-{
-    $oldpass = $_POST['oldpass'];
-    $newpass = $_POST['newpass'];
-    $reppass = $_POST['newpassr'];
-
-    if ($reppass == $newpass)
-    {
-        if ($this->m_general->getExpansionAction() == 1)
-        {
-            $compare = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $oldpass);
-
-            $newpassI = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $newpass);
-
-            if ($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
-            {
-                if ($newpassI == $this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')))
-                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_same').'</p></div>';
-                else
-                {
-                    $this->user_model->changePasswordI($this->session->userdata('fx_sess_id'), $newpassI);
-                }
-            }
-            else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
-        }
-        else if ($this->m_general->getExpansionAction() == 2)
-        {
-            $compare = $this->m_data->encryptBattlenet($this->session->userdata('fx_sess_email'), $oldpass);
-
-            $newpassI = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $newpass);
-
-            $newpassII = $this->m_data->encryptBattlenet($this->session->userdata('fx_sess_email'), $newpass);
-
-            if ($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
-            {
-                if ($newpassII == $this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')))
-                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_same').'</p></div>';
-                else
-                {
-                    $this->user_model->changePasswordII($this->session->userdata('fx_sess_id'), $newpassI, $newpassII);
-                }
-            }
-            else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
-        }
-        else
-            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_not_found').'</p></div>';
-    }
-    else
-        echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_not_match').'</p></div>';
-} ?>
-
-<?php if(isset($_POST['button_changeemail']))
-{
-    $password = $_POST['password'];
-    $oldemail = $_POST['oldemail'];
-    $newemail = $_POST['newemail'];
-
-    if ($this->m_general->getExpansionAction() == 1)
-    {
-        $compare = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $password);
-
-        if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
-        {
-            if ($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
-            {
-                $this->user_model->changeEmailI($this->session->userdata('fx_sess_id'), $newemail);
-            }
-            else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
-        }
-        else
-            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('oemail_not_match').'</p></div>';
-    }
-    else if ($this->m_general->getExpansionAction() == 2)
-    {
-        $compare = $this->m_data->encryptBattlenet($this->session->userdata('fx_sess_email'), $password);
-
-        $newpasscompare = $this->m_data->encryptBattlenet($newemail, $password);
-
-        if ($this->user_model->getExistEmail(strtoupper($newemail)) > 0)
-            echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_used').'</p></div>';
-        else
-        {
-            if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
-            {
-                if ($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
-                {
-                    $this->user_model->changeEmailII($this->session->userdata('fx_sess_id'), $newemail, $newpasscompare);
-                }
-                else
-                    echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
-            }
-            else
-                echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('oemail_not_match').'</p></div>';
-        }
-    }
-    else
-        echo '<div class="uk-alert-danger" uk-alert><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_notfound').'</p></div>';
-} ?>
-
 <?php if (isset($_POST['button_changeavatar'])) {
     $valueAvatar = $_POST['radioAvatars'];
     $this->user_model->insertAvatar($valueAvatar);
@@ -177,6 +75,105 @@
                         <span class="uk-label"><?= $this->lang->line('panel_last_login'); ?>: <?= $this->user_model->getLastIp($this->session->userdata('fx_sess_id')); ?></span>
                         <div class="space-small"></div>
                     </div>
+                    <?php if(isset($_POST['button_changepass'])) {
+                        $oldpass = $_POST['oldpass'];
+                        $newpass = $_POST['newpass'];
+                        $reppass = $_POST['newpassr'];
+
+                        if ($reppass == $newpass)
+                        {
+                            if ($this->m_general->getExpansionAction() == 1)
+                            {
+                                $compare = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $oldpass);
+
+                                $newpassI = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $newpass);
+
+                                if ($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
+                                {
+                                    if ($newpassI == $this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')))
+                                        echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_same').'</p></div>';
+                                    else
+                                    {
+                                        $this->user_model->changePasswordI($this->session->userdata('fx_sess_id'), $newpassI);
+                                    }
+                                }
+                                else
+                                    echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
+                            }
+                            else if ($this->m_general->getExpansionAction() == 2)
+                            {
+                                $compare = $this->m_data->encryptBattlenet($this->session->userdata('fx_sess_email'), $oldpass);
+
+                                $newpassI = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $newpass);
+
+                                $newpassII = $this->m_data->encryptBattlenet($this->session->userdata('fx_sess_email'), $newpass);
+
+                                if ($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
+                                {
+                                    if ($newpassII == $this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')))
+                                        echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_same').'</p></div>';
+                                    else
+                                    {
+                                        $this->user_model->changePasswordII($this->session->userdata('fx_sess_id'), $newpassI, $newpassII);
+                                    }
+                                }
+                                else
+                                    echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
+                            }
+                            else
+                                echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_not_found').'</p></div>';
+                        }
+                        else
+                            echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_not_match').'</p></div>';
+                    } ?>
+
+                    <?php if(isset($_POST['button_changeemail'])) {
+                        $password = $_POST['password'];
+                        $oldemail = $_POST['oldemail'];
+                        $newemail = $_POST['newemail'];
+
+                        if ($this->m_general->getExpansionAction() == 1)
+                        {
+                            $compare = $this->m_data->encryptAccount($this->session->userdata('fx_sess_username'), $password);
+
+                            if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
+                            {
+                                if ($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
+                                {
+                                    $this->user_model->changeEmailI($this->session->userdata('fx_sess_id'), $newemail);
+                                }
+                                else
+                                    echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
+                            }
+                            else
+                                echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('oemail_not_match').'</p></div>';
+                        }
+                        else if ($this->m_general->getExpansionAction() == 2)
+                        {
+                            $compare = $this->m_data->encryptBattlenet($this->session->userdata('fx_sess_email'), $password);
+
+                            $newpasscompare = $this->m_data->encryptBattlenet($newemail, $password);
+
+                            if ($this->user_model->getExistEmail(strtoupper($newemail)) > 0)
+                                echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('email_used').'</p></div>';
+                            else
+                            {
+                                if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
+                                {
+                                    if ($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
+                                    {
+                                        $this->user_model->changeEmailII($this->session->userdata('fx_sess_id'), $newemail, $newpasscompare);
+                                    }
+                                    else
+                                        echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('opassword_not_match').'</p></div>';
+                                }
+                                else
+                                    echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('oemail_not_match').'</p></div>';
+                            }
+                        }
+                        else
+                            echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_notfound').'</p></div>';
+                    } ?>
                     <div class="col-md-2"></div>
                     <div class="col-md-8" style="color: rgba(255,255,255,.7);">
                         <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
