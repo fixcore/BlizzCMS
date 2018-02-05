@@ -12,102 +12,119 @@
     $this->admin_model->insertForum($name, $cate, $desc, $icon, $type);
 } ?>
 
-    <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row bg-title">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-commenting fa-fw"></i><?= $this->lang->line('admin_forums'); ?> - <?= $this->lang->line('admin_manege_forums'); ?></h4>
-                </div>
-                <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
-                    <a href="#" data-toggle="modal" data-target="#createfor-modal">
-                        <button class="waves-effect waves-light btn btn-success pull-right m-l-20"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
-                    </a>
+    <div class="content-padder content-background">
+        <div class="uk-section-xsmall uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <div class="uk-grid-small uk-width-1-1" uk-grid>
+                    <div class="uk-width-3-4@s">
+                        <h4><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->lang->line('admin_forums'); ?> - <?= $this->lang->line('admin_manege_forums'); ?></h4>
+                    </div>
+                    <div class="uk-width-1-4@s">
+                        <a href="" class="" uk-toggle="target: #newForum">
+                            <button class="uk-button uk-button-secondary uk-width-1-1"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_create'); ?></button>
+                        </a>
+                    </div>
                 </div>
             </div>
-            <!-- /row -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="white-box">
-                        <div class="table-responsive">
-                            <table id="myTable" class="table color-table info-table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th><?= $this->lang->line('form_title'); ?></th>
-                                        <th class="text-center"><?= $this->lang->line('column_action'); ?></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($this->admin_model->getForumForumList()->result() as $list) { ?>
+        </div>
+        <div class="uk-section-small">
+            <div class="uk-container uk-container-large">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('admin_manege_forums'); ?></div>
+                            <div class="uk-card-body">
+                                <table id="myTable" class="uk-table uk-table-justify uk-table-divider">
+                                    <thead>
                                         <tr>
-                                            <td>
-                                                <div class="col-md-12">
-                                                    <input type="text" disabled class="form-control" value="<?= $list->name; ?>">
-                                                </div>
-                                            </td>
-                                            <td class="text-center">
-                                                <a href="">
-                                                    <button class="btn btn-warning btn-circle btn-lg m-r-5"><i class="fa fa-pencil-square-o fa-fw" type="submit"></i></button>
-                                                </a>
-                                                <form action="" method="post" accept-charset="utf-8" style="display: inline;">
-                                                    <button class="btn btn-danger btn-circle btn-lg m-r-5" name="button_deleteForum" value="<?= $list->id ?>" type="submit"><i class="fa fa-trash fa-fw"></i></button>
-                                                </form>
-                                            </td>
+                                            <th><?= $this->lang->line('form_title'); ?></th>
+                                            <th class="uk-text-center"><?= $this->lang->line('column_action'); ?></th>
                                         </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($this->admin_model->getForumForumList()->result() as $list) { ?>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                </td>
+                                                <td class="uk-text-center" uk-margin>
+                                                    <a href="#" class="uk-button uk-button-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    </a>
+                                                    <span class="" style="display:inline-block; width: 5px;"></span>
+                                                    <form action="" method="post" accept-charset="utf-8" style="display: inline;">
+                                                        <button class="uk-button uk-button-danger" name="button_deleteForum" value="<?= $list->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
+    </div>
 
-        <div id="createfor-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        <h4 class="modal-title"><i class="fa fa-comments-o fa-fw"></i> <?= $this->lang->line('form_create_forums'); ?></h4>
+    <div id="newForum" uk-modal="bg-close: false">
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('form_create_forums'); ?></h2>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8" autocomplete="off">
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_forum_title'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
+                                <input class="uk-input" name="forum_name" type="text" placeholder="<?= $this->lang->line('form_forum_title'); ?>" required>
+                            </div>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <form method="post" action="" enctype="multipart/form-data">
-                            <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('form_forum_title'); ?></label>
-                                <input name="forum_name" type="text" class="form-control" placeholder="<?= $this->lang->line('form_forum_title'); ?>" required>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_forum_description'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <input class="uk-input" name="forum_description" required type="text" placeholder="<?= $this->lang->line('form_forum_description'); ?>" required>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('form_forum_description'); ?></label>
-                                <input name="forum_description" type="text" class="form-control" placeholder="<?= $this->lang->line('form_forum_description'); ?>" required>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_forum_icon_name'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <input class="uk-input" name="forum_icon" required type="text" placeholder="<?= $this->lang->line('placeholder_forum_icon'); ?>" required>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('form_forum_icon_name'); ?></label>
-                                <input name="forum_icon" type="text" class="form-control" placeholder="<?= $this->lang->line('placeholder_forum_icon'); ?>" required>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('form_type'); ?></label>
-                                <select class="form-control" name="forum_type">
-                                    <option value="1"><?= $this->lang->line('option_everyone'); ?></option>
-                                    <option value="2"><?= $this->lang->line('option_staff'); ?></option>
-                                    <option value="3"><?= $this->lang->line('option_all'); ?></option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label"><?= $this->lang->line('form_category'); ?></label>
-                                <select class="form-control" name="forum_cate">
-                                    <?php foreach($this->admin_model->getForumCategoryList()->result() as $categ) { ?>
-                                        <option value="<?= $categ->id ?>"><?= $categ->categoryName ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal"><?= $this->lang->line('button_close'); ?></button>
-                                <button type="submit" name="button_createForum" class="btn btn-success waves-effect waves-light"><i class="fa fa-pencil fa-fw"></i><?= $this->lang->line('button_create'); ?></button>
-                            </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_type'); ?></label>
+                        <div class="uk-form-controls">
+                            <select class="uk-select" name="forum_type">
+                                <option value="1"><?= $this->lang->line('option_everyone'); ?></option>
+                                <option value="2"><?= $this->lang->line('option_staff'); ?></option>
+                                <option value="3"><?= $this->lang->line('option_all'); ?></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_category'); ?></label>
+                        <div class="uk-form-controls">
+                            <select class="uk-select" name="forum_cate">
+                                <?php foreach($this->admin_model->getForumCategoryList()->result() as $categ) { ?>
+                                    <option value="<?= $categ->id ?>"><?= $categ->categoryName ?></option>
+                                <?php } ?>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="uk-modal-footer uk-text-right actions">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_createForum"><?= $this->lang->line('button_create'); ?></button>
+                </div>
+            </form>
         </div>
+    </div>
