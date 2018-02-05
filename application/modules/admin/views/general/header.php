@@ -6,7 +6,6 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 
     <link rel="stylesheet" href="<?= base_url(); ?>core/css/blizzcms-admincore.css">
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- UiKit Start -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
     <script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
@@ -22,13 +21,13 @@
         <div class="uk-container uk-container-expand">
             <nav uk-navbar>
                 <div class="uk-navbar-left">
-                    <a id="sidebar_toggle" class="uk-navbar-toggle" style="color: #fff;" uk-navbar-toggle-icon ></a>
+                    <a id="sidebar_toggle" class="uk-navbar-toggle" style="color: #fff;" uk-navbar-toggle-icon></a>
                     <a href="<?= base_url('admin'); ?>" class="uk-navbar-item uk-logo" style="font-family:'morpheus';color: #fff;">BlizzCMS</a>
                 </div>
                 <div class="uk-navbar-right uk-light">
                     <ul class="uk-navbar-nav">
                         <li class="uk-active">
-                            <a href="javascript:void(0)"><i class="fa fa-user"></i>&nbsp;<?= $this->session->userdata('fx_sess_username'); ?>&nbsp;<span class="ion-ios-arrow-down"></span></a>
+                            <a href="javascript:void(0)"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;<?= $this->session->userdata('fx_sess_username'); ?>&nbsp;<span class="fa fa-chevron-down" aria-hidden="true"></span></a>
                             <div uk-dropdown="pos: bottom-right; mode: click; offset: -17;">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li>

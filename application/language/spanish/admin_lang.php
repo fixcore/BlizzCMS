@@ -81,6 +81,7 @@ $lang['panel_admin_changelogs_list'] = 'Lista de Changelogs';
 $lang['panel_admin_pages_list'] = 'Lista de Páginas';
 $lang['panel_admin_news_list'] = 'Lista de Novedades';
 $lang['panel_admin_item_list'] = 'Lista de Artículos';
+$lang['panel_admin_edit_news'] = 'Editar Noticia';
 
 /*Column Lang*/
 $lang['column_race'] = 'Raza';
