@@ -47,6 +47,7 @@ $lang['oemail_not_match'] = 'A jelenlegi email hibás';
 $lang['email_used'] = 'Valaki már használja a megadott emailt';
 $lang['expansion_not_found'] = 'Kiegészítő nem található.';
 $lang['image_upload_error'] = 'A képednek .jpg formátumba kell lennie';
+$lang['changelog_not_found'] = 'The server does not have changelogs to inform at this time';
 
 $lang['char_newlevel'] = 'Receive a new level';
 $lang['char_oldlevel'] = 'Before it was';

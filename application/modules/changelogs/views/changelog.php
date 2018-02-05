@@ -133,7 +133,7 @@
                             </div>
                         <?php } else { ?>
                             <div class="uk-alert-warning" uk-alert>
-                                <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> The server does not have changelogs to inform at this time.</p>
+                                <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?= $this->lang->line('changelog_not_found'); ?></p>
                             </div>
                             <div class="space-adaptive-small"></div>
                         <?php } ?>
