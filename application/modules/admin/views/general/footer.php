@@ -1,46 +1,8 @@
-        <footer class="footer text-center">
-            <i class="fa fa-github"></i> Proudly powered by <a href="https://github.com/fixcore/BlizzCMS">BlizzCMS</a>
-        </footer>
-    </div>
-    <!-- End Page Content -->
-    </div>
-    <!-- End Wrapper -->
-
-    <!-- All Jquery -->
-    <script src="<?= base_url(); ?>core/plugins/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="<?= base_url(); ?>core/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- Menu Plugin JavaScript -->
-    <script src="<?= base_url(); ?>core/plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.js"></script>
-    <!--slimscroll JavaScript -->
-    <script src="<?= base_url(); ?>core/js/jquery.slimscroll.js"></script>
-    <!--Wave Effects -->
-    <script src="<?= base_url(); ?>core/js/waves.js"></script>
-    <!--Counter js -->
-    <script src="<?= base_url(); ?>core/plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
-    <script src="<?= base_url(); ?>core/plugins/bower_components/counterup/jquery.counterup.min.js"></script>
-    <!-- chartist chart -->
-    <script src="<?= base_url(); ?>core/plugins/bower_components/chartist-js/dist/chartist.min.js"></script>
-    <script src="<?= base_url(); ?>core/plugins/bower_components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
-    <!-- Sparkline chart JavaScript -->
-    <script src="<?= base_url(); ?>core/plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-    <!-- Custom Theme JavaScript -->
-    <script src="<?= base_url(); ?>core/js/custom.min.js"></script>
-    <script src="<?= base_url(); ?>core/js/dashboard1.js"></script>
-    <script src="<?= base_url(); ?>core/plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-    <!--Style Switcher -->
-    <script src="<?= base_url(); ?>core/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
-
-    <script src="<?= base_url(); ?>core/plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
-    <!-- start - This is for export functionality only -->
-    <script src="<?= base_url(); ?>core/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
-    <script src="<?= base_url(); ?>core/buttons/1.2.2/js/buttons.flash.min.js"></script>
-    <script src="<?= base_url(); ?>core/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
-    <script src="<?= base_url(); ?>core/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
-    <script src="<?= base_url(); ?>core/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
-    <script src="<?= base_url(); ?>core/buttons/1.2.2/js/buttons.html5.min.js"></script>
-    <script src="<?= base_url(); ?>core/buttons/1.2.2/js/buttons.print.min.js"></script>
-    <!-- end - This is for export functionality only -->
+    <!-- JQuery -->
+    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
+    <script src="<?= base_url(); ?>core/js/jquery.transit.min.js"></script>
+    <!-- Required Overall Script -->
+    <script src="<?= base_url(); ?>core/js/blizzcms-core.js"></script>
     <script>
         $(document).ready(function() {
             $('#myTable').DataTable();
@@ -88,7 +50,5 @@
             ]
         });
     </script>
-    <!--Style Switcher -->
-    <script src="<?= base_url(); ?>core/plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 </html>

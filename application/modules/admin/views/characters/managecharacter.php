@@ -29,192 +29,175 @@
     $this->admin_model->insertChangeFactionChar($idlink, $multiRealm, $idrealm);
 } ?>
 
-    <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
-    <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row bg-title">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('panel_admin_char_manage'); ?> - 
+    <div class="content-padder content-background">
+        <div class="uk-section-xsmall uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <div class="uk-grid-small uk-width-1-1" uk-grid>
+                    <div class="uk-width-3-4@s">
+                        <h4><i class="fa fa-user" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_char_manage'); ?> - 
                         <?= $this->m_general->getNameCharacterSpecifyGuid($multiRealm, $idlink); ?></h4>
+                    </div>
                 </div>
             </div>
-            <?php if(isset($_GET['char'])) { ?>
-                <div class="alert alert-danger"><?= $this->lang->line('status_is_online'); ?></div>
-            <?php } ?>
-
-            <?php if(isset($_GET['name'])) { ?>
-                <div class="alert alert-danger"><?= $this->lang->line('status_name_exist'); ?></div>
-            <?php } ?>
-            <!-- .row -->
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <?= $this->lang->line('panel_admin_change_level'); ?>
-                            <div class="pull-right">
-                                <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                            <div class="panel-body has-success">
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <div class="form-group">
-                                        <input required name="newLevel" type="number" min="1" max="<?= $this->m_general->getMaxLevel(); ?>" class="form-control" placeholder="<?= $this->lang->line('column_level'); ?>">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <button name="button_changeLevel" class="btn btn-block btn-outline btn-success"><i class="fa fa-refresh fa-fw"></i><?= $this->lang->line('button_change_level'); ?></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4 col-sm-4">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading">
-                            <?= $this->lang->line('panel_admin_rename'); ?>
-                            <div class="pull-right">
-                                <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                            <div class="panel-body">
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <div class="form-group has-warning">
-                                        <input required name="newName" type="text" class="form-control" placeholder="<?= $this->lang->line('panel_admin_rename'); ?>">
-                                    </div>
-                                    <div class="col-md-12">
-                                        <button name="button_renamechar" class="btn btn-block btn-outline btn-warning"><i class="fa fa-pencil-square-o fa-fw"></i><?= $this->lang->line('panel_admin_rename'); ?></button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-                <?php if($this->m_general->getCharBanSpecifyGuid($idlink, $multiRealm)->num_rows()) { ?>
-                    <div class="col-lg-4 col-sm-4">
-                        <div class="panel panel-success">
-                            <div class="panel-heading">
-                                <?= $this->lang->line('panel_admin_unban_char'); ?>
-                                <div class="pull-right">
-                                    <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                                </div>
-                            </div>
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body">
-                                    <form action="" method="post" accept-charset="utf-8">
-                                        <button name="button_unban" class="btn btn-block btn-outline btn-success"><i class="fa fa-check-circle fa-fw"></i><?= $this->lang->line('button_unban'); ?></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                <?php } else {?>
-                    <!-- /.col-lg-4 -->
-                    <div class="col-lg-4 col-sm-4">
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                <?= $this->lang->line('panel_admin_ban_char'); ?>
-                                <div class="pull-right">
-                                    <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                                </div>
-                            </div>
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body">
-                                    <form action="" method="post" accept-charset="utf-8">
-                                        <div class="form-group has-error">
-                                            <input type="text" id="state-danger" required="" name="banchar_reason" class="form-control" placeholder="<?= $this->lang->line('panel_admin_reason'); ?>">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" name="button_banchar" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('button_ban'); ?></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                <?php } ?>
-            </div>
-            <div class="row">
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4 col-sm-4">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <?= $this->lang->line('panel_admin_customize'); ?>
-                            <div class="pull-right">
-                                <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                            <div class="panel-body">
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <button name="button_customize" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('panel_admin_customize'); ?></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4 col-sm-4">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <?= $this->lang->line('panel_admin_change_race'); ?>
-                            <div class="pull-right">
-                                <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                            <div class="panel-body">
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <button name="button_changerace" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('panel_admin_change_race'); ?></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4 col-sm-4">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <?= $this->lang->line('panel_admin_change_faction'); ?>
-                            <div class="pull-right">
-                                <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                            <div class="panel-body">
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <button name="button_changefaction" class="btn btn-block btn-outline btn-info"><i class="fa fa-cog fa-fw"></i><?= $this->lang->line('panel_admin_change_faction'); ?></button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-            </div>
-            <!-- /.row -->
-            <!-- .row -->
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="well">
-                        <h4><i class="fa fa-list fa-fw"></i><?= $this->lang->line('panel_admin_annotations'); ?></h4>
-                        <ul class="list-icons">
-                            <?php foreach($this->admin_model->getAnnotationsSpecifyChar($idlink, $idrealm)->result() as $charlistannotation) { ?>
-                                <li><i class="fa fa-caret-right text-primary"></i><?= $charlistannotation->annotation ?></li>
-                            <?php } ?>
-                        </ul>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-            </div>
-            <!-- /.row -->
-            <!-- End Right sidebar -->
         </div>
-        <!-- /.container-fluid -->
+        <div class="uk-section-small">
+            <div class="uk-container uk-container-large">
+                <?php if(isset($_GET['char'])) { ?>
+                    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
+                        <div>
+                            <div class="uk-alert-danger" uk-alert>
+                                <a class="uk-alert-close" uk-close></a>
+                                <p><?= $this->lang->line('status_is_online'); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+                <?php if(isset($_GET['name'])) { ?>
+                    <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
+                        <div>
+                            <div class="uk-alert-danger" uk-alert>
+                                <a class="uk-alert-close" uk-close></a>
+                                <p><?= $this->lang->line('status_name_exist'); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                <?php } ?>
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-arrows-v" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_change_level'); ?></div>
+                            <div class="uk-card-body">
+                                <form action="" method="post">
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <div class="uk-inline uk-width-1-1">
+                                                <input class="uk-input" name="newLevel" type="number" min="1" max="<?= $this->m_general->getMaxLevel(); ?>" placeholder="<?= $this->lang->line('column_level'); ?>" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <button class="uk-button uk-button-primary uk-width-1-1" name="button_changeLevel" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> <?= $this->lang->line('button_change_level'); ?></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_rename'); ?></div>
+                            <div class="uk-card-body">
+                                <form action="" method="post">
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <div class="uk-inline uk-width-1-1">
+                                                <input class="uk-input" name="newName" type="text" placeholder="<?= $this->lang->line('panel_admin_rename'); ?>" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <button class="uk-button uk-button-primary uk-width-1-1" name="button_renamechar" type="submit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_rename'); ?></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <?php if($this->m_general->getCharBanSpecifyGuid($idlink, $multiRealm)->num_rows()) { ?>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-check-circle" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_unban_char'); ?></div>
+                                <div class="uk-card-body">
+                                    <form action="" method="post">
+                                        <button class="uk-button uk-button-primary uk-width-1-1" name="button_unban" type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i><?= $this->lang->line('button_unban'); ?></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header uk-card-secondary uk-text-center uk-text-uppercase"><i class="fa fa-ban" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_ban_char'); ?></div>
+                                <div class="uk-card-body">
+                                    <form action="" method="post">
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <input class="uk-input" name="banchar_reason" type="text" placeholder="<?= $this->lang->line('panel_admin_reason'); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-danger uk-width-1-1" name="button_banchar" type="submit"><i class="fa fa-ban" aria-hidden="true"></i> <?= $this->lang->line('button_ban'); ?></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-cogs" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_customize'); ?></div>
+                            <div class="uk-card-body">
+                                <form action="" method="post">
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <button class="uk-button uk-button-primary uk-width-1-1" name="button_customize" type="submit"><i class="fa fa-cog" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_customize'); ?></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-cogs" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_change_race'); ?></div>
+                            <div class="uk-card-body">
+                                <form action="" method="post">
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <button class="uk-button uk-button-primary uk-width-1-1" name="button_changerace" type="submit"><i class="fa fa-cog" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_change_race'); ?></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-cogs" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_change_faction'); ?></div>
+                            <div class="uk-card-body">
+                                <form action="" method="post">
+                                    <div class="uk-margin">
+                                        <div class="uk-form-controls">
+                                            <button class="uk-button uk-button-primary uk-width-1-1" name="button_changefaction" type="submit"><i class="fa fa-cog" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_change_faction'); ?></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-list" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_annotations'); ?></div>
+                            <div class="uk-card-body">
+                                <ul class="uk-list uk-list-bullet">
+                                    <?php foreach($this->admin_model->getAnnotationsSpecifyChar($idlink, $idrealm)->result() as $charlistannotation) { ?>
+                                        <li><?= $charlistannotation->annotation ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
