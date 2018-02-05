@@ -127,7 +127,7 @@
             <form action="<?= base_url('forum/newTopic/'.$idlink); ?>" method="post" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_title'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_title'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
@@ -143,7 +143,7 @@
                     <?php } ?>
 
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_description'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_description'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
                                 <textarea required="" name="topic_description" id="ckeditor" rows="10" cols="80"></textarea>

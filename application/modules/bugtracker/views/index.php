@@ -97,7 +97,7 @@
             <?= form_open(base_url('bugtracker/create')); ?>
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_title'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_title'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: pencil"></span>
@@ -106,7 +106,7 @@
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_type'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_type'); ?></label>
                         <div class="uk-form-controls">
                             <!-- dropdown -->
                             <?php 
@@ -123,7 +123,7 @@
                     <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
 
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_description'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_description'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
                                 <?= form_textarea('bug_description', $this->config->item('textarea'), 'id="ckeditor"'); ?>

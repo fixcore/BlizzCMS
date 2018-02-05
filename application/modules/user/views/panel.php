@@ -408,7 +408,7 @@
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_username'); ?> & <?= $this->lang->line('form_email'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_username'); ?> & <?= $this->lang->line('form_email'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-inline uk-width-1-1">
                                 <span class="uk-form-icon" uk-icon="icon: hashtag"></span>
@@ -426,7 +426,7 @@
                     </div>
                     <hr class="uk-divider-icon">
                     <div class="uk-margin">
-                        <label class="uk-form-label uk-text-large"><?= $this->lang->line('form_user_info'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_user_info'); ?></label>
                         <div class="uk-form-controls">
                             <select class="uk-select" name="country_us">
                                 <?php foreach($this->user_model->getCountry()->result() as $country_us) { ?>
@@ -452,7 +452,7 @@
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label"><?= $this->lang->line('form_birth_date'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_birth_date'); ?></label>
                         <div class="uk-grid-small" uk-grid>
                             <div class="uk-inline uk-width-1-4@s">
                                 <div class="uk-form-controls">
@@ -515,7 +515,7 @@
                         </div>
                     </div>
                     <div class="uk-margin">
-                        <label class="uk-form-label"><?= $this->lang->line('form_security_question'); ?></label>
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_security_question'); ?></label>
                         <div class="uk-form-controls">
                             <select class="uk-select" id="form-stacked-select" name="question_us">
                                 <?php foreach ($this->user_model->getQuestion()->result() as $question_us) { ?>
