@@ -67,7 +67,7 @@
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-arrows-v" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_change_level'); ?></div>
                             <div class="uk-card-body">
-                                <form action="" method="post">
+                                <form action="" method="post" accept-charset="utf-8">
                                     <div class="uk-margin">
                                         <div class="uk-form-controls">
                                             <div class="uk-inline uk-width-1-1">
@@ -88,7 +88,7 @@
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_rename'); ?></div>
                             <div class="uk-card-body">
-                                <form action="" method="post">
+                                <form action="" method="post" accept-charset="utf-8">
                                     <div class="uk-margin">
                                         <div class="uk-form-controls">
                                             <div class="uk-inline uk-width-1-1">
@@ -121,7 +121,7 @@
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header uk-card-secondary uk-text-center uk-text-uppercase"><i class="fa fa-ban" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_ban_char'); ?></div>
                                 <div class="uk-card-body">
-                                    <form action="" method="post">
+                                    <form action="" method="post" accept-charset="utf-8">
                                         <div class="uk-margin">
                                             <div class="uk-form-controls">
                                                 <div class="uk-inline uk-width-1-1">

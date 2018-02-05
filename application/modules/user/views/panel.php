@@ -205,13 +205,15 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div>
-                                    <div class="uk-margin">
-                                        <a href="">
-                                            <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
-                                        </a>
+                                <?php if($this->m_modules->getDonation() == '1') { ?>
+                                    <div>
+                                        <div class="uk-margin">
+                                            <a href="<?= base_url('donate'); ?>">
+                                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
                             </div>
                             <div class="uk-column-1-2">
                                 <div>

@@ -2,25 +2,6 @@
     $this->admin_model->delSpecifyNew($_POST['button_delNew']);
 } ?>
 
-<?php if(isset($_POST['button_createNew'])) {
-    $title = $_POST['new_title'];
-    $desc  = $_POST['new_description'];
-    $type  = $_POST['new_destac'];
-    $image = $_FILES["new_imageup"];
-
-    if ($image['type'] == 'image/jpeg')
-    {
-        $random = $this->m_data->randomUTF();
-        $name_new = sha1($image['name'].$random).'.jpg';
-
-        move_uploaded_file($image["tmp_name"], "./assets/images/news/" . $name_new);
-
-        $this->admin_model->createNewADM($title, $name_new, $desc, $type);
-    }
-    else
-        echo '<div class="alert alert-danger">'.$this->lang->line('image_upload_error').'. </div>';
-} ?>
-
     <div class="content-padder content-background">
         <div class="uk-section-xsmall uk-section-default header">
             <div class="uk-container uk-container-large">
@@ -39,6 +20,24 @@
         <div class="uk-section-small">
             <div class="uk-container uk-container-large">
                 <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
+                    <?php if(isset($_POST['button_createNew'])) {
+                        $title = $_POST['new_title'];
+                        $desc  = $_POST['new_description'];
+                        $type  = $_POST['new_destac'];
+                        $image = $_FILES["new_imageup"];
+
+                        if ($image['type'] == 'image/jpeg')
+                        {
+                            $random = $this->m_data->randomUTF();
+                            $name_new = sha1($image['name'].$random).'.jpg';
+
+                            move_uploaded_file($image["tmp_name"], "./assets/images/news/" . $name_new);
+
+                            $this->admin_model->createNewADM($title, $name_new, $desc, $type);
+                        }
+                        else
+                            echo '<div><div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('image_upload_error').'</p></div></div>';
+                    } ?>
                     <div>
                         <div class="uk-card uk-card-default">
                             <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_news_list'); ?></div>
