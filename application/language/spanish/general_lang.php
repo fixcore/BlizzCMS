@@ -171,6 +171,9 @@ $lang['changelogs_list'] = 'Changelogs';
 /*Bugtracker Lang*/
 $lang['bugtracker_report_list'] = 'Lista de informes';
 
+/*Message Lang*/
+$lang['message_header'] = 'Mensaje Privado';
+
 /*Forum Lang*/
 $lang['forum_welcome'] = 'Bienvenido al foro oficial';
 $lang['forum_post_count'] = 'publicaciones';
