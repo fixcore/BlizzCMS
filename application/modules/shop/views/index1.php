@@ -81,11 +81,13 @@
                                                     </script>
                                                 </div>
                                             </div>
-                                            <div class="uk-inline uk-width-1-3@s">
-                                                <a href="">
-                                                    <button class="uk-button uk-button-primary"><i class="fa fa-question-circle" aria-hidden="true"></i> <?=$this->lang->line('store_support');?></button>
-                                                </a>
-                                            </div>
+                                            <?php if ($this->m_data->isLogged()) { ?>
+                                                <div class="uk-inline uk-width-1-3@s">
+                                                    <a href="">
+                                                        <button class="uk-button uk-button-primary"><i class="fa fa-question-circle" aria-hidden="true"></i> <?=$this->lang->line('store_support');?></button>
+                                                    </a>
+                                                </div>
+                                            <?php } ?>
                                         </div>
                                     </form>
                                 </div>

@@ -53,7 +53,7 @@
                             <div class="uk-card uk-card-default">
                                 <div class="uk-card-header uk-card-secondary uk-text-center uk-text-uppercase"><i class="fa fa-ban" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_ban_account'); ?></div>
                                 <div class="uk-card-body">
-                                    <form action="" method="post">
+                                    <form action="" method="post" accept-charset="utf-8">
                                         <div class="uk-margin">
                                             <div class="uk-form-controls">
                                                 <div class="uk-inline uk-width-1-1">
