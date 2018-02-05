@@ -170,6 +170,9 @@ $lang['changelogs_list'] = 'Frissítések';
 /*Bugtracker Lang*/
 $lang['bugtracker_report_list'] = 'Jelentési Lista';
 
+/*Message Lang*/
+$lang['message_header'] = 'Private Message';
+
 /*Forum Lang*/
 $lang['forum_welcome'] = 'Üdvözlünk a Fórumunkon!';
 $lang['forum_post_count'] = 'bejegyzés';
