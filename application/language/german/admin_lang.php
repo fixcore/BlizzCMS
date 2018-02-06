@@ -30,103 +30,103 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Dashboard';
-$lang['admin_users'] = 'Users';
-$lang['admin_users_list'] = 'Users List';
-$lang['admin_chars_list'] = 'Characters List';
+$lang['admin_users'] = 'Nutzer';
+$lang['admin_users_list'] = 'Nutzerliste';
+$lang['admin_chars_list'] = 'Charakterliste';
 $lang['admin_website'] = 'Website';
-$lang['admin_news'] = 'News';
+$lang['admin_news'] = 'Neuigkeiten';
 $lang['admin_changelogs'] = 'Changelogs';
-$lang['admin_pages'] = 'Pages';
-$lang['admin_store'] = 'Store';
-$lang['admin_items'] = 'Manage Items';
-$lang['admin_forums'] = 'Forums';
-$lang['admin_manage_categories'] = 'Manage Categories';
-$lang['admin_manege_forums'] = 'Manage Forums';
+$lang['admin_pages'] = 'Seiten';
+$lang['admin_store'] = 'Shop';
+$lang['admin_items'] = 'Gegenstände verwalten';
+$lang['admin_forums'] = 'Foren';
+$lang['admin_manage_categories'] = 'Kategorien verwalten';
+$lang['admin_manege_forums'] = 'Foren verwalten';
 
 /*Count Lang*/
-$lang['players_count'] = 'Players Online';
-$lang['account_count'] = 'Accounts created';
-$lang['staff_count'] = 'STAFF accounts';
-$lang['ban_count'] = 'Banned accounts';
+$lang['players_count'] = 'Spieler online';
+$lang['account_count'] = 'Erstellte Accounts';
+$lang['staff_count'] = 'Mitarbeiter-Accounts';
+$lang['ban_count'] = 'Gesperrte Accounts';
 
 /*Button Lang*/
-$lang['button_server_restart'] = 'Restart Server';
-$lang['button_unban'] = 'Unban';
-$lang['button_ban'] = 'Ban';
-$lang['button_re_grant_account'] = 'Remove GM';
-$lang['button_grant_account'] = 'Grant GM';
-$lang['button_grant_web_acc'] = 'Grant ADM';
-$lang['button_re_grant_web_acc'] = 'Remove ADM';
-$lang['button_change_level'] = 'Change Level';
+$lang['button_server_restart'] = 'Server neustarten';
+$lang['button_unban'] = 'Entsperren';
+$lang['button_ban'] = 'Sperren';
+$lang['button_re_grant_account'] = 'GM entfernen';
+$lang['button_grant_account'] = 'GM gewähren';
+$lang['button_grant_web_acc'] = 'ADM gewähren';
+$lang['button_re_grant_web_acc'] = 'ADM entfernen';
+$lang['button_change_level'] = 'Stufe ändern';
 
 /*Panel Lang*/
-$lang['panel_admin_user_manage'] = 'Manage user';
-$lang['panel_admin_unban_account'] = 'Unban Account';
-$lang['panel_admin_ban_account'] = 'Ban Account';
-$lang['panel_admin_rank_account'] = 'GM Rank';
-$lang['panel_admin_web_rank'] = 'Web Rank';
-$lang['panel_admin_general_info'] = 'General information';
-$lang['panel_admin_annotations'] = 'Annotations';
-$lang['panel_admin_mov_forum'] = 'Movements in the forum';
-$lang['panel_admin_last_comments'] = 'Last comments';
-$lang['panel_admin_char_manage'] = 'Manage character';
-$lang['panel_admin_change_level'] = 'Change Level';
-$lang['panel_admin_rename'] = 'Rename';
-$lang['panel_admin_unban_char'] = 'Unban Character';
-$lang['panel_admin_ban_char'] = 'Ban Character';
-$lang['panel_admin_customize'] = 'Customize Character';
-$lang['panel_admin_change_race'] = 'Change Race';
-$lang['panel_admin_change_faction'] = 'Change Faction';
-$lang['panel_admin_changelogs_list'] = 'List of Changelogs';
-$lang['panel_admin_pages_list'] = 'List of Pages';
-$lang['panel_admin_news_list'] = 'News List';
-$lang['panel_admin_item_list'] = 'List of Items';
-$lang['panel_admin_edit_news'] = 'Edit News';
+$lang['panel_admin_user_manage'] = 'Nutzer verwalten';
+$lang['panel_admin_unban_account'] = 'Account entsperren';
+$lang['panel_admin_ban_account'] = 'Account sperren';
+$lang['panel_admin_rank_account'] = 'GM-Level';
+$lang['panel_admin_web_rank'] = 'Web-Level';
+$lang['panel_admin_general_info'] = 'Allgemeine Informationen';
+$lang['panel_admin_annotations'] = 'Anmerkungen';
+$lang['panel_admin_mov_forum'] = 'Forenaktivitäten';
+$lang['panel_admin_last_comments'] = 'Neuesten Beiträge';
+$lang['panel_admin_char_manage'] = 'Charakter verwalten';
+$lang['panel_admin_change_level'] = 'Stufe ändern';
+$lang['panel_admin_rename'] = 'Umbenennen';
+$lang['panel_admin_unban_char'] = 'Charakter entsperren';
+$lang['panel_admin_ban_char'] = 'Charakter sperren';
+$lang['panel_admin_customize'] = 'Charakter anpassen';
+$lang['panel_admin_change_race'] = 'Rasse wechseln';
+$lang['panel_admin_change_faction'] = 'Fraktion wechseln';
+$lang['panel_admin_changelogs_list'] = 'Liste mit den Changelogs';
+$lang['panel_admin_pages_list'] = 'Liste mit den Seiten';
+$lang['panel_admin_news_list'] = 'Liste mit den Neuigkeiten';
+$lang['panel_admin_item_list'] = 'Liste mit den Shopgegenständen';
+$lang['panel_admin_edit_news'] = 'Neuigkeiten bearbeiten';
 
 /*Column Lang*/
-$lang['column_race'] = 'Race';
-$lang['column_class'] = 'Class';
-$lang['column_level'] = 'Level';
-$lang['column_money'] = 'Money';
-$lang['column_own'] = 'Own';
-$lang['column_action'] = 'Action';
+$lang['column_race'] = 'Rasse';
+$lang['column_class'] = 'Klasse';
+$lang['column_level'] = 'Stufe';
+$lang['column_money'] = 'Gold';
+$lang['column_own'] = 'Besitzer';
+$lang['column_action'] = 'Aktion';
 
 /*Form Lang*/
-$lang['form_create_changelog'] = 'Create a new Changelog';
-$lang['form_changelog_title'] = 'Title of the Changelog';
-$lang['form_create_pages'] = 'Create a new Page';
-$lang['form_create_news'] = 'Create a new News';
-$lang['form_news_title'] = 'Title of the news';
-$lang['form_upload_file'] = 'File upload';
-$lang['form_create_category'] = 'Create Category';
-$lang['form_create_forums'] = 'Create Forums';
-$lang['form_category_title'] = 'Title of the Category';
-$lang['form_forum_title'] = 'Title of the Forum';
-$lang['form_forum_description'] = 'Enter a brief description of the forum';
+$lang['form_create_changelog'] = 'Changelog erstellen';
+$lang['form_changelog_title'] = 'Titlel des Changelogs';
+$lang['form_create_pages'] = 'Seite erstellen';
+$lang['form_create_news'] = 'Neuigkeiten erstellen';
+$lang['form_news_title'] = 'Titel der Neuigkeit';
+$lang['form_upload_file'] = 'Dateianhang';
+$lang['form_create_category'] = 'Kategorie erstellen';
+$lang['form_create_forums'] = 'Forum erstellen';
+$lang['form_category_title'] = 'Name der Kategorie';
+$lang['form_forum_title'] = 'Name des Forums';
+$lang['form_forum_description'] = 'Gib eine kurze Beschreibung des Forums an';
 $lang['form_forum_icon_name'] = 'Icon Name';
-$lang['form_category'] = 'Category';
-$lang['form_create_item'] = 'Create a item';
-$lang['form_store_item_name'] = 'Product Name';
-$lang['form_store_item_id'] = 'Item Id';
-$lang['form_store_image_name'] = 'Image File Name';
+$lang['form_category'] = 'Kategorie';
+$lang['form_create_item'] = 'Shopeintrag erstellen';
+$lang['form_store_item_name'] = 'Gegenstandsname';
+$lang['form_store_item_id'] = 'Item-ID';
+$lang['form_store_image_name'] = 'Name der Bilddatei';
 
 /*Placeholder Lang*/
-$lang['panel_admin_reason'] = 'Reason';
-$lang['panel_admin_gmlevel'] = 'Gm Level';
-$lang['panel_admin_new_page_url'] = 'Your new Page URL is';
-$lang['placeholder_forum_icon'] = 'foldername/image.jpg or foldername/image.png';
+$lang['panel_admin_reason'] = 'Grund';
+$lang['panel_admin_gmlevel'] = 'GM-Level';
+$lang['panel_admin_new_page_url'] = 'Dein neuer Seiten-URL ist';
+$lang['placeholder_forum_icon'] = 'Ordnername/image.jpg or Ordnername/image.png';
 
 /*Status Lang*/
-$lang['status_is_online'] = 'Player is Online, please disconnect';
-$lang['status_name_exist'] = 'This name already exist';
+$lang['status_is_online'] = 'Spieler ist online. Bitte trenne zuerst deine Verbindung.';
+$lang['status_name_exist'] = 'Dieser Name wird bereits verwendet.';
 
 /*Options Lang*/
-$lang['option_yes'] = 'Yes';
-$lang['option_no'] = 'No';
-$lang['option_everyone'] = 'Everyone';
-$lang['option_staff'] = 'STAFF';
-$lang['option_all'] = 'STAFF - Everyone';
-$lang['option_item'] = 'Item';
+$lang['option_yes'] = 'Ja';
+$lang['option_no'] = 'Nein';
+$lang['option_everyone'] = 'Jeder';
+$lang['option_staff'] = 'Mitarbeiter';
+$lang['option_all'] = 'Mitarbeiter - Jeder';
+$lang['option_item'] = 'Gegenstand';
 
 /*Info Lang*/
-$lang['is_banned_reason'] = 'Is banned, reason:';
+$lang['is_banned_reason'] = 'Gesperrt, Grund:';
