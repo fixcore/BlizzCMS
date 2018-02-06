@@ -10,7 +10,8 @@
     $soapport = $_POST['soap_port'];
 
     $qq = $this->m_data->getIDEmail($mailUser);
-    if($qq != '0')
+
+    if ($qq != '0')
     {
         $this->admin_model->getADDADMRank($qq, '1');
     }
@@ -21,6 +22,7 @@
 
     redirect(base_url(),'refresh');
 } ?>
+
 <!DOCTYPE html>
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
@@ -53,90 +55,83 @@
 <body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <div class="Page-container">
         <div class="Page-content en-US">
-                <!-- content -->
             <form action="" method="POST" accept-charset="utf-8">
                 <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                            <h3 class="uk-card-title">Rank ADM</h3>
+                            <h3 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center"><i class="fa fa-star-o" aria-hidden="true"></i> Rank ADM</h3>
                             <p>Please enter the email of the account that will receive the administrator rank</p>
-                            <p>If you do not have an account available please write "NULL" <i>without the quotes</i></p>
+                            <p>If you do not have an account available please write "<strong>NULL</strong>" <i>without the quotes</i></p>
                             <div class="uk-margin">
-                                <input class="uk-input" type="text" required placeholder="EMAIL" name="rankMail">
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" placeholder="EMAIL" name="rankMail" required>
+                                </div>
                             </div>
-
-                            <br><br>
-                            <button name="finishingIt" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom">Finish</button>
+                            <div class="uk-margin">
+                                <div class="uk-form-controls">
+                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit" name="finishingIt"><i class="fa fa-cog fa-spin fa-fw"></i> Finish</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div>
                         <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light">
-                            <h3 class="uk-card-title">Create REALM</h3>
+                            <h3 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center"><i class="fa fa-server" aria-hidden="true"></i> Create REALM</h3>
                             <p>
                                 <fieldset class="uk-fieldset">
-
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Hostname</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="hostname" required id="form-stacked-text" type="text" placeholder="Example: 127.0.0.1">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Hostname</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="hostname" type="text" placeholder="Example: 127.0.0.1" required>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Database User</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="host_user" required id="form-stacked-text" type="text" placeholder="Example: root">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Database User</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="host_user" type="text" placeholder="Example: root" required>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Database Password</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="host_pass" required id="form-stacked-text" type="password" placeholder="Example: ascent">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Database Password</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="host_pass" type="password" placeholder="Example: ascent" required>
+                                        </div>
                                     </div>
-                                </div>
-                                
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Database Name</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="host_db" required id="form-stacked-text" type="text" placeholder="Example: characters">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Database Name</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="host_db" type="text" placeholder="Example: characters" required>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Realm ID</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="host_realmid" required id="form-stacked-text" type="number" placeholder="Auth -> realmlist -> ID">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Realm ID</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="host_realmid" type="number" placeholder="Auth -> realmlist -> ID" required>
+                                            </div>
                                     </div>
-                                </div>
-
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Soap User</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="soap_user" required id="form-stacked-text" type="text" placeholder="Example: fixcore">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Soap User</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="soap_user" type="text" placeholder="Example: fixcore" required>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Soap Password</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="soap_pass" required id="form-stacked-text" type="password" placeholder="Example: blizzcms">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Soap Password</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="soap_pass" type="password" placeholder="Example: blizzcms" required>
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="uk-margin">
-                                    <label class="uk-form-label" for="form-stacked-text">Soap Port</label>
-                                    <div class="uk-form-controls">
-                                        <input class="uk-input" name="soap_port" required id="form-stacked-text" type="number" placeholder="Example: 7878">
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Soap Port</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="soap_port" type="number" placeholder="Example: 7878" required>
+                                        </div>
                                     </div>
-                                </div>
-
                                 </fieldset>
                             </p>
                         </div>
                     </div>
                 </div>
             </form>
-                <!-- content -->
         </div>
     </div>
