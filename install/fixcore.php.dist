@@ -57,34 +57,6 @@ $config['staff_forum_color'] = "00b4ff";
 
 /*
 |--------------------------------------------------------------------------
-| SOAP Configuration
-|--------------------------------------------------------------------------
-|
-| 'soap_ip' Server IP
-| 'soap_user' Account with GM permission
-| 'soap_pass' Password used in the GM account
-| 'soap_port' Default port 7878 (If you use another port change it)
-| 'soap_type' Default TC (only support Trinitycore)
-|
-*/
-$config['soap_ip'] = "ProjectSoapIP_fixcore";
-$config['soap_user'] = "ProjectSoapUsername_fixcore";
-$config['soap_pass'] = "ProjectSoapPass_fixcore";
-$config['soap_port'] = "ProjectSoapPort_fixcore";
-$config['soap_type'] = "TC";
-
-/*
-|--------------------------------------------------------------------------
-| Server Status
-|--------------------------------------------------------------------------
-|
-| Port used to know the status of the server.
-|
-*/
-$config['realmlistPort'] = "ProjectRealmPort_fixcore";
-
-/*
-|--------------------------------------------------------------------------
 | Expansion Supported
 |--------------------------------------------------------------------------
 |
