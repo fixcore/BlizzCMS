@@ -29,42 +29,42 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Soap Lang*/
-$lang['store_senditem_subject'] = 'Purchase online';
-$lang['store_senditem_text'] = 'Thank you for making your purchase, here is your purchase';
+$lang['store_senditem_subject'] = 'Online erwerben';
+$lang['store_senditem_text'] = 'Vielen Dank für deinen Einkauf. Hier ist dein Gegenstand.';
 
 /*Error Lang*/
-$lang['account_error'] = 'Invalid account or password';
-$lang['password_error'] = 'Invalid password';
-$lang['captcha_error'] = 'Please check the captcha';
+$lang['account_error'] = 'Ungültiger Accountname oder Passwort';
+$lang['password_error'] = 'Ungültiges Passwort';
+$lang['captcha_error'] = 'Bitter überprüfe das Captcha';
 
 /*Message Lang*/
-$lang['store_success'] = 'Item purchased successfully.';
-$lang['account_already_exist'] = 'This account already exists';
-$lang['password_not_match'] = 'Passwords do not match';
-$lang['password_same'] = 'The password is the same.';
-$lang['opassword_not_match'] = 'Old Password do not match';
-$lang['oemail_not_match'] = 'The current email is not correct';
-$lang['email_used'] = 'Email in use';
-$lang['expansion_not_found'] = 'Expansion not found.';
-$lang['image_upload_error'] = 'Your image must be in .jpg format';
-$lang['changelog_not_found'] = 'The server does not have changelogs to inform at this time';
+$lang['store_success'] = 'Gegenstand erfolgreich erworben.';
+$lang['account_already_exist'] = 'Dieser Account existiert bereits.';
+$lang['password_not_match'] = 'Passwörter stimmen nicht überein.';
+$lang['password_same'] = 'Die Passwörter sind identisch.';
+$lang['opassword_not_match'] = 'Altes Passwort stimmt nicht überein.';
+$lang['oemail_not_match'] = 'Die angegebene E-Mail ist nicht korrekt.';
+$lang['email_used'] = 'E-Mail wird bereits verwendet.';
+$lang['expansion_not_found'] = 'Erweiterung nicht gefunden.';
+$lang['image_upload_error'] = 'Das Bild muss im .jpg-Format sein.';
+$lang['changelog_not_found'] = 'Derzeit sind noch keine Changelogs vorhanden.';
 
-$lang['char_newlevel'] = 'Receive a new level';
-$lang['char_oldlevel'] = 'Before it was';
-$lang['char_newname'] = 'It has a new name';
-$lang['char_oldname'] = 'Before it was';
-$lang['unbanned'] = 'Unbanned';
-$lang['char_customAction'] = 'Get a customization';
-$lang['char_chanraceAction'] = 'Get a Race Change';
-$lang['char_chanfactAction'] = 'Get a Faction Change';
-$lang['was_ban'] = 'Was banned';
-$lang['receive_gmAnno'] = 'Received GM rank';
-$lang['remove_gmAnnotation'] = 'The GM rank was removed';
-$lang['receive_addmAnnoW'] = 'Received ADM Web rank';
-$lang['remove_addmAnnoW'] = 'The ADM Web rank was removed';
-$lang['buy_frist'] = 'You must first add items to your car.';
-$lang['points_insuff'] = 'Insufficient points';
-$lang['shopping_cart'] = 'Shopping Cart';
-$lang['store_see'] = 'See the Store';
-$lang['no_players'] = 'No players Online';
-$lang['users_on'] = 'Users Online';
+$lang['char_newlevel'] = 'Neue Stufe erhalten';
+$lang['char_oldlevel'] = 'Vorherige Stufe';
+$lang['char_newname'] = 'Neuer Name';
+$lang['char_oldname'] = 'Vorheriger Name';
+$lang['unbanned'] = 'Entsperrt';
+$lang['char_customAction'] = 'Erhalte eine Charakteranpassung';
+$lang['char_chanraceAction'] = 'Erhalte einen Rassenwechsel';
+$lang['char_chanfactAction'] = 'Erhalte einen Fraktionswechsel';
+$lang['was_ban'] = 'Wurde gesperrt';
+$lang['receive_gmAnno'] = 'Wurde zum GM befördert';
+$lang['remove_gmAnnotation'] = 'Ist nicht länger GM';
+$lang['receive_addmAnnoW'] = 'Wurde zum Web-ADM befördert';
+$lang['remove_addmAnnoW'] = 'Ist nicht länger Web-ADM';
+$lang['buy_frist'] = 'Du musst als erstes einen Gegenstand deinem Einkaufswagen hinzufügen.';
+$lang['points_insuff'] = 'Nicht genügend Punkte';
+$lang['shopping_cart'] = 'Einkaufswagen';
+$lang['store_see'] = 'Shop durchstöbern';
+$lang['no_players'] = 'Keine Spieler online';
+$lang['users_on'] = 'Nutzer online';
