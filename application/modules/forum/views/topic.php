@@ -247,12 +247,12 @@
                             <footer class="TopicPost-actions" data-topic-post-body-content="true">
                                 <form action="" method="post" accept-charset="utf-8">
                                     <p uk-margin>
-                                        <button name="button_removecomment" type="submit" class="uk-button uk-button-danger"><i class="fa fa-eraser" aria-hidden="true"></i> <?= $this->lang->line('button_remove'); ?></button>
+                                        <button name="button_removecomment" type="submit" value="<?= $commentss->id ?>" class="uk-button uk-button-danger"><i class="fa fa-eraser" aria-hidden="true"></i> <?= $this->lang->line('button_remove'); ?></button>
                                     </p>
                                 </form>
                             </footer>
                             <?php if(isset($_POST['button_removecomment'])) {
-                                $this->forum_model->removeComment($commentss->id, $idlink);
+                                $this->forum_model->removeComment($_POST['button_removecomment'], $idlink);
                             }?>
                         <?php } ?>
                     </div>
