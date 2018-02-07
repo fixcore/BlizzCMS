@@ -73,7 +73,6 @@
                                 <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-fade">
                                     <li><a href="#"><i class="fa fa-gamepad" aria-hidden="true"></i> Principal</a></li>
                                     <li><a href="#"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Internal</a></li>
-                                    <li><a href="#"><i class="fa fa-street-view" aria-hidden="true"></i> Position</a></li>
                                     <li><a href="#"><i class="fa fa-tasks" aria-hidden="true"></i> Skins</a></li>
                                     <li><a href="#"><i class="fa fa-crosshairs" aria-hidden="true"></i> Kills</a></li>
                                     <li><a href="#"><i class="fa fa-male" aria-hidden="true"></i> Personal</a></li>
