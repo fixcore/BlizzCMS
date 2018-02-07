@@ -115,7 +115,7 @@
 
     <link rel="stylesheet" href="../assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="../assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="../assets/css/blizzcms-template.css') ?>"/>
+    <link rel="stylesheet" type="text/css" media="all" href="../assets/css/blizzcms-template.css"/>
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -141,7 +141,7 @@
                     <div>
                         <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
                             <h3 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center">Welcome to BlizzCMS</h3>
-                            <p class="uk-text-center"><img class="uk-border-circle" src="images/aebc52c351072a4c934b9aa025c4ca4a.png" width="100" height="100" alt=""></p>
+                            <p class="uk-text-center"><img class="uk-border-circle" src="images/aebc52c351072a4c934b9aa025c4ca4a.png" width="100" height="100" alt="" uk-scrollspy="cls: uk-animation-fade; delay: 400; repeat: true"></p>
                             <p>We are pleased to present a new <strong>Free CMS</strong> for <strong>World of Warcraft</strong>! this cms is in constant development based on the <strong>CodeIgniter</strong> Framework and clean <strong>PHP</strong> code. For now the main functionalities are concentrated in an integrated forum, store, user panel and more...</p>
                             <hr class="uk-divider-icon">
                             <h4 class="uk-card-title uk-text-uppercase uk-text-center">What do I need to run this <strong>website</strong>?</h4>
@@ -169,11 +169,11 @@
                                         <p>
                                             <div class="uk-alert-primary" uk-alert>
                                                 <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to Enable Apache Modules?</p>
-                                                <p class="uk-text-center">Go into your Apache directory and find the <b>httpd.conf</b> file. Mine was located in "C:\wamp\bin\apache\apache2.2.22\conf\". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the #-character in front of the line.</p>
+                                                <p class="uk-text-center">Go into your Apache directory and find the <b>httpd.conf</b> file. Mine was located in "C:\wamp\bin\apache\apache2.4.27\conf\". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the #-character in front of the line.</p>
                                                 <p class="uk-text-center"><img src="images/apache.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" /></p>
                                                 <hr class="uk-divider-icon">
                                                 <p class="uk-text-center uk-text-uppercase uk-text-bold"><i class="fa fa-question-circle" aria-hidden="true"></i> How to Enable PHP Extensions?</p>
-                                                <p class="uk-text-center">Go into your PHP directory and find the <b>php.ini</b> file. Mine was located in "C:\wamp\bin\php\php5.3.13". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the ;-character in front of the line.</p>
+                                                <p class="uk-text-center">Go into your PHP directory and find the <b>php.ini</b> file. Mine was located in "C:\wamp\bin\php\php5.6.31". Open the file with a text editor and search (CTRL+F) for one of the modules you need to enable. To enable them, simply remove the ;-character in front of the line.</p>
                                                 <p class="uk-text-center"><img src="images/php.jpg" style="border:1px solid #ccc; height: 85%; width: 85%" /></p>
                                             </div>
                                         </p>
@@ -220,6 +220,7 @@
                                                 <option value="hungarian">Hungarian</option>
                                                 <option value="russian">Russian</option>
                                                 <option value="spanish">Spanish</option>
+                                                <option value="thai">Thai</option>
                                             </select>
                                         </div>
                                     </div>

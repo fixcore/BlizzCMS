@@ -27,14 +27,13 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?></title>
+    <title>Installation - <?= $this->config->item('ProjectName'); ?></title>
     <script src="<?= base_url(); ?>core/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
     <!-- UiKit Start -->
     <!-- UIkit CSS -->
@@ -52,14 +51,14 @@
     <!-- custom footer -->
 </head>
 
-<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body class="en-us glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <div class="Page-container">
         <div class="Page-content en-US">
-            <form action="" method="POST" accept-charset="utf-8">
+            <form action="" method="POST" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-child-width-1-2@s uk-grid-match" uk-grid>
                     <div>
                         <div class="uk-card uk-card-primary uk-card-hover uk-card-body uk-light">
-                            <h3 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center"><i class="fa fa-star-o" aria-hidden="true"></i> Rank ADM</h3>
+                            <h3 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center"><i class="fa fa-star-o" aria-hidden="true"></i> ADM Rank</h3>
                             <p>Please enter the email of the account that will receive the administrator rank</p>
                             <p>If you do not have an account available please write "<strong>NULL</strong>" <i>without the quotes</i></p>
                             <div class="uk-margin">
@@ -80,29 +79,30 @@
                             <p>
                                 <fieldset class="uk-fieldset">
                                     <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Hostname</label>
+                                        <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database Hostname</label>
                                         <div class="uk-form-controls">
                                             <input class="uk-input" name="hostname" type="text" placeholder="Example: 127.0.0.1" required>
                                         </div>
                                     </div>
                                     <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Database User</label>
+                                        <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database User</label>
                                         <div class="uk-form-controls">
                                             <input class="uk-input" name="host_user" type="text" placeholder="Example: root" required>
                                         </div>
                                     </div>
                                     <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Database Password</label>
+                                        <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database Password</label>
                                         <div class="uk-form-controls">
                                             <input class="uk-input" name="host_pass" type="password" placeholder="Example: ascent" required>
                                         </div>
                                     </div>
                                     <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Database Name</label>
+                                        <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database Name</label>
                                         <div class="uk-form-controls">
                                             <input class="uk-input" name="host_db" type="text" placeholder="Example: characters" required>
                                         </div>
                                     </div>
+                                    <hr class="uk-divider-icon">
                                     <div class="uk-margin">
                                         <label class="uk-form-label uk-text-uppercase">Realm ID</label>
                                             <div class="uk-form-controls">
