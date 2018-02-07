@@ -24,261 +24,238 @@
     $this->admin_model->insertRankAcc($idlink, $gmlevel);
 } ?>
 
-    <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
-    <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row bg-title">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-user fa-fw"></i><?= $this->lang->line('panel_admin_user_manage'); ?> - <?= $this->m_data->getUsernameID($idlink) ?></h4>
-                </div>
-            </div>
-            <!-- /.row -->
-            <div class="row">
-                <?php if($this->admin_model->getBanSpecify($idlink)->num_rows()) { ?>
-                    <div class="col-lg-4 col-sm-4">
-                        <div class="panel panel-success">
-                            <div class="panel-heading"> <?= $this->lang->line('panel_admin_unban_account'); ?>
-                                <div class="pull-right">
-                                    <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                                </div>
-                            </div>
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body">
-                                    <form action="" method="post">
-                                        <button name="button_unban" class="btn btn-block btn-outline btn-success"><i class="fa fa-check-circle fa-fw"></i><?= $this->lang->line('button_unban'); ?></button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php } else { ?>
-                    <!-- /.col-lg-4 -->
-                    <div class="col-lg-4 col-sm-4">
-                        <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                <?= $this->lang->line('panel_admin_ban_account'); ?>
-                                <div class="pull-right">
-                                    <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                                </div>
-                            </div>
-                            <div class="panel-wrapper collapse in" aria-expanded="true">
-                                <div class="panel-body">
-                                    <form method="post" action="">
-                                        <div class="form-group has-error">
-                                            <input type="text" id="state-danger" required name="action_reason" class="form-control" placeholder="<?= $this->lang->line('panel_admin_reason'); ?>">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" name="action_ban" class="btn btn-block btn-outline btn-danger"><i class="fa fa-ban fa-fw"></i><?= $this->lang->line('button_ban'); ?></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.col-lg-4 -->
-                <?php } ?>
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4 col-sm-4">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <?= $this->lang->line('panel_admin_rank_account'); ?>
-                            <div class="pull-right">
-                                <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                            <div class="panel-body">
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <?php if($this->m_general->getGmSpecify($idlink)->num_rows()) { ?>
-                                        <div class="col-md-12">
-                                            <button type="submit" name="button_RemoveRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('button_re_grant_account'); ?></button>
-                                        </div>
-                                    <?php } else { ?>
-                                        <div class="form-group has-success">
-                                            <input type="number" min="1" required name="gmlevel" class="form-control" placeholder="<?= $this->lang->line('panel_admin_gmlevel'); ?>">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button type="submit" name="button_AddRankACCWeb" class="btn btn-block btn-outline btn-success"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('button_grant_account'); ?></button>
-                                        </div>
-                                    <?php } ?>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-                <!-- /.col-lg-4 -->
-                <div class="col-lg-4 col-sm-4">
-                    <div class="panel panel-warning">
-                        <div class="panel-heading">
-                            <?= $this->lang->line('panel_admin_web_rank'); ?>
-                            <div class="pull-right">
-                                <a href="#" data-perform="panel-collapse"><i class="ti-minus"></i></a>
-                            </div>
-                        </div>
-                        <div class="panel-wrapper collapse in" aria-expanded="true">
-                            <div class="panel-body">
-                                <form action="" method="post" accept-charset="utf-8">
-                                    <?php if($this->m_general->getPermissions($idlink) == 1) { ?>
-                                        <div class="col-md-12">
-                                            <button name="button_removeADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-times fa-fw"></i><?= $this->lang->line('button_re_grant_web_acc'); ?></button>
-                                        </div>
-                                    <?php } else { ?>
-                                        <div class="col-md-12">
-                                            <button name="button_addADM" class="btn btn-block btn-outline btn-warning"><i class="fa fa-user-plus fa-fw"></i><?= $this->lang->line('button_grant_web_acc'); ?></button>
-                                        </div>
-                                    <?php } ?>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /.col-lg-4 -->
-            </div>
-            <!-- .row -->
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-user-circle-o fa-fw"></i><?= $this->lang->line('panel_admin_general_info'); ?></div>
-                        <div class="panel-wrapper collapse in">
-                            <table class="table color-table info-table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th><?= $this->lang->line('form_first_name'); ?></th>
-                                        <th><?= $this->lang->line('form_last_name'); ?></th>
-                                        <th><?= $this->lang->line('form_username'); ?></th>
-                                        <th><?= $this->lang->line('form_email'); ?></th>
-                                        <th><?= $this->lang->line('form_security_question'); ?></th>
-                                        <th><?= $this->lang->line('form_secret_answer'); ?></th>
-                                        <th><?= $this->lang->line('form_birth_date'); ?></th>
-                                        <th><?= $this->lang->line('panel_member'); ?></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($this->m_general->getUserInfoGeneral($idlink)->result() as $ginfo) { ?>
-                                        <tr>
-                                            <td><?= $ginfo->name ?></td>
-                                            <td><?= $ginfo->surname ?></td>
-                                            <td><?= $ginfo->username ?></td>
-                                            <td><?= $ginfo->email ?></td>
-                                            <td><?= $this->m_general->getSpecifyQuestion($ginfo->question); ?></td>
-                                            <td><?= $ginfo->answer ?></td>
-                                            <td><?= $ginfo->year.'-'.$ginfo->month.'-'.$ginfo->day ?></td>
-                                            <td><?= date('Y-m-d', $ginfo->date); ?></td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
+    <div class="content-padder content-background">
+        <div class="uk-section-xsmall uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <div class="uk-grid-small uk-width-1-1" uk-grid>
+                    <div class="uk-width-3-4@s">
+                        <h4><i class="fa fa-user" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_user_manage'); ?> - <?= $this->m_data->getUsernameID($idlink) ?></h4>
                     </div>
                 </div>
             </div>
-            <!-- /.row -->
-            <!-- .row -->
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
-                    $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
-                ?>
-                    <div class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-users fa-fw"></i><?= $this->lang->line('panel_chars_list'); ?> - <?= $this->m_general->getRealmName($charsMultiRealm->id); ?></div>
-                        <div class="panel-wrapper collapse in">
-                            <table class="table color-table info-table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Guid</th>
-                                        <th><?= $this->lang->line('column_name'); ?></th>
-                                        <th><?= $this->lang->line('column_race'); ?></th>
-                                        <th><?= $this->lang->line('column_class'); ?></th>
-                                        <th><?= $this->lang->line('column_level'); ?></th>
-                                        <th><?= $this->lang->line('column_money'); ?></th>
-                                        <th><?= $this->lang->line('column_total_kills'); ?></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm, $idlink)->result() as $chars) { ?>
-                                        <tr>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>/<?= $charsMultiRealm->id ?>"><?= $chars->guid ?></a>
-                                            </td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->name ?></a>
-                                            </td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $this->m_general->getRaceName($chars->race); ?></a>
-                                            </td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $this->m_general->getNameClass($chars->class); ?></a>
-                                            </td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->level ?></a>
-                                            </td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->money ?></a>
-                                            </td>
-                                            <td>
-                                                <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->totalKills ?></a>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                <?php } ?>
-                </div>
-            </div>
-            <!-- /.row -->
-            <!-- .row -->
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-wrapper collapse in">
-                            <div class="panel-body">
-                                <h3><i class="fa fa-list fa-fw"></i><?= $this->lang->line('panel_admin_annotations'); ?></h3>
-                                <ul class="list-icons">
-                                    <?php foreach($this->admin_model->getAnnotationsSpecify($idlink)->result() as $annotations) { ?>
-                                        <li><i class="fa fa-caret-right text-text-primary"></i><?= $annotations->annotation ?></li>
-                                    <?php } ?>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-wrapper collapse in">
-                            <div class="panel-body">
-                                <h3><i class="fa fa-list-alt fa-fw"></i><?= $this->lang->line('panel_admin_mov_forum'); ?></h3>
-                                <ul class="list-icons">
-                                    <li><i class="fa fa-caret-right text-primary"></i>forum actions</li>
-                                    <li><i class="fa fa-caret-right text-primary"></i>forum actions</li>
-                                    <li><i class="fa fa-caret-right text-primary"></i>forum actions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <div class="panel panel-default">
-                        <div class="panel-wrapper collapse in">
-                            <div class="panel-body">
-                                <h3><i class="fa fa-commenting-o fa-fw"></i><?= $this->lang->line('panel_admin_last_comments'); ?></h3>
-                                <ul class="list-icons">
-                                    <li><i class="fa fa-caret-right text-primary"></i>comments actions</li>
-                                    <li><i class="fa fa-caret-right text-primary"></i>comments actions</li>
-                                    <li><i class="fa fa-caret-right text-primary"></i>comments actions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /.row -->
         </div>
-        <!-- /.container-fluid -->
-
-        <script>
-            CKEDITOR.replace('adminPanelCK');
-        </script>
+        <div class="uk-section-small">
+            <div class="uk-container uk-container-large">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                    <?php if($this->admin_model->getBanSpecify($idlink)->num_rows()) { ?>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-check-circle" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_unban_account'); ?></div>
+                                <div class="uk-card-body">
+                                    <form action="" method="post">
+                                        <button class="uk-button uk-button-primary uk-width-1-1" name="button_unban" type="submit"><i class="fa fa-check-circle" aria-hidden="true"></i><?= $this->lang->line('button_unban'); ?></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } else { ?>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header uk-card-secondary uk-text-center uk-text-uppercase"><i class="fa fa-ban" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_ban_account'); ?></div>
+                                <div class="uk-card-body">
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <input class="uk-input" name="action_reason" type="text" placeholder="<?= $this->lang->line('panel_admin_reason'); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-danger uk-width-1-1" name="action_ban" type="submit"><i class="fa fa-ban" aria-hidden="true"></i> <?= $this->lang->line('button_ban'); ?></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_rank_account'); ?></div>
+                            <div class="uk-card-body">
+                                <form action="" method="post">
+                                    <?php if($this->m_general->getGmSpecify($idlink)->num_rows()) { ?>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="button_RemoveRankACCWeb" type="submit"><i class="fa fa-user-times" aria-hidden="true"></i> <?= $this->lang->line('button_re_grant_account'); ?></button>
+                                            </div>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <input class="uk-input" name="gmlevel" type="number" min="1" placeholder="<?= $this->lang->line('panel_admin_gmlevel'); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="button_AddRankACCWeb" type="submit"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('button_grant_account'); ?></button>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_web_rank'); ?></div>
+                            <div class="uk-card-body">
+                                <form action="" method="post">
+                                    <?php if($this->m_general->getPermissions($idlink) == 1) { ?>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="button_removeADM" type="submit"><i class="fa fa-user-times" aria-hidden="true"></i> <?= $this->lang->line('button_re_grant_web_acc'); ?></button>
+                                            </div>
+                                        </div>
+                                    <?php } else { ?>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="button_addADM" type="submit"><i class="fa fa-user-plus" aria-hidden="true"></i> <?= $this->lang->line('button_grant_web_acc'); ?></button>
+                                            </div>
+                                        </div>
+                                    <?php } ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_general_info'); ?></div>
+                            <div class="uk-card-body">
+                                <table id="myTable" class="uk-table uk-table-justify uk-table-divider">
+                                    <thead>
+                                        <tr>
+                                            <th><?= $this->lang->line('form_first_name'); ?></th>
+                                            <th><?= $this->lang->line('form_last_name'); ?></th>
+                                            <th><?= $this->lang->line('form_username'); ?></th>
+                                            <th><?= $this->lang->line('form_email'); ?></th>
+                                            <th><?= $this->lang->line('form_security_question'); ?></th>
+                                            <th><?= $this->lang->line('form_secret_answer'); ?></th>
+                                            <th><?= $this->lang->line('form_birth_date'); ?></th>
+                                            <th><?= $this->lang->line('panel_member'); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach ($this->m_general->getUserInfoGeneral($idlink)->result() as $ginfo) { ?>
+                                            <tr>
+                                                <td><?= $ginfo->name ?></td>
+                                                <td><?= $ginfo->surname ?></td>
+                                                <td><?= $ginfo->username ?></td>
+                                                <td><?= $ginfo->email ?></td>
+                                                <td><?= $this->m_general->getSpecifyQuestion($ginfo->question); ?></td>
+                                                <td><?= $ginfo->answer ?></td>
+                                                <td><?= $ginfo->year.'-'.$ginfo->month.'-'.$ginfo->day ?></td>
+                                                <td><?= date('Y-m-d', $ginfo->date); ?></td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-users" aria-hidden="true"></i> <?= $this->lang->line('panel_chars_list'); ?></div>
+                            <div class="uk-card-body">
+                                <ul uk-accordion>
+                                    <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                        $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                                    ?>
+                                        <li>
+                                            <a class="uk-accordion-title" href="#"><i class="fa fa-server" aria-hidden="true"></i> Realm - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></a>
+                                            <div class="uk-accordion-content">
+                                                <table id="myTable" class="uk-table uk-table-justify uk-table-divider">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Guid</th>
+                                                            <th><?= $this->lang->line('column_name'); ?></th>
+                                                            <th><?= $this->lang->line('column_race'); ?></th>
+                                                            <th><?= $this->lang->line('column_class'); ?></th>
+                                                            <th><?= $this->lang->line('column_level'); ?></th>
+                                                            <th><?= $this->lang->line('column_money'); ?></th>
+                                                            <th><?= $this->lang->line('column_total_kills'); ?></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm, $idlink)->result() as $chars) { ?>
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>/<?= $charsMultiRealm->id ?>"><?= $chars->guid ?></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->name ?></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $this->m_general->getRaceName($chars->race); ?></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $this->m_general->getNameClass($chars->class); ?></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->level ?></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->money ?></a>
+                                                                </td>
+                                                                <td>
+                                                                    <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid; ?>/<?= $charsMultiRealm->id ?>"><?= $chars->totalKills ?></a>
+                                                                </td>
+                                                            </tr>
+                                                        <?php } ?>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-3@m uk-child-width-1-3@xl">
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-list" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_annotations'); ?></div>
+                            <div class="uk-card-body">
+                                <ul class="uk-list uk-list-bullet">
+                                    <?php foreach($this->admin_model->getAnnotationsSpecify($idlink)->result() as $annotations) { ?>
+                                        <li><?= $annotations->annotation ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-list-alt" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_mov_forum'); ?></div>
+                            <div class="uk-card-body">
+                                <ul class="uk-list uk-list-bullet">
+                                    <li>forum actions</li>
+                                    <li>forum actions</li>
+                                    <li>forum actions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_last_comments'); ?></div>
+                            <div class="uk-card-body">
+                                <ul class="uk-list uk-list-bullet">
+                                    <li>comments actions</li>
+                                    <li>comments actions</li>
+                                    <li>comments actions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

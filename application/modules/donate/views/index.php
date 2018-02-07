@@ -2,8 +2,8 @@
 <html>
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('settings'); ?></title>
-    <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
+    <title><?= $this->config->item('ProjectName'); ?></title>
+    <script src="<?= base_url(); ?>core/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
@@ -36,21 +36,20 @@
     </div>
     </div>
     <!-- submenu -->
-    <br><br>
     <div class="Page-container">
         <div class="Page-content en-US">
-            <div style="" class="HeroPane HeroPane--large HeroPane--adaptive">
-                <div class="HeroPane-content">
-                    
-                    <section class="Scm-content">
-                        <div class="section uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
+            <div class="container">
+                <div class="space-adaptive-medium"></div>
+                <div class="col-md-12">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <div class="section uk-scrollspy-inview uk-animation-slide-bottom" style="color: rgba(255,255,255,.7);" uk-scrollspy-class="">
                             <div id="donate">
-                                <iframe src="https://api.paymentwall.com/api/ps/?key=<?= $this->config->item('paymentwall_project_key'); ?>&amp;uid=<?= $this->session->userdata('fx_sess_id'); ?>&amp;widget=<?= $this->config->item('paymentwall_widget_code'); ?>" width="100%" height="1500px" frameborder="0" id="pw-iframe"></iframe>
+                                <iframe src="https://api.paymentwall.com/api/ps/?key=<?= $this->config->item('paymentwall_project_key'); ?>&amp;uid=<?= $this->session->userdata('fx_sess_id'); ?>&amp;widget=<?= $this->config->item('paymentwall_widget_code'); ?>" width="100%" height="400px" frameborder="0" id="pw-iframe"></iframe>
                             </div>
                         </div>
-                    </section>
+                    </div>
+                    <div class="col-md-2"></div>
                 </div>
             </div>
-            <div class="space-huge"></div>
         </div>
-    </div>

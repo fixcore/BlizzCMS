@@ -3,9 +3,9 @@
         <div style="" class="Pane-content">
             <div data-region-selection="none" data-region="eu" data-locale="en-us" class="NavbarFooter is-regionless">
 
-            <!-- button top -->
+                <!-- button top -->
                 <a href="#" uk-totop uk-scroll class="uk-position-small uk-position-center-right uk-overlay uk-overlay-primary uk-position-absolute"></a>
-            <!-- button top -->
+                <!-- button top -->
 
                 <div class="NavbarFooter-overlay"></div>
                 <div class="NavbarFooter-selector">
@@ -57,8 +57,8 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/blizzcms-general.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/moment.js"></script>
-    <script type="text/javascript" src="<?= base_url(); ?>assets/js/root-ui.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>core/js/blizzcms-general.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>core/js/moment.js"></script>
+    <script type="text/javascript" src="<?= base_url(); ?>core/js/root-ui.js"></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!DOCTYPE html>
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->pages_model->getName($idlink) ?></title>
+    <script src="<?= base_url(); ?>core/js/9013706011.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-article.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app-article.css">
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
@@ -35,17 +36,39 @@
     </div>
     </div>
     <!-- submenu -->
-    <div role="main">
-        <section class="Topic" data-topic='{ "id":<?= $idlink ?>, "lastPosition":0,"forum":{"id":<?= $idlink ?>},"isSticky":true,"isFeatured":false,"isLocked":true,"isHidden":false,"isFrozen":false, "isSpam":false, "pollId":0 }' data-user='{}'>
-            <header class="Topic-header">
-                <div class="Container Container--content">
-                    <p><?= $this->pages_model->getDesc($idlink); ?></p>
+    <div class="Page-container">
+        <div class="Page-content en-US">
+            <div class="container">
+                <div class="space-adaptive-medium"></div>
+                <div class="space-adaptive-medium"></div>
+                <div class="cold-md-12">
+                    <div class="cold-md-1"></div>
+                    <div class="cold-md-10 uk-text-break">
+                        <article data-id='' data-title="" class="ArticleDetail">
+                            <div class="ArticleDetail-heading">
+                                <div class="ArticleDetail-headingBlock">
+                                    <div class="Heading Heading--articleSubheading ArticleDetail-community flush-top"></div>
+                                    <h1 class="Heading Heading--articleHeadline ArticleDetail-title" style="color: #fff;"><i class="fa fa-file-text-o" aria-hidden="true"></i> <?= $this->pages_model->getName($idlink) ?></h1>
+                                    <div class="Heading Heading--articleByline flush-bottom">
+                                        <div class="ArticleDetail-subHeadingContainer">
+                                            <div class="ArticleDetail-subHeadingLeft">
+                                                <span class="ArticleDetail-bylineBy">
+                                                    <span itemprop="author" class="ArticleDetail-bylineAuthor text-identity"><?= $this->lang->line('news_article_published'); ?></span>
+                                                </span>
+                                            </div>
+                                            <div class="ArticleDetail-subHeadingRight">
+                                                <span class="ArticleDetail-bylineDate"><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('Y-m-d', $this->pages_model->getDate($idlink)); ?></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="space-medium"></div>
+                                </div>
+                            </div>
+                        </article>
+                        <p><?= $this->pages_model->getDesc($idlink); ?></p>
+                        <div class="space-adaptive-medium"></div>
+                    </div>
+                    <div class="cold-md-1"></div>
                 </div>
-            </header>
-            <header class="Topic-header">
-                <div class="Container Container--content">
-                    <p><?= date('Y-m-d', $this->pages_model->getDate($idlink)); ?></p>
-                </div>
-            </header>
-        </section>
-    </div>
+            </div>
+        </div>

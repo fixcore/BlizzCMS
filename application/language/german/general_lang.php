@@ -29,128 +29,128 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Button Lang*/
-$lang['button_login'] = 'Log In';
-$lang['button_account_create'] = 'Create a Free Account';
-$lang['button_user_panel'] = 'User Panel';
-$lang['button_admin_panel'] = 'Admin Panel';
-$lang['button_logout'] = 'Log Out';
-$lang['button_gifts'] = 'My Gifts';
-$lang['button_register'] = 'Register';
-$lang['button_vote_panel'] = 'Vote Panel';
-$lang['button_donate_panel'] = 'Donate Panel';
+$lang['button_login'] = 'Einloggen';
+$lang['button_account_create'] = 'Kostenlosen Account erstellen';
+$lang['button_user_panel'] = 'Kontrollzentrum';
+$lang['button_admin_panel'] = 'Admin-Kontrollzentrum';
+$lang['button_logout'] = 'Auslogggen';
+$lang['button_gifts'] = 'Meine Geschenke';
+$lang['button_register'] = 'Registrieren';
+$lang['button_vote_panel'] = 'Vote-Panel';
+$lang['button_donate_panel'] = 'Spenden-Panel';
 $lang['button_support'] = 'Support';
-$lang['button_change_avatar'] = 'Change Avatar';
-$lang['button_add_personal_info'] = 'Add Personal Information';
-$lang['button_change_password'] = 'Change Password';
-$lang['button_change_email'] = 'Change Email';
-$lang['button_private_message'] = 'Send Private Message';
-$lang['button_create_report'] = 'Create Report';
-$lang['button_new_topic'] = 'New Topic';
-$lang['button_edit_topic'] = 'Edit Topic';
-$lang['button_create_ticket'] = 'Create Ticket';
-$lang['button_change'] = 'Change';
-$lang['button_cancel'] = 'Cancel';
-$lang['button_send'] = 'Send';
-$lang['button_buy'] = 'Buy';
-$lang['button_learn_more'] = 'Learn More';
-$lang['button_add_reply'] = 'Add Reply';
-$lang['button_remove'] = 'Remove';
-$lang['button_create'] = 'Create';
-$lang['button_save'] = 'Save';
-$lang['button_close'] = 'Close';
-$lang['button_reply'] = 'Reply';
+$lang['button_change_avatar'] = 'Avatar ändern';
+$lang['button_add_personal_info'] = 'Persönliche Informationen hinzufügen';
+$lang['button_change_password'] = 'Passwort ändern';
+$lang['button_change_email'] = 'E-Mail ändern';
+$lang['button_private_message'] = 'Private Nachricht schicken';
+$lang['button_create_report'] = 'Meldung erstellen';
+$lang['button_new_topic'] = 'Neuer Beitrag';
+$lang['button_edit_topic'] = 'Beitrag bearbeiten';
+$lang['button_create_ticket'] = 'Ticket erstellen';
+$lang['button_change'] = 'Ändern';
+$lang['button_cancel'] = 'Abbrechen';
+$lang['button_send'] = 'Abschicken';
+$lang['button_buy'] = 'Erwerben';
+$lang['button_learn_more'] = 'Mehr erfahren';
+$lang['button_add_reply'] = 'Antwort hinzufügen';
+$lang['button_remove'] = 'Entfernen';
+$lang['button_create'] = 'Erstellen';
+$lang['button_save'] = 'Speichern';
+$lang['button_close'] = 'Schließen';
+$lang['button_reply'] = 'Antworten';
 
 /*Footer Lang*/
-$lang['footer_language'] = 'English (EU)';
-$lang['footer_rights'] = 'ALL RIGHTS RESERVED.';
+$lang['footer_language'] = 'Deutsch';
+$lang['footer_rights'] = 'ALLE RECHTE VORBEHALZEN.';
 $lang['footer_powered'] = ' Proudly powered by BlizzCMS';
-$lang['footer_privacy'] = 'Privacy';
-$lang['footer_terms'] = 'Terms';
+$lang['footer_privacy'] = 'DATENSCHUTZ';
+$lang['footer_terms'] = 'BESTIMMUNGEN';
 
 /*Login Lang*/
-$lang['login_description'] = 'Enjoy all the options we have for you';
+$lang['login_description'] = 'Genieße unser Angebot';
 
 /*Register Lang*/
-$lang['register_description'] = 'Fill out the form below to sign-up for a new account';
+$lang['register_description'] = 'Bitte fülle die folgenden Informationsfelder aus, um einen neuen Account zu erstellen.';
 
 /*Form Lang*/
-$lang['form_username'] = 'Username';
-$lang['form_email'] = 'Email';
-$lang['form_password'] = 'Password';
-$lang['form_re_password'] = 'Repeat Password';
-$lang['form_user_info'] = 'User Information';
-$lang['form_first_name'] = 'First Name';
-$lang['form_last_name'] = 'Last Name';
-$lang['form_birth_date'] = 'Birth Date';
-$lang['form_year'] = 'Year';
-$lang['form_login_info'] = 'Login Information';
-$lang['form_security_question'] = 'Security Question';
-$lang['form_secret_answer'] = 'Secret Answer';
-$lang['form_old_password'] = 'Old Password';
-$lang['form_new_password'] = 'New Password';
-$lang['form_old_email'] = 'Old Email';
-$lang['form_new_email'] = 'New Email';
-$lang['form_new_message'] = 'New Message';
-$lang['form_message'] = 'Message';
-$lang['form_create_bug_report'] = 'Create Bug Report';
-$lang['form_title'] = 'Title';
-$lang['form_type'] = 'Type';
-$lang['form_description'] = 'Description';
+$lang['form_username'] = 'Nutzername';
+$lang['form_email'] = 'E-Mail';
+$lang['form_password'] = 'Passwort';
+$lang['form_re_password'] = 'Passwort wiederholen';
+$lang['form_user_info'] = 'Nutzerinformationen';
+$lang['form_first_name'] = 'Vorname';
+$lang['form_last_name'] = 'Nachname';
+$lang['form_birth_date'] = 'Geburtsdatum';
+$lang['form_year'] = 'Jahr';
+$lang['form_login_info'] = 'Logininformationen';
+$lang['form_security_question'] = 'Geheime Frage';
+$lang['form_secret_answer'] = 'Geheime Antwort';
+$lang['form_old_password'] = 'Altes Passwort';
+$lang['form_new_password'] = 'Neues Passwort';
+$lang['form_old_email'] = 'Alte E-Mail';
+$lang['form_new_email'] = 'Neue E-Mail';
+$lang['form_new_message'] = 'Neue Nachricht';
+$lang['form_message'] = 'Nachricht';
+$lang['form_create_bug_report'] = 'Fehlermeldung erstellen';
+$lang['form_title'] = 'Titel';
+$lang['form_type'] = 'Fehlerart';
+$lang['form_description'] = 'Beschreibung';
 $lang['form_url'] = 'URL';
-$lang['form_highl'] = 'Highlight';
-$lang['form_lock'] = 'Lock';
-$lang['form_subject'] = 'Subject';
+$lang['form_highl'] = 'Hervorheben';
+$lang['form_lock'] = 'Sperren';
+$lang['form_subject'] = 'Betreff';
 
 /*Column Lang*/
 $lang['column_name'] = 'Name';
-$lang['column_faction'] = 'Faction';
-$lang['column_total_kills'] = 'Total Kills';
-$lang['column_today_kills'] = 'Today Kills';
-$lang['column_yersterday_kills'] = 'Yesterday Kills';
-$lang['column_team_name'] = 'Team Name';
-$lang['column_members'] = 'Members';
-$lang['column_rating'] = 'Rating';
-$lang['column_games'] = 'Games';
+$lang['column_faction'] = 'Fraktion';
+$lang['column_total_kills'] = 'Tötungen gesamt';
+$lang['column_today_kills'] = 'Tötungen heute';
+$lang['column_yersterday_kills'] = 'Tötungen gestern';
+$lang['column_team_name'] = 'Teamname';
+$lang['column_members'] = 'Mitgleider';
+$lang['column_rating'] = 'Wertung';
+$lang['column_games'] = 'Spiele';
 $lang['column_id'] = 'ID';
 $lang['column_status'] = 'Status';
-$lang['column_priority'] = 'Priority';
-$lang['column_date'] = 'Date';
-$lang['column_author'] = 'Author';
-$lang['column_time'] = 'Time';
-$lang['column_icon'] = 'Icon';
+$lang['column_priority'] = 'Priorität';
+$lang['column_date'] = 'Datum';
+$lang['column_author'] = 'Autor';
+$lang['column_time'] = 'Zeit';
+$lang['column_icon'] = 'Symbol';
 
 /*Options Lang*/
-$lang['option_open'] = 'Open';
-$lang['option_closed'] = 'Closed';
+$lang['option_open'] = 'Offen';
+$lang['option_closed'] = 'Geschlossen';
 
 /*User Panel Lang*/
-$lang['panel_last_login'] = 'Last login in-game';
-$lang['panel_acc_rank'] = 'Account Rank';
-$lang['panel_dp'] = 'Donor Points';
-$lang['panel_vp'] = 'Vote Points';
-$lang['panel_location'] = 'Location';
-$lang['panel_expansion'] = 'Expansion';
-$lang['panel_member'] = 'Member since';
-$lang['panel_chars_list'] = 'Characters List';
+$lang['panel_last_login'] = 'Letzter Ingame-Login';
+$lang['panel_acc_rank'] = 'Account-Level';
+$lang['panel_dp'] = 'Spendenpunkte';
+$lang['panel_vp'] = 'Stimmpunkte';
+$lang['panel_location'] = 'Ort';
+$lang['panel_expansion'] = 'Erweiterung';
+$lang['panel_member'] = 'Registriert seit';
+$lang['panel_chars_list'] = 'Charakterliste';
 
 /*Home Lang*/
-$lang['home_server_status'] = 'Server Status';
-$lang['home_latest_news'] = 'Latest News';
-$lang['home_all_news'] = 'All News';
-$lang['home_up_events'] = 'Upcoming Events';
+$lang['home_server_status'] = 'Serverstatus';
+$lang['home_latest_news'] = 'Aktuelle Neuigkeiten';
+$lang['home_all_news'] = 'Alle Neuigkeiten';
+$lang['home_up_events'] = 'Anstehende Events';
 $lang['home_discord'] = 'Discord';
-$lang['home_store_top'] = 'Best items in the store';
+$lang['home_store_top'] = 'Empfohlene Gegenstände';
 
 /*Store Lang*/
-$lang['store_welcome'] = 'Welcome to the Store';
-$lang['store_cart_description'] = 'Buy Item';
-$lang['store_item_name'] = 'Item Name';
-$lang['store_select_character'] = 'Select Character';
-$lang['store_item_price'] = 'Price';
-$lang['store_all_categories'] = 'All Categories';
-$lang['store_select_categories'] = 'Select an Category';
-$lang['store_support'] = 'Store Support';
-$lang['store_support_description'] = 'Have you had a problem with the store? you are in the right place!';
+$lang['store_welcome'] = 'Willkommen im Shop';
+$lang['store_cart_description'] = 'Gegenstand erwerben';
+$lang['store_item_name'] = 'Gegenstandsname';
+$lang['store_select_character'] = 'Charakter auswählen';
+$lang['store_item_price'] = 'Preis';
+$lang['store_all_categories'] = 'Alle Kategorien';
+$lang['store_select_categories'] = 'Kategorie wählen';
+$lang['store_support'] = 'Shop-Support';
+$lang['store_support_description'] = 'Hast du ein Problem mit dem Shop? Dann bist du hier genau richtig!';
 
 /*PvP-Arena Lang*/
 $lang['pvp_top'] = 'TOP 20';
@@ -159,77 +159,80 @@ $lang['arena_top_3v3'] = 'TOP 3V3';
 $lang['arena_top_5v5'] = 'TOP 5V5';
 
 /*News Lang*/
-$lang['news_recent_list'] = 'RECENT NEWS LIST';
-$lang['news_comment'] = 'comment';
-$lang['news_article_subheading'] = 'Latest News';
-$lang['news_article_published'] = 'Published by STAFF';
+$lang['news_recent_list'] = 'NEUESTE BEITRÄGE';
+$lang['news_comment'] = 'kommentieren';
+$lang['news_article_subheading'] = 'Aktuelle Neuigkeiten';
+$lang['news_article_published'] = 'Mitarbeiter';
 
 /*Changelogs Lang*/
-$lang['changelogs_recent_article'] = 'Recent Changes';
+$lang['changelogs_recent_article'] = 'Aktuelle Änderungen';
 $lang['changelogs_list'] = 'Changelogs';
 
 /*Bugtracker Lang*/
-$lang['bugtracker_report_list'] = 'Report List';
+$lang['bugtracker_report_list'] = 'Meldeliste';
+
+/*Message Lang*/
+$lang['message_header'] = 'Private Nachricht';
 
 /*Forum Lang*/
-$lang['forum_welcome'] = 'Welcome to the official forums';
-$lang['forum_post_count'] = 'posts';
-$lang['forum_topic_locked'] = 'This topic is locked.';
-$lang['forum_comment_locked'] = 'Have something to say? Log in to join the conversation.';
-$lang['forum_comment_header'] = 'Join the Conversation';
-$lang['forum_not_authorized'] = 'Not Authorized';
-$lang['forum_code_conduct'] = 'Code of Conduct';
-$lang['forum_post_history'] = 'View Post History';
+$lang['forum_welcome'] = 'Willkommen in den offiziellen Foren';
+$lang['forum_post_count'] = 'Beiträge';
+$lang['forum_topic_locked'] = 'Dieser Beitrag ist geschlossen';
+$lang['forum_comment_locked'] = 'Möchtest du etwas schreiben? Jetzt einloggen, um an der Unterhaltung teilzunehmen.';
+$lang['forum_comment_header'] = 'Nimm an der Unterhaltung teil!';
+$lang['forum_not_authorized'] = 'Nicht autorisiert';
+$lang['forum_code_conduct'] = 'Forenrichtlinien';
+$lang['forum_post_history'] = 'Beitragsverlauf ansehen';
 
 /*Race Lang*/
-$lang['race_human'] = 'Human';
+$lang['race_human'] = 'Mensch';
 $lang['race_orc'] = 'Orc';
-$lang['race_dwarf'] = 'Dwarf';
-$lang['race_night_elf'] = 'Night Elf';
-$lang['race_undead'] = 'Undead';
+$lang['race_dwarf'] = 'Zwerg';
+$lang['race_night_elf'] = 'Nachtelf';
+$lang['race_undead'] = 'Untoter';
 $lang['race_tauren'] = 'Tauren';
-$lang['race_gnome'] = 'Gnome';
+$lang['race_gnome'] = 'Gnom';
 $lang['race_troll'] = 'Troll';
 $lang['race_goblin'] = 'Goblin';
-$lang['race_blood_elf'] = 'Blood Elf';
+$lang['race_blood_elf'] = 'Blutelf';
 $lang['race_draenei'] = 'Draenei';
 $lang['race_worgen'] = 'Worgen';
 $lang['race_panda_neutral'] = 'Pandaren Neutral';
-$lang['race_panda_alli'] = 'Pandaren Alliance';
+$lang['race_panda_alli'] = 'Pandaren Allianz';
 $lang['race_panda_horde'] = 'Pandaren Horde';
 
 /*Class Lang*/
-$lang['class_warrior'] = 'Warrior';
+$lang['class_warrior'] = 'Krieger';
 $lang['class_paladin'] = 'Paladin';
-$lang['class_hunter'] = 'Hunter';
-$lang['class_rogue'] = 'Rogue';
-$lang['class_priest'] = 'Priest';
+$lang['class_hunter'] = 'Jäger';
+$lang['class_rogue'] = 'Schurke';
+$lang['class_priest'] = 'Priester';
 $lang['class_dk'] = 'Death Knight';
-$lang['class_shamman'] = 'Shamman';
-$lang['class_mage'] = 'Mage';
-$lang['class_warlock'] = 'Warlock';
-$lang['class_monk'] = 'Monk';
-$lang['class_druid'] = 'Druid';
-$lang['class_demonhunter'] = 'Demon Hunter';
+$lang['class_shamman'] = 'Schamane';
+$lang['class_mage'] = 'Magier';
+$lang['class_warlock'] = 'Hexenmeister';
+$lang['class_monk'] = 'Mönch';
+$lang['class_druid'] = 'Druide';
+$lang['class_demonhunter'] = 'Dämonenjäger';
 
 /*Gender Lang*/
-$lang['gender_male'] = 'Male';
-$lang['gender_female'] = 'Female';
+$lang['gender_male'] = 'Männlich';
+$lang['gender_female'] = 'Weiblich';
 
 /*Faction Lang*/
-$lang['faction_alliance'] = 'Alliance';
+$lang['faction_alliance'] = 'Allianz';
 $lang['faction_horde'] = 'Horde';
 
 /*Months Lang*/
-$lang['month_january'] = 'January';
-$lang['month_february'] = 'February';
-$lang['month_march'] = 'March';
+$lang['month_january'] = 'Januar';
+$lang['month_february'] = 'Februar';
+$lang['month_march'] = 'März';
 $lang['month_april'] = 'April';
-$lang['month_may'] = 'May';
-$lang['month_june'] = 'June';
-$lang['month_july'] = 'July';
+$lang['month_may'] = 'Mai';
+$lang['month_june'] = 'Juni';
+$lang['month_july'] = 'Juli';
 $lang['month_august'] = 'August';
 $lang['month_september'] = 'September';
-$lang['month_october'] = 'October';
+$lang['month_october'] = 'Oktober';
 $lang['month_november'] = 'November';
-$lang['month_december'] = 'December';
+$lang['month_december'] = 'Dezember';

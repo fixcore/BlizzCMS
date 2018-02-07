@@ -1,81 +1,46 @@
-    <!-- Page Content -->
-    <div id="page-wrapper">
-        <div class="container-fluid">
-            <div class="row bg-title">
-                <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                    <h4 class="page-title"><i class="fa fa-tachometer fa-fw"></i><?= $this->lang->line('admin_dashboard'); ?></h4>
-                </div>
+    <div class="content-padder content-background">
+        <div class="uk-section-xsmall uk-section-default header">
+            <div class="uk-container uk-container-large">
+                <h4><i class="fa fa-tachometer" aria-hidden="true"></i> <?= $this->lang->line('admin_dashboard'); ?></h4>
             </div>
-            <!-- /.row -->
-            <!-- statistical data -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="white-box">
-                        <div class="row row-in">
-                            <div class="col-lg-3 col-sm-6 row-in-br">
-                            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
-                                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
-                            ?>
-                                <ul class="col-in">
-                                    <li>
-                                        <span class="circle circle-md bg-info"><i class="fa fa-area-chart"></i></span>
-                                    </li>
-                                    <li class="col-last">
-                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getCharOn($multiRealm); ?></h3>
-                                    </li>
-                                    <li class="col-middle">
-                                        <h4><?= $this->lang->line('players_count'); ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h4>
-                                    </li>
-                                </ul>
-                            <?php } ?>
+        </div>
+        <div class="uk-section-small">
+            <div class="uk-container uk-container-large">
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-2@m uk-child-width-1-2@xl">
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><?= $this->lang->line('account_count'); ?></div>
+                            <div class="uk-card-body">
+                                <h2 class="uk-text-center"><i class="fa fa-globe" aria-hidden="true"></i> <span class="counter" data-count="<?= $this->admin_model->getAccCreated(); ?>" style="display: inline-block;">0</span></h2>
                             </div>
-                            <div class="col-lg-3 col-sm-6 row-in-br b-r-none">
-                                <ul class="col-in">
-                                    <li>
-                                        <span class="circle circle-md bg-success"><i class="fa fa-globe"></i></span>
-                                    </li>
-                                    <li class="col-last">
-                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getAccCreated(); ?></h3>
-                                    </li>
-                                    <li class="col-middle">
-                                        <h4><?= $this->lang->line('account_count'); ?></h4>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 row-in-br">
-                            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
-                                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
-                            ?>
-                                <ul class="col-in">
-                                    <li>
-                                        <span class="circle circle-md bg-warning"><i class="fa fa-id-badge"></i></span>
-                                    </li>
-                                    <li class="col-last">
-                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getGmCount($charsMultiRealm->realmID); ?></h3>
-                                    </li>
-                                    <li class="col-middle">
-                                        <h4><?= $this->lang->line('staff_count'); ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h4>
-                                    </li>
-                                </ul>
-                            <?php } ?>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 row-in-br b-0">
-                                <ul class="col-in">
-                                    <li>
-                                        <span class="circle circle-md bg-danger"><i class="fa fa-ban"></i></span>
-                                    </li>
-                                    <li class="col-last">
-                                        <h3 class="counter text-right m-t-15"><?= $this->admin_model->getBanCount(); ?></h3>
-                                    </li>
-                                    <li class="col-middle">
-                                        <h4><?= $this->lang->line('ban_count'); ?></h4>
-                                    </li>
-                                </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><?= $this->lang->line('ban_count'); ?></div>
+                            <div class="uk-card-body">
+                                <h2 class="uk-text-center"><i class="fa fa-ban" aria-hidden="true"></i> <span class="counter" data-count="<?= $this->admin_model->getBanCount(); ?>" style="display: inline-block;">0</span></h2>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
+                    <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                        $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                    ?>
+                        <div>
+                            <div class="uk-card uk-card-default">
+                                <div class="uk-card-header uk-card-primary uk-text-uppercase">Realm - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></div>
+                                <div class="uk-card-body">
+                                    <div class="uk-column-1-2 uk-column-divider">
+                                        <p class="uk-text-center uk-text-uppercase"><?= $this->lang->line('players_count'); ?><h2 class="uk-text-center"><i class="fa fa-area-chart" aria-hidden="true"></i> <span class="counter" data-count="<?= $this->admin_model->getCharOn($multiRealm); ?>" style="display: inline-block;">0</span></h2></p>
+                                        <p class="uk-text-center uk-text-uppercase"><?= $this->lang->line('staff_count'); ?><h2 class="uk-text-center"><i class="fa fa-id-badge" aria-hidden="true"></i> <span class="counter" data-count="<?= $this->admin_model->getGmCount($charsMultiRealm->realmID); ?>" style="display: inline-block;">0</span></h2></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>
+                </div>
             </div>
-            <!-- website tools -->
         </div>
-        <!-- /.container-fluid -->
+    </div>

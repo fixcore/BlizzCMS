@@ -3,7 +3,7 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
     <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_changelogs'); ?></title>
-    <script src="<?= base_url(); ?>assets/js/9013706011.js"></script>
+    <script src="<?= base_url(); ?>core/js/9013706011.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-article.css">
@@ -133,7 +133,7 @@
                             </div>
                         <?php } else { ?>
                             <div class="uk-alert-warning" uk-alert>
-                                <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> The server does not have changelogs to inform at this time.</p>
+                                <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?= $this->lang->line('changelog_not_found'); ?></p>
                             </div>
                             <div class="space-adaptive-small"></div>
                         <?php } ?>
