@@ -487,8 +487,8 @@ $config['compress_output'] = FALSE;
 | reference, or convert it to the configured one timezone. See the 'date
 | helper' page of the user guide for information regarding date handling.
 |
-*/
 $config['time_reference'] = 'local';
+*/
 
 /*
 |--------------------------------------------------------------------------
