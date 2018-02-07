@@ -118,8 +118,13 @@
                 </a>
                 <ul class="uk-nav-sub">
                     <li>
+                        <a href="<?= base_url('admin/managegroups'); ?>">
+                            <i class="fa fa-cubes" aria-hidden="true"></i> <?= $this->lang->line('admin_manage_groups'); ?>
+                        </a>
+                    </li>
+                    <li>
                         <a href="<?= base_url('admin/manageitems'); ?>">
-                            <i class="fa fa-cube" aria-hidden="true"></i> <?= $this->lang->line('admin_items'); ?>
+                            <i class="fa fa-cube" aria-hidden="true"></i> <?= $this->lang->line('admin_manage_items'); ?>
                         </a>
                     </li>
                 </ul>

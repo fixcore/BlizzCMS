@@ -38,7 +38,8 @@ $lang['admin_news'] = 'Neuigkeiten';
 $lang['admin_changelogs'] = 'Changelogs';
 $lang['admin_pages'] = 'Seiten';
 $lang['admin_store'] = 'Shop';
-$lang['admin_items'] = 'Gegenstände verwalten';
+$lang['admin_manage_groups'] = 'Manage Groups';
+$lang['admin_manage_items'] = 'Gegenstände verwalten';
 $lang['admin_forums'] = 'Foren';
 $lang['admin_manage_categories'] = 'Kategorien verwalten';
 $lang['admin_manege_forums'] = 'Foren verwalten';
@@ -80,7 +81,6 @@ $lang['panel_admin_change_faction'] = 'Fraktion wechseln';
 $lang['panel_admin_changelogs_list'] = 'Liste mit den Changelogs';
 $lang['panel_admin_pages_list'] = 'Liste mit den Seiten';
 $lang['panel_admin_news_list'] = 'Liste mit den Neuigkeiten';
-$lang['panel_admin_item_list'] = 'Liste mit den Shopgegenständen';
 $lang['panel_admin_edit_news'] = 'Neuigkeiten bearbeiten';
 
 /*Column Lang*/
@@ -109,6 +109,8 @@ $lang['form_create_item'] = 'Shopeintrag erstellen';
 $lang['form_store_item_name'] = 'Gegenstandsname';
 $lang['form_store_item_id'] = 'Item-ID';
 $lang['form_store_image_name'] = 'Name der Bilddatei';
+$lang['form_create_group'] = 'Create Group';
+$lang['form_group_title'] = 'Title of the Group';
 
 /*Placeholder Lang*/
 $lang['panel_admin_reason'] = 'Grund';

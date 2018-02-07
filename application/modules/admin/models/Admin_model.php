@@ -88,6 +88,32 @@ class Admin_model extends CI_Model {
         redirect(base_url('admin/manageitems'),'refresh');
     }
 
+    public function getShopGroupList()
+    {
+        return $this->db->select('*')
+            ->order_by('id', 'ASC')
+            ->get('fx_shop_groups');
+    }
+
+    public function deleteGroup($id)
+    {
+        $this->db->where('id', $id)
+                ->delete('fx_shop_groups');
+
+        redirect(base_url('admin/managegroups'),'refresh');
+    }
+
+    public function insertGroup($name)
+    {
+        $data = array(
+            'name' => $name,
+        );
+
+        $this->db->insert('fx_shop_groups', $data);
+
+        redirect(base_url('admin/managegroups'),'refresh');
+    }
+
     public function getShopAll()
     {
         return $this->db->select('*')

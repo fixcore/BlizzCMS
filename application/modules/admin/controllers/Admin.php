@@ -39,6 +39,13 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function managegroups()
+    {
+        $this->load->view('general/header');
+        $this->load->view('shop/managegroups');
+        $this->load->view('general/footer');
+    }
+
     public function manageapi()
     {
         $this->load->view('general/header');

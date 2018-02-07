@@ -38,7 +38,8 @@ $lang['admin_news'] = 'News';
 $lang['admin_changelogs'] = 'Changelogs';
 $lang['admin_pages'] = 'Pages';
 $lang['admin_store'] = 'Store';
-$lang['admin_items'] = 'Manage Items';
+$lang['admin_manage_groups'] = 'Manage Groups';
+$lang['admin_manage_items'] = 'Manage Items';
 $lang['admin_forums'] = 'Forums';
 $lang['admin_manage_categories'] = 'Manage Categories';
 $lang['admin_manege_forums'] = 'Manage Forums';
@@ -80,7 +81,6 @@ $lang['panel_admin_change_faction'] = 'Change Faction';
 $lang['panel_admin_changelogs_list'] = 'List of Changelogs';
 $lang['panel_admin_pages_list'] = 'List of Pages';
 $lang['panel_admin_news_list'] = 'News List';
-$lang['panel_admin_item_list'] = 'List of Items';
 $lang['panel_admin_edit_news'] = 'Edit News';
 
 /*Column Lang*/
@@ -109,6 +109,8 @@ $lang['form_create_item'] = 'Create a item';
 $lang['form_store_item_name'] = 'Product Name';
 $lang['form_store_item_id'] = 'Item Id';
 $lang['form_store_image_name'] = 'Image File Name';
+$lang['form_create_group'] = 'Create Group';
+$lang['form_group_title'] = 'Title of the Group';
 
 /*Placeholder Lang*/
 $lang['panel_admin_reason'] = 'Reason';

@@ -20,7 +20,7 @@
             <div class="uk-container uk-container-large">
                 <div class="uk-grid-small uk-width-1-1" uk-grid>
                     <div class="uk-width-3-4@s">
-                        <h4><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('admin_store'); ?> - <?= $this->lang->line('panel_admin_item_list'); ?></h4>
+                        <h4><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('admin_store'); ?> - <?= $this->lang->line('admin_manage_items'); ?></h4>
                     </div>
                     <div class="uk-width-1-4@s">
                         <a href="" class="" uk-toggle="target: #newItem">
@@ -35,7 +35,7 @@
                 <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
                     <div>
                         <div class="uk-card uk-card-default">
-                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-cube" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_item_list'); ?></div>
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-cube" aria-hidden="true"></i> <?= $this->lang->line('admin_manage_items'); ?></div>
                             <div class="uk-card-body">
                                 <table id="myTable" class="uk-table uk-table-justify uk-table-divider">
                                     <thead>

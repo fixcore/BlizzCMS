@@ -38,7 +38,8 @@ $lang['admin_news'] = 'ข่าว';
 $lang['admin_changelogs'] = 'การอัปเดทและแก้ไข';
 $lang['admin_pages'] = 'หน้าเพจใหม่';
 $lang['admin_store'] = 'ร้านค้า';
-$lang['admin_items'] = 'จัดการไอเทม';
+$lang['admin_manage_groups'] = 'Manage Groups';
+$lang['admin_manage_items'] = 'จัดการไอเทม';
 $lang['admin_forums'] = 'ฟอรั่ม';
 $lang['admin_manage_categories'] = 'จัดการหมวดหมู่';
 $lang['admin_manege_forums'] = 'จัดการฟอรั่ม';
@@ -80,7 +81,6 @@ $lang['panel_admin_change_faction'] = 'แก้ไขฝ่าย';
 $lang['panel_admin_changelogs_list'] = 'รายการอัปเดทและแก้ไข';
 $lang['panel_admin_pages_list'] = 'รายการหน้าเพจใหม่';
 $lang['panel_admin_news_list'] = 'รายการข่าว';
-$lang['panel_admin_item_list'] = 'รายการไอเทม';
 $lang['panel_admin_edit_news'] = 'แก้ไขข่าว';
 
 /*Column Lang*/
@@ -109,6 +109,8 @@ $lang['form_create_item'] = 'สร้างไอเทม';
 $lang['form_store_item_name'] = 'ชื่อไอเทม';
 $lang['form_store_item_id'] = 'ไอดีไอเทม';
 $lang['form_store_image_name'] = 'ชื่อไฟล์รูปภาพ';
+$lang['form_create_group'] = 'Create Group';
+$lang['form_group_title'] = 'Title of the Group';
 
 /*Placeholder Lang*/
 $lang['panel_admin_reason'] = 'เหตุผล';
