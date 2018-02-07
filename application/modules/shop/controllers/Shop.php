@@ -7,6 +7,11 @@ class Shop extends MX_Controller {
     {
         parent::__construct();
 
+        if( ! ini_get('date.timezone') )
+        {
+           date_default_timezone_set($this->config->item('timezone'));
+        }
+
         if ($this->m_modules->getStatusStore() != '1')
             redirect(base_url(),'refresh');
 

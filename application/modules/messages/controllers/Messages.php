@@ -7,6 +7,11 @@ class Messages extends MX_Controller {
     {
         parent::__construct();
 
+        if( ! ini_get('date.timezone') )
+        {
+           date_default_timezone_set($this->config->item('timezone'));
+        }
+
         if ($this->m_modules->getMessages() != '1')
             redirect(base_url(),'refresh');
 

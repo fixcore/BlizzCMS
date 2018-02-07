@@ -7,6 +7,11 @@ class Api extends MX_Controller {
     {
         parent::__construct();
         $this->load->model('m_api_char');
+
+        if( ! ini_get('date.timezone') )
+        {
+           date_default_timezone_set($this->config->item('timezone'));
+        }
     }
 
     public function getchar()

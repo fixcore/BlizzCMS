@@ -7,6 +7,11 @@ class Bugtracker extends MX_Controller {
     {
         parent::__construct();
 
+        if( ! ini_get('date.timezone') )
+        {
+           date_default_timezone_set($this->config->item('timezone'));
+        }
+
         if ($this->m_modules->getStatusLadBugtracker() != '1')
             redirect(base_url(),'refresh');
 
