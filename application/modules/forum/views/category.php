@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -31,6 +31,25 @@
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
+    <div class="Subnav">
+        <div class="Container Container--content Container--breadcrumbs">
+            <div class="GameSite-link">
+                <a class="GameSite-link--heading"><i class="Icon"></i>World of Warcraft</a>
+            </div>
+            <div class="Breadcrumbs">
+                <span class="Breadcrumb">
+                    <a href="<?= base_url('forums'); ?>" class="Breadcrumb-content">
+                        <span class="Breadcrumb-divider Home"><i class="Icon"></i></span>
+                        <?= $this->lang->line('nav_forums'); ?>
+                    </a>
+                </span>
+                <span class="Breadcrumb">
+                    <span class="Breadcrumb-divider"><i class="Icon"></i></span>
+                    <a class="Breadcrumb-content is-active"><?= $this->forum_model->getCategoryName($idlink); ?></a>
+                </span>
+            </div>
+        </div>
+    </div>
     </div>
     </div>
     </div>
@@ -40,13 +59,13 @@
         <section class="Forum">
             <header class="Forum-header">
                 <div class="Container Container--content">
-                    <h1 class="Forum-heading"><span class="Forum-title" style="color: #fff;"><i class="fa fa-bookmark-o" aria-hidden="true"></i> <?= $this->forum_model->getCategoryName($idlink); ?></span></h1>
+                    <h1 class="Forum-heading"><a class="Game-logo"></a> <span class="Forum-title" style="color: #fff;"><?= $this->forum_model->getCategoryName($idlink); ?></span></h1>
                     <div class="Forum-controls">
                         <?php if($this->m_data->isLogged()) { ?>
                             <a uk-toggle="target: #newTopic" class="Forum-button Forum-button--new" id="toggle-create-topic" data-forum-button="true" data-trigger="create.topicpost.forum">
-                                <span class="Overlay-element" ></span>
+                                <span class="Overlay-element"></span>
                                 <span class="Button-content">
-                                    <i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_new_topic'); ?>
+                                    <i class="Icon"></i> <?= $this->lang->line('button_new_topic'); ?>
                                 </span>
                             </a>
                         <?php } ?>
@@ -58,13 +77,16 @@
                 <div class="Forum-ForumTopicList ">
                     <div data-topics-container="sticky">
                         <?php foreach($this->forum_model->getSpecifyCategoryPostsPined($idlink)->result() as $lists) { ?>
-                            <a xmlns="http://www.w3.org/1999/xhtml" style="border-color: #00aeff; border-radius: 10px;"  class="ForumTopic ForumTopic--sticky has-blizzard-post is-locked is-inactive" href="<?= base_url('forums'); ?>/topic/<?= $lists->id ?>" data-created-date="<?= date('d-m-Y', $lists->date); ?>"  data-creator="<?= $this->m_data->getUsernameID($lists->author); ?>">
+                            <a style="border-color: #00aeff;" class="ForumTopic ForumTopic--sticky has-blizzard-post" href="<?= base_url('forums'); ?>/topic/<?= $lists->id ?>" data-created-date="<?= date('d-m-Y', $lists->date); ?>"  data-creator="<?= $this->m_data->getUsernameID($lists->author); ?>">
+                                <span class="ForumTopic-type">
+                                    <i class="Icon"></i>
+                                </span>
                                 <span class="ForumTopic-details">
                                     <span class="ForumTopic-heading">
                                         <span class="ForumTopic-title--wrapper">
                                             <span class="ForumTopic-title" data-toggle="tooltip" data-tooltip-content="Content description" data-original-title="" title="">
                                                 <!-- title -->
-                                                <i class="fa fa-commenting" aria-hidden="true"></i> <?= $lists->title; ?>
+                                                <?= $lists->title; ?>
                                                 <!-- title -->
                                                 <i class="statusIcon statusIcon-mobile" data-toggle="tooltip" data-tooltip-content="Locked" data-original-title="" title=""></i>
                                             </span>
@@ -78,7 +100,7 @@
                                     <?php } ?>
                                     <span class="ForumTopic-timestamp "><?= date('d-m-Y', $lists->date); ?></span>
                                     <span class="ForumTopic-replies">
-                                        <span><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->forum_model->getComments($lists->id)->num_rows(); ?></span>
+                                        <span><i class="Icon"></i> <?= $this->forum_model->getComments($lists->id)->num_rows(); ?></span>
                                     </span>
                                 </span>
                             </a>
@@ -86,13 +108,16 @@
                         <!-- test -->
                         <hr>
                         <?php foreach($this->forum_model->getSpecifyCategoryPosts($idlink)->result() as $lists) { ?>
-                            <a xmlns="http://www.w3.org/1999/xhtml" class="ForumTopic ForumTopic--sticky has-blizzard-post is-locked is-inactive" href="<?= base_url('forums'); ?>/topic/<?= $lists->id ?>" data-created-date="<?= date('d-m-Y', $lists->date); ?>"  data-creator="<?= $this->m_data->getUsernameID($lists->author); ?>">
+                            <a class="ForumTopic has-blizzard-post" href="<?= base_url('forums'); ?>/topic/<?= $lists->id ?>" data-created-date="<?= date('d-m-Y', $lists->date); ?>"  data-creator="<?= $this->m_data->getUsernameID($lists->author); ?>">
+                                <span class="ForumTopic-type">
+                                    <i class="Icon"></i>
+                                </span>
                                 <span class="ForumTopic-details">
                                     <span class="ForumTopic-heading">
                                         <span class="ForumTopic-title--wrapper">
                                             <span class="ForumTopic-title" data-toggle="tooltip" data-tooltip-content="Content description" data-original-title="" title="">
                                                 <!-- title -->
-                                                <i class="fa fa-commenting" aria-hidden="true"></i> <?= $lists->title; ?>
+                                                <?= $lists->title; ?>
                                                 <!-- title -->
                                                 <i class="statusIcon statusIcon-mobile" data-toggle="tooltip" data-tooltip-content="Locked" data-original-title="" title=""></i>
                                             </span>
@@ -106,7 +131,7 @@
                                     <?php } ?>
                                     <span class="ForumTopic-timestamp "><?= date('d-m-Y', $lists->date); ?></span>
                                     <span class="ForumTopic-replies">
-                                        <span><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->forum_model->getComments($lists->id)->num_rows(); ?></span>
+                                        <span><i class="Icon"></i> <?= $this->forum_model->getComments($lists->id)->num_rows(); ?></span>
                                     </span>
                                 </span>
                             </a>
