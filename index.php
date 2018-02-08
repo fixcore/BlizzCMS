@@ -1,3 +1,14 @@
+<?php 
+/**
+ * Automatic Redirection
+ */
+if (!file_exists("application/config/config.php") && !file_exists("application/config/fixcore.php"))
+{
+    header("Location: install");
+    die();
+}
+?>
+
 <?php
 /**
  * CodeIgniter
@@ -87,15 +98,6 @@ switch (ENVIRONMENT)
 		header('HTTP/1.1 503 Service Unavailable.', TRUE, 503);
 		echo 'The application environment is not set correctly.';
 		exit(1); // EXIT_ERROR
-}
-
-/**
- * Automatic Redirection
- */
-if (file_exists("install") && !file_exists("install/.lock"))
-{
-    header("Location: install");
-    die();
 }
 
 /*
