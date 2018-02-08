@@ -11,7 +11,7 @@
     $this->forum_model->updateTopic($idlink, $title, $description, $lock, $highl);
 }?>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -44,18 +44,24 @@
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
     <!-- submenu -->
-    <div class="Navigation is-dropdown Navigation--hg">
-        <div class="Navigation-wrapper">
-            <div touch-action="none" class="Navigation-container">
-                <ul class="List List--horizontal Navigation-list">
-                    <li class="ListItem ListItem--horizontal Navigation-item">
-                        <a data-name="topic" class="is-selected Navigation-link"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></a>
-                    </li>
-                </ul>
+    <div class="Subnav">
+        <div class="Container Container--content Container--breadcrumbs">
+            <div class="GameSite-link">
+                <a class="GameSite-link--heading"><i class="Icon"></i>World of Warcraft</a>
+            </div>
+            <div class="Breadcrumbs">
+                <span class="Breadcrumb">
+                    <a href="<?= base_url('forums'); ?>" class="Breadcrumb-content">
+                        <span class="Breadcrumb-divider Home"><i class="Icon"></i></span>
+                        <?= $this->lang->line('nav_forums'); ?>
+                    </a>
+                </span>
+                <span class="Breadcrumb">
+                    <span class="Breadcrumb-divider"><i class="Icon"></i></span>
+                    <a class="Breadcrumb-content is-active"><?= $this->forum_model->getSpecifyPostName($idlink); ?></a>
+                </span>
             </div>
         </div>
-        <div class="Navigation-scroll Navigation-scrollLeft"><span>&lsaquo;</span></div>
-        <div class="Navigation-scroll Navigation-scrollRight"><span>&rsaquo;</span></div>
     </div>
     </div>
     </div>
@@ -67,7 +73,8 @@
             <header class="Topic-header">
                 <div class="Container Container--content">
                     <h1 class="Topic-heading">
-                        <span class="Topic-title" data-topic-heading="true" style="color: #fff;"><i class="fa fa-commenting" aria-hidden="true"></i> <?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
+                        <a class="Game-logo"></a>
+                        <span class="Topic-title" data-topic-heading="true" style="color: #fff;"><?= $this->forum_model->getSpecifyPostName($idlink); ?></span>
                         <?php if($this->m_data->isLogged()) { ?>
                             <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
                                 <p uk-margin>
@@ -263,7 +270,7 @@
 
         <?php if($this->m_data->isLogged() && $this->forum_model->getTopicLocked($idlink) == 0) { ?>
             <!-- comment login -->
-            <section xmlns="http://www.w3.org/1999/xhtml" class="Section Section--secondary">
+            <section class="Section Section--secondary">
                 <div data-topic-post="true" tabindex="0" class="TopicForm is-editing" id="topic-reply">
                     <header class="TopicForm-header">
                         <h1 class="TopicForm-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
