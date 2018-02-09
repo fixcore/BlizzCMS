@@ -17,33 +17,30 @@
     $this->bugtracker_model->closeIssue($idlink);
 } ?>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<!DOCTYPE html>
+<html>
 <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
-    <title><?= $this->config->item('ProjectName'); ?> - <?= $this->lang->line('nav_bugtracker'); ?></title>
+    <title><?= $this->config->item('ProjectName'); ?> | <?= $this->lang->line('nav_bugtracker'); ?></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-    <!-- UiKit Start -->
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
 
-    <!-- UIkit JS -->
+    <!-- UIkit -->
+    <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css"/>
     <script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
-    <!-- UiKit end -->
-    <!-- font-awesome Start -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
-    <!-- font-awesome End -->
 
-    <!-- custom footer -->
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
+
+    <!-- JQuery -->
     <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
-    <!-- custom footer -->
 </head>
 
 <body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">

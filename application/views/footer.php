@@ -57,6 +57,7 @@
         </div>
     </div>
 
+    <script type="text/javascript" src="<?= base_url(); ?>core/js/9013706011.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>core/js/blizzcms-general.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>core/js/moment.js"></script>
     <script type="text/javascript" src="<?= base_url(); ?>core/js/root-ui.js"></script>
