@@ -100,37 +100,32 @@
 
     rename("database.php.dist", "../application/config/database.php");
 
-    $lock = fopen('.lock', 'w');
-    fclose($lock);
-
     echo '<script>window.location.href = "index.php?continue";</script>';
 }?>
 
 <!DOCTYPE html>
 <html>
-<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
 <head>
-    <title>Installation - BlizzCMS</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>Installation | BlizzCMS</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="../assets/css/blizzcms-app.css">
     <link rel="stylesheet" type="text/css" media="all" href="../assets/css/blizzcms-template.css"/>
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-    <!-- UiKit Start -->
-    <!-- UIkit CSS -->
-    <link rel="stylesheet" href="../core/uikit/css/uikit.min.css" />
 
-    <!-- UIkit JS -->
+    <!-- UIkit -->
+    <link rel="stylesheet" href="../core/uikit/css/uikit.min.css"/>
     <script src="../core/uikit/js/uikit.min.js"></script>
     <script src="../core/uikit/js/uikit-icons.min.js"></script>
-    <!-- UiKit end -->
-    <!-- font-awesome Start -->
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="../core/font-awesome/css/font-awesome.min.css">
-    <!-- font-awesome End -->
-    <!-- custom footer -->
+
+    <!-- JQuery -->
     <script src="../core/js/jquery-3.3.1.min.js"></script>
-    <!-- custom footer -->
 </head>
 
 <body class="en-us glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">

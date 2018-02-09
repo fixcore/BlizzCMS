@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><?= $this->config->item('ProjectName'); ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?= $this->config->item('ProjectName'); ?> | <?= $this->lang->line('button_admin_panel'); ?></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/css/blizzcms-admincore.css">
-    <!-- UiKit Start -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css" />
+
+    <!-- UIkit -->
+    <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css"/>
     <script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
     <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
-    <!-- UiKit End -->
-    <!-- font-awesome Start -->
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
-    <!-- font-awesome End -->
 </head>
 
 <body>
