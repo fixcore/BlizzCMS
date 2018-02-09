@@ -155,6 +155,13 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function settings()
+    {
+        //$this->load->view('general/header');
+        $this->load->view('settings/index');
+        //$this->load->view('general/footer');
+    }
+
     public function checkSoap()
     {
         foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
