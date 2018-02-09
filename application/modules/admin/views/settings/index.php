@@ -61,7 +61,6 @@
                                     <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Main Settings</a></li>
                                     <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Website Settings</a></li>
                                     <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Database Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Recaptcha Settings</a></li>
                                 </ul>
                                 <ul class="uk-switcher uk-margin">
                                     <li>
@@ -259,6 +258,21 @@
                                             </div>
                                         </form>
                                     </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-wrench" aria-hidden="true"></i> Module Settings</div>
+                            <div class="uk-card-body">
+                                <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Recaptcha Settings</a></li>
+                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Bugtracker Settings</a></li>
+                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Donate Settings</a></li>
+                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Store Settings</a></li>
+                                </ul>
+                                <ul class="uk-switcher uk-margin">
                                     <li>
                                         <form action="" method="post" accept-charset="utf-8">
                                             <div class="uk-margin">
@@ -277,6 +291,81 @@
                                                         <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
                                                         <input class="uk-input" type="text" name="" value="" required>
                                                     </div>
+                                                </div>
+                                            </div>
+                                            <div class="uk-margin">
+                                                <div class="uk-form-controls">
+                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitFixCore" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form action="" method="post" accept-charset="utf-8">
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label uk-text-uppercase">Description Text</label>
+                                                <div class="uk-form-controls">
+                                                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+                                                    <div class="uk-width-1-1">
+                                                        <textarea required="" name="" id="ckeditor" rows="10" cols="80"></textarea>
+                                                        <script>
+                                                            CKEDITOR.replace('ckeditor');
+                                                        </script>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="uk-margin">
+                                                <div class="uk-form-controls">
+                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitFixCore" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form action="" method="post" accept-charset="utf-8">
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label uk-text-uppercase">Paymentwall Key</label>
+                                                <div class="uk-form-controls">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                        <input class="uk-input" type="text" name="" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label uk-text-uppercase">Paymentwall Secret Key</label>
+                                                <div class="uk-form-controls">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                        <input class="uk-input" type="text" name="" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label uk-text-uppercase">Paymentwall Widget Code</label>
+                                                <div class="uk-form-controls">
+                                                    <div class="uk-inline uk-width-1-1">
+                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                        <input class="uk-input" type="text" name="" value="" required>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="uk-margin">
+                                                <div class="uk-form-controls">
+                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitFixCore" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </li>
+                                    <li>
+                                        <form action="" method="post" accept-charset="utf-8">
+                                            <div class="uk-margin">
+                                                <label class="uk-form-label uk-text-uppercase">Store Type</label>
+                                                <div class="uk-form-controls">
+                                                    <select class="uk-select" name="">
+                                                        <option value="1">Store with Images</option>
+                                                        <option value="2">Store with Icons</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="uk-margin">
