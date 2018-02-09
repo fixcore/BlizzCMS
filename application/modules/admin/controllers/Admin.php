@@ -157,9 +157,9 @@ class Admin extends MX_Controller {
 
     public function settings()
     {
-        //$this->load->view('general/header');
+        $this->load->view('general/header');
         $this->load->view('settings/index');
-        //$this->load->view('general/footer');
+        $this->load->view('general/footer');
     }
 
     public function checkSoap()
