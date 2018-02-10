@@ -40,6 +40,19 @@
     $this->admin_model->settingFixCore($datafx);
 }?>
 
+<?php if (isset($_POST['button_createRealm'])) {
+    $hostname = $_POST['hostname'];
+    $username = $_POST['host_user'];
+    $password = $_POST['host_pass'];
+    $database = $_POST['host_db'];
+    $realm_id = $_POST['realmid'];
+    $soapuser = $_POST['soap_user'];
+    $soappass = $_POST['soap_pass'];
+    $soapport = $_POST['soap_port'];
+
+    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport);
+} ?>
+
     <div class="content-padder content-background">
         <div class="uk-section-xsmall uk-section-default header">
             <div class="uk-container uk-container-large">
@@ -379,8 +392,135 @@
                             </div>
                         </div>
                     </div>
+                    <div>
+                        <div class="uk-card uk-card-default">
+                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-server" aria-hidden="true"></i> Realms</div>
+                            <div class="uk-card-body">
+                                <table id="myTable" class="uk-table uk-table-justify uk-table-divider">
+                                    <thead>
+                                        <tr>
+                                            <th>Realm ID</th>
+                                            <th>Realm Name</th>
+                                            <th>Character Database Name</th>
+                                            <th>Soap Port</th>
+                                            <th class="uk-text-center"><?= $this->lang->line('column_action'); ?></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php foreach($this->admin_model->getShopGroupList()->result() as $list) { ?>
+                                            <tr>
+                                                <td>
+                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                </td>
+                                                <td>
+                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                </td>
+                                                <td class="uk-text-center" uk-margin>
+                                                    <form action="" method="post" accept-charset="utf-8">
+                                                        <button class="uk-button uk-button-danger" name="button_deleteRealm" value="<?= $list->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        <?php } ?>
+                                    </tbody>
+                                </table>
+                                <div class="uk-margin">
+                                    <a href="" uk-toggle="target: #newRealm">
+                                        <button class="uk-button uk-button-primary uk-width-1-1" name="submitFixCore" type="submit"><i class="fa fa-plus-square" aria-hidden="true"></i> Add Realm</button>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div id="newRealm" uk-modal="bg-close: false">
+        <div class="uk-modal-dialog">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <div class="uk-modal-header">
+                <h2 class="uk-modal-title"><i class="fa fa-server" aria-hidden="true"></i> Add Realm</h2>
+            </div>
+            <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8" autocomplete="off">
+                <div class="uk-modal-body">
+                    <div class="uk-margin">
+                        <div class="uk-grid-small" uk-grid>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase">Realm ID</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="number" name="realmid" placeholder="Auth -> realmlist -> ID" required>
+                                </div>
+                            </div>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase">Soap User</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" name="soap_user" placeholder="Example: fixcore" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-grid-small" uk-grid>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase">Soap Password</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="password" name="soap_pass" placeholder="Example: blizzcms" required>
+                                </div>
+                            </div>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase">Soap Port</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="number" name="soap_port" placeholder="Example: 7878" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-grid-small" uk-grid>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database Hostname</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" name="hostname" placeholder="Example: 127.0.0.1" required>
+                                </div>
+                            </div>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database User</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" name="host_user" placeholder="Example: root" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
+                        <div class="uk-grid-small" uk-grid>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database Password</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="password" name="host_pass" placeholder="Example: ascent" required>
+                                </div>
+                            </div>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase"><strong>Character</strong> Database Name</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" name="host_db" placeholder="Example: characters" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-modal-footer uk-text-right actions">
+                    <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_createRealm"><?= $this->lang->line('button_create'); ?></button>
+                </div>
+            </form>
         </div>
     </div>
 
