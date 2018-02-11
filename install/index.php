@@ -141,7 +141,7 @@
                             <hr class="uk-divider-icon">
                             <h4 class="uk-card-title uk-text-uppercase uk-text-center">What do I need to run this <strong>website</strong>?</h4>
                             <ul uk-accordion>
-                                <li>
+                                <li class="uk-open">
                                     <a class="uk-accordion-title" href="#" style="color: #fff;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Requirements</a>
                                     <div class="uk-accordion-content">
                                         <p>
