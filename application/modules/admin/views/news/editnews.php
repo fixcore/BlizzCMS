@@ -5,11 +5,6 @@
                     <div class="uk-width-3-4@s">
                         <h4><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('admin_news'); ?> - <?= $this->lang->line('panel_admin_edit_news'); ?></h4>
                     </div>
-                    <div class="uk-width-1-4@s">
-                        <a href="" class="" uk-toggle="target: #newNews">
-                            <button class="uk-button uk-button-secondary uk-width-1-1"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_create'); ?></button>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
