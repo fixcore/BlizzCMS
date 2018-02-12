@@ -145,410 +145,419 @@
     $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport);
 } ?>
 
-    <div class="content-padder content-background">
-        <div class="uk-section-xsmall uk-section-default header">
-            <div class="uk-container uk-container-large">
-                <div class="uk-grid-small uk-width-1-1" uk-grid>
-                    <div class="uk-width-3-4@s">
-                        <h4><i class="fa fa-mouse-pointer" aria-hidden="true"></i> <?= $this->lang->line('admin_website'); ?> - Settings</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="uk-section-small">
-            <div class="uk-container uk-container-large">
-                <div uk-grid class="uk-child-width-1-1@s uk-child-width-1-1@m uk-child-width-1-1@xl">
-                    <div>
-                        <div class="uk-card uk-card-default">
-                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</div>
-                            <div class="uk-card-body">
-                                <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Main Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Website Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Database Settings</a></li>
-                                </ul>
-                                <ul class="uk-switcher uk-margin">
-                                    <li>
-                                        <form action="" method="post" accept-charset="utf-8">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Base Site URL</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="configURL" value="<?= $this->admin_model->getConfigBaseUrl($fileConfig); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Default Language</label>
-                                                <div class="uk-form-controls">
-                                                    <select class="uk-select" name="configLang">
-                                                        <option value="english">English</option>
-                                                        <option value="french">French</option>
-                                                        <option value="german">German</option>
-                                                        <option value="hungarian">Hungarian</option>
-                                                        <option value="russian">Russian</option>
-                                                        <option value="spanish">Spanish</option>
-                                                        <option value="thai">Thai</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Default Character Set</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="configCharSet" value="<?= $this->admin_model->getConfigCharSet($fileConfig); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Session Expiration</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="configSessExpiration" value="<?= $this->admin_model->getConfigSessExpiration($fileConfig); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <div class="uk-form-controls">
-                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitConfig" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <form action="" method="post" accept-charset="utf-8">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Project Name</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="fixcoreProjectName" value="<?= $this->admin_model->getFixCoreProjectName($fileFixCore); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Timezone</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="fixcoreTimeZone" value="<?= $this->admin_model->getFixCoreTimeZone($fileFixCore); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Discord ID</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="fixcoreDiscordInv" value="<?= $this->admin_model->getFixCoreDiscordInv($fileFixCore); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Realmlist</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="fixcoreRealmlist" value="<?= $this->admin_model->getFixCoreRealmlist($fileFixCore); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Forum STAFF Color</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="fixcoreStaffColor" value="<?= $this->admin_model->getFixCoreStaffColor($fileFixCore); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Theme Name</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="fixcoreTheme" value="<?= $this->admin_model->getFixCoreThemeName($fileFixCore); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <div class="uk-form-controls">
-                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitFixCore" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <form action="" method="post" accept-charset="utf-8">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Hostname</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseCmsHost" value="<?= $this->admin_model->getDatabaseCmsHost($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Username</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseCmsUser" value="<?= $this->admin_model->getDatabaseCmsUser($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Password</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseCmsPassword" value="<?= $this->admin_model->getDatabaseCmsPassword($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Name</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseCmsName" value="<?= $this->admin_model->getDatabaseCmsName($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <hr class="uk-divider-icon">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Hostname</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseAuthHost" value="<?= $this->admin_model->getDatabaseAuthHost($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Username</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseAuthUser" value="<?= $this->admin_model->getDatabaseAuthUser($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Password</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseAuthPassword" value="<?= $this->admin_model->getDatabaseAuthPassword($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Name</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
-                                                        <input class="uk-input" type="text" name="databaseAuthName" value="<?= $this->admin_model->getDatabaseAuthName($fileDatabase); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <div class="uk-form-controls">
-                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitDatabase" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default">
-                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-wrench" aria-hidden="true"></i> Module Settings</div>
-                            <div class="uk-card-body">
-                                <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Recaptcha Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Bugtracker Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Donate Settings</a></li>
-                                    <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Store Settings</a></li>
-                                </ul>
-                                <ul class="uk-switcher uk-margin">
-                                    <li>
-                                        <form action="" method="post" accept-charset="utf-8">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Recaptcha Site Key</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="recaptchaKey" value="<?= $this->admin_model->getRecaptchaKey($fileCaptcha); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Recaptcha Secret Key</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="recaptchaPrivateKey" value="<?= $this->admin_model->getRecaptchaPrivateKey($fileCaptcha); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Recaptcha Lang</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="recaptchaLang" value="<?= $this->admin_model->getRecaptchaLang($fileCaptcha); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <div class="uk-form-controls">
-                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitCaptcha" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <form action="" method="post" accept-charset="utf-8">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Description Text</label>
-                                                <div class="uk-form-controls">
-                                                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-                                                    <div class="uk-width-1-1">
-                                                        <textarea required="" name="bugtrackerText" id="ckeditor" rows="10" cols="80"><?= $this->admin_model->getBugtrackerText($fileBugtracker); ?></textarea>
-                                                        <script>
-                                                            CKEDITOR.replace('ckeditor');
-                                                        </script>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <div class="uk-form-controls">
-                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitBugtracker" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <form action="" method="post" accept-charset="utf-8">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Paymentwall Key</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="donatekey" value="<?= $this->admin_model->getDonateKey($fileDonate); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Paymentwall Secret Key</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="donateprivatekey" value="<?= $this->admin_model->getDonatePrivateKey($fileDonate); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Paymentwall Widget Code</label>
-                                                <div class="uk-form-controls">
-                                                    <div class="uk-inline uk-width-1-1">
-                                                        <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
-                                                        <input class="uk-input" type="text" name="donatewidgetcode" value="<?= $this->admin_model->getDonateWidgetCode($fileDonate); ?>" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <div class="uk-form-controls">
-                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitDonate" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                    <li>
-                                        <form action="" method="post" accept-charset="utf-8">
-                                            <div class="uk-margin">
-                                                <label class="uk-form-label uk-text-uppercase">Store Type</label>
-                                                <div class="uk-form-controls">
-                                                    <select class="uk-select" name="storetype">
-                                                        <option value="1">Store with Images</option>
-                                                        <option value="2">Store with Icons</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="uk-margin">
-                                                <div class="uk-form-controls">
-                                                    <button class="uk-button uk-button-primary uk-width-1-1" name="submitStore" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="uk-card uk-card-default">
-                            <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-server" aria-hidden="true"></i> Realms</div>
-                            <div class="uk-card-body">
-                                <table id="myTable" class="uk-table uk-table-justify uk-table-divider">
-                                    <thead>
-                                        <tr>
-                                            <th>Realm ID</th>
-                                            <th>Realm Name</th>
-                                            <th>Character Database Name</th>
-                                            <th>Soap Port</th>
-                                            <th class="uk-text-center"><?= $this->lang->line('column_action'); ?></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php foreach($this->admin_model->getShopGroupList()->result() as $list) { ?>
-                                            <tr>
-                                                <td>
-                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
-                                                </td>
-                                                <td>
-                                                    <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
-                                                </td>
-                                                <td class="uk-text-center" uk-margin>
-                                                    <form action="" method="post" accept-charset="utf-8">
-                                                        <button class="uk-button uk-button-danger" name="button_deleteRealm" value="<?= $list->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                        <?php } ?>
-                                    </tbody>
-                                </table>
-                                <div class="uk-margin">
-                                    <a href="" uk-toggle="target: #newRealm">
-                                        <button class="uk-button uk-button-primary uk-width-1-1" name="submitFixCore" type="submit"><i class="fa fa-plus-square" aria-hidden="true"></i> Add Realm</button>
-                                    </a>
+    <div id="content" data-uk-height-viewport="expand: true">
+        <div class="uk-container uk-container-expand">
+            <div class="uk-grid uk-grid-medium uk-grid-match" data-uk-grid>
+                <div class="uk-width-1-1@l uk-width-1-1@xl">
+                    <div class="uk-card uk-card-default uk-card-small">
+                        <div class="uk-card-header uk-card-secondary">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom"><span data-uk-icon="icon: settings"></span> Settings</h4></div>
+                                <div class="uk-width-expand uk-text-right">
+                                    <a href="#" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: info"></a>
                                 </div>
                             </div>
                         </div>
+                        <div class="uk-card-body">
+                            <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Main Settings</a></li>
+                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Website Settings</a></li>
+                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Database Settings</a></li>
+                            </ul>
+                            <ul class="uk-switcher uk-margin">
+                                <li>
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Base Site URL</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="configURL" value="<?= $this->admin_model->getConfigBaseUrl($fileConfig); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Default Language</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="configLang">
+                                                    <option value="english">English</option>
+                                                    <option value="french">French</option>
+                                                    <option value="german">German</option>
+                                                    <option value="hungarian">Hungarian</option>
+                                                    <option value="russian">Russian</option>
+                                                    <option value="spanish">Spanish</option>
+                                                    <option value="thai">Thai</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Default Character Set</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="configCharSet" value="<?= $this->admin_model->getConfigCharSet($fileConfig); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Session Expiration</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="configSessExpiration" value="<?= $this->admin_model->getConfigSessExpiration($fileConfig); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="submitConfig" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Project Name</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="fixcoreProjectName" value="<?= $this->admin_model->getFixCoreProjectName($fileFixCore); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Timezone</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="fixcoreTimeZone" value="<?= $this->admin_model->getFixCoreTimeZone($fileFixCore); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Discord ID</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="fixcoreDiscordInv" value="<?= $this->admin_model->getFixCoreDiscordInv($fileFixCore); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Realmlist</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="fixcoreRealmlist" value="<?= $this->admin_model->getFixCoreRealmlist($fileFixCore); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Forum STAFF Color</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="fixcoreStaffColor" value="<?= $this->admin_model->getFixCoreStaffColor($fileFixCore); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Theme Name</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="fixcoreTheme" value="<?= $this->admin_model->getFixCoreThemeName($fileFixCore); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="submitFixCore" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Hostname</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseCmsHost" value="<?= $this->admin_model->getDatabaseCmsHost($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Username</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseCmsUser" value="<?= $this->admin_model->getDatabaseCmsUser($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Password</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseCmsPassword" value="<?= $this->admin_model->getDatabaseCmsPassword($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Name</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseCmsName" value="<?= $this->admin_model->getDatabaseCmsName($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <hr class="uk-divider-icon">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Hostname</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseAuthHost" value="<?= $this->admin_model->getDatabaseAuthHost($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Username</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseAuthUser" value="<?= $this->admin_model->getDatabaseAuthUser($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Password</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseAuthPassword" value="<?= $this->admin_model->getDatabaseAuthPassword($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Name</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: database"></span>
+                                                    <input class="uk-input" type="text" name="databaseAuthName" value="<?= $this->admin_model->getDatabaseAuthName($fileDatabase); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="submitDatabase" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1@l uk-width-1-1@xl">
+                    <div class="uk-card uk-card-default uk-card-small">
+                        <div class="uk-card-header uk-card-secondary">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom"><span data-uk-icon="icon: settings"></span> Module Settings</h4></div>
+                                <div class="uk-width-expand uk-text-right">
+                                    <a href="#" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: info"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body">
+                            <ul class="uk-subnav uk-subnav-pill" uk-switcher="animation: uk-animation-slide-left-medium, uk-animation-slide-right-medium">
+                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Recaptcha Settings</a></li>
+                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Bugtracker Settings</a></li>
+                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Donate Settings</a></li>
+                                <li><a href="#"><i class="fa fa-cog" aria-hidden="true"></i> Store Settings</a></li>
+                            </ul>
+                            <ul class="uk-switcher uk-margin">
+                                <li>
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Recaptcha Site Key</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="recaptchaKey" value="<?= $this->admin_model->getRecaptchaKey($fileCaptcha); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Recaptcha Secret Key</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="recaptchaPrivateKey" value="<?= $this->admin_model->getRecaptchaPrivateKey($fileCaptcha); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Recaptcha Lang</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="recaptchaLang" value="<?= $this->admin_model->getRecaptchaLang($fileCaptcha); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="submitCaptcha" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Description Text</label>
+                                            <div class="uk-form-controls">
+                                                <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
+                                                <div class="uk-width-1-1">
+                                                    <textarea required="" name="bugtrackerText" id="ckeditor" rows="10" cols="80"><?= $this->admin_model->getBugtrackerText($fileBugtracker); ?></textarea>
+                                                    <script>
+                                                        CKEDITOR.replace('ckeditor');
+                                                    </script>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="submitBugtracker" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Paymentwall Key</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="donatekey" value="<?= $this->admin_model->getDonateKey($fileDonate); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Paymentwall Secret Key</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="donateprivatekey" value="<?= $this->admin_model->getDonatePrivateKey($fileDonate); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Paymentwall Widget Code</label>
+                                            <div class="uk-form-controls">
+                                                <div class="uk-inline uk-width-1-1">
+                                                    <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
+                                                    <input class="uk-input" type="text" name="donatewidgetcode" value="<?= $this->admin_model->getDonateWidgetCode($fileDonate); ?>" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="submitDonate" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                                <li>
+                                    <form action="" method="post" accept-charset="utf-8">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Store Type</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="storetype">
+                                                    <option value="1">Store with Images</option>
+                                                    <option value="2">Store with Icons</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <div class="uk-form-controls">
+                                                <button class="uk-button uk-button-primary uk-width-1-1" name="submitStore" type="submit"><i class="fa fa-refresh" aria-hidden="true"></i> Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-1@l uk-width-1-1@xl">
+                    <div class="uk-card uk-card-default uk-card-small">
+                        <div class="uk-card-header uk-card-secondary">
+                            <div class="uk-grid uk-grid-small">
+                                <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom"><span data-uk-icon="icon: settings"></span> Realms</h4></div>
+                                <div class="uk-width-expand uk-text-right">
+                                    <a href="" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: cog" uk-toggle="target: #newRealm"></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="uk-card-body">
+                            <table class="uk-table uk-table-justify uk-table-divider">
+                                <thead>
+                                    <tr>
+                                        <th>Realm ID</th>
+                                        <th>Realm Name</th>
+                                        <th>Character Database Name</th>
+                                        <th>Soap Port</th>
+                                        <th class="uk-text-center"><?= $this->lang->line('column_action'); ?></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach($this->admin_model->getShopGroupList()->result() as $list) { ?>
+                                        <tr>
+                                            <td>
+                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                            </td>
+                                            <td>
+                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                            </td>
+                                            <td class="uk-text-center" uk-margin>
+                                                <form action="" method="post" accept-charset="utf-8">
+                                                    <button class="uk-button uk-button-danger" name="button_deleteRealm" value="<?= $list->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+        <footer class="uk-section uk-section-small uk-text-center">
+            <hr>
+            <span class="uk-text-muted uk-text-small"><span data-uk-icon="icon: github-alt"></span> Proudly powered by BlizzCMS</span>
+        </footer>
     </div>
 
     <div id="newRealm" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-server" aria-hidden="true"></i> Add Realm</h2>
+                <h2 class="uk-modal-title uk-text-uppercase"><i class="fa fa-server" aria-hidden="true"></i> Add Realm</h2>
             </div>
             <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
