@@ -27,7 +27,7 @@
                                 <div class="uk-grid uk-grid-small">
                                     <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom"><span data-uk-icon="icon: server"></span> Realm - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h4></div>
                                     <div class="uk-width-expand uk-text-right">
-                                        <a href="#" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: cog"></a>
+                                        <a href="<?= base_url('admin/settings'); ?>" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: cog"></a>
                                     </div>
                                 </div>
                             </div>
@@ -53,3 +53,9 @@
                     </div>
                 <?php } ?>
             </div>
+        </div>
+        <footer class="uk-section uk-section-small uk-text-center">
+            <hr>
+            <span class="uk-text-muted uk-text-small"><span data-uk-icon="icon: github-alt"></span> Proudly powered by BlizzCMS</span>
+        </footer>
+    </div>

@@ -68,7 +68,8 @@
                 <ul class="uk-nav-default uk-nav-parent-icon" data-uk-nav>
                     <li class="uk-nav-header">SECTIONS</li>
                     <li><a href="<?= base_url('admin'); ?>"><span class="uk-margin-small-right" data-uk-icon="icon: home"></span> <?= $this->lang->line('admin_dashboard'); ?></a></li>
-                    <li class="uk-parent uk-open">
+                    <li><a href="<?= base_url('admin/settings'); ?>"><span class="uk-margin-small-right" data-uk-icon="icon: settings"></span> <?= $this->lang->line('admin_settings'); ?></a></li>
+                    <li class="uk-parent">
                         <a href="javascript:void(0)"><span class="uk-margin-small-right" data-uk-icon="icon: users"></span> <?= $this->lang->line('admin_users'); ?></a>
                         <ul class="uk-nav-sub">
                             <li><a href="<?= base_url('admin/accounts'); ?>"><span class="uk-margin-small-right" data-uk-icon="icon: list"></span><?= $this->lang->line('admin_users_list'); ?></a></li>
