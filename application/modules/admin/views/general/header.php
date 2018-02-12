@@ -33,9 +33,9 @@
                                 <div class="uk-navbar-dropdown uk-navbar-dropdown-bottom-left">
                                     <ul class="uk-nav uk-navbar-dropdown-nav">
                                         <li class="uk-nav-header uk-text-center">YOUR ACCOUNT</li>
-                                        <li><a href="#"><span data-uk-icon="icon: settings"></span> <?= $this->lang->line('button_user_panel'); ?></a></li>
+                                        <li><a href="<?= base_url('panel'); ?>"><span data-uk-icon="icon: settings"></span> <?= $this->lang->line('button_user_panel'); ?></a></li>
                                         <li class="uk-nav-divider"></li>
-                                        <li><a href="#"><span data-uk-icon="icon: sign-out"></span> <?= $this->lang->line('button_logout'); ?></a></li>
+                                        <li><a href="<?= base_url('logout'); ?>"><span data-uk-icon="icon: sign-out"></span> <?= $this->lang->line('button_logout'); ?></a></li>
                                     </ul>
                                 </div>
                             </li>
