@@ -203,35 +203,34 @@
                                             <div data-ratio='0.5' data-offset='0' class="Card Home-topStoriesGallery Card--innerBorder Card--transparent is-adaptive">
                                                 <div class="Home-additionalLinks clearfix">
                                                     <div class="">
-                                                    <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
-                                                        $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database); 
-                                                    ?>
-                                                        <div class="GridItem col-md-12">
-                                                            <h2 style="color: #fff;">
+                                                        <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                                                            $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database); 
+                                                        ?>
+                                                            <div class="GridItem col-md-12">
+                                                                <h2 style="color: #fff;">
+                                                                    <?php if ($this->m_data->realm_status($charsMultiRealm->realmID, $charsMultiRealm->hostname)) { ?>
+                                                                        <i class="fa fa-circle-o-notch fa-spin fa-fw uk-text-success" aria-hidden="true"></i>
+                                                                    <?php } else { ?>
+                                                                        <i class="fa fa-circle-o-notch fa-spin fa-fw uk-text-danger" aria-hidden="true"></i>
+                                                                    <?php } ?>
+                                                                    <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?>
+                                                                </h2>
                                                                 <?php if ($this->m_data->realm_status($charsMultiRealm->realmID, $charsMultiRealm->hostname)) { ?>
-                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw uk-text-success" aria-hidden="true"></i>
-                                                                <?php } else { ?>
-                                                                    <i class="fa fa-circle-o-notch fa-spin fa-fw uk-text-danger" aria-hidden="true"></i>
+                                                                    <span class="uk-label">
+                                                                        <span uk-icon="icon: users"></span>
+                                                                        <?= $this->m_general->getCharactersOnlineAlliance($multiRealm); ?>
+                                                                        <?= $this->lang->line('faction_alliance'); ?>
+                                                                    </span>
+                                                                    <span class="uk-label uk-label-danger">
+                                                                        <span uk-icon="icon: users"></span>
+                                                                        <?= $this->m_general->getCharactersOnlineHorde($multiRealm); ?>
+                                                                        <?= $this->lang->line('faction_horde'); ?>
+                                                                    </span>
+                                                                    <br>
                                                                 <?php } ?>
-                                                                <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?>
-                                                            </h2>
-                                                            <?php if ($this->m_data->realm_status($charsMultiRealm->realmID, $charsMultiRealm->hostname)) { ?>
-                                                                <span class="uk-label">
-                                                                    <span uk-icon="icon: users"></span>
-                                                                    <?= $this->m_general->getCharactersOnlineAlliance($multiRealm); ?>
-                                                                    <?= $this->lang->line('faction_alliance'); ?>
-                                                                </span>
-                                                                <span class="uk-label uk-label-danger">
-                                                                    <span uk-icon="icon: users"></span>
-                                                                    <?= $this->m_general->getCharactersOnlineHorde($multiRealm); ?>
-                                                                    <?= $this->lang->line('faction_horde'); ?>
-                                                                </span>
-                                                                <br>
-                                                            <?php } ?>
-                                                        </div>
+                                                            </div>
+                                                        <?php } ?>
                                                     </div>
-                                                <?php } ?>
-                                                    <!-- online -->
                                                 </div>
                                             </div>
                                         </a>
