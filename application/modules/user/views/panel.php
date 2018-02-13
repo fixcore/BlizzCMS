@@ -20,8 +20,8 @@
 } ?>
             <div style="" class="HeroPane HeroPane--large HeroPane--adaptive">
                 <div class="HeroPane-content">
+                    <div class="space-huge hide show-sm"></div>
                     <div class="align-center">
-                        <div class="space-large hide show-sm"></div>
                         <a href="">
                             <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
                                 <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="120" height="120" alt="" />
