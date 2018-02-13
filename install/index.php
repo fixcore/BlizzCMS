@@ -103,6 +103,16 @@
     echo '<script>window.location.href = "index.php?continue";</script>';
 }?>
 
+<?php if(isset($_POST['button_deleteinstall'])) {
+    /* Execute Delete */
+    require('settings.php');
+    $Remove = '../install/';
+
+    delete_files($Remove);
+
+    echo '<script>window.location.href = "/";</script>';
+}?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -179,10 +189,7 @@
                             <?php if(isset($_GET['continue'])) { ?>
                                 <div class="uk-margin">
                                     <div class="uk-form-controls">
-                                        <div class="uk-alert-danger" uk-alert>
-                                            <p class="uk-text-center"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <strong>Warning:</strong> Please delete install folder!</p>
-                                        </div>
-                                        <a href="/" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-spinner fa-pulse fa-fw"></i> Continue Installation</a>
+                                        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" type="submit" name="button_deleteinstall"><i class="fa fa-spinner fa-pulse fa-fw"></i> Continue Installation</button>
                                     </div>
                                 </div>
                             <?php } else { ?>
@@ -197,107 +204,211 @@
                     <div>
                         <div class="uk-card uk-card-secondary uk-card-hover uk-card-body uk-light">
                             <h3 class="uk-card-title uk-text-uppercase uk-text-bold uk-text-center"><i class="fa fa-wrench" aria-hidden="true"></i> Settings</h3>
-                            <p>
-                                <fieldset class="uk-fieldset">
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Server Name</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="server_name" type="text" placeholder="Example: MyServer" required>
+                            <?php if(isset($_GET['continue'])) { ?>
+                                <p>
+                                    <fieldset class="uk-fieldset">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Server Name</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="server_name" type="text" placeholder="Example: MyServer" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Language</label>
-                                        <div class="uk-form-controls">
-                                            <select class="uk-select" name="language" style="background-color: rgba(0,0,0,0.4);">
-                                                <option value="english">English</option>
-                                                <option value="french">French</option>
-                                                <option value="german">German</option>
-                                                <option value="hungarian">Hungarian</option>
-                                                <option value="russian">Russian</option>
-                                                <option value="spanish">Spanish</option>
-                                                <option value="thai">Thai</option>
-                                            </select>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Language</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="language" style="background-color: rgba(0,0,0,0.4);" disabled>
+                                                    <option value="english">English</option>
+                                                    <option value="french">French</option>
+                                                    <option value="german">German</option>
+                                                    <option value="hungarian">Hungarian</option>
+                                                    <option value="russian">Russian</option>
+                                                    <option value="spanish">Spanish</option>
+                                                    <option value="thai">Thai</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Expansion</label>
-                                        <div class="uk-form-controls">
-                                            <select class="uk-select" name="expansion" style="background-color: rgba(0,0,0,0.4);">
-                                                <option value="1">Vanilla</option>
-                                                <option value="2">The Burning Crusade</option>
-                                                <option value="3">Wrath of the Lich King</option>
-                                                <option value="4">Cataclysm</option>
-                                                <option value="5">Mist of Pandaria</option>
-                                                <option value="6">Warlords of Draenor</option>
-                                                <option value="7">Legion</option>
-                                                <option value="8">Battle for Azeroth</option>
-                                            </select>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Expansion</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="expansion" style="background-color: rgba(0,0,0,0.4);" disabled>
+                                                    <option value="1">Vanilla</option>
+                                                    <option value="2">The Burning Crusade</option>
+                                                    <option value="3">Wrath of the Lich King</option>
+                                                    <option value="4">Cataclysm</option>
+                                                    <option value="5">Mist of Pandaria</option>
+                                                    <option value="6">Warlords of Draenor</option>
+                                                    <option value="7">Legion</option>
+                                                    <option value="8">Battle for Azeroth</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Realmlist</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="realmlist" type="text" placeholder="Example: logon.domain.com" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Realmlist</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmlist" type="text" placeholder="Example: logon.domain.com" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase">Url of Website</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="weburl" type="text" placeholder="Example: http://domain.com/ or https://domain.com/" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Url of Website</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="weburl" type="text" placeholder="Example: http://domain.com/ or https://domain.com/" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr class="uk-divider-icon">
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Hostname</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="blizzcms_hostname" type="text" placeholder="Example: 127.0.0.1" required>
+                                        <hr class="uk-divider-icon">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Hostname</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_hostname" type="text" placeholder="Example: 127.0.0.1" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Username</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="blizzcms_username" type="text" placeholder="Example: root" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Username</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_username" type="text" placeholder="Example: root" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Password</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="blizzcms_password" type="password" placeholder="Example: ascent" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Password</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_password" type="password" placeholder="Example: ascent" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Name</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="blizzcms_database" type="text" placeholder="Example: blizzcms" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Name</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_database" type="text" placeholder="Example: blizzcms" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <hr class="uk-divider-icon">
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Hostname</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="realmd_hostname" type="text" placeholder="Example: 127.0.0.1" required>
+                                        <hr class="uk-divider-icon">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Hostname</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_hostname" type="text" placeholder="Example: 127.0.0.1" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Username</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="realmd_username" type="text" placeholder="Example: root" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Username</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_username" type="text" placeholder="Example: root" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Password</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="realmd_password" type="password" placeholder="Example: ascent" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Password</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_password" type="password" placeholder="Example: ascent" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="uk-margin">
-                                        <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Name</label>
-                                        <div class="uk-form-controls">
-                                            <input class="uk-input" name="realmd_database" type="text" placeholder="Example: auth" required>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Name</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_database" type="text" placeholder="Example: auth" disabled>
+                                            </div>
                                         </div>
-                                    </div>
-                                </fieldset>
-                            </p>
+                                    </fieldset>
+                                </p>
+                            <?php } else { ?>
+                                <p>
+                                    <fieldset class="uk-fieldset">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Server Name</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="server_name" type="text" placeholder="Example: MyServer" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Language</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="language" style="background-color: rgba(0,0,0,0.4);">
+                                                    <option value="english">English</option>
+                                                    <option value="french">French</option>
+                                                    <option value="german">German</option>
+                                                    <option value="hungarian">Hungarian</option>
+                                                    <option value="russian">Russian</option>
+                                                    <option value="spanish">Spanish</option>
+                                                    <option value="thai">Thai</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Expansion</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="expansion" style="background-color: rgba(0,0,0,0.4);">
+                                                    <option value="1">Vanilla</option>
+                                                    <option value="2">The Burning Crusade</option>
+                                                    <option value="3">Wrath of the Lich King</option>
+                                                    <option value="4">Cataclysm</option>
+                                                    <option value="5">Mist of Pandaria</option>
+                                                    <option value="6">Warlords of Draenor</option>
+                                                    <option value="7">Legion</option>
+                                                    <option value="8">Battle for Azeroth</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Realmlist</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmlist" type="text" placeholder="Example: logon.domain.com" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Url of Website</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="weburl" type="text" placeholder="Example: http://domain.com/ or https://domain.com/" required>
+                                            </div>
+                                        </div>
+                                        <hr class="uk-divider-icon">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Hostname</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_hostname" type="text" placeholder="Example: 127.0.0.1" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Username</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_username" type="text" placeholder="Example: root" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Password</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_password" type="password" placeholder="Example: ascent" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Website</strong> Database Name</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="blizzcms_database" type="text" placeholder="Example: blizzcms" required>
+                                            </div>
+                                        </div>
+                                        <hr class="uk-divider-icon">
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Hostname</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_hostname" type="text" placeholder="Example: 127.0.0.1" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Username</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_username" type="text" placeholder="Example: root" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Password</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_password" type="password" placeholder="Example: ascent" required>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase"><strong>Auth</strong> Database Name</label>
+                                            <div class="uk-form-controls">
+                                                <input class="uk-input" name="realmd_database" type="text" placeholder="Example: auth" required>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </p>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

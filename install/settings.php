@@ -50,6 +50,21 @@ function SplitSQL($fixcore, $file, $delimiter = ';')
     return false;
 }
 
+function delete_files($target) {
+    if (is_dir($target)) {
+        $files = glob($target . '*', GLOB_MARK);
+
+        foreach($files as $file)
+        {
+            delete_files($file);      
+        }
+        rmdir($target);
+    }
+    else if (is_file($target)) {
+        unlink($target);  
+    }
+}
+
 class Install
 {
     private $fixcore;
