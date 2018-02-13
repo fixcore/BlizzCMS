@@ -10,61 +10,6 @@
 
     $this->forum_model->updateTopic($idlink, $title, $description, $lock, $highl);
 }?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?= $this->config->item('ProjectName'); ?> | <?= $this->lang->line('nav_forums'); ?></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
-
-    <!-- UIkit -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css"/>
-    <script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
-    <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
-
-    <!-- JQuery -->
-    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
-</head>
-
-<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
-    <!-- header -->
-    <?php $this->load->view('general/icons'); ?>
-    <!-- submenu -->
-    <div class="Subnav">
-        <div class="Container Container--content Container--breadcrumbs">
-            <div class="GameSite-link">
-                <a class="GameSite-link--heading"><i class="Icon"></i>World of Warcraft</a>
-            </div>
-            <div class="Breadcrumbs">
-                <span class="Breadcrumb">
-                    <a href="<?= base_url('forums'); ?>" class="Breadcrumb-content">
-                        <span class="Breadcrumb-divider Home"><i class="Icon"></i></span>
-                        <?= $this->lang->line('nav_forums'); ?>
-                    </a>
-                </span>
-                <span class="Breadcrumb">
-                    <span class="Breadcrumb-divider"><i class="Icon"></i></span>
-                    <a class="Breadcrumb-content is-active"><?= $this->forum_model->getSpecifyPostName($idlink); ?></a>
-                </span>
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- submenu -->
-    <br><br><br>
     <div role="main">
         <section class="Topic" data-topic='{ "id":<?= $idlink ?>, "lastPosition":0,"forum":{"id":<?= $idlink ?>},"isSticky":true,"isFeatured":false,"isLocked":true,"isHidden":false,"isFrozen":false, "isSpam":false, "pollId":0 }' data-user='{}'>
             <header class="Topic-header">

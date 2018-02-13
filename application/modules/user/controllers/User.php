@@ -22,6 +22,8 @@ class User extends MX_Controller {
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
+        $this->load->view('header');
+
         if ($this->m_general->getExpansionAction() == 1)
         {
             $data = array(
@@ -145,6 +147,7 @@ class User extends MX_Controller {
 
         $this->load->library('recaptcha');
 
+        $this->load->view('header');
         $this->load->view('register');
         $this->load->view('footer');
     }
@@ -167,6 +170,7 @@ class User extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
+        $this->load->view('header');
         $this->load->view('panel');
         $this->load->view('footer');
     }
@@ -186,6 +190,7 @@ class User extends MX_Controller {
 
         $data['idlink'] = $id;
 
+        $this->load->view('header');
         $this->load->view('profile', $data);
         $this->load->view('footer');
     }

@@ -25,6 +25,7 @@ class Forum extends MX_Controller {
 
     public function index()
     {
+        $this->load->view('header');
         $this->load->view('index');
         $this->load->view('footer');
     }
@@ -41,6 +42,7 @@ class Forum extends MX_Controller {
         else
             redirect(base_url('forum'),'refresh');
 
+        $this->load->view('header');
         $this->load->view('category', $data);
         $this->load->view('footer');
     }
@@ -57,6 +59,7 @@ class Forum extends MX_Controller {
         else
             redirect(base_url('forum'),'refresh');
 
+        $this->load->view('header');
         $this->load->view('topic', $data);
         $this->load->view('footer');
     }

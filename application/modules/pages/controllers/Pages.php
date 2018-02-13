@@ -30,6 +30,7 @@ class Pages extends MX_Controller {
 
         $data['idlink'] = $id;
 
+        $this->load->view('header');
         $this->load->view('page', $data);
         $this->load->view('footer');
     }

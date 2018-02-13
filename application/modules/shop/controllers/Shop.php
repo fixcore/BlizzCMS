@@ -29,6 +29,8 @@ class Shop extends MX_Controller {
 
         $this->load->config('store');
 
+        $this->load->view('header');
+
         if($this->config->item('shopStyle') == 1)
             $this->load->view('index1', $data);
         else
@@ -46,6 +48,8 @@ class Shop extends MX_Controller {
             redirect(base_url('store'),'refresh');
 
         $data['idlink'] = $id;
+
+        $this->load->view('header');
 
         if (isset($_GET['tp']))
         {
@@ -73,6 +77,7 @@ class Shop extends MX_Controller {
         if (!$this->m_data->isLogged())
             redirect(base_url('login'),'refresh');
 
+        $this->load->view('header');
         $this->load->view('ticket');
         $this->load->view('footer');
     }
