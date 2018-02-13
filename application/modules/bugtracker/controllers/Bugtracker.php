@@ -56,7 +56,9 @@ class Bugtracker extends MX_Controller {
                     'class' => 'uk-button uk-button-primary')
             );
 
-        $this->load->view('header');
+        $data['fxtitle'] = $this->lang->line('nav_changelogs');
+
+        $this->load->view('header', $data);
         $this->load->view('index', $data);
         $this->load->view('footer');
     }
@@ -70,8 +72,9 @@ class Bugtracker extends MX_Controller {
             redirect(base_url(),'refresh');
 
         $data['idlink'] = $id;
+        $data['fxtitle'] = $this->lang->line('nav_bugtracker');
 
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('post', $data);
         $this->load->view('footer');
     }
