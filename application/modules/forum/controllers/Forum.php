@@ -25,7 +25,9 @@ class Forum extends MX_Controller {
 
     public function index()
     {
-        $this->load->view('header');
+        $data['fxtitle'] = $this->lang->line('nav_forums');
+        
+        $this->load->view('header', $data);
         $this->load->view('index');
         $this->load->view('footer');
     }
@@ -36,13 +38,14 @@ class Forum extends MX_Controller {
             redirect(base_url('forum'),'refresh');
 
         $data['idlink'] = $id;
+        $data['fxtitle'] = $this->lang->line('nav_forums');
 
         if ($this->forum_model->getType($id) == 2 && $this->m_data->isLogged())
             if ($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { }
         else
             redirect(base_url('forum'),'refresh');
 
-        $this->load->view('header');
+        $this->load->view('header', $data);;
         $this->load->view('category', $data);
         $this->load->view('footer');
     }
@@ -50,6 +53,7 @@ class Forum extends MX_Controller {
     public function topic($id)
     {
         $data['idlink'] = $id;
+        $data['fxtitle'] = $this->lang->line('nav_forums');
 
         if (empty($id) || is_null($id))
             redirect(base_url('forum'),'refresh');
@@ -58,8 +62,8 @@ class Forum extends MX_Controller {
             if ($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { }
         else
             redirect(base_url('forum'),'refresh');
-
-        $this->load->view('header');
+        
+        $this->load->view('header', $data);
         $this->load->view('topic', $data);
         $this->load->view('footer');
     }

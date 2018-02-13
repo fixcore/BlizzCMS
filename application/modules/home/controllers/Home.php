@@ -32,7 +32,9 @@ class Home extends MX_Controller {
         }
         else
         {
-            $this->load->view('header');
+            $data['fxtitle'] = $this->lang->line('nav_home');
+        
+            $this->load->view('header', $data);
             $this->load->view('home');
             $this->load->view('footer');
         }

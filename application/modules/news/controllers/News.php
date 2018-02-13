@@ -25,7 +25,9 @@ class News extends MX_Controller {
 
     public function index()
     {
-        $this->load->view('header');
+        $data['fxtitle'] = $this->lang->line('nav_news');
+        
+        $this->load->view('header', $data);
         $this->load->view('news/news');
         $this->load->view('footer');
     }
@@ -35,8 +37,9 @@ class News extends MX_Controller {
         $this->load->model('forum/forum_model');
 
         $data['idlink'] = $id;
+        $data['fxtitle'] = $this->lang->line('nav_news');
         
-        $this->load->view('header');
+        $this->load->view('header', $data);
         $this->load->view('news/post', $data);
         $this->load->view('footer');
     }

@@ -25,7 +25,9 @@ class Arena extends MX_Controller {
 
     public function index()
     {
-        $this->load->view('header');
+        $data['fxtitle'] = $this->lang->line('nav_arena_statistics');
+
+        $this->load->view('header', $data);
         $this->load->view('index');
         $this->load->view('footer');
     }
