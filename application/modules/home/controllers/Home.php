@@ -32,6 +32,7 @@ class Home extends MX_Controller {
         }
         else
         {
+            $this->load->view('header');
             $this->load->view('home');
             $this->load->view('footer');
         }

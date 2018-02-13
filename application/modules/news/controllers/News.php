@@ -25,6 +25,7 @@ class News extends MX_Controller {
 
     public function index()
     {
+        $this->load->view('header');
         $this->load->view('news/news');
         $this->load->view('footer');
     }
@@ -35,6 +36,7 @@ class News extends MX_Controller {
 
         $data['idlink'] = $id;
         
+        $this->load->view('header');
         $this->load->view('news/post', $data);
         $this->load->view('footer');
     }

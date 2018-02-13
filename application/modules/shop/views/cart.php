@@ -1,74 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title><?= $this->config->item('ProjectName'); ?> | <?= $this->lang->line('cart'); ?></title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
-
-    <!-- UIkit -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css"/>
-    <script src="<?= base_url(); ?>core/uikit/js/uikit.min.js"></script>
-    <script src="<?= base_url(); ?>core/uikit/js/uikit-icons.min.js"></script>
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
-
-    <!-- Wowhead -->
-    <script>var whTooltips = {colorLinks: true, iconizeLinks: false, renameLinks: false};</script>
-    <script type="text/javascript" src="//wow.zamimg.com/widgets/power.js"></script>
-
-    <!-- JQuery -->
-    <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
-</head>
-
-<body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
-    <!-- header -->
-    <?php $this->load->view('general/icons'); ?>
-    <!-- submenu -->
-    <div xmlns="http://www.w3.org/1999/xhtml" class="Subnav" style="z-index: 1;">
-        <div class="Container Container--content Container--breadcrumbs">
-            <div class="GameSite-link">
-                <a class="GameSite-link--heading" href="<?= base_url('store'); ?>"><?= $this->lang->line('shop'); ?></a>
-            </div>
-            <!-- cat -->
-            <div class="Breadcrumbs">
-                <span class="Breadcrumb">
-                    <a class="Breadcrumb-content">
-                        <i class="fa fa-cart-plus" aria-hidden="true"></i> <?=$this->lang->line('cart');?>
-                    </a>
-                </span>
-            </div>
-            <div class="User-menu">
-                <!-- right -->
-                <span class="Breadcrumb">
-                    <a class="Breadcrumb-content">
-                        <!-- logged -->
-                        <?php if ($this->m_data->isLogged()) { ?>
-                            <!-- credits -->
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="<?=$this->lang->line('panel_dp');?>" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            |
-                            <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="<?=$this->lang->line('panel_vp');?>" width="20px" height="20px" uk-tooltip="pos: bottom"><span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span>
-                            <!-- credits -->
-                        <?php } ?>
-                        <!-- logged -->
-                    </a>
-                </span>
-                <!-- right -->
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
-    </div>
-    <!-- submenu -->
-    <br><br><br>
+<div class="Pane Pane--adaptiveHg Pane--adaptiveSpaceLarge Home-storiesPane">
+    <div class="Pane-content">
     <div role="main">
         <section class="Scm-content">
         <form action="" method="post" accept-charset="utf-8">
@@ -129,8 +60,7 @@
            </form>
         </section>
     </div>
-
-
+</div>
 
 <?php if (isset($_POST['buyNowGetItem'])) {
     $charselect = $_POST['charSelects'];
