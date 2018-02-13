@@ -9,6 +9,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
     <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app-article.css">
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
     <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
 
@@ -19,6 +20,9 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/font-awesome/css/font-awesome.min.css">
+
+    <!-- Discord -->
+    <link rel="stylesheet" href="<?= base_url(); ?>core/discord/discord.css">
 
     <!-- Wowhead -->
     <script>var whTooltips = {colorLinks: true, iconizeLinks: false, renameLinks: false};</script>
