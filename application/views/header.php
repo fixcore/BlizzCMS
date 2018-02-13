@@ -35,9 +35,5 @@
 <body class="en-us <?= $this->config->item('theme_name'); ?> glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
     <!-- header -->
     <?php $this->load->view('general/icons'); ?>
-    </div>
-    </div>
-    </div>
-    <!-- submenu -->
     <div class="Page-container">
         <div class="Page-content en-US">

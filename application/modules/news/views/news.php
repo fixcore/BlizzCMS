@@ -50,9 +50,9 @@
             </div>
             <div class="Pane Pane--full Pane--innerBorderTop">
                 <div style="background-color:transparent" class="Pane-background"></div>
-                <div style="" class="Pane-content">
+                <div class="Pane-content">
                     <div class="Pane Pane--adaptive Pane--flush" id="recent-articles-pane">
-                        <div style="" class="Pane-content">
+                        <div class="Pane-content">
                             <div class="space-adaptive-medium"></div>
                             <div id="recent-articles-container">
                                 <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('news_recent_list'); ?></h2>
@@ -92,3 +92,4 @@
                 </div>
             </div>
         </div>
+    </div>

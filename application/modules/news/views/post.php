@@ -1,5 +1,5 @@
             <div class="Pane Pane--adaptive Pane--flush">
-                <div style="" class="Pane-content">
+                <div class="Pane-content">
                     <div class="space-adaptive-medium"></div>
                     <div class="space-adaptive-large hide show-sm"></div>
                     <div id="article-detail-container">
@@ -74,7 +74,7 @@
                                                 <h1 class="TopicForm-heading"><i class="fa fa-comments-o" aria-hidden="true"></i> <?= $this->lang->line('forum_comment_header'); ?></h1>
                                             </header>
                                             <div class="TopicForm-content">
-                                                <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;: 207424185944}">
+                                                <aside class="TopicForm-author" data-topic-form="{&quot;userId&quot;:207424185944}">
                                                     <div class="Author" id="" data-topic-post-body-content="true">
                                                         <a href="" class="Author-avatar hasNoProfile">
                                                             <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
@@ -121,11 +121,11 @@
                                                 <div class="TopicPost-content">
                                                     <aside class="TopicPost-author">
                                                         <div class="Author-block">
-                                                        <?php if($this->m_data->getRank($commentss->author) > 0) { ?>
+                                                            <?php if($this->m_data->getRank($commentss->author) > 0) { ?>
                                                             <div class="Author Author--blizzard" id="" data-topic-post-body-content="true">
-                                                        <?php } else { ?>
+                                                            <?php } else { ?>
                                                             <div class="Author" id="" data-topic-post-body-content="true">
-                                                        <?php } ?>
+                                                            <?php } ?>
                                                                 <a href="" class="Author-avatar hasNoProfile">
                                                                     <?php if($this->m_general->getUserInfoGeneral($commentss->author)->num_rows()) { ?>
                                                                         <img src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($commentss->author)); ?>" alt="" />
@@ -219,3 +219,4 @@
                 </div>
             </div>
         </div>
+    </div>

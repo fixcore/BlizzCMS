@@ -1,4 +1,3 @@
-    <!-- footer -->
     <div class="Pane Pane--full Pane--backgroundTop Pane--innerBorderTop" id="Page-footer">
         <div style="" class="Pane-content">
             <div data-region-selection="none" data-region="eu" data-locale="en-us" class="NavbarFooter is-regionless">

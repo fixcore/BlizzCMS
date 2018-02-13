@@ -5,8 +5,8 @@
 } ?>
             <div style="" class="HeroPane HeroPane--large HeroPane--adaptive">
                 <div class="HeroPane-content">
+                    <div class="space-huge hide show-sm"></div>
                     <div class="align-center">
-                        <div class="space-large hide show-sm"></div>
                         <a href="">
                             <?php if($this->m_general->getUserInfoGeneral($idlink)->num_rows()) { ?>
                                 <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($idlink)); ?>" width="120" height="120" alt="" />
