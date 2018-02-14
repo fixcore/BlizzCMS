@@ -52,7 +52,7 @@
                     <div class="uk-card uk-card-default uk-card-small">
                         <div class="uk-card-header uk-card-secondary">
                             <div class="uk-grid uk-grid-small">
-                                <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom"><span data-uk-icon="icon: user"></span> <?= $this->lang->line('panel_admin_char_manage'); ?> - <?= $this->m_general->getNameCharacterSpecifyGuid($multiRealm, $idlink); ?></h4></div>
+                                <div class="uk-width-auto"><h4 class="uk-margin-remove-bottom"><span data-uk-icon="icon: user"></span> <?= $this->lang->line('panel_admin_char_manage'); ?> - <?= $this->m_characters->getNameCharacterSpecifyGuid($multiRealm, $idlink); ?></h4></div>
                                 <div class="uk-width-expand uk-text-right">
                                     <a href="#" class="uk-icon-link uk-margin-small-right" data-uk-icon="icon: info"></a>
                                 </div>
@@ -102,7 +102,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <?php if($this->m_general->getCharBanSpecifyGuid($idlink, $multiRealm)->num_rows()) { ?>
+                                <?php if($this->m_characters->getCharBanSpecifyGuid($idlink, $multiRealm)->num_rows()) { ?>
                                     <div>
                                         <div class="uk-card uk-card-default">
                                             <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><span data-uk-icon="icon: cog"></span> <?= $this->lang->line('panel_admin_unban_char'); ?></div>
