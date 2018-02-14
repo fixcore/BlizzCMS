@@ -86,6 +86,24 @@ class M_characters extends CI_Model {
                 ->row('online');
     }
 
+    public function getCharRace($id, $multirealm)
+    {
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('race')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row('race');
+    }
+
+    public function getCharClass($id, $multirealm)
+    {
+        $this->multirealm = $multirealm;
+        return $this->multirealm->select('class')
+                ->where('guid', $id)
+                ->get('characters')
+                ->row('class');
+    }
+
     public function getCharactersOnlineAlliance($multiRealm)
     {
         $this->multiRealm = $multiRealm;

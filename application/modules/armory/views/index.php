@@ -14,13 +14,13 @@
                                         <!-- left -->
                                             <div class="uk-position-small uk-position-center-left uk-overlay uk-position-absolute">
                                                 <div class="uk-column-1-3">
-                                                    <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="100" height="100" alt="Border circle">
+                                                    <img class="uk-border-circle" src="<?= base_url('assets/images/races/'.$this->m_general->getRaceIcon($this->m_characters->getCharRace($idplayer, $this->m_data->getRealmConnectionData($idrealm), $idplayer)));?>" width="100" height="100" alt="Border circle">
 
                                                     <span class="uk-text-middle">
                                                         <p class="uk-text-capitalize uk-text-bold"><?= $nameplayer ?></p>
-                                                        <p>GUERRERO</p>
-                                                        <p>DRAENEI</p>
-                                                        <p>NIVEL 90</p>
+                                                        <p><?= $this->m_general->getRaceName($this->m_characters->getCharRace($idplayer, $this->m_data->getRealmConnectionData($idrealm), $idplayer)); ?></p>
+                                                        <p><?= $this->m_general->getNameClass($this->m_characters->getCharClass($idplayer, $this->m_data->getRealmConnectionData($idrealm), $idplayer)); ?></p>
+                                                        <p><?= $this->lang->line('column_level'); ?> <?= $this->m_characters->getCharLevel($idplayer, $this->m_data->getRealmConnectionData($idrealm), $idplayer); ?></p>
                                                     </span>
                                                 </div>
                                             </div>
