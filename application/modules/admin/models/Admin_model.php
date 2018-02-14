@@ -1141,4 +1141,12 @@ class Admin_model extends CI_Model {
         $fileHandle = explode(";", $fileHandle);
         return str_replace('"', "", $fileHandle[0]);
     }
+
+    public function delSpecifyRealm($id)
+    {
+        $this->db->where('id', $id)
+                ->delete('fx_realms');
+                
+        redirect(base_url('admin/settings'),'refresh');
+    }
 }
