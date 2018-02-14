@@ -390,30 +390,6 @@ class M_general extends CI_Model {
         }
     }
 
-    public function getCharactersOnlineAlliance($multiRealm)
-    {
-        $this->multiRealm = $multiRealm;
-        $races = array('1','3','4','7','11','22','25');
-
-        return $this->multiRealm->select('guid')
-                ->where_in('race', $races)
-                ->where('online', '1')
-                ->get('characters')
-                ->num_rows();
-    }
-
-    public function getCharactersOnlineHorde($multiRealm)
-    {
-        $this->multiRealm = $multiRealm;
-        $races = array('2','5','6','8','10','9','26');
-
-        return $this->multiRealm->select('guid')
-                ->where_in('race', $races)
-                ->where('online', '1')
-                ->get('characters')
-                ->num_rows();
-    }
-
     public function getFaction($race)
     {
         switch ($race)
