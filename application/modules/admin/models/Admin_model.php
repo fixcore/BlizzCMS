@@ -359,7 +359,7 @@ class Admin_model extends CI_Model {
 
     public function insertCustomizeChar($id, $multirealm, $idrealm)
     {
-        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+        if ($this->m_characters->getCharActive($id, $multirealm) == '1')
             redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
@@ -464,7 +464,7 @@ class Admin_model extends CI_Model {
 
     public function insertChangeFactionChar($id, $multirealm, $idrealm)
     {
-        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+        if ($this->m_characters->getCharActive($id, $multirealm) == '1')
             redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
@@ -489,7 +489,7 @@ class Admin_model extends CI_Model {
 
     public function insertChangeRaceChar($id, $multirealm, $idrealm)
     {
-        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+        if ($this->m_characters->getCharActive($id, $multirealm) == '1')
             redirect(base_url().'admin/managecharacter/'.$id.'/'.$idrealm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
@@ -535,14 +535,14 @@ class Admin_model extends CI_Model {
 
     public function insertCharRename($id, $name, $multirealm, $realm)
     {
-        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+        if ($this->m_characters->getCharActive($id, $multirealm) == '1')
             redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm.'?char','refresh');
 
-        if ($this->m_general->getCharNameAlreadyExist($name, $multirealm)->num_rows())
+        if ($this->m_characters->getCharNameAlreadyExist($name, $multirealm)->num_rows())
             redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm.'?name','refresh');
 
         $date 		= $this->m_data->getTimestamp();
-        $annotation = $this->lang->line('char_newname').' -> '.$name.' | '.$this->lang->line('char_oldname').' -> '.$this->m_general->getCharName($id, $multirealm);
+        $annotation = $this->lang->line('char_newname').' -> '.$name.' | '.$this->lang->line('char_oldname').' -> '.$this->m_characters->getCharName($id, $multirealm);
 
         $data = array(
                 'idchar' => $id,
@@ -563,11 +563,11 @@ class Admin_model extends CI_Model {
 
     public function insertChangeLevelChar($id, $level, $multirealm, $realm)
     {
-        if ($this->m_general->getCharActive($id, $multirealm) == '1')
+        if ($this->m_characters->getCharActive($id, $multirealm) == '1')
             redirect(base_url().'admin/managecharacter/'.$id.'/'.$realm.'?char','refresh');
 
         $date 		= $this->m_data->getTimestamp();
-        $annotation = $this->lang->line('char_newlevel').' -> '.$level.' | '.$this->lang->line('char_oldlevel').' -> '.$this->m_general->getCharLevel($id, $multirealm);
+        $annotation = $this->lang->line('char_newlevel').' -> '.$level.' | '.$this->lang->line('char_oldlevel').' -> '.$this->m_characters->getCharLevel($id, $multirealm);
 
         $data = array(
                 'idchar' => $id,

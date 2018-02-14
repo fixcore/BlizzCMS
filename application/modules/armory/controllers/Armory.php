@@ -23,13 +23,32 @@ class Armory extends MX_Controller {
         $this->load->model('armory_model');
     }
 
-    public function index()
+    public function player($idplayer, $nameplayer, $idrealm)
     {
-        //echo "<pre>"; var_dump($xml); echo "</pre>";
-        echo $xml->item->htmlTooltip[0];
-        die();
+        if(is_null($idplayer) || $idplayer == '' ||
+            is_null($nameplayer) || $nameplayer == '' ||
+            is_null($idrealm) || $idrealm == '' ||
+            is_null($idrealm) || $idrealm == '')
 
-        $data['fxtitle'] = $this->lang->line('nav_armory');
+        redirect(base_url('armory'),'refresh');
+
+        if(!$this->m_data->getRealm($idrealm)->num_rows())
+            redirect(base_url('armory'),'refresh');
+
+        if($this->m_characters->getNameCharacterSpecifyGuid($this->m_data->getRealmConnectionData($idrealm), $idplayer) != $nameplayer)
+            redirect(base_url('armory'),'refresh');
+
+        if($this->m_characters->getGuidCharacterSpecifyName($this->m_data->getRealmConnectionData($idrealm), $nameplayer) != $idplayer)
+            redirect(base_url('armory'),'refresh');
+            
+
+        $data = array(
+            'fxtitle' => $this->lang->line('nav_armory'),
+            'idplayer' => $idplayer,
+            'nameplayer' => $nameplayer,
+            'idrealm' => $idrealm,
+        );
+
 
         $this->load->view('header', $data);
         $this->load->view('index');

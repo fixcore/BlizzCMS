@@ -99,7 +99,7 @@ class Admin extends MX_Controller {
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->m_general->getAccountExist($id)->num_rows() < 1)
+        if ($this->m_data->getAccountExist($id)->num_rows() < 1)
             redirect(base_url(),'refresh');
 
         $data['idlink'] = $id;
@@ -121,7 +121,7 @@ class Admin extends MX_Controller {
             $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
         }
 
-        if (!$this->m_general->getGeneralCharactersSpecifyGuid($id, $multiRealm)->num_rows())
+        if (!$this->m_characters->getGeneralCharactersSpecifyGuid($id, $multiRealm)->num_rows())
             redirect(base_url(),'refresh');
 
         $data['idlink'] = $id;

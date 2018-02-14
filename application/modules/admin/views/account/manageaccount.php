@@ -78,7 +78,7 @@
                                         <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_rank_account'); ?></div>
                                         <div class="uk-card-body">
                                             <form action="" method="post">
-                                                <?php if($this->m_general->getGmSpecify($idlink)->num_rows()) { ?>
+                                                <?php if($this->m_data->getGmSpecify($idlink)->num_rows()) { ?>
                                                     <div class="uk-margin">
                                                         <div class="uk-form-controls">
                                                             <button class="uk-button uk-button-primary uk-width-1-1" name="button_RemoveRankACCWeb" type="submit"><i class="fa fa-user-times" aria-hidden="true"></i> <?= $this->lang->line('button_re_grant_account'); ?></button>
@@ -201,7 +201,7 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm, $idlink)->result() as $chars) { ?>
+                                                    <?php foreach($this->m_characters->getGeneralCharactersSpecifyAcc($multiRealm, $idlink)->result() as $chars) { ?>
                                                         <tr>
                                                             <td>
                                                                 <a href="<?= base_url(); ?>admin/managecharacter/<?= $chars->guid ?>/<?= $charsMultiRealm->id ?>"><?= $chars->guid ?></a>
