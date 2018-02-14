@@ -104,6 +104,17 @@ class M_general extends CI_Model {
                 ->row_array()['name'];
     }
 
+    public function getXML($url)
+    {
+        return simplexml_load_file($url);
+    }
+
+    public function getWowHeadIconName($id)
+    {
+        $xml = $this->m_general->getXML("http://www.wowhead.com/item=".$id."&xml");
+        return $xml->item->icon[0];
+    }
+
     public function getCharLevel($id, $multirealm)
     {
         $this->multirealm = $multirealm;
