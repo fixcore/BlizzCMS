@@ -39,4 +39,13 @@ $lang['nav_changelogs'] = 'Changelogs';
 $lang['nav_pvp_statistics'] = 'Estadísticas PvP';
 $lang['nav_arena_statistics'] = 'Estadísticas de Arena';
 
+$lang['nav_login'] = 'Iniciar sesión';
+$lang['nav_register'] = 'Registrar';
+$lang['nav_profile'] = 'Perfil';
+$lang['nav_ticket'] = 'Ticket';
+$lang['nav_messages'] = 'Mensajes';
+$lang['nav_home'] = 'Inicio';
+$lang['nav_donate'] = 'Donar';
+$lang['nav_armory'] = 'Armería';
+
 $lang['nav_account'] = 'Mi Cuenta';
