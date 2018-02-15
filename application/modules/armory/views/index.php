@@ -32,52 +32,52 @@
                         </div>
                     </div>
                 </article>
-
+                <h1 class="uk-text-white"><?= $this->m_general->getRealmName($idrealm); ?></h1>
                 <hr class="uk-divider-icon">
                 <!-- content -->
                 <div class="row">
                     <div class="col-md-4">
                         <div class="row">
                             <div class="col-md-2 text-center">
-                                                                    
-                                <a rel="item=51247">
+                                
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHead($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                                     <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_helmet_169.jpg" />
-                                </a>
+                                </a>                  
                                     <div class="fx-gap"></div>
                                                                     
-                                <a href="http://db.wowlatinoamerica.com/?item=50182" target="_blank" rel="item=50182">
-                                    <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_jewelcrafting_crimsonspinel_02.jpg">
-                                </a>
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvNeck($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_jewelcrafting_crimsonspinel_02.jpg" />
+                                </a> 
                                     <div class="fx-gap"></div>
                                                                     
-                                <a href="http://db.wowlatinoamerica.com/?item=51245" target="_blank" rel="item=51245">
-                                    <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_misc_questionmark.jpg">
-                                </a>
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvShoulders($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg" />
+                                </a> 
                                     <div class="fx-gap"></div>
                                                                     
-                                <a href="http://db.wowlatinoamerica.com/?item=52019" target="_blank" rel="item=52019">
-                                    <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_misc_ribbon_01.jpg">
-                                </a>
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBody($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                </a> 
                                     <div class="fx-gap"></div>
-                                                                    
-                                <a href="http://db.wowlatinoamerica.com/?item=51249" target="_blank" rel="item=51249">
-                                    <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_chest_mail_15.jpg">
-                                </a>
+
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvChest($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                </a> 
                                     <div class="fx-gap"></div>
-                                                                                                                                                                                
-                                <a href="http://db.wowlatinoamerica.com/?item=50687" target="_blank" rel="item=50687">
-                                    <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_bracer_60.jpg">
-                                </a>
+
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWrists($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                </a> 
                                     <div class="fx-gap"></div>
-                                                                                                                                                                                                                                                        
-                                <a href="http://db.wowlatinoamerica.com/?item=50468" target="_blank" rel="item=50468">
-                                    <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_misc_cape_16.jpg">
-                                </a>
+
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBack($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                </a> 
                                     <div class="fx-gap"></div>
-                                                                                                                                                                                
-                                <a href="http://db.wowlatinoamerica.com/?item=52252" target="_blank" rel="item=52252">
-                                    <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shirt_guildtabard_01.jpg">
-                                </a>
+
+                                <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTabard($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                    <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                </a> 
                                     <div class="fx-gap"></div>
                             </div>
                             
@@ -90,59 +90,60 @@
                                 <div class="fx-gap-3"></div>
                                 <div class="row">
                                     <div class="col-md-12 text-center">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_mace_99.jpg" style="margin: 10px">
-                                            
-                                            <a href="http://db.wowlatinoamerica.com/?item=50616" target="_blank" rel="item=50616">
-                                                <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shield_72.jpg" style="margin: 10px">
-                                            </a>
-                                            
-                                            <a href="http://db.wowlatinoamerica.com/?item=50464" target="_blank" rel="item=50464">
-                                                <img src="https://www.wowlatinoamerica.com/assets/icons/medium/spell_frost_summonwaterelemental.jpg" style="margin: 10px">
-                                            </a>
+                                        <a href="http://db.wowlatinoamerica.com/?item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvMainHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" target="_blank" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvMainHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                            <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shield_72.jpg" style="margin: 10px">
+                                        </a>
+
+                                        <a href="http://db.wowlatinoamerica.com/?item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvOffHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" target="_blank" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvOffHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                            <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shield_72.jpg" style="margin: 10px">
+                                        </a>
+
+                                        <a href="http://db.wowlatinoamerica.com/?item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvRanged($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" target="_blank" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvRanged($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                            <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shield_72.jpg" style="margin: 10px">
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-2 text-center">
-                                                                                                                                                                                                                                                        
-                                    <a href="http://db.wowlatinoamerica.com/?item=50671" target="_blank" rel="item=50671">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_belt_83.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
-                                                                    
-                                    <a href="http://db.wowlatinoamerica.com/?item=51246" target="_blank" rel="item=51246">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_kilt_mail_01.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
-                                                                    
-                                    <a href="http://db.wowlatinoamerica.com/?item=49896" target="_blank" rel="item=49896">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_boots_mail_10.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
-                                                                                                        
-                                    <a href="http://db.wowlatinoamerica.com/?item=50703" target="_blank" rel="item=50703">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_gauntlets_104.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
-                                                                    
-                                    <a href="http://db.wowlatinoamerica.com/?item=50610" target="_blank" rel="item=50610">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/item_icecrownringb.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
-                                                                    
-                                    <a href="http://db.wowlatinoamerica.com/?item=50400" target="_blank" rel="item=50400">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_jewelry_ring_85.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
-                                                                    
-                                    <a href="http://db.wowlatinoamerica.com/?item=54588" target="_blank" rel="item=54588">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_misc_questionmark.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
-                                                                    
-                                    <a href="http://db.wowlatinoamerica.com/?item=54589" target="_blank" rel="item=54589">
-                                        <img src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_misc_questionmark.jpg">
-                                    </a>
-                                    <div class="fx-gap"></div>
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWaist($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
+
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvLegs($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
+
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFeet($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
+
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHands($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
+
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerOne($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
+
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
+
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketOne($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
+
+                                    <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                                        <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                                    </a> 
+                                        <div class="fx-gap"></div>
                             </div>
                         </div>
 
@@ -152,21 +153,15 @@
                     <div class="col-md-2"></div>
 
                     <div class="col-md-5 offset-1">
-                        <h3 class="nk-decorated-h-2"><span>Especialización</span></h3>
-                        <p>
-                            Rama de talentos 0 / 0 / 0
-                        </p>
-
-                        <div class="fx-gap"></div>
-                        <h3 class="nk-decorated-h-2"><span>Jugador <span class="text-main-1">vs</span> Jugador</span></h3>
+                        <h3 class="nk-decorated-h-2 uk-text-white"><?= $this->lang->line('playervsplayer'); ?></h3>
                         <div class="row">
                             <div class="col-md-6" style="margin-top: 10px">
                                 <img src=" https://www.wowlatinoamerica.com/assets/images/icons/faction-0-banner.jpg " width="35" class="nk-btn-rounded" alt="" style="margin-right: 10px;">
-                                <span><span class="text-white">Total Muertes </span> 643</span>
+                                <span><span class="uk-text-white">Total Muertes </span> 643</span>
                             </div>
                             <div class="col-md-6" style="margin-top: 10px">
                                 <img src=" https://www.wowlatinoamerica.com/assets/images/icons/faction-0-banner.jpg " width="35" class="nk-btn-rounded" alt="" style="margin-right: 10px;">
-                                <span><span class="text-white">Total Hoy </span> 0</span>
+                                <span><span class="uk-text-white">Total Hoy </span> 0</span>
                             </div>
                         </div>
 
@@ -175,7 +170,7 @@
                         <div class="row">
                                                                                                         <div class="col-md-6" style="margin-top: 10px">
                                 <img src="https://www.wowlatinoamerica.com/assets/images/skills/sastreria.jpg" class="nk-btn-rounded" alt="" width="35" style="margin-right: 10px;">
-                                <span><span class="text-white">Sastrería </span> 426 / 450</span>
+                                <span><span class="uk-text-white">Sastrería </span> 426 / 450</span>
                             </div>
                                                                         </div>
 

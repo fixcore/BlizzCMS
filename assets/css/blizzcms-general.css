@@ -7039,3 +7039,11 @@ body[data-device=desktop] .Tooltip-overlay .Tooltip-close:hover{color:#fff}
 .fx-gap-6 {
     height: 110px;
 }
+
+.uk-text-white {
+  color: #FFFFFF !important;
+}
+
+.uk-text-bone {
+  color: #D2D2D2 !important;
+}
