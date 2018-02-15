@@ -176,6 +176,14 @@ class M_modules extends CI_Model {
                 ->row('status');
     }
 
+    public function getVote()
+    {
+        return $this->db->select('status')
+                ->where('id', '22')
+                ->get('fx_modules')
+                ->row('status');
+    }
+
     public function insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, $red = '')
     {
         $data = array(
