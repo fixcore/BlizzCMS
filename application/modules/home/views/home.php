@@ -10,7 +10,7 @@
                                     <div class="uk-panel">
                                         <div class="uk-position-center-left">
                                             <h2 uk-slider-parallax="y: -400,0; x: 150,0;"><?= $slides->title ?></h2>
-                                            <p uk-slider-parallax="y: -400,0; x: 150,0;">Lorem ipsum dolor sit amet.</p>
+                                            <!-- <p uk-slider-parallax="y: -400,0; x: 150,0;">Lorem ipsum dolor sit amet.</p> -->
                                         </div>
                                     </div>
                                 </li>
