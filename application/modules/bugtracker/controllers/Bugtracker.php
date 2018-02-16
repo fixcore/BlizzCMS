@@ -61,6 +61,7 @@ class Bugtracker extends MX_Controller {
         $this->load->view('header', $data);
         $this->load->view('index', $data);
         $this->load->view('footer');
+        $this->load->view('modal');
     }
 
     public function post($id)

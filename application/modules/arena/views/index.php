@@ -1,16 +1,20 @@
-            <div class="space-adaptive-medium"></div>
-            <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
-                $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
-            ?>
-                <div class="container">
-                    <div class="space-adaptive-small"></div>
-                    <h2 class="h5 flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><i class="ra ra-arena"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></h2>
-                    <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><?=$this->lang->line('nav_arena_statistics');?></h4>
-                    <div class="space-adaptive-small"></div>
-                    <!-- 2v2 -->
-                    <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-danger"><?=$this->lang->line('arena_top_2v2');?></span></h4>
+    <header id="top-head">
+        <?php $this->load->view('general/menu'); ?>
+    </header>
+    <br>
+    <div class="uk-container uk-container-expand">
+        <div class="uk-space-xlarge"></div>
+        <div class="uk-grid uk-grid-large" data-uk-grid>
+            <div class="uk-width-1-6@l"></div>
+            <div class="uk-width-4-6@l">
+                <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
+                    $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
+                ?>
+                    <div class="uk-principal-title" style="color: #fff;"><i class="ra ra-arena"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></div>
+                    <p class="uk-text-uppercase uk-text-bold" style="color: #fff;"><?=$this->lang->line('nav_arena_statistics');?></p>
                     <table class="uk-table uk-table-responsive uk-table-divider">
                         <thead>
+                            <span class="uk-label uk-text-bold uk-label-danger"><?=$this->lang->line('arena_top_2v2');?></span>
                             <tr>
                                 <th class="uk-width-small" style="color: #fff;"><i class="fa fa-sitemap" aria-hidden="true"></i> <?=$this->lang->line('column_team_name');?></th>
                                 <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-users" aria-hidden="true"></i> <?=$this->lang->line('column_members');?></th>
@@ -33,12 +37,10 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <!-- 2v2 -->
-                    <div class="space-adaptive-small"></div>
-                    <!-- 3v3 -->
-                    <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-warning"><?=$this->lang->line('arena_top_3v3');?></span></h4>
+                    <div class="uk-space-small"></div>
                     <table class="uk-table uk-table-responsive uk-table-divider">
                         <thead>
+                            <span class="uk-label uk-text-bold uk-label-warning"><?=$this->lang->line('arena_top_3v3');?></span>
                             <tr>
                                 <th class="uk-width-small" style="color: #fff;"><i class="fa fa-sitemap" aria-hidden="true"></i> <?=$this->lang->line('column_team_name');?></th>
                                 <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-users" aria-hidden="true"></i> <?=$this->lang->line('column_members');?></th>
@@ -61,12 +63,10 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <!-- 3v3 -->
-                    <div class="space-adaptive-small"></div>
-                    <!-- 5v5 -->
-                    <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-success"><?=$this->lang->line('arena_top_5v5');?></span></h4>
+                    <div class="uk-space-small"></div>
                     <table class="uk-table uk-table-responsive uk-table-divider">
                         <thead>
+                            <span class="uk-label uk-text-bold uk-label-success"><?=$this->lang->line('arena_top_5v5');?></span>
                             <tr>
                                 <th class="uk-width-small" style="color: #fff;"><i class="fa fa-sitemap" aria-hidden="true"></i> <?=$this->lang->line('column_team_name');?></th>
                                 <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-users" aria-hidden="true"></i> <?=$this->lang->line('column_members');?></th>
@@ -89,8 +89,7 @@
                             <?php } ?>
                         </tbody>
                     </table>
-                    <!-- 5v5 -->
-                </div>
-            <?php } ?>
+                <?php } ?>
+            </div>
+            <div class="uk-width-1-6@l"></div>
         </div>
-    </div>

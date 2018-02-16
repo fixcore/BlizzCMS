@@ -48,6 +48,7 @@ class Forum extends MX_Controller {
         $this->load->view('header', $data);;
         $this->load->view('category', $data);
         $this->load->view('footer');
+        $this->load->view('modal');
     }
 
     public function topic($id)
@@ -66,6 +67,7 @@ class Forum extends MX_Controller {
         $this->load->view('header', $data);
         $this->load->view('topic', $data);
         $this->load->view('footer');
+        $this->load->view('modal');
     }
 
     public function newTopic($idlink)
