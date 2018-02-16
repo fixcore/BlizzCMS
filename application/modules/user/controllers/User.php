@@ -179,6 +179,7 @@ class User extends MX_Controller {
         $this->load->view('header', $data);
         $this->load->view('panel');
         $this->load->view('footer');
+        $this->load->view('modal');
     }
 
     public function profile($id)
@@ -200,5 +201,6 @@ class User extends MX_Controller {
         $this->load->view('header', $data);
         $this->load->view('profile', $data);
         $this->load->view('footer');
+        $this->load->view('modal');
     }
 }

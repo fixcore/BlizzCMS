@@ -1,92 +1,63 @@
-            <div class="Pane Pane--adaptive Pane--flush">
-                <div style="" class="Pane-content">
-                    <div class="space-adaptive-medium"></div>
-                    <div class="space-adaptive-large hide show-sm"></div>
-                    <div id="article-detail-container">
-                        <?php if($this->changelogs_model->getAll()->num_rows()) { ?>
-                            <div id="article-detail">
-                                <article data-id='' data-title="" class="ArticleDetail">
-                                    <div class="ArticleDetail-heading">
-                                        <div class="ArticleDetail-headingBlock">
-                                            <div class="Heading Heading--articleSubheading ArticleDetail-community flush-top"><i class="fa fa-spinner fa-pulse fa-fw"></i> <?= $this->lang->line('changelogs_recent_article'); ?></div>
-                                            <h1 class="Heading Heading--articleHeadline ArticleDetail-title" style="color: #fff;"><i class="fa fa-wrench" aria-hidden="true"></i> <?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></h1>
-                                            <div class="Heading Heading--articleByline flush-bottom">
-                                                <div class="ArticleDetail-subHeadingContainer">
-                                                    <div class="ArticleDetail-subHeadingLeft">
-                                                        <span class="ArticleDetail-bylineBy">
-                                                            <span itemprop="author" class="ArticleDetail-bylineAuthor text-identity"><?= $this->lang->line('news_article_published'); ?></span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="ArticleDetail-subHeadingRight">
-                                                        <span class="ArticleDetail-bylineDate"><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="space-large"></div>
-                                        </div>
-                                        <div class="ArticleDetail-headingImageBlock">
-                                            <div class="Image">
-                                                <img src="<?= base_url(); ?>assets/images/changelogs/default.jpg" alt="" class="Image-image"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="ResponsiveBlogs">
-                                        <div class="ArticleDetail-content">
-                                            <p><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
-                                        </div>
-                                    </div>
-                                    <div class="space-adaptive-medium"></div>
-                                </article>
+    <header id="top-head">
+        <?php $this->load->view('general/menu'); ?>
+    </header>
+    <br>
+    <div class="uk-container uk-container-expand">
+        <div class="uk-space-xlarge"></div>
+        <?php if($this->changelogs_model->getAll()->num_rows()) { ?>
+            <div class="uk-grid uk-grid-large" data-uk-grid>
+                <div class="uk-width-1-6@l"></div>
+                <div class="uk-width-4-6@l">
+                    <div class="uk-h3 uk-text-uppercase" style="color: #fff;"><i class="fa fa-spinner fa-pulse fa-fw"></i> <?= $this->lang->line('changelogs_recent_article'); ?></div>
+                    <div class="Divider Divider--light"></div>
+                    <div class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin uk-animation-fade" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container uk-overflow-hidden">
+                            <img src="<?= base_url(); ?>assets/images/changelogs/default.jpg" alt="" uk-cover>
+                            <canvas width="50" height="50"></canvas>
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title uk-text-uppercase uk-text-break"><?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></h3>
+                                <p class="uk-text-truncate uk-text-break"><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
+                                <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
                             </div>
-                            <div id="article-sidebar">
-                                <div class="ArticleSidebar hide show-md">
-                                    <div class="ArticleSidebar-inner">
-                                        <div data-wheel="true" class="Scrollable ArticleSidebar-scrollable">
-                                            <div class="Scrollable-scrollbar scrollbar">
-                                                <div class="Scrollable-track track">
-                                                    <div class="Scrollable-thumb thumb">
-                                                        <div class="Scrollable-end end"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="Scrollable-viewport viewport">
-                                                <div class="Scrollable-overview overview">
-                                                    <div class="ArticleSidebar-content">
-                                                        <?php foreach($this->changelogs_model->getChangelogs()->result() as $changelogsList) { ?>
-                                                            <div data-id='<?= $changelogsList->id ?>' class="ArticleSidebarItem">
-                                                                <a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" data-external="false" data-article-id='' data-analytics="<?= $changelogsList->id ?> - <?= $changelogsList->title ?>" class="ArticleLink ArticleSidebarItem-link">
-                                                                    <div style="background-image:url(<?= base_url(); ?>assets/images/changelogs/default.jpg)" class="ArticleSidebarItem-image"></div>
-                                                                    <div class="ArticleSidebarItem-text">
-                                                                        <div class="ArticleSidebarItem-subtitle">
-                                                                            <div class="ArticleSidebarItem-subtitleLeft">
-                                                                                <div class="ArticleSidebarItem-community"><i class="fa fa-spinner fa-pulse fa-fw"></i>  <?= $this->lang->line('changelogs_list'); ?></div>
-                                                                            </div>
-                                                                            <div class="ArticleSidebarItem-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $changelogsList->date); ?></div>
-                                                                        </div>
-                                                                        <div class="ArticleSidebarItem-title"><?= $changelogsList->title ?></div>
-                                                                    </div>
-                                                                    <div class="ArticleSidebarItem-progress">
-                                                                        <div class="ArticleSidebarItem-progressBar"></div>
-                                                                    </div>
-                                                                </a>
-                                                            </div>
-                                                        <?php } ?>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } else { ?>
-                            <div class="uk-alert-warning" uk-alert>
-                                <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?= $this->lang->line('changelog_not_found'); ?></p>
-                            </div>
-                            <div class="space-adaptive-small"></div>
-                        <?php } ?>
+                        </div>
                     </div>
-                    <div class="space-adaptive-large"></div>
+                    <div class="uk-h3 uk-text-uppercase uk-text-center" style="color: #fff;"><span uk-icon="icon: cog; ratio: 2"></span> <?= $this->lang->line('changelogs_list'); ?></div>
+                    <div class="uk-space-medium"></div>
+                    <div uk-slider>
+                        <div class="uk-position-relative uk-visible-toggle uk-light">
+                            <ul class="uk-slider-items uk-child-width-1-4@s uk-grid">
+                                <?php foreach($this->changelogs_model->getChangelogs()->result() as $changelogsList) { ?>
+                                    <li>
+                                        <div class="uk-card uk-card-secondary">
+                                            <div class="uk-card-media-top">
+                                                <img src="<?= base_url(); ?>assets/images/changelogs/default.jpg" alt="">
+                                            </div>
+                                            <div class="uk-card-body uk-text-center">
+                                                <h4 class="uk-card-title"><?= $changelogsList->title ?></h4>
+                                                <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $changelogsList->date); ?></p>
+                                                <p><a href="<?= base_url('changelogs/'); ?><?= $changelogsList->id ?>" class="uk-button uk-button-primary uk-width-1-1"><i class="fa fa-eye" aria-hidden="true"></i> <?= $this->lang->line('button_learn_more'); ?></a></p>
+                                            </div>
+                                        </div>
+                                    </li>
+                                <?php } ?>
+                            </ul>
+                            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+                        </div>
+                    </div>
                 </div>
+                <div class="uk-width-1-6@l"></div>
             </div>
-        </div>
-    </div>
+        <?php } else { ?>
+            <div class="uk-grid uk-grid-large" data-uk-grid>
+                <div class="uk-width-1-6@l"></div>
+                <div class="uk-width-4-6@l">
+                    <div class="uk-alert-warning" uk-alert>
+                        <p class="uk-text-center"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?= $this->lang->line('changelog_not_found'); ?></p>
+                    </div>
+                </div>
+                <div class="uk-width-1-6@l"></div>
+            </div>
+        <?php } ?>

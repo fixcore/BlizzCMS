@@ -1,403 +1,224 @@
-                <!-- page loader -->
-                <link href="<?= base_url(); ?>core/pageloader/pace-theme-minimal.tmpl.css" rel="stylesheet" />
-                <script src="<?= base_url(); ?>core/pageloader/pace.min.js"></script>
-                <!-- page loader -->
-                <div class="Navbar-overlay"></div>
-                <div class="Navbar-container">
-                    <nav class="Navbar-mobile">
-                        <div class="Navbar-mobileOverlay Navbar-overlay"></div>
-                        <a data-target="Navbar-siteMenu" data-site-mode="true" class="Navbar-menu Navbar-modalToggle is-noSelect">
-                            <div class="Navbar-icon Navbar-mobileIcon Navbar-siteMenuIcon">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" focusable="false"><use xlink:href="#Navbar-icon-menu"></use></svg>
-                            </div>
-                        </a>
-                        <a href="<?= base_url(); ?>" class="Navbar-logo" data-analytics="global-nav" data-analytics-placement="Nav - Blizzard.com Icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 151.15 68.46" focusable="false"><use xlink:href="#Navbar-logo-blizzard"></use></svg>
-                        </a>
-                        <a href="#" class="Navbar-customLogo"><img src="#"/></a>
-                        <div class="Navbar-profileItems">
-                            <a data-target="Navbar-accountModal" class="Navbar-account Navbar-modalToggle is-noSelect">
-                                <div class="Navbar-icon Navbar-mobileIcon Navbar-profileIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" focusable="false"><use xlink:href="#Navbar-icon-profile"></use></svg>
-                                </div>
-                            </a>
-                        </div>
-                    </nav>
-                    <nav class="Navbar-desktop">
-                        <div class="Navbar-desktopOverlay Navbar-overlay"></div>
-                        <div class="Navbar-collapsedItems is-hidden">
-                            <a data-target="Navbar-siteMenu" class="Navbar-menu Navbar-item Navbar-link Navbar-modalToggle is-noSelect">
-                                <div class="Navbar-icon Navbar-collapsedIcon Navbar-siteMenuIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" focusable="false"><use xlink:href="#Navbar-icon-menu"></use></svg>
-                                </div>
-                                <div class="Navbar-label"><?= $this->lang->line('nav_menu'); ?></div>
-                            </a>
-                        </div>
-                        <div class="Navbar-items">
-                            <!-- logo START -->
-                            <a href="<?= base_url(); ?>" class="Navbar-item Navbar-link is-noSelect" data-index='2' data-name="<?= $this->config->item('ProjectName'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->config->item('ProjectName'); ?>">
-                                <h3 class="Project-logo"><?= $this->config->item('ProjectName'); ?></h3>
-                            </a>
-                            <!-- logo END -->
-                            <a class="Navbar-item Navbar-modalToggle is-noSelect Navbar-games" data-index='0' data-name="<?= $this->lang->line('nav_menu'); ?>" data-target="Navbar-gamesDropdown">
-                                <div class="Navbar-label"><?= $this->lang->line('nav_menu'); ?></div>
-                                <div class="Navbar-icon Navbar-dropdownIcon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-dropdown"></use></svg>
-                                </div>
-                            </a>
-                            <?php if($this->m_modules->getStatusNews() == '1') { ?>
-                                <a href="<?= base_url('news'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('nav_news'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_news'); ?>">
-                                    <div class="Navbar-label"><?= $this->lang->line('nav_news'); ?></div>
-                                </a>
-                            <?php } ?>
-                            <?php if($this->m_modules->getStatusForums() == '1') { ?>
-                                <a href="<?= base_url('forums'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-news" data-index='2' data-name="<?= $this->lang->line('nav_forums'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_forums'); ?>">
-                                    <div class="Navbar-label"><?= $this->lang->line('nav_forums'); ?></div>
-                                </a>
-                            <?php } ?>
-                            <?php if($this->m_modules->getStatusStore() == '1') { ?>
-                                <a href="<?= base_url('store'); ?>" class="Navbar-item Navbar-link is-noSelect Navbar-shop" data-index='1' data-name="<?= $this->lang->line('nav_store'); ?>" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_store'); ?>">
-                                    <div class="Navbar-label"><?= $this->lang->line('nav_store'); ?></div>
-                                </a>
-                            <?php } ?>
-                        </div>
-                        <div class="Navbar-profileItems">
-                            <?php if ($this->m_data->isLogged()) { ?>
-                                <!-- message -->
-                                <?php if ($this->m_modules->getMessages() == '1') { ?>
-                                    <?php $this->load->model('messages/messages_model'); ?>
-                                    <a href="<?= base_url('message'); ?>">
-                                        <i class="fa fa-commenting-o" aria-hidden="true"></i> 
-                                        <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
-                                    </a>
-                                    <span style="display:inline-block; width: 4px;"></span>
-                                <?php } ?>
-                                <!-- message -->
-                                <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
-                                    <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
-                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="30" height="30" style="position: absolute; top: 16px;" alt="">
-                                    </a>
-                                <?php } else { ?>
-                                    <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
-                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="30" height="30" style="position: absolute; top: 16px;" alt="">
-                                    </a>
-                                <?php } ?>
-                                <span style="display:inline-block; width: 4px;"></span>
-                                <a data-target="Navbar-accountDropdown" data-name="account" class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect">
-                                    <div class="Navbar-icon Navbar-employeeIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-blizz"></use></svg>
-                                    </div>
-                                    <div class="Navbar-label Navbar-accountUnauthenticated">
-                                        <?= $this->session->userdata('fx_sess_username'); ?>
-                                    </div>
-                                    <div class="Navbar-icon Navbar-dropdownIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-dropdown"></use></svg>
-                                    </div>
-                                </a>
-                            <?php } else { ?>
-                                <a data-target="Navbar-accountDropdown" data-name="account" class="Navbar-account Navbar-item Navbar-modalToggle is-noSelect">
-                                    <div class="Navbar-icon Navbar-employeeIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-blizz"></use></svg>
-                                    </div>
-                                    <div class="Navbar-label">
-                                        <i class="fa fa-user" aria-hidden="true"></i> <?= $this->lang->line('nav_account'); ?>
-                                    </div>
-                                    <div class="Navbar-icon Navbar-dropdownIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-dropdown"></use></svg>
-                                    </div>
-                                </a>
-                            <?php } ?>
-                        </div>
-                    </nav>
-                </div>
-                <div class="Navbar-modals">
-                    <div data-toggle="games" class="Navbar-modal Navbar-dropdown Navbar-gamesDropdown is-full">
-                        <div class="Navbar-tick">
-                            <div class="Navbar-tickInner"></div>
-                        </div>
-                        <div class="Navbar-modalContent">
-                            <div class="Navbar-gamePublishers Navbar-columns8 Navbar-modalSection is-full is-center">
-                                <div data-publisher="<?= $this->config->item('ProjectName'); ?>" class="Navbar-gamePublisher Navbar-columns7">
-                                    <div class="Navbar-gamePublisherLabel animation-delay-9"><?= $this->lang->line('nav_more'); ?></div>
-                                    <nav class="Navbar-gameLogos">
-                                        <div class="Navbar-gameLogoBlock Navbar-columns3 Navbar-imagePanel">
+        <!-- Page loader -->
+        <link href="<?= base_url(); ?>core/pageloader/pace-theme-minimal.tmpl.css" rel="stylesheet" />
+        <script src="<?= base_url(); ?>core/pageloader/pace.min.js"></script>
+        <div class="uk-position-top uk-width-1-1">
+            <div class="uk-navbar-container uk-navbar-transparent">
+                <div class="uk-container uk-container-expand">
+                    <nav class="uk-navbar" uk-navbar>
+                        <div class="uk-navbar-left">
+                            <a href="<?= base_url(); ?>" class="uk-navbar-item uk-logo Project-logo uk-margin-small-right" width="28" height="34" style="font-family:'Lobster';font-size:30px;color: #fff;"><?= $this->config->item('ProjectName'); ?></a>
+                            <ul class="uk-navbar-nav uk-visible@m">
+                                <li>
+                                    <a href="#" style="color: #fff;"><?= $this->lang->line('nav_menu'); ?></a>
+                                    <div class="uk-navbar-dropdown">
+                                        <ul class="uk-nav uk-navbar-dropdown-nav">
                                             <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
-                                                <a href="<?= base_url('bugtracker'); ?>" class="Navbar-gameLogo animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_bugtracker'); ?>">
-                                                    <img src="<?= base_url(); ?>assets/images/menu/logo-wow.png" alt="" class="Navbar-gameLogoImage"/>
-                                                    <div class="Navbar-gameLogoLabel"><?= $this->lang->line('nav_bugtracker'); ?></div>
-                                                </a>
+                                                <li><a href="<?= base_url('bugtracker'); ?>"><i class="ra ra-book"></i> <?= $this->lang->line('nav_bugtracker'); ?></a></li>
                                             <?php } ?>
                                             <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
-                                                <a href="<?= base_url('changelogs'); ?>" class="Navbar-gameLogo animation-delay-2" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_changelogs'); ?>">
-                                                    <img src="<?= base_url(); ?>assets/images/menu/logo-wow.png" alt="" class="Navbar-gameLogoImage"/>
-                                                    <div class="Navbar-gameLogoLabel"><?= $this->lang->line('nav_changelogs'); ?></div>
-                                                </a>
+                                                <li><a href="<?= base_url('changelogs'); ?>"><i class="ra ra-clockwork"></i> <?= $this->lang->line('nav_changelogs'); ?></a></li>
                                             <?php } ?>
-                                        </div>
-                                    </nav>
-                                    <nav class="Navbar-posters Navbar-imagePanel">
-                                        <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
-                                            <a href="<?= base_url('bugtracker'); ?>" class="Navbar-poster animation-delay-1" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_bugtracker'); ?>">
-                                                <img src="<?= base_url(); ?>assets/images/menu/logo-wow-max.jpg" class="Navbar-posterImage"/>
-                                            </a>
-                                        <?php } ?>
-                                        <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
-                                            <a href="<?= base_url('changelogs'); ?>" class="Navbar-poster animation-delay-2" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_changelogs'); ?>">
-                                                <img src="<?= base_url(); ?>assets/images/menu/logo-wow-max.jpg" class="Navbar-posterImage"/>
-                                            </a>
-                                        <?php } ?>
-                                    </nav>
-                                </div>
-                            </div>
-                            <link rel="stylesheet" type="text/css" href="<?=base_url('core/rpg_awesome/css/rpg-awesome.css')?>">
-                            <nav class="Navbar-modalSection Navbar-dropdownFooter Navbar-gameMenu is-center">
-                                <?php if ($this->m_modules->getStatusLadPVP() == '1') { ?>
-                                    <a href="<?= base_url('pvp'); ?>" class="Navbar-gameMenuItem animation-delay-9" data-analytics="global-nav" data-analytics-placement="Nav - <?=$this->lang->line('nav_pvp_statistics');?>">
-                                        <div class="Navbar-icon Navbar-gameMenuItemIcon"></div>
-                                        <div class="Navbar-gameMenuItemLabel"><i class="ra ra-axe"></i> <?=$this->lang->line('nav_pvp_statistics');?></div>
-                                    </a>
-                                <?php } ?>
-                                <?php if ($this->m_modules->getStatusLadArena() == '1') { ?>
-                                    <a href="<?= base_url('arena'); ?>" class="Navbar-gameMenuItem animation-delay-9" data-analytics="global-nav" data-analytics-placement="Nav - <?=$this->lang->line('nav_arena_statistics');?>">
-                                        <div class="Navbar-icon Navbar-gameMenuItemIcon"></div>
-                                        <div class="Navbar-gameMenuItemLabel"><i class="ra ra-arena"></i> <?=$this->lang->line('nav_arena_statistics');?></div>
-                                    </a>
-                                <?php } ?>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="Navbar-constrained">
-                        <div data-toggle="Navbar-account" class="Navbar-modal Navbar-dropdown Navbar-accountDropdown is-constrained">
-                            <div class="Navbar-tick">
-                                <div class="Navbar-tickInner"></div>
-                            </div>
-                            <div class="Navbar-modalContent">
-                                <?php if (!$this->m_data->isLogged()) { ?>
-                                    <div class="Navbar-accountDropdownLoggedOut">
-                                        <?php if($this->m_modules->getStatusLogin() == '1') { ?>
-                                            <div class="Navbar-modalSection">
-                                                <a href="<?= base_url(); ?>login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('button_login'); ?>">
-                                                    <button class="Navbar-button is-full"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></button>
-                                                </a>
-                                            </div>
-                                        <?php } ?>
-                                        <?php if($this->m_modules->getStatusRegister() == '1') { ?>
-                                            <a href="<?= base_url('register'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('button_account_create'); ?>">
-                                                <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-account-add"></use></svg>
-                                                </div>
-                                                <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_account_create'); ?></div>
-                                            </a>
-                                        <?php } ?>
-                                    </div>
-                                <?php } ?>
-                                <?php if ($this->m_data->isLogged()) { ?>
-                                    <div class="Navbar-accountDropdownLoggedOut">
-                                        <div class="Navbar-modalSection">
-                                            <div class="Navbar-accountDropdownProfileInfo uk-text-center">
-                                                <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
-                                                    <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
-                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="60" height="60" alt="">
-                                                    <?php } else { ?>
-                                                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="60" height="60" alt="">
-                                                    <?php } ?>
-                                                </a>
-                                                <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
-                                                <?php if($this->m_modules->getStatusUCP() == '1') { ?>
-                                                    <a href="<?= base_url('panel'); ?>">
-                                                        <button class="Navbar-button is-full"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('button_user_panel'); ?></button>
-                                                    </a>
-                                                <?php } ?>
-                                            </div>
-                                        </div>
-                                        <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
-                                            <a href="<?= base_url('admin'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('button_admin_panel'); ?>">
-                                                <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-settings"></use></svg>
-                                                </div>
-                                                <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_admin_panel'); ?></div>
-                                            </a>
-                                        <?php } ?>
-                                        <?php if($this->m_modules->getStatusGifts() == '1') { ?>
-                                            <a href="<?= base_url('user/gifts'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownGifts" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('button_gifts'); ?>">
-                                                <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-gifts"></use></svg>
-                                                </div>
-                                                <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_gifts'); ?></div>
-                                            </a>
-                                        <?php } ?>
-
-                                        <script>
-                                            $(document).ready(function() {
-                                                $("#fx_logout").click(function(e)
-                                                {
-                                                    e.preventDefault();
-                                                    $.ajax({
-                                                        url: '<?= base_url('user/logout') ?>',
-                                                        cache: false,
-                                                        success:function(data)
-                                                        {
-                                                            location.reload();
-                                                        }
-                                                    });
-                                                });
-                                            });
-                                        </script>
-
-                                        <a href="#" id="fx_logout" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account_out'); ?>">
-                                            <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-logout"></use></svg>
-                                            </div>
-                                            <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_logout'); ?></div>
-                                        </a>
-                                    </div>
-                                <?php } ?>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="Navbar-modal Navbar-accountModal is-animated is-scroll-blocking">
-                        <div class="Navbar-modalContent">
-                            <div class="Navbar-mobileModalHeader"></div>
-                            <a href="#" class="Navbar-logo Navbar-mobileModalLogo" data-analytics="global-nav" data-analytics-placement="Nav - Blizzard.com Icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 151.15 68.46" focusable="false"><use xlink:href="#Navbar-logo-blizzard"></use></svg>
-                            </a>
-                            <?php if (!$this->m_data->isLogged()) { ?>
-                                <div class="Navbar-accountDropdownLoggedOut">
-                                    <?php if($this->m_modules->getStatusLogin() == '1') { ?>
-                                        <div class="Navbar-modalSection">
-                                            <a href="<?= base_url(); ?>login" class="Navbar-accountDropdownButtonLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('button_login'); ?>">
-                                                <button class="Navbar-button is-full"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></button>
-                                            </a>
-                                        </div>
-                                    <?php } ?>
-                                    <?php if($this->m_modules->getStatusRegister() == '1') { ?>
-                                        <a href="<?= base_url('register'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account'); ?> - <?= $this->lang->line('button_account_create'); ?>">
-                                            <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-account-add"></use></svg>
-                                            </div>
-                                            <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_account_create'); ?></div>
-                                        </a>
-                                    <?php } ?>
-                                </div>
-                            <?php } ?>
-                            <?php if ($this->m_data->isLogged()) { ?>
-                                <div class="Navbar-accountDropdownLoggedOut">
-                                    <div class="Navbar-modalSection">
-                                        <div class="Navbar-accountDropdownProfileInfo uk-text-center">
-                                            <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
-                                                <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
-                                                    <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="40" height="40" alt="">
-                                                <?php } else { ?>
-                                                    <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="40" height="40" alt="">
-                                                <?php } ?>
-                                            </a>
-                                            <div class="Navbar-accountDropdownBattleTag"><?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?></div>
-                                            <?php if($this->m_modules->getStatusUCP() == '1') { ?>
-                                                <a href="<?= base_url('panel'); ?>">
-                                                    <button class="Navbar-button is-full"><i class="fa fa-user-circle-o" aria-hidden="true"></i> User Panel</button>
-                                                </a>
-                                            <?php } ?>
-                                        </div>
-                                    </div>
-                                    <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
-                                        <a href="<?= base_url('admin'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownSettings" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('button_admin_panel'); ?>">
-                                            <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-settings"></use></svg>
-                                            </div>
-                                            <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_admin_panel'); ?></div>
-                                        </a>
-                                    <?php } ?>
-                                    <?php if($this->m_modules->getStatusGifts() == '1') { ?>
-                                        <a href="<?= base_url('user/gifts'); ?>" class="Navbar-accountDropdownLink Navbar-accountDropdownGifts" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('button_gifts'); ?>">
-                                            <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-gifts"></use></svg>
-                                            </div>
-                                            <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_gifts'); ?></div>
-                                        </a>
-                                    <?php } ?>
-                                    <a href="<?= base_url('logout'); ?>" class="Navbar-accountDropdownLink" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('account_out'); ?>">
-                                        <div class="Navbar-icon Navbar-accountDropdownLinkIcon">
-                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-logout"></use></svg>
-                                        </div>
-                                        <div class="Navbar-accountDropdownLinkLabel"><?= $this->lang->line('button_logout'); ?></div>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                            <div class="Navbar-icon Navbar-modalClose">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-close"></use></svg>
-                            </div>
-                        </div>
-                        <div class="Navbar-modalCloseGutter"></div>
-                    </div>
-                    <div data-default-mode="true" data-simple-mode="true" class="Navbar-modal Navbar-siteMenu is-animated is-scroll-blocking is-top">
-                        <div class="Navbar-modalContent">
-                            <a href="<?= base_url(); ?>" class="Navbar-logo Navbar-mobileModalLogo" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->config->item('ProjectName'); ?> Icon"></a>
-                            <a href="<?= base_url(); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - Home">
-                                <div class="Navbar-modalLinkLabel">Home</div>
-                            </a>
-                            <div data-name="games" class="Navbar-expandable Navbar-gamesExpandable">
-                                <div class="Navbar-expandableToggle">
-                                    <div class="Navbar-expandableLabel"><?= $this->lang->line('nav_menu'); ?></div>
-                                    <div class="Navbar-icon Navbar-expandableIcon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-dropdown"></use></svg>
-                                    </div>
-                                </div>
-                                <div class="Navbar-expandableContainer">
-                                    <div class="Navbar-expandableContent">
-                                        <nav class="Navbar-expandableList Navbar-gameList">
-                                            <div data-publisher="blizzard" class="Navbar-gamePublisher">
-                                                <div class="Navbar-gamePublisherLabel"><?= $this->lang->line('nav_more'); ?></div>
-                                                <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
-                                                    <a href="<?= base_url('bugtracker'); ?>" class="Navbar-expandableItem" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_bugtracker'); ?>">
-                                                        <img src="<?= base_url(); ?>assets/images/menu/logo-mobile-wow.png" alt="" class="Navbar-expandableItemImage"/>
-                                                        <div class="Navbar-expandableItemLabel"><?= $this->lang->line('nav_bugtracker'); ?></div>
-                                                    </a>
-                                                <?php } ?>
-                                                <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
-                                                    <a href="<?= base_url('changelogs'); ?>" class="Navbar-expandableItem" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_changelogs'); ?>">
-                                                        <img src="<?= base_url(); ?>assets/images/menu/logo-mobile-wow.png" alt="" class="Navbar-expandableItemImage"/>
-                                                        <div class="Navbar-expandableItemLabel"><?= $this->lang->line('nav_changelogs'); ?></div>
-                                                    </a>
-                                                <?php } ?>
-                                            </div>
+                                            <li class="uk-nav-divider"></li>
                                             <?php if ($this->m_modules->getStatusLadPVP() == '1') { ?>
-                                                <a href="<?= base_url('pvp'); ?>" class="Navbar-expandableItem Navbar-expandableSpecialItem" data-analytics="global-nav" data-analytics-placement="Nav - <?=$this->lang->line('nav_pvp_statistics');?>">
-                                                    <div class="Navbar-icon Navbar-expandableItemIcon"></div>
-                                                    <div class="Navbar-expandableItemLabel"><i class="ra ra-axe"></i> <?=$this->lang->line('nav_pvp_statistics');?></div>
-                                                </a>
+                                                <li><a href="<?= base_url('pvp'); ?>"><i class="ra ra-axe"></i> <?=$this->lang->line('nav_pvp_statistics');?></a></li>
                                             <?php } ?>
                                             <?php if ($this->m_modules->getStatusLadArena() == '1') { ?>
-                                                <a href="<?= base_url('arena'); ?>" class="Navbar-expandableItem Navbar-expandableSpecialItem" data-analytics="global-nav" data-analytics-placement="Nav - <?=$this->lang->line('nav_arena_statistics');?>">
-                                                    <div class="Navbar-icon Navbar-expandableItemIcon"></div>
-                                                    <div class="Navbar-expandableItemLabel"><i class="ra ra-arena"></i> <?=$this->lang->line('nav_arena_statistics');?></div>
-                                                </a>
+                                                <li><a href="<?= base_url('arena'); ?>"><i class="ra ra-arena"></i> <?=$this->lang->line('nav_arena_statistics');?></a></li>
                                             <?php } ?>
-                                        </nav>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <?php if($this->m_modules->getStatusNews() == '1') { ?>
+                                    <li><a href="<?= base_url('news'); ?>" style="color: #fff;"><?= $this->lang->line('nav_news'); ?></a></li>
+                                <?php } ?>
+                                <?php if($this->m_modules->getStatusForums() == '1') { ?>
+                                    <li><a href="<?= base_url('forums'); ?>" style="color: #fff;"><?= $this->lang->line('nav_forums'); ?></a></li>
+                                <?php } ?>
+                                <?php if($this->m_modules->getStatusStore() == '1') { ?>
+                                    <li><a href="<?= base_url('store'); ?>" style="color: #fff;"><?= $this->lang->line('nav_store'); ?></a></li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                        <div class="uk-navbar-right">
+                            <ul class="uk-navbar-nav uk-visible@m">
+                                <?php if (!$this->m_data->isLogged()) { ?>
+                                    <li><a href="#desk" style="color: #fff;" uk-toggle><span uk-icon="icon: user"></span><?= $this->lang->line('nav_account'); ?></a></li>
+                                <?php } ?>
+                                <?php if ($this->m_data->isLogged()) { ?>
+                                    <?php if ($this->m_modules->getMessages() == '1') { ?>
+                                        <li>
+                                            <?php $this->load->model('messages/messages_model'); ?>
+                                            <a href="<?= base_url('message'); ?>" style="color: #fff;" uk-tooltip="title: <?= $this->lang->line('nav_messages'); ?>; pos: left">
+                                                <span uk-icon="icon: commenting"></span>
+                                                <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
+                                            </a>
+                                        </li>
+                                    <?php } ?>
+                                    <li><a href="#desk" style="color: #fff;" uk-toggle><span uk-icon="icon: user"></span></a></li>
+                                <?php } ?>
+                            </ul>
+                            <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#mobile" uk-toggle></a>
+                            <div class="uk-offcanvas-content">
+                                <div id="desk" uk-offcanvas="flip: true">
+                                    <div class="uk-offcanvas-bar">
+                                        <button class="uk-offcanvas-close" type="button" uk-close></button>
+                                        <div class="uk-panel">
+                                            <ul class="uk-nav uk-nav-default">
+                                                <li class="uk-nav-header uk-text-center"><span uk-icon="icon: user"></span><?= $this->lang->line('nav_account'); ?></li>
+                                                <li class="uk-nav-divider"></li>
+                                                <?php if (!$this->m_data->isLogged()) { ?>
+                                                    <?php if($this->m_modules->getStatusLogin() == '1') { ?>
+                                                        <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small" style="color: #fff;"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
+                                                    <?php } ?>
+                                                    <?php if($this->m_modules->getStatusRegister() == '1') { ?>
+                                                        <li class="uk-text-center"><a href="<?= base_url('register'); ?>"><span uk-icon="icon: plus-circle"></span> <?= $this->lang->line('button_account_create'); ?></a></li>
+                                                    <?php } ?>
+                                                <?php } ?>
+                                                <?php if ($this->m_data->isLogged()) { ?>
+                                                    <li class="uk-text-center">
+                                                        <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                                                            <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
+                                                                <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="60" height="60" alt="" uk-tooltip="title: Profile; pos: right">
+                                                            <?php } else { ?>
+                                                                <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="60" height="60" alt="" uk-tooltip="title: Profile; pos: right">
+                                                            <?php } ?>
+                                                        </a>
+                                                        <?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?>
+                                                        <?php if($this->m_modules->getStatusUCP() == '1') { ?>
+                                                            <a href="<?= base_url('panel'); ?>">
+                                                                <button class="uk-button uk-button-primary"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('button_user_panel'); ?></button>
+                                                            </a>
+                                                        <?php } ?>
+                                                    </li>
+                                                    <li class="uk-nav-divider"></li>
+                                                    <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
+                                                        <li><a href="<?= base_url('admin'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_admin_panel'); ?></a></li>
+                                                    <?php } ?>
+                                                    <?php if($this->m_modules->getStatusGifts() == '1') { ?>
+                                                        <li><a href="<?= base_url('user/gifts'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_gifts'); ?></a></li>
+                                                    <?php } ?>
+                                                    <script>
+                                                        $(document).ready(function() {
+                                                            $("#fx_logout").click(function(e) {
+                                                                e.preventDefault();
+                                                                $.ajax({
+                                                                    url: '<?= base_url('user/logout') ?>',
+                                                                    cache: false,
+                                                                    success:function(data) {
+                                                                        location.reload();
+                                                                    }
+                                                                });
+                                                            });
+                                                        });
+                                                    </script>
+                                                    <li><a href="#" id="fx_logout"><span uk-icon="icon: sign-out"></span> <?= $this->lang->line('button_logout'); ?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <?php if($this->m_modules->getStatusNews() == '1') { ?>
-                                <a href="<?= base_url('news'); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_news'); ?>">
-                                    <div class="Navbar-modalLinkLabel"><?= $this->lang->line('nav_news'); ?></div>
-                                </a>
-                            <?php } ?>
-                            <?php if($this->m_modules->getStatusForums() == '1') { ?>
-                                <a href="<?= base_url('forums'); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_forums'); ?>">
-                                    <div class="Navbar-modalLinkLabel"><?= $this->lang->line('nav_forums'); ?></div>
-                                </a>
-                            <?php } ?>
-                            <?php if($this->m_modules->getStatusStore() == '1') { ?>
-                                <a href="<?= base_url('store'); ?>" class="Navbar-modalLink is-noSelect" data-analytics="global-nav" data-analytics-placement="Nav - <?= $this->lang->line('nav_store'); ?>">
-                                    <div class="Navbar-modalLinkLabel"><?= $this->lang->line('nav_store'); ?></div>
-                                </a>
-                            <?php } ?>
-                            <div class="Navbar-modalClose Navbar-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 64 64" focusable="false"><use xlink:href="#Navbar-icon-close"></use></svg>
+                            <div class="uk-offcanvas-content">
+                                <div id="mobile" uk-offcanvas="flip: true;">
+                                    <div class="uk-offcanvas-bar">
+                                        <div class="uk-panel">
+                                            <ul class="uk-nav uk-nav-default">
+                                                <li class="uk-nav-header uk-text-center"><span uk-icon="icon: user"></span><?= $this->lang->line('nav_account'); ?></li>
+                                                <li class="uk-nav-divider"></li>
+                                                <?php if (!$this->m_data->isLogged()) { ?>
+                                                    <?php if($this->m_modules->getStatusLogin() == '1') { ?>
+                                                        <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small" style="color: #fff;"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
+                                                    <?php } ?>
+                                                    <?php if($this->m_modules->getStatusRegister() == '1') { ?>
+                                                        <li class="uk-text-center"><a href="<?= base_url('register'); ?>"><span uk-icon="icon: plus-circle"></span> <?= $this->lang->line('button_account_create'); ?></a></li>
+                                                    <?php } ?>
+                                                <?php } ?>
+                                                <?php if ($this->m_data->isLogged()) { ?>
+                                                    <li class="uk-text-center">
+                                                        <a href="<?= base_url('profile/'.$this->session->userdata('fx_sess_id')); ?>">
+                                                            <?php if($this->m_general->getUserInfoGeneral($this->session->userdata('fx_sess_id'))->num_rows()) { ?>
+                                                                <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($this->session->userdata('fx_sess_id'))); ?>" width="60" height="60" alt="" uk-tooltip="title: Profile; pos: right">
+                                                            <?php } else { ?>
+                                                                <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="60" height="60" alt="" uk-tooltip="title: Profile; pos: right">
+                                                            <?php } ?>
+                                                        </a>
+                                                        <?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?>
+                                                        <?php if($this->m_modules->getStatusUCP() == '1') { ?>
+                                                            <a href="<?= base_url('panel'); ?>">
+                                                                <button class="uk-button uk-button-primary"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('button_user_panel'); ?></button>
+                                                            </a>
+                                                        <?php } ?>
+                                                    </li>
+                                                    <li class="uk-nav-divider"></li>
+                                                    <?php if ($this->m_modules->getMessages() == '1') { ?>
+                                                        <li>
+                                                            <?php $this->load->model('messages/messages_model'); ?>
+                                                            <a href="<?= base_url('message'); ?>">
+                                                                <span uk-icon="icon: commenting"></span>
+                                                                <?= $this->lang->line('nav_messages'); ?>
+                                                                <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
+                                                            </a>
+                                                        </li>
+                                                    <?php } ?>
+                                                    <li class="uk-nav-divider"></li>
+                                                    <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
+                                                        <li><a href="<?= base_url('admin'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_admin_panel'); ?></a></li>
+                                                    <?php } ?>
+                                                    <?php if($this->m_modules->getStatusGifts() == '1') { ?>
+                                                        <li><a href="<?= base_url('user/gifts'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_gifts'); ?></a></li>
+                                                    <?php } ?>
+                                                    <script>
+                                                        $(document).ready(function() {
+                                                            $("#fx_logout").click(function(e) {
+                                                                e.preventDefault();
+                                                                $.ajax({
+                                                                    url: '<?= base_url('user/logout') ?>',
+                                                                    cache: false,
+                                                                    success:function(data) {
+                                                                        location.reload();
+                                                                    }
+                                                                });
+                                                            });
+                                                        });
+                                                    </script>
+                                                    <li><a href="#" id="fx_logout"><span uk-icon="icon: sign-out"></span> <?= $this->lang->line('button_logout'); ?></a></li>
+                                                <?php } ?>
+                                                <li class="uk-nav-header uk-text-center"><span uk-icon="icon: world"></span>Navigation</li>
+                                                <li class="uk-nav-divider"></li>
+                                                <li class="uk-parent">
+                                                    <a href="#" style="color: #fff;"><?= $this->lang->line('nav_menu'); ?></a>
+                                                    <ul class="uk-nav-sub">
+                                                        <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
+                                                            <li><a href="<?= base_url('bugtracker'); ?>"><i class="ra ra-book"></i> <?= $this->lang->line('nav_bugtracker'); ?></a></li>
+                                                        <?php } ?>
+                                                        <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
+                                                            <li><a href="<?= base_url('changelogs'); ?>"><i class="ra ra-clockwork"></i> <?= $this->lang->line('nav_changelogs'); ?></a></li>
+                                                        <?php } ?>
+                                                        <li class="uk-nav-divider"></li>
+                                                        <?php if ($this->m_modules->getStatusLadPVP() == '1') { ?>
+                                                            <li><a href="<?= base_url('pvp'); ?>"><i class="ra ra-axe"></i> <?=$this->lang->line('nav_pvp_statistics');?></a></li>
+                                                        <?php } ?>
+                                                        <?php if ($this->m_modules->getStatusLadArena() == '1') { ?>
+                                                            <li><a href="<?= base_url('arena'); ?>"><i class="ra ra-arena"></i> <?=$this->lang->line('nav_arena_statistics');?></a></li>
+                                                        <?php } ?>
+                                                    </ul>
+                                                </li>
+                                                <?php if($this->m_modules->getStatusNews() == '1') { ?>
+                                                    <li><a href="<?= base_url('news'); ?>" style="color: #fff;"><?= $this->lang->line('nav_news'); ?></a></li>
+                                                <?php } ?>
+                                                <?php if($this->m_modules->getStatusForums() == '1') { ?>
+                                                    <li><a href="<?= base_url('forums'); ?>" style="color: #fff;"><?= $this->lang->line('nav_forums'); ?></a></li>
+                                                <?php } ?>
+                                                <?php if($this->m_modules->getStatusStore() == '1') { ?>
+                                                    <li><a href="<?= base_url('store'); ?>" style="color: #fff;"><?= $this->lang->line('nav_store'); ?></a></li>
+                                                <?php } ?>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="Navbar-modalCloseGutter"></div>
-                    </div>
+                    </nav>
                 </div>
             </div>
         </div>
-    </div>
