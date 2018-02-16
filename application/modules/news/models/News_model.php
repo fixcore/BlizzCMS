@@ -63,6 +63,14 @@ class News_model extends CI_Model {
                 ->row_array()['description'];
     }
 
+    public function getNewlogDate($id)
+    {
+        return $this->db->select('date')
+                ->where('id', $id)
+                ->get('fx_news')
+                ->row('date');
+    }
+
     public function getCommentCount($id)
     {
         return $this->db->select('id')
