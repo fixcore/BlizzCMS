@@ -6984,3 +6984,66 @@ body[data-device=desktop] .Tooltip-overlay .Tooltip-close:hover{color:#fff}
     word-break: keep-all; }
   .NavbarFooter[data-locale=zh-tw] .Navbar-error {
     font-family: "Open Sans", Arial, Helvetica, "Segoe UI Symbol", "Segoe MDL2 Assets", "微軟正黑", "Microsoft JhengHei", "Tei TC", sans-serif; }
+
+
+.fx-gap,
+.fx-gap-1,
+.fx-gap-2,
+.fx-gap-3,
+.fx-gap-4,
+.fx-gap-5,
+.fx-gap-6 {
+    display: block;
+    height: 15px;
+}
+
+.fx-gap:after, 
+.fx-gap:before,
+.fx-gap-1:after,
+.fx-gap-1:before,
+.fx-gap-2:after,
+.fx-gap-2:before,
+.fx-gap-3:after,
+.fx-gap-3:before,
+.fx-gap-4:after,
+.fx-gap-4:before,
+.fx-gap-5:after,
+.fx-gap-5:before,
+.fx-gap-6:after,
+.fx-gap-6:before {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.fx-gap-1 {
+    height: 20px;
+}
+
+.fx-gap-2 {
+    height: 30px;
+}
+
+.fx-gap-3 {
+    height: 50px;
+}
+
+.fx-gap-4 {
+    height: 70px;
+}
+
+.fx-gap-5 {
+    height: 90px;
+}
+
+.fx-gap-6 {
+    height: 110px;
+}
+
+.uk-text-white {
+  color: #FFFFFF !important;
+}
+
+.uk-text-bone {
+  color: #D2D2D2 !important;
+}

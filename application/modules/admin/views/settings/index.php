@@ -142,7 +142,12 @@
     $soappass = $_POST['soap_pass'];
     $soapport = $_POST['soap_port'];
 
-    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport);
+    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, '1');
+} ?>
+
+<?php if (isset($_POST['button_deleteRealm'])) {
+    $value = $_POST['button_deleteRealm'];
+    $this->admin_model->delSpecifyRealm($value);
 } ?>
 
     <div id="content" data-uk-height-viewport="expand: true">
@@ -519,23 +524,23 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php foreach($this->admin_model->getShopGroupList()->result() as $list) { ?>
+                                    <?php foreach($this->m_data->getRealms()->result() as $realmsID) { ?>
                                         <tr>
                                             <td>
-                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                <input type="text" class="uk-input" value="<?= $realmsID->realmID; ?>" disabled>
                                             </td>
                                             <td>
-                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                <input type="text" class="uk-input" value="<?= $this->m_general->getRealmName($realmsID->realmID); ?>" disabled>
                                             </td>
                                             <td>
-                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                <input type="text" class="uk-input" value="<?= $realmsID->char_database; ?>" disabled>
                                             </td>
                                             <td>
-                                                <input type="text" class="uk-input" value="<?= $list->name; ?>" disabled>
+                                                <input type="text" class="uk-input" value="<?= $realmsID->console_port; ?>" disabled>
                                             </td>
                                             <td class="uk-text-center" uk-margin>
                                                 <form action="" method="post" accept-charset="utf-8">
-                                                    <button class="uk-button uk-button-danger" name="button_deleteRealm" value="<?= $list->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    <button class="uk-button uk-button-danger" name="button_deleteRealm" value="<?= $realmsID->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

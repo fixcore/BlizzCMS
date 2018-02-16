@@ -179,12 +179,12 @@
                                                                 <?php if ($this->m_data->realm_status($charsMultiRealm->realmID, $charsMultiRealm->hostname)) { ?>
                                                                     <span class="uk-label">
                                                                         <span uk-icon="icon: users"></span>
-                                                                        <?= $this->m_general->getCharactersOnlineAlliance($multiRealm); ?>
+                                                                        <?= $this->m_characters->getCharactersOnlineAlliance($multiRealm); ?>
                                                                         <?= $this->lang->line('faction_alliance'); ?>
                                                                     </span>
                                                                     <span class="uk-label uk-label-danger">
                                                                         <span uk-icon="icon: users"></span>
-                                                                        <?= $this->m_general->getCharactersOnlineHorde($multiRealm); ?>
+                                                                        <?= $this->m_characters->getCharactersOnlineHorde($multiRealm); ?>
                                                                         <?= $this->lang->line('faction_horde'); ?>
                                                                     </span>
                                                                     <br>

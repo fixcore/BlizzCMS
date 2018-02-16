@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Panel';
-$lang['admin_settings'] = 'Settings';
+$lang['admin_settings'] = 'Ajustes';
 $lang['admin_users'] = 'Usuarios';
 $lang['admin_users_list'] = 'Lista de Usuarios';
 $lang['admin_chars_list'] = 'Lista de Personajes';

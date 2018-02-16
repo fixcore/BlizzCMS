@@ -19,7 +19,7 @@
                                         <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
                                             $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
                                         ?>
-                                            <?php foreach($this->m_general->getGeneralCharactersSpecifyAcc($multiRealm ,$this->session->userdata('fx_sess_id'))->result() as $listchar) { ?>
+                                            <?php foreach($this->m_characters->getGeneralCharactersSpecifyAcc($multiRealm ,$this->session->userdata('fx_sess_id'))->result() as $listchar) { ?>
                                                 <option value="<?= $charsMultiRealm->realmID ?>|<?= $listchar->guid ?>"><?= $listchar->name ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></option>
                                             <?php } ?>
                                         <?php } ?>

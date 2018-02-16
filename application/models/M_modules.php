@@ -168,7 +168,23 @@ class M_modules extends CI_Model {
                 ->row('status');
     }
 
-    public function insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport)
+    public function getArmory()
+    {
+        return $this->db->select('status')
+                ->where('id', '21')
+                ->get('fx_modules')
+                ->row('status');
+    }
+
+    public function getVote()
+    {
+        return $this->db->select('status')
+                ->where('id', '22')
+                ->get('fx_modules')
+                ->row('status');
+    }
+
+    public function insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, $red = '')
     {
         $data = array(
             'hostname' => $hostname,
@@ -183,5 +199,9 @@ class M_modules extends CI_Model {
         );
 
         $this->db->insert('fx_realms', $data);
+
+        if ($red == '1') {
+            redirect(base_url('admin/settings'),'refresh');
+        }
     }
 }

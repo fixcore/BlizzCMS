@@ -51,6 +51,13 @@ class M_data extends CI_Model {
         return $this->sessionConnect($data);
     }
 
+    public function getGmSpecify($id)
+    {
+        return $this->auth->select('id')
+                ->where('id', $id)
+                ->get('account_access');
+    }
+
     public function getTag($id)
     {
         $this->db = $this->load->database('default', TRUE);
@@ -271,6 +278,18 @@ class M_data extends CI_Model {
                 ->get('fx_realms');
     }
 
+    public function getRealmConnectionData($id)
+    {
+        $data = $this->getRealm($id)->row_array();
+
+        return $this->realmConnection(
+            $data['username'],
+            $data['password'],
+            $data['hostname'],
+            $data['char_database']
+        );
+    }
+
     public function realmConnection($username, $password, $hostname, $database)
     {
         $dsn = 'mysqli://'.
@@ -280,5 +299,12 @@ class M_data extends CI_Model {
             $database.'?char_set=utf8&dbcollat=utf8_general_ci&cache_on=true&cachedir=/path/to/cache';
 
         return $this->load->database($dsn, TRUE);
+    }
+
+    public function getAccountExist($id)
+    {
+        return $this->auth->select('*')
+                ->where('id', $id)
+                ->get('account');
     }
 }
