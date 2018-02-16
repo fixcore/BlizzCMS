@@ -32,10 +32,7 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-general.css">
-    <link rel="stylesheet" href="<?= base_url(); ?>assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('assets/css/blizzcms-template.css') ?>"/>
-    <link rel="stylesheet" type="text/css" media="all" href="<?= base_url('theme/'); ?><?= $this->config->item('theme_name'); ?>/css/<?= $this->config->item('theme_name'); ?>.css"/>
+    <link rel="stylesheet" href="<?= base_url(); ?>core/css/blizzcms-general.css">
 
     <!-- UIkit -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css"/>
@@ -49,7 +46,7 @@
     <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
 </head>
 
-<body class="en-us glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body>
     <div class="Page-container">
         <div class="Page-content en-US">
             <form action="" method="POST" accept-charset="utf-8" autocomplete="off">
