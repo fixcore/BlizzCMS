@@ -122,9 +122,7 @@
     <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../assets/css/blizzcms-general.css">
-    <link rel="stylesheet" href="../assets/css/blizzcms-app.css">
-    <link rel="stylesheet" type="text/css" media="all" href="../assets/css/blizzcms-template.css"/>
+    <link rel="stylesheet" href="../core/css/blizzcms-general.css">
 
     <!-- UIkit -->
     <link rel="stylesheet" href="../core/uikit/css/uikit.min.css"/>
@@ -138,7 +136,7 @@
     <script src="../core/js/jquery-3.3.1.min.js"></script>
 </head>
 
-<body class="en-us glass-header preload" lang="en" data-locale="en-gb" data-device="desktop" data-name="index">
+<body>
     <div class="Page-container">
         <div class="Page-content en-US">
             <form action="" method="POST" accept-charset="utf-8" autocomplete="off">
