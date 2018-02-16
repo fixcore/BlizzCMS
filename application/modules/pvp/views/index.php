@@ -11,21 +11,21 @@
                         <thead>
                             <h4 class="flush-bottom flush-top text-upper text-heavy" style="color: #fff;"><span class="uk-label uk-label-danger"><?=$this->lang->line('pvp_top');?></span></h4>
                             <tr>
-                                <th class="uk-width-small" style="color: #fff;"><i class="fa fa-user" aria-hidden="true"></i> <?=$this->lang->line('column_name');?></th>
-                                <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-flag" aria-hidden="true"></i> <?=$this->lang->line('column_faction');?></th>
-                                <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('column_total_kills');?></th>
-                                <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('column_today_kills');?></th>
-                                <th class="uk-width-small" style="color: #fff; text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('column_yersterday_kills');?></th>
+                                <th class="uk-width-small uk-text-white"><i class="fa fa-user" aria-hidden="true"></i> <?=$this->lang->line('column_name');?></th>
+                                <th class="uk-width-small uk-text-white" style="text-align: center;"><i class="fa fa-flag" aria-hidden="true"></i> <?=$this->lang->line('column_faction');?></th>
+                                <th class="uk-width-small uk-text-white" style="text-align: center;"><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('column_total_kills');?></th>
+                                <th class="uk-width-small uk-text-white" style="text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('column_today_kills');?></th>
+                                <th class="uk-width-small uk-text-white" style="text-align: center;"><i class="fa fa-crosshairs" aria-hidden="true"></i> <?=$this->lang->line('column_yersterday_kills');?></th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php foreach ($this->pvp_model->getTop20PVP($multiRealm)->result() as $tops) { ?>
                                 <tr>
-                                    <td style="color: #fff;"><img class="uk-border-circle" src="<?= base_url('assets/images/races/').$this->m_general->getRaceIcon($tops->race) ?>" title="<?= $tops->name ?>"  width="30px" height="30px" uk-tooltip="pos: bottom"><?= $tops->name ?></td>
+                                    <td class="uk-text-white"><img class="uk-border-circle" src="<?= base_url('assets/images/races/').$this->m_general->getRaceIcon($tops->race) ?>" title="<?= $tops->name ?>"  width="30px" height="30px" uk-tooltip="pos: bottom"><?= $tops->name ?></td>
                                     <td style="text-align: center;"><img class="uk-border-circle" src="<?= base_url(); ?>assets/images/factions/<?= $this->m_general->getFaction($tops->race) ?>.png"></td>
-                                    <td style="color: #fff;text-align: center;"><?= $tops->totalKills ?></td>
-                                    <td style="color: #fff;text-align: center;"><?= $tops->todayKills ?></td>
-                                    <td style="color: #fff;text-align: center;"><?= $tops->yesterdayKills ?></td>
+                                    <td class="uk-text-white" style="text-align: center;"><?= $tops->totalKills ?></td>
+                                    <td class="uk-text-white" style="text-align: center;"><?= $tops->todayKills ?></td>
+                                    <td class="uk-text-white" style="text-align: center;"><?= $tops->yesterdayKills ?></td>
                                 </tr>
                             <?php } ?>
                         </tbody>

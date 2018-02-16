@@ -6,6 +6,7 @@ class M_general extends CI_Model {
     public function __construct()
     {
         parent::__construct();
+        $this->auth = $this->load->database('auth', TRUE);
     }
 
     public function getSpecifyQuestion($id)
