@@ -40,7 +40,7 @@
                             <div>
                                 <div class="uk-card-body">
                                     <h3 class="uk-card-title uk-text-break"><?= $principalNew->title; ?></h3>
-                                    <p class="uk-text-truncate"><?= $principalNew->description; ?></p>
+                                    <p><?= substr(ucfirst(strtolower(strip_tags($principalNew->description))), 0, 260).' ...'; ?></p>
                                 </div>
                             </div>
                         </div>
