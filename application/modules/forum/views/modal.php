@@ -2,7 +2,7 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_new_topic'); ?></h2>
+                <h2 class="uk-modal-title uk-text-uppercase"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_new_topic'); ?></h2>
             </div>
             <form action="<?= base_url('forum/newTopic/'.$idlink); ?>" method="post" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
@@ -57,7 +57,7 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_edit_topic'); ?></h2>
+                <h2 class="uk-modal-title uk-text-uppercase"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('button_edit_topic'); ?></h2>
             </div>
             <form action="" method="post" accept-charset="utf-8">
                 <div class="uk-modal-body">
