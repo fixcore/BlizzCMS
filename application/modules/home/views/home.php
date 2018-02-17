@@ -76,6 +76,15 @@
             <div class="uk-width-1-3@l">
                 <?php if ($this->m_modules->getStatusRealmStatus() == '1') { ?>
                     <p class="uk-h3" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('home_server_status');?></p>
+                    <div class="label uk-text-center">
+                        <h4 style="color: #fff;">
+                            <?php if ($this->m_general->getExpansionAction() == 1) { ?>
+                                <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?>
+                            <?php } else { ?>
+                                <i class="fa fa-gamepad" aria-hidden="true"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"
+                            <?php } ?>
+                        </h4>
+                    </div>
                     <div class="Divider Divider--light"></div>
                     <ul uk-accordion>
                         <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
@@ -118,15 +127,6 @@
                                             </span>
                                         <?php } ?>
                                     </p>
-                                </div>
-                                <div class="label uk-text-center">
-                                    <h4 style="color: #fff;">
-                                        <?php if ($this->m_general->getExpansionAction() == 1) { ?>
-                                            <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?>
-                                        <?php } else { ?>
-                                            <i class="fa fa-gamepad" aria-hidden="true"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"
-                                        <?php } ?>
-                                    </h4>
                                 </div>
                             </li>
                         <?php } ?>
