@@ -36,7 +36,7 @@
                             <div class="uk-card-media-left uk-cover-container">
                                 <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
                                     <img src="<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>" alt="" uk-cover>
-                                    <canvas width="600" height="400"></canvas>
+                                    <canvas width="500" height="250"></canvas>
                                     <div class="uk-transition-slide-bottom uk-overlay uk-overlay-primary">
                                         <p class="uk-text-center"><a href="<?= base_url() ;?>news/<?= $principalNew->id ?>" class="uk-button uk-button-primary"><?= $this->lang->line('button_learn_more'); ?></a></p>
                                     </div>
