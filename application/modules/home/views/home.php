@@ -176,7 +176,7 @@
                                                 <img src="<?= base_url(); ?>assets/images/store/<?= $this->shop_model->getImage($listTopShop->id_shop); ?>" alt="">
                                                 <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
                                                     <p class="uk-h4 uk-margin-remove uk-text-truncate"><?= $this->shop_model->getName($listTopShop->id_shop); ?></p>
-                                                    <p><a href="<?= base_url('store?group='); ?><?= $this->shop_model->getGroup($listTopShop->id_shop); ?>" class="uk-button uk-button-primary uk-button-small"><?= $this->lang->line('button_buy'); ?></a></p>
+                                                    <p><a href="<?= base_url('store/'); ?><?= $this->shop_model->getGroup($listTopShop->id_shop); ?>" class="uk-button uk-button-primary uk-button-small"><?= $this->lang->line('button_buy'); ?></a></p>
                                                 </div>
                                             </div>
                                         </div>
