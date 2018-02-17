@@ -25,7 +25,7 @@
         <?php $this->load->view('general/menu'); ?>
     </header>
     <br>
-    <div class="uk-container uk-container-expand">
+    <div class="uk-container">
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <?php if ($this->m_modules->getStatusNews() == '1') { ?>
                 <div class="uk-width-2-3@l">
@@ -34,8 +34,13 @@
                     <?php foreach ($this->news_model->getNewSpecifyID($this->news_model->getPrincipalNew())->result() as $principalNew) { ?>
                         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                             <div class="uk-card-media-left uk-cover-container">
-                                <img src="<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>" alt="" uk-cover>
-                                <canvas width="600" height="400"></canvas>
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                                    <img src="<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>" alt="" uk-cover>
+                                    <canvas width="600" height="400"></canvas>
+                                    <div class="uk-transition-slide-bottom uk-overlay uk-overlay-primary">
+                                        <p class="uk-text-center"><a href="<?= base_url() ;?>news/<?= $principalNew->id ?>" class="uk-button uk-button-primary"><?= $this->lang->line('button_learn_more'); ?></a></p>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <div class="uk-card-body">

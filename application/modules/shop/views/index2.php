@@ -19,7 +19,7 @@
         <?php $this->load->view('general/menu'); ?>
     </header>
     <br>
-    <div class="uk-container uk-container-expand">
+    <div class="uk-container">
         <div class="uk-space-medium"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-3-5@l">
