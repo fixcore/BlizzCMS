@@ -2,7 +2,7 @@
         <div class="uk-modal-dialog">
             <button class="uk-modal-close-default" type="button" uk-close></button>
             <div class="uk-modal-header">
-                <h2 class="uk-modal-title"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('form_create_bug_report'); ?></h2>
+                <h2 class="uk-modal-title uk-text-uppercase"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('form_create_bug_report'); ?></h2>
             </div>
             <?= form_open(base_url('bugtracker/create')); ?>
                 <div class="uk-modal-body">

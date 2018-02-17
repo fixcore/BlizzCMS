@@ -30,6 +30,13 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function managerealms()
+    {
+        $this->load->view('general/header');
+        $this->load->view('settings/managerealms');
+        $this->load->view('general/footer');
+    }
+
     public function accounts()
     {
         $this->load->view('general/header');
