@@ -42,12 +42,13 @@ class Admin_model extends CI_Model {
                 ->get('fx_shop_groups');
     }
 
-    public function insertChangelog($title, $desc)
+    public function insertChangelog($title, $image, $desc)
     {
         $date = $this->m_data->getTimestamp();
 
         $data = array(
             'title' => $title,
+            'image' => $image,
             'description' => $desc,
             'date' => $date,
         );

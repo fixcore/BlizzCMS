@@ -1,17 +1,27 @@
-<?php if (isset($_POST['button_delChan'])) {
-    $this->admin_model->delChangelog($_POST['button_delChan']);
-} ?>
-
-<?php if(isset($_POST['button_createNew'])) {
-    $desc = $_POST['chang_description'];
-    $title  = $_POST['chang_title'];
-
-    $this->admin_model->insertChangelog($title, $desc);
+<?php if (isset($_POST['button_delChangelog'])) {
+    $this->admin_model->delChangelog($_POST['button_delChangelog']);
 } ?>
 
     <div id="content" data-uk-height-viewport="expand: true">
         <div class="uk-container uk-container-expand">
             <div class="uk-grid uk-grid-medium uk-grid-match" data-uk-grid>
+                <?php if(isset($_POST['button_createChangelog'])) {
+                    $title  = $_POST['chang_title'];
+                    $desc = $_POST['chang_description'];
+                    $image = $_FILES["chang_imageup"];
+
+                    if ($image['type'] == 'image/jpeg')
+                    {
+                        $random = $this->m_data->randomUTF();
+                        $name_img = sha1($image['name'].$random).'.jpg';
+
+                        move_uploaded_file($image["tmp_name"], "./assets/images/changelogs/" . $name_img);
+
+                        $this->admin_model->insertChangelog($title, $name_img, $desc);
+                    }
+                    else
+                        echo '<div class="uk-width-1-1@l uk-width-1-1@xl"><div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('image_upload_error').'</p></div></div>';
+                } ?>
                 <div class="uk-width-1-1@l uk-width-1-1@xl">
                     <div class="uk-card uk-card-default uk-card-small">
                         <div class="uk-card-header uk-card-secondary">
@@ -40,7 +50,7 @@
                                                 <a href="#" class="uk-button uk-button-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <span class="" style="display:inline-block; width: 5px;"></span>
                                                 <form action="" method="post" accept-charset="utf-8" style="display: inline;">
-                                                    <button class="uk-button uk-button-danger" name="button_delChan" value="<?= $changelogs->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    <button class="uk-button uk-button-danger" name="button_delChangelog" value="<?= $changelogs->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -89,10 +99,22 @@
                             </div>
                         </div>
                     </div>
+                    <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_upload_file'); ?></label>
+                        <div class="uk-form-controls">
+                            <div class="uk-inline uk-width-1-1">
+                                <div uk-form-custom="target: true">
+                                    <input type="file" required name="chang_imageup">
+                                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Select file" disabled>
+                                    <button class="uk-button uk-button-default" type="button" tabindex="-1">Select</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="uk-modal-footer uk-text-right actions">
                     <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                    <button class="uk-button uk-button-primary" type="submit" name="button_createNew"><?= $this->lang->line('button_create'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_createChangelog"><?= $this->lang->line('button_create'); ?></button>
                 </div>
             </form>
         </div>
