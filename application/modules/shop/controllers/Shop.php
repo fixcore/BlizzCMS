@@ -85,5 +85,6 @@ class Shop extends MX_Controller {
         $this->load->view('header', $data);
         $this->load->view('ticket');
         $this->load->view('footer');
+        $this->load->view('modal');
     }
 }
