@@ -9,7 +9,23 @@
         $lock = '1'; else $lock = '0';
 
     $this->forum_model->updateTopic($idlink, $title, $description, $lock, $highl);
-}?>
+} ?>
+
+<?php if(isset($_POST['button_addcommentary'])) {
+    $commentary = $_POST['reply_comment'];
+
+    if (!is_null($commentary) && 
+        !empty($commentary) && 
+        $commentary != '' && 
+        $commentary != ' ') {
+            $idsession = $this->session->userdata('fx_sess_id');
+            $this->forum_model->insertComment($commentary, $idlink, $idsession);
+        }
+} ?>
+
+<?php if(isset($_POST['button_removecomment'])) {
+    $this->forum_model->removeComment($_POST['button_removecomment'], $idlink);
+} ?>
 
     <header id="top-head">
         <?php $this->load->view('general/menu'); ?>
@@ -170,9 +186,6 @@
                                             </p>
                                         </form>
                                     </footer>
-                                    <?php if(isset($_POST['button_removecomment'])) {
-                                        $this->forum_model->removeComment($_POST['button_removecomment'], $idlink);
-                                    }?>
                                 <?php } ?>
                             </div>
                         </div>
@@ -196,20 +209,7 @@
                                     </script>
                                     <button class="uk-button uk-button-primary uk-width-1-1" type="submit" name="button_addcommentary" id="submit-button"><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->lang->line('button_add_reply'); ?></button>
                                     <a href="#" class="TopicForm-link--conduct"><?= $this->lang->line('forum_code_conduct'); ?></a>
-
                                 </form>
-
-                                <?php if(isset($_POST['button_addcommentary'])) {
-                                    $commentary = $_POST['reply_comment'];
-
-                                    if (!is_null($commentary) && 
-                                        !empty($commentary) && 
-                                        $commentary != '' && 
-                                        $commentary != ' ') {
-                                            $idsession = $this->session->userdata('fx_sess_id');
-                                            $this->forum_model->insertComment($commentary, $idlink, $idsession);
-                                        }
-                                }?>
                             </div>
                         </div>
                     </div>
