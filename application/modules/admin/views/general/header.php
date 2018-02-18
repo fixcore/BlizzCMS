@@ -73,6 +73,7 @@
                         <ul class="uk-nav-sub">
                             <li><a href="<?= base_url('admin/settings'); ?>"><span class="uk-margin-small-right" data-uk-icon="icon: cog"></span><?= $this->lang->line('admin_website_settings'); ?></a></li>
                             <li><a href="<?= base_url('admin/managerealms'); ?>"><span class="uk-margin-small-right" data-uk-icon="icon: server"></span><?= $this->lang->line('admin_manage_realms'); ?></a></li>
+                            <li><a href="<?= base_url('admin/manageslides'); ?>"><span class="uk-margin-small-right" data-uk-icon="icon: image"></span><?= $this->lang->line('admin_manage_slides'); ?></a></li>
                         </ul>
                     </li>
                     <li class="uk-parent">
