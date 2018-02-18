@@ -16,7 +16,7 @@ class Changelogs_model extends CI_Model {
 
     public function getChangelogs()
     {
-        return $this->db->select('title, id, date')
+        return $this->db->select('id, title, image, date')
                 ->order_by('id', 'DESC')
                 ->limit('20')
                 ->get('fx_changelogs');
@@ -36,6 +36,14 @@ class Changelogs_model extends CI_Model {
                 ->where('id', $id)
                 ->get('fx_changelogs')
                 ->row_array()['title'];
+    }
+
+    public function getChanglogImage($id)
+    {
+        return $this->db->select('image')
+                ->where('id', $id)
+                ->get('fx_changelogs')
+                ->row_array()['image'];
     }
 
     public function getChanglogDate($id)
