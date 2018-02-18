@@ -33,6 +33,7 @@ $lang['admin_dashboard'] = 'Dashboard';
 $lang['admin_settings'] = 'Settings';
 $lang['admin_website_settings'] = 'Website Settings';
 $lang['admin_manage_realms'] = 'Manage Realms';
+$lang['admin_manage_slides'] = 'Manage Slides';
 $lang['admin_users'] = 'Users';
 $lang['admin_users_list'] = 'Users List';
 $lang['admin_chars_list'] = 'Characters List';

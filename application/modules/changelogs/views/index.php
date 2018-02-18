@@ -12,7 +12,7 @@
                     <div class="Divider Divider--light"></div>
                     <div class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin uk-animation-fade" uk-grid>
                         <div class="uk-card-media-left uk-cover-container uk-overflow-hidden">
-                            <img src="<?= base_url(); ?>assets/images/changelogs/default.jpg" alt="" uk-cover>
+                            <img src="<?= base_url(); ?>assets/images/changelogs/<?= $this->changelogs_model->getChanglogImage($this->changelogs_model->getLastID()); ?>" alt="" uk-cover>
                             <canvas width="50" height="50"></canvas>
                         </div>
                         <div>
@@ -32,7 +32,7 @@
                                     <li>
                                         <div class="uk-card uk-card-secondary">
                                             <div class="uk-card-media-top">
-                                                <img src="<?= base_url(); ?>assets/images/changelogs/default.jpg" alt="">
+                                                <img src="<?= base_url(); ?>assets/images/changelogs/<?= $changelogsList->image ?>" alt="">
                                             </div>
                                             <div class="uk-card-body uk-text-center">
                                                 <h4 class="uk-card-title"><?= $changelogsList->title ?></h4>

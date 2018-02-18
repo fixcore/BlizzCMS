@@ -42,12 +42,13 @@ class Admin_model extends CI_Model {
                 ->get('fx_shop_groups');
     }
 
-    public function insertChangelog($title, $desc)
+    public function insertChangelog($title, $image, $desc)
     {
         $date = $this->m_data->getTimestamp();
 
         $data = array(
             'title' => $title,
+            'image' => $image,
             'description' => $desc,
             'date' => $date,
         );
@@ -1148,5 +1149,32 @@ class Admin_model extends CI_Model {
                 ->delete('fx_realms');
                 
         redirect(base_url('admin/settings'),'refresh');
+    }
+
+    public function insertNewSlides($title, $image)
+    {
+        $data = array(
+            'title' => $title,
+            'image' => $image,
+        );
+
+        $this->db->insert('fx_slides', $data);
+
+        redirect(base_url('admin/manageslides'),'refresh');
+    }
+
+    public function delSpecifySlide($id)
+    {
+        $this->db->where('id', $id)
+                ->delete('fx_slides');
+
+        redirect(base_url('admin/manageslides'),'refresh');
+    }
+
+    public function getAdminSlideList()
+    {
+        return $this->db->select('id, title')
+            ->order_by('id', 'ASC')
+            ->get('fx_slides');
     }
 }

@@ -11,7 +11,7 @@
                     <article class="uk-article" style="color: #fff;">
                         <h1 class="uk-article-title" style="color: #fff;"><a class="uk-link-reset" href=""><?= $this->changelogs_model->getChanglogTitle($idlink); ?></a></h1>
                         <p class="uk-article-meta" style="color: #fff;"><?= $this->lang->line('news_article_published'); ?> | <i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($idlink)); ?></p>
-                        <img class="uk-margin-medium-bottom" src="<?= base_url(); ?>assets/images/changelogs/default.jpg" height="300" alt="">
+                        <img class="uk-margin-medium-bottom" src="<?= base_url(); ?>assets/images/changelogs/<?= $this->changelogs_model->getChanglogImage($idlink); ?>" height="300" alt="">
                         <p><?= $this->changelogs_model->getChanglogDesc($idlink); ?></p>
                     </article>
                 <?php } else { ?>

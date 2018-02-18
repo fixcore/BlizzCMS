@@ -37,6 +37,13 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function manageslides()
+    {
+        $this->load->view('general/header');
+        $this->load->view('settings/manageslides');
+        $this->load->view('general/footer');
+    }
+
     public function accounts()
     {
         $this->load->view('general/header');
