@@ -2,7 +2,7 @@
         <?php $this->load->view('general/menu'); ?>
     </header>
     <br>
-    <div class="uk-container uk-container-expand">
+    <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-6@l"></div>
@@ -51,7 +51,7 @@
                                 <div>
                                     <div class="uk-card-body">
                                         <h3 class="uk-card-title uk-text-uppercase uk-text-break"><?= $list->title ?></h3>
-                                        <p class="uk-text-truncate"><?= $list->description ?></p>
+                                        <p><?= substr(ucfirst(strtolower(strip_tags($list->description))), 0, 260).' ...'; ?></p>
                                         <p><i class="fa fa-calendar-o" aria-hidden="true"></i> <?= date('Y-m-d', $list->date); ?></p>
                                     </div>
                                 </div>

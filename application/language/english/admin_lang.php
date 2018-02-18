@@ -31,6 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Dashboard';
 $lang['admin_settings'] = 'Settings';
+$lang['admin_website_settings'] = 'Website Settings';
+$lang['admin_manage_realms'] = 'Manage Realms';
+$lang['admin_manage_slides'] = 'Manage Slides';
 $lang['admin_users'] = 'Users';
 $lang['admin_users_list'] = 'Users List';
 $lang['admin_chars_list'] = 'Characters List';
@@ -91,6 +94,8 @@ $lang['column_level'] = 'Level';
 $lang['column_money'] = 'Money';
 $lang['column_own'] = 'Own';
 $lang['column_action'] = 'Action';
+$lang['column_realm_id'] = 'Realm ID';
+$lang['column_realm_name'] = 'Realm Name';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Create a new Changelog';

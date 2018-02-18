@@ -1,31 +1,27 @@
     <header id="top-head">
         <?php if ($this->m_modules->getStatusSlides() == '1') { ?>
             <?php if ($this->home_model->getSlides()->num_rows()) { ?>
-                <div class="uk-position-relative">
-                    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slider="autoplay: true; autoplay-interval: 5000;">
-                        <ul class="uk-slider-items">
-                            <?php foreach ($this->home_model->getSlides()->result() as $slides) { ?>
-                                <li class="uk-width-1-1">
-                                    <img src="<?= base_url(); ?>assets/images/slides/<?= $slides->image; ?>" alt="">
-                                    <div class="uk-panel">
-                                        <div class="uk-position-center-left">
-                                            <h2 uk-slider-parallax="y: -400,0; x: 150,0;"><?= $slides->title ?></h2>
-                                            <!-- <p uk-slider-parallax="y: -400,0; x: 150,0;">Lorem ipsum dolor sit amet.</p> -->
-                                        </div>
-                                    </div>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                    </div>
+                <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 5000; min-height: 200; max-height: 400;">
+                    <ul class="uk-slideshow-items">
+                        <?php foreach ($this->home_model->getSlides()->result() as $slides) { ?>
+                            <li>
+                                <img src="<?= base_url(); ?>assets/images/slides/<?= $slides->image; ?>" alt="" uk-cover>
+                                <div class="uk-position-center-left uk-position-medium uk-text-center uk-light">
+                                    <h2 class="uk-margin-medium-left"><?= $slides->title ?></h2>
+                                    <!-- <p class="uk-margin-medium-left">Lorem ipsum dolor sit amet.</p> -->
+                                </div>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
                 </div>
             <?php } ?>
         <?php } ?>
         <?php $this->load->view('general/menu'); ?>
     </header>
     <br>
-    <div class="uk-container uk-container-expand">
+    <div class="uk-container">
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <?php if ($this->m_modules->getStatusNews() == '1') { ?>
                 <div class="uk-width-2-3@l">
@@ -34,8 +30,13 @@
                     <?php foreach ($this->news_model->getNewSpecifyID($this->news_model->getPrincipalNew())->result() as $principalNew) { ?>
                         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                             <div class="uk-card-media-left uk-cover-container">
-                                <img src="<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>" alt="" uk-cover>
-                                <canvas width="600" height="400"></canvas>
+                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
+                                    <img src="<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>" alt="" uk-cover>
+                                    <canvas width="500" height="250"></canvas>
+                                    <div class="uk-transition-slide-bottom uk-overlay uk-overlay-primary">
+                                        <p class="uk-text-center"><a href="<?= base_url() ;?>news/<?= $principalNew->id ?>" class="uk-button uk-button-primary"><?= $this->lang->line('button_learn_more'); ?></a></p>
+                                    </div>
+                                </div>
                             </div>
                             <div>
                                 <div class="uk-card-body">
@@ -71,6 +72,15 @@
             <div class="uk-width-1-3@l">
                 <?php if ($this->m_modules->getStatusRealmStatus() == '1') { ?>
                     <p class="uk-h3" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('home_server_status');?></p>
+                    <div class="label uk-text-center">
+                        <h4 style="color: #fff;">
+                            <?php if ($this->m_general->getExpansionAction() == 1) { ?>
+                                <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?>
+                            <?php } else { ?>
+                                <i class="fa fa-gamepad" aria-hidden="true"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"
+                            <?php } ?>
+                        </h4>
+                    </div>
                     <div class="Divider Divider--light"></div>
                     <ul uk-accordion>
                         <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
@@ -113,15 +123,6 @@
                                             </span>
                                         <?php } ?>
                                     </p>
-                                </div>
-                                <div class="label uk-text-center">
-                                    <h4 style="color: #fff;">
-                                        <?php if ($this->m_general->getExpansionAction() == 1) { ?>
-                                            <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?>
-                                        <?php } else { ?>
-                                            <i class="fa fa-gamepad" aria-hidden="true"></i> Set Portal "<?= $this->config->item('realmlist'); ?>"
-                                        <?php } ?>
-                                    </h4>
                                 </div>
                             </li>
                         <?php } ?>
@@ -171,7 +172,7 @@
                                                 <img src="<?= base_url(); ?>assets/images/store/<?= $this->shop_model->getImage($listTopShop->id_shop); ?>" alt="">
                                                 <div class="uk-transition-slide-bottom uk-position-bottom uk-overlay uk-overlay-primary">
                                                     <p class="uk-h4 uk-margin-remove uk-text-truncate"><?= $this->shop_model->getName($listTopShop->id_shop); ?></p>
-                                                    <p><a href="<?= base_url('store?group='); ?><?= $this->shop_model->getGroup($listTopShop->id_shop); ?>" class="uk-button uk-button-primary uk-button-small"><?= $this->lang->line('button_buy'); ?></a></p>
+                                                    <p><a href="<?= base_url('store/'); ?><?= $this->shop_model->getGroup($listTopShop->id_shop); ?>" class="uk-button uk-button-primary uk-button-small"><?= $this->lang->line('button_buy'); ?></a></p>
                                                 </div>
                                             </div>
                                         </div>

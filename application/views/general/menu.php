@@ -3,7 +3,7 @@
         <script src="<?= base_url(); ?>core/pageloader/pace.min.js"></script>
         <div class="uk-position-top uk-width-1-1">
             <div class="uk-navbar-container uk-navbar-transparent">
-                <div class="uk-container uk-container-expand">
+                <div class="uk-container">
                     <nav class="uk-navbar" uk-navbar>
                         <div class="uk-navbar-left">
                             <a href="<?= base_url(); ?>" class="uk-navbar-item uk-logo Project-logo uk-margin-small-right" width="28" height="34" style="font-family:'Lobster';font-size:30px;color: #fff;"><?= $this->config->item('ProjectName'); ?></a>

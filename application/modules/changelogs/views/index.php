@@ -2,7 +2,7 @@
         <?php $this->load->view('general/menu'); ?>
     </header>
     <br>
-    <div class="uk-container uk-container-expand">
+    <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <?php if($this->changelogs_model->getAll()->num_rows()) { ?>
             <div class="uk-grid uk-grid-large" data-uk-grid>
@@ -18,7 +18,7 @@
                         <div>
                             <div class="uk-card-body">
                                 <h3 class="uk-card-title uk-text-uppercase uk-text-break"><?= $this->changelogs_model->getChanglogTitle($this->changelogs_model->getLastID()); ?></h3>
-                                <p class="uk-text-truncate uk-text-break"><?= $this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID()); ?></p>
+                                <p><?= substr(ucfirst(strtolower(strip_tags($this->changelogs_model->getChanglogDesc($this->changelogs_model->getLastID())))), 0, 260).' ...'; ?></p>
                                 <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->changelogs_model->getChanglogDate($this->changelogs_model->getLastID())); ?></p>
                             </div>
                         </div>
