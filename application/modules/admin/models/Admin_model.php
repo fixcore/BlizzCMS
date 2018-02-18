@@ -1149,4 +1149,31 @@ class Admin_model extends CI_Model {
                 
         redirect(base_url('admin/settings'),'refresh');
     }
+
+    public function insertNewSlides($title, $image)
+    {
+        $data = array(
+            'title' => $title,
+            'image' => $image,
+        );
+
+        $this->db->insert('fx_slides', $data);
+
+        redirect(base_url('admin/manageslider'),'refresh');
+    }
+
+    public function delSpecifySlide($id)
+    {
+        $this->db->where('id', $id)
+                ->delete('fx_slides');
+
+        redirect(base_url('admin/manageslider'),'refresh');
+    }
+
+    public function getAdminSlideList()
+    {
+        return $this->db->select('id, title')
+            ->order_by('id', 'ASC')
+            ->get('fx_slides');
+    }
 }
