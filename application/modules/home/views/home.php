@@ -1,24 +1,20 @@
     <header id="top-head">
         <?php if ($this->m_modules->getStatusSlides() == '1') { ?>
             <?php if ($this->home_model->getSlides()->num_rows()) { ?>
-                <div class="uk-position-relative">
-                    <div class="uk-position-relative uk-visible-toggle uk-light" uk-slider="autoplay: true; autoplay-interval: 5000;">
-                        <ul class="uk-slider-items">
-                            <?php foreach ($this->home_model->getSlides()->result() as $slides) { ?>
-                                <li class="uk-width-1-1">
-                                    <img src="<?= base_url(); ?>assets/images/slides/<?= $slides->image; ?>" alt="">
-                                    <div class="uk-panel">
-                                        <div class="uk-position-center-left">
-                                            <h2 uk-slider-parallax="y: -400,0; x: 150,0;"><?= $slides->title ?></h2>
-                                            <!-- <p uk-slider-parallax="y: -400,0; x: 150,0;">Lorem ipsum dolor sit amet.</p> -->
-                                        </div>
-                                    </div>
-                                </li>
-                            <?php } ?>
-                        </ul>
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                    </div>
+                <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 5000; min-height: 200; max-height: 400;">
+                    <ul class="uk-slideshow-items">
+                        <?php foreach ($this->home_model->getSlides()->result() as $slides) { ?>
+                            <li>
+                                <img src="<?= base_url(); ?>assets/images/slides/<?= $slides->image; ?>" alt="" uk-cover>
+                                <div class="uk-position-center-left uk-position-medium uk-text-center uk-light">
+                                    <h2 class="uk-margin-medium-left"><?= $slides->title ?></h2>
+                                    <!-- <p class="uk-margin-medium-left">Lorem ipsum dolor sit amet.</p> -->
+                                </div>
+                            </li>
+                        <?php } ?>
+                    </ul>
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
                 </div>
             <?php } ?>
         <?php } ?>
