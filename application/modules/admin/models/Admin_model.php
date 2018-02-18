@@ -1159,7 +1159,7 @@ class Admin_model extends CI_Model {
 
         $this->db->insert('fx_slides', $data);
 
-        redirect(base_url('admin/manageslider'),'refresh');
+        redirect(base_url('admin/manageslides'),'refresh');
     }
 
     public function delSpecifySlide($id)
@@ -1167,7 +1167,7 @@ class Admin_model extends CI_Model {
         $this->db->where('id', $id)
                 ->delete('fx_slides');
 
-        redirect(base_url('admin/manageslider'),'refresh');
+        redirect(base_url('admin/manageslides'),'refresh');
     }
 
     public function getAdminSlideList()
