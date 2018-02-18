@@ -47,5 +47,6 @@ $lang['nav_messages'] = 'Mensajes';
 $lang['nav_home'] = 'Inicio';
 $lang['nav_donate'] = 'Donar';
 $lang['nav_armory'] = 'Armería';
+$lang['nav_vote'] = 'Votar';
 
 $lang['nav_account'] = 'Mi Cuenta';

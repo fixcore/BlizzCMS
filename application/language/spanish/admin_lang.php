@@ -31,6 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Panel';
 $lang['admin_settings'] = 'Ajustes';
+$lang['admin_website_settings'] = 'Ajustes del Sitio';
+$lang['admin_manage_realms'] = 'Administrar Reinos';
+$lang['admin_manage_slides'] = 'Administrar Slides';
 $lang['admin_users'] = 'Usuarios';
 $lang['admin_users_list'] = 'Lista de Usuarios';
 $lang['admin_chars_list'] = 'Lista de Personajes';
@@ -91,6 +94,8 @@ $lang['column_level'] = 'Nivel';
 $lang['column_money'] = 'Dinero';
 $lang['column_own'] = 'Creador';
 $lang['column_action'] = 'Acción';
+$lang['column_realm_id'] = 'ID Reino';
+$lang['column_realm_name'] = 'Nombre Reino';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Crear nuevo Changelog';
