@@ -136,13 +136,15 @@
                     </div>
                     <hr class="uk-divider-icon">
                     <div class="uk-column-1-2">
-                        <div>
-                            <div class="uk-margin">
-                                <a href="">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
-                                </a>
+                        <?php if($this->m_modules->getVote() == '1') { ?>
+                            <div>
+                                <div class="uk-margin">
+                                    <a href="<?= base_url('vote'); ?>">
+                                        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
+                                    </a>
+                                </div>
                             </div>
-                        </div>
+                        <?php } ?>
                         <?php if($this->m_modules->getDonation() == '1') { ?>
                             <div>
                                 <div class="uk-margin">
