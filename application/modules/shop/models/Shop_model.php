@@ -165,7 +165,9 @@ class Shop_model extends CI_Model {
     {
         $date = $this->m_data->getTimestamp();
 
+        $multirealm = $this->m_data->getRealmConnectionData($multirealm);
         $getCharName = $this->m_characters->getNameCharacterSpecifyGuid($multirealm, $charid);
+        
         $subject = $this->lang->line('store_senditem_subject');
         $message = $this->lang->line('store_senditem_text');
 
