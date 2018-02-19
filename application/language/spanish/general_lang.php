@@ -67,6 +67,9 @@ $lang['footer_powered'] = ' Creado por BlizzCMS';
 $lang['footer_privacy'] = 'Privacidad';
 $lang['footer_terms'] = 'Legal';
 
+//armory
+$lang['playervsplayer'] = 'Jugador contra Jugador';
+
 /*Login Lang*/
 $lang['login_description'] = 'Disfruta de todas las opciones que tenemos para ti';
 

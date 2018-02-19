@@ -7,8 +7,8 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-5@l"></div>
             <div class="uk-width-3-5@l">
-                <form action="" method="post" accept-charset="utf-8">
-                    <h2 style="color: #fff;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?=$this->lang->line('store_cart_description');?>: <a rel="item=<?= $this->shop_model->getItem($idlink); ?>"><?= $this->shop_model->getName($idlink); ?></a></h2>
+                <form action="" method="post" accept-charset="utf-8" class="uk-text-white">
+                    <h2 class="uk-text-white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?=$this->lang->line('store_cart_description');?>: <a rel="item=<?= $this->shop_model->getItem($idlink); ?>"><?= $this->shop_model->getName($idlink); ?></a></h2>
                     <div class="uk-space-small"></div>
                     <div class="uk-margin uk-text-center">
                         <div class="uk-inline">
@@ -54,7 +54,7 @@
                             $qqs = $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id'));
                         ?>
                         <?php if ($qqs >= $this->shop_model->getPriceType($idlink, $_GET['tp'])) { ?>
-                            <button type="submit" name="buyNowGetItem" class="button" title="<?= $this->lang->line('button_buy'); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('button_buy'); ?></button>
+                            <button type="submit" name="buyNowGetItem" class="uk-button uk-button-primary uk-button-large" title="<?= $this->lang->line('button_buy'); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('button_buy'); ?></button>
                         <?php } else { ?>
                             <div class="uk-alert-warning" uk-alert><p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?=$this->lang->line('points_insuff');?></p></div>
                         <?php } ?>
