@@ -1,3 +1,31 @@
+<?php if (isset($_POST['buyNowGetItem'])) {
+    $charselect = $_POST['charSelects'];
+
+    $method = $_GET['tp'];
+    $price = $this->shop_model->getPriceType($idlink, $_GET['tp']);
+    $result_explode = explode('|', $charselect);
+
+    $soapUser = $this->m_data->getRealm($result_explode[0])->row_array()['console_username'];
+    $soapPass = $this->m_data->getRealm($result_explode[0])->row_array()['console_password'];
+    $soapHost = $this->m_data->getRealm($result_explode[0])->row_array()['hostname'];
+    $soapPort = $this->m_data->getRealm($result_explode[0])->row_array()['console_port'];
+    $soap_uri = $this->m_data->getRealm($result_explode[0])->row_array()['emulator'];
+
+    $this->shop_model->insertHistory(
+        $idlink, 
+        $this->shop_model->getItem($idlink), 
+        $this->session->userdata('fx_sess_id'), 
+        $result_explode[1], 
+        $method,
+        $price,
+        $soapUser, 
+        $soapPass, 
+        $soapHost, 
+        $soapPort, 
+        $soap_uri,
+        $result_explode[0]);
+} ?>
+
     <header id="top-head">
         <?php $this->load->view('general/menu'); ?>
     </header>
@@ -27,7 +55,7 @@
                                         $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
                                     ?>
                                         <?php foreach($this->m_characters->getGeneralCharactersSpecifyAcc($multiRealm ,$this->session->userdata('fx_sess_id'))->result() as $listchar) { ?>
-                                            <option value="<?= $charsMultiRealm->realmID ?>|<?= $listchar->guid ?>"><?= $listchar->name ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></option>
+                                            <option value="<?= $charsMultiRealm->id ?>|<?= $listchar->guid ?>"><?= $listchar->name ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></option>
                                         <?php } ?>
                                     <?php } ?>
                                 </select>
@@ -64,31 +92,3 @@
             </div>
             <div class="uk-width-1-5@l"></div>
         </div>
-
-<?php if (isset($_POST['buyNowGetItem'])) {
-    $charselect = $_POST['charSelects'];
-
-    $method = $_GET['tp'];
-    $price = $this->shop_model->getPriceType($idlink, $_GET['tp']);
-    $result_explode = explode('|', $charselect);
-
-    $soapUser = $this->m_data->getRealm($result_explode[0])->row_array()['console_username'];
-    $soapPass = $this->m_data->getRealm($result_explode[0])->row_array()['console_password'];
-    $soapHost = $this->m_data->getRealm($result_explode[0])->row_array()['hostname'];
-    $soapPort = $this->m_data->getRealm($result_explode[0])->row_array()['console_port'];
-    $soap_uri = $this->m_data->getRealm($result_explode[0])->row_array()['emulator'];
-
-    $this->shop_model->insertHistory(
-        $idlink, 
-        $this->shop_model->getItem($idlink), 
-        $this->session->userdata('fx_sess_id'), 
-        $result_explode[1], 
-        $method,
-        $price,
-        $soapUser, 
-        $soapPass, 
-        $soapHost, 
-        $soapPort, 
-        $soap_uri,
-        $multiRealm);
-} ?>
