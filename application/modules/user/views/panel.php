@@ -119,19 +119,31 @@
                 } ?>
                 <div class="uk-scrollspy-inview uk-animation-slide-bottom" style="color: #fff;" uk-scrollspy-class="">
                     <div class="uk-column-1-2 uk-column-divider">
-                        <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-label">
-                            <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?></span>
-                        </p>
-                        <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('panel_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        <div>
+                            <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-label">
+                                <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?></span>
+                            </p>
+                        </div>
+                        <div>
+                            <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('panel_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        </div>
                     </div>
                     <div class="uk-column-1-2 uk-column-divider">
-                        <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('panel_location'); ?>: <span class="uk-label"><?= $this->user_model->getLocation($this->session->userdata('fx_sess_id')); ?></span></p>
-                        <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('panel_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        <div>
+                            <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('panel_location'); ?>: <span class="uk-label"><?= $this->user_model->getLocation($this->session->userdata('fx_sess_id')); ?></span></p>
+                        </div>
+                        <div>
+                            <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('panel_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        </div>
                     </div>
                     <div class="uk-column-1-2 uk-column-divider">
-                        <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('panel_expansion'); ?>: <span class="uk-label"><?= $this->m_general->getExpansionName(); ?></span></p>
+                        <div>
+                            <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('panel_expansion'); ?>: <span class="uk-label"><?= $this->m_general->getExpansionName(); ?></span></p>
+                        </div>
                         <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('panel_member'); ?>: <span class="uk-label"><?= date('Y/m/d',$this->user_model->getDateMember($this->session->userdata('fx_sess_id'))); ?></span></p>
+                            <div>
+                                <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('panel_member'); ?>: <span class="uk-label"><?= date('Y/m/d',$this->user_model->getDateMember($this->session->userdata('fx_sess_id'))); ?></span></p>
+                            </div>
                         <?php } ?>
                     </div>
                     <hr class="uk-divider-icon">
