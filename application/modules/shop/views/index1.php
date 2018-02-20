@@ -62,8 +62,8 @@
             </div>
             <div class="uk-width-2-5@l">
                 <div class="uk-grid-small" uk-grid>
-                    <div class="uk-width-3-5"></div>
-                    <div class="uk-width-2-5">
+                    <div class="uk-width-2-5"></div>
+                    <div class="uk-width-3-5">
                         <?php if ($this->m_data->isLogged()) { ?>
                             <img class="uk-border-circle" src="<?= base_url('assets/images/dp.jpg'); ?>" title="<?=$this->lang->line('panel_dp');?>" width="30px" height="30px" uk-tooltip="pos: bottom">
                             <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span>
