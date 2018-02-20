@@ -176,6 +176,20 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function managetickets()
+    {
+        $this->load->view('general/header');
+        $this->load->view('shop/managetickets');
+        $this->load->view('general/footer');
+    }
+
+    public function viewticket()
+    {
+        $this->load->view('general/header');
+        $this->load->view('shop/viewticket');
+        $this->load->view('general/footer');
+    }
+
     public function checkSoap()
     {
         foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 

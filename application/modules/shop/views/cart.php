@@ -1,3 +1,31 @@
+<?php if (isset($_POST['buyNowGetItem'])) {
+    $charselect = $_POST['charSelects'];
+
+    $method = $_GET['tp'];
+    $price = $this->shop_model->getPriceType($idlink, $_GET['tp']);
+    $result_explode = explode('|', $charselect);
+
+    $soapUser = $this->m_data->getRealm($result_explode[0])->row_array()['console_username'];
+    $soapPass = $this->m_data->getRealm($result_explode[0])->row_array()['console_password'];
+    $soapHost = $this->m_data->getRealm($result_explode[0])->row_array()['hostname'];
+    $soapPort = $this->m_data->getRealm($result_explode[0])->row_array()['console_port'];
+    $soap_uri = $this->m_data->getRealm($result_explode[0])->row_array()['emulator'];
+
+    $this->shop_model->insertHistory(
+        $idlink, 
+        $this->shop_model->getItem($idlink), 
+        $this->session->userdata('fx_sess_id'), 
+        $result_explode[1], 
+        $method,
+        $price,
+        $soapUser, 
+        $soapPass, 
+        $soapHost, 
+        $soapPort, 
+        $soap_uri,
+        $result_explode[0]);
+} ?>
+
     <header id="top-head">
         <?php $this->load->view('general/menu'); ?>
     </header>
@@ -7,8 +35,8 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-5@l"></div>
             <div class="uk-width-3-5@l">
-                <form action="" method="post" accept-charset="utf-8">
-                    <h2 style="color: #fff;"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?=$this->lang->line('store_cart_description');?>: <a rel="item=<?= $this->shop_model->getItem($idlink); ?>"><?= $this->shop_model->getName($idlink); ?></a></h2>
+                <form action="" method="post" accept-charset="utf-8" class="uk-text-white">
+                    <h2 class="uk-text-white"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?=$this->lang->line('store_cart_description');?>: <a rel="item=<?= $this->shop_model->getItem($idlink); ?>"><?= $this->shop_model->getName($idlink); ?></a></h2>
                     <div class="uk-space-small"></div>
                     <div class="uk-margin uk-text-center">
                         <div class="uk-inline">
@@ -27,7 +55,7 @@
                                         $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
                                     ?>
                                         <?php foreach($this->m_characters->getGeneralCharactersSpecifyAcc($multiRealm ,$this->session->userdata('fx_sess_id'))->result() as $listchar) { ?>
-                                            <option value="<?= $charsMultiRealm->realmID ?>|<?= $listchar->guid ?>"><?= $listchar->name ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></option>
+                                            <option value="<?= $charsMultiRealm->id ?>|<?= $listchar->guid ?>"><?= $listchar->name ?> - <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?></option>
                                         <?php } ?>
                                     <?php } ?>
                                 </select>
@@ -54,7 +82,7 @@
                             $qqs = $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id'));
                         ?>
                         <?php if ($qqs >= $this->shop_model->getPriceType($idlink, $_GET['tp'])) { ?>
-                            <button type="submit" name="buyNowGetItem" class="button" title="<?= $this->lang->line('button_buy'); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('button_buy'); ?></button>
+                            <button type="submit" name="buyNowGetItem" class="uk-button uk-button-primary uk-button-large" title="<?= $this->lang->line('button_buy'); ?>"><i class="fa fa-shopping-cart" aria-hidden="true"></i> <?= $this->lang->line('button_buy'); ?></button>
                         <?php } else { ?>
                             <div class="uk-alert-warning" uk-alert><p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?=$this->lang->line('points_insuff');?></p></div>
                         <?php } ?>
@@ -64,31 +92,3 @@
             </div>
             <div class="uk-width-1-5@l"></div>
         </div>
-
-<?php if (isset($_POST['buyNowGetItem'])) {
-    $charselect = $_POST['charSelects'];
-
-    $method = $_GET['tp'];
-    $price = $this->shop_model->getPriceType($idlink, $_GET['tp']);
-    $result_explode = explode('|', $charselect);
-
-    $soapUser = $this->m_data->getRealm($result_explode[0])->row_array()['console_username'];
-    $soapPass = $this->m_data->getRealm($result_explode[0])->row_array()['console_password'];
-    $soapHost = $this->m_data->getRealm($result_explode[0])->row_array()['hostname'];
-    $soapPort = $this->m_data->getRealm($result_explode[0])->row_array()['console_port'];
-    $soap_uri = $this->m_data->getRealm($result_explode[0])->row_array()['emulator'];
-
-    $this->shop_model->insertHistory(
-        $idlink, 
-        $this->shop_model->getItem($idlink), 
-        $this->session->userdata('fx_sess_id'), 
-        $result_explode[1], 
-        $method,
-        $price,
-        $soapUser, 
-        $soapPass, 
-        $soapHost, 
-        $soapPort, 
-        $soap_uri,
-        $multiRealm);
-} ?>

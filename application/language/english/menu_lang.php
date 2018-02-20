@@ -34,6 +34,7 @@ $lang['nav_more'] = 'More';
 $lang['nav_news'] = 'News';
 $lang['nav_forums'] = 'Forums';
 $lang['nav_store'] = 'Store';
+$lang['nav_faq'] = 'Faq';
 $lang['nav_bugtracker'] = 'Bugtracker';
 $lang['nav_changelogs'] = 'Changelogs';
 $lang['nav_pvp_statistics'] = 'PvP Statistics';
