@@ -16,7 +16,6 @@
                 </div>
             </div>
         </div>
-        <?php $this->load->view('general/menu'); ?>
     </header>
     <br>
     <div class="uk-container">

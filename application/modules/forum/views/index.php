@@ -16,9 +16,7 @@
                 </div>
             </div>
         </div>
-        <?php $this->load->view('general/menu'); ?>
     </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-small"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
