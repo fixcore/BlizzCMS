@@ -189,6 +189,7 @@
                                         <li class="uk-parent">
                                             <a href="#" style="color: #fff;"><?= $this->lang->line('nav_menu'); ?></a>
                                             <ul class="uk-nav-sub">
+                                                <li><a href="<?= base_url('faq'); ?>"><i class="ra ra-uncertainty"></i> <?= $this->lang->line('nav_faq'); ?></a></li>
                                                 <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
                                                     <li><a href="<?= base_url('bugtracker'); ?>"><i class="ra ra-book"></i> <?= $this->lang->line('nav_bugtracker'); ?></a></li>
                                                 <?php } ?>
