@@ -132,24 +132,6 @@
     $this->admin_model->settingStore($datastore);
 }?>
 
-<?php if (isset($_POST['button_createRealm'])) {
-    $hostname = $_POST['hostname'];
-    $username = $_POST['host_user'];
-    $password = $_POST['host_pass'];
-    $database = $_POST['host_db'];
-    $realm_id = $_POST['realmid'];
-    $soapuser = $_POST['soap_user'];
-    $soappass = $_POST['soap_pass'];
-    $soapport = $_POST['soap_port'];
-
-    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, '1');
-} ?>
-
-<?php if (isset($_POST['button_deleteRealm'])) {
-    $value = $_POST['button_deleteRealm'];
-    $this->admin_model->delSpecifyRealm($value);
-} ?>
-
     <div id="content" data-uk-height-viewport="expand: true">
         <div class="uk-container uk-container-expand">
             <div class="uk-grid uk-grid-medium uk-grid-match" data-uk-grid>
