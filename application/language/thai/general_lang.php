@@ -34,11 +34,11 @@ $lang['button_account_create'] = 'สร้างบัญชีฟรี';
 $lang['button_user_panel'] = 'แผงควบคุมผู้ใช้งาน';
 $lang['button_admin_panel'] = 'แผงควบคุมผู้ดูแลระบบ';
 $lang['button_logout'] = 'ออกจากระบบ';
-$lang['button_gifts'] = 'My Gifts';
+$lang['button_gifts'] = 'ของขวัญของฉัน';
 $lang['button_register'] = 'สมัครสมาชิก';
 $lang['button_vote_panel'] = 'โหวต';
 $lang['button_donate_panel'] = 'บริจาค';
-$lang['button_support'] = 'ช่วยเหลือ';
+$lang['button_support'] = 'ช่วยเหลือผู้เล่น';
 $lang['button_change_avatar'] = 'เปลี่ยนรูปประจำตัว';
 $lang['button_add_personal_info'] = 'เพิ่มข้อมูลส่วนบุคคล';
 $lang['button_change_password'] = 'แก้ไขรหัสผ่าน';
@@ -92,7 +92,7 @@ $lang['form_old_email'] = 'อีเมลเก่า';
 $lang['form_new_email'] = 'อีเมลใหม่';
 $lang['form_new_message'] = 'ข้อความใหม่';
 $lang['form_message'] = 'ข้อความ';
-$lang['form_create_bug_report'] = 'Create Bug Report';
+$lang['form_create_bug_report'] = 'สร้างรายงานปัญหาและข้อบกพร่อง';
 $lang['form_title'] = 'หัวข้อ';
 $lang['form_type'] = 'ประเภท';
 $lang['form_description'] = 'รายละเอียด';
@@ -100,6 +100,9 @@ $lang['form_url'] = 'ลิ้งค์';
 $lang['form_highl'] = 'ไฮไลท์';
 $lang['form_lock'] = 'ล็อค';
 $lang['form_subject'] = 'เรื่อง';
+
+//armory
+$lang['playervsplayer'] = 'ผู้เล่น vs ผู้เล่น';
 
 /*Column Lang*/
 $lang['column_name'] = 'รายชื่อ';
@@ -126,8 +129,8 @@ $lang['option_closed'] = 'ปิด';
 /*User Panel Lang*/
 $lang['panel_last_login'] = 'เข้าสู่ระบบครั้งล่าสุดในเกม';
 $lang['panel_acc_rank'] = 'ระดับบัญชี';
-$lang['panel_dp'] = 'DP Points';
-$lang['panel_vp'] = 'VP Points';
+$lang['panel_dp'] = 'แต้ม DP';
+$lang['panel_vp'] = 'แต้ม VP';
 $lang['panel_location'] = 'ตำแหน่งที่ตั้ง';
 $lang['panel_expansion'] = 'เวอร์ชั่นเกม';
 $lang['panel_member'] = 'ลงทะเบียนเมื่อ';
@@ -149,20 +152,20 @@ $lang['store_select_character'] = 'เลือกตัวละคร';
 $lang['store_item_price'] = 'ราคา';
 $lang['store_all_categories'] = 'ทุกหมวดหมู่';
 $lang['store_select_categories'] = 'เลือกหมวดหมู่';
-$lang['store_support'] = 'Store Support';
-$lang['store_support_description'] = 'Have you had a problem with the store? you are in the right place!';
+$lang['store_support'] = 'ช่วยเหลือผู้เล่น';
+$lang['store_support_description'] = 'คุณมีปัญหาเกี่ยวกับร้านค้าหรือไม่? คุณอยู่ในสถานที่ที่เหมาะสม!';
 
 /*PvP-Arena Lang*/
-$lang['pvp_top'] = 'TOP 20';
-$lang['arena_top_2v2'] = 'TOP 2V2';
-$lang['arena_top_3v3'] = 'TOP 3V3';
-$lang['arena_top_5v5'] = 'TOP 5V5';
+$lang['pvp_top'] = 'ท๊อป 20';
+$lang['arena_top_2v2'] = 'ท๊อป 2V2';
+$lang['arena_top_3v3'] = 'ท๊อป 3V3';
+$lang['arena_top_5v5'] = 'ท๊อป 5V5';
 
 /*News Lang*/
 $lang['news_recent_list'] = 'รายชื่อข่าวล่าสุด';
 $lang['news_comment'] = 'คอมเมนต์';
 $lang['news_article_subheading'] = 'ข่าวล่าสุด';
-$lang['news_article_published'] = 'เผยแพร่โดย STAFF';
+$lang['news_article_published'] = 'เผยแพร่โดยทีมงาน';
 
 /*Changelogs Lang*/
 $lang['changelogs_recent_article'] = 'การเปลี่ยนแปลงล่าสุด';
@@ -172,17 +175,17 @@ $lang['changelogs_list'] = 'การอัปเดทและแก้ไข'
 $lang['bugtracker_report_list'] = 'รายการที่แจ้งเข้ามา';
 
 /*Message Lang*/
-$lang['message_header'] = 'Private Message';
+$lang['message_header'] = 'ข้อความส่วนตัว';
 
 /*Forum Lang*/
-$lang['forum_welcome'] = 'Welcome to the official forums';
-$lang['forum_post_count'] = 'posts';
-$lang['forum_topic_locked'] = 'This topic is locked.';
-$lang['forum_comment_locked'] = 'Have something to say? Log in to join the conversation.';
+$lang['forum_welcome'] = 'ยินดีต้อนรับสู่ฟอรั่มอย่างเป็นทางการ';
+$lang['forum_post_count'] = 'โพสต์';
+$lang['forum_topic_locked'] = 'หัวข้อนี้ถูกล็อก';
+$lang['forum_comment_locked'] = 'มีอะไรที่จะพูด? เข้าสู่ระบบเพื่อเข้าร่วมการสนทนา';
 $lang['forum_comment_header'] = 'เข้าร่วมการสนทนา';
-$lang['forum_not_authorized'] = 'Not Authorized';
-$lang['forum_code_conduct'] = 'Code of Conduct';
-$lang['forum_post_history'] = 'View Post History';
+$lang['forum_not_authorized'] = 'ไม่มีอำนาจ';
+$lang['forum_code_conduct'] = 'กฎระเบียบ';
+$lang['forum_post_history'] = 'ดูประวัติโพสต์';
 
 /*Race Lang*/
 $lang['race_human'] = 'Human';
