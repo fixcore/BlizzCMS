@@ -28,6 +28,12 @@
 
     <!-- JQuery -->
     <script src="<?= base_url(); ?>core/js/jquery-3.3.1.min.js"></script>
+
+
+    <link type="text/css" rel="stylesheet" media="all" href="<?= base_url() ?>assets/chat/css/chat/chat.css" />
+    <link type="text/css" rel="stylesheet" media="all" href="<?= base_url() ?>assets/chat/css/chat/screen.css" />
+    <script type="text/javascript" src="<?= base_url() ?>assets/chat/js/chat/jquery.js"></script>
+    <script type="text/javascript" src="<?= base_url() ?>assets/chat/js/chat/chat.js"></script>
 </head>
 
 <body class="<?= $this->config->item('theme_name'); ?>">

@@ -47,13 +47,16 @@
                         <?php } ?>
                         <?php if ($this->m_data->isLogged()) { ?>
                             <?php if ($this->m_modules->getMessages() == '1') { ?>
-                                <li>
+                                <!--<li>
                                     <?php $this->load->model('messages/messages_model'); ?>
-                                    <a href="<?= base_url('message'); ?>" style="color: #fff;" uk-tooltip="title: <?= $this->lang->line('nav_messages'); ?>; pos: left">
+                                    <div style="color: #fff;" uk-tooltip="title: <?= $this->lang->line('nav_messages'); ?>; pos: left">
                                         <span uk-icon="icon: commenting"></span>
                                         <span class="uk-badge"><?= $this->messages_model->getNotifyRows($this->session->userdata('fx_sess_id')); ?></span>
-                                    </a>
-                                </li>
+                                    </div>
+                                </li>-->
+                                <li><a href="#offcanvas-reveal" style="color: #fff;" uk-toggle>
+                                    <span uk-icon="icon: commenting"></span>
+                                </a></li>
                             <?php } ?>
                             <li><a href="#desk" style="color: #fff;" uk-toggle><span uk-icon="icon: user"></span></a></li>
                         <?php } ?>
@@ -119,6 +122,20 @@
                             </div>
                         </div>
                     </div>
+                    <!-- friends -->
+                    <div class="uk-offcanvas-content">
+                        <div id="offcanvas-reveal" uk-offcanvas="mode: reveal; overlay: true">
+                            <div class="uk-offcanvas-bar">
+                                <button class="uk-offcanvas-close" type="button" uk-close></button>
+                                <?php foreach ($this->m_data->getUsers()->result() as $users) { ?>
+                                    <p>
+                                        <span onclick="javascript:chatWith('<?= $users->id ?>','<?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?>')"><?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?></span>
+                                    </p>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- friends -->
                     <div class="uk-offcanvas-content">
                         <div id="mobile" uk-offcanvas="flip: true;">
                             <div class="uk-offcanvas-bar">
