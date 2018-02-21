@@ -30,13 +30,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Navigation Menu*/
 $lang['nav_menu'] = 'เมนู';
-$lang['nav_more'] = 'More';
+$lang['nav_more'] = 'เพิ่มเติม';
 $lang['nav_news'] = 'ข่าว';
 $lang['nav_forums'] = 'ฟอรั่ม';
 $lang['nav_store'] = 'ร้านค้า';
+$lang['nav_faq'] = 'คำถามที่พบบ่อย';
 $lang['nav_bugtracker'] = 'แจ้งปัญหาและข้อบกพร่อง';
 $lang['nav_changelogs'] = 'การอัปเดทและแก้ไข';
 $lang['nav_pvp_statistics'] = 'สถิติ PvP';
 $lang['nav_arena_statistics'] = 'สถิติ Arena';
+
+$lang['nav_login'] = 'เข้าสู่ระบบ';
+$lang['nav_register'] = 'สมัครสมาชิก';
+$lang['nav_profile'] = 'ข้อมูลส่วนตัว';
+$lang['nav_ticket'] = 'คำถาม';
+$lang['nav_messages'] = 'ข้อความ';
+$lang['nav_home'] = 'หน้าแรก';
+$lang['nav_donate'] = 'บริจาค';
+$lang['nav_armory'] = 'คลังไอเทม';
+$lang['nav_vote'] = 'โหวต';
 
 $lang['nav_account'] = 'บัญชีของฉัน';
