@@ -307,4 +307,10 @@ class M_data extends CI_Model {
                 ->where('id', $id)
                 ->get('account');
     }
+
+    public function getUsers()
+    {
+        return $this->db->select('*')
+                ->get('fx_users');
+    }
 }
