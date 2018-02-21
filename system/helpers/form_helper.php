@@ -66,7 +66,11 @@ if ( ! function_exists('form_open'))
 		$CI =& get_instance();
 
 		// If no action is provided then set to the current url
-		if ( ! $action)
+		if($action === '#')
+		{
+			$action = "#";
+		}
+		elseif( ! $action)
 		{
 			$action = $CI->config->site_url($CI->uri->uri_string());
 		}

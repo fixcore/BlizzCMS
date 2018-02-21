@@ -31,3 +31,5 @@
 </head>
 
 <body class="<?= $this->config->item('theme_name'); ?>">
+
+<?php $this->load->view('general/menu'); ?>

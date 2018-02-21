@@ -17,10 +17,6 @@
     $this->bugtracker_model->closeIssue($idlink);
 } ?>
 
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
