@@ -194,7 +194,7 @@ class Admin extends MX_Controller {
     {
         foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
 
-            echo $this->m_soap->commandSoap('.server info', $charsMultiRealm->console_username, $charsMultiRealm->console_password, $charsMultiRealm->hostname, $charsMultiRealm->console_port, $charsMultiRealm->emulator).'<br>';
+            echo $this->m_soap->commandSoap('.server info', $charsMultiRealm->console_username, $charsMultiRealm->console_password, $charsMultiRealm->console_hostname, $charsMultiRealm->console_port, $charsMultiRealm->emulator).'<br>';
         }
     }
 

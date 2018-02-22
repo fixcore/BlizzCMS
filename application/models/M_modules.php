@@ -184,7 +184,7 @@ class M_modules extends CI_Model {
                 ->row('status');
     }
 
-    public function insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, $red = '')
+    public function insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, $red = '', $soaphost)
     {
         $data = array(
             'hostname' => $hostname,
@@ -195,7 +195,8 @@ class M_modules extends CI_Model {
             'console_username' => $soapuser,
             'console_password' => $soappass,
             'console_port' => $soapport,
-            'emulator' => 'TC'
+            'emulator' => 'TC',
+            'soap_hostname' => $soaphost
         );
 
         $this->db->insert('fx_realms', $data);
