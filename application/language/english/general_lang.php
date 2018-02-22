@@ -43,7 +43,6 @@ $lang['button_change_avatar'] = 'Change Avatar';
 $lang['button_add_personal_info'] = 'Add Personal Information';
 $lang['button_change_password'] = 'Change Password';
 $lang['button_change_email'] = 'Change Email';
-$lang['button_private_message'] = 'Send Private Message';
 $lang['button_create_report'] = 'Create Report';
 $lang['button_new_topic'] = 'New Topic';
 $lang['button_edit_topic'] = 'Edit Topic';
@@ -61,7 +60,6 @@ $lang['button_close'] = 'Close';
 $lang['button_reply'] = 'Reply';
 
 /*Footer Lang*/
-$lang['footer_language'] = 'English (EU)';
 $lang['footer_rights'] = 'ALL RIGHTS RESERVED.';
 $lang['footer_powered'] = ' Proudly powered by BlizzCMS';
 $lang['footer_privacy'] = 'Privacy';
@@ -174,8 +172,8 @@ $lang['changelogs_list'] = 'Changelogs';
 /*Bugtracker Lang*/
 $lang['bugtracker_report_list'] = 'Report List';
 
-/*Message Lang*/
-$lang['message_header'] = 'Private Message';
+/*Chat Lang*/
+$lang['chat_header'] = 'Chat';
 
 /*Forum Lang*/
 $lang['forum_welcome'] = 'Welcome to the official forums';
