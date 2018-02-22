@@ -47,13 +47,16 @@
                         <?php } ?>
                         <?php if ($this->m_data->isLogged()) { ?>
                             <?php if ($this->m_modules->getMessages() == '1') { ?>
-                                <li><a href="#offcanvas-reveal" style="color: #fff;" uk-toggle>
-                                    <span uk-icon="icon: commenting"></span>
-                                </a></li>
+                                <li><a href="#chat" style="color: #fff;" uk-tooltip="title: <?= $this->lang->line('nav_chat'); ?>; pos: left" uk-toggle><span uk-icon="icon: commenting"></span></a></li>
                             <?php } ?>
                             <li><a href="#desk" style="color: #fff;" uk-toggle><span uk-icon="icon: user"></span></a></li>
                         <?php } ?>
                     </ul>
+                    <?php if ($this->m_data->isLogged()) { ?>
+                        <?php if ($this->m_modules->getMessages() == '1') { ?>
+                            <a class="uk-navbar-toggle uk-hidden@m" href="#chat" uk-tooltip="title: <?= $this->lang->line('nav_chat'); ?>; pos: left" uk-toggle><span uk-icon="icon: commenting"></span></a></li>
+                        <?php } ?>
+                    <?php } ?>
                     <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#mobile" uk-toggle></a>
                     <div class="uk-offcanvas-content">
                         <div id="desk" uk-offcanvas="flip: true">
@@ -117,20 +120,27 @@
                     </div>
                     <!-- friends -->
                     <div class="uk-offcanvas-content">
-                        <div id="offcanvas-reveal" uk-offcanvas="mode: reveal; overlay: true">
+                        <div id="chat" uk-offcanvas="flip: false">
                             <div class="uk-offcanvas-bar">
                                 <button class="uk-offcanvas-close" type="button" uk-close></button>
-                                <?php foreach ($this->m_data->getUsers()->result() as $users) { ?>
-                                    <p>
-                                        <span onclick="javascript:chatWith('<?= $users->id ?>','<?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?>')"><?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?></span>
-                                    </p>
-                                <?php } ?>
+                                <div class="uk-panel">
+                                    <ul class="uk-nav uk-nav-default">
+                                        <li class="uk-nav-header uk-text-center"><span uk-icon="icon: commenting"></span> <?= $this->lang->line('chat_header'); ?></li>
+                                        <li class="uk-nav-divider"></li>
+                                        <?php foreach ($this->m_data->getUsers()->result() as $users) { ?>
+                                            <li class="uk-text-center">
+                                                <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($users->profile)); ?>" width="25" height="25" alt=""/>
+                                                <button class="uk-button uk-button-text" onclick="javascript:chatWith('<?= $users->id ?>','<?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?>')"><?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?></button>
+                                            </li>
+                                        <?php } ?>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <!-- friends -->
                     <div class="uk-offcanvas-content">
-                        <div id="mobile" uk-offcanvas="flip: true;">
+                        <div id="mobile" uk-offcanvas="flip: true">
                             <div class="uk-offcanvas-bar">
                                 <div class="uk-panel">
                                     <ul class="uk-nav uk-nav-default">
