@@ -1,5 +1,3 @@
-@font-face{font-family:'Lobster';font-style:normal;font-weight:400;src:local("Lobster Regular"),local("Lobster-Regular"),url("../../core/fonts/Lobster-Regular.ttf") format("truetype")}
-
 body{margin:0;background-color:#0f2a48;background-image:url(../../assets/images/backgrounds/fx_background.jpg);background-position:center -200px;background-repeat:no-repeat;font-size:1.0625rem}
 .custom-parallax-header{background-image:url(../../assets/images/backgrounds/fx-glass.jpg)}
 
