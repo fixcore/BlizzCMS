@@ -7,8 +7,9 @@
     $soapuser = $_POST['soap_user'];
     $soappass = $_POST['soap_pass'];
     $soapport = $_POST['soap_port'];
+    $soaphost = $_POST['soap_hostname'];
 
-    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, '1');
+    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, '1', $soaphost);
 } ?>
 
 <?php if (isset($_POST['button_deleteRealm'])) {
@@ -89,6 +90,12 @@
                                 <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('column_realm_id'); ?></label>
                                 <div class="uk-form-controls">
                                     <input class="uk-input" type="number" name="realmid" placeholder="Auth -> realmlist -> ID" required>
+                                </div>
+                            </div>
+                            <div class="uk-inline uk-width-1-2@s">
+                                <label class="uk-form-label uk-text-uppercase">Soap Hostname</label>
+                                <div class="uk-form-controls">
+                                    <input class="uk-input" type="text" name="soap_hostname" placeholder="Example: fixcore" required>
                                 </div>
                             </div>
                             <div class="uk-inline uk-width-1-2@s">
