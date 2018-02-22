@@ -814,7 +814,8 @@ class Admin_model extends CI_Model {
             $data['actualDiscord'],
             $data['actualRealmlist'],
             $data['actualStaffColor'],
-            $data['actualTheme']
+            $data['actualTheme'],
+            $data['actualnavbr']
         );
 
         $Configreplace = array(
@@ -823,7 +824,8 @@ class Admin_model extends CI_Model {
             $data['fixcoreDiscord'],
             $data['fixcoreRealmlist'],
             $data['fixcoreStaffColor'],
-            $data['fixcoreThemeName']
+            $data['fixcoreThemeName'],
+            $data['devnavbarfx']
         );
 
         $fileConfig = file_get_contents($filename);
@@ -879,6 +881,14 @@ class Admin_model extends CI_Model {
     {
         $fileHandle = file($filename);
         $fileHandle = substr($fileHandle[96], 25);
+        $fileHandle = explode(";", $fileHandle);
+        return str_replace('"', "", $fileHandle[0]);
+    }
+
+    public function getFixCoreNavBar($filename)
+    {
+        $fileHandle = file($filename);
+        $fileHandle = substr($fileHandle[106], 23);
         $fileHandle = explode(";", $fileHandle);
         return str_replace('"', "", $fileHandle[0]);
     }

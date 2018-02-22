@@ -95,3 +95,13 @@ $config['expansion_id'] = "ProjectExpansion_fixcore";
 | Default: default
 */
 $config['theme_name'] = "default";
+
+/*
+|--------------------------------------------------------------------------
+| Developer's Toolbar
+|--------------------------------------------------------------------------
+|
+| This option allows you to enable the developer's Toolbar
+|
+*/
+$config['fx_devbar'] = FALSE;

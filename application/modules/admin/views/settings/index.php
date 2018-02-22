@@ -36,7 +36,10 @@
         'actualStaffColor' => $this->admin_model->getFixCoreStaffColor($fileFixCore),
         'fixcoreThemeName' => str_replace(' ', '', $_POST['fixcoreTheme']),
         'actualTheme' => $this->admin_model->getFixCoreThemeName($fileFixCore),
+        'devnavbarfx' => $_POST['devnavbarfx'],
+        'actualnavbr' => $this->admin_model->getFixCoreNavBar($fileFixCore),
     );
+
     $this->admin_model->settingFixCore($datafx);
 }?>
 
@@ -256,6 +259,15 @@
                                                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
                                                     <input class="uk-input" type="text" name="fixcoreTheme" value="<?= $this->admin_model->getFixCoreThemeName($fileFixCore); ?>" required>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Dev Navbar</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="devnavbarfx">
+                                                    <option value="FALSE">FALSE</option>
+                                                    <option value="TRUE">TRUE</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="uk-margin">

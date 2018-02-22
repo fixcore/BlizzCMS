@@ -1,6 +1,6 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class ci_chat{
+class Ci_chat{
 
 	public function __construct()
     {
