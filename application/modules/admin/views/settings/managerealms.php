@@ -4,12 +4,12 @@
     $password = $_POST['host_pass'];
     $database = $_POST['host_db'];
     $realm_id = $_POST['realmid'];
+    $soaphost = $_POST['soap_hostname'];
     $soapuser = $_POST['soap_user'];
     $soappass = $_POST['soap_pass'];
     $soapport = $_POST['soap_port'];
-    $soaphost = $_POST['soap_hostname'];
 
-    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, '1', $soaphost);
+    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soaphost, $soapuser, $soappass, $soapport, '1');
 } ?>
 
 <?php if (isset($_POST['button_deleteRealm'])) {
