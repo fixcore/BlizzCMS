@@ -1,8 +1,8 @@
-<?php if (isset($_POST['button_delChan'])) {
-    $this->admin_model->delPage($_POST['button_delChan']);
+<?php if (isset($_POST['button_delPage'])) {
+    $this->admin_model->delPage($_POST['button_delPage']);
 } ?>
 
-<?php if(isset($_POST['button_createNew'])) {
+<?php if(isset($_POST['button_createPage'])) {
     $desc = $_POST['page_description'];
     $title  = $_POST['page_title'];
 
@@ -45,10 +45,10 @@
                                             <td><?= $pages->title ?></td>
                                             <td class="uk-text-center"><?= $pages->date ?></td>
                                             <td class="uk-text-center" uk-margin>
-                                                <a href="#" class="uk-button uk-button-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                                                <a href="<?= base_url(); ?>admin/editpages/<?= $pages->id ?>" class="uk-button uk-button-primary"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                                                 <span class="" style="display:inline-block; width: 5px;"></span>
                                                 <form action="" method="post" accept-charset="utf-8" style="display: inline;">
-                                                    <button class="uk-button uk-button-danger" name="button_delChan" value="<?= $pages->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    <button class="uk-button uk-button-danger" name="button_delPage" value="<?= $pages->id ?>" type="submit"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -100,7 +100,7 @@
                 </div>
                 <div class="uk-modal-footer uk-text-right actions">
                     <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                    <button class="uk-button uk-button-primary" type="submit" name="button_createNew"><?= $this->lang->line('button_create'); ?></button>
+                    <button class="uk-button uk-button-primary" type="submit" name="button_createPage"><?= $this->lang->line('button_create'); ?></button>
                 </div>
             </form>
         </div>

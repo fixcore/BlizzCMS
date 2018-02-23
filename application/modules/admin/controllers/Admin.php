@@ -169,6 +169,21 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function editpages($id)
+    {
+        if (is_null($id) || empty($id))
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getGeneralPagesSpecifyRows($id) < 1)
+            redirect(base_url(),'refresh');
+
+        $data['idlink'] = $id;
+
+        $this->load->view('general/header');
+        $this->load->view('pages/editpages', $data);
+        $this->load->view('general/footer');
+    }
+
     public function settings()
     {
         $this->load->view('general/header');
