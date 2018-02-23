@@ -5,6 +5,7 @@
     $password = $_POST['host_pass'];
     $database = $_POST['host_db'];
     $realm_id = $_POST['host_realmid'];
+    $soaphost = $_POST['soap_hostname'];
     $soapuser = $_POST['soap_user'];
     $soappass = $_POST['soap_pass'];
     $soapport = $_POST['soap_port'];
@@ -16,7 +17,7 @@
         $this->admin_model->getADDADMRank($qq, '1');
     }
 
-    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport);
+    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soaphost, $soapuser, $soappass, $soapport);
 
     $this->home_model->updateInstallation();
 
@@ -103,6 +104,12 @@
                                             <div class="uk-form-controls">
                                                 <input class="uk-input" name="host_realmid" type="number" placeholder="Auth -> realmlist -> ID" required>
                                             </div>
+                                    </div>
+                                    <div class="uk-margin">
+                                        <label class="uk-form-label uk-text-uppercase">Soap Hostname</label>
+                                        <div class="uk-form-controls">
+                                            <input class="uk-input" name="soap_hostname" type="text" placeholder="Example: 127.0.0.1" required>
+                                        </div>
                                     </div>
                                     <div class="uk-margin">
                                         <label class="uk-form-label uk-text-uppercase">Soap User</label>
