@@ -85,17 +85,17 @@
             <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
                     <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('column_realm_id'); ?></label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" type="number" name="realmid" placeholder="Auth -> realmlist -> ID" required>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
                         <div class="uk-grid-small" uk-grid>
-                            <div class="uk-inline uk-width-1-2@s">
-                                <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('column_realm_id'); ?></label>
-                                <div class="uk-form-controls">
-                                    <input class="uk-input" type="number" name="realmid" placeholder="Auth -> realmlist -> ID" required>
-                                </div>
-                            </div>
                             <div class="uk-inline uk-width-1-2@s">
                                 <label class="uk-form-label uk-text-uppercase">Soap Hostname</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" type="text" name="soap_hostname" placeholder="Example: fixcore" required>
+                                    <input class="uk-input" type="text" name="soap_hostname" placeholder="Example: 127.0.0.1" required>
                                 </div>
                             </div>
                             <div class="uk-inline uk-width-1-2@s">
