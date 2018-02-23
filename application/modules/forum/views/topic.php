@@ -168,9 +168,9 @@
                                     </div>
                                 </div>
                                 <?php if($this->m_data->getRank($commentss->author) > 0) { ?>
-                                <div class="TopicPost-bodyContent" style="color: <?= $this->config->item('staff_forum_color'); ?>;">
+                                <div class="TopicPost-bodyContent" style="color: #<?= $this->config->item('staff_forum_color'); ?>;">
                                 <?php } else { ?>
-                                <div class="TopicPost-bodyContent">
+                                <div class="TopicPost-bodyContent" style="color: white;">
                                 <?php } ?>
                                     <?= $commentss->commentary ?>
                                 </div>
