@@ -78,6 +78,46 @@ class Admin_model extends CI_Model {
         redirect(base_url('admin/managepages?newpage='.$idd),'refresh');
     }
 
+    public function getGeneralPagesSpecifyRows($id)
+    {
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_pages')
+                ->num_rows();
+    }
+
+    public function getGeneralPagesSpecifyName($id)
+    {
+        return $this->db->select('title')
+                ->where('id', $id)
+                ->get('fx_pages')
+                ->row('title');
+    }
+
+    public function getGeneralPagesSpecifyDesc($id)
+    {
+        return $this->db->select('description')
+                ->where('id', $id)
+                ->get('fx_pages')
+                ->row_array()['description'];
+    }
+
+    public function updateSpecifyPage($id, $title, $description)
+    {
+        $date = $this->m_data->getTimestamp();
+
+        $update = array(
+            'title' => $title,
+            'description' => $description,
+            'date' => $date
+        );
+
+        $this->db->where('id', $id)
+                ->update('fx_pages', $update);
+
+        redirect(base_url('admin/managepages'),'refresh');
+    }
+
     public function delShopItm($id)
     {
         $this->db->where('id', $id)
