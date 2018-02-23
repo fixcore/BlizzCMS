@@ -202,7 +202,7 @@ class M_modules extends CI_Model {
         $this->db->insert('fx_realms', $data);
 
         if ($red == '1') {
-            redirect(base_url('admin/settings'),'refresh');
+            redirect(base_url('admin/managerealms'),'refresh');
         }
     }
 }
