@@ -144,7 +144,7 @@ $lang['home_store_top'] = 'Meilleurs vente';
 /*Store Lang*/
 $lang['store_welcome'] = 'Bienvenue dans la boutique';
 $lang['store_cart_description'] = 'Acheter objet';
-$lang['store_item_name'] = 'Nom de l'objet;
+$lang['store_item_name'] = 'Nom de l\'objet';
 $lang['store_select_character'] = 'Sélectionner un personnage';
 $lang['store_item_price'] = 'Prix';
 $lang['store_all_categories'] = 'Toutes les Catégories';
