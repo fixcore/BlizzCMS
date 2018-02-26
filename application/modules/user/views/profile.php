@@ -1,7 +1,3 @@
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
@@ -18,19 +14,6 @@
                     <div class="uk-space-medium"></div>
                 </div>
                 <div class="uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
-                    <?php if ($this->m_modules->getMessages() == '1') { ?>
-                        <?php if($this->m_data->isLogged() && $idlink != $this->session->userdata('fx_sess_id')) { ?>
-                            <div class="uk-column-1-1">
-                                <div>
-                                    <div class="uk-margin">
-                                        <a href="#" uk-toggle="target: #privateMsg">
-                                            <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope" aria-hidden="true"></i> <?= $this->lang->line('button_private_message'); ?></button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        <?php } ?>
-                    <?php } ?>
                     <hr class="uk-divider-icon">
                     <ul uk-accordion>
                         <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 

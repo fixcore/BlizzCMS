@@ -4,11 +4,12 @@
     $password = $_POST['host_pass'];
     $database = $_POST['host_db'];
     $realm_id = $_POST['realmid'];
+    $soaphost = $_POST['soap_hostname'];
     $soapuser = $_POST['soap_user'];
     $soappass = $_POST['soap_pass'];
     $soapport = $_POST['soap_port'];
 
-    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, '1');
+    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soaphost, $soapuser, $soappass, $soapport, '1');
 } ?>
 
 <?php if (isset($_POST['button_deleteRealm'])) {
@@ -84,11 +85,17 @@
             <form action="" method="post" enctype="multipart/form-data" accept-charset="utf-8" autocomplete="off">
                 <div class="uk-modal-body">
                     <div class="uk-margin">
+                        <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('column_realm_id'); ?></label>
+                        <div class="uk-form-controls">
+                            <input class="uk-input" type="number" name="realmid" placeholder="Auth -> realmlist -> ID" required>
+                        </div>
+                    </div>
+                    <div class="uk-margin">
                         <div class="uk-grid-small" uk-grid>
                             <div class="uk-inline uk-width-1-2@s">
-                                <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('column_realm_id'); ?></label>
+                                <label class="uk-form-label uk-text-uppercase">Soap Hostname</label>
                                 <div class="uk-form-controls">
-                                    <input class="uk-input" type="number" name="realmid" placeholder="Auth -> realmlist -> ID" required>
+                                    <input class="uk-input" type="text" name="soap_hostname" placeholder="Example: 127.0.0.1" required>
                                 </div>
                             </div>
                             <div class="uk-inline uk-width-1-2@s">

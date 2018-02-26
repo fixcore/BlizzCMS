@@ -30,7 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'แผงควบคุม';
-$lang['admin_settings'] = 'Settings';
+$lang['admin_settings'] = 'การตั้งค่า';
+$lang['admin_website_settings'] = 'การตั้งค่าเว็บไซต์';
+$lang['admin_manage_realms'] = 'จัดการเซิร์ฟเวอร์';
+$lang['admin_manage_slides'] = 'จัดการสไลด์';
 $lang['admin_users'] = 'ผู้ใช้งาน';
 $lang['admin_users_list'] = 'รายชื่อผู้ใช้งาน';
 $lang['admin_chars_list'] = 'รายชื่อตัวละคร';
@@ -39,7 +42,7 @@ $lang['admin_news'] = 'ข่าว';
 $lang['admin_changelogs'] = 'การอัปเดทและแก้ไข';
 $lang['admin_pages'] = 'หน้าเพจใหม่';
 $lang['admin_store'] = 'ร้านค้า';
-$lang['admin_manage_groups'] = 'Manage Groups';
+$lang['admin_manage_groups'] = 'จัดการกลุ่มไอเทม';
 $lang['admin_manage_items'] = 'จัดการไอเทม';
 $lang['admin_forums'] = 'ฟอรั่ม';
 $lang['admin_manage_categories'] = 'จัดการหมวดหมู่';
@@ -48,7 +51,7 @@ $lang['admin_manege_forums'] = 'จัดการฟอรั่ม';
 /*Count Lang*/
 $lang['players_count'] = 'ผู้เล่นออนไลน์';
 $lang['account_count'] = 'บัญชีทั้งหมด';
-$lang['staff_count'] = 'บัญชี STAFF';
+$lang['staff_count'] = 'บัญชีทีมงาน';
 $lang['ban_count'] = 'บัญชีที่ถูกแบน';
 
 /*Button Lang*/
@@ -85,12 +88,14 @@ $lang['panel_admin_news_list'] = 'รายการข่าว';
 $lang['panel_admin_edit_news'] = 'แก้ไขข่าว';
 
 /*Column Lang*/
-$lang['column_race'] = 'Race';
+$lang['column_race'] = 'ฝ่าย';
 $lang['column_class'] = 'อาชีพ';
 $lang['column_level'] = 'เลเวล';
 $lang['column_money'] = 'เงิน';
 $lang['column_own'] = 'เจ้าของ';
-$lang['column_action'] = 'Action';
+$lang['column_action'] = 'การกระทำ';
+$lang['column_realm_id'] = 'ไอดีเซิร์ฟเวอร์';
+$lang['column_realm_name'] = 'ชื่อเซิร์ฟเวอร์';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'สร้างรายการอัปเดทและแก้ไข';
@@ -110,8 +115,8 @@ $lang['form_create_item'] = 'สร้างไอเทม';
 $lang['form_store_item_name'] = 'ชื่อไอเทม';
 $lang['form_store_item_id'] = 'ไอดีไอเทม';
 $lang['form_store_image_name'] = 'ชื่อไฟล์รูปภาพ';
-$lang['form_create_group'] = 'Create Group';
-$lang['form_group_title'] = 'Title of the Group';
+$lang['form_create_group'] = 'สร้างกลุ่มไอเทม';
+$lang['form_group_title'] = 'ชื่อของกลุ่มไอเทม';
 
 /*Placeholder Lang*/
 $lang['panel_admin_reason'] = 'เหตุผล';
@@ -119,16 +124,16 @@ $lang['panel_admin_gmlevel'] = 'เลเวลจีเอ็ม';
 $lang['panel_admin_new_page_url'] = 'ลิ้งค์หน้าเว็บใหม่ของคุณคือ';
 
 /*Status Lang*/
-$lang['status_is_online'] = 'Player is Online, please disconnect';
-$lang['status_name_exist'] = 'This name already exist';
+$lang['status_is_online'] = 'ผู้เล่นกำลังออนไลน์,โปรดตัดการเชื่อมต่อ';
+$lang['status_name_exist'] = 'ชื่อนี้มีอยู่แล้ว';
 
 /*Options Lang*/
-$lang['option_yes'] = 'Yes';
-$lang['option_no'] = 'No';
-$lang['option_everyone'] = 'Everyone';
-$lang['option_staff'] = 'STAFF';
-$lang['option_all'] = 'STAFF - Everyone';
-$lang['option_item'] = 'Item';
+$lang['option_yes'] = 'ใช่';
+$lang['option_no'] = 'ไม่';
+$lang['option_everyone'] = 'ทุกคน';
+$lang['option_staff'] = 'ทีมงาน';
+$lang['option_all'] = 'ทีมงาน - ทุกคน';
+$lang['option_item'] = 'ไอเทม';
 
 /*Options Lang*/
-$lang['is_banned_reason'] = 'Is banned, reason:';
+$lang['is_banned_reason'] = 'ถูกแบน, เหตุผล:';

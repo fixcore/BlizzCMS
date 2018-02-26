@@ -1,9 +1,5 @@
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
-        <div class="uk-space-large"></div>
+        <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-5@l"></div>
             <div class="uk-width-3-5@l">

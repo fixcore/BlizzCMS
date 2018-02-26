@@ -7,7 +7,7 @@
 
     $soapUser = $this->m_data->getRealm($result_explode[0])->row_array()['console_username'];
     $soapPass = $this->m_data->getRealm($result_explode[0])->row_array()['console_password'];
-    $soapHost = $this->m_data->getRealm($result_explode[0])->row_array()['hostname'];
+    $soapHost = $this->m_data->getRealm($result_explode[0])->row_array()['console_hostname'];
     $soapPort = $this->m_data->getRealm($result_explode[0])->row_array()['console_port'];
     $soap_uri = $this->m_data->getRealm($result_explode[0])->row_array()['emulator'];
 
@@ -26,10 +26,6 @@
         $result_explode[0]);
 } ?>
 
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>

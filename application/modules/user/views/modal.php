@@ -1,9 +1,3 @@
-<?php if(isset($_POST['createPM'])) {
-    $this->load->model('messages/messages_model');
-    $reply = $_POST['replyText'];
-    $this->messages_model->insertReply($this->session->userdata('fx_sess_id'), $idlink, $reply);
-} ?>
-
 <?php if (isset($_POST['button_changeavatar'])) {
     $valueAvatar = $_POST['radioAvatars'];
     $this->user_model->insertAvatar($valueAvatar);
@@ -24,37 +18,6 @@
 
     $this->user_model->updateInformation($id, $name, $surname, $user, $mail, $question, $answer, $year, $month, $day, $country);
 } ?>
-
-    <?php if ($this->m_modules->getMessages() == '1') { ?>
-        <div id="privateMsg" uk-modal="bg-close: false">
-            <div class="uk-modal-dialog">
-                <button class="uk-modal-close-default" type="button" uk-close></button>
-                <div class="uk-modal-header">
-                    <h2 class="uk-modal-title uk-text-uppercase"><i class="fa fa-pencil" aria-hidden="true"></i> <?= $this->lang->line('form_new_message'); ?></h2>
-                </div>
-                <form action="" method="post" accept-charset="utf-8">
-                    <div class="uk-modal-body">
-                        <div class="uk-margin">
-                            <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_message'); ?></label>
-                            <div class="uk-form-controls">
-                                <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-                                <div class="uk-width-1-1">
-                                    <textarea required name="replyText" id="ckeditor" rows="10" cols="80"></textarea>
-                                    <script>
-                                        CKEDITOR.replace('ckeditor');
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="uk-modal-footer uk-text-right actions">
-                            <button class="uk-button uk-button-default uk-modal-close" type="button"><?= $this->lang->line('button_cancel'); ?></button>
-                            <button class="uk-button uk-button-primary" type="submit" name="createPM"><?= $this->lang->line('button_send'); ?></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    <?php } ?>
 
     <div id="changePassword" uk-modal="bg-close: false">
         <div class="uk-modal-dialog">

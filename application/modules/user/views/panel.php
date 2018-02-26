@@ -1,7 +1,3 @@
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
@@ -119,79 +115,91 @@
                 } ?>
                 <div class="uk-scrollspy-inview uk-animation-slide-bottom" style="color: #fff;" uk-scrollspy-class="">
                     <div class="uk-column-1-2 uk-column-divider">
-                        <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-label">
-                            <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?></span>
-                        </p>
-                        <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('panel_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        <div>
+                            <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-label">
+                                <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?></span>
+                            </p>
+                        </div>
+                        <div>
+                            <p><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('panel_dp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharDPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        </div>
                     </div>
                     <div class="uk-column-1-2 uk-column-divider">
-                        <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('panel_location'); ?>: <span class="uk-label"><?= $this->user_model->getLocation($this->session->userdata('fx_sess_id')); ?></span></p>
-                        <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('panel_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        <div>
+                            <p><i class="fa fa-globe" aria-hidden="true"></i> <?= $this->lang->line('panel_location'); ?>: <span class="uk-label"><?= $this->user_model->getLocation($this->session->userdata('fx_sess_id')); ?></span></p>
+                        </div>
+                        <div>
+                            <p><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('panel_vp'); ?>: <span class="uk-badge"><?= $this->m_general->getCharVPTotal($this->session->userdata('fx_sess_id')); ?></span></p>
+                        </div>
                     </div>
                     <div class="uk-column-1-2 uk-column-divider">
-                        <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('panel_expansion'); ?>: <span class="uk-label"><?= $this->m_general->getExpansionName(); ?></span></p>
+                        <div>
+                            <p><i class="fa fa-gamepad" aria-hidden="true"></i> <?= $this->lang->line('panel_expansion'); ?>: <span class="uk-label"><?= $this->m_general->getExpansionName(); ?></span></p>
+                        </div>
                         <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
-                            <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('panel_member'); ?>: <span class="uk-label"><?= date('Y/m/d',$this->user_model->getDateMember($this->session->userdata('fx_sess_id'))); ?></span></p>
+                            <div>
+                                <p><i class="fa fa-clock-o" aria-hidden="true"></i> <?= $this->lang->line('panel_member'); ?>: <span class="uk-label"><?= date('Y/m/d',$this->user_model->getDateMember($this->session->userdata('fx_sess_id'))); ?></span></p>
+                            </div>
                         <?php } ?>
                     </div>
                     <hr class="uk-divider-icon">
                     <div class="uk-column-1-2">
                         <?php if($this->m_modules->getVote() == '1') { ?>
                             <div>
-                                <div class="uk-margin">
-                                    <a href="<?= base_url('vote'); ?>">
-                                        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
-                                    </a>
-                                </div>
+                                <a href="<?= base_url('vote'); ?>">
+                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
+                                </a>
+                            </div>
+                        <?php } else { ?>
+                            <div>
+                                <a href="<?= base_url('vote'); ?>" class="uk-disabled">
+                                    <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
+                                </a>
                             </div>
                         <?php } ?>
                         <?php if($this->m_modules->getDonation() == '1') { ?>
                             <div>
-                                <div class="uk-margin">
-                                    <a href="<?= base_url('donate'); ?>">
-                                        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
-                                    </a>
-                                </div>
+                                <a href="<?= base_url('donate'); ?>">
+                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
+                                </a>
+                            </div>
+                        <?php } else { ?>
+                            <div>
+                                <a href="<?= base_url('donate'); ?>" class="uk-disabled">
+                                    <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-credit-card" aria-hidden="true"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
+                                </a>
                             </div>
                         <?php } ?>
                     </div>
                     <div class="uk-column-1-2">
                         <div>
-                            <div class="uk-margin">
-                                <a href="">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('button_support'); ?></button>
-                                </a>
-                            </div>
+                            <a href="">
+                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-ticket" aria-hidden="true"></i> <?= $this->lang->line('button_support'); ?></button>
+                            </a>
                         </div>
                         <div>
-                            <div class="uk-margin">
-                                <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
-                                    <a href="#" uk-toggle="target: #avatars">
-                                        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
-                                    </a>
-                                <?php } ?>
-                                <?php if(!$this->user_model->getExistInfo()->num_rows()) { ?>
-                                    <a href="#" uk-toggle="target: #personalinfo">
-                                        <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
-                                    </a>
-                                <?php } ?>
-                            </div>
+                            <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
+                                <a href="#" uk-toggle="target: #avatars">
+                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-camera" aria-hidden="true"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
+                                </a>
+                            <?php } ?>
+                            <?php if(!$this->user_model->getExistInfo()->num_rows()) { ?>
+                                <a href="#" uk-toggle="target: #personalinfo">
+                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-user-o" aria-hidden="true"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
+                                </a>
+                            <?php } ?>
                         </div>
                     </div>
                     <div class="uk-column-1-2">
                         <div>
-                            <div class="uk-margin">
-                                <a href="#" uk-toggle="target: #changePassword">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></button>
-                                </a>
-                            </div>
+                            <a href="#" uk-toggle="target: #changePassword">
+                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-key" aria-hidden="true"></i> <?= $this->lang->line('button_change_password'); ?></button>
+                            </a>
                         </div>
                         <div>
-                            <div class="uk-margin">
-                                <a href="#" uk-toggle="target: #changeEmail">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></button>
-                                </a>
-                            </div>
+                            <a href="#" uk-toggle="target: #changeEmail">
+                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fa fa-envelope-o" aria-hidden="true"></i> <?= $this->lang->line('button_change_email'); ?></button>
+                            </a>
                         </div>
                     </div>
                     <hr class="uk-divider-icon">

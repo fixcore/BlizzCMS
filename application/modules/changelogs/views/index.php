@@ -1,7 +1,3 @@
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <?php if($this->changelogs_model->getAll()->num_rows()) { ?>

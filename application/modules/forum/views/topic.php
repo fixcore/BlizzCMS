@@ -27,10 +27,6 @@
     $this->forum_model->removeComment($_POST['button_removecomment'], $idlink);
 } ?>
 
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
@@ -172,9 +168,9 @@
                                     </div>
                                 </div>
                                 <?php if($this->m_data->getRank($commentss->author) > 0) { ?>
-                                <div class="TopicPost-bodyContent" style="color: <?= $this->config->item('staff_forum_color'); ?>;">
+                                <div class="TopicPost-bodyContent" style="color: #<?= $this->config->item('staff_forum_color'); ?>;">
                                 <?php } else { ?>
-                                <div class="TopicPost-bodyContent">
+                                <div class="TopicPost-bodyContent" style="color: white;">
                                 <?php } ?>
                                     <?= $commentss->commentary ?>
                                 </div>

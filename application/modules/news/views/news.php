@@ -1,7 +1,3 @@
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
@@ -43,7 +39,7 @@
                 <?php if ($this->news_model->getNewsList()->num_rows()) { ?>
                     <?php foreach($this->news_model->getNewsList()->result() as $list) { ?>
                         <a href="<?= base_url(); ?>news/<?= $list->id ?>">
-                            <div class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-3@s uk-margin uk-animation-fade" uk-grid>
+                            <div class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin uk-animation-fade" uk-grid>
                                 <div class="uk-card-media-left uk-cover-container uk-overflow-hidden">
                                     <img src="<?= base_url(); ?>assets/images/news/<?= $list->image ?>" alt="" uk-cover>
                                     <canvas width="100" height="100"></canvas>

@@ -36,7 +36,10 @@
         'actualStaffColor' => $this->admin_model->getFixCoreStaffColor($fileFixCore),
         'fixcoreThemeName' => str_replace(' ', '', $_POST['fixcoreTheme']),
         'actualTheme' => $this->admin_model->getFixCoreThemeName($fileFixCore),
+        'devnavbarfx' => $_POST['devnavbarfx'],
+        'actualnavbr' => $this->admin_model->getFixCoreNavBar($fileFixCore),
     );
+
     $this->admin_model->settingFixCore($datafx);
 }?>
 
@@ -131,24 +134,6 @@
     );
     $this->admin_model->settingStore($datastore);
 }?>
-
-<?php if (isset($_POST['button_createRealm'])) {
-    $hostname = $_POST['hostname'];
-    $username = $_POST['host_user'];
-    $password = $_POST['host_pass'];
-    $database = $_POST['host_db'];
-    $realm_id = $_POST['realmid'];
-    $soapuser = $_POST['soap_user'];
-    $soappass = $_POST['soap_pass'];
-    $soapport = $_POST['soap_port'];
-
-    $this->m_modules->insertRealm($hostname, $username, $password, $database, $realm_id, $soapuser, $soappass, $soapport, '1');
-} ?>
-
-<?php if (isset($_POST['button_deleteRealm'])) {
-    $value = $_POST['button_deleteRealm'];
-    $this->admin_model->delSpecifyRealm($value);
-} ?>
 
     <div id="content" data-uk-height-viewport="expand: true">
         <div class="uk-container uk-container-expand">
@@ -274,6 +259,15 @@
                                                     <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: cog"></span>
                                                     <input class="uk-input" type="text" name="fixcoreTheme" value="<?= $this->admin_model->getFixCoreThemeName($fileFixCore); ?>" required>
                                                 </div>
+                                            </div>
+                                        </div>
+                                        <div class="uk-margin">
+                                            <label class="uk-form-label uk-text-uppercase">Dev Navbar</label>
+                                            <div class="uk-form-controls">
+                                                <select class="uk-select" name="devnavbarfx">
+                                                    <option value="FALSE">FALSE</option>
+                                                    <option value="TRUE">TRUE</option>
+                                                </select>
                                             </div>
                                         </div>
                                         <div class="uk-margin">

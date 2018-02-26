@@ -13,16 +13,11 @@
 <?php if(isset($_POST['button_removecomment'])) {
     $this->news_model->removeComment($_POST['button_removecomment'], $idlink);
 } ?>
-
-    <header id="top-head">
-        <?php $this->load->view('general/menu'); ?>
-    </header>
-    <br>
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
-            <div class="uk-width-1-5@l"></div>
-            <div class="uk-width-3-5@l">
+            <div class="uk-width-1-6@l"></div>
+            <div class="uk-width-4-6@l">
                 <article class="uk-article" style="color: #fff;">
                     <h1 class="uk-article-title" style="color: #fff;"><a class="uk-link-reset" href=""><?= $this->news_model->getNewTitle($idlink); ?></a></h1>
                     <p class="uk-article-meta" style="color: #fff;"><?= $this->lang->line('news_article_published'); ?> | <i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->news_model->getNewlogDate($idlink)); ?></p>
@@ -128,5 +123,5 @@
                     <?php } ?>
                 </article>
             </div>
-            <div class="uk-width-1-5@l"></div>
+            <div class="uk-width-1-6@l"></div>
         </div>
