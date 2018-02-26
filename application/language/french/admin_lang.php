@@ -31,6 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Tableau de bord';
 $lang['admin_settings'] = 'Configuration';
+$lang['admin_website_settings'] = 'Gestion du site';
+$lang['admin_manage_realms'] = 'Gestion des Royaumes';
+$lang['admin_manage_slides'] = 'Gestion des bannières';
 $lang['admin_users'] = 'Utilisateurs';
 $lang['admin_users_list'] = 'Liste des Comptes';
 $lang['admin_chars_list'] = 'Liste des Personnages';
@@ -83,14 +86,17 @@ $lang['panel_admin_changelogs_list'] = 'liste des Changelogs';
 $lang['panel_admin_pages_list'] = 'Liste des Pages';
 $lang['panel_admin_news_list'] = 'Nouvelle liste';
 $lang['panel_admin_edit_news'] = 'Editer les nouveautés';
+$lang['panel_admin_edit_pages'] = 'Editer les pages';
 
 /*Column Lang*/
 $lang['column_race'] = 'Race';
 $lang['column_class'] = 'Classe';
 $lang['column_level'] = 'Level';
 $lang['column_money'] = 'Monnaie';
-$lang['column_own'] = 'Chef';
+$lang['column_own'] = 'Compte';
 $lang['column_action'] = 'Action';
+$lang['column_realm_id'] = 'ID Royaume';
+$lang['column_realm_name'] = 'Nom du Royaume';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Créer un nouveau Changelog';
@@ -106,7 +112,7 @@ $lang['form_forum_title'] = 'Titre du Forum';
 $lang['form_forum_description'] = 'Ajouter une bref description du forum';
 $lang['form_forum_icon_name'] = 'Nom d\'icône';
 $lang['form_category'] = 'Categorie';
-$lang['form_create_item'] = 'Créer un objet';
+$lang['form_create_item'] = 'Ajouter un objet';
 $lang['form_store_item_name'] = 'Nom du produit';
 $lang['form_store_item_id'] = 'Item Id';
 $lang['form_store_image_name'] = 'Nom de l\'image';

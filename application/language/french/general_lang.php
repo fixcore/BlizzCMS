@@ -43,7 +43,6 @@ $lang['button_change_avatar'] = 'Changer d\'Avatar';
 $lang['button_add_personal_info'] = 'Ajouter des informations personnels';
 $lang['button_change_password'] = 'Changer de mot de passe';
 $lang['button_change_email'] = 'Changer de courriel';
-$lang['button_private_message'] = 'Envoyer un message privée';
 $lang['button_create_report'] = 'Créer un rapport';
 $lang['button_new_topic'] = 'Nouveau sujet';
 $lang['button_edit_topic'] = 'Editer un sujet';
@@ -61,11 +60,13 @@ $lang['button_close'] = 'Terminer';
 $lang['button_reply'] = 'Répondre';
 
 /*Footer Lang*/
-$lang['footer_language'] = 'French (FR)';
 $lang['footer_rights'] = 'ALL RIGHTS RESERVED.';
 $lang['footer_powered'] = ' Proudly powered by BlizzCMS';
 $lang['footer_privacy'] = 'Privacy';
 $lang['footer_terms'] = 'Terms';
+
+//armory
+$lang['playervsplayer'] = 'Joueur vs Joueur';
 
 /*Login Lang*/
 $lang['login_description'] = 'Profitez de toutes les options que nous avons pour vous';
@@ -171,8 +172,8 @@ $lang['changelogs_list'] = 'Changelogs';
 /*Bugtracker Lang*/
 $lang['bugtracker_report_list'] = 'Liste des signalements';
 
-/*Message Lang*/
-$lang['message_header'] = 'Message privé';
+/*Chat Lang*/
+$lang['chat_header'] = 'Chat';
 
 /*Forum Lang*/
 $lang['forum_welcome'] = 'Bienvenue sur le forum officiel';
