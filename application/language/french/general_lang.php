@@ -51,7 +51,7 @@ $lang['button_change'] = 'Changer';
 $lang['button_cancel'] = 'Annuler';
 $lang['button_send'] = 'Envoyer';
 $lang['button_buy'] = 'Acheter';
-$lang['button_learn_more'] = 'En savoir plus';
+$lang['button_learn_more'] = 'Consulter';
 $lang['button_add_reply'] = 'Ajouter une réponse';
 $lang['button_remove'] = 'Supprimer';
 $lang['button_create'] = 'Créer';
@@ -140,7 +140,7 @@ $lang['home_latest_news'] = 'Dernière nouveautée';
 $lang['home_all_news'] = 'Toutes les nouveautés';
 $lang['home_up_events'] = 'Upcoming Events';
 $lang['home_discord'] = 'Discord';
-$lang['home_store_top'] = 'Meilleurs vente';
+$lang['home_store_top'] = 'TOP Vente';
 
 /*Store Lang*/
 $lang['store_welcome'] = 'Bienvenue dans la boutique';
@@ -150,7 +150,7 @@ $lang['store_select_character'] = 'Sélectionner un personnage';
 $lang['store_item_price'] = 'Prix';
 $lang['store_all_categories'] = 'Toutes les Catégories';
 $lang['store_select_categories'] = 'Sélectionner une catégorie';
-$lang['store_support'] = 'Assistance boutique';
+$lang['store_support'] = 'Assistance';
 $lang['store_support_description'] = 'Avez-vous un problème avec la boutique ? Donnez nous les détails, nous reviendrons vers vous rapidement.';
 
 /*PvP-Arena Lang*/
@@ -184,6 +184,7 @@ $lang['forum_comment_header'] = 'Rejoindre la conversation';
 $lang['forum_not_authorized'] = 'Non-autorisé';
 $lang['forum_code_conduct'] = 'Code de conduite';
 $lang['forum_post_history'] = 'Voir l\'historique des articles';
+$lang['forum_topic_list'] = 'Liste des sujets';
 
 /*Race Lang*/
 $lang['race_human'] = 'Humain';
