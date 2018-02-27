@@ -36,7 +36,7 @@
                                     <tr>
                                         <th><?= $this->lang->line('column_realm_id'); ?></th>
                                         <th><?= $this->lang->line('column_realm_name'); ?></th>
-                                        <th>Character Database Name</th>
+                                        <th><?= $this->lang->line('column_realm_char_database'); ?></th>
                                         <th>Soap Port</th>
                                         <th class="uk-text-center"><?= $this->lang->line('column_action'); ?></th>
                                     </tr>

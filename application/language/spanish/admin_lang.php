@@ -53,6 +53,10 @@ $lang['players_count'] = 'Jugadores Online';
 $lang['account_count'] = 'Cuentas Creadas';
 $lang['staff_count'] = 'Cuentas del STAFF';
 $lang['ban_count'] = 'Cuentas Baneadas';
+$lang['total_players_playing'] = 'Total players playing on realm. ';
+$lang['total_account_registered'] = 'Total accounts registered.';
+$lang['total_account_banned'] = 'Total accounts banned. ';
+$lang['total_account_gm'] = 'Total accounts with GM access. ';
 
 /*Button Lang*/
 $lang['button_server_restart'] = 'Reiniciar Servidor';
@@ -86,6 +90,7 @@ $lang['panel_admin_changelogs_list'] = 'Lista de Changelogs';
 $lang['panel_admin_pages_list'] = 'Lista de Páginas';
 $lang['panel_admin_news_list'] = 'Lista de Novedades';
 $lang['panel_admin_edit_news'] = 'Editar Noticia';
+$lang['panel_admin_edit_pages'] = 'Edit Pages';
 
 /*Column Lang*/
 $lang['column_race'] = 'Raza';
@@ -96,6 +101,7 @@ $lang['column_own'] = 'Creador';
 $lang['column_action'] = 'Acción';
 $lang['column_realm_id'] = 'ID Reino';
 $lang['column_realm_name'] = 'Nombre Reino';
+$lang['column_realm_char_database'] = 'Character Database Name';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Crear nuevo Changelog';
