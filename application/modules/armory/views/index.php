@@ -1,40 +1,73 @@
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
-        <div class="uk-grid uk-grid-large" data-uk-grid>
+        <div class="uk-grid uk-grid-medium" data-uk-grid>
+            <div class="uk-width-1-1@l">
+                <h3 class="uk-heading-divider uk-text-white"><i class="ra ra-anvil"></i> Playername</h3>
+            </div>
             <div class="uk-width-1-2@l">
                 <div class="uk-grid-small" uk-grid>
                     <div class="uk-width-1-5@l">
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHead($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
+                        <a class="uk-button uk-button-link" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHead($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" data-tippy-arrow="true" data-tippy-animation="shift-away">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_helmet_169.jpg" />
-                        </a>                  
+                        </a>
+                        <div id="itemTemplate" style="display: none">
+                            <ul class="uk-list">
+                                <li class="uk-text-bold uk-text-quality-rare">Mystic Wakener's Dagger</li>
+                                <li>
+                                    <span class="uk-text-quality-bind">Item Level 880</span><br>
+                                    <span>Binds when picked up</span>
+                                </li>
+                                <li>
+                                    <span>One-Hand</span>
+                                    <span style="display:inline-block; width: 15px;"></span>
+                                    <span class="uk-text-bold">Dagger</span><br>
+                                    <span>3232 - 5388 Damage</span>
+                                    <span style="display:inline-block; width: 15px;"></span>
+                                    <span>Speed 1.80</span><br>
+                                    <span>(2394.66 damage per second)</span><br>
+                                    <span>+771 Agility</span><br>
+                                    <span>+1,157 Stamina</span><br>
+                                    <span class="uk-text-quality-uncommon">253 Critical Strike</span><br>
+                                    <span class="uk-text-quality-uncommon">403 Versatility</span>
+                                </li>
+                                <li>
+                                    <span>Durability 65/65</span><br>
+                                    <span>Requires Level 110</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <script src="<?= base_url(); ?>core/js/tippy.all.min.js"></script>
+                        <script>
+                            tippy('.uk-button-link', { html: '#itemTemplate' })
+                        </script>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvNeck($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_jewelcrafting_crimsonspinel_02.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvShoulders($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBody($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvChest($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWrists($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBack($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTabard($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                     </div>
                     <div class="uk-width-3-5@l">
@@ -59,35 +92,35 @@
                     <div class="uk-width-1-5@l">
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWaist($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvLegs($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFeet($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHands($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerOne($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketOne($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                         <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
                             <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
-                        </a> 
+                        </a>
                         <div class="fx-gap"></div>
                     </div>
                 </div>
