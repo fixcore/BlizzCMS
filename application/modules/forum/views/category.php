@@ -11,7 +11,7 @@
                         </a>
                     </span>
                 <?php } ?>
-                <p class="uk-text-uppercase uk-text-bold" style="color: #fff;">Topic List</p>
+                <p class="uk-text-uppercase uk-text-bold" style="color: #fff;"><?= $this->lang->line('forum_topic_list'); ?></p>
                 <div class="uk-space-small"></div>
                 <div class="Forum-ForumTopicList" uk-scrollspy="cls: uk-animation-fade; repeat: true">
                     <?php foreach($this->forum_model->getSpecifyCategoryPostsPined($idlink)->result() as $lists) { ?>
