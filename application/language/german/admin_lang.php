@@ -31,6 +31,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 /*Navigation Menu Lang*/
 $lang['admin_dashboard'] = 'Dashboard';
 $lang['admin_settings'] = 'Settings';
+$lang['admin_website_settings'] = 'Website Settings';
+$lang['admin_manage_realms'] = 'Manage Realms';
+$lang['admin_manage_slides'] = 'Manage Slides';
 $lang['admin_users'] = 'Nutzer';
 $lang['admin_users_list'] = 'Nutzerliste';
 $lang['admin_chars_list'] = 'Charakterliste';
@@ -87,6 +90,7 @@ $lang['panel_admin_changelogs_list'] = 'Liste mit den Changelogs';
 $lang['panel_admin_pages_list'] = 'Liste mit den Seiten';
 $lang['panel_admin_news_list'] = 'Liste mit den Neuigkeiten';
 $lang['panel_admin_edit_news'] = 'Neuigkeiten bearbeiten';
+$lang['panel_admin_edit_pages'] = 'Edit Pages';
 
 /*Column Lang*/
 $lang['column_race'] = 'Rasse';
@@ -95,6 +99,9 @@ $lang['column_level'] = 'Stufe';
 $lang['column_money'] = 'Gold';
 $lang['column_own'] = 'Besitzer';
 $lang['column_action'] = 'Aktion';
+$lang['column_realm_id'] = 'Realm ID';
+$lang['column_realm_name'] = 'Realm Name';
+$lang['column_realm_char_database'] = 'Character Database Name';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Changelog erstellen';

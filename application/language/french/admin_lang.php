@@ -101,6 +101,7 @@ $lang['column_own'] = 'Compte';
 $lang['column_action'] = 'Action';
 $lang['column_realm_id'] = 'ID Royaume';
 $lang['column_realm_name'] = 'Nom du Royaume';
+$lang['column_realm_char_database'] = 'Base de donnée Characters';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Créer un nouveau Changelog';

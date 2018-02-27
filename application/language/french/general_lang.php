@@ -40,7 +40,7 @@ $lang['button_vote_panel'] = 'Voter';
 $lang['button_donate_panel'] = 'Donation';
 $lang['button_support'] = 'Assistance';
 $lang['button_change_avatar'] = 'Changer d\'Avatar';
-$lang['button_add_personal_info'] = 'Ajouter des informations personnels';
+$lang['button_add_personal_info'] = 'Mon profil';
 $lang['button_change_password'] = 'Changer de mot de passe';
 $lang['button_change_email'] = 'Changer de courriel';
 $lang['button_create_report'] = 'Créer un rapport';
@@ -125,7 +125,7 @@ $lang['option_open'] = 'Ouvert';
 $lang['option_closed'] = 'Fermer';
 
 /*User Panel Lang*/
-$lang['panel_last_login'] = 'Dernière connexion en jeu';
+$lang['panel_last_login'] = 'Dernière connexion';
 $lang['panel_acc_rank'] = 'Rang du compte';
 $lang['panel_dp'] = 'Points de Donation';
 $lang['panel_vp'] = 'Points de Vote';

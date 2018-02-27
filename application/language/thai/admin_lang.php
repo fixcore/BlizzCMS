@@ -90,6 +90,7 @@ $lang['panel_admin_changelogs_list'] = 'รายการอัปเดทแ�
 $lang['panel_admin_pages_list'] = 'รายการหน้าเพจใหม่';
 $lang['panel_admin_news_list'] = 'รายการข่าว';
 $lang['panel_admin_edit_news'] = 'แก้ไขข่าว';
+$lang['panel_admin_edit_pages'] = 'Edit Pages';
 
 /*Column Lang*/
 $lang['column_race'] = 'ฝ่าย';
@@ -100,6 +101,7 @@ $lang['column_own'] = 'เจ้าของ';
 $lang['column_action'] = 'การกระทำ';
 $lang['column_realm_id'] = 'ไอดีเซิร์ฟเวอร์';
 $lang['column_realm_name'] = 'ชื่อเซิร์ฟเวอร์';
+$lang['column_realm_char_database'] = 'Character Database Name';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'สร้างรายการอัปเดทและแก้ไข';
@@ -130,6 +132,7 @@ $lang['panel_admin_new_page_url'] = 'ลิ้งค์หน้าเว็บ�
 /*Status Lang*/
 $lang['status_is_online'] = 'ผู้เล่นกำลังออนไลน์,โปรดตัดการเชื่อมต่อ';
 $lang['status_name_exist'] = 'ชื่อนี้มีอยู่แล้ว';
+$lang['placeholder_forum_icon'] = 'foldername/image.jpg or foldername/image.png';
 
 /*Options Lang*/
 $lang['option_yes'] = 'ใช่';
@@ -139,5 +142,5 @@ $lang['option_staff'] = 'ทีมงาน';
 $lang['option_all'] = 'ทีมงาน - ทุกคน';
 $lang['option_item'] = 'ไอเทม';
 
-/*Options Lang*/
+/*Info Lang*/
 $lang['is_banned_reason'] = 'ถูกแบน, เหตุผล:';

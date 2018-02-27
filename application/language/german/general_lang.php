@@ -67,6 +67,9 @@ $lang['footer_powered'] = ' Proudly powered by BlizzCMS';
 $lang['footer_privacy'] = 'DATENSCHUTZ';
 $lang['footer_terms'] = 'BESTIMMUNGEN';
 
+//armory
+$lang['playervsplayer'] = 'Player vs Player';
+
 /*Login Lang*/
 $lang['login_description'] = 'Genieße unser Angebot';
 

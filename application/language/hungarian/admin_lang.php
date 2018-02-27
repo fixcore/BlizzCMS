@@ -34,6 +34,9 @@ $lang['admin_settings'] = 'Settings';
 $lang['admin_users'] = 'Felhasználók';
 $lang['admin_users_list'] = 'Felhasználó Lista';
 $lang['admin_chars_list'] = 'Characters List';
+$lang['admin_website_settings'] = 'Website Settings';
+$lang['admin_manage_realms'] = 'Manage Realms';
+$lang['admin_manage_slides'] = 'Manage Slides';
 $lang['admin_website'] = 'Website';
 $lang['admin_news'] = 'News';
 $lang['admin_changelogs'] = 'Changelogs';
@@ -64,6 +67,7 @@ $lang['button_grant_account'] = 'Grant GM';
 $lang['button_grant_web_acc'] = 'Grant ADM';
 $lang['button_re_grant_web_acc'] = 'Remove ADM';
 $lang['button_change_level'] = 'Change Level';
+$lang['panel_admin_edit_pages'] = 'Edit Pages';
 
 /*Panel Lang*/
 $lang['panel_admin_user_manage'] = 'Manage user';
@@ -95,6 +99,9 @@ $lang['column_level'] = 'Level';
 $lang['column_money'] = 'Money';
 $lang['column_own'] = 'Own';
 $lang['column_action'] = 'Action';
+$lang['column_realm_id'] = 'Realm ID';
+$lang['column_realm_name'] = 'Realm Name';
+$lang['column_realm_char_database'] = 'Character Database Name';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Create a new Changelog';
