@@ -185,7 +185,7 @@ $lang['forum_comment_header'] = 'Bejegyzés';
 $lang['forum_not_authorized'] = 'Nincs Bejelentkezve';
 $lang['forum_code_conduct'] = 'Magaviselet';
 $lang['forum_post_history'] = 'Bejegyzéstörténet';
-$lang['forum_topic_list'] = 'TOPIC List';
+$lang['forum_topic_list'] = 'Topic List';
 
 /*Race Lang*/
 $lang['race_human'] = 'Human';

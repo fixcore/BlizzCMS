@@ -189,7 +189,7 @@ $lang['forum_comment_header'] = 'เข้าร่วมการสนทน�
 $lang['forum_not_authorized'] = 'ไม่มีอำนาจ';
 $lang['forum_code_conduct'] = 'กฎระเบียบ';
 $lang['forum_post_history'] = 'ดูประวัติโพสต์';
-$lang['forum_topic_list'] = 'TOPIC List';
+$lang['forum_topic_list'] = 'Topic List';
 
 /*Race Lang*/
 $lang['race_human'] = 'Human';

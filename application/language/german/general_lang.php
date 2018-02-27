@@ -186,7 +186,7 @@ $lang['forum_comment_header'] = 'Nimm an der Unterhaltung teil!';
 $lang['forum_not_authorized'] = 'Nicht autorisiert';
 $lang['forum_code_conduct'] = 'Forenrichtlinien';
 $lang['forum_post_history'] = 'Beitragsverlauf ansehen';
-$lang['forum_topic_list'] = 'TOPIC List';
+$lang['forum_topic_list'] = 'Topic List';
 
 /*Race Lang*/
 $lang['race_human'] = 'Mensch';
