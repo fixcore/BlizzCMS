@@ -35,6 +35,30 @@
         <script type="text/javascript" src="<?= base_url() ?>assets/chat/js/chat/jquery.js"></script>
         <script type="text/javascript" src="<?= base_url() ?>assets/chat/js/chat/chat.js"></script>
     <?php } ?>
+
+    <link rel="stylesheet" href="<?= base_url() ?>core/cookieconsent/cookieconsent.min.css"/>
+    <script type="text/javascript" src="<?= base_url() ?>core/cookieconsent/cookieconsent.min.js"></script>
+    <script>
+    window.addEventListener("load", function(){
+    window.cookieconsent.initialise({
+      "palette": {
+        "popup": {
+          "background": "#252e39"
+        },
+        "button": {
+          "background": "#14a7d0"
+        }
+      },
+      "theme": "edgeless",
+      "position": "bottom-right",
+      "content": {
+        "message": "This website uses cookies to ensure you get the best experience on our website. ",
+        "dismiss": "Got it!",
+        "link": "Learn more",
+        "href": "<?= base_url(); ?>cookies"
+      }
+    })});
+    </script>
 </head>
 
 <body class="<?= $this->config->item('theme_name'); ?>">
