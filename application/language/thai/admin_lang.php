@@ -53,6 +53,10 @@ $lang['players_count'] = 'ผู้เล่นออนไลน์';
 $lang['account_count'] = 'บัญชีทั้งหมด';
 $lang['staff_count'] = 'บัญชีทีมงาน';
 $lang['ban_count'] = 'บัญชีที่ถูกแบน';
+$lang['total_players_playing'] = 'Total players playing on realm. ';
+$lang['total_account_registered'] = 'Total accounts registered.';
+$lang['total_account_banned'] = 'Total accounts banned. ';
+$lang['total_account_gm'] = 'Total accounts with GM access. ';
 
 /*Button Lang*/
 $lang['button_server_restart'] = 'รีสตาร์ทเซิร์ฟเวอร์';

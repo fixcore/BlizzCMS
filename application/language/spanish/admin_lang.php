@@ -53,6 +53,10 @@ $lang['players_count'] = 'Jugadores Online';
 $lang['account_count'] = 'Cuentas Creadas';
 $lang['staff_count'] = 'Cuentas del STAFF';
 $lang['ban_count'] = 'Cuentas Baneadas';
+$lang['total_players_playing'] = 'L\'enssemble des joueurs en ligne. ';
+$lang['total_account_registered'] = 'L\'enssemble des comptes enregistrés.';
+$lang['total_account_banned'] = 'L\'enssemble des comptes Banni. ';
+$lang['total_account_gm'] = 'L\'enssemble des comptes Mj. ';
 
 /*Button Lang*/
 $lang['button_server_restart'] = 'Reiniciar Servidor';

@@ -49,10 +49,14 @@ $lang['admin_manage_categories'] = 'Gestion des catégories';
 $lang['admin_manege_forums'] = 'Gestion des Forums';
 
 /*Count Lang*/
-$lang['players_count'] = 'Joueurs en ligne';
-$lang['account_count'] = 'Comptes créé';
-$lang['staff_count'] = 'Comptes GM';
+$lang['players_count'] = 'Joueur(s) en ligne';
+$lang['account_count'] = 'Compte créé';
+$lang['staff_count'] = 'Compte GM';
 $lang['ban_count'] = 'Compte Banni';
+$lang['total_players_playing'] = 'Total players playing on realm. ';
+$lang['total_account_registered'] = 'Total accounts registered.';
+$lang['total_account_banned'] = 'Total accounts banned. ';
+$lang['total_account_gm'] = 'Total accounts with GM access. ';
 
 /*Button Lang*/
 $lang['button_server_restart'] = 'Redémarrage serveur';

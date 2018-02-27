@@ -5,14 +5,14 @@
                     <span class="uk-text-small"><span data-uk-icon="icon: users" class="uk-margin-small-right uk-text-primary"></span><?= $this->lang->line('account_count'); ?></span>
                     <h1 class="uk-heading-primary uk-margin-remove  uk-text-success"><span class="counter" data-count="<?= $this->admin_model->getAccCreated(); ?>">0</span></h1>
                     <div class="uk-text-small">
-                        <span class="uk-text-success" data-uk-icon="icon: info"></span> Total accounts registered.
+                        <span class="uk-text-success" data-uk-icon="icon: info"></span> <?= $this->lang->line('total_account_registered'); ?>
                     </div>
                 </div>
                 <div class="uk-text-center">
                     <span class="uk-text-small"><span data-uk-icon="icon: ban" class="uk-margin-small-right uk-text-primary"></span><?= $this->lang->line('ban_count'); ?></span>
                     <h1 class="uk-heading-primary uk-margin-remove uk-text-danger"><span class="counter" data-count="<?= $this->admin_model->getBanCount(); ?>">0</span></h1>
                     <div class="uk-text-small">
-                        <span class="uk-text-danger" data-uk-icon="icon: info"></span> Total accounts banned.
+                        <span class="uk-text-danger" data-uk-icon="icon: info"></span> <?= $this->lang->line('total_account_banned'); ?>
                     </div>
                 </div>
             </div>
@@ -37,14 +37,14 @@
                                         <span class="uk-text-small"><span data-uk-icon="icon: user" class="uk-margin-small-right uk-text-primary"></span><?= $this->lang->line('players_count'); ?></span>
                                         <h1 class="uk-heading-primary uk-margin-remove uk-text-primary"><span class="counter" data-count="<?= $this->admin_model->getCharOn($multiRealm); ?>">0</span></h1>
                                         <div class="uk-text-small">
-                                            <span class="uk-text-primary" data-uk-icon="icon: info"></span> Total players playing on realm.
+                                            <span class="uk-text-primary" data-uk-icon="icon: info"></span> <?= $this->lang->line('total_players_playing'); ?>
                                         </div>
                                     </p>
                                     <p>
                                         <span class="uk-text-small"><span data-uk-icon="icon: star" class="uk-margin-small-right uk-text-primary"></span><?= $this->lang->line('staff_count'); ?></span>
                                         <h1 class="uk-heading-primary uk-margin-remove uk-text-primary"><span class="counter" data-count="<?= $this->admin_model->getGmCount($charsMultiRealm->realmID); ?>">0</span></h1>
                                         <div class="uk-text-small">
-                                            <span class="uk-text-primary" data-uk-icon="icon: info"></span> Total accounts with GM access.
+                                            <span class="uk-text-primary" data-uk-icon="icon: info"></span> <?= $this->lang->line('total_account_gm'); ?>
                                         </div>
                                     </p>
                                 </div>
