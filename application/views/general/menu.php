@@ -14,29 +14,43 @@
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li><a href="<?= base_url('faq'); ?>"><i class="ra ra-uncertainty"></i> <?= $this->lang->line('nav_faq'); ?></a></li>
                                     <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
+                                    <?php if($this->m_permissions->getMyPermissions('Permission_Bugtracker')) { //permissions ?>
                                         <li><a href="<?= base_url('bugtracker'); ?>"><i class="ra ra-book"></i> <?= $this->lang->line('nav_bugtracker'); ?></a></li>
                                     <?php } ?>
+                                    <?php } ?>
                                     <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
+                                    <?php if($this->m_permissions->getMyPermissions('Permission_Changelogs')) { //permissions ?>
                                         <li><a href="<?= base_url('changelogs'); ?>"><i class="ra ra-clockwork"></i> <?= $this->lang->line('nav_changelogs'); ?></a></li>
+                                    <?php } ?>
                                     <?php } ?>
                                     <li class="uk-nav-divider"></li>
                                     <?php if ($this->m_modules->getStatusLadPVP() == '1') { ?>
+                                    <?php if($this->m_permissions->getMyPermissions('Permission_PVPStats')) { //permissions ?>
                                         <li><a href="<?= base_url('pvp'); ?>"><i class="ra ra-axe"></i> <?=$this->lang->line('nav_pvp_statistics');?></a></li>
                                     <?php } ?>
+                                    <?php } ?>
                                     <?php if ($this->m_modules->getStatusLadArena() == '1') { ?>
+                                    <?php if($this->m_permissions->getMyPermissions('Permission_ArenaStats')) { //permissions ?>
                                         <li><a href="<?= base_url('arena'); ?>"><i class="ra ra-arena"></i> <?=$this->lang->line('nav_arena_statistics');?></a></li>
+                                    <?php } ?>
                                     <?php } ?>
                                 </ul>
                             </div>
                         </li>
                         <?php if($this->m_modules->getStatusNews() == '1') { ?>
+                        <?php if($this->m_permissions->getMyPermissions('Permission_News')) { //permissions ?>
                             <li><a href="<?= base_url('news'); ?>" style="color: #fff;"><?= $this->lang->line('nav_news'); ?></a></li>
                         <?php } ?>
+                        <?php } ?>
                         <?php if($this->m_modules->getStatusForums() == '1') { ?>
+                        <?php if($this->m_permissions->getMyPermissions('Permission_Forums')) { //permissions ?>
                             <li><a href="<?= base_url('forums'); ?>" style="color: #fff;"><?= $this->lang->line('nav_forums'); ?></a></li>
                         <?php } ?>
+                        <?php } ?>
                         <?php if($this->m_modules->getStatusStore() == '1') { ?>
+                        <?php if($this->m_permissions->getMyPermissions('Permission_Store')) { //permissions ?>
                             <li><a href="<?= base_url('store'); ?>" style="color: #fff;"><?= $this->lang->line('nav_store'); ?></a></li>
+                        <?php } ?>
                         <?php } ?>
                     </ul>
                 </div>
@@ -47,14 +61,18 @@
                         <?php } ?>
                         <?php if ($this->m_data->isLogged()) { ?>
                             <?php if ($this->m_modules->getMessages() == '1') { ?>
+                            <?php if($this->m_permissions->getMyPermissions('Permission_Chat')) { //permissions ?>
                                 <li><a href="#chat" style="color: #fff;" uk-tooltip="title: <?= $this->lang->line('nav_chat'); ?>; pos: left" uk-toggle><span uk-icon="icon: commenting"></span></a></li>
+                            <?php } ?>
                             <?php } ?>
                             <li><a href="#desk" style="color: #fff;" uk-toggle><span uk-icon="icon: user"></span></a></li>
                         <?php } ?>
                     </ul>
                     <?php if ($this->m_data->isLogged()) { ?>
                         <?php if ($this->m_modules->getMessages() == '1') { ?>
+                        <?php if($this->m_permissions->getMyPermissions('Permission_Chat')) { //permissions ?>
                             <a class="uk-navbar-toggle uk-hidden@m" href="#chat" uk-tooltip="title: <?= $this->lang->line('nav_chat'); ?>; pos: left" uk-toggle><span uk-icon="icon: commenting"></span></a></li>
+                        <?php } ?>
                         <?php } ?>
                     <?php } ?>
                     <a class="uk-navbar-toggle uk-hidden@m" uk-navbar-toggle-icon href="#mobile" uk-toggle></a>
@@ -71,7 +89,9 @@
                                                 <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small" style="color: #fff;"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
                                             <?php } ?>
                                             <?php if($this->m_modules->getStatusRegister() == '1') { ?>
+                                            <?php if($this->m_permissions->getMyPermissions('Permission_Register')) { //permissions ?>
                                                 <li class="uk-text-center"><a href="<?= base_url('register'); ?>"><span uk-icon="icon: plus-circle"></span> <?= $this->lang->line('button_account_create'); ?></a></li>
+                                            <?php } ?>
                                             <?php } ?>
                                         <?php } ?>
                                         <?php if ($this->m_data->isLogged()) { ?>
@@ -85,14 +105,18 @@
                                                 </a>
                                                 <?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?>
                                                 <?php if($this->m_modules->getStatusUCP() == '1') { ?>
+                                                <?php if($this->m_permissions->getMyPermissions('Permission_Panel')) { //permissions ?>
                                                     <a href="<?= base_url('panel'); ?>">
                                                         <button class="uk-button uk-button-primary"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('button_user_panel'); ?></button>
                                                     </a>
                                                 <?php } ?>
+                                                <?php } ?>
                                             </li>
                                             <li class="uk-nav-divider"></li>
-                                            <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
+                                            <?php if($this->m_modules->getACP() == '1') { //i want use this module ?>
+                                            <?php if($this->m_permissions->getMyPermissions('Permission_ACP')) { //permissions ?>
                                                 <li><a href="<?= base_url('admin'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_admin_panel'); ?></a></li>
+                                            <?php } ?>
                                             <?php } ?>
                                             <?php if($this->m_modules->getStatusGifts() == '1') { ?>
                                                 <li><a href="<?= base_url('user/gifts'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_gifts'); ?></a></li>
@@ -150,10 +174,14 @@
                                         <li class="uk-nav-divider"></li>
                                         <?php if (!$this->m_data->isLogged()) { ?>
                                             <?php if($this->m_modules->getStatusLogin() == '1') { ?>
+                                            <?php if($this->m_permissions->getMyPermissions('Permission_Login')) { //permissions ?>
                                                 <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small" style="color: #fff;"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
                                             <?php } ?>
+                                            <?php } ?>
                                             <?php if($this->m_modules->getStatusRegister() == '1') { ?>
+                                            <?php if($this->m_permissions->getMyPermissions('Permission_Register')) { //permissions ?>
                                                 <li class="uk-text-center"><a href="<?= base_url('register'); ?>"><span uk-icon="icon: plus-circle"></span> <?= $this->lang->line('button_account_create'); ?></a></li>
+                                            <?php } ?>
                                             <?php } ?>
                                         <?php } ?>
                                         <?php if ($this->m_data->isLogged()) { ?>
@@ -167,14 +195,18 @@
                                                 </a>
                                                 <?= $this->session->userdata('fx_sess_username'); ?> #<?= $this->session->userdata('fx_sess_tag'); ?>
                                                 <?php if($this->m_modules->getStatusUCP() == '1') { ?>
+                                                <?php if($this->m_permissions->getMyPermissions('Permission_Panel')) { //permissions ?>
                                                     <a href="<?= base_url('panel'); ?>">
                                                         <button class="uk-button uk-button-primary"><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('button_user_panel'); ?></button>
                                                     </a>
                                                 <?php } ?>
+                                                <?php } ?>
                                             </li>
                                             <li class="uk-nav-divider"></li>
-                                            <?php if($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) == 1) { ?>
+                                            <?php if($this->m_modules->getACP() == '1') { //i want use this module ?>
+                                            <?php if($this->m_permissions->getMyPermissions('Permission_ACP')) { //permissions ?>
                                                 <li><a href="<?= base_url('admin'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_admin_panel'); ?></a></li>
+                                            <?php } ?>
                                             <?php } ?>
                                             <?php if($this->m_modules->getStatusGifts() == '1') { ?>
                                                 <li><a href="<?= base_url('user/gifts'); ?>"><span uk-icon="icon: cog"></span> <?= $this->lang->line('button_gifts'); ?></a></li>
@@ -202,28 +234,42 @@
                                             <ul class="uk-nav-sub">
                                                 <li><a href="<?= base_url('faq'); ?>"><i class="ra ra-uncertainty"></i> <?= $this->lang->line('nav_faq'); ?></a></li>
                                                 <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
+                                                <?php if($this->m_permissions->getMyPermissions('Permission_Bugtracker')) { //permissions ?>
                                                     <li><a href="<?= base_url('bugtracker'); ?>"><i class="ra ra-book"></i> <?= $this->lang->line('nav_bugtracker'); ?></a></li>
                                                 <?php } ?>
+                                                <?php } ?>
                                                 <?php if($this->m_modules->getStatusChangelogs() == '1') { ?>
+                                                <?php if($this->m_permissions->getMyPermissions('Permission_Changelogs')) { //permissions ?>
                                                     <li><a href="<?= base_url('changelogs'); ?>"><i class="ra ra-clockwork"></i> <?= $this->lang->line('nav_changelogs'); ?></a></li>
+                                                <?php } ?>
                                                 <?php } ?>
                                                 <li class="uk-nav-divider"></li>
                                                 <?php if ($this->m_modules->getStatusLadPVP() == '1') { ?>
+                                                <?php if($this->m_permissions->getMyPermissions('Permission_PVPStats')) { //permissions ?>
                                                     <li><a href="<?= base_url('pvp'); ?>"><i class="ra ra-axe"></i> <?=$this->lang->line('nav_pvp_statistics');?></a></li>
                                                 <?php } ?>
+                                                <?php } ?>
                                                 <?php if ($this->m_modules->getStatusLadArena() == '1') { ?>
+                                                <?php if($this->m_permissions->getMyPermissions('Permission_ArenaStats')) { //permissions ?>
                                                     <li><a href="<?= base_url('arena'); ?>"><i class="ra ra-arena"></i> <?=$this->lang->line('nav_arena_statistics');?></a></li>
+                                                <?php } ?>
                                                 <?php } ?>
                                             </ul>
                                         </li>
                                         <?php if($this->m_modules->getStatusNews() == '1') { ?>
+                                        <?php if($this->m_permissions->getMyPermissions('Permission_News')) { //permissions ?>
                                             <li><a href="<?= base_url('news'); ?>" style="color: #fff;"><?= $this->lang->line('nav_news'); ?></a></li>
                                         <?php } ?>
+                                        <?php } ?>
                                         <?php if($this->m_modules->getStatusForums() == '1') { ?>
+                                        <?php if($this->m_permissions->getMyPermissions('Permission_Forums')) { //permissions ?>
                                             <li><a href="<?= base_url('forums'); ?>" style="color: #fff;"><?= $this->lang->line('nav_forums'); ?></a></li>
                                         <?php } ?>
+                                        <?php } ?>
                                         <?php if($this->m_modules->getStatusStore() == '1') { ?>
+                                        <?php if($this->m_permissions->getMyPermissions('Permission_Store')) { //permissions ?>
                                             <li><a href="<?= base_url('store'); ?>" style="color: #fff;"><?= $this->lang->line('nav_store'); ?></a></li>
+                                        <?php } ?>
                                         <?php } ?>
                                     </ul>
                                 </div>
