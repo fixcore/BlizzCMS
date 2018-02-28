@@ -35,15 +35,12 @@
                                         <?php } ?>
                                     </select>
                                     <script>
-                                        $(function() {
-                                            // bind change event to select
-                                            $('#selectCategory').on('change', function () {
-                                                var url = $(this).val(); // get selected value
+                                        $('#selectCategory').change(function() {
+                                            var url = $(this).val(); // get selected value
                                                 if (url) { // require a URL
                                                     window.location = "<?= base_url('store/'); ?>"+url; // redirect
                                                 }
                                                 return false;
-                                            });
                                         });
                                     </script>
                                 </div>
