@@ -68,3 +68,4 @@ $lang['shopping_cart'] = 'Bevásárlókosár';
 $lang['store_see'] = 'Nézd meg a Boltot';
 $lang['no_players'] = 'Nincs Online játékos';
 $lang['users_on'] = 'Online Játékos';
+$lang['realm_offline'] = 'Realm Offline';
