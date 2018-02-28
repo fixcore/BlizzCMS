@@ -184,6 +184,7 @@ $lang['forum_comment_header'] = 'Join the Conversation';
 $lang['forum_not_authorized'] = 'Not Authorized';
 $lang['forum_code_conduct'] = 'Code of Conduct';
 $lang['forum_post_history'] = 'View Post History';
+$lang['forum_topic_list'] = 'Topic List';
 
 /*Race Lang*/
 $lang['race_human'] = 'Human';

@@ -60,6 +60,9 @@ $lang['button_save'] = 'Mentés';
 $lang['button_close'] = 'Bezárás';
 $lang['button_reply'] = 'Válasz';
 
+//armory
+$lang['playervsplayer'] = 'Player vs Player';
+
 /*Footer Lang*/
 $lang['footer_language'] = 'Magyar (HU)';
 $lang['footer_rights'] = 'Minden Jog Fenntartva.';
@@ -182,6 +185,7 @@ $lang['forum_comment_header'] = 'Bejegyzés';
 $lang['forum_not_authorized'] = 'Nincs Bejelentkezve';
 $lang['forum_code_conduct'] = 'Magaviselet';
 $lang['forum_post_history'] = 'Bejegyzéstörténet';
+$lang['forum_topic_list'] = 'Topic List';
 
 /*Race Lang*/
 $lang['race_human'] = 'Human';

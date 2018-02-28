@@ -40,3 +40,13 @@ $lang['nav_pvp_statistics'] = 'PvP Statisztikák';
 $lang['nav_arena_statistics'] = 'Arena Statisztikák';
 
 $lang['nav_account'] = 'Profilom';
+$lang['nav_register'] = 'Register';
+$lang['nav_profile'] = 'Profile';
+$lang['nav_ticket'] = 'Ticket';
+$lang['nav_chat'] = 'Chat';
+$lang['nav_home'] = 'Home';
+$lang['nav_donate'] = 'Donate';
+$lang['nav_armory'] = 'Armory';
+$lang['nav_vote'] = 'Vote';
+
+$lang['nav_account'] = 'My Account';

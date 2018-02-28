@@ -67,6 +67,9 @@ $lang['footer_powered'] = ' Proudly powered by BlizzCMS';
 $lang['footer_privacy'] = 'Privacy';
 $lang['footer_terms'] = 'Terms';
 
+//armory
+$lang['playervsplayer'] = 'Player vs Player';
+
 /*Login Lang*/
 $lang['login_description'] = 'เพลิดเพลินกับตัวเลือกทั้งหมดที่เรามีให้กับคุณ';
 
@@ -186,6 +189,7 @@ $lang['forum_comment_header'] = 'เข้าร่วมการสนทน�
 $lang['forum_not_authorized'] = 'ไม่มีอำนาจ';
 $lang['forum_code_conduct'] = 'กฎระเบียบ';
 $lang['forum_post_history'] = 'ดูประวัติโพสต์';
+$lang['forum_topic_list'] = 'Topic List';
 
 /*Race Lang*/
 $lang['race_human'] = 'Human';
