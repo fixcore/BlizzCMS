@@ -196,13 +196,12 @@ class User extends MX_Controller {
         if (!$this->m_permissions->getMyPermissions('Permission_Panel'))
             redirect(base_url(),'refresh');
 
+        if ($this->m_data->getRank($id) != '0')
+            if($this->m_data->isLogged() && $this->session->userdata('fx_sess_gmlevel') == '0')
+                redirect(base_url(),'refresh');
+
         if (empty($id) || is_null($id) || $id == '0')
             redirect(base_url(),'refresh');
-
-        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-        {
-            redirect(base_url('maintenance'),'refresh');
-        }
 
         $data['idlink'] = $id;
         $data['fxtitle'] = $this->lang->line('nav_profile');
