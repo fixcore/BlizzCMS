@@ -127,12 +127,14 @@
                                     <ul class="uk-nav uk-nav-default">
                                         <li class="uk-nav-header uk-text-center"><span uk-icon="icon: commenting"></span> <?= $this->lang->line('chat_header'); ?></li>
                                         <li class="uk-nav-divider"></li>
-                                        <?php foreach ($this->m_data->getUsers()->result() as $users) { ?>
+                                        <?php foreach ($this->m_data->getUsers()->result() as $users) { 
+                                            if($users->id != $this->session->userdata('fx_sess_id')) {
+                                        ?>
                                             <li class="uk-text-center">
                                                 <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($users->profile)); ?>" width="25" height="25" alt=""/>
                                                 <button class="uk-button uk-button-text" onclick="javascript:chatWith('<?= $users->id ?>','<?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?>')"><?= $users->username ?>#<?= $this->m_data->getTag($users->id); ?></button>
                                             </li>
-                                        <?php } ?>
+                                        <?php } } ?>
                                     </ul>
                                 </div>
                             </div>
