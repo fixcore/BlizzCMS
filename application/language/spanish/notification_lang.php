@@ -69,4 +69,3 @@ $lang['store_see'] = 'Ver la tienda';
 $lang['no_players'] = 'No hay jugadores online';
 $lang['users_on'] = 'Usuarios Online';
 $lang['realm_offline'] = 'Realm Offline';
-$lang['realm_offline'] = 'Realm Offline';
