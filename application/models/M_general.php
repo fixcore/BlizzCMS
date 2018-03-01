@@ -31,14 +31,6 @@ class M_general extends CI_Model {
                 ->get('fx_shop');
     }
 
-    public function getPermissions($id)
-    {
-        return $this->db->select('permission')
-                ->where('id', $id)
-                ->get('fx_ranks')
-                ->row('permission');
-    }
-
     public function getXML($url)
     {
         return simplexml_load_file($url);

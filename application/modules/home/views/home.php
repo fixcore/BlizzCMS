@@ -109,17 +109,9 @@
                                                 <?= $this->lang->line('faction_horde'); ?>
                                             </span>
                                         <?php } else { ?>
-                                            <span class="uk-label">
-                                                <span uk-icon="icon: users"></span>
-                                                0
-                                                <?= $this->lang->line('faction_alliance'); ?>
-                                            </span>
-                                            <span style="display:inline-block; width: 3px;"></span>
-                                            <span class="uk-label uk-label-danger">
-                                                <span uk-icon="icon: users"></span>
-                                                0
-                                                <?= $this->lang->line('faction_horde'); ?>
-                                            </span>
+                                            <div class="uk-alert-danger" uk-alert>
+                                                <p class="uk-position-center"><?= $this->lang->line('realm_offline'); ?></p>
+                                            </div>
                                         <?php } ?>
                                     </p>
                                 </div>

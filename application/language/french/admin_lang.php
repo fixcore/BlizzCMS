@@ -53,15 +53,15 @@ $lang['players_count'] = 'Joueur(s) en ligne';
 $lang['account_count'] = 'Compte créé';
 $lang['staff_count'] = 'Compte GM';
 $lang['ban_count'] = 'Compte Banni';
-$lang['total_players_playing'] = 'Total players playing on realm. ';
-$lang['total_account_registered'] = 'Total accounts registered.';
-$lang['total_account_banned'] = 'Total accounts banned. ';
-$lang['total_account_gm'] = 'Total accounts with GM access. ';
+$lang['total_players_playing'] = 'Nombre de joueur(s) total connecté. ';
+$lang['total_account_registered'] = 'Tous les comptes enregistrés.';
+$lang['total_account_banned'] = 'Tous les comptes bannis. ';
+$lang['total_account_gm'] = 'Nombre de comptes Mj. ';
 
 /*Button Lang*/
 $lang['button_server_restart'] = 'Redémarrage serveur';
-$lang['button_unban'] = 'Déban';
-$lang['button_ban'] = 'Ban';
+$lang['button_unban'] = 'Débannir';
+$lang['button_ban'] = 'Bannir';
 $lang['button_re_grant_account'] = 'Supprimer GM';
 $lang['button_grant_account'] = 'Ajouter GM';
 $lang['button_grant_web_acc'] = 'Ajouter ADM';
@@ -101,7 +101,7 @@ $lang['column_own'] = 'Compte';
 $lang['column_action'] = 'Action';
 $lang['column_realm_id'] = 'ID Royaume';
 $lang['column_realm_name'] = 'Nom du Royaume';
-$lang['column_realm_char_database'] = 'Base de donnée Characters';
+$lang['column_realm_char_database'] = 'BDD Characters';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'Créer un nouveau Changelog';

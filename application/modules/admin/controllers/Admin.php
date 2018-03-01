@@ -8,17 +8,15 @@ class Admin extends MX_Controller {
         parent::__construct();
         $this->load->model('admin_model');
 
-        if( ! ini_get('date.timezone') )
-        {
+        if(!ini_get('date.timezone'))
            date_default_timezone_set($this->config->item('timezone'));
-        }
 
         if (!$this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
+        if (!$this->m_permissions->getMyPermissions('Permission_ACP'))
             redirect(base_url(),'refresh');
-
+        
         if ($this->admin_model->getBanSpecify($this->session->userdata('fx_sess_id'))->num_rows())
             redirect(base_url(),'refresh');
     }

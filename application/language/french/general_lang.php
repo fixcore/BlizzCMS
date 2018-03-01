@@ -60,10 +60,10 @@ $lang['button_close'] = 'Terminer';
 $lang['button_reply'] = 'Répondre';
 
 /*Footer Lang*/
-$lang['footer_rights'] = 'ALL RIGHTS RESERVED.';
-$lang['footer_powered'] = ' Proudly powered by BlizzCMS';
-$lang['footer_privacy'] = 'Privacy';
-$lang['footer_terms'] = 'Terms';
+$lang['footer_rights'] = '© TOUS DROITS RÉSERVÉS.';
+$lang['footer_powered'] = ' Fièrement propulsé par BlizzCMS';
+$lang['footer_privacy'] = 'Politique de confidentialité';
+$lang['footer_terms'] = 'CGV';
 
 //armory
 $lang['playervsplayer'] = 'Joueur vs Joueur';
@@ -110,13 +110,13 @@ $lang['column_today_kills'] = 'Tué(s) aujourd\'hui';
 $lang['column_yersterday_kills'] = 'Tué(s) hier';
 $lang['column_team_name'] = 'Nom de l\'équipe';
 $lang['column_members'] = 'Membres';
-$lang['column_rating'] = 'Cote';
+$lang['column_rating'] = 'Côte';
 $lang['column_games'] = 'Jeux';
 $lang['column_id'] = 'ID';
 $lang['column_status'] = 'Status';
 $lang['column_priority'] = 'Prioritée';
 $lang['column_date'] = 'Date';
-$lang['column_author'] = 'Autheur';
+$lang['column_author'] = 'Auteur';
 $lang['column_time'] = 'Temps';
 $lang['column_icon'] = 'Icône';
 
@@ -162,7 +162,7 @@ $lang['arena_top_5v5'] = 'TOP 5V5';
 /*News Lang*/
 $lang['news_recent_list'] = 'NOUVEAUTES RECENTE';
 $lang['news_comment'] = 'commentaire';
-$lang['news_article_subheading'] = 'Dernière nouveautés';
+$lang['news_article_subheading'] = 'Dernière nouveauté';
 $lang['news_article_published'] = 'Publié par le STAFF';
 
 /*Changelogs Lang*/

@@ -12,20 +12,19 @@ MySQL - 5.6.39-log : Database - blizzcms
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-/*Table structure for table `fx_modules` */
+/*Table structure for table `fx_ranks_permissions` */
 
-DROP TABLE IF EXISTS `fx_modules`;
+DROP TABLE IF EXISTS `fx_ranks_permissions`;
 
-CREATE TABLE `fx_modules` (
+CREATE TABLE `fx_ranks_permissions` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
-  `status` int(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
-/*Data for the table `fx_modules` */
+/*Data for the table `fx_ranks_permissions` */
 
-insert  into `fx_modules`(`id`,`name`,`status`) values (1,'Discord Experimental',1),(2,'Discord Classic',0),(3,'Register',1),(4,'Login',1),(5,'Realm Status',1),(6,'News',1),(7,'Changelogs',1),(8,'Forums',1),(9,'Store',1),(10,'Slides',1),(11,'Events',1),(12,'Ladder PVP',1),(13,'User Panel',1),(14,'Gifts',0),(15,'Ladder Arena',1),(16,'Bugtracker',1),(17,'Captcha',1),(18,'Messages',1),(19,'Donation',1),(20,'Installation',0),(21,'Armory',1),(22,'Vote',1),(23,'Admin',1),(24,'Faq',1);
+insert  into `fx_ranks_permissions`(`id`,`name`) values (1,'Admin'),(2,'Panel'),(3,'Login'),(4,'Register'),(5,'Faq'),(6,'Bugtracker'),(7,'Pvp Stats'),(8,'Arena Stats'),(9,'News'),(10,'Forums'),(11,'Store'),(12,'Chat'),(13,'Armory'),(14,'Changelogs'),(15,'Donate'),(16,'Vote'),(17,'Events'),(18,'API'),(19,'Maintenance');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
