@@ -8,10 +8,8 @@ class User extends MX_Controller {
         parent::__construct();
         $this->load->model('user_model');
 
-        if( ! ini_get('date.timezone') )
-        {
+        if (!ini_get('date.timezone'))
            date_default_timezone_set($this->config->item('timezone'));
-        }
     }
 
     public function login()
@@ -20,6 +18,9 @@ class User extends MX_Controller {
             redirect(base_url(),'refresh');
 
         if ($this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if (!$this->m_permissions->getMyPermissions('Permission_Login'))
             redirect(base_url(),'refresh');
 
         $data['fxtitle'] = $this->lang->line('nav_login');
@@ -142,10 +143,11 @@ class User extends MX_Controller {
         if ($this->m_data->isLogged())
             redirect(base_url(),'refresh');
 
-        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-        {
-            redirect(base_url('maintenance'),'refresh');
-        }
+        if (!$this->m_permissions->getMaintenance())
+            redirect(base_url(),'refresh');
+
+        if (!$this->m_permissions->getMyPermissions('Permission_Register'))
+            redirect(base_url(),'refresh');
 
         $this->load->library('recaptcha');
 
@@ -166,12 +168,13 @@ class User extends MX_Controller {
         if ($this->m_modules->getStatusUCP() != '1')
             redirect(base_url(),'refresh');
 
-        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-        {
-            redirect(base_url('maintenance'),'refresh');
-        }
-
         if (!$this->m_data->isLogged())
+            redirect(base_url(),'refresh');
+
+        if (!$this->m_permissions->getMaintenance())
+            redirect(base_url(),'refresh');
+
+        if (!$this->m_permissions->getMyPermissions('Permission_Panel'))
             redirect(base_url(),'refresh');
 
         $data['fxtitle'] = $this->lang->line('nav_account');
@@ -187,13 +190,18 @@ class User extends MX_Controller {
         if ($this->m_modules->getStatusUCP() != '1')
             redirect(base_url(),'refresh');
 
-        if (empty($id) || is_null($id) || $id == '0')
+        if (!$this->m_permissions->getMaintenance())
             redirect(base_url(),'refresh');
 
-        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-        {
-            redirect(base_url('maintenance'),'refresh');
-        }
+        if (!$this->m_permissions->getMyPermissions('Permission_Panel'))
+            redirect(base_url(),'refresh');
+
+        if ($this->m_data->getRank($id) != '0')
+            if($this->m_data->isLogged() && $this->session->userdata('fx_sess_gmlevel') == '0')
+                redirect(base_url(),'refresh');
+
+        if (empty($id) || is_null($id) || $id == '0')
+            redirect(base_url(),'refresh');
 
         $data['idlink'] = $id;
         $data['fxtitle'] = $this->lang->line('nav_profile');

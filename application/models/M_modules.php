@@ -184,6 +184,22 @@ class M_modules extends CI_Model {
                 ->row('status');
     }
 
+    public function getACP()
+    {
+        return $this->db->select('status')
+                ->where('id', '23')
+                ->get('fx_modules')
+                ->row('status');
+    }
+
+    public function getFaq()
+    {
+        return $this->db->select('status')
+                ->where('id', '24')
+                ->get('fx_modules')
+                ->row('status');
+    }
+
     public function insertRealm($hostname, $username, $password, $database, $realm_id, $soaphost, $soapuser, $soappass, $soapport, $red = '')
     {
         $data = array(

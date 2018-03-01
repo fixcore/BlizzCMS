@@ -68,3 +68,4 @@ $lang['shopping_cart'] = 'Shopping Cart';
 $lang['store_see'] = 'See the Store';
 $lang['no_players'] = 'No players Online';
 $lang['users_on'] = 'Users Online';
+$lang['realm_offline'] = 'Realm Offline';

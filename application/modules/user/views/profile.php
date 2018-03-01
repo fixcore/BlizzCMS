@@ -5,9 +5,16 @@
             <div class="uk-width-3-5@l">
                 <div class="uk-text-center">
                     <?php if($this->m_general->getUserInfoGeneral($idlink)->num_rows()) { ?>
-                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($idlink)); ?>" width="120" height="120" alt="" />
+                    <div uk-lightbox>
+                        <a href="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($idlink)); ?>">
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/').$this->m_data->getNameAvatar($this->m_data->getImageProfile($idlink)); ?>" width="120" height="120" alt="" />
+                        </a>
+                    </div>
                     <?php } else { ?>
-                        <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="120" height="120" alt="" />
+                        <a href="<?= base_url('assets/images/profiles/default.png'); ?>">
+                            <img class="uk-border-circle" src="<?= base_url('assets/images/profiles/default.png'); ?>" width="120" height="120" alt="" />
+                        </a>
+                    </div>
                     <?php } ?>
                     <div class="uk-space-small"></div>
                     <div class="uk-principal-title" style="color: #fff;"><?= $this->m_data->getUsernameID($idlink); ?></div>

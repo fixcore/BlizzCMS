@@ -7,32 +7,35 @@ class Vote extends MX_Controller {
     {
         parent::__construct();
 
-        if( ! ini_get('date.timezone') )
-        {
+        if (!ini_get('date.timezone'))
            date_default_timezone_set($this->config->item('timezone'));
-        }
 
-        if ($this->m_modules->getArmory() != '1')
+        if (!$this->m_permissions->getMaintenance())
             redirect(base_url(),'refresh');
 
-        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-        {
-            redirect(base_url('maintenance'),'refresh');
-        }
+        if ($this->m_modules->getVote() != '1')
+            redirect(base_url(),'refresh');
 
         if (!$this->m_data->isLogged())
             redirect(base_url('login'),'refresh');
+
+        if (!$this->m_permissions->getMyPermissions('Permission_Vote'))
+            redirect(base_url(),'refresh');
 
         $this->load->model('vote_model');
     }
 
     public function index()
     {
-
         $data['fxtitle'] = $this->lang->line('nav_vote');
 
         $this->load->view('header', $data);
         $this->load->view('index');
         $this->load->view('footer');
+    }
+
+    public function votenow($id)
+    {
+        $this->vote_model->getvoteNow($id);
     }
 }

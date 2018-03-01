@@ -7,18 +7,17 @@ class News extends MX_Controller {
     {
         parent::__construct();
 
-        if( ! ini_get('date.timezone') )
-        {
+        if(!ini_get('date.timezone'))
            date_default_timezone_set($this->config->item('timezone'));
-        }
+
+        if(!$this->m_permissions->getMaintenance())
+            redirect(base_url(),'refresh');
 
         if ($this->m_modules->getStatusNews() != '1')
             redirect(base_url(),'refresh');
 
-        if ($this->config->item('maintenance_mode') == '1' && $this->m_data->isLogged() && $this->m_general->getPermissions($this->session->userdata('fx_sess_id')) != 1)
-        {
-            redirect(base_url('maintenance'),'refresh');
-        }
+        if (!$this->m_permissions->getMyPermissions('Permission_News'))
+            redirect(base_url(),'refresh');
 
         $this->load->model('news_model');
     }
