@@ -43,7 +43,6 @@ $lang['button_change_avatar'] = 'เปลี่ยนรูปประจำ�
 $lang['button_add_personal_info'] = 'เพิ่มข้อมูลส่วนบุคคล';
 $lang['button_change_password'] = 'แก้ไขรหัสผ่าน';
 $lang['button_change_email'] = 'แก้ไขอีเมล';
-$lang['button_private_message'] = 'ส่งข้อความส่วนตัว';
 $lang['button_create_report'] = 'สร้างรายงาน';
 $lang['button_new_topic'] = 'หัวข้อใหม่';
 $lang['button_edit_topic'] = 'แก้ไขหัวข้อ';
@@ -61,14 +60,13 @@ $lang['button_close'] = 'ปิด';
 $lang['button_reply'] = 'ตอบ';
 
 /*Footer Lang*/
-$lang['footer_language'] = 'ภาษาไทย (TH)';
 $lang['footer_rights'] = 'ALL RIGHTS RESERVED.';
 $lang['footer_powered'] = ' Proudly powered by BlizzCMS';
 $lang['footer_privacy'] = 'Privacy';
 $lang['footer_terms'] = 'Terms';
 
 //armory
-$lang['playervsplayer'] = 'Player vs Player';
+$lang['playervsplayer'] = 'ผู้เล่น vs ผู้เล่น';
 
 /*Login Lang*/
 $lang['login_description'] = 'เพลิดเพลินกับตัวเลือกทั้งหมดที่เรามีให้กับคุณ';
@@ -103,9 +101,6 @@ $lang['form_url'] = 'ลิ้งค์';
 $lang['form_highl'] = 'ไฮไลท์';
 $lang['form_lock'] = 'ล็อค';
 $lang['form_subject'] = 'เรื่อง';
-
-//armory
-$lang['playervsplayer'] = 'ผู้เล่น vs ผู้เล่น';
 
 /*Column Lang*/
 $lang['column_name'] = 'รายชื่อ';
@@ -177,8 +172,8 @@ $lang['changelogs_list'] = 'การอัปเดทและแก้ไข'
 /*Bugtracker Lang*/
 $lang['bugtracker_report_list'] = 'รายการที่แจ้งเข้ามา';
 
-/*Message Lang*/
-$lang['message_header'] = 'ข้อความส่วนตัว';
+/*Chat Lang*/
+$lang['chat_header'] = 'แชท';
 
 /*Forum Lang*/
 $lang['forum_welcome'] = 'ยินดีต้อนรับสู่ฟอรั่มอย่างเป็นทางการ';
@@ -189,7 +184,7 @@ $lang['forum_comment_header'] = 'เข้าร่วมการสนทน�
 $lang['forum_not_authorized'] = 'ไม่มีอำนาจ';
 $lang['forum_code_conduct'] = 'กฎระเบียบ';
 $lang['forum_post_history'] = 'ดูประวัติโพสต์';
-$lang['forum_topic_list'] = 'Topic List';
+$lang['forum_topic_list'] = 'รายการหัวข้อ';
 
 /*Race Lang*/
 $lang['race_human'] = 'Human';
