@@ -372,11 +372,23 @@ class Admin extends MX_Controller {
             $data = file_get_contents('http://www.wowhead.com/spell='.$i);
 
             if(preg_match('#<h1 class="heading-size-1">.*?</h1>#', $data, $m))
-                $name = strip_tags($m[0]).'<br>';
-            elseif(preg_match('#<noscript><table><tr><td><b>.*?</b>#', $data, $m))
-                $name = strip_tags($m[0]).'<br>';
-            elseif(preg_match('#<noscript><b>.*?</b>#', $data, $m))
-                $name = strip_tags($m[0]).'<br>';
+            {
+                $name = strip_tags($m[0]);
+                if ($name == 'Spells')
+                    continue;
+            }
+            elseif(preg_match('#<noscript><table><tr><td><b>.*?#', $data, $m))
+            {
+                $name = strip_tags($m[0]);
+                if ($name == 'Spells')
+                    continue;
+            }
+            elseif(preg_match('#<noscript><b>.*?#', $data, $m))
+            {
+                $name = strip_tags($m[0]);
+                if ($name == 'Spells')
+                    continue;
+            }
             else
                 continue;
 
