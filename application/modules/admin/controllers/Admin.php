@@ -360,4 +360,102 @@ class Admin extends MX_Controller {
         echo 'Done :D if you restart the page the process will restart and you will lose the current data'; die();
     }
 
+    public function nonspellsstepthree()
+    {
+        ini_set('max_execution_time', 186400);
+
+        $startitem = 1;
+        $maxitemid = 50000;
+
+        for ($i = $startitem; $i < $maxitemid; $i++) {
+        {
+            $data = file_get_contents('http://www.wowhead.com/spell='.$i);
+
+            if(preg_match('#<h1 class="heading-size-1">.*?</h1>#', $data, $m))
+                $name = strip_tags($m[0]).'<br>';
+            elseif(preg_match('#<noscript><table><tr><td><b>.*?</b>#', $data, $m))
+                $name = strip_tags($m[0]).'<br>';
+            elseif(preg_match('#<noscript><b>.*?</b>#', $data, $m))
+                $name = strip_tags($m[0]).'<br>';
+            else
+                continue;
+
+            if(preg_match('#<th style="border-top:0">.*?</td>#', $data, $m))
+                $cost = htmlspecialchars($m[0]);
+
+            if(preg_match('#<th>Range</th><td>.*?</td>#', $data, $m))
+                $range = htmlspecialchars($m[0]);
+
+            if(preg_match('#<th>Cast time</th><td>.*?</td>#', $data, $m))
+                $casttime = htmlspecialchars($m[0]);
+
+            if(preg_match('#<noscript>.*?</noscript>#', $data, $m))
+            {
+                $nonscript = str_replace('<noscript>', '', $m[0]);
+                $nonscript = str_replace('</noscript>', '', $nonscript);
+                $nonscript = str_replace('class="q"', 'class="uk-text-quality-bind"', $nonscript);
+                $nonscript = str_replace("class='q2'", 'class="uk-text-quality-uncommon"', $nonscript);
+                $nonscript = str_replace("class='q9'", 'class="uk-text-quality-heirloom"', $nonscript);
+                $nonscript = str_replace('class="wowhead-tooltip-requirements"', '', $nonscript);
+                $nonscript = htmlspecialchars($nonscript);
+            }
+
+            if(preg_match('#<link rel=image_src href=.*?>#', $data, $m))
+            {
+                $icons = str_replace('<link rel=image_src href=', '', $m[0]);
+                $icons = str_replace('>', '', $icons);
+                $icons = str_replace('//wow.zamimg.com/images/wow/icons/large/', '', $icons);
+                $icons = str_replace('.jpg', '', $icons);
+                $icons = htmlspecialchars($icons);
+            }
+
+            if(preg_match('#<th>Cooldown</th><td>.*?</td>#', $data, $m))
+            {
+                $cooldown = str_replace('class="q0"', 'class="uk-text-quality-bind"', $m[0]);
+                $cooldown = htmlspecialchars($cooldown);
+            }
+
+            if(preg_match('#</tr><tr><th><dfn title="Global Cooldown">GCD</dfn></th><td>.*?</td></tr><tr>#', $data, $m))
+                $global_cooldown = htmlspecialchars($m[0]);
+
+            if(preg_match('#<th style="border-left:0">School</th><td>.*?</td>#', $data, $m))
+                $school = htmlspecialchars($m[0]);
+
+            if(preg_match('#<th style="border-left:0">Mechanic</th><td>.*?</td>#', $data, $m))
+                $mechanic = htmlspecialchars($m[0]);
+
+            if(preg_match('#<th style="border-left:0">Dispel type</th><td><span class="q0">.*?</span></td>#', $data, $m))
+            {
+                $dispelType = str_replace('class="q0"', 'class="uk-text-quality-bind"', $m[0]);
+                $dispelType = htmlspecialchars($m[0]);
+            }
+
+            $datas = array(
+                'id' => $i,
+                'name_en' => $name,
+                'cost_en' => $cost,
+                'range_en' => $range,
+                'cast_en' => $casttime,
+                'noscript_en' => $nonscript,
+                'cooldown_en' => $cooldown,
+                'gcooldown_en' => $global_cooldown,
+                'school_en' => $school,
+                'mechanic_en' => $mechanic,
+                'dispelType_en' => $dispelType,
+            );
+            $this->db->insert('fx_head_spells_local', $datas);
+
+            $dicon = array(
+                'id' => $i,
+                'iconname' => $icons
+            );
+            $this->db->insert('fx_head_spells', $dicon);
+
+            $input = 'http://wow.zamimg.com/images/wow/icons/large/'.$icons.'.jpg';
+            $output = 'assets/icons/spells/'.$icons.'.jpg';
+            file_put_contents($output, file_get_contents($input));
+        }
+    }
+    }
+
 }

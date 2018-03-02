@@ -80,4 +80,4 @@ $route['message'] = 'messages/verify';
 //admin - managecharacter
 $route['admin/managecharacter/(:num)/(:num)'] = 'admin/managecharacter/$1/$2';
 //armory
-$route['armory/player/(:num)-(:any)/(:num)'] = 'armory/player/$1/$2/$3';
+$route['armory/player/(:num)-(:any)/(:num)-(:any)'] = 'armory/player/$1/$2/$3/$4';

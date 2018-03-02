@@ -1,3 +1,5 @@
+<script src="<?= base_url(); ?>core/js/tippy.all.min.js"></script>
+
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-medium" data-uk-grid>
@@ -7,67 +9,77 @@
             <div class="uk-width-1-2@l">
                 <div class="uk-grid-small" uk-grid>
                     <div class="uk-width-1-5@l">
-                        <a class="uk-button uk-button-link" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHead($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" data-tippy-arrow="true" data-tippy-animation="shift-away">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_helmet_169.jpg" />
+                        <a id="InvHead" class="uk-button uk-button-link" data-tippy-arrow="true" data-tippy-animation="shift-away">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHead($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
-                        <div id="itemTemplate" style="display: none">
-                            <ul class="uk-list">
-                                <li class="uk-text-bold uk-text-quality-rare">Mystic Wakener's Dagger</li>
-                                <li>
-                                    <span class="uk-text-quality-bind">Item Level 880</span><br>
-                                    <span>Binds when picked up</span>
-                                </li>
-                                <li>
-                                    <span>One-Hand</span>
-                                    <span style="display:inline-block; width: 15px;"></span>
-                                    <span class="uk-text-bold">Dagger</span><br>
-                                    <span>3232 - 5388 Damage</span>
-                                    <span style="display:inline-block; width: 15px;"></span>
-                                    <span>Speed 1.80</span><br>
-                                    <span>(2394.66 damage per second)</span><br>
-                                    <span>+771 Agility</span><br>
-                                    <span>+1,157 Stamina</span><br>
-                                    <span class="uk-text-quality-uncommon">253 Critical Strike</span><br>
-                                    <span class="uk-text-quality-uncommon">403 Versatility</span>
-                                </li>
-                                <li>
-                                    <span>Durability 65/65</span><br>
-                                    <span>Requires Level 110</span>
-                                </li>
-                            </ul>
+                        <div id="InvHeadTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHead($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
                         </div>
-                        <script src="<?= base_url(); ?>core/js/tippy.all.min.js"></script>
-                        <script>
-                            tippy('.uk-button-link', { html: '#itemTemplate' })
-                        </script>
+                        <script>tippy('#InvHead', { html: '#InvHeadTemplate' })</script>
+                        
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvNeck($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_jewelcrafting_crimsonspinel_02.jpg" />
+                        <a id="InvNeck">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvNeck($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvNeckTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvNeck($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvNeck', { html: '#InvNeckTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvShoulders($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_questionmark.jpg" />
+                        <a id="InvSoulders">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvShoulders($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvShouldersTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvShoulders($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvSoulders', { html: '#InvShouldersTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBody($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvBody">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBody($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvBodyTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBody($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvBody', { html: '#InvBodyTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvChest($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvChest">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvChest($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvChestTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvChest($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvChest', { html: '#InvChestTemplate' })</script>
+                        
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWrists($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvWrists">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWrists($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvWristsTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWrists($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvWrists', { html: '#InvWristsTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBack($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvBack">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBack($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvBackTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvBack($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvBack', { html: '#InvBackTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTabard($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvTabard">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTabard($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvTabardTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTabard($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvTabard', { html: '#InvTabardTemplate' })</script>
+
                         <div class="fx-gap"></div>
                     </div>
                     <div class="uk-width-3-5@l">
@@ -79,48 +91,103 @@
                         <div class="fx-gap-4"></div>
                         <div class="fx-gap-2"></div>
                         <span style="display:inline-block; width: 35px;"></span>
-                        <a href="http://db.wowlatinoamerica.com/?item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvMainHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" target="_blank" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvMainHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shield_72.jpg" style="display:inline-block; margin: 6px;">
+                        <a id="InvMainHand">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvMainHand($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
-                        <a href="http://db.wowlatinoamerica.com/?item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvOffHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" target="_blank" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvOffHand($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shield_72.jpg" style="display:inline-block; margin: 6px;">
+                        <div id="InvMainHandTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvMainHand($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvMainHand', { html: '#InvMainHandTemplate' })</script>
+
+                        <a id="InvOffHand">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvOffHand($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
-                        <a href="http://db.wowlatinoamerica.com/?item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvRanged($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>" target="_blank" rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvRanged($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="https://www.wowlatinoamerica.com/assets/icons/medium/inv_shield_72.jpg" style="display:inline-block; margin: 6px;">
+                        <div id="InvOffHandTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvOffHand($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvOffHand', { html: '#InvOffHandTemplate' })</script>
+
+                        <a id="InvRanged">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvRanged($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvRangedTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvRanged($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvRanged', { html: '#InvRangedTemplate' })</script>
+
                     </div>
                     <div class="uk-width-1-5@l">
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWaist($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvWaist">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWaist($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvWaistTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvWaist($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvWaist', { html: '#InvWaistTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvLegs($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvLegs">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvLegs($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvLegsTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvLegs($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvLegs', { html: '#InvLegsTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFeet($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvFeet">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFeet($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvFeetTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFeet($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvFeet', { html: '#InvFeetTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHands($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvHands">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHands($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvHandsTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvHands($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvHands', { html: '#InvHandsTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerOne($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvFingerOne">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerOne($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvFingerOneTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerOne($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvFingerOne', { html: '#InvFingerOneTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvFingerTwo">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvFingerTwoTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvFingerTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvFingerTwo', { html: '#InvFingerTwoTemplate' })</script>
+
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketOne($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvTrinketOne">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketOne($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvTrinketOneTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketOne($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvTrinketOne', { html: '#InvTrinketOneTemplate' })</script>
+                        
                         <div class="fx-gap"></div>
-                        <a rel="item=<?= $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm))); ?>">
-                            <img width="50" height="50" class="uk-border-rounded" src="//wow.zamimg.com/images/wow/icons/large/inv_misc_ribbon_01.jpg" />
+                        <a id="InvTrinketTwo">
+                            <img width="50" height="50" class="uk-border-rounded" src="<?= base_url('assets/icons/items/'); ?><?= $this->m_head->getImageItem($this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>.jpg" />
                         </a>
+                        <div id="InvTrinketTwoTemplate" style="display: none">
+                            <?= $this->m_head->getHtmlTooltip($this->config->item('itemsArmoryLang'), $this->m_characters->getItemInstace($this->m_data->getRealmConnectionData($idrealm), $this->m_characters->getCharInvTrinketTwo($idplayer, $this->m_data->getRealmConnectionData($idrealm)))); ?>
+                        </div>
+                        <script>tippy('#InvTrinketTwo', { html: '#InvTrinketTwoTemplate' })</script>
+                        
                         <div class="fx-gap"></div>
                     </div>
                 </div>
