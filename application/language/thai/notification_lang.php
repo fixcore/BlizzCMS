@@ -68,3 +68,4 @@ $lang['shopping_cart'] = 'ตะกร้าสินค้า';
 $lang['store_see'] = 'ดูร้านค้า';
 $lang['no_players'] = 'ไม่มีผู้เล่นออนไลน์';
 $lang['users_on'] = 'ผู้ใช้ออนไลน์';
+$lang['realm_offline'] = 'เซิร์ฟเวอร์ออฟไลน์';

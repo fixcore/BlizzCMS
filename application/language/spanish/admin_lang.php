@@ -54,14 +54,14 @@ $lang['account_count'] = 'Cuentas Creadas';
 $lang['staff_count'] = 'Cuentas del STAFF';
 $lang['ban_count'] = 'Cuentas Baneadas';
 $lang['total_players_playing'] = 'Total players playing on realm. ';
-$lang['total_account_registered'] = 'Total accounts registered.';
-$lang['total_account_banned'] = 'Total accounts banned. ';
-$lang['total_account_gm'] = 'Total accounts with GM access. ';
+$lang['total_account_registered'] = 'Total cuentas registradas.';
+$lang['total_account_banned'] = 'Total cuentas baneadas. ';
+$lang['total_account_gm'] = 'Total cuentas con Rango GM. ';
 
 /*Button Lang*/
 $lang['button_server_restart'] = 'Reiniciar Servidor';
-$lang['button_unban'] = 'Unban';
-$lang['button_ban'] = 'Ban';
+$lang['button_unban'] = 'Desbanear';
+$lang['button_ban'] = 'Banear';
 $lang['button_re_grant_account'] = 'Borrar GM';
 $lang['button_grant_account'] = 'Conceder GM';
 $lang['button_grant_web_acc'] = 'Conceder ADM';
@@ -70,7 +70,7 @@ $lang['button_change_level'] = 'Cambiar Nivel';
 
 /*Panel Lang*/
 $lang['panel_admin_user_manage'] = 'Administrar usuario';
-$lang['panel_admin_unban_account'] = 'Unban Cuenta';
+$lang['panel_admin_unban_account'] = 'Desbanear Cuenta';
 $lang['panel_admin_ban_account'] = 'Banear Cuenta';
 $lang['panel_admin_rank_account'] = 'Rango de GM';
 $lang['panel_admin_web_rank'] = 'Rango en Web';
@@ -81,7 +81,7 @@ $lang['panel_admin_last_comments'] = 'Últimos comentarios';
 $lang['panel_admin_char_manage'] = 'Administrar Personaje';
 $lang['panel_admin_change_level'] = 'Cambiar Nivel';
 $lang['panel_admin_rename'] = 'Renombrar';
-$lang['panel_admin_unban_char'] = 'Unban Personaje';
+$lang['panel_admin_unban_char'] = 'Desbanear Personaje';
 $lang['panel_admin_ban_char'] = 'Banear Personaje';
 $lang['panel_admin_customize'] = 'Customizar Personaje';
 $lang['panel_admin_change_race'] = 'Cambiar Raza';

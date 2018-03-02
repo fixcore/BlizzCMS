@@ -53,10 +53,10 @@ $lang['players_count'] = 'ผู้เล่นออนไลน์';
 $lang['account_count'] = 'บัญชีทั้งหมด';
 $lang['staff_count'] = 'บัญชีทีมงาน';
 $lang['ban_count'] = 'บัญชีที่ถูกแบน';
-$lang['total_players_playing'] = 'Total players playing on realm. ';
-$lang['total_account_registered'] = 'Total accounts registered.';
-$lang['total_account_banned'] = 'Total accounts banned. ';
-$lang['total_account_gm'] = 'Total accounts with GM access. ';
+$lang['total_players_playing'] = 'ผู้เล่นทั้งหมดที่เล่นในเซิร์ฟเวอร์ ';
+$lang['total_account_registered'] = 'รวมบัญชีที่ลงทะเบียนแล้ว';
+$lang['total_account_banned'] = 'รวมบัญชีทั้งหมดที่ถูกแบน ';
+$lang['total_account_gm'] = 'บัญชีทั้งหมดที่มีสิทธิ์เข้าถึง GM ';
 
 /*Button Lang*/
 $lang['button_server_restart'] = 'รีสตาร์ทเซิร์ฟเวอร์';
@@ -90,7 +90,7 @@ $lang['panel_admin_changelogs_list'] = 'รายการอัปเดทแ�
 $lang['panel_admin_pages_list'] = 'รายการหน้าเพจใหม่';
 $lang['panel_admin_news_list'] = 'รายการข่าว';
 $lang['panel_admin_edit_news'] = 'แก้ไขข่าว';
-$lang['panel_admin_edit_pages'] = 'Edit Pages';
+$lang['panel_admin_edit_pages'] = 'แก้ไขหน้าเพจ';
 
 /*Column Lang*/
 $lang['column_race'] = 'ฝ่าย';
@@ -101,7 +101,7 @@ $lang['column_own'] = 'เจ้าของ';
 $lang['column_action'] = 'การกระทำ';
 $lang['column_realm_id'] = 'ไอดีเซิร์ฟเวอร์';
 $lang['column_realm_name'] = 'ชื่อเซิร์ฟเวอร์';
-$lang['column_realm_char_database'] = 'Character Database Name';
+$lang['column_realm_char_database'] = 'ชื่อฐานข้อมูลตัวละคร';
 
 /*Form Lang*/
 $lang['form_create_changelog'] = 'สร้างรายการอัปเดทและแก้ไข';
@@ -128,11 +128,11 @@ $lang['form_group_title'] = 'ชื่อของกลุ่มไอเทม
 $lang['panel_admin_reason'] = 'เหตุผล';
 $lang['panel_admin_gmlevel'] = 'เลเวลจีเอ็ม';
 $lang['panel_admin_new_page_url'] = 'ลิ้งค์หน้าเว็บใหม่ของคุณคือ';
+$lang['placeholder_forum_icon'] = 'ชื่อโฟลเดอร์/image.jpg หรือ ชื่อโฟลเดอร์/image.png';
 
 /*Status Lang*/
 $lang['status_is_online'] = 'ผู้เล่นกำลังออนไลน์,โปรดตัดการเชื่อมต่อ';
 $lang['status_name_exist'] = 'ชื่อนี้มีอยู่แล้ว';
-$lang['placeholder_forum_icon'] = 'foldername/image.jpg or foldername/image.png';
 
 /*Options Lang*/
 $lang['option_yes'] = 'ใช่';
