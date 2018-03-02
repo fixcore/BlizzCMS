@@ -1,5 +1,5 @@
 <?php
-    $fileConfig = $_SERVER['DOCUMENT_ROOT'].'/application/config/config.php';
+    $fileConfig = FCPATH.'application/config/config.php';
 ?>
 
 <?php if(isset($_POST['submitConfig'])) {
@@ -18,7 +18,7 @@
 }?>
 
 <?php
-    $fileFixCore = $_SERVER['DOCUMENT_ROOT'].'/application/config/fixcore.php';
+    $fileFixCore = FCPATH.'application/config/fixcore.php';
 ?>
 
 <?php if(isset($_POST['submitFixCore'])) {
@@ -44,7 +44,7 @@
 }?>
 
 <?php
-    $fileDatabase   = $_SERVER['DOCUMENT_ROOT'].'/application/config/database.php';
+    $fileDatabase   = FCPATH.'application/config/database.php';
 ?>
 
 <?php if(isset($_POST['submitDatabase'])) {
@@ -71,7 +71,7 @@
 }?>
 
 <?php
-    $fileCaptcha    = $_SERVER['DOCUMENT_ROOT'].'/application/config/recaptcha.php';
+    $fileCaptcha    = FCPATH.'application/config/recaptcha.php';
 ?>
 
 <?php if(isset($_POST['submitCaptcha'])) {
@@ -90,17 +90,17 @@
 <?php
     if ($this->m_modules->getStatusLadBugtracker() == '1')
     {
-        $fileBugtracker    = $_SERVER['DOCUMENT_ROOT'].'/application/modules/bugtracker/config/bugtracker.php';
+        $fileBugtracker    = FCPATH.'application/modules/bugtracker/config/bugtracker.php';
     }
 
     if ($this->m_modules->getDonation() == '1')
     {
-        $fileDonate    = $_SERVER['DOCUMENT_ROOT'].'/application/modules/donate/config/donate.php';
+        $fileDonate    = FCPATH.'application/modules/donate/config/donate.php';
     }
 
     if ($this->m_modules->getStatusStore() == '1')
     {
-        $fileStore    = $_SERVER['DOCUMENT_ROOT'].'/application/modules/shop/config/store.php';
+        $fileStore    = FCPATH.'application/modules/shop/config/store.php';
     }
 ?>
 
