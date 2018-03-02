@@ -25,7 +25,7 @@ CREATE TABLE `fx_modules` (
 
 /*Data for the table `fx_modules` */
 
-insert  into `fx_modules`(`id`,`name`,`status`) values (1,'Discord Experimental',1),(2,'Discord Classic',0),(3,'Register',1),(4,'Login',1),(5,'Realm Status',1),(6,'News',1),(7,'Changelogs',1),(8,'Forums',1),(9,'Store',1),(10,'Slides',1),(11,'Events',1),(12,'Ladder PVP',1),(13,'User Panel',1),(14,'Gifts',0),(15,'Ladder Arena',1),(16,'Bugtracker',1),(17,'Captcha',1),(18,'Messages',1),(19,'Donation',1),(20,'Installation',0),(21,'Armory',1),(22,'Vote',1),(23,'Admin',1),(24,'Faq',1);
+insert  into `fx_modules`(`id`,`name`,`status`) values (1,'Discord Experimental',1),(2,'Discord Classic',0),(3,'Register',1),(4,'Login',1),(5,'Realm Status',1),(6,'News',1),(7,'Changelogs',1),(8,'Forums',1),(9,'Store',1),(10,'Slides',1),(11,'Events',1),(12,'Ladder PVP',1),(13,'User Panel',1),(14,'Gifts',0),(15,'Ladder Arena',1),(16,'Bugtracker',1),(17,'Captcha',1),(18,'Messages',1),(19,'Donation',1),(20,'Installation',1),(21,'Armory',1),(22,'Vote',1),(23,'Admin',1),(24,'Faq',1);
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
