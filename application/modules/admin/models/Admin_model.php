@@ -283,11 +283,11 @@ class Admin_model extends CI_Model {
     public function getADDADMRank($id, $type = '')
     {
         $data1 = array(
-            'id' => $id,
-            'permission' => '1',
+            'iduser' => $id,
+            'idrank' => '1',
         );
 
-        $this->db->insert('fx_ranks', $data1);
+        $this->db->insert('fx_users_permission', $data1);
 
         $date 	= $this->m_data->getTimestamp();
         $reason = $this->lang->line('receive_addmAnnoW');
