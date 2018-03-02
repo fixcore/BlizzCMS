@@ -13,6 +13,9 @@ application/logs/*
 
 !application/*/.htaccess
 
+# _Head
+assets/icons/*
+
 composer.lock
 
 user_guide_src/build/*
