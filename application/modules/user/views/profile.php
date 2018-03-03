@@ -17,7 +17,7 @@
                     </div>
                     <?php } ?>
                     <div class="uk-space-small"></div>
-                    <div class="uk-principal-title" style="color: #fff;"><?= $this->m_data->getUsernameID($idlink); ?></div>
+                    <div class="uk-principal-title uk-text-white"><?= $this->m_data->getUsernameID($idlink); ?></div>
                     <div class="uk-space-medium"></div>
                 </div>
                 <div class="uk-scrollspy-inview uk-animation-slide-bottom" uk-scrollspy-class="">
@@ -27,7 +27,7 @@
                             $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
                         ?>
                             <li class="uk-open">
-                                <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
+                                <h3 class="uk-accordion-title uk-text-white"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
                                 <div class="uk-accordion-content">
                                     <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
                                         <?php foreach($this->m_characters->getGeneralCharactersSpecifyAcc($multiRealm, $idlink)->result() as $chars) { ?>

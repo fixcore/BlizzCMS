@@ -13,14 +13,35 @@
 <?php if(isset($_POST['button_removecomment'])) {
     $this->news_model->removeComment($_POST['button_removecomment'], $idlink);
 } ?>
+
+<?php if($this->m_permissions->getIsAdmin($this->session->userdata('fx_sess_id'))) { ?>
+    <script src="<?= base_url(); ?>core/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+        selector: '.tinyeditor',
+        language: '<?= $this->config->item('tinymce_language'); ?>',
+        menubar: false,
+        plugins: ['advlist autolink autosave link image lists charmap preview hr searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media table contextmenu directionality emoticons textcolor paste fullpage textcolor colorpicker textpattern'],
+        toolbar: 'insert unlink emoticons | undo redo | formatselect fontselect fontsizeselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | blockquote | removeformat'});
+    </script>
+<?php } else { ?>
+    <script src="<?= base_url(); ?>core/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+        selector: '.tinyeditor',
+        language: '<?= $this->config->item('tinymce_language'); ?>',
+        menubar: false,
+        plugins: ['advlist autolink autosave link lists charmap preview hr searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime contextmenu directionality emoticons textcolor paste fullpage textcolor colorpicker textpattern'],
+        toolbar: 'emoticons | undo redo | fontselect fontsizeselect | bold italic | forecolor | bullist numlist outdent indent | link unlink | removeformat'});
+    </script>
+<?php } ?>
+
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-6@l"></div>
             <div class="uk-width-4-6@l">
-                <article class="uk-article" style="color: #fff;">
-                    <h1 class="uk-article-title" style="color: #fff;"><a class="uk-link-reset" href=""><?= $this->news_model->getNewTitle($idlink); ?></a></h1>
-                    <p class="uk-article-meta" style="color: #fff;"><?= $this->lang->line('news_article_published'); ?> | <i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->news_model->getNewlogDate($idlink)); ?></p>
+                <article class="uk-article uk-text-white">
+                    <h1 class="uk-article-title uk-text-white"><a class="uk-link-reset" href=""><?= $this->news_model->getNewTitle($idlink); ?></a></h1>
+                    <p class="uk-article-meta uk-text-white"><?= $this->lang->line('news_article_published'); ?> | <i class="fa fa-clock-o" aria-hidden="true"></i> <?= date('d-m-Y', $this->news_model->getNewlogDate($idlink)); ?></p>
                     <img class="uk-margin-medium-bottom" src="<?= base_url(); ?>assets/images/news/<?= $this->news_model->getNewImage($idlink); ?>" height="300" alt="">
                     <p><?= $this->news_model->getNewDescription($idlink); ?></p>
                     <hr class="uk-divider-icon">
@@ -51,12 +72,8 @@
                                     <h1 class="TopicForm-heading uk-text-center"><span uk-icon="icon: comment; ratio: 2"></span> <?= $this->lang->line('forum_comment_header'); ?></h1>
                                 </div>
                                 <div class="TopicForm-content">
-                                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
                                     <form class="Form uk-align-center" method="post" action="" data-post-form="true" accept-charset="utf-8">
-                                        <textarea tabindex="1" spellcheck="true" name="reply_comment" id="ckeditor" rows="10" cols="80" required></textarea>
-                                        <script>
-                                            CKEDITOR.replace('ckeditor');
-                                        </script>
+                                        <textarea class="tinyeditor" tabindex="1" spellcheck="true" name="reply_comment" rows="10" cols="80"></textarea>
                                         <button class="uk-button uk-button-primary uk-width-1-1" type="submit" name="button_addcommentary" id="submit-button"><i class="fa fa-reply" aria-hidden="true"></i> <?= $this->lang->line('button_add_reply'); ?></button>
                                         <a href="#" class="TopicForm-link--conduct"><?= $this->lang->line('forum_code_conduct'); ?></a>
 

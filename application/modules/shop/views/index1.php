@@ -7,7 +7,7 @@
                             <div class="uk-width-1-1@m">
                                 <div class="uk-grid-item-match">
                                     <div>
-                                        <h3 class="uk-margin-small uk-text-uppercase" style="color: #fff;"><span uk-icon="icon: cart; ratio: 1.7"></span> <?= $this->lang->line('store_welcome'); ?></h3>
+                                        <h3 class="uk-margin-small uk-text-uppercase uk-text-white"><span uk-icon="icon: cart; ratio: 1.7"></span> <?= $this->lang->line('store_welcome'); ?></h3>
                                     </div>
                                 </div>
                             </div>

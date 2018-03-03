@@ -3,7 +3,7 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-5@l"></div>
             <div class="uk-width-3-5@l">
-                <div class="uk-principal-title uk-text-uppercase" style="color: #fff;"><i class="fa fa-question-circle-o" aria-hidden="true"></i> <?= $this->lang->line('nav_faq'); ?></div>
+                <div class="uk-principal-title uk-text-uppercase uk-text-white"><i class="fa fa-question-circle-o" aria-hidden="true"></i> <?= $this->lang->line('nav_faq'); ?></div>
                 <div class="uk-space-medium"></div>
                 <div uk-grid>
                     <div class="uk-width-auto@m">

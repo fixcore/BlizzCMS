@@ -1,0 +1,86 @@
+@font-face{font-family:'Lobster';font-style:normal;font-weight:400;src:local("Lobster Regular"),local("Lobster-Regular"),url("../../core/fonts/Lobster-Regular.ttf") format("truetype")}
+
+#top-head {
+  z-index: 9;
+  top: 0;
+  left:0;
+  right:0;
+}
+
+#left-col {
+  position: fixed;
+  left: 0;
+  top:80px;
+  bottom:0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #222;
+  width: 280px;
+  z-index:1;
+}
+
+#content {
+  margin-left: 280px;
+  margin-top: 80px;
+  padding: 30px 0 0 0;
+  background-color: #f7f7f7;
+  margin-left: 0;
+  -webkit-transition: margin 0.3s cubic-bezier(.4,0,.2,1);
+  transition: margin 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+@media screen and (min-width: 960px){
+  #content {
+    margin-left: 280px;
+  }
+}
+
+.bar-content {
+  padding: 30px;
+}
+
+#top-head [class*="uk-navbar-dropdown-bottom"] {
+  margin-top: 0;
+}
+
+.profile-bar {
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  padding: 1rem 30px;
+}
+
+.bar-bottom {
+  border-top: 1px solid rgba(255,255,255,0.07);
+  padding: 15px 0;
+  display:none;
+}
+
+@media screen and (min-height: 730px){
+  .bar-bottom {
+    display:block;
+  }
+}
+
+.profile-img {
+  width: 65px;
+  border: 3px solid rgba(0,0,0,0.1);
+}
+
+.uk-card {
+  box-shadow: none;
+}
+
+.uk-heading-primary {
+  letter-spacing: -0.028em;
+  font-weight: 300;
+}
+
+.uk-card {
+  -webkit-transition: box-shadow 0.5s ease-out;
+  transition: box-shadow 0.5s ease-out;
+}
+
+.uk-logo {
+  font-family:'Lobster' !important;
+  font-size:35px !important;
+  color: #ffffff !important;
+}

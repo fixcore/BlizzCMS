@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/css/blizzcms-admincore.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/css/blizzcms-admin.css">
 
     <!-- UIkit -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css"/>
@@ -28,7 +28,7 @@
             <div class="uk-container uk-container-expand uk-background-primary" style="background:linear-gradient(to left, #28a5f5, #1e87f0);">
                 <nav class="uk-navbar uk-light" data-uk-navbar>
                     <div class="uk-navbar-left">
-                        <a class="uk-navbar-item uk-logo" href="<?= base_url('admin'); ?>" style="font-family:'Lobster';font-size:35px;color: #fff;">BlizzCMS</a>
+                        <a class="uk-navbar-item uk-logo" href="<?= base_url('admin'); ?>">BlizzCMS</a>
                     </div>
                     <div class="uk-navbar-right">
                         <ul class="uk-navbar-nav">
