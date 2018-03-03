@@ -70,11 +70,11 @@ class Bugtracker_model extends CI_Model {
             <table class="uk-table uk-table-divider">
                 <thead>
                     <tr>
-                        <th style="color: #fff;"><i class="fa fa-book" aria-hidden="true"></i> '.$this->lang->line("column_id").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-bookmark" aria-hidden="true"></i> '.$this->lang->line("form_title").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-list" aria-hidden="true"></i> '.$this->lang->line("form_type").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("column_status").'</th>
-                        <th class="uk-text-center" style="color: #fff;"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("column_priority").'</th>
+                        <th class="uk-text-white"><i class="fa fa-book" aria-hidden="true"></i> '.$this->lang->line("column_id").'</th>
+                        <th class="uk-text-center uk-text-white"><i class="fa fa-bookmark" aria-hidden="true"></i> '.$this->lang->line("form_title").'</th>
+                        <th class="uk-text-center uk-text-white"><i class="fa fa-list" aria-hidden="true"></i> '.$this->lang->line("form_type").'</th>
+                        <th class="uk-text-center uk-text-white"><i class="fa fa-info-circle" aria-hidden="true"></i> '.$this->lang->line("column_status").'</th>
+                        <th class="uk-text-center uk-text-white"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line("column_priority").'</th>
                     </tr>
                 </thead>
                 <tbody>

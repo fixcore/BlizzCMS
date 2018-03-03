@@ -78,3 +78,9 @@
   -webkit-transition: box-shadow 0.5s ease-out;
   transition: box-shadow 0.5s ease-out;
 }
+
+.uk-logo {
+  font-family:'Lobster' !important;
+  font-size:35px !important;
+  color: #ffffff !important;
+}
