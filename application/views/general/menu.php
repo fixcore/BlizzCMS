@@ -6,7 +6,7 @@
         <div class="uk-container">
             <nav class="uk-navbar" uk-navbar>
                 <div class="uk-navbar-left">
-                    <a href="<?= base_url(); ?>" class="uk-navbar-item uk-logo uk-margin-small-right uk-text-white" width="28" height="34"><?= $this->config->item('ProjectName'); ?></a>
+                    <a href="<?= base_url(); ?>" class="uk-navbar-item uk-logo uk-margin-small-right" width="28" height="34"><?= $this->config->item('ProjectName'); ?></a>
                     <ul class="uk-navbar-nav uk-visible@m">
                         <li>
                             <a href="#" class="uk-text-white"><?= $this->lang->line('nav_menu'); ?></a>
