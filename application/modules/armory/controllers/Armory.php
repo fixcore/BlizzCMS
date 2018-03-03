@@ -19,15 +19,17 @@ class Armory extends MX_Controller {
         if (!$this->m_permissions->getMyPermissions('Permission_Armory'))
             redirect(base_url(),'refresh');
 
+        $this->load->config('armory');
         $this->load->model('armory_model');
     }
 
-    public function player($idplayer, $nameplayer, $idrealm)
+    public function player($idplayer, $nameplayer, $idrealm, $realmname)
     {
         if(is_null($idplayer) || $idplayer == '' ||
             is_null($nameplayer) || $nameplayer == '' ||
             is_null($idrealm) || $idrealm == '' ||
-            is_null($idrealm) || $idrealm == '')
+            is_null($idrealm) || $idrealm == '' ||
+            is_null($realmname) || $realmname == '')
 
         redirect(base_url('armory'),'refresh');
 
@@ -53,4 +55,5 @@ class Armory extends MX_Controller {
         $this->load->view('index');
         $this->load->view('footer');
     }
+
 }
