@@ -16,7 +16,7 @@
                         </a>
                     <?php } ?>
                     <div class="uk-space-small"></div>
-                    <div class="uk-principal-title" style="color: #fff;"><?= $this->m_data->getUsernameID($this->session->userdata('fx_sess_id')); ?></div>
+                    <div class="uk-principal-title uk-text-white"><?= $this->m_data->getUsernameID($this->session->userdata('fx_sess_id')); ?></div>
                     <span class="uk-label"><?= $this->lang->line('panel_last_login'); ?>: <?= $this->user_model->getLastIp($this->session->userdata('fx_sess_id')); ?></span>
                     <div class="uk-space-medium"></div>
                 </div>
@@ -119,7 +119,7 @@
                     else
                         echo '<div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('expansion_notfound').'</p></div>';
                 } ?>
-                <div class="uk-scrollspy-inview uk-animation-slide-bottom" style="color: #fff;" uk-scrollspy-class="">
+                <div class="uk-scrollspy-inview uk-animation-slide-bottom uk-text-white" uk-scrollspy-class="">
                     <div class="uk-column-1-2 uk-column-divider">
                         <div>
                             <p><i class="fa fa-user-circle-o" aria-hidden="true"></i> <?= $this->lang->line('panel_acc_rank'); ?>: <span class="uk-label">
@@ -214,7 +214,7 @@
                             $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database);
                         ?>
                             <li class="uk-open">
-                                <h3 class="uk-accordion-title" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
+                                <h3 class="uk-accordion-title uk-text-white"><i class="fa fa-server" aria-hidden="true"></i> <?= $this->m_general->getRealmName($charsMultiRealm->realmID); ?> - <?= $this->lang->line('panel_chars_list'); ?></h3>
                                 <div class="uk-accordion-content">
                                     <div class="uk-grid uk-grid-small uk-child-width-1-6 uk-flex-center" uk-grid>
                                         <?php foreach($this->m_characters->getGeneralCharactersSpecifyAcc($multiRealm , $this->session->userdata('fx_sess_id'))->result() as $chars) { ?>

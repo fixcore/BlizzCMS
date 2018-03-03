@@ -4,7 +4,7 @@
             <div class="uk-grid uk-grid-large" data-uk-grid>
                 <div class="uk-width-1-6@l"></div>
                 <div class="uk-width-4-6@l">
-                    <div class="uk-h3 uk-text-uppercase" style="color: #fff;"><i class="fa fa-spinner fa-pulse fa-fw"></i> <?= $this->lang->line('changelogs_recent_article'); ?></div>
+                    <div class="uk-h3 uk-text-uppercase uk-text-white"><i class="fa fa-spinner fa-pulse fa-fw"></i> <?= $this->lang->line('changelogs_recent_article'); ?></div>
                     <div class="Divider Divider--light"></div>
                     <div class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin uk-animation-fade" uk-grid>
                         <div class="uk-card-media-left uk-cover-container uk-overflow-hidden">
@@ -19,7 +19,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="uk-h3 uk-text-uppercase uk-text-center" style="color: #fff;"><span uk-icon="icon: cog; ratio: 2"></span> <?= $this->lang->line('changelogs_list'); ?></div>
+                    <div class="uk-h3 uk-text-uppercase uk-text-center uk-text-white"><span uk-icon="icon: cog; ratio: 2"></span> <?= $this->lang->line('changelogs_list'); ?></div>
                     <div class="uk-space-medium"></div>
                     <div uk-slider>
                         <div class="uk-position-relative uk-visible-toggle uk-light">

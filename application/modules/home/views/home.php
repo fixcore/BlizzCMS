@@ -24,7 +24,7 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <?php if ($this->m_modules->getStatusNews() == '1') { ?>
                 <div class="uk-width-2-3@l">
-                    <p class="uk-h3" style="color: #fff;"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('home_latest_news'); ?></p>
+                    <p class="uk-h3 uk-text-white"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('home_latest_news'); ?></p>
                     <div class="Divider Divider--light"></div>
                     <?php foreach ($this->news_model->getNewSpecifyID($this->news_model->getPrincipalNew())->result() as $principalNew) { ?>
                         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
@@ -66,9 +66,9 @@
             <?php } ?>
             <div class="uk-width-1-3@l">
                 <?php if ($this->m_modules->getStatusRealmStatus() == '1') { ?>
-                    <p class="uk-h3" style="color: #fff;"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('home_server_status');?></p>
+                    <p class="uk-h3 uk-text-white"><i class="fa fa-server" aria-hidden="true"></i> <?=$this->lang->line('home_server_status');?></p>
                     <div class="label uk-text-center">
-                        <h4 style="color: #fff;">
+                        <h4 class="uk-text-white">
                             <?php if ($this->m_general->getExpansionAction() == 1) { ?>
                                 <i class="fa fa-gamepad" aria-hidden="true"></i> Set Realmlist <?= $this->config->item('realmlist'); ?>
                             <?php } else { ?>
@@ -82,7 +82,7 @@
                             $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database); 
                         ?>
                             <li class="uk-open">
-                                <a class="uk-accordion-title" href="#" style="color: #fff;">
+                                <a class="uk-accordion-title uk-text-white" href="#">
                                     <?php if ($this->m_data->realm_status($charsMultiRealm->realmID, $charsMultiRealm->hostname)) { ?>
                                         <span class="uk-text-success uk-text-bold" uk-icon="icon: chevron-up; ratio: 1.5"></span>
                                     <?php } else { ?>
@@ -117,11 +117,11 @@
                 <?php } ?>
                 <?php if ($this->m_modules->getStatusDiscordExperimental() == '1') { ?>
                     <div class="uk-card uk-width-1-1@m">
-                        <p class="uk-h3" style="color: #fff;"><i class="icon-discord"></i> Discord</p>
+                        <p class="uk-h3 uk-text-white"><i class="icon-discord"></i> Discord</p>
                         <div class="Divider Divider--light"></div>
                         <div class="uk-text-center">
                             <br>
-                            <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" class="uk-h3" style="color: #fff;">
+                            <a target="_blank" href="https://discord.gg/<?= $this->home_model->getDiscordInfo()['code'] ?>" class="uk-h3 uk-text-white">
                                 <img class="uk-border-circle uk-text-center" src="https://cdn.discordapp.com/icons/<?= $this->home_model->getDiscordInfo()['guild']['id']; ?>/<?= $this->home_model->getDiscordInfo()['guild']['icon']; ?>.png" width="70" height="70" alt="">
                                 <div class="label">
                                     <?= $this->home_model->getDiscordInfo()['guild']['name']; ?>
@@ -146,7 +146,7 @@
             </div>
             <?php if ($this->m_modules->getStatusStore() == '1') { ?>
                 <div class="uk-width-1-1@l">
-                    <p class="uk-h3" style="color: #fff;"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <?= $this->lang->line('home_store_top'); ?></p>
+                    <p class="uk-h3 uk-text-white"><i class="fa fa-shopping-bag" aria-hidden="true"></i> <?= $this->lang->line('home_store_top'); ?></p>
                     <div class="Divider Divider--light"></div>
                     <br>
                     <div uk-slider>

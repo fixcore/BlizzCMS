@@ -23,7 +23,7 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-6@l"></div>
             <div class="uk-width-4-6@l">
-                <div class="uk-principal-title" style="color: #fff;"><?= $this->forum_model->getCategoryName($idlink); ?></div>
+                <div class="uk-principal-title uk-text-white"><?= $this->forum_model->getCategoryName($idlink); ?></div>
                 <?php if($this->m_data->isLogged()) { ?>
                     <span class="uk-align-right">
                         <a href="#" uk-toggle="target: #newTopic">
@@ -31,7 +31,7 @@
                         </a>
                     </span>
                 <?php } ?>
-                <p class="uk-text-uppercase uk-text-bold" style="color: #fff;"><?= $this->lang->line('forum_topic_list'); ?></p>
+                <p class="uk-text-uppercase uk-text-bold uk-text-white"><?= $this->lang->line('forum_topic_list'); ?></p>
                 <div class="uk-space-small"></div>
                 <div class="Forum-ForumTopicList" uk-scrollspy="cls: uk-animation-fade; repeat: true">
                     <?php foreach($this->forum_model->getSpecifyCategoryPostsPined($idlink)->result() as $lists) { ?>
