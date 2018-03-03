@@ -135,6 +135,14 @@
     $this->admin_model->settingStore($datastore);
 }?>
 
+    <script src="<?= base_url(); ?>core/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+        selector: '.tinyeditor',
+        language: '<?= $this->config->item('tinymce_language'); ?>',
+        menubar: false,
+        plugins: ['advlist autolink autosave link image lists charmap preview hr searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media table contextmenu directionality emoticons textcolor paste fullpage textcolor colorpicker textpattern'],
+        toolbar: 'insert unlink emoticons | undo redo | formatselect fontselect fontsizeselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | blockquote | removeformat'});
+    </script>
     <div id="content" data-uk-height-viewport="expand: true">
         <div class="uk-container uk-container-expand">
             <div class="uk-grid uk-grid-medium uk-grid-match" data-uk-grid>
@@ -422,12 +430,8 @@
                                         <div class="uk-margin">
                                             <label class="uk-form-label uk-text-uppercase">Description Text</label>
                                             <div class="uk-form-controls">
-                                                <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
                                                 <div class="uk-width-1-1">
-                                                    <textarea required="" name="bugtrackerText" id="ckeditor" rows="10" cols="80"><?= $this->admin_model->getBugtrackerText($fileBugtracker); ?></textarea>
-                                                    <script>
-                                                        CKEDITOR.replace('ckeditor');
-                                                    </script>
+                                                    <textarea class="tinyeditor" name="bugtrackerText" rows="10" cols="80"><?= $this->admin_model->getBugtrackerText($fileBugtracker); ?></textarea>
                                                 </div>
                                             </div>
                                         </div>

@@ -30,16 +30,11 @@
                         </div>
                     </div>
 
-                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-
                     <div class="uk-margin">
                         <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_description'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
-                                <?= form_textarea('bug_description', $this->config->item('textarea'), 'id="bt_ckeditor"'); ?>
-                                <script>
-                                    CKEDITOR.replace('bt_ckeditor');
-                                </script>
+                                <?= form_textarea('bug_description', $this->config->item('textarea'), 'class="tinyeditor"'); ?>
                             </div>
                         </div>
                     </div>

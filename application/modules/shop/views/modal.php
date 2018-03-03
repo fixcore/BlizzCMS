@@ -23,17 +23,11 @@
                             </select>
                         </div>
                     </div>
-
-                    <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-
                     <div class="uk-margin">
                         <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_description'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
-                                <textarea required="" name="" id="ckeditor" rows="10" cols="80"></textarea>
-                                <script>
-                                    CKEDITOR.replace('ckeditor');
-                                </script>
+                                <textarea class="tinyeditor" name="" rows="10" cols="80"></textarea>
                             </div>
                         </div>
                     </div>
