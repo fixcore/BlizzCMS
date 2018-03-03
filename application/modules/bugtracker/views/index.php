@@ -23,7 +23,7 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-6@l"></div>
             <div class="uk-width-4-6@l">
-                <div class="uk-principal-title" style="color: #fff;"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('nav_bugtracker'); ?></div>
+                <div class="uk-principal-title uk-text-white"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->lang->line('nav_bugtracker'); ?></div>
                 <?php if ($this->m_data->isLogged()) { ?>
                     <span class="uk-align-right">
                         <a href="#" uk-toggle="target: #createReport">
@@ -31,7 +31,7 @@
                         </a>
                     </span>
                 <?php } ?>
-                <p class="uk-text-uppercase uk-text-bold" style="color: #fff;"><?= $this->lang->line('bugtracker_report_list'); ?></p>
+                <p class="uk-text-uppercase uk-text-bold uk-text-white"><?= $this->lang->line('bugtracker_report_list'); ?></p>
                 <div align="right" id="pagination_link"></div>
                 <div class="table-responsive" id="bugtracker_table"></div>
                 <script>

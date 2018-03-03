@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="<?= base_url(); ?>assets/images/favicon.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="<?= base_url(); ?>core/css/blizzcms-admincore.css">
+    <link rel="stylesheet" href="<?= base_url(); ?>core/css/blizzcms-admin.css">
 
     <!-- UIkit -->
     <link rel="stylesheet" href="<?= base_url(); ?>core/uikit/css/uikit.min.css"/>

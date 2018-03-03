@@ -3,7 +3,7 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-6@l"></div>
             <div class="uk-width-4-6@l">
-                <div class="uk-principal-title uk-text-center" style="color: #fff;"><i class="fa fa-star-o" aria-hidden="true"></i> Outstanding News</div>
+                <div class="uk-principal-title uk-text-center uk-text-white"><i class="fa fa-star-o" aria-hidden="true"></i> Outstanding News</div>
                 <div class="uk-space-medium"></div>
                 <div uk-slider>
                     <div class="uk-position-relative uk-visible-toggle uk-light">
@@ -34,7 +34,7 @@
         <div class="uk-grid uk-grid-large" data-uk-grid>
             <div class="uk-width-1-6@l"></div>
             <div class="uk-width-4-6@l">
-                <div class="uk-h3 uk-text-uppercase" style="color: #fff;"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('news_recent_list'); ?></div>
+                <div class="uk-h3 uk-text-uppercase uk-text-white"><i class="fa fa-newspaper-o" aria-hidden="true"></i> <?= $this->lang->line('news_recent_list'); ?></div>
                 <div class="Divider Divider--light"></div>
                 <?php if ($this->news_model->getNewsList()->num_rows()) { ?>
                     <?php foreach($this->news_model->getNewsList()->result() as $list) { ?>

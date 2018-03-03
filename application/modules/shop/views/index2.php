@@ -7,7 +7,7 @@
                             <div class="uk-width-1-1@m">
                                 <div class="uk-grid-item-match">
                                     <div>
-                                        <h3 class="uk-margin-small uk-text-uppercase" style="color: #fff;"><span uk-icon="icon: cart; ratio: 1.7"></span> <?= $this->lang->line('store_welcome'); ?></h3>
+                                        <h3 class="uk-margin-small uk-text-uppercase uk-text-white"><span uk-icon="icon: cart; ratio: 1.7"></span> <?= $this->lang->line('store_welcome'); ?></h3>
                                     </div>
                                 </div>
                             </div>
@@ -83,9 +83,9 @@
                 <table class="uk-table uk-table-divider">
                     <thead>
                         <tr>
-                            <th class="uk-width-small" style="color: #fff;"><i class="fa fa-book" aria-hidden="true"></i> <?=$this->lang->line('column_icon');?></th>
-                            <th class="uk-width-medium uk-text-center" style="color: #fff;"><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('store_item_name');?></th>
-                            <th class="uk-width-medium uk-text-center" style="color: #fff;"><i class="fa fa-cart-plus" aria-hidden="true"></i> <?=$this->lang->line('store_item_price');?></th>
+                            <th class="uk-width-small uk-text-white"><i class="fa fa-book" aria-hidden="true"></i> <?=$this->lang->line('column_icon');?></th>
+                            <th class="uk-width-medium uk-text-center uk-text-white"><i class="fa fa-info-circle" aria-hidden="true"></i> <?=$this->lang->line('store_item_name');?></th>
+                            <th class="uk-width-medium uk-text-center uk-text-white"><i class="fa fa-cart-plus" aria-hidden="true"></i> <?=$this->lang->line('store_item_price');?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,7 +97,7 @@
                                     </a>
                                 </td>
                                 <td class="uk-text-center"><a rel="item=<?= $itemsG->itemid ?>" class="uk-button uk-button-text"><?= $itemsG->name ?></a></td>
-                                <td class="uk-text-center" style="color: #fff;">
+                                <td class="uk-text-center uk-text-white">
                                     <?php if(!is_null($itemsG->price_vp) && !empty($itemsG->price_vp) && $itemsG->price_vp != '0') { ?>
                                         <a href="<?= base_url(); ?>cart/<?= $itemsG->id; ?>?tp=vp" class="uk-button uk-button-link">
                                             <img class="uk-border-circle" src="<?= base_url('assets/images/vp.jpg'); ?>" title="<?=$this->lang->line('panel_vp');?>" width="30px" height="30px" uk-tooltip="pos: bottom">

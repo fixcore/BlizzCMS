@@ -4,7 +4,7 @@
             <div class="uk-width-1-5@l"></div>
             <div class="uk-width-3-5@l">
                 <h2 class="uk-text-primary uk-text-center"><i class="fa fa-sign-in" aria-hidden="true"></i> <?= $this->lang->line('button_login'); ?></h2>
-                <p class="uk-text-center" style="color: #fff;"><?= $this->lang->line('login_description'); ?></p>
+                <p class="uk-text-center uk-text-white"><?= $this->lang->line('login_description'); ?></p>
 
                 <?php if(isset($_GET['password'])) {
                     echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('password_error').'</p></div>';

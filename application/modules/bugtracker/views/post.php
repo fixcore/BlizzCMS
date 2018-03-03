@@ -23,7 +23,7 @@
             <div class="uk-width-1-5@l"></div>
             <div class="uk-width-3-5@l">
                 <div style="color: rgba(255,255,255,.7);">
-                    <h2 style="color: #fff;"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->bugtracker_model->getTitleIssue($idlink); ?></h2>
+                    <h2 class="uk-text-white"><i class="fa fa-bug" aria-hidden="true"></i> <?= $this->bugtracker_model->getTitleIssue($idlink); ?></h2>
                     <p><?= $this->bugtracker_model->getDescIssue($idlink); ?></p>
                     <div class="uk-margin">
                         <div class="uk-placeholder uk-text-center"><?= $this->bugtracker_model->getUrlIssue($idlink); ?></div>

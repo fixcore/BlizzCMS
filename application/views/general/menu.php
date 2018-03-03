@@ -6,10 +6,10 @@
         <div class="uk-container">
             <nav class="uk-navbar" uk-navbar>
                 <div class="uk-navbar-left">
-                    <a href="<?= base_url(); ?>" class="uk-navbar-item uk-logo uk-margin-small-right" width="28" height="34" style="color: #fff;"><?= $this->config->item('ProjectName'); ?></a>
+                    <a href="<?= base_url(); ?>" class="uk-navbar-item uk-logo uk-margin-small-right uk-text-white" width="28" height="34"><?= $this->config->item('ProjectName'); ?></a>
                     <ul class="uk-navbar-nav uk-visible@m">
                         <li>
-                            <a href="#" style="color: #fff;"><?= $this->lang->line('nav_menu'); ?></a>
+                            <a href="#" class="uk-text-white"><?= $this->lang->line('nav_menu'); ?></a>
                             <div class="uk-navbar-dropdown">
                                 <ul class="uk-nav uk-navbar-dropdown-nav">
                                     <li><a href="<?= base_url('faq'); ?>"><i class="ra ra-uncertainty"></i> <?= $this->lang->line('nav_faq'); ?></a></li>
@@ -39,17 +39,17 @@
                         </li>
                         <?php if($this->m_modules->getStatusNews() == '1') { ?>
                         <?php if($this->m_permissions->getMyPermissions('Permission_News')) { //permissions ?>
-                            <li><a href="<?= base_url('news'); ?>" style="color: #fff;"><?= $this->lang->line('nav_news'); ?></a></li>
+                            <li><a href="<?= base_url('news'); ?>" class="uk-text-white"><?= $this->lang->line('nav_news'); ?></a></li>
                         <?php } ?>
                         <?php } ?>
                         <?php if($this->m_modules->getStatusForums() == '1') { ?>
                         <?php if($this->m_permissions->getMyPermissions('Permission_Forums')) { //permissions ?>
-                            <li><a href="<?= base_url('forums'); ?>" style="color: #fff;"><?= $this->lang->line('nav_forums'); ?></a></li>
+                            <li><a href="<?= base_url('forums'); ?>" class="uk-text-white"><?= $this->lang->line('nav_forums'); ?></a></li>
                         <?php } ?>
                         <?php } ?>
                         <?php if($this->m_modules->getStatusStore() == '1') { ?>
                         <?php if($this->m_permissions->getMyPermissions('Permission_Store')) { //permissions ?>
-                            <li><a href="<?= base_url('store'); ?>" style="color: #fff;"><?= $this->lang->line('nav_store'); ?></a></li>
+                            <li><a href="<?= base_url('store'); ?>" class="uk-text-white"><?= $this->lang->line('nav_store'); ?></a></li>
                         <?php } ?>
                         <?php } ?>
                     </ul>
@@ -57,15 +57,15 @@
                 <div class="uk-navbar-right">
                     <ul class="uk-navbar-nav uk-visible@m">
                         <?php if (!$this->m_data->isLogged()) { ?>
-                            <li><a href="#desk" style="color: #fff;" uk-toggle><span uk-icon="icon: user"></span><?= $this->lang->line('nav_account'); ?></a></li>
+                            <li><a href="#desk" class="uk-text-white" uk-toggle><span uk-icon="icon: user"></span><?= $this->lang->line('nav_account'); ?></a></li>
                         <?php } ?>
                         <?php if ($this->m_data->isLogged()) { ?>
                             <?php if ($this->m_modules->getMessages() == '1') { ?>
                             <?php if($this->m_permissions->getMyPermissions('Permission_Chat')) { //permissions ?>
-                                <li><a href="#chat" style="color: #fff;" uk-tooltip="title: <?= $this->lang->line('nav_chat'); ?>; pos: left" uk-toggle><span uk-icon="icon: commenting"></span></a></li>
+                                <li><a href="#chat" class="uk-text-white" uk-tooltip="title: <?= $this->lang->line('nav_chat'); ?>; pos: left" uk-toggle><span uk-icon="icon: commenting"></span></a></li>
                             <?php } ?>
                             <?php } ?>
-                            <li><a href="#desk" style="color: #fff;" uk-toggle><span uk-icon="icon: user"></span></a></li>
+                            <li><a href="#desk" class="uk-text-white" uk-toggle><span uk-icon="icon: user"></span></a></li>
                         <?php } ?>
                     </ul>
                     <?php if ($this->m_data->isLogged()) { ?>
@@ -86,7 +86,7 @@
                                         <li class="uk-nav-divider"></li>
                                         <?php if (!$this->m_data->isLogged()) { ?>
                                             <?php if($this->m_modules->getStatusLogin() == '1') { ?>
-                                                <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small" style="color: #fff;"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
+                                                <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small uk-text-white"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
                                             <?php } ?>
                                             <?php if($this->m_modules->getStatusRegister() == '1') { ?>
                                             <?php if($this->m_permissions->getMyPermissions('Permission_Register')) { //permissions ?>
@@ -175,7 +175,7 @@
                                         <?php if (!$this->m_data->isLogged()) { ?>
                                             <?php if($this->m_modules->getStatusLogin() == '1') { ?>
                                             <?php if($this->m_permissions->getMyPermissions('Permission_Login')) { //permissions ?>
-                                                <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small" style="color: #fff;"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
+                                                <li><a href="<?= base_url(); ?>login" class="uk-button uk-button-default uk-button-small uk-text-white"><span uk-icon="icon: sign-in"></span> <?= $this->lang->line('button_login'); ?></a></li>
                                             <?php } ?>
                                             <?php } ?>
                                             <?php if($this->m_modules->getStatusRegister() == '1') { ?>
@@ -230,7 +230,7 @@
                                         <li class="uk-nav-header uk-text-center"><span uk-icon="icon: world"></span>Navigation</li>
                                         <li class="uk-nav-divider"></li>
                                         <li class="uk-parent">
-                                            <a href="#" style="color: #fff;"><?= $this->lang->line('nav_menu'); ?></a>
+                                            <a href="#" class="uk-text-white"><?= $this->lang->line('nav_menu'); ?></a>
                                             <ul class="uk-nav-sub">
                                                 <li><a href="<?= base_url('faq'); ?>"><i class="ra ra-uncertainty"></i> <?= $this->lang->line('nav_faq'); ?></a></li>
                                                 <?php if($this->m_modules->getStatusLadBugtracker() == '1') { ?>
@@ -258,17 +258,17 @@
                                         </li>
                                         <?php if($this->m_modules->getStatusNews() == '1') { ?>
                                         <?php if($this->m_permissions->getMyPermissions('Permission_News')) { //permissions ?>
-                                            <li><a href="<?= base_url('news'); ?>" style="color: #fff;"><?= $this->lang->line('nav_news'); ?></a></li>
+                                            <li><a href="<?= base_url('news'); ?>" class="uk-text-white"><?= $this->lang->line('nav_news'); ?></a></li>
                                         <?php } ?>
                                         <?php } ?>
                                         <?php if($this->m_modules->getStatusForums() == '1') { ?>
                                         <?php if($this->m_permissions->getMyPermissions('Permission_Forums')) { //permissions ?>
-                                            <li><a href="<?= base_url('forums'); ?>" style="color: #fff;"><?= $this->lang->line('nav_forums'); ?></a></li>
+                                            <li><a href="<?= base_url('forums'); ?>" class="uk-text-white"><?= $this->lang->line('nav_forums'); ?></a></li>
                                         <?php } ?>
                                         <?php } ?>
                                         <?php if($this->m_modules->getStatusStore() == '1') { ?>
                                         <?php if($this->m_permissions->getMyPermissions('Permission_Store')) { //permissions ?>
-                                            <li><a href="<?= base_url('store'); ?>" style="color: #fff;"><?= $this->lang->line('nav_store'); ?></a></li>
+                                            <li><a href="<?= base_url('store'); ?>" class="uk-text-white"><?= $this->lang->line('nav_store'); ?></a></li>
                                         <?php } ?>
                                         <?php } ?>
                                     </ul>
