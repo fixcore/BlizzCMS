@@ -107,7 +107,7 @@
                                         <div class="uk-card-header uk-card-primary uk-text-center uk-text-uppercase"><i class="fa fa-star" aria-hidden="true"></i> <?= $this->lang->line('panel_admin_web_rank'); ?></div>
                                         <div class="uk-card-body">
                                             <form action="" method="post">
-                                                <?php if($this->m_general->getPermissions($idlink) == 1) { ?>
+                                                <?php if($this->m_permissions->getMyRank($idlink) == 1) { ?>
                                                     <div class="uk-margin">
                                                         <div class="uk-form-controls">
                                                             <button class="uk-button uk-button-primary uk-width-1-1" name="button_removeADM" type="submit"><i class="fa fa-user-times" aria-hidden="true"></i> <?= $this->lang->line('button_re_grant_web_acc'); ?></button>
