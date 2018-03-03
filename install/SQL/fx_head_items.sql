@@ -1,6 +1,6 @@
 /*
 SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.58-0ubuntu0.14.04.1 : Database - blizzcms
+MySQL - 5.6.39-log : Database - blizzcms
 *********************************************************************
 */
 
@@ -17,14 +17,15 @@ MySQL - 5.5.58-0ubuntu0.14.04.1 : Database - blizzcms
 DROP TABLE IF EXISTS `fx_head_items`;
 
 CREATE TABLE `fx_head_items` (
-  `item_id` int(10) DEFAULT NULL,
+  `item_id` int(10) NOT NULL DEFAULT '0',
   `level` int(10) DEFAULT NULL,
   `quality_id` int(10) DEFAULT NULL,
   `class_id` int(10) DEFAULT NULL,
   `subclass_id` int(10) DEFAULT NULL,
   `display_id` int(10) DEFAULT NULL,
   `inventorySlot_id` int(100) DEFAULT NULL,
-  `icon_name` varchar(100) DEFAULT NULL
+  `icon_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`item_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

@@ -29,18 +29,14 @@
                     <?php foreach ($this->news_model->getNewSpecifyID($this->news_model->getPrincipalNew())->result() as $principalNew) { ?>
                         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                             <div class="uk-card-media-left uk-cover-container">
-                                <div class="uk-inline-clip uk-transition-toggle" tabindex="0">
-                                    <img src="<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>" alt="" uk-cover>
-                                    <canvas width="500" height="250"></canvas>
-                                    <div class="uk-transition-slide-bottom uk-overlay uk-overlay-primary">
-                                        <p class="uk-text-center"><a href="<?= base_url() ;?>news/<?= $principalNew->id ?>" class="uk-button uk-button-primary"><?= $this->lang->line('button_learn_more'); ?></a></p>
-                                    </div>
-                                </div>
+                                <img src="<?= base_url(); ?>assets/images/news/<?= $principalNew->image; ?>" alt="" uk-cover>
+                                <canvas width="500" height="250"></canvas>
                             </div>
                             <div>
                                 <div class="uk-card-body">
                                     <h3 class="uk-card-title uk-text-break"><?= $principalNew->title; ?></h3>
                                     <p><?= substr(ucfirst(strtolower(strip_tags($principalNew->description))), 0, 260).' ...'; ?></p>
+                                    <p class="uk-text-right"><a href="<?= base_url() ;?>news/<?= $principalNew->id ?>"><button  class="uk-button uk-button-primary"><?= $this->lang->line('button_learn_more'); ?></button></a></p>
                                 </div>
                             </div>
                         </div>
@@ -81,7 +77,7 @@
                         </h4>
                     </div>
                     <div class="Divider Divider--light"></div>
-                    <ul uk-accordion>
+                    <ul uk-accordion="multiple: true">
                         <?php foreach ($this->m_data->getRealms()->result() as $charsMultiRealm) { 
                             $multiRealm = $this->m_data->realmConnection($charsMultiRealm->username, $charsMultiRealm->password, $charsMultiRealm->hostname, $charsMultiRealm->char_database); 
                         ?>
