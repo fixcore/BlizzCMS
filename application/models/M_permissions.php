@@ -98,4 +98,11 @@ class M_permissions extends CI_Model {
         }
     }
 
+    public function getIsAdmin($id)
+    {
+        if($this->m_permissions->getMyRank($id)->row('idrank') == '1')
+            return true;
+        else
+            return false;
+    }
 }
