@@ -61,6 +61,47 @@ class Admin_model extends CI_Model {
         redirect(base_url('admin/managechangelogs'),'refresh');
     }
 
+    public function getChangelogSpecifyRows($id)
+    {
+        return $this->db->select('*')
+                ->where('id', $id)
+                ->get('fx_changelogs')
+                ->num_rows();
+    }
+
+    public function getChangelogSpecifyName($id)
+    {
+        return $this->db->select('title')
+                ->where('id', $id)
+                ->get('fx_changelogs')
+                ->row('title');
+    }
+
+    public function getChangelogSpecifyDesc($id)
+    {
+        return $this->db->select('description')
+                ->where('id', $id)
+                ->get('fx_changelogs')
+                ->row_array()['description'];
+    }
+
+    public function updateSpecifyChangelog($id, $title, $description, $image)
+    {
+        $date = $this->m_data->getTimestamp();
+
+        $update = array(
+            'title' => $title,
+            'description' => $description,
+            'image' => $image,
+            'date' => $date
+        );
+
+        $this->db->where('id', $id)
+                ->update('fx_changelogs', $update);
+
+        redirect(base_url('admin/managechangelogs'),'refresh');
+    }
+
     public function insertPage($title, $desc)
     {
         $date = $this->m_data->getTimestamp();
@@ -81,7 +122,7 @@ class Admin_model extends CI_Model {
         redirect(base_url('admin/managepages?newpage='.$idd),'refresh');
     }
 
-    public function getGeneralPagesSpecifyRows($id)
+    public function getPagesSpecifyRows($id)
     {
         return $this->db->select('*')
                 ->where('id', $id)
@@ -89,7 +130,7 @@ class Admin_model extends CI_Model {
                 ->num_rows();
     }
 
-    public function getGeneralPagesSpecifyName($id)
+    public function getPagesSpecifyName($id)
     {
         return $this->db->select('title')
                 ->where('id', $id)
@@ -97,7 +138,7 @@ class Admin_model extends CI_Model {
                 ->row('title');
     }
 
-    public function getGeneralPagesSpecifyDesc($id)
+    public function getPagesSpecifyDesc($id)
     {
         return $this->db->select('description')
                 ->where('id', $id)
@@ -230,7 +271,7 @@ class Admin_model extends CI_Model {
         redirect(base_url('admin/managenews'),'refresh');
     }
 
-    public function getGeneralNewsSpecifyName($id)
+    public function getNewsSpecifyName($id)
     {
         return $this->db->select('title')
                 ->where('id', $id)
@@ -238,7 +279,7 @@ class Admin_model extends CI_Model {
                 ->row('title');
     }
 
-    public function getGeneralNewsSpecifyDesc($id)
+    public function getNewsSpecifyDesc($id)
     {
         return $this->db->select('description')
                 ->where('id', $id)
@@ -246,7 +287,7 @@ class Admin_model extends CI_Model {
                 ->row_array()['description'];
     }
 
-    public function getGeneralNewsSpecifyRows($id)
+    public function getNewsSpecifyRows($id)
     {
         return $this->db->select('*')
                 ->where('id', $id)
@@ -433,7 +474,7 @@ class Admin_model extends CI_Model {
             ->get('fx_news');
     }
 
-    public function createNewADM($title, $image, $description, $type)
+    public function insertNews($title, $image, $description, $type)
     {
         $date = $this->m_data->getTimestamp();
 
@@ -460,7 +501,7 @@ class Admin_model extends CI_Model {
         redirect(base_url('admin/managenews'),'refresh');
     }
 
-    public function updateNewADM($id, $title, $image, $description, $type)
+    public function updateSpecifyNews($id, $title, $image, $description, $type)
     {
         $unlink = $this->getFileNameImage($id);
         unlink('./assets/images/news/'.$unlink);

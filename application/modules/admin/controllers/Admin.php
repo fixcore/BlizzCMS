@@ -77,10 +77,40 @@ class Admin extends MX_Controller {
         $this->load->view('general/footer');
     }
 
+    public function editchangelogs($id)
+    {
+        if (is_null($id) || empty($id))
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getChangelogSpecifyRows($id) < 1)
+            redirect(base_url(),'refresh');
+
+        $data['idlink'] = $id;
+
+        $this->load->view('general/header');
+        $this->load->view('changelogs/editchangelogs', $data);
+        $this->load->view('general/footer');
+    }
+
     public function managenews()
     {
         $this->load->view('general/header');
         $this->load->view('news/managenews');
+        $this->load->view('general/footer');
+    }
+
+    public function editnews($id)
+    {
+        if (is_null($id) || empty($id))
+            redirect(base_url(),'refresh');
+
+        if ($this->admin_model->getNewsSpecifyRows($id) < 1)
+            redirect(base_url(),'refresh');
+
+        $data['idlink'] = $id;
+
+        $this->load->view('general/header');
+        $this->load->view('news/editnews', $data);
         $this->load->view('general/footer');
     }
 
@@ -142,21 +172,6 @@ class Admin extends MX_Controller {
 
         $this->load->view('general/header');
         $this->load->view('characters/managecharacter', $data);
-        $this->load->view('general/footer');
-    }
-
-    public function editnews($id)
-    {
-        if (is_null($id) || empty($id))
-            redirect(base_url(),'refresh');
-
-        if ($this->admin_model->getGeneralNewsSpecifyRows($id) < 1)
-            redirect(base_url(),'refresh');
-
-        $data['idlink'] = $id;
-
-        $this->load->view('general/header');
-        $this->load->view('news/editnews', $data);
         $this->load->view('general/footer');
     }
 

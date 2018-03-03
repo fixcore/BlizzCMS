@@ -91,6 +91,7 @@ $lang['panel_admin_pages_list'] = 'รายการหน้าเพจให
 $lang['panel_admin_news_list'] = 'รายการข่าว';
 $lang['panel_admin_edit_news'] = 'แก้ไขข่าว';
 $lang['panel_admin_edit_pages'] = 'แก้ไขหน้าเพจ';
+$lang['panel_admin_edit_changelogs'] = 'Edit Changelogs';
 
 /*Column Lang*/
 $lang['column_race'] = 'ฝ่าย';

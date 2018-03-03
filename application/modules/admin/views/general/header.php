@@ -63,7 +63,7 @@
                         <span class="uk-text-small uk-text-muted">Welcome</span>
                         <h4 class="uk-margin-remove-vertical text-light"><?= $this->session->userdata('fx_sess_username'); ?></h4>
                         <span class="uk-label uk-text-small">
-                            <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { echo 'STAFF'; } else echo 'Player'; ?>
+                            <?php if($this->m_permissions->getIsAdmin($this->session->userdata('fx_sess_id'))) { echo 'STAFF'; } ?>
                         </span>
                     </div>
                 </div>
