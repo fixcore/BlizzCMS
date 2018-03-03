@@ -1,3 +1,23 @@
+<?php if($this->m_permissions->getIsAdmin($this->session->userdata('fx_sess_id'))) { ?>
+    <script src="<?= base_url(); ?>core/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+        selector: '.tinyeditor',
+        language: '<?= $this->config->item('tinymce_language'); ?>',
+        menubar: false,
+        plugins: ['advlist autolink autosave link image lists charmap preview hr searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media table contextmenu directionality emoticons textcolor paste fullpage textcolor colorpicker textpattern'],
+        toolbar: 'insert unlink emoticons | undo redo | formatselect fontselect fontsizeselect | bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | blockquote | removeformat'});
+    </script>
+<?php } else { ?>
+    <script src="<?= base_url(); ?>core/tinymce/tinymce.min.js"></script>
+    <script>tinymce.init({
+        selector: '.tinyeditor',
+        language: '<?= $this->config->item('tinymce_language'); ?>',
+        menubar: false,
+        plugins: ['advlist autolink autosave link image lists charmap preview hr searchreplace wordcount visualblocks visualchars code fullscreen media table contextmenu directionality emoticons textcolor paste fullpage textcolor colorpicker textpattern'],
+        toolbar: 'insert unlink emoticons | undo redo | fontselect fontsizeselect | bold italic | forecolor | bullist numlist outdent indent | link unlink | removeformat'});
+    </script>
+<?php } ?>
+
     <div class="uk-container">
         <div class="uk-space-xlarge"></div>
         <div class="uk-grid uk-grid-large" data-uk-grid>

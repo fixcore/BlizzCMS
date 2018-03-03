@@ -15,21 +15,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
-                        <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
-                    <?php } else { ?>
-                        <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-                    <?php } ?>
-
                     <div class="uk-margin">
                         <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_description'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
-                                <textarea required="" name="topic_description" id="cg_ckeditor" rows="10" cols="80"></textarea>
-                                <script>
-                                    CKEDITOR.replace('cg_ckeditor');
-                                </script>
+                                <textarea class="tinyeditor" name="topic_description" rows="10" cols="80"></textarea>
                             </div>
                         </div>
                     </div>
@@ -70,21 +60,11 @@
                             </div>
                         </div>
                     </div>
-
-                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
-                        <script src="<?= base_url(); ?>core/ckeditor_admin/ckeditor.js"></script>
-                    <?php } else { ?>
-                        <script src="<?= base_url(); ?>core/ckeditor_basic/ckeditor.js"></script>
-                    <?php } ?>
-
                     <div class="uk-margin">
                         <label class="uk-form-label uk-text-uppercase"><?= $this->lang->line('form_description'); ?></label>
                         <div class="uk-form-controls">
                             <div class="uk-width-1-1">
-                                <textarea required="" name="edittopic_description" id="ckeditor_edit" rows="10" cols="80"><?= $this->forum_model->getTopicDescription($idlink); ?></textarea>
-                                <script>
-                                    CKEDITOR.replace('ckeditor_edit');
-                                </script>
+                                <textarea class="tinyeditor" name="edittopic_description" rows="10" cols="80"><?= $this->forum_model->getTopicDescription($idlink); ?></textarea>
                             </div>
                         </div>
                     </div>

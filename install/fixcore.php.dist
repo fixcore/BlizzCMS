@@ -105,3 +105,21 @@ $config['theme_name'] = "default";
 |
 */
 $config['fx_devbar'] = FALSE;
+
+/*
+|--------------------------------------------------------------------------
+| TinyMCE Language
+|--------------------------------------------------------------------------
+|
+| Select the language that your website will use in text editor:
+|
+| ""    = English (default)
+| fr_FR = French (France)
+| de    = German
+| hu_HU = Hungarian (Hungary)
+| ru    = Russian
+| es    = Spanish
+| th_TH = Thai (Thailand)
+|
+*/
+$config['tinymce_language'] = "";
