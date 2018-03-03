@@ -23,7 +23,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+                    <?php if($this->m_permissions->getIsAdmin($this->session->userdata('fx_sess_id'))) { ?>
                         <div class="uk-margin">
                             <div class="uk-form-controls">
                                 <div class="uk-width-1-1 uk-text-center">
@@ -68,7 +68,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php if($this->m_data->getRank($this->session->userdata('fx_sess_id')) > 0) { ?>
+                    <?php if($this->m_permissions->getIsAdmin($this->session->userdata('fx_sess_id'))) { ?>
                         <div class="uk-margin">
                             <div class="uk-form-controls">
                                 <div class="uk-width-1-1 uk-text-center">
