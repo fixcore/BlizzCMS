@@ -26,7 +26,7 @@
 
                         move_uploaded_file($image["tmp_name"], "./assets/images/news/" . $name_new);
 
-                        $this->admin_model->createNewADM($title, $name_new, $desc, $type);
+                        $this->admin_model->insertNews($title, $name_new, $desc, $type);
                     }
                     else
                         echo '<div class="uk-width-1-1@l uk-width-1-1@xl"><div class="uk-alert-danger" uk-alert><a class="uk-alert-close" uk-close></a><p><i class="fa fa-exclamation-circle" aria-hidden="true"></i> '.$this->lang->line('image_upload_error').'</p></div></div>';
