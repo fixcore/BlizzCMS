@@ -67,6 +67,7 @@ $lang['footer_terms'] = 'CGV';
 
 //armory
 $lang['playervsplayer'] = 'Joueur vs Joueur';
+$lang['notfound'] = 'Non trouvé';
 
 /*Login Lang*/
 $lang['login_description'] = 'Profitez de toutes les options que nous avons pour vous';

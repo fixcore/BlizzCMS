@@ -62,6 +62,7 @@ $lang['button_reply'] = 'Válasz';
 
 //armory
 $lang['playervsplayer'] = 'Player vs Player';
+$lang['notfound'] = 'Not found';
 
 /*Footer Lang*/
 $lang['footer_language'] = 'Magyar (HU)';
