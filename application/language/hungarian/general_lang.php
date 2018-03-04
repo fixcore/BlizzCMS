@@ -67,7 +67,6 @@ $lang['notfound'] = 'Not found';
 /*Footer Lang*/
 $lang['footer_language'] = 'Magyar (HU)';
 $lang['footer_rights'] = 'Minden Jog Fenntartva.';
-$lang['footer_powered'] = ' Büszkén üzemelünk a BlizzCMS-el';
 $lang['footer_privacy'] = 'Személyes';
 $lang['footer_terms'] = 'Szabályok';
 
