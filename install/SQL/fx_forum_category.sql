@@ -20,7 +20,7 @@ CREATE TABLE `fx_forum_category` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `categoryName` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`,`categoryName`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `fx_forum_category` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

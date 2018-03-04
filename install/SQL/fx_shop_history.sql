@@ -25,7 +25,7 @@ CREATE TABLE `fx_shop_history` (
   `charid` int(10) DEFAULT NULL,
   `method` varchar(2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_shop_history` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

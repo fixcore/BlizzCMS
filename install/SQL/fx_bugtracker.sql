@@ -28,7 +28,7 @@ CREATE TABLE `fx_bugtracker` (
   `author` int(10) NOT NULL,
   `close` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_bugtracker` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

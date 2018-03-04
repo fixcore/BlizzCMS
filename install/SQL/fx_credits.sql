@@ -26,7 +26,7 @@ CREATE TABLE `fx_credits` (
   UNIQUE KEY `id_2` (`id`),
   UNIQUE KEY `accountId` (`accountid`),
   KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_credits` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

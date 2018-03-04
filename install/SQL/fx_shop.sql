@@ -29,7 +29,7 @@ CREATE TABLE `fx_shop` (
   `image` varchar(100) NOT NULL DEFAULT 'image1.jpg',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_shop` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

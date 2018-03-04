@@ -21,7 +21,7 @@ CREATE TABLE `fx_shop_top` (
   `id_shop` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_shop` (`id_shop`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_shop_top` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
