@@ -69,6 +69,7 @@ $lang['footer_terms'] = 'Legal';
 
 //armory
 $lang['playervsplayer'] = 'Jugador contra Jugador';
+$lang['notfound'] = 'Not found';
 
 /*Login Lang*/
 $lang['login_description'] = 'Disfruta de todas las opciones que tenemos para ti';
