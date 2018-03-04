@@ -21,7 +21,7 @@ CREATE TABLE `fx_avatars` (
   `name` varchar(100) NOT NULL,
   `type` int(1) NOT NULL DEFAULT '1' COMMENT '1 = user | 2 = staff',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_avatars` */
 

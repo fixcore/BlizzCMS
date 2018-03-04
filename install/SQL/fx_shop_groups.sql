@@ -20,7 +20,7 @@ CREATE TABLE `fx_shop_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_shop_groups` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

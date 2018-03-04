@@ -27,7 +27,7 @@ CREATE TABLE `fx_forum_topics` (
   `pined` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `archivar` int(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Data for the table `fx_forum_topics` */
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

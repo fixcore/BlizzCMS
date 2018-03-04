@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.11 (64 bit)
 MySQL - 5.5.5-10.1.29-MariaDB : Database - blizzcms
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -19,7 +20,7 @@ CREATE TABLE `fx_questions` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `question` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `fx_questions` */
 
