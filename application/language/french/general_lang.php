@@ -61,7 +61,6 @@ $lang['button_reply'] = 'Répondre';
 
 /*Footer Lang*/
 $lang['footer_rights'] = '© TOUS DROITS RÉSERVÉS.';
-$lang['footer_powered'] = ' Fièrement propulsé par BlizzCMS';
 $lang['footer_privacy'] = 'Politique de confidentialité';
 $lang['footer_terms'] = 'CGV';
 
