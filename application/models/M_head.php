@@ -16,12 +16,24 @@ class M_head extends CI_Model {
     			->row_array()['icon_name'];
     }
 
+    public function getItemWork($id)
+    {
+        return $this->db->select('id')
+                ->where('id', $id)
+                ->get('fx_head_items_local')
+                ->num_rows();
+    }
+
     public function getHtmlTooltip($lang, $id)
     {
-    	return $this->db->select('htmlTooltip_'.$lang)
+    	$qq = $this->db->select('htmlTooltip_'.$lang)
     			->where('id', $id)
     			->get('fx_head_items_local')
     			->row_array()['htmlTooltip_'.$lang];
+        if($qq == '0')
+            return 'Not Found';
+        else
+            return $qq;
     }
 
 }

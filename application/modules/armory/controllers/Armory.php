@@ -30,7 +30,6 @@ class Armory extends MX_Controller {
             is_null($idrealm) || $idrealm == '' ||
             is_null($idrealm) || $idrealm == '' ||
             is_null($realmname) || $realmname == '')
-
         redirect(base_url('armory'),'refresh');
 
         if(!$this->m_data->getRealm($idrealm)->num_rows())
@@ -50,10 +49,27 @@ class Armory extends MX_Controller {
             'idrealm' => $idrealm,
         );
 
-
         $this->load->view('header', $data);
         $this->load->view('index');
         $this->load->view('footer');
+    }
+
+    public function item($id)
+    {
+        if(is_null($id) || $id == '')
+            redirect(base_url(),'refresh');
+
+        if($id == '0' || !$this->m_head->getItemWork($id))
+            redirect(base_url('armory/items?notfound='.$id),'refresh');
+
+        $data = array(
+            'fxtitle' => $this->lang->line('nav_armory'),
+            'idlink' => $id
+        );
+
+        $this->load->view('header', $data);
+        $this->load->view('item');
+        $this->load->view('footer'); 
     }
 
 }
