@@ -1,8 +1,0 @@
-linter:
-  rubocop:
-    root_dir: ''
-
-  phpmd:
-    root_dir: ''
-    options:
-      rule: 'phpmd.xml'
